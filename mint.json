@@ -1,61 +1,55 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
-  "logo": {
-    "dark": "/logo/decoda-logo.png",
-    "light": "/logo/decoda-logo.png"
-  },
-  "favicon": "/favicon.svg",
-  "colors": {
-    "primary": "#006bb5",
-    "light": "#006bb5",
-    "dark": "#006bb5",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:founders@decodahealth.com"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart"
-      ]
+    "$schema": "https://mintlify.com/schema.json",
+    "openapi": [
+        "/openapi.yml"
+    ],
+    "api": {
+        "baseUrl": "https://api.decodahealth.com/"
     },
-    {
-      "group": "Patients",
-
-      "pages": [
-        "patients/get",
-        "patients/create",
-        "patients/update"
-      ]
+    "name": "Starter Kit",
+    "logo": {
+        "dark": "/images/decoda-logo.png",
+        "light": "/images/decoda-logo.png"
     },
-    {
-      "group": "Charges",
-      "pages": [
-        "charges/get",
-        "charges/create",
-        "charges/adjust"
-      ]
+    "favicon": "/images/favicon.png",
+    "colors": {
+        "primary": "#006bb5",
+        "light": "#006bb5",
+        "dark": "#006bb5",
+        "anchors": {
+            "from": "#0D9373",
+            "to": "#07C983"
+        }
     },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
+    "topbarLinks": [
+        {
+            "name": "Support",
+            "url": "mailto:founders@decodahealth.com"
+        }
+    ],
+    "navigation": [
+        {
+            "group": "Get Started",
+            "pages": [
+                "introduction"
+            ]
+        },
+        {
+            "group": "API Reference",
+            "pages": [
+                "api-reference/external/get-patient-charges",
+                "api-reference/external/search",
+                "api-reference/external/create-patient",
+                "api-reference/external/create-charge",
+                "api-reference/external/update-patient",
+                "api-reference/external/adjust-charge",
+                "api-reference/external/externally-settle-charge",
+                "api-reference/external/get-charge"
+            ]
+        }
+    ],
+    "footerSocials": {
+        "github": "https://github.com/decoda-health",
+        "linkedin": "https://www.linkedin.com/company/decoda-health/"
     }
-  ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
 }

@@ -26,14 +26,14 @@ https://api.decodahealth.com/v1/
 
 ### Authentication
 
-To authenticate with the Decoda Health API, include the `X-API-KEY` and `X-TENANT` headers in your requests to `https://api.decodahealth.com/v1/`, like so:
+To authenticate with the Decoda Health API, include the `API-KEY` and `TENANT` headers in your requests to `https://api.decodahealth.com/v1/`, like so:
 
 <CodeGroup>
 
 ```bash list_patients.sh
 curl -X GET "https://api.decodahealth.com/v1/healthz" \
      -H "Authorization: Bearer YOUR_API_KEY" \
-     -H "X-TENANT: YOUR_TENANT"
+     -H "XTENANT: YOUR_TENANT"
 ```
 
 ```python list_patients.py
@@ -41,17 +41,17 @@ import requests
 
 response = requests.get(
     "https://api.decodahealth.com/v1/healthz",
-    headers={"Authorization": "Bearer YOUR_API_KEY", "X-TENANT": "YOUR_TENANT"}
+    headers={"Authorization": "Bearer YOUR_API_KEY", "TENANT": "YOUR_TENANT"}
 )
 ```
 
 ```javascript list_patients.ts
 import ky from "ky";
 
-const response = ky.get("https://api.decodahealth.com/v1/healthz", {
+const response = ky.get("https://api.decodahealth.com/v1/...", {
   headers: {
-    Authorization: "Bearer YOUR_API_KEY",
-    "X-TENANT": "YOUR_TENANT",
+    API_KEY: "YOUR_API_KEY",
+    TENANT: "YOUR_TENANT",
   },
 });
 ```
