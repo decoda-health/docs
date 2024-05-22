@@ -16,7 +16,36 @@ description: "Patients Payments, Simplified"
 
 # Quickstart
 
-### Base URL
+Decoda Health reimagines how practices manage conversations with patients about payments in a respectful and explainable way. Our mission is to enable practices to abstract away the process and infrastructure of managing patient payments entirely.
+
+Using our API your team can:
+
+**Manage Payments**
+
+- Collect patient payments online (via payment links and virtual terminals) and in-person (using card terminals), centralizing all payment sources into one system.
+- Support all payment methods, including credit cards, debit cards, ACH/eCheck, HSA/FSA, Gift Cards, and Apple Pay.
+- Handle major payment workflows like refunds, adjustments, write-offs, discounts, payment plans, external settlements, storing cards on file, and placing holds on cards.
+
+**Manage Conversations**
+
+- Facilitate conversations with patients through two-way texting, inbound and outbound calling, and one-click physical mailing.
+- Automatically transcribe, record, and summarize phone conversations in the Web App, providing full context on the conversation history with patients.
+
+**Automated Balance Aging**
+
+- Assign every patient bill to a unique ruleset defining the cadence and medium of each touchpoint. For example, send a text on day 0, charge the card on file on day 5, send another text on day 10, and send physical mail on day 20.
+- Configure outreach schedules in Decoda's Web App, allowing the system to determine the best schedule.
+
+### Accept online payments
+
+- When patient responsibility is finalized with adjustments after insurance processes a claim, use Decoda's API to start aging that balance.
+- Once a payment is made, Decoda posts this information back to your system.
+
+### **Accept In-Person Payments (coming soon)**
+
+- For in-person payments at the card terminal, there are two options:
+  1. Use Decoda to create the charge and then present the charge using Decoda's Web App on the card terminal
+- Once a payment is successfully made, Decoda posts this information back to your system.
 
 ### Authentication
 
@@ -24,13 +53,13 @@ To authenticate with the Decoda Health API, include the `API-KEY` and `TENANT` h
 
 <CodeGroup>
 
-```bash list_patients.sh
-curl -X GET "https://api.decodahealth.com/v1/healthz" \
+```bash auth.sh
+curl -X GET "https://api.decodahealth.com/v1/" \
      -H "Authorization: Bearer YOUR_API_KEY" \
-     -H "XTENANT: YOUR_TENANT"
+     -H "TENANT: YOUR_TENANT"
 ```
 
-```python list_patients.py
+```python auth.py
 import requests
 
 response = requests.get(
@@ -39,7 +68,7 @@ response = requests.get(
 )
 ```
 
-```javascript list_patients.ts
+```javascript auth.ts
 import ky from "ky";
 
 const response = ky.get("https://api.decodahealth.com/v1/...", {
