@@ -7,418 +7,612 @@ components:
           type: integer
         chargeId:
           title: Chargeid
-          type: integer
+          type: string
         providerId:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Providerid
         reason:
           title: Reason
           type: string
       required:
-        - chargeId
-        - amount
-        - reason
+      - chargeId
+      - amount
+      - reason
       title: AdjustmentCreate
       type: object
     AdjustmentSummary:
       properties:
         adjustmentType:
-          $ref: "#/components/schemas/AdjustmentType"
+          allOf:
+          - $ref: '#/components/schemas/AdjustmentType'
+          description: Type of the adjustment
         amount:
+          description: Amount of the adjustment
           title: Amount
           type: integer
         chargeId:
           title: Chargeid
-          type: integer
+          type: string
         createdDate:
+          description: Date when the adjustment was created
           format: date-time
           title: Createddate
           type: string
         id:
+          description: Unique identifier for the adjustment
           title: Id
-          type: integer
+          type: string
         providerId:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Providerid
         reason:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: Reason for the adjustment
           title: Reason
       required:
-        - chargeId
-        - id
-        - amount
-        - createdDate
-        - adjustmentType
+      - chargeId
+      - id
+      - amount
+      - createdDate
+      - adjustmentType
       title: AdjustmentSummary
       type: object
     AdjustmentType:
       enum:
-        - WRITE_OFF
-        - ADJUSTMENT
-        - EXTERNAL_SETTLEMENT
+      - WRITE_OFF
+      - ADJUSTMENT
+      - EXTERNAL_SETTLEMENT
       title: AdjustmentType
       type: string
     ChargeCreate:
-      description: "Create a Charge to a Patient.
+      description: 'Create a Charge to a Patient.
 
         These typically come from balances owed to the Tenant by the Patient (i.e.
-        due to a copay)."
+        due to a copay).'
       properties:
         customAmount:
+          default: 0
+          description: Any un-itemized amount that makes up the charge. (i.e. a generic
+            copay)
           title: Customamount
           type: integer
         description:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: Description of the charge.
           title: Description
         discountAmount:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: integer
+          - type: 'null'
           default: 0
+          description: Any discount applied to the total outstanding.
           title: Discountamount
         discountPercentage:
           anyOf:
-            - type: number
-            - type: "null"
+          - type: number
+          - type: 'null'
           default: 0.0
+          description: Percentage of discount applied to the charge.
           title: Discountpercentage
         externalCreatedDate:
           anyOf:
-            - format: date-time
-              type: string
-            - type: "null"
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: The creation date of the charge in your external system, if
+            applicable.
           title: Externalcreateddate
         externalId:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: External identifier for the charge, if applicable.
           title: Externalid
         id:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: A unique identifier for the charge, this is *not* required
+            in most cases as it will be auto-generated.
           title: Id
         patientId:
+          description: Identifier of the patient being charged.
           title: Patientid
-          type: integer
+          type: string
         patientPaysProcessingFee:
           anyOf:
-            - type: boolean
-            - type: "null"
+          - type: boolean
+          - type: 'null'
           default: false
+          description: Indicates if the patient is responsible for processing fees.
           title: Patientpaysprocessingfee
         ruleSetId:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: Identifier for the rule set applied to this charge, if any.
           title: Rulesetid
         status:
           allOf:
-            - $ref: "#/components/schemas/ChargeStatus"
+          - $ref: '#/components/schemas/ChargeStatus'
           default: OUTSTANDING
+          description: Current status of the charge.
         total:
+          description: Total amount of the charge.
           title: Total
           type: integer
         totalOutstanding:
+          description: Total outstanding amount that is yet to be paid.
           title: Totaloutstanding
           type: integer
       required:
-        - patientId
-        - total
-        - customAmount
-        - totalOutstanding
+      - patientId
+      - total
+      - totalOutstanding
       title: ChargeCreate
       type: object
     ChargeDetail:
       properties:
         adjustments:
           items:
-            $ref: "#/components/schemas/AdjustmentSummary"
+            $ref: '#/components/schemas/AdjustmentSummary'
           title: Adjustments
           type: array
         createdDate:
+          description: The date when the charge was created.
           format: date-time
           title: Createddate
           type: string
         customAmount:
+          description: Any un-itemized amount that makes up the charge.
           title: Customamount
           type: integer
         description:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: Description of the charge.
           title: Description
         discountAmount:
+          description: Amount of discount applied to the charge.
           title: Discountamount
           type: integer
         discountPercentage:
+          description: Percentage of discount applied to the charge.
           title: Discountpercentage
           type: number
         externalCreatedDate:
           anyOf:
-            - format: date-time
-              type: string
-            - type: "null"
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: The creation date of the charge in your external system, if
+            applicable.
           title: Externalcreateddate
         externalId:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: External identifier for the charge, if applicable.
           title: Externalid
         id:
+          description: Unique identifier for the charge.
           title: Id
-          type: integer
+          type: string
         items:
           items:
-            $ref: "#/components/schemas/ChargeItem"
+            $ref: '#/components/schemas/ChargeItem'
           title: Items
           type: array
         patient:
-          $ref: "#/components/schemas/PatientSummary"
+          allOf:
+          - $ref: '#/components/schemas/PatientSummary'
+          description: Summary details of the patient being charged.
         patientId:
+          description: Identifier of the patient being charged.
           title: Patientid
-          type: integer
+          type: string
         patientPaysProcessingFee:
+          description: Indicates if the patient is responsible for processing fees.
           title: Patientpaysprocessingfee
           type: boolean
         payments:
           items:
-            $ref: "#/components/schemas/ChargePaymentDetail"
+            $ref: '#/components/schemas/ChargePaymentDetail'
           title: Payments
           type: array
         ruleSetId:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: Identifier for the rule set applied to this charge, if any.
           title: Rulesetid
         status:
-          $ref: "#/components/schemas/ChargeStatus"
+          allOf:
+          - $ref: '#/components/schemas/ChargeStatus'
+          description: Current status of the charge.
         total:
+          description: Total amount of the charge.
           title: Total
           type: integer
         totalOutstanding:
+          description: Total outstanding amount that is yet to be paid or adjusted
+            away.
           title: Totaloutstanding
           type: integer
       required:
-        - id
-        - patientId
-        - customAmount
-        - total
-        - totalOutstanding
-        - status
-        - discountAmount
-        - discountPercentage
-        - patientPaysProcessingFee
-        - createdDate
-        - patient
-        - adjustments
-        - payments
-        - items
+      - id
+      - patientId
+      - customAmount
+      - total
+      - totalOutstanding
+      - status
+      - discountAmount
+      - discountPercentage
+      - patientPaysProcessingFee
+      - createdDate
+      - patient
+      - adjustments
+      - payments
+      - items
       title: ChargeDetail
       type: object
     ChargeItem:
       properties:
         chargeId:
+          description: Identifier of the charge this item is associated with.
           title: Chargeid
-          type: integer
+          type: string
         discountAmount:
+          description: Amount of discount applied to this item.
           title: Discountamount
           type: integer
         discountPercentage:
+          description: Percentage of discount applied to this item.
           title: Discountpercentage
           type: number
         itemId:
+          description: Unique identifier for the item.
           title: Itemid
-          type: integer
+          type: string
         quantity:
+          description: Quantity of the item being charged.
           title: Quantity
           type: integer
       required:
-        - itemId
-        - chargeId
-        - quantity
-        - discountAmount
-        - discountPercentage
+      - itemId
+      - chargeId
+      - quantity
+      - discountAmount
+      - discountPercentage
       title: ChargeItem
       type: object
     ChargePaymentDetail:
       properties:
         amount:
+          description: The amount of the payment.
           title: Amount
           type: integer
         createdDate:
+          description: The date and time the payment was created.
           format: date-time
           title: Createddate
           type: string
         payment:
-          $ref: "#/components/schemas/Payment"
+          allOf:
+          - $ref: '#/components/schemas/Payment'
+          description: Detailed information about the payment.
         paymentId:
+          description: The unique identifier for the payment.
           title: Paymentid
-          type: integer
+          type: string
       required:
-        - paymentId
-        - amount
-        - createdDate
-        - payment
+      - paymentId
+      - amount
+      - createdDate
+      - payment
       title: ChargePaymentDetail
       type: object
     ChargeStatus:
       enum:
-        - OUTSTANDING
-        - PAID
-        - EXTERNAL_SETTLEMENT
-        - VOID
-        - WRITE_OFF
-        - REFUNDED
-        - PAYMENT_PLAN
+      - OUTSTANDING
+      - PAID
+      - EXTERNAL_SETTLEMENT
+      - VOID
+      - WRITE_OFF
+      - REFUNDED
+      - PAYMENT_PLAN
       title: ChargeStatus
       type: string
+    ChargeSummary:
+      properties:
+        createdDate:
+          description: The date when the charge was created.
+          format: date-time
+          title: Createddate
+          type: string
+        customAmount:
+          description: Any un-itemized amount that makes up the charge.
+          title: Customamount
+          type: integer
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Description of the charge.
+          title: Description
+        discountAmount:
+          description: Amount of discount applied to the charge.
+          title: Discountamount
+          type: integer
+        discountPercentage:
+          description: Percentage of discount applied to the charge.
+          title: Discountpercentage
+          type: number
+        externalCreatedDate:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: The creation date of the charge in your external system, if
+            applicable.
+          title: Externalcreateddate
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: External identifier for the charge, if applicable.
+          title: Externalid
+        id:
+          description: Unique identifier for the charge.
+          title: Id
+          type: string
+        patient:
+          allOf:
+          - $ref: '#/components/schemas/PatientSummary'
+          description: Summary details of the patient being charged.
+        patientId:
+          description: Identifier of the patient being charged.
+          title: Patientid
+          type: string
+        patientPaysProcessingFee:
+          description: Indicates if the patient is responsible for processing fees.
+          title: Patientpaysprocessingfee
+          type: boolean
+        ruleSetId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Identifier for the rule set applied to this charge, if any.
+          title: Rulesetid
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ChargeStatus'
+          description: Current status of the charge.
+        total:
+          description: Total amount of the charge.
+          title: Total
+          type: integer
+        totalOutstanding:
+          description: Total outstanding amount that is yet to be paid or adjusted
+            away.
+          title: Totaloutstanding
+          type: integer
+      required:
+      - id
+      - patientId
+      - customAmount
+      - total
+      - totalOutstanding
+      - status
+      - discountAmount
+      - discountPercentage
+      - patientPaysProcessingFee
+      - createdDate
+      - patient
+      title: ChargeSummary
+      type: object
     HTTPValidationError:
       properties:
         detail:
           items:
-            $ref: "#/components/schemas/ValidationError"
+            $ref: '#/components/schemas/ValidationError'
           title: Detail
           type: array
       title: HTTPValidationError
       type: object
     PatientCreate:
       properties:
+        address:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The primary address of the patient.
+          title: Address
+        addressLineTwo:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Additional address information of the patient.
+          title: Addresslinetwo
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The city of the patient's address.
+          title: City
+        email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The email address of the patient.
+          title: Email
         firstName:
+          description: The first name of the patient.
           title: Firstname
           type: string
         lastName:
+          description: The last name of the patient.
           title: Lastname
           type: string
         phoneNumber:
+          description: The phone number of the patient, digits only, no country code.
           title: Phonenumber
           type: string
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The state of the patient's address.
+          title: State
+        zipCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The ZIP code of the patient's address.
+          title: Zipcode
       required:
-        - firstName
-        - lastName
-        - phoneNumber
+      - firstName
+      - lastName
+      - phoneNumber
       title: PatientCreate
       type: object
     PatientSummary:
       properties:
         address:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The user's primary address.
           title: Address
         addressLineTwo:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: Additional address information.
           title: Addresslinetwo
         city:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The city of the user's address.
           title: City
         createdDate:
+          description: The date and time when the user was created.
           format: date-time
           title: Createddate
           type: string
         email:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The user's email address.
           title: Email
         externalUserId:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The user's external identifier if available.
           title: Externaluserid
         firstName:
+          description: The user's first name.
           title: Firstname
           type: string
         id:
+          description: The unique identifier for the user.
           title: Id
-          type: integer
+          type: string
         lastName:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The user's last name.
           title: Lastname
         optedOutOfSms:
           default: false
+          description: Indicates whether the patient has opted out of receiving SMS
+            messages.
           title: Optedoutofsms
           type: boolean
         phoneNumber:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The user's phone number.
           title: Phonenumber
         responsiblePatientId:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: ID of the patient responsible for this patient (i.e. a gaurdian).
           title: Responsiblepatientid
         state:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The state of the user's address.
           title: State
         type:
+          description: The type of user.
           title: Type
           type: string
         zipCode:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The postal code of the user's address.
           title: Zipcode
       required:
-        - id
-        - firstName
-        - type
-        - createdDate
+      - id
+      - firstName
+      - type
+      - createdDate
       title: PatientSummary
       type: object
     PatientUpdate:
       properties:
         email:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Email
         firstName:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Firstname
         lastName:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Lastname
         optedOutOfSms:
           anyOf:
-            - type: boolean
-            - type: "null"
+          - type: boolean
+          - type: 'null'
           title: Optedoutofsms
         phoneNumber:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Phonenumber
         responsiblePatientId:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Responsiblepatientid
         type:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Type
         updatedDate:
           format: date-time
@@ -429,173 +623,184 @@ components:
     Payment:
       properties:
         amount:
+          description: The total amount of the payment.
           title: Amount
           type: integer
         createdDate:
+          description: The date and time the payment was created.
           format: date-time
           title: Createddate
           type: string
         currency:
+          default: USD
+          description: The currency in which the payment was made.
           title: Currency
           type: string
         failedReason:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: Reason for payment failure if applicable.
           title: Failedreason
         fee:
+          description: The fee associated with the transaction.
           title: Fee
           type: integer
         id:
+          description: The unique identifier for the payment.
           title: Id
-          type: integer
+          type: string
         patientId:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The ID of the patient associated with the payment.
           title: Patientid
         payinConfigId:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The configuration ID for the payin.
           title: Payinconfigid
         payinId:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The ID of the payin associated with the payment.
           title: Payinid
         paymentMedium:
-          $ref: "#/components/schemas/PaymentMedium"
+          allOf:
+          - $ref: '#/components/schemas/PaymentMedium'
+          description: The medium through which the payment was made.
         paymentMethod:
           anyOf:
-            - $ref: "#/components/schemas/PaymentMethodSummary"
-            - type: "null"
+          - $ref: '#/components/schemas/PaymentMethodSummary'
+          - type: 'null'
+          description: Summary of the payment method used.
         paymentMethodId:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: The ID of the payment method used.
           title: Paymentmethodid
         refunds:
+          description: List of refunds associated with the payment.
           items:
-            $ref: "#/components/schemas/RefundSummary"
+            $ref: '#/components/schemas/RefundSummary'
           title: Refunds
           type: array
         status:
-          $ref: "#/components/schemas/PaymentStatus"
+          allOf:
+          - $ref: '#/components/schemas/PaymentStatus'
+          description: The current status of the payment.
         stripePaymentIntentId:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
+          description: Stripe's payment intent ID if used.
           title: Stripepaymentintentid
         updatedDate:
           anyOf:
-            - format: date-time
-              type: string
-            - type: "null"
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: The date and time the payment was last updated.
           title: Updateddate
       required:
-        - id
-        - patientId
-        - payinId
-        - amount
-        - status
-        - currency
-        - payinConfigId
-        - paymentMedium
-        - paymentMethodId
-        - stripePaymentIntentId
-        - failedReason
-        - createdDate
-        - fee
-        - paymentMethod
-        - refunds
+      - id
+      - amount
+      - status
+      - paymentMedium
+      - createdDate
+      - fee
+      - refunds
       title: Payment
       type: object
     PaymentMedium:
       enum:
-        - POS
-        - VIRTUAL_TERMINAL
-        - PAYMENT_LINK
-        - EMBEDDED_FORM
+      - POS
+      - VIRTUAL_TERMINAL
+      - PAYMENT_LINK
+      - EMBEDDED_FORM
       title: PaymentMedium
       type: string
     PaymentMethodSummary:
       properties:
         accountHolderType:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Accountholdertype
         accountNumberLast4:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: integer
+          - type: 'null'
           title: Accountnumberlast4
         bankName:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Bankname
         brand:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Brand
         expMonth:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: integer
+          - type: 'null'
           title: Expmonth
         expYear:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: integer
+          - type: 'null'
           title: Expyear
         id:
           title: Id
-          type: integer
+          type: string
         last4:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Last4
         patientId:
           title: Patientid
-          type: integer
+          type: string
         rainforestPaymentMethodId:
           title: Rainforestpaymentmethodid
           type: string
         routingNumber:
           anyOf:
-            - type: integer
-            - type: "null"
+          - type: integer
+          - type: 'null'
           title: Routingnumber
       required:
-        - id
-        - patientId
-        - rainforestPaymentMethodId
-        - brand
-        - last4
-        - expMonth
-        - expYear
-        - accountHolderType
-        - accountNumberLast4
-        - bankName
-        - routingNumber
+      - id
+      - patientId
+      - rainforestPaymentMethodId
+      - brand
+      - last4
+      - expMonth
+      - expYear
+      - accountHolderType
+      - accountNumberLast4
+      - bankName
+      - routingNumber
       title: PaymentMethodSummary
       type: object
     PaymentStatus:
       enum:
-        - PENDING
-        - COMPLETED
-        - FAILED
+      - PENDING
+      - COMPLETED
+      - FAILED
       title: PaymentStatus
       type: string
     RefundReason:
       enum:
-        - DUPLICATE
-        - DISPUTE
-        - OTHER
+      - DUPLICATE
+      - DISPUTE
+      - OTHER
       title: RefundReason
       type: string
     RefundSummary:
@@ -613,26 +818,26 @@ components:
           type: integer
         id:
           title: Id
-          type: integer
+          type: string
         paymentId:
           title: Paymentid
-          type: integer
+          type: string
         rainforestRefundId:
           anyOf:
-            - type: string
-            - type: "null"
+          - type: string
+          - type: 'null'
           title: Rainforestrefundid
         reason:
-          $ref: "#/components/schemas/RefundReason"
+          $ref: '#/components/schemas/RefundReason'
         status:
-          $ref: "#/components/schemas/PaymentStatus"
+          $ref: '#/components/schemas/PaymentStatus'
       required:
-        - id
-        - paymentId
-        - amount
-        - reason
-        - createdDate
-        - status
+      - id
+      - paymentId
+      - amount
+      - reason
+      - createdDate
+      - status
       title: RefundSummary
       type: object
     ValidationError:
@@ -640,8 +845,8 @@ components:
         loc:
           items:
             anyOf:
-              - type: string
-              - type: integer
+            - type: string
+            - type: integer
           title: Location
           type: array
         msg:
@@ -651,378 +856,463 @@ components:
           title: Error Type
           type: string
       required:
-        - loc
-        - msg
-        - type
+      - loc
+      - msg
+      - type
       title: ValidationError
       type: object
 info:
   description: API documentation for the Decoda API.
   title: Decoda API
-  version: "1.0"
+  version: '1.0'
 openapi: 3.1.0
 paths:
   /v1/charge:
     post:
-      operationId: create_charge_v1_charge_post
+      description: Create a new `Charge` for a `Patient`.
+      operationId: charge_create_v1_charge_post
       parameters:
-        - description: The tenant you are making this request on behalf of
-          in: header
-          name: TENANT
-          required: true
-          schema:
-            description: The tenant you are making this request on behalf of
-            title: Tenant
-            type: string
-        - description: Your api key
-          in: header
-          name: API-KEY
-          required: true
-          schema:
-            description: Your api key
-            title: Api-Key
-            type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ChargeCreate"
+              $ref: '#/components/schemas/ChargeCreate'
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ChargeDetail"
+                $ref: '#/components/schemas/ChargeDetail'
           description: Successful Response
-        "422":
+        '422':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Create Charge
+      summary: Charge Create
       tags:
-        - external
+      - external
   /v1/charge/adjust:
     post:
-      operationId: adjust_charge_v1_charge_adjust_post
+      description: Create a new `Adjustment` for an existing `Charge`. This is used
+        in the event that a balance owed by a `Patient` needs to change (i.e. a write
+        off or a mistake)
+      operationId: charge_adjust_v1_charge_adjust_post
       parameters:
-        - description: The tenant you are making this request on behalf of
-          in: header
-          name: TENANT
-          required: true
-          schema:
-            description: The tenant you are making this request on behalf of
-            title: Tenant
-            type: string
-        - description: Your api key
-          in: header
-          name: API-KEY
-          required: true
-          schema:
-            description: Your api key
-            title: Api-Key
-            type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AdjustmentCreate"
+              $ref: '#/components/schemas/AdjustmentCreate'
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ChargeDetail"
+                $ref: '#/components/schemas/AdjustmentSummary'
           description: Successful Response
-        "422":
+        '422':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Adjust Charge
+      summary: Charge Adjust
       tags:
-        - external
-  /v1/charge/externally_settle/{charge_id}:
-    post:
-      operationId: externally_settle_charge_v1_charge_externally_settle__charge_id__post
+      - external
+  /v1/charge/list:
+    get:
+      description: Get a list of `Charge`s. You can filter by `patientId`, `total`,
+        `totalOutstanding`, `description`, `status`, and `external_id`.
+      operationId: charge_list_v1_charge_list_get
       parameters:
-        - in: path
-          name: charge_id
-          required: true
-          schema:
-            title: Charge Id
-            type: integer
-        - description: The tenant you are making this request on behalf of
-          in: header
-          name: TENANT
-          required: true
-          schema:
-            description: The tenant you are making this request on behalf of
-            title: Tenant
-            type: string
-        - description: Your api key
-          in: header
-          name: API-KEY
-          required: true
-          schema:
-            description: Your api key
-            title: Api-Key
-            type: string
+      - description: The field to sort by in snake case, i.e. created_date
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          default: created_date
+          description: The field to sort by in snake case, i.e. created_date
+          title: Sort By
+          type: string
+      - description: The direction to sort by
+        in: query
+        name: sort_direction
+        required: false
+        schema:
+          default: desc
+          description: The direction to sort by
+          title: Sort Direction
+          type: string
+      - description: The patient ID to filter by
+        in: query
+        name: patient_id
+        required: false
+        schema:
+          description: The patient ID to filter by
+          title: Patient Id
+          type: string
+      - description: The total to filter by
+        in: query
+        name: total
+        required: false
+        schema:
+          description: The total to filter by
+          title: Total
+          type: number
+      - description: The total outstanding to filter by
+        in: query
+        name: total_outstanding
+        required: false
+        schema:
+          description: The total outstanding to filter by
+          title: Total Outstanding
+          type: number
+      - description: The description to filter by
+        in: query
+        name: description
+        required: false
+        schema:
+          description: The description to filter by
+          title: Description
+          type: string
+      - description: The status to filter by
+        in: query
+        name: status
+        required: false
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/ChargeStatus'
+          description: The status to filter by
+          title: Status
+      - description: The external ID to filter by
+        in: query
+        name: external_id
+        required: false
+        schema:
+          description: The external ID to filter by
+          title: External Id
+          type: string
+      - in: query
+        name: n
+        required: false
+        schema:
+          default: 10
+          title: N
+          type: integer
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ChargeDetail"
+                items:
+                  $ref: '#/components/schemas/ChargeSummary'
+                title: Response Charge List V1 Charge List Get
+                type: array
           description: Successful Response
-        "422":
+        '422':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Externally Settle Charge
+      summary: Charge List
       tags:
-        - external
+      - external
   /v1/charge/{charge_id}:
     get:
-      operationId: get_charge_v1_charge__charge_id__get
+      description: Get a `Charge` by ID. Also returns any `Adjustments`, `Payments`
+        or `Refunds` for the `Charge`.
+      operationId: charge_get_v1_charge__charge_id__get
       parameters:
-        - in: path
-          name: charge_id
-          required: true
-          schema:
-            title: Charge Id
-            type: integer
-        - description: The tenant you are making this request on behalf of
-          in: header
-          name: TENANT
-          required: true
-          schema:
-            description: The tenant you are making this request on behalf of
-            title: Tenant
-            type: string
-        - description: Your api key
-          in: header
-          name: API-KEY
-          required: true
-          schema:
-            description: Your api key
-            title: Api-Key
-            type: string
+      - in: path
+        name: charge_id
+        required: true
+        schema:
+          title: Charge Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ChargeDetail"
+                $ref: '#/components/schemas/ChargeDetail'
           description: Successful Response
-        "422":
+        '422':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Get Charge
+      summary: Charge Get
       tags:
-        - external
+      - external
   /v1/patient:
     post:
-      operationId: create_patient_v1_patient_post
+      description: 'Create a new `Patient`.
+
+
+        Also creates a new `Chat` for the patient.'
+      operationId: patient_create_v1_patient_post
       parameters:
-        - description: The tenant you are making this request on behalf of
-          in: header
-          name: TENANT
-          required: true
-          schema:
-            description: The tenant you are making this request on behalf of
-            title: Tenant
-            type: string
-        - description: Your api key
-          in: header
-          name: API-KEY
-          required: true
-          schema:
-            description: Your api key
-            title: Api-Key
-            type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PatientCreate"
+              $ref: '#/components/schemas/PatientCreate'
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PatientSummary"
+                $ref: '#/components/schemas/PatientSummary'
           description: Successful Response
-        "422":
+        '422':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Create Patient
+      summary: Patient Create
       tags:
-        - external
-  /v1/patient/charges/{patient_id}:
-    get:
-      operationId: get_patient_charges_v1_patient_charges__patient_id__get
-      parameters:
-        - in: path
-          name: patient_id
-          required: true
-          schema:
-            title: Patient Id
-            type: integer
-        - description: The tenant you are making this request on behalf of
-          in: header
-          name: TENANT
-          required: true
-          schema:
-            description: The tenant you are making this request on behalf of
-            title: Tenant
-            type: string
-        - description: Your api key
-          in: header
-          name: API-KEY
-          required: true
-          schema:
-            description: Your api key
-            title: Api-Key
-            type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/ChargeDetail"
-                title: Response Get Patient Charges V1 Patient Charges  Patient Id  Get
-                type: array
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/HTTPValidationError"
-          description: Validation Error
-      summary: Get Patient Charges
-      tags:
-        - external
+      - external
   /v1/patient/list:
     get:
-      description: Search for a `Patient` by name, phone number, or ID.
-      operationId: search_v1_patient_list_get
+      description: 'Search for a `Patient` by name, phone number, or ID.
+
+
+        If no `search_term` query parameter is provided, returns `n=10` `Patients`
+        in descending order by `createdDate`.'
+      operationId: patient_list_v1_patient_list_get
       parameters:
-        - description: Search for a patient by name, phone number, or id.
-          in: query
-          name: search_term
-          required: false
-          schema:
-            anyOf:
-              - type: string
-              - type: "null"
-            description: Search for a patient by name, phone number, or id.
-            title: Search Term
-        - description: Number of results to return, ordered by createdDate
-          in: query
-          name: n
-          required: false
-          schema:
-            anyOf:
-              - type: integer
-              - type: "null"
-            default: 10
-            description: Number of results to return, ordered by createdDate
-            title: N
-        - description: The tenant you are making this request on behalf of
-          in: header
-          name: TENANT
-          required: true
-          schema:
-            description: The tenant you are making this request on behalf of
-            title: Tenant
-            type: string
-        - description: Your api key
-          in: header
-          name: API-KEY
-          required: true
-          schema:
-            description: Your api key
-            title: Api-Key
-            type: string
+      - description: Search for a patient by name, phone number, or id.
+        in: query
+        name: search_term
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Search for a patient by name, phone number, or id.
+          title: Search Term
+      - description: Number of results to return, ordered by createdDate
+        in: query
+        name: n
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          default: 10
+          description: Number of results to return, ordered by createdDate
+          title: N
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/PatientSummary"
-                title: Response Search V1 Patient List Get
+                  $ref: '#/components/schemas/PatientSummary'
+                title: Response Patient List V1 Patient List Get
                 type: array
           description: Successful Response
-        "422":
+        '422':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Search
+      summary: Patient List
       tags:
-        - external
+      - external
   /v1/patient/{patient_id}:
-    put:
-      operationId: update_patient_v1_patient__patient_id__put
+    get:
+      description: Get a `Patient` by ID.
+      operationId: patient_get_v1_patient__patient_id__get
       parameters:
-        - in: path
-          name: patient_id
-          required: true
-          schema:
-            title: Patient Id
-            type: integer
-        - description: The tenant you are making this request on behalf of
-          in: header
-          name: TENANT
-          required: true
-          schema:
-            description: The tenant you are making this request on behalf of
-            title: Tenant
-            type: string
-        - description: Your api key
-          in: header
-          name: API-KEY
-          required: true
-          schema:
-            description: Your api key
-            title: Api-Key
-            type: string
+      - in: path
+        name: patient_id
+        required: true
+        schema:
+          title: Patient Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Patient Get
+      tags:
+      - external
+    put:
+      description: Update an existing `Patient`.
+      operationId: patient_update_v1_patient__patient_id__put
+      parameters:
+      - in: path
+        name: patient_id
+        required: true
+        schema:
+          title: Patient Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PatientUpdate"
+              $ref: '#/components/schemas/PatientUpdate'
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PatientSummary"
+                $ref: '#/components/schemas/PatientSummary'
           description: Successful Response
-        "422":
+        '422':
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Update Patient
+      summary: Patient Update
       tags:
-        - external
+      - external

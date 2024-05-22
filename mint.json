@@ -37,14 +37,14 @@
         {
             "group": "API Reference",
             "pages": [
-                "api-reference/external/get-patient-charges",
-                "api-reference/external/search",
-                "api-reference/external/create-patient",
-                "api-reference/external/create-charge",
-                "api-reference/external/update-patient",
-                "api-reference/external/adjust-charge",
-                "api-reference/external/externally-settle-charge",
-                "api-reference/external/get-charge"
+                "api-reference/external/charge-adjust",
+                "api-reference/external/patient-list",
+                "api-reference/external/patient-create",
+                "api-reference/external/patient-update",
+                "api-reference/external/charge-create",
+                "api-reference/external/charge-list",
+                "api-reference/external/patient-get",
+                "api-reference/external/charge-get"
             ]
         }
     ],
