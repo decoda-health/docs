@@ -22,19 +22,18 @@ Using our API your team can:
 
 **Automated Balance Aging**
 
-- Assign every patient bill to a unique ruleset defining the cadence and medium of each touchpoint. For example, send a text on day 0, charge the card on file on day 5, send another text on day 10, and send physical mail on day 20.
+- Assign every patient bill to a unique ruleset defining the cadence and medium of each touchpoint. For example, send a text on day 0, send another text on day 10, send physical mail on day 20 and charge the card on file on day 30.
 - Configure outreach schedules in Decoda's Web App, allowing the system to determine the best schedule.
 
 ### Accept online payments
 
 - When patient responsibility is finalized with adjustments after insurance processes a claim, use Decoda's API to start aging that balance.
-- Once a payment is made, Decoda posts this information back to your system.
+- Once a payment ismade a Payment is created and attached to the Charge.
 
 ### **Accept In-Person Payments (coming soon)**
 
-- For in-person payments at the card terminal, there are two options:
-  1. Use Decoda to create the charge and then present the charge using Decoda's Web App on the card terminal
-- Once a payment is successfully made, Decoda posts this information back to your system.
+- For in-person payments at the card terminal, use Decoda's API to create the charge and then present that charge using Decoda's Web App on the card terminal
+- Once a payment is successfully made a Payment is created and attached to the Charge.
 
 ### Authentication
 
