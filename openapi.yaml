@@ -70,16 +70,22 @@ components:
       - EXTERNAL_SETTLEMENT
       title: AdjustmentType
       type: string
-    ChargeCreate:
-      description: 'Create a Charge to a Patient.
+    ChargeCreateWithoutID:
+      description: 'Create a Charge for a Patient.
 
         These typically come from balances owed to the Tenant by the Patient (i.e.
         due to a copay).'
       properties:
+        creatorId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Identifier of the `Provider` who created the charge (i.e. the
+            Doctor, or relevant Biller).
+          title: Creatorid
         customAmount:
           default: 0
-          description: Any un-itemized amount that makes up the charge. (i.e. a generic
-            copay)
+          description: If you want to bill for an un-itemized amount, set it here.
           title: Customamount
           type: integer
         description:
@@ -116,13 +122,19 @@ components:
           - type: 'null'
           description: External identifier for the charge, if applicable.
           title: Externalid
-        id:
+        items:
+          default: []
+          description: List of `Items` in the `Charge`.
+          items:
+            $ref: '#/components/schemas/ChargeItemCreateWithoutId'
+          title: Items
+          type: array
+        meta:
           anyOf:
-          - type: string
+          - type: object
           - type: 'null'
-          description: A unique identifier for the charge, this is *not* required
-            in most cases as it will be auto-generated.
-          title: Id
+          description: Any additional metadata about the charge relevant to your system.
+          title: Meta
         patientId:
           description: Identifier of the patient being charged.
           title: Patientid
@@ -138,26 +150,21 @@ components:
           anyOf:
           - type: string
           - type: 'null'
-          description: Identifier for the rule set applied to this charge, if any.
+          description: Identifier for the `RuleSet` applied to this `Charge`, if any.
           title: Rulesetid
         status:
           allOf:
           - $ref: '#/components/schemas/ChargeStatus'
           default: OUTSTANDING
           description: Current status of the charge.
-        total:
-          description: Total amount of the charge.
-          title: Total
-          type: integer
         totalOutstanding:
           description: Total outstanding amount that is yet to be paid.
           title: Totaloutstanding
           type: integer
       required:
       - patientId
-      - total
       - totalOutstanding
-      title: ChargeCreate
+      title: ChargeCreateWithoutID
       type: object
     ChargeDetail:
       properties:
@@ -279,6 +286,11 @@ components:
           description: Percentage of discount applied to this item.
           title: Discountpercentage
           type: number
+        item:
+          anyOf:
+          - $ref: '#/components/schemas/ItemSummary'
+          - type: 'null'
+          description: Summary details of the item being charged.
         itemId:
           description: Unique identifier for the item.
           title: Itemid
@@ -294,6 +306,29 @@ components:
       - discountAmount
       - discountPercentage
       title: ChargeItem
+      type: object
+    ChargeItemCreateWithoutId:
+      properties:
+        item:
+          anyOf:
+          - $ref: '#/components/schemas/ItemCreateWithoutId'
+          - type: 'null'
+          description: Item to create if it doesn't already exist. If it does exist,
+            the `item_id` should be provided.
+        itemId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Decoda ID of the item if it already exists. If not, the `item`
+            field should be provided.
+          title: Itemid
+        quantity:
+          description: Quantity of the item being charged.
+          title: Quantity
+          type: integer
+      required:
+      - quantity
+      title: ChargeItemCreateWithoutId
       type: object
     ChargePaymentDetail:
       properties:
@@ -420,72 +455,7 @@ components:
       - patient
       title: ChargeSummary
       type: object
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          title: Detail
-          type: array
-      title: HTTPValidationError
-      type: object
-    PatientCreate:
-      properties:
-        address:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The primary address of the patient.
-          title: Address
-        addressLineTwo:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Additional address information of the patient.
-          title: Addresslinetwo
-        city:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The city of the patient's address.
-          title: City
-        email:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The email address of the patient.
-          title: Email
-        firstName:
-          description: The first name of the patient.
-          title: Firstname
-          type: string
-        lastName:
-          description: The last name of the patient.
-          title: Lastname
-          type: string
-        phoneNumber:
-          description: The phone number of the patient, digits only, no country code.
-          title: Phonenumber
-          type: string
-        state:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The state of the patient's address.
-          title: State
-        zipCode:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The ZIP code of the patient's address.
-          title: Zipcode
-      required:
-      - firstName
-      - lastName
-      - phoneNumber
-      title: PatientCreate
-      type: object
-    PatientSummary:
+    ExternalProviderSummary:
       properties:
         address:
           anyOf:
@@ -536,6 +506,250 @@ components:
           - type: 'null'
           description: The user's last name.
           title: Lastname
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the user relevant to your system.
+          title: Meta
+        phoneNumber:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's phone number.
+          title: Phonenumber
+        roles:
+          description: List of roles associated with the provider.
+          items:
+            $ref: '#/components/schemas/RoleSummary'
+          title: Roles
+          type: array
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The state of the user's address.
+          title: State
+        type:
+          default: provider
+          description: Type of the user, fixed as 'provider'.
+          title: Type
+          type: string
+        zipCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The postal code of the user's address.
+          title: Zipcode
+      required:
+      - id
+      - firstName
+      - createdDate
+      - roles
+      title: ExternalProviderSummary
+      type: object
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          title: Detail
+          type: array
+      title: HTTPValidationError
+      type: object
+    ItemCreateWithoutId:
+      properties:
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional description of the item
+          title: Description
+        image:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional URL to a public image of the item
+          title: Image
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the item relevant to your system.
+          title: Meta
+        name:
+          description: Name of the item
+          title: Name
+          type: string
+        price:
+          description: Price of the item in cents
+          title: Price
+          type: integer
+        unit:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional unit of measurement for the item
+          title: Unit
+      required:
+      - name
+      - price
+      title: ItemCreateWithoutId
+      type: object
+    ItemSummary:
+      properties:
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional description of the item
+          title: Description
+        id:
+          description: Unique identifier for the item
+          title: Id
+          type: string
+        image:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional URL to an image of the item
+          title: Image
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the item relevant to your system.
+          title: Meta
+        name:
+          description: Name of the item
+          title: Name
+          type: string
+        price:
+          description: Price of the item in cents
+          title: Price
+          type: integer
+        unit:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional unit of measurement for the item
+          title: Unit
+      required:
+      - id
+      - name
+      - price
+      title: ItemSummary
+      type: object
+    ItemUpdate:
+      properties:
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional description of the item
+          title: Description
+        image:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional URL to a public image of the item
+          title: Image
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the item relevant to your system.
+          title: Meta
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional name of the item
+          title: Name
+        price:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Optional price of the item in cents
+          title: Price
+        unit:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional unit of measurement for the item
+          title: Unit
+      title: ItemUpdate
+      type: object
+    Page_ItemSummary_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ItemSummary'
+          title: Data
+          type: array
+        total:
+          title: Total
+          type: integer
+      required:
+      - data
+      - total
+      title: Page[ItemSummary]
+      type: object
+    PatientCreate:
+      properties:
+        address:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's primary address.
+          title: Address
+        addressLineTwo:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Additional address information.
+          title: Addresslinetwo
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The city of the user's address.
+          title: City
+        dateOfBirth:
+          anyOf:
+          - format: date
+            type: string
+          - type: 'null'
+          description: The date of birth of the patient.
+          title: Dateofbirth
+        email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's email address.
+          title: Email
+        externalUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: An identifier in your system that corresponds to this patient.
+          title: Externaluserid
+        firstName:
+          description: The user's first name.
+          title: Firstname
+          type: string
+        lastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's last name.
+          title: Lastname
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the user relevant to your system.
+          title: Meta
         optedOutOfSms:
           default: false
           description: Indicates whether the patient has opted out of receiving SMS
@@ -548,12 +762,98 @@ components:
           - type: 'null'
           description: The user's phone number.
           title: Phonenumber
-        responsiblePatientId:
+        state:
           anyOf:
           - type: string
           - type: 'null'
-          description: ID of the patient responsible for this patient (i.e. a gaurdian).
-          title: Responsiblepatientid
+          description: The state of the user's address.
+          title: State
+        zipCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The postal code of the user's address.
+          title: Zipcode
+      required:
+      - firstName
+      title: PatientCreate
+      type: object
+    PatientSummary:
+      properties:
+        address:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's primary address.
+          title: Address
+        addressLineTwo:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Additional address information.
+          title: Addresslinetwo
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The city of the user's address.
+          title: City
+        createdDate:
+          description: The date and time when the user was created.
+          format: date-time
+          title: Createddate
+          type: string
+        dateOfBirth:
+          anyOf:
+          - format: date
+            type: string
+          - type: 'null'
+          description: The date of birth of the patient.
+          title: Dateofbirth
+        email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's email address.
+          title: Email
+        externalUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's external identifier if available.
+          title: Externaluserid
+        firstName:
+          description: The user's first name.
+          title: Firstname
+          type: string
+        id:
+          description: The unique identifier for the user.
+          title: Id
+          type: string
+        lastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's last name.
+          title: Lastname
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the user relevant to your system.
+          title: Meta
+        optedOutOfSms:
+          default: false
+          description: Indicates whether the patient has opted out of receiving SMS
+            messages.
+          title: Optedoutofsms
+          type: boolean
+        phoneNumber:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's phone number.
+          title: Phonenumber
         state:
           anyOf:
           - type: string
@@ -594,6 +894,11 @@ components:
           - type: string
           - type: 'null'
           title: Lastname
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          title: Meta
         optedOutOfSms:
           anyOf:
           - type: boolean
@@ -604,16 +909,6 @@ components:
           - type: string
           - type: 'null'
           title: Phonenumber
-        responsiblePatientId:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Responsiblepatientid
-        type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Type
         updatedDate:
           format: date-time
           title: Updateddate
@@ -796,6 +1091,124 @@ components:
       - FAILED
       title: PaymentStatus
       type: string
+    ProviderCreate:
+      properties:
+        address:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's primary address.
+          title: Address
+        addressLineTwo:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Additional address information.
+          title: Addresslinetwo
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The city of the user's address.
+          title: City
+        email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's email address.
+          title: Email
+        externalUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's external identifier if available.
+          title: Externaluserid
+        firstName:
+          description: The user's first name.
+          title: Firstname
+          type: string
+        lastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's last name.
+          title: Lastname
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the user relevant to your system.
+          title: Meta
+        phoneNumber:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The user's phone number.
+          title: Phonenumber
+        roles:
+          description: List of roles associated with the provider.
+          items:
+            type: string
+          title: Roles
+          type: array
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The state of the user's address.
+          title: State
+        zipCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The postal code of the user's address.
+          title: Zipcode
+      required:
+      - firstName
+      - roles
+      title: ProviderCreate
+      type: object
+    ProviderUpdate:
+      properties:
+        email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Email
+        firstName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Firstname
+        lastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Lastname
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          title: Meta
+        phoneNumber:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Phonenumber
+        roles:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          description: List of roles associated with the provider.
+          title: Roles
+        updatedDate:
+          format: date-time
+          title: Updateddate
+          type: string
+      title: ProviderUpdate
+      type: object
     RefundReason:
       enum:
       - DUPLICATE
@@ -840,6 +1253,15 @@ components:
       - status
       title: RefundSummary
       type: object
+    RoleSummary:
+      properties:
+        name:
+          title: Name
+          type: string
+      required:
+      - name
+      title: RoleSummary
+      type: object
     ValidationError:
       properties:
         loc:
@@ -867,49 +1289,6 @@ info:
   version: '1.0'
 openapi: 3.1.0
 paths:
-  /v1/charge:
-    post:
-      description: Create a new `Charge` for a `Patient`.
-      operationId: charge_create_v1_charge_post
-      parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ChargeCreate'
-        required: true
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ChargeDetail'
-          description: Successful Response
-        '422':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      summary: Charge Create
-      tags:
-      - external
   /v1/charge/adjust:
     post:
       description: Create a new `Adjustment` for an existing `Charge`. This is used
@@ -955,6 +1334,136 @@ paths:
       summary: Charge Adjust
       tags:
       - external
+  /v1/charge/create:
+    post:
+      description: Create a new `Charge` for a `Patient`.
+      operationId: charge_create_v1_charge_create_post
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChargeCreateWithoutID'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChargeDetail'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Charge Create
+      tags:
+      - external
+  /v1/charge/get/{charge_id}:
+    get:
+      description: Get a `Charge` by ID. Also returns any `Adjustments`, `Payments`
+        or `Refunds` for the `Charge`.
+      operationId: charge_get_v1_charge_get__charge_id__get
+      parameters:
+      - in: path
+        name: charge_id
+        required: true
+        schema:
+          title: Charge Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChargeDetail'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Charge Get
+      tags:
+      - external
+  /v1/charge/get_by_external_id/{external_id}:
+    get:
+      description: Get a `Charge` by its external ID (i.e. the ID in your system).
+      operationId: charge_get_by_external_id_v1_charge_get_by_external_id__external_id__get
+      parameters:
+      - in: path
+        name: external_id
+        required: true
+        schema:
+          title: External Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChargeDetail'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Charge Get By External Id
+      tags:
+      - external
   /v1/charge/list:
     get:
       description: Get a list of `Charge`s. You can filter by `patientId`, `total`,
@@ -977,6 +1486,9 @@ paths:
         schema:
           default: desc
           description: The direction to sort by
+          enum:
+          - asc
+          - desc
           title: Sort Direction
           type: string
       - description: The patient ID to filter by
@@ -986,6 +1498,23 @@ paths:
         schema:
           description: The patient ID to filter by
           title: Patient Id
+          type: string
+      - description: The status to filter by
+        in: query
+        name: status
+        required: false
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/ChargeStatus'
+          description: The status to filter by
+          title: Status
+      - description: The external ID to filter by
+        in: query
+        name: external_id
+        required: false
+        schema:
+          description: The external ID to filter by
+          title: External Id
           type: string
       - description: The total to filter by
         in: query
@@ -1010,23 +1539,6 @@ paths:
         schema:
           description: The description to filter by
           title: Description
-          type: string
-      - description: The status to filter by
-        in: query
-        name: status
-        required: false
-        schema:
-          allOf:
-          - $ref: '#/components/schemas/ChargeStatus'
-          description: The status to filter by
-          title: Status
-      - description: The external ID to filter by
-        in: query
-        name: external_id
-        required: false
-        schema:
-          description: The external ID to filter by
-          title: External Id
           type: string
       - in: query
         name: n
@@ -1070,17 +1582,57 @@ paths:
       summary: Charge List
       tags:
       - external
-  /v1/charge/{charge_id}:
-    get:
-      description: Get a `Charge` by ID. Also returns any `Adjustments`, `Payments`
-        or `Refunds` for the `Charge`.
-      operationId: charge_get_v1_charge__charge_id__get
+  /v1/item/create:
+    post:
+      operationId: item_create_v1_item_create_post
       parameters:
-      - in: path
-        name: charge_id
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
         required: true
         schema:
-          title: Charge Id
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCreateWithoutId'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Item Create
+      tags:
+      - external
+  /v1/item/delete/{id}:
+    delete:
+      operationId: item_delete_v1_item_delete__id__delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          title: Id
           type: string
       - description: The tenant you are making this request on behalf of
         in: header
@@ -1103,7 +1655,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChargeDetail'
+                title: Response Item Delete V1 Item Delete  Id  Delete
+                type: boolean
           description: Successful Response
         '422':
           content:
@@ -1111,16 +1664,213 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Charge Get
+      summary: Item Delete
       tags:
       - external
-  /v1/patient:
+  /v1/item/get/{id}:
+    get:
+      description: Get an `Item` by its ID
+      operationId: item_get_v1_item_get__id__get
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          title: Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Item Get
+      tags:
+      - external
+  /v1/item/list:
+    get:
+      description: List `Items`
+      operationId: item_list_v1_item_list_get
+      parameters:
+      - description: Name of the item
+        in: query
+        name: name
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Name of the item
+          title: Name
+      - description: Category of the item
+        in: query
+        name: category
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Category of the item
+          title: Category
+      - description: Minimum price
+        in: query
+        name: price
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Minimum price
+          title: Price
+      - description: Number of items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          description: Number of items per page
+          title: Per Page
+          type: integer
+      - description: Archived status of the item
+        in: query
+        name: archived
+        required: false
+        schema:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          default: false
+          description: Archived status of the item
+          title: Archived
+      - description: Description of the item
+        in: query
+        name: description
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Description of the item
+          title: Description
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number to retrieve
+          title: Page
+          type: integer
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_ItemSummary_'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Item List
+      tags:
+      - external
+  /v1/item/update/{id}:
+    put:
+      operationId: item_update_v1_item_update__id__put
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          title: Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemUpdate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Item Update
+      tags:
+      - external
+  /v1/patient/create:
     post:
       description: 'Create a new `Patient`.
 
 
         Also creates a new `Chat` for the patient.'
-      operationId: patient_create_v1_patient_post
+      operationId: patient_create_v1_patient_create_post
       parameters:
       - description: The tenant you are making this request on behalf of
         in: header
@@ -1160,9 +1910,52 @@ paths:
       summary: Patient Create
       tags:
       - external
+  /v1/patient/get_by_external_id/{external_id}:
+    get:
+      description: Get a `Patient` by its external ID (i.e. the ID in your system).
+      operationId: patient_get_by_external_id_v1_patient_get_by_external_id__external_id__get
+      parameters:
+      - in: path
+        name: external_id
+        required: true
+        schema:
+          title: External Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Patient Get By External Id
+      tags:
+      - external
   /v1/patient/list:
     get:
-      description: 'Search for a `Patient` by name, phone number, or ID.
+      description: 'Search for a `Patient` by name or phone number.
 
 
         If no `search_term` query parameter is provided, returns `n=10` `Patients`
@@ -1179,6 +1972,16 @@ paths:
           - type: 'null'
           description: Search for a patient by name, phone number, or id.
           title: Search Term
+      - description: The external user ID to filter by
+        in: query
+        name: external_user_id
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The external user ID to filter by
+          title: External User Id
       - description: Number of results to return, ordered by createdDate
         in: query
         name: n
@@ -1225,52 +2028,10 @@ paths:
       summary: Patient List
       tags:
       - external
-  /v1/patient/{patient_id}:
-    get:
-      description: Get a `Patient` by ID.
-      operationId: patient_get_v1_patient__patient_id__get
-      parameters:
-      - in: path
-        name: patient_id
-        required: true
-        schema:
-          title: Patient Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PatientSummary'
-          description: Successful Response
-        '422':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      summary: Patient Get
-      tags:
-      - external
+  /v1/patient/update/{patient_id}:
     put:
       description: Update an existing `Patient`.
-      operationId: patient_update_v1_patient__patient_id__put
+      operationId: patient_update_v1_patient_update__patient_id__put
       parameters:
       - in: path
         name: patient_id
@@ -1314,5 +2075,306 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Patient Update
+      tags:
+      - external
+  /v1/patient/{patient_id}:
+    get:
+      description: Get a `Patient` by ID.
+      operationId: patient_get_v1_patient__patient_id__get
+      parameters:
+      - in: path
+        name: patient_id
+        required: true
+        schema:
+          title: Patient Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Patient Get
+      tags:
+      - external
+  /v1/provider/create:
+    post:
+      description: Create a new `Provider`
+      operationId: provider_create_v1_provider_create_post
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProviderCreate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalProviderSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Provider Create
+      tags:
+      - external
+  /v1/provider/get/{provider_id}:
+    get:
+      description: Get a list of all roles for a provider
+      operationId: provider_get_v1_provider_get__provider_id__get
+      parameters:
+      - in: path
+        name: provider_id
+        required: true
+        schema:
+          title: Provider Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalProviderSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Provider Get
+      tags:
+      - external
+  /v1/provider/get_by_external_id/{external_id}:
+    get:
+      description: Get a `Provider` by its external ID (i.e. the ID in your system).
+      operationId: provider_get_by_external_id_v1_provider_get_by_external_id__external_id__get
+      parameters:
+      - in: path
+        name: external_id
+        required: true
+        schema:
+          title: External Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalProviderSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Provider Get By External Id
+      tags:
+      - external
+  /v1/provider/list:
+    get:
+      description: Get a list of all `Providers`
+      operationId: provider_list_v1_provider_list_get
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ExternalProviderSummary'
+                title: Response Provider List V1 Provider List Get
+                type: array
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Provider List
+      tags:
+      - external
+  /v1/provider/update/{provider_id}:
+    put:
+      description: Update an existing `Provider`
+      operationId: provider_update_v1_provider_update__provider_id__put
+      parameters:
+      - in: path
+        name: provider_id
+        required: true
+        schema:
+          title: Provider Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProviderUpdate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalProviderSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Provider Update
+      tags:
+      - external
+  /v1/role/list:
+    get:
+      description: Get a list of all available `Roles` for `Providers`.
+      operationId: list_roles_v1_role_list_get
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RoleSummary'
+                title: Response List Roles V1 Role List Get
+                type: array
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: List Roles
       tags:
       - external

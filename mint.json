@@ -37,14 +37,52 @@
         {
             "group": "API Reference",
             "pages": [
-                "api-reference/external/charge-adjust",
-                "api-reference/external/patient-list",
-                "api-reference/external/patient-create",
-                "api-reference/external/patient-update",
-                "api-reference/external/charge-create",
-                "api-reference/external/charge-list",
-                "api-reference/external/patient-get",
-                "api-reference/external/charge-get"
+                {
+                    "group": "Patient",
+                    "pages": [
+                        "api-reference/external/patient-create",
+                        "api-reference/external/patient-get",
+                        "api-reference/external/patient-get-by-external-id",
+                        "api-reference/external/patient-list",
+                        "api-reference/external/patient-update"
+                    ]
+                },
+                {
+                    "group": "Item",
+                    "pages": [
+                        "api-reference/external/item-create",
+                        "api-reference/external/item-delete",
+                        "api-reference/external/item-get",
+                        "api-reference/external/item-list",
+                        "api-reference/external/item-update"
+                    ]
+                },
+                {
+                    "group": "Charge",
+                    "pages": [
+                        "api-reference/external/charge-adjust",
+                        "api-reference/external/charge-create",
+                        "api-reference/external/charge-get",
+                        "api-reference/external/charge-get-by-external-id",
+                        "api-reference/external/charge-list"
+                    ]
+                },
+                {
+                    "group": "Provider",
+                    "pages": [
+                        "api-reference/external/provider-create",
+                        "api-reference/external/provider-get",
+                        "api-reference/external/provider-get-by-external-id",
+                        "api-reference/external/provider-list",
+                        "api-reference/external/provider-update"
+                    ]
+                },
+                {
+                    "group": "Roles",
+                    "pages": [
+                        "api-reference/external/list-roles"
+                    ]
+                }
             ]
         }
     ],
