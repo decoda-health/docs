@@ -455,6 +455,20 @@ components:
       - patient
       title: ChargeSummary
       type: object
+    EventType:
+      description: EventType is an enum that represents the type of event that will
+        be sent to the webhook.
+      enum:
+      - PAYMENT_CREATED
+      - PAYMENT_COMPLETED
+      - PAYMENT_FAILED
+      - CHARGE_CREATED
+      - ADJUSTMENT_CREATED
+      - REFUND_CREATED
+      - PATIENT_CREATED
+      - PATIENT_UPDATED
+      title: EventType
+      type: string
     ExternalProviderSummary:
       properties:
         address:
@@ -1041,6 +1055,11 @@ components:
           - type: string
           - type: 'null'
           title: Brand
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
         expMonth:
           anyOf:
           - type: integer
@@ -1070,6 +1089,11 @@ components:
           - type: integer
           - type: 'null'
           title: Routingnumber
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
       required:
       - id
       - patientId
@@ -1082,6 +1106,8 @@ components:
       - accountNumberLast4
       - bankName
       - routingNumber
+      - description
+      - type
       title: PaymentMethodSummary
       type: object
     PaymentStatus:
@@ -1091,6 +1117,90 @@ components:
       - FAILED
       title: PaymentStatus
       type: string
+    PaymentSummary:
+      properties:
+        amount:
+          description: The total amount of the payment.
+          title: Amount
+          type: integer
+        createdDate:
+          description: The date and time the payment was created.
+          format: date-time
+          title: Createddate
+          type: string
+        currency:
+          default: USD
+          description: The currency in which the payment was made.
+          title: Currency
+          type: string
+        failedReason:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Reason for payment failure if applicable.
+          title: Failedreason
+        fee:
+          description: The fee associated with the transaction.
+          title: Fee
+          type: integer
+        id:
+          description: The unique identifier for the payment.
+          title: Id
+          type: string
+        patientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The ID of the patient associated with the payment.
+          title: Patientid
+        payinConfigId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The configuration ID for the payin.
+          title: Payinconfigid
+        payinId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The ID of the payin associated with the payment.
+          title: Payinid
+        paymentMedium:
+          allOf:
+          - $ref: '#/components/schemas/PaymentMedium'
+          description: The medium through which the payment was made.
+        paymentMethodId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The ID of the payment method used.
+          title: Paymentmethodid
+        status:
+          allOf:
+          - $ref: '#/components/schemas/PaymentStatus'
+          description: The current status of the payment.
+        stripePaymentIntentId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Stripe's payment intent ID if used.
+          title: Stripepaymentintentid
+        updatedDate:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: The date and time the payment was last updated.
+          title: Updateddate
+      required:
+      - id
+      - amount
+      - status
+      - paymentMedium
+      - createdDate
+      - fee
+      title: Payment
+      type: object
     ProviderCreate:
       properties:
         address:
@@ -1282,6 +1392,159 @@ components:
       - msg
       - type
       title: ValidationError
+      type: object
+    WebhookCreate:
+      properties:
+        notificationEmail:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Email address for sending notifications about delivery failures.
+          title: Notificationemail
+        subscriptions:
+          description: List of event types the webhook subscribes to.
+          items:
+            $ref: '#/components/schemas/EventType'
+          title: Subscriptions
+          type: array
+        url:
+          description: The URL where the webhook will send notifications.
+          title: Url
+          type: string
+      required:
+      - subscriptions
+      - url
+      title: WebhookCreate
+      type: object
+    WebhookDeliveryAttemptSummary:
+      description: An Event in Decoda's system.
+      properties:
+        createdDate:
+          description: The date and time when the event was created.
+          format: date-time
+          title: Createddate
+          type: string
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/PaymentSummary'
+          - $ref: '#/components/schemas/PatientSummary'
+          - $ref: '#/components/schemas/RefundSummary'
+          - $ref: '#/components/schemas/AdjustmentSummary'
+          - $ref: '#/components/schemas/ChargeSummary'
+          description: 'The `Event` associated with this `WebhookDeliveryAttempt`.
+            This is one of the following: `PaymentSummary`, `PatientSummary`, `RefundSummary`,
+            `AdjustmentSummary`, or `ChargeSummary`. Which depends on the `EventType`.'
+          title: Data
+        deliveredDate:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: The date and time when the event was delivered.
+          title: Delivereddate
+        id:
+          description: Unique identifier for the webhook delivery attempt.
+          title: Id
+          type: string
+        lastDeliveryAttemptDate:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: The date and time when the last delivery attempt was made.
+          title: Lastdeliveryattemptdate
+        lastDeliveryAttemptError:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The error message from the last delivery attempt, if any.
+          title: Lastdeliveryattempterror
+        lastDeliveryAttemptStatus:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: The HTTP status of the last delivery attempt.
+          title: Lastdeliveryattemptstatus
+        type:
+          allOf:
+          - $ref: '#/components/schemas/EventType'
+          description: The type of event.
+      required:
+      - id
+      - type
+      - data
+      - createdDate
+      title: WebhookDeliveryAttemptSummary
+      type: object
+    WebhookSummary:
+      properties:
+        createdDate:
+          description: The date and time when the webhook was created.
+          format: date-time
+          title: Createddate
+          type: string
+        id:
+          description: Unique identifier for the webhook.
+          title: Id
+          type: string
+        notificationEmail:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Email address for sending notifications about delivery failures.
+          title: Notificationemail
+        secret:
+          description: The secret key used for signing the webhook payloads.
+          title: Secret
+          type: string
+        subscriptions:
+          description: List of event types the webhook is subscribed to.
+          items:
+            $ref: '#/components/schemas/EventType'
+          title: Subscriptions
+          type: array
+        updatedDate:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: The date and time when the webhook was last updated.
+          title: Updateddate
+        url:
+          description: The URL where the webhook sends notifications.
+          title: Url
+          type: string
+      required:
+      - id
+      - subscriptions
+      - url
+      - createdDate
+      - secret
+      title: WebhookSummary
+      type: object
+    WebhookUpdate:
+      properties:
+        notificationEmail:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Email address for sending notifications about delivery failures.
+          title: Notificationemail
+        subscriptions:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/EventType'
+            type: array
+          - type: 'null'
+          description: List of event types the webhook subscribes to.
+          title: Subscriptions
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The URL where the webhook will send notifications.
+          title: Url
+      title: WebhookUpdate
       type: object
 info:
   description: API documentation for the Decoda API.
@@ -2341,7 +2604,7 @@ paths:
   /v1/role/list:
     get:
       description: Get a list of all available `Roles` for `Providers`.
-      operationId: list_roles_v1_role_list_get
+      operationId: role_list_v1_role_list_get
       parameters:
       - description: The tenant you are making this request on behalf of
         in: header
@@ -2366,7 +2629,7 @@ paths:
               schema:
                 items:
                   $ref: '#/components/schemas/RoleSummary'
-                title: Response List Roles V1 Role List Get
+                title: Response Role List V1 Role List Get
                 type: array
           description: Successful Response
         '422':
@@ -2375,6 +2638,504 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: List Roles
+      summary: Role List
+      tags:
+      - external
+  /v1/webhook/create:
+    post:
+      description: Create a new `Webhook` for the `Tenant`
+      operationId: webhook_create_v1_webhook_create_post
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookCreate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Webhook Create
+      tags:
+      - external
+  /v1/webhook/delete/{webhook_id}:
+    delete:
+      description: Delete a `Webhook`
+      operationId: webhook_delete_v1_webhook_delete__webhook_id__delete
+      parameters:
+      - in: path
+        name: webhook_id
+        required: true
+        schema:
+          title: Webhook Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: Response Webhook Delete V1 Webhook Delete  Webhook Id  Delete
+                type: boolean
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Webhook Delete
+      tags:
+      - external
+  /v1/webhook/events/{webhook_delivery_attempt_id}:
+    get:
+      description: Get a single `WebhookDeliveryAttempt`
+      operationId: webhook_event_get_v1_webhook_events__webhook_delivery_attempt_id__get
+      parameters:
+      - in: path
+        name: webhook_delivery_attempt_id
+        required: true
+        schema:
+          title: Webhook Delivery Attempt Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookDeliveryAttemptSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Webhook Event Get
+      tags:
+      - external
+  /v1/webhook/events/{webhook_delivery_attempt_id}/send:
+    get:
+      description: Send a `WebhookDeliveryAttempt` event to the `Webhook`. This is
+        useful if you want to manually retry a webhook event that failed to deliver.
+      operationId: webhook_event_send_v1_webhook_events__webhook_delivery_attempt_id__send_get
+      parameters:
+      - in: path
+        name: webhook_delivery_attempt_id
+        required: true
+        schema:
+          title: Webhook Delivery Attempt Id
+          type: string
+      - description: Notify the webhook owner via email if the event fails to deliver
+        in: query
+        name: notify_failure
+        required: false
+        schema:
+          default: true
+          description: Notify the webhook owner via email if the event fails to deliver
+          title: Notify Failure
+          type: boolean
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookDeliveryAttemptSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Webhook Event Send
+      tags:
+      - external
+  /v1/webhook/get/{webhook_id}:
+    get:
+      description: Get a `Webhook`
+      operationId: webhook_get_v1_webhook_get__webhook_id__get
+      parameters:
+      - in: path
+        name: webhook_id
+        required: true
+        schema:
+          title: Webhook Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Webhook Get
+      tags:
+      - external
+  /v1/webhook/list:
+    get:
+      description: Get a list of all webhooks connected to the tenant
+      operationId: webhook_list_v1_webhook_list_get
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WebhookSummary'
+                title: Response Webhook List V1 Webhook List Get
+                type: array
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Webhook List
+      tags:
+      - external
+  /v1/webhook/update/{webhook_id}:
+    put:
+      description: Update a `Webhook`
+      operationId: webhook_update_v1_webhook_update__webhook_id__put
+      parameters:
+      - in: path
+        name: webhook_id
+        required: true
+        schema:
+          title: Webhook Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookUpdate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Webhook Update
+      tags:
+      - external
+  /v1/webhook/{webhook_id}/delivery-attempts/list:
+    get:
+      description: List and search for attempts to *deliver* `Events` for a particular
+        `Webhook` (i.e. `WebhookDeliveryAttempts`).
+      operationId: webhook_events_list_v1_webhook__webhook_id__delivery_attempts_list_get
+      parameters:
+      - in: path
+        name: webhook_id
+        required: true
+        schema:
+          title: Webhook Id
+          type: string
+      - description: The type of event to filter by
+        in: query
+        name: event_type
+        required: false
+        schema:
+          anyOf:
+          - $ref: '#/components/schemas/EventType'
+          - type: 'null'
+          description: The type of event to filter by
+          title: Event Type
+      - description: Filter by if the event has not been delivered (i.e. we have not
+          recieved a 200 from you for this event.)
+        in: query
+        name: is_delivered
+        required: false
+        schema:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          description: Filter by if the event has not been delivered (i.e. we have
+            not recieved a 200 from you for this event.)
+          title: Is Delivered
+      - description: Get Events created before this date
+        in: query
+        name: created_before
+        required: false
+        schema:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: Get Events created before this date
+          title: Created Before
+      - description: Get Events created after this date
+        in: query
+        name: created_after
+        required: false
+        schema:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: Get Events created after this date
+          title: Created After
+      - description: Filter by the HTTP status of the most recent delivery attempt
+          (i.e. 200, 404, 500, etc.)
+        in: query
+        name: last_delivery_attempt_status
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Filter by the HTTP status of the most recent delivery attempt
+            (i.e. 200, 404, 500, etc.)
+          title: Last Delivery Attempt Status
+      - description: Filter by the error message of the most recent delivery attempt
+        in: query
+        name: last_delivery_attempt_error
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Filter by the error message of the most recent delivery attempt
+          title: Last Delivery Attempt Error
+      - description: Get Events with a delivery date before this date
+        in: query
+        name: delivery_date_before
+        required: false
+        schema:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: Get Events with a delivery date before this date
+          title: Delivery Date Before
+      - description: Get Events with a delivery date after this date
+        in: query
+        name: delivery_date_after
+        required: false
+        schema:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          description: Get Events with a delivery date after this date
+          title: Delivery Date After
+      - description: The field to sort by
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: created_date
+          description: The field to sort by
+          title: Sort By
+      - description: The direction to sort by
+        in: query
+        name: sort_direction
+        required: false
+        schema:
+          anyOf:
+          - enum:
+            - asc
+            - desc
+            type: string
+          - type: 'null'
+          default: desc
+          description: The direction to sort by
+          title: Sort Direction
+      - description: The maximum number of results to return
+        in: query
+        name: limit
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          default: 10
+          description: The maximum number of results to return
+          title: Limit
+      - description: The number of results to skip at the beginning
+        in: query
+        name: offset
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          default: 0
+          description: The number of results to skip at the beginning
+          title: Offset
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WebhookDeliveryAttemptSummary'
+                title: Response Webhook Events List V1 Webhook  Webhook Id  Delivery
+                  Attempts List Get
+                type: array
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Webhook Events List
       tags:
       - external

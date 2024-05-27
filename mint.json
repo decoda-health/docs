@@ -82,6 +82,25 @@
                     "pages": [
                         "api-reference/external/list-roles"
                     ]
+                },
+                {
+                    "group": "Webhooks",
+                    "pages": [
+                        "webhooks",
+                        "api-reference/external/webhook-create",
+                        "api-reference/external/webhook-get",
+                        "api-reference/external/webhook-list",
+                        "api-reference/external/webhook-update",
+                        "api-reference/external/webhook-delete",
+                        {
+                            "group": "Events",
+                            "pages": [
+                                "api-reference/external/webhook-events-list",
+                                "api-reference/external/webhook-event-send",
+                                "api-reference/external/webhook-event-get"
+                            ]
+                        }
+                    ]
                 }
             ]
         }

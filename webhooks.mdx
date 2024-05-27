@@ -1,0 +1,108 @@
+---
+title: Introduction
+---
+
+Webhooks allow you to be notified about interesting events occurring in your `Tenants` Decoda accounts in _real-time_.
+To start receiving events through a webhook, you must [create a new Webhook](/api-reference/external/webhook-create) for the `Tenant` you wish to subscribe to.
+All webhooks are authenticated using HMAC SHA-256 and their payloads are signed using a secret which is generated when you create a webhook endpoint.
+
+## Security
+
+To validate that webhook payloads are legitimate, use the `Decoda-Signature` header.
+The `Decoda-Signature` header contains the HMAC SHA-256 signature of the payload and a secret key.
+Your server should generate it's own signature using the same secret and compare it with the received signature.
+See the examples on the right for how to validate Decoda Signatures.
+
+<RequestExample>
+
+```python webhook.py
+import json
+from fastapi import FastAPI, Request, HTTPException
+import hmac
+import hashlib
+
+app = FastAPI()
+
+# Secret key for signature validation, store this in a safe place!
+SECRET = "961c2c1c9c66dad600f29a26e0320a96"
+
+def generate_signature(body: str, secret: str) -> str:
+    return hmac.new(secret.encode(), body.encode(), hashlib.sha256).hexdigest()
+
+# Define a route to handle incoming webhooks.
+@app.post("/webhook")
+async def webhook(request: Request):
+    data = await request.json()
+    signature = request.headers.get("Decoda-Signature")
+    expected_signature = generate_signature(json.dumps(data), SECRET)
+
+    # Validate the signature
+    if not hmac.compare_digest(signature, expected_signature):
+        raise HTTPException(status_code=401, detail="Invalid signature")
+    return {"status": "success"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8001)
+```
+
+```typescript webhook.ts
+import express, { Request, Response } from "express";
+import crypto from "crypto";
+
+const app = express();
+const SECRET = "961c2c1c9c66dad600f29a26e0320a96";
+
+app.use(express.json());
+
+function generateSignature(body: string, secret: string): string {
+  return crypto.createHmac("sha256", secret).update(body).digest("hex");
+}
+
+app.post("/webhook", (req: Request, res: Response) => {
+  const signature = req.headers["decoda-signature"] as string;
+  const expectedSignature = generateSignature(JSON.stringify(req.body), SECRET);
+
+  if (signature !== expectedSignature) {
+    return res.status(401).send("Invalid signature");
+  }
+
+  console.log(req.body);
+  res.json({ status: "success" });
+});
+
+app.listen(8001, () => {
+  console.log("Server is running on port 8001");
+});
+```
+
+```php webhook.php
+<?php
+$secret = '961c2c1c9c66dad600f29a26e0320a96';
+
+function generate_signature($body, $secret) {
+    return hash_hmac('sha256', $body, $secret);
+}
+
+$body = file_get_contents('php://input');
+$signature = $_SERVER['HTTP_DECODA_SIGNATURE'];
+$expected_signature = generate_signature($body, $secret);
+
+if (!hash_equals($signature, $expected_signature)) {
+    http_response_code(401);
+    echo json_encode(['status' => 'Invalid signature']);
+    exit;
+}
+
+$data = json_decode($body, true);
+error_log(print_r($data, true));
+echo json_encode(['status' => 'success']);
+?>
+```
+
+</RequestExample>
+
+## Error Handling
+
+If a webhook delivery fails, the system will retry the delivery. If the delivery continues to fail, an email notification will be sent to the `notification_email` specified in the webhook.
+To prevent this, you can set the `notification_email` to `null` when creating the webhook.
