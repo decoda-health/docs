@@ -13,7 +13,7 @@ The `Decoda-Signature` header contains the HMAC SHA-256 signature of the payload
 Your server should generate it's own signature using the same secret and compare it with the received signature.
 See the examples on the right for how to validate Decoda Signatures.
 
-<RequestExample>
+<CodeGroup>
 
 ```python webhook.py
 import json
@@ -100,7 +100,7 @@ echo json_encode(['status' => 'success']);
 ?>
 ```
 
-</RequestExample>
+</CodeGroup>
 
 ## Error Handling
 
