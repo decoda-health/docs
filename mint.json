@@ -84,6 +84,15 @@
                     ]
                 },
                 {
+                    "group": "POS Devices",
+                    "pages": [
+                        "pos-devices/link_2500",
+                        "pos-devices/lane_3000",
+                        "pos-devices/lane_7000"
+
+                    ]
+                },
+                {
                     "group": "Webhooks",
                     "pages": [
                         "webhooks",
