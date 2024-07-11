@@ -38,27 +38,7 @@
             "group": "API Reference",
             "pages": [
                 {
-                    "group": "Patient",
-                    "pages": [
-                        "api-reference/external/patient-create",
-                        "api-reference/external/patient-get",
-                        "api-reference/external/patient-get-by-external-id",
-                        "api-reference/external/patient-list",
-                        "api-reference/external/patient-update"
-                    ]
-                },
-                {
-                    "group": "Item",
-                    "pages": [
-                        "api-reference/external/item-create",
-                        "api-reference/external/item-delete",
-                        "api-reference/external/item-get",
-                        "api-reference/external/item-list",
-                        "api-reference/external/item-update"
-                    ]
-                },
-                {
-                    "group": "Charge",
+                    "group": "Charges",
                     "pages": [
                         "api-reference/external/charge-adjust",
                         "api-reference/external/charge-create",
@@ -68,7 +48,35 @@
                     ]
                 },
                 {
-                    "group": "Provider",
+                    "group": "Invoices",
+                    "pages": [
+                        "api-reference/external/create-invoice",
+                        "api-reference/external/get-invoice",
+                        "api-reference/external/list-invoices"
+                    ]
+                },
+                {
+                    "group": "Items",
+                    "pages": [
+                        "api-reference/external/item-create",
+                        "api-reference/external/item-delete",
+                        "api-reference/external/item-get",
+                        "api-reference/external/item-list",
+                        "api-reference/external/item-update"
+                    ]
+                },
+                {
+                    "group": "Patients",
+                    "pages": [
+                        "api-reference/external/patient-create",
+                        "api-reference/external/patient-get",
+                        "api-reference/external/patient-get-by-external-id",
+                        "api-reference/external/patient-list",
+                        "api-reference/external/patient-update"
+                    ]
+                },
+                {
+                    "group": "Providers",
                     "pages": [
                         "api-reference/external/provider-create",
                         "api-reference/external/provider-get",
@@ -80,35 +88,31 @@
                 {
                     "group": "Roles",
                     "pages": [
-                        "api-reference/external/list-roles"
+                        "api-reference/external/role-list"
                     ]
                 },
                 {
-                    "group": "POS Devices",
+                    "group": "Rules",
                     "pages": [
-                        "pos-devices/link_2500",
-                        "pos-devices/lane_3000",
-                        "pos-devices/lane_7000"
-
+                        "api-reference/external/rule-set-create",
+                        "api-reference/external/rule-set-list",
+                        "api-reference/external/rule-create",
+                        "api-reference/external/rule-get",
+                        "api-reference/external/rule-list",
+                        "api-reference/external/rule-update"
                     ]
                 },
                 {
                     "group": "Webhooks",
                     "pages": [
-                        "webhooks",
                         "api-reference/external/webhook-create",
+                        "api-reference/external/webhook-delete",
+                        "api-reference/external/webhook-event-get",
+                        "api-reference/external/webhook-event-send",
                         "api-reference/external/webhook-get",
                         "api-reference/external/webhook-list",
                         "api-reference/external/webhook-update",
-                        "api-reference/external/webhook-delete",
-                        {
-                            "group": "Events",
-                            "pages": [
-                                "api-reference/external/webhook-events-list",
-                                "api-reference/external/webhook-event-send",
-                                "api-reference/external/webhook-event-get"
-                            ]
-                        }
+                        "api-reference/external/webhook-events-list"
                     ]
                 }
             ]
