@@ -157,6 +157,13 @@ components:
           - $ref: '#/components/schemas/ChargeStatus'
           default: OUTSTANDING
           description: Current status of the charge.
+        subscriptionId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Identifier of the `Subscription` this charge is associated
+            with, if any.
+          title: Subscriptionid
         totalOutstanding:
           description: Total outstanding amount that is yet to be paid.
           title: Totaloutstanding
@@ -219,6 +226,12 @@ components:
             $ref: '#/components/schemas/ChargeItem'
           title: Items
           type: array
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the charge relevant to your system.
+          title: Meta
         patient:
           allOf:
           - $ref: '#/components/schemas/PatientSummary'
@@ -330,12 +343,47 @@ components:
       - quantity
       title: ChargeItemCreateWithoutId
       type: object
+    ChargePaymentChargeSummary:
+      properties:
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+        id:
+          title: Id
+          type: string
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          title: Meta
+        total:
+          title: Total
+          type: integer
+        totalOutstanding:
+          title: Totaloutstanding
+          type: integer
+      required:
+      - totalOutstanding
+      - total
+      - id
+      title: ChargePaymentChargeSummary
+      type: object
     ChargePaymentDetail:
       properties:
         amount:
           description: The amount of the payment.
           title: Amount
           type: integer
+        charge:
+          allOf:
+          - $ref: '#/components/schemas/ChargePaymentChargeSummary'
+          description: Summary of the charge associated with the payment.
+        chargeId:
+          description: The unique identifier for the charge.
+          title: Chargeid
+          type: string
         createdDate:
           description: The date and time the payment was created.
           format: date-time
@@ -353,6 +401,8 @@ components:
       - paymentId
       - amount
       - createdDate
+      - chargeId
+      - charge
       - payment
       title: ChargePaymentDetail
       type: object
@@ -410,6 +460,12 @@ components:
           description: Unique identifier for the charge.
           title: Id
           type: string
+        meta:
+          anyOf:
+          - type: object
+          - type: 'null'
+          description: Any additional metadata about the charge relevant to your system.
+          title: Meta
         patient:
           allOf:
           - $ref: '#/components/schemas/PatientSummary'
@@ -455,6 +511,17 @@ components:
       - patient
       title: ChargeSummary
       type: object
+    CommunicationMethod:
+      enum:
+      - Native
+      - SMS
+      - MAIL
+      - PHONE
+      - COLLECTIONS
+      - EMAIL
+      - SMS_AND_EMAIL
+      title: CommunicationMethod
+      type: string
     EventType:
       description: EventType is an enum that represents the type of event that will
         be sent to the webhook.
@@ -483,12 +550,24 @@ components:
           - type: 'null'
           description: Additional address information.
           title: Addresslinetwo
+        addressValid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          description: Whether the user's address is valid.
+          title: Addressvalid
         city:
           anyOf:
           - type: string
           - type: 'null'
           description: The city of the user's address.
           title: City
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The country of the user's address.
+          title: Country
         createdDate:
           description: The date and time when the user was created.
           format: date-time
@@ -570,6 +649,85 @@ components:
           title: Detail
           type: array
       title: HTTPValidationError
+      type: object
+    InvoiceCreate:
+      properties:
+        chargeId:
+          description: Identifier of the charge associated with this invoice.
+          title: Chargeid
+          type: string
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: External identifier for the invoice, if applicable.
+          title: Externalid
+        ruleId:
+          description: Identifier of the rule that triggered this invoice, if applicable.
+          title: Ruleid
+          type: string
+      required:
+      - chargeId
+      - ruleId
+      title: InvoiceCreate
+      type: object
+    InvoiceSummary:
+      properties:
+        actionId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Identifier of the action that created this invoice, if applicable.
+          title: Actionid
+        active:
+          description: Indicates whether this invoice is currently active.
+          title: Active
+          type: boolean
+        charge:
+          allOf:
+          - $ref: '#/components/schemas/ChargeSummary'
+          description: Summary of the charge associated with this invoice.
+        createdDate:
+          description: The date and time when this invoice was created.
+          format: date-time
+          title: Createddate
+          type: string
+        decodaPaymentLinkUrl:
+          description: Decoda-specific URL for payment processing.
+          title: Decodapaymentlinkurl
+          type: string
+        id:
+          description: Unique identifier for the invoice.
+          title: Id
+          type: string
+        method:
+          allOf:
+          - $ref: '#/components/schemas/CommunicationMethod'
+          description: The method used to communicate this invoice to the patient.
+        patientId:
+          description: Identifier of the patient associated with this invoice.
+          title: Patientid
+          type: string
+        paymentLinkUrl:
+          description: URL for the patient to make a payment for this invoice.
+          title: Paymentlinkurl
+          type: string
+        ruleId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Identifier of the rule that triggered this invoice, if applicable.
+          title: Ruleid
+      required:
+      - id
+      - patientId
+      - paymentLinkUrl
+      - decodaPaymentLinkUrl
+      - method
+      - active
+      - createdDate
+      - charge
+      title: InvoiceSummary
       type: object
     ItemCreateWithoutId:
       properties:
@@ -723,6 +881,12 @@ components:
           - type: 'null'
           description: Additional address information.
           title: Addresslinetwo
+        addressValid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          description: Whether the user's address is valid.
+          title: Addressvalid
         city:
           anyOf:
           - type: string
@@ -806,12 +970,24 @@ components:
           - type: 'null'
           description: Additional address information.
           title: Addresslinetwo
+        addressValid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          description: Whether the user's address is valid.
+          title: Addressvalid
         city:
           anyOf:
           - type: string
           - type: 'null'
           description: The city of the user's address.
           title: City
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The country of the user's address.
+          title: Country
         createdDate:
           description: The date and time when the user was created.
           format: date-time
@@ -893,11 +1069,47 @@ components:
       type: object
     PatientUpdate:
       properties:
+        address:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Address
+        addressLineTwo:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Addresslinetwo
+        addressValid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Addressvalid
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: City
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Country
+        dateOfBirth:
+          anyOf:
+          - format: date
+            type: string
+          - type: 'null'
+          title: Dateofbirth
         email:
           anyOf:
           - type: string
           - type: 'null'
           title: Email
+        externalUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externaluserid
         firstName:
           anyOf:
           - type: string
@@ -923,10 +1135,25 @@ components:
           - type: string
           - type: 'null'
           title: Phonenumber
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
         updatedDate:
           format: date-time
           title: Updateddate
           type: string
+        zipCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Zipcode
       title: PatientUpdate
       type: object
     Payment:
@@ -1031,6 +1258,8 @@ components:
       - VIRTUAL_TERMINAL
       - PAYMENT_LINK
       - EMBEDDED_FORM
+      - SUBSCRIPTION
+      - CASH
       title: PaymentMedium
       type: string
     PaymentMethodSummary:
@@ -1079,8 +1308,10 @@ components:
           - type: 'null'
           title: Last4
         patientId:
+          anyOf:
+          - type: string
+          - type: 'null'
           title: Patientid
-          type: string
         rainforestPaymentMethodId:
           title: Rainforestpaymentmethodid
           type: string
@@ -1091,9 +1322,8 @@ components:
           title: Routingnumber
         type:
           anyOf:
-          - type: string
+          - $ref: '#/components/schemas/PaymentMethodType'
           - type: 'null'
-          title: Type
       required:
       - id
       - patientId
@@ -1110,6 +1340,13 @@ components:
       - type
       title: PaymentMethodSummary
       type: object
+    PaymentMethodType:
+      enum:
+      - CARD
+      - ACH
+      - APPLE_PAY
+      title: PaymentMethodType
+      type: string
     PaymentStatus:
       enum:
       - PENDING
@@ -1215,6 +1452,12 @@ components:
           - type: 'null'
           description: Additional address information.
           title: Addresslinetwo
+        addressValid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          description: Whether the user's address is valid.
+          title: Addressvalid
         city:
           anyOf:
           - type: string
@@ -1280,11 +1523,41 @@ components:
       type: object
     ProviderUpdate:
       properties:
+        address:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Address
+        addressLineTwo:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Addresslinetwo
+        addressValid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Addressvalid
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: City
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Country
         email:
           anyOf:
           - type: string
           - type: 'null'
           title: Email
+        externalUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externaluserid
         firstName:
           anyOf:
           - type: string
@@ -1313,10 +1586,25 @@ components:
           - type: 'null'
           description: List of roles associated with the provider.
           title: Roles
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
         updatedDate:
           format: date-time
           title: Updateddate
           type: string
+        zipCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Zipcode
       title: ProviderUpdate
       type: object
     RefundReason:
@@ -1371,6 +1659,246 @@ components:
       required:
       - name
       title: RoleSummary
+      type: object
+    RuleCreate:
+      properties:
+        amountGreaterThan:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Lower bound for the amount, exclusive.
+          title: Amountgreaterthan
+        amountLessThan:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Upper bound for the amount, exclusive.
+          title: Amountlessthan
+        delayInDays:
+          description: Number of days to delay before applying the rule.
+          title: Delayindays
+          type: integer
+        lessThanOrEqualTo:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Upper bound for the amount, inclusive.
+          title: Lessthanorequalto
+        message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Message to be sent when applying this rule, must contain the
+            {url} and {first_name} placeholders.
+          title: Message
+        method:
+          allOf:
+          - $ref: '#/components/schemas/CommunicationMethod'
+          description: Communication method to be used for this rule.
+        name:
+          description: Name of the rule.
+          title: Name
+          type: string
+        ruleSetId:
+          description: Identifier of the rule set this rule belongs to.
+          title: Rulesetid
+          type: string
+      required:
+      - name
+      - ruleSetId
+      - delayInDays
+      - method
+      title: RuleCreate
+      type: object
+    RuleCreateWithoutId:
+      properties:
+        amountGreaterThan:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Lower bound for the amount, exclusive.
+          title: Amountgreaterthan
+        amountLessThan:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Upper bound for the amount, exclusive.
+          title: Amountlessthan
+        delayInDays:
+          description: Number of days to delay before applying the rule.
+          title: Delayindays
+          type: integer
+        lessThanOrEqualTo:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Upper bound for the amount, inclusive.
+          title: Lessthanorequalto
+        message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Message to be sent when applying this rule, must contain the
+            {url} and {first_name} placeholders.
+          title: Message
+        method:
+          allOf:
+          - $ref: '#/components/schemas/CommunicationMethod'
+          description: Communication method to be used for this rule.
+        name:
+          description: Name of the rule.
+          title: Name
+          type: string
+      required:
+      - name
+      - delayInDays
+      - method
+      title: RuleCreateWithoutId
+      type: object
+    RuleSetCreate:
+      properties:
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional description of the rule set to be created.
+          title: Description
+        name:
+          description: Name of the rule set to be created.
+          title: Name
+          type: string
+        rules:
+          default: []
+          description: List of rules to be created.
+          items:
+            $ref: '#/components/schemas/RuleCreateWithoutId'
+          title: Rules
+          type: array
+      required:
+      - name
+      title: RuleSetCreate
+      type: object
+    RuleSetSummary:
+      properties:
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional description of the rule set.
+          title: Description
+        id:
+          description: Unique identifier for the rule set.
+          title: Id
+          type: string
+        name:
+          description: Name of the rule set.
+          title: Name
+          type: string
+        rules:
+          default: []
+          description: List of rules contained in this rule set.
+          items:
+            $ref: '#/components/schemas/RuleSummary'
+          title: Rules
+          type: array
+      required:
+      - id
+      - name
+      title: RuleSetSummary
+      type: object
+    RuleSummary:
+      properties:
+        amountGreaterThan:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Lower bound for the amount, exclusive.
+          title: Amountgreaterthan
+        amountLessThan:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Upper bound for the amount, exclusive.
+          title: Amountlessthan
+        delayInDays:
+          description: Number of days to delay before applying the rule.
+          title: Delayindays
+          type: integer
+        id:
+          description: Unique identifier for the rule.
+          title: Id
+          type: string
+        lessThanOrEqualTo:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Upper bound for the amount, inclusive.
+          title: Lessthanorequalto
+        message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Message to be sent when applying this rule.
+          title: Message
+        method:
+          allOf:
+          - $ref: '#/components/schemas/CommunicationMethod'
+          description: Communication method to be used for this rule.
+        name:
+          description: Name of the rule.
+          title: Name
+          type: string
+        ruleSetId:
+          description: Identifier of the rule set this rule belongs to.
+          title: Rulesetid
+          type: string
+      required:
+      - id
+      - name
+      - delayInDays
+      - ruleSetId
+      - method
+      title: RuleSummary
+      type: object
+    RuleUpdate:
+      properties:
+        amountGreaterThan:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Lower bound for the amount, exclusive.
+          title: Amountgreaterthan
+        amountLessThan:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Upper bound for the amount, exclusive.
+          title: Amountlessthan
+        delayInDays:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Number of days to delay before applying the rule.
+          title: Delayindays
+        lessThanOrEqualTo:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: Upper bound for the amount, inclusive.
+          title: Lessthanorequalto
+        message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Message to be sent when applying this rule, must contain the
+            {url} and {first_name} placeholders.
+          title: Message
+        method:
+          anyOf:
+          - $ref: '#/components/schemas/CommunicationMethod'
+          - type: 'null'
+          description: Communication method to be used for this rule.
+      title: RuleUpdate
       type: object
     ValidationError:
       properties:
@@ -1843,6 +2371,181 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Charge List
+      tags:
+      - external
+  /v1/invoice/create:
+    post:
+      description: Create a new `Invoice` for a `Charge`.
+      operationId: create_invoice_v1_invoice_create_post
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceCreate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Create Invoice
+      tags:
+      - external
+  /v1/invoice/get/{invoice_id}:
+    get:
+      description: Get an `Invoice` by ID.
+      operationId: get_invoice_v1_invoice_get__invoice_id__get
+      parameters:
+      - in: path
+        name: invoice_id
+        required: true
+        schema:
+          title: Invoice Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Get Invoice
+      tags:
+      - external
+  /v1/invoice/list:
+    get:
+      description: Get a list of `Invoices`s. You can filter by `patient_id`, `status`,
+        and `external_id`.
+      operationId: list_invoices_v1_invoice_list_get
+      parameters:
+      - description: The field to sort by in snake case, i.e. created_date
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          default: created_date
+          description: The field to sort by in snake case, i.e. created_date
+          title: Sort By
+          type: string
+      - description: The direction to sort by
+        in: query
+        name: sort_direction
+        required: false
+        schema:
+          default: desc
+          description: The direction to sort by
+          enum:
+          - asc
+          - desc
+          title: Sort Direction
+          type: string
+      - description: The patient ID to filter by
+        in: query
+        name: patient_id
+        required: false
+        schema:
+          description: The patient ID to filter by
+          title: Patient Id
+          type: string
+      - description: The status to filter by
+        in: query
+        name: status
+        required: false
+        schema:
+          description: The status to filter by
+          enum:
+          - active
+          - inactive
+          title: Status
+          type: string
+      - description: The external ID to filter by
+        in: query
+        name: external_id
+        required: false
+        schema:
+          description: The external ID to filter by
+          title: External Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/InvoiceSummary'
+                title: Response List Invoices V1 Invoice List Get
+                type: array
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: List Invoices
       tags:
       - external
   /v1/item/create:
@@ -2639,6 +3342,264 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Role List
+      tags:
+      - external
+  /v1/rule-set/create:
+    post:
+      description: Create a new `RuleSet` with associated `Rule`s.
+      operationId: rule_set_create_v1_rule_set_create_post
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleSetCreate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleSetSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Rule Set Create
+      tags:
+      - external
+  /v1/rule-set/list:
+    get:
+      description: Get a list of all `RuleSet`s with their associated `Rule`s.
+      operationId: rule_set_list_v1_rule_set_list_get
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RuleSetSummary'
+                title: Response Rule Set List V1 Rule Set List Get
+                type: array
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Rule Set List
+      tags:
+      - external
+  /v1/rule/create:
+    post:
+      description: Create a new `Rule`.
+      operationId: rule_create_v1_rule_create_post
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleCreate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Rule Create
+      tags:
+      - external
+  /v1/rule/get/{rule_id}:
+    get:
+      description: Get a `Rule` by ID.
+      operationId: rule_get_v1_rule_get__rule_id__get
+      parameters:
+      - in: path
+        name: rule_id
+        required: true
+        schema:
+          title: Rule Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Rule Get
+      tags:
+      - external
+  /v1/rule/list:
+    get:
+      description: Get a list of all `Rule`s.
+      operationId: rule_list_v1_rule_list_get
+      parameters:
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RuleSummary'
+                title: Response Rule List V1 Rule List Get
+                type: array
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Rule List
+      tags:
+      - external
+  /v1/rule/update/{rule_id}:
+    put:
+      description: Update an existing `Rule` by ID.
+      operationId: rule_update_v1_rule_update__rule_id__put
+      parameters:
+      - in: path
+        name: rule_id
+        required: true
+        schema:
+          title: Rule Id
+          type: string
+      - description: The tenant you are making this request on behalf of
+        in: header
+        name: TENANT
+        required: true
+        schema:
+          description: The tenant you are making this request on behalf of
+          title: Tenant
+          type: string
+      - description: Your api key
+        in: header
+        name: API-KEY
+        required: true
+        schema:
+          description: Your api key
+          title: Api-Key
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleUpdate'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleSummary'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Rule Update
       tags:
       - external
   /v1/webhook/create:
