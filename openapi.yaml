@@ -10,23 +10,23 @@ components:
           type: string
         providerId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Providerid
         reason:
           title: Reason
           type: string
       required:
-      - chargeId
-      - amount
-      - reason
+        - chargeId
+        - amount
+        - reason
       title: AdjustmentCreate
       type: object
     AdjustmentSummary:
       properties:
         adjustmentType:
           allOf:
-          - $ref: '#/components/schemas/AdjustmentType'
+            - $ref: "#/components/schemas/AdjustmentType"
           description: Type of the adjustment
         amount:
           description: Amount of the adjustment
@@ -46,41 +46,42 @@ components:
           type: string
         providerId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Providerid
         reason:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Reason for the adjustment
           title: Reason
       required:
-      - chargeId
-      - id
-      - amount
-      - createdDate
-      - adjustmentType
+        - chargeId
+        - id
+        - amount
+        - createdDate
+        - adjustmentType
       title: AdjustmentSummary
       type: object
     AdjustmentType:
       enum:
-      - WRITE_OFF
-      - ADJUSTMENT
-      - EXTERNAL_SETTLEMENT
+        - WRITE_OFF
+        - ADJUSTMENT
+        - EXTERNAL_SETTLEMENT
       title: AdjustmentType
       type: string
     ChargeCreateWithoutID:
-      description: 'Create a Charge for a Patient.
+      description: "Create a Charge for a Patient.
 
         These typically come from balances owed to the Tenant by the Patient (i.e.
-        due to a copay).'
+        due to a copay)."
       properties:
         creatorId:
           anyOf:
-          - type: string
-          - type: 'null'
-          description: Identifier of the `Provider` who created the charge (i.e. the
+            - type: string
+            - type: "null"
+          description:
+            Identifier of the `Provider` who created the charge (i.e. the
             Doctor, or relevant Biller).
           title: Creatorid
         customAmount:
@@ -90,49 +91,50 @@ components:
           type: integer
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Description of the charge.
           title: Description
         discountAmount:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           default: 0
           description: Any discount applied to the total outstanding.
           title: Discountamount
         discountPercentage:
           anyOf:
-          - type: number
-          - type: 'null'
+            - type: number
+            - type: "null"
           default: 0.0
           description: Percentage of discount applied to the charge.
           title: Discountpercentage
         externalCreatedDate:
           anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
-          description: The creation date of the charge in your external system, if
+            - format: date-time
+              type: string
+            - type: "null"
+          description:
+            The creation date of the charge in your external system, if
             applicable.
           title: Externalcreateddate
         externalId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: External identifier for the charge, if applicable.
           title: Externalid
         items:
           default: []
           description: List of `Items` in the `Charge`.
           items:
-            $ref: '#/components/schemas/ChargeItemCreateWithoutId'
+            $ref: "#/components/schemas/ChargeItemCreateWithoutId"
           title: Items
           type: array
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the charge relevant to your system.
           title: Meta
         patientId:
@@ -141,27 +143,28 @@ components:
           type: string
         patientPaysProcessingFee:
           anyOf:
-          - type: boolean
-          - type: 'null'
+            - type: boolean
+            - type: "null"
           default: false
           description: Indicates if the patient is responsible for processing fees.
           title: Patientpaysprocessingfee
         ruleSetId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Identifier for the `RuleSet` applied to this `Charge`, if any.
           title: Rulesetid
         status:
           allOf:
-          - $ref: '#/components/schemas/ChargeStatus'
+            - $ref: "#/components/schemas/ChargeStatus"
           default: OUTSTANDING
           description: Current status of the charge.
         subscriptionId:
           anyOf:
-          - type: string
-          - type: 'null'
-          description: Identifier of the `Subscription` this charge is associated
+            - type: string
+            - type: "null"
+          description:
+            Identifier of the `Subscription` this charge is associated
             with, if any.
           title: Subscriptionid
         totalOutstanding:
@@ -169,15 +172,15 @@ components:
           title: Totaloutstanding
           type: integer
       required:
-      - patientId
-      - totalOutstanding
+        - patientId
+        - totalOutstanding
       title: ChargeCreateWithoutID
       type: object
     ChargeDetail:
       properties:
         adjustments:
           items:
-            $ref: '#/components/schemas/AdjustmentSummary'
+            $ref: "#/components/schemas/AdjustmentSummary"
           title: Adjustments
           type: array
         createdDate:
@@ -191,8 +194,8 @@ components:
           type: integer
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Description of the charge.
           title: Description
         discountAmount:
@@ -205,16 +208,17 @@ components:
           type: number
         externalCreatedDate:
           anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
-          description: The creation date of the charge in your external system, if
+            - format: date-time
+              type: string
+            - type: "null"
+          description:
+            The creation date of the charge in your external system, if
             applicable.
           title: Externalcreateddate
         externalId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: External identifier for the charge, if applicable.
           title: Externalid
         id:
@@ -223,18 +227,18 @@ components:
           type: string
         items:
           items:
-            $ref: '#/components/schemas/ChargeItem'
+            $ref: "#/components/schemas/ChargeItem"
           title: Items
           type: array
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the charge relevant to your system.
           title: Meta
         patient:
           allOf:
-          - $ref: '#/components/schemas/PatientSummary'
+            - $ref: "#/components/schemas/PatientSummary"
           description: Summary details of the patient being charged.
         patientId:
           description: Identifier of the patient being charged.
@@ -246,43 +250,44 @@ components:
           type: boolean
         payments:
           items:
-            $ref: '#/components/schemas/ChargePaymentDetail'
+            $ref: "#/components/schemas/ChargePaymentDetail"
           title: Payments
           type: array
         ruleSetId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Identifier for the rule set applied to this charge, if any.
           title: Rulesetid
         status:
           allOf:
-          - $ref: '#/components/schemas/ChargeStatus'
+            - $ref: "#/components/schemas/ChargeStatus"
           description: Current status of the charge.
         total:
           description: Total amount of the charge.
           title: Total
           type: integer
         totalOutstanding:
-          description: Total outstanding amount that is yet to be paid or adjusted
+          description:
+            Total outstanding amount that is yet to be paid or adjusted
             away.
           title: Totaloutstanding
           type: integer
       required:
-      - id
-      - patientId
-      - customAmount
-      - total
-      - totalOutstanding
-      - status
-      - discountAmount
-      - discountPercentage
-      - patientPaysProcessingFee
-      - createdDate
-      - patient
-      - adjustments
-      - payments
-      - items
+        - id
+        - patientId
+        - customAmount
+        - total
+        - totalOutstanding
+        - status
+        - discountAmount
+        - discountPercentage
+        - patientPaysProcessingFee
+        - createdDate
+        - patient
+        - adjustments
+        - payments
+        - items
       title: ChargeDetail
       type: object
     ChargeItem:
@@ -301,8 +306,8 @@ components:
           type: number
         item:
           anyOf:
-          - $ref: '#/components/schemas/ItemSummary'
-          - type: 'null'
+            - $ref: "#/components/schemas/ItemSummary"
+            - type: "null"
           description: Summary details of the item being charged.
         itemId:
           description: Unique identifier for the item.
@@ -313,26 +318,28 @@ components:
           title: Quantity
           type: integer
       required:
-      - itemId
-      - chargeId
-      - quantity
-      - discountAmount
-      - discountPercentage
+        - itemId
+        - chargeId
+        - quantity
+        - discountAmount
+        - discountPercentage
       title: ChargeItem
       type: object
     ChargeItemCreateWithoutId:
       properties:
         item:
           anyOf:
-          - $ref: '#/components/schemas/ItemCreateWithoutId'
-          - type: 'null'
-          description: Item to create if it doesn't already exist. If it does exist,
+            - $ref: "#/components/schemas/ItemCreateWithoutId"
+            - type: "null"
+          description:
+            Item to create if it doesn't already exist. If it does exist,
             the `item_id` should be provided.
         itemId:
           anyOf:
-          - type: string
-          - type: 'null'
-          description: Decoda ID of the item if it already exists. If not, the `item`
+            - type: string
+            - type: "null"
+          description:
+            Decoda ID of the item if it already exists. If not, the `item`
             field should be provided.
           title: Itemid
         quantity:
@@ -340,23 +347,23 @@ components:
           title: Quantity
           type: integer
       required:
-      - quantity
+        - quantity
       title: ChargeItemCreateWithoutId
       type: object
     ChargePaymentChargeSummary:
       properties:
         externalId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Externalid
         id:
           title: Id
           type: string
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           title: Meta
         total:
           title: Total
@@ -365,9 +372,9 @@ components:
           title: Totaloutstanding
           type: integer
       required:
-      - totalOutstanding
-      - total
-      - id
+        - totalOutstanding
+        - total
+        - id
       title: ChargePaymentChargeSummary
       type: object
     ChargePaymentDetail:
@@ -378,7 +385,7 @@ components:
           type: integer
         charge:
           allOf:
-          - $ref: '#/components/schemas/ChargePaymentChargeSummary'
+            - $ref: "#/components/schemas/ChargePaymentChargeSummary"
           description: Summary of the charge associated with the payment.
         chargeId:
           description: The unique identifier for the charge.
@@ -391,30 +398,30 @@ components:
           type: string
         payment:
           allOf:
-          - $ref: '#/components/schemas/Payment'
+            - $ref: "#/components/schemas/Payment"
           description: Detailed information about the payment.
         paymentId:
           description: The unique identifier for the payment.
           title: Paymentid
           type: string
       required:
-      - paymentId
-      - amount
-      - createdDate
-      - chargeId
-      - charge
-      - payment
+        - paymentId
+        - amount
+        - createdDate
+        - chargeId
+        - charge
+        - payment
       title: ChargePaymentDetail
       type: object
     ChargeStatus:
       enum:
-      - OUTSTANDING
-      - PAID
-      - EXTERNAL_SETTLEMENT
-      - VOID
-      - WRITE_OFF
-      - REFUNDED
-      - PAYMENT_PLAN
+        - OUTSTANDING
+        - PAID
+        - EXTERNAL_SETTLEMENT
+        - VOID
+        - WRITE_OFF
+        - REFUNDED
+        - PAYMENT_PLAN
       title: ChargeStatus
       type: string
     ChargeSummary:
@@ -430,8 +437,8 @@ components:
           type: integer
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Description of the charge.
           title: Description
         discountAmount:
@@ -444,16 +451,17 @@ components:
           type: number
         externalCreatedDate:
           anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
-          description: The creation date of the charge in your external system, if
+            - format: date-time
+              type: string
+            - type: "null"
+          description:
+            The creation date of the charge in your external system, if
             applicable.
           title: Externalcreateddate
         externalId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: External identifier for the charge, if applicable.
           title: Externalid
         id:
@@ -462,13 +470,13 @@ components:
           type: string
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the charge relevant to your system.
           title: Meta
         patient:
           allOf:
-          - $ref: '#/components/schemas/PatientSummary'
+            - $ref: "#/components/schemas/PatientSummary"
           description: Summary details of the patient being charged.
         patientId:
           description: Identifier of the patient being charged.
@@ -480,92 +488,94 @@ components:
           type: boolean
         ruleSetId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Identifier for the rule set applied to this charge, if any.
           title: Rulesetid
         status:
           allOf:
-          - $ref: '#/components/schemas/ChargeStatus'
+            - $ref: "#/components/schemas/ChargeStatus"
           description: Current status of the charge.
         total:
           description: Total amount of the charge.
           title: Total
           type: integer
         totalOutstanding:
-          description: Total outstanding amount that is yet to be paid or adjusted
+          description:
+            Total outstanding amount that is yet to be paid or adjusted
             away.
           title: Totaloutstanding
           type: integer
       required:
-      - id
-      - patientId
-      - customAmount
-      - total
-      - totalOutstanding
-      - status
-      - discountAmount
-      - discountPercentage
-      - patientPaysProcessingFee
-      - createdDate
-      - patient
+        - id
+        - patientId
+        - customAmount
+        - total
+        - totalOutstanding
+        - status
+        - discountAmount
+        - discountPercentage
+        - patientPaysProcessingFee
+        - createdDate
+        - patient
       title: ChargeSummary
       type: object
     CommunicationMethod:
       enum:
-      - Native
-      - SMS
-      - MAIL
-      - PHONE
-      - COLLECTIONS
-      - EMAIL
-      - SMS_AND_EMAIL
+        - Native
+        - SMS
+        - MAIL
+        - PHONE
+        - COLLECTIONS
+        - EMAIL
+        - SMS_AND_EMAIL
       title: CommunicationMethod
       type: string
-    EventType:
-      description: EventType is an enum that represents the type of event that will
+    WebhookEventType:
+      description:
+        WebhookEventType is an enum that represents the type of event that will
         be sent to the webhook.
       enum:
-      - PAYMENT_CREATED
-      - PAYMENT_COMPLETED
-      - PAYMENT_FAILED
-      - CHARGE_CREATED
-      - ADJUSTMENT_CREATED
-      - REFUND_CREATED
-      - PATIENT_CREATED
-      - PATIENT_UPDATED
-      title: EventType
+        - PAYMENT_CREATED
+        - PAYMENT_COMPLETED
+        - PAYMENT_FAILED
+        - CHARGE_CREATED
+        - ADJUSTMENT_CREATED
+        - REFUND_CREATED
+        - PATIENT_CREATED
+        - PATIENT_UPDATED
+      title: WebhookEventType
       type: string
     ExternalProviderSummary:
       properties:
         address:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's primary address.
           title: Address
         addressLineTwo:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Additional address information.
           title: Addresslinetwo
         addressValid:
           anyOf:
-          - type: boolean
-          - type: 'null'
+            - type: boolean
+            - type: "null"
           description: Whether the user's address is valid.
           title: Addressvalid
         city:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The city of the user's address.
           title: City
         country:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The country of the user's address.
           title: Country
         createdDate:
@@ -575,14 +585,14 @@ components:
           type: string
         email:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's email address.
           title: Email
         externalUserId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's external identifier if available.
           title: Externaluserid
         firstName:
@@ -595,32 +605,32 @@ components:
           type: string
         lastName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's last name.
           title: Lastname
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the user relevant to your system.
           title: Meta
         phoneNumber:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's phone number.
           title: Phonenumber
         roles:
           description: List of roles associated with the provider.
           items:
-            $ref: '#/components/schemas/RoleSummary'
+            $ref: "#/components/schemas/RoleSummary"
           title: Roles
           type: array
         state:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The state of the user's address.
           title: State
         type:
@@ -630,22 +640,22 @@ components:
           type: string
         zipCode:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The postal code of the user's address.
           title: Zipcode
       required:
-      - id
-      - firstName
-      - createdDate
-      - roles
+        - id
+        - firstName
+        - createdDate
+        - roles
       title: ExternalProviderSummary
       type: object
     HTTPValidationError:
       properties:
         detail:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: "#/components/schemas/ValidationError"
           title: Detail
           type: array
       title: HTTPValidationError
@@ -658,8 +668,8 @@ components:
           type: string
         externalId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: External identifier for the invoice, if applicable.
           title: Externalid
         ruleId:
@@ -667,16 +677,16 @@ components:
           title: Ruleid
           type: string
       required:
-      - chargeId
-      - ruleId
+        - chargeId
+        - ruleId
       title: InvoiceCreate
       type: object
     InvoiceSummary:
       properties:
         actionId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Identifier of the action that created this invoice, if applicable.
           title: Actionid
         active:
@@ -685,7 +695,7 @@ components:
           type: boolean
         charge:
           allOf:
-          - $ref: '#/components/schemas/ChargeSummary'
+            - $ref: "#/components/schemas/ChargeSummary"
           description: Summary of the charge associated with this invoice.
         createdDate:
           description: The date and time when this invoice was created.
@@ -702,7 +712,7 @@ components:
           type: string
         method:
           allOf:
-          - $ref: '#/components/schemas/CommunicationMethod'
+            - $ref: "#/components/schemas/CommunicationMethod"
           description: The method used to communicate this invoice to the patient.
         patientId:
           description: Identifier of the patient associated with this invoice.
@@ -714,39 +724,39 @@ components:
           type: string
         ruleId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Identifier of the rule that triggered this invoice, if applicable.
           title: Ruleid
       required:
-      - id
-      - patientId
-      - paymentLinkUrl
-      - decodaPaymentLinkUrl
-      - method
-      - active
-      - createdDate
-      - charge
+        - id
+        - patientId
+        - paymentLinkUrl
+        - decodaPaymentLinkUrl
+        - method
+        - active
+        - createdDate
+        - charge
       title: InvoiceSummary
       type: object
     ItemCreateWithoutId:
       properties:
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional description of the item
           title: Description
         image:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional URL to a public image of the item
           title: Image
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the item relevant to your system.
           title: Meta
         name:
@@ -759,21 +769,21 @@ components:
           type: integer
         unit:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional unit of measurement for the item
           title: Unit
       required:
-      - name
-      - price
+        - name
+        - price
       title: ItemCreateWithoutId
       type: object
     ItemSummary:
       properties:
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional description of the item
           title: Description
         id:
@@ -782,14 +792,14 @@ components:
           type: string
         image:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional URL to an image of the item
           title: Image
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the item relevant to your system.
           title: Meta
         name:
@@ -802,52 +812,52 @@ components:
           type: integer
         unit:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional unit of measurement for the item
           title: Unit
       required:
-      - id
-      - name
-      - price
+        - id
+        - name
+        - price
       title: ItemSummary
       type: object
     ItemUpdate:
       properties:
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional description of the item
           title: Description
         image:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional URL to a public image of the item
           title: Image
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the item relevant to your system.
           title: Meta
         name:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional name of the item
           title: Name
         price:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Optional price of the item in cents
           title: Price
         unit:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional unit of measurement for the item
           title: Unit
       title: ItemUpdate
@@ -856,60 +866,60 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/ItemSummary'
+            $ref: "#/components/schemas/ItemSummary"
           title: Data
           type: array
         total:
           title: Total
           type: integer
       required:
-      - data
-      - total
+        - data
+        - total
       title: Page[ItemSummary]
       type: object
     PatientCreate:
       properties:
         address:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's primary address.
           title: Address
         addressLineTwo:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Additional address information.
           title: Addresslinetwo
         addressValid:
           anyOf:
-          - type: boolean
-          - type: 'null'
+            - type: boolean
+            - type: "null"
           description: Whether the user's address is valid.
           title: Addressvalid
         city:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The city of the user's address.
           title: City
         dateOfBirth:
           anyOf:
-          - format: date
-            type: string
-          - type: 'null'
+            - format: date
+              type: string
+            - type: "null"
           description: The date of birth of the patient.
           title: Dateofbirth
         email:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's email address.
           title: Email
         externalUserId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: An identifier in your system that corresponds to this patient.
           title: Externaluserid
         firstName:
@@ -918,74 +928,75 @@ components:
           type: string
         lastName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's last name.
           title: Lastname
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the user relevant to your system.
           title: Meta
         optedOutOfSms:
           default: false
-          description: Indicates whether the patient has opted out of receiving SMS
+          description:
+            Indicates whether the patient has opted out of receiving SMS
             messages.
           title: Optedoutofsms
           type: boolean
         phoneNumber:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's phone number.
           title: Phonenumber
         state:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The state of the user's address.
           title: State
         zipCode:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The postal code of the user's address.
           title: Zipcode
       required:
-      - firstName
+        - firstName
       title: PatientCreate
       type: object
     PatientSummary:
       properties:
         address:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's primary address.
           title: Address
         addressLineTwo:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Additional address information.
           title: Addresslinetwo
         addressValid:
           anyOf:
-          - type: boolean
-          - type: 'null'
+            - type: boolean
+            - type: "null"
           description: Whether the user's address is valid.
           title: Addressvalid
         city:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The city of the user's address.
           title: City
         country:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The country of the user's address.
           title: Country
         createdDate:
@@ -995,21 +1006,21 @@ components:
           type: string
         dateOfBirth:
           anyOf:
-          - format: date
-            type: string
-          - type: 'null'
+            - format: date
+              type: string
+            - type: "null"
           description: The date of birth of the patient.
           title: Dateofbirth
         email:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's email address.
           title: Email
         externalUserId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's external identifier if available.
           title: Externaluserid
         firstName:
@@ -1022,32 +1033,33 @@ components:
           type: string
         lastName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's last name.
           title: Lastname
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the user relevant to your system.
           title: Meta
         optedOutOfSms:
           default: false
-          description: Indicates whether the patient has opted out of receiving SMS
+          description:
+            Indicates whether the patient has opted out of receiving SMS
             messages.
           title: Optedoutofsms
           type: boolean
         phoneNumber:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's phone number.
           title: Phonenumber
         state:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The state of the user's address.
           title: State
         type:
@@ -1056,94 +1068,94 @@ components:
           type: string
         zipCode:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The postal code of the user's address.
           title: Zipcode
       required:
-      - id
-      - firstName
-      - type
-      - createdDate
+        - id
+        - firstName
+        - type
+        - createdDate
       title: PatientSummary
       type: object
     PatientUpdate:
       properties:
         address:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Address
         addressLineTwo:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Addresslinetwo
         addressValid:
           anyOf:
-          - type: boolean
-          - type: 'null'
+            - type: boolean
+            - type: "null"
           title: Addressvalid
         city:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: City
         country:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Country
         dateOfBirth:
           anyOf:
-          - format: date
-            type: string
-          - type: 'null'
+            - format: date
+              type: string
+            - type: "null"
           title: Dateofbirth
         email:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Email
         externalUserId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Externaluserid
         firstName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Firstname
         lastName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Lastname
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           title: Meta
         optedOutOfSms:
           anyOf:
-          - type: boolean
-          - type: 'null'
+            - type: boolean
+            - type: "null"
           title: Optedoutofsms
         phoneNumber:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Phonenumber
         state:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: State
         type:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Type
         updatedDate:
           format: date-time
@@ -1151,8 +1163,8 @@ components:
           type: string
         zipCode:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Zipcode
       title: PatientUpdate
       type: object
@@ -1174,8 +1186,8 @@ components:
           type: string
         failedReason:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Reason for payment failure if applicable.
           title: Failedreason
         fee:
@@ -1188,170 +1200,170 @@ components:
           type: string
         patientId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The ID of the patient associated with the payment.
           title: Patientid
         payinConfigId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The configuration ID for the payin.
           title: Payinconfigid
         payinId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The ID of the payin associated with the payment.
           title: Payinid
         paymentMedium:
           allOf:
-          - $ref: '#/components/schemas/PaymentMedium'
+            - $ref: "#/components/schemas/PaymentMedium"
           description: The medium through which the payment was made.
         paymentMethod:
           anyOf:
-          - $ref: '#/components/schemas/PaymentMethodSummary'
-          - type: 'null'
+            - $ref: "#/components/schemas/PaymentMethodSummary"
+            - type: "null"
           description: Summary of the payment method used.
         paymentMethodId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The ID of the payment method used.
           title: Paymentmethodid
         refunds:
           description: List of refunds associated with the payment.
           items:
-            $ref: '#/components/schemas/RefundSummary'
+            $ref: "#/components/schemas/RefundSummary"
           title: Refunds
           type: array
         status:
           allOf:
-          - $ref: '#/components/schemas/PaymentStatus'
+            - $ref: "#/components/schemas/PaymentStatus"
           description: The current status of the payment.
         stripePaymentIntentId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Stripe's payment intent ID if used.
           title: Stripepaymentintentid
         updatedDate:
           anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
+            - format: date-time
+              type: string
+            - type: "null"
           description: The date and time the payment was last updated.
           title: Updateddate
       required:
-      - id
-      - amount
-      - status
-      - paymentMedium
-      - createdDate
-      - fee
-      - refunds
+        - id
+        - amount
+        - status
+        - paymentMedium
+        - createdDate
+        - fee
+        - refunds
       title: Payment
       type: object
     PaymentMedium:
       enum:
-      - POS
-      - VIRTUAL_TERMINAL
-      - PAYMENT_LINK
-      - EMBEDDED_FORM
-      - SUBSCRIPTION
-      - CASH
+        - POS
+        - VIRTUAL_TERMINAL
+        - PAYMENT_LINK
+        - EMBEDDED_FORM
+        - SUBSCRIPTION
+        - CASH
       title: PaymentMedium
       type: string
     PaymentMethodSummary:
       properties:
         accountHolderType:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Accountholdertype
         accountNumberLast4:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           title: Accountnumberlast4
         bankName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Bankname
         brand:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Brand
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Description
         expMonth:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           title: Expmonth
         expYear:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           title: Expyear
         id:
           title: Id
           type: string
         last4:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Last4
         patientId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Patientid
         rainforestPaymentMethodId:
           title: Rainforestpaymentmethodid
           type: string
         routingNumber:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           title: Routingnumber
         type:
           anyOf:
-          - $ref: '#/components/schemas/PaymentMethodType'
-          - type: 'null'
+            - $ref: "#/components/schemas/PaymentMethodType"
+            - type: "null"
       required:
-      - id
-      - patientId
-      - rainforestPaymentMethodId
-      - brand
-      - last4
-      - expMonth
-      - expYear
-      - accountHolderType
-      - accountNumberLast4
-      - bankName
-      - routingNumber
-      - description
-      - type
+        - id
+        - patientId
+        - rainforestPaymentMethodId
+        - brand
+        - last4
+        - expMonth
+        - expYear
+        - accountHolderType
+        - accountNumberLast4
+        - bankName
+        - routingNumber
+        - description
+        - type
       title: PaymentMethodSummary
       type: object
     PaymentMethodType:
       enum:
-      - CARD
-      - ACH
-      - APPLE_PAY
+        - CARD
+        - ACH
+        - APPLE_PAY
       title: PaymentMethodType
       type: string
     PaymentStatus:
       enum:
-      - PENDING
-      - COMPLETED
-      - FAILED
+        - PENDING
+        - COMPLETED
+        - FAILED
       title: PaymentStatus
       type: string
     PaymentSummary:
@@ -1372,8 +1384,8 @@ components:
           type: string
         failedReason:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Reason for payment failure if applicable.
           title: Failedreason
         fee:
@@ -1386,94 +1398,94 @@ components:
           type: string
         patientId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The ID of the patient associated with the payment.
           title: Patientid
         payinConfigId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The configuration ID for the payin.
           title: Payinconfigid
         payinId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The ID of the payin associated with the payment.
           title: Payinid
         paymentMedium:
           allOf:
-          - $ref: '#/components/schemas/PaymentMedium'
+            - $ref: "#/components/schemas/PaymentMedium"
           description: The medium through which the payment was made.
         paymentMethodId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The ID of the payment method used.
           title: Paymentmethodid
         status:
           allOf:
-          - $ref: '#/components/schemas/PaymentStatus'
+            - $ref: "#/components/schemas/PaymentStatus"
           description: The current status of the payment.
         stripePaymentIntentId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Stripe's payment intent ID if used.
           title: Stripepaymentintentid
         updatedDate:
           anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
+            - format: date-time
+              type: string
+            - type: "null"
           description: The date and time the payment was last updated.
           title: Updateddate
       required:
-      - id
-      - amount
-      - status
-      - paymentMedium
-      - createdDate
-      - fee
+        - id
+        - amount
+        - status
+        - paymentMedium
+        - createdDate
+        - fee
       title: Payment
       type: object
     ProviderCreate:
       properties:
         address:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's primary address.
           title: Address
         addressLineTwo:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Additional address information.
           title: Addresslinetwo
         addressValid:
           anyOf:
-          - type: boolean
-          - type: 'null'
+            - type: boolean
+            - type: "null"
           description: Whether the user's address is valid.
           title: Addressvalid
         city:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The city of the user's address.
           title: City
         email:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's email address.
           title: Email
         externalUserId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's external identifier if available.
           title: Externaluserid
         firstName:
@@ -1482,20 +1494,20 @@ components:
           type: string
         lastName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's last name.
           title: Lastname
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           description: Any additional metadata about the user relevant to your system.
           title: Meta
         phoneNumber:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The user's phone number.
           title: Phonenumber
         roles:
@@ -1506,95 +1518,95 @@ components:
           type: array
         state:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The state of the user's address.
           title: State
         zipCode:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The postal code of the user's address.
           title: Zipcode
       required:
-      - firstName
-      - roles
+        - firstName
+        - roles
       title: ProviderCreate
       type: object
     ProviderUpdate:
       properties:
         address:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Address
         addressLineTwo:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Addresslinetwo
         addressValid:
           anyOf:
-          - type: boolean
-          - type: 'null'
+            - type: boolean
+            - type: "null"
           title: Addressvalid
         city:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: City
         country:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Country
         email:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Email
         externalUserId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Externaluserid
         firstName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Firstname
         lastName:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Lastname
         meta:
           anyOf:
-          - type: object
-          - type: 'null'
+            - type: object
+            - type: "null"
           title: Meta
         phoneNumber:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Phonenumber
         roles:
           anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
+            - items:
+                type: string
+              type: array
+            - type: "null"
           description: List of roles associated with the provider.
           title: Roles
         state:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: State
         type:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Type
         updatedDate:
           format: date-time
@@ -1602,16 +1614,16 @@ components:
           type: string
         zipCode:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Zipcode
       title: ProviderUpdate
       type: object
     RefundReason:
       enum:
-      - DUPLICATE
-      - DISPUTE
-      - OTHER
+        - DUPLICATE
+        - DISPUTE
+        - OTHER
       title: RefundReason
       type: string
     RefundSummary:
@@ -1635,20 +1647,20 @@ components:
           type: string
         rainforestRefundId:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           title: Rainforestrefundid
         reason:
-          $ref: '#/components/schemas/RefundReason'
+          $ref: "#/components/schemas/RefundReason"
         status:
-          $ref: '#/components/schemas/PaymentStatus'
+          $ref: "#/components/schemas/PaymentStatus"
       required:
-      - id
-      - paymentId
-      - amount
-      - reason
-      - createdDate
-      - status
+        - id
+        - paymentId
+        - amount
+        - reason
+        - createdDate
+        - status
       title: RefundSummary
       type: object
     RoleSummary:
@@ -1657,21 +1669,21 @@ components:
           title: Name
           type: string
       required:
-      - name
+        - name
       title: RoleSummary
       type: object
     RuleCreate:
       properties:
         amountGreaterThan:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Lower bound for the amount, exclusive.
           title: Amountgreaterthan
         amountLessThan:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Upper bound for the amount, exclusive.
           title: Amountlessthan
         delayInDays:
@@ -1680,20 +1692,21 @@ components:
           type: integer
         lessThanOrEqualTo:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Upper bound for the amount, inclusive.
           title: Lessthanorequalto
         message:
           anyOf:
-          - type: string
-          - type: 'null'
-          description: Message to be sent when applying this rule, must contain the
+            - type: string
+            - type: "null"
+          description:
+            Message to be sent when applying this rule, must contain the
             {url} and {first_name} placeholders.
           title: Message
         method:
           allOf:
-          - $ref: '#/components/schemas/CommunicationMethod'
+            - $ref: "#/components/schemas/CommunicationMethod"
           description: Communication method to be used for this rule.
         name:
           description: Name of the rule.
@@ -1704,24 +1717,24 @@ components:
           title: Rulesetid
           type: string
       required:
-      - name
-      - ruleSetId
-      - delayInDays
-      - method
+        - name
+        - ruleSetId
+        - delayInDays
+        - method
       title: RuleCreate
       type: object
     RuleCreateWithoutId:
       properties:
         amountGreaterThan:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Lower bound for the amount, exclusive.
           title: Amountgreaterthan
         amountLessThan:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Upper bound for the amount, exclusive.
           title: Amountlessthan
         delayInDays:
@@ -1730,37 +1743,38 @@ components:
           type: integer
         lessThanOrEqualTo:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Upper bound for the amount, inclusive.
           title: Lessthanorequalto
         message:
           anyOf:
-          - type: string
-          - type: 'null'
-          description: Message to be sent when applying this rule, must contain the
+            - type: string
+            - type: "null"
+          description:
+            Message to be sent when applying this rule, must contain the
             {url} and {first_name} placeholders.
           title: Message
         method:
           allOf:
-          - $ref: '#/components/schemas/CommunicationMethod'
+            - $ref: "#/components/schemas/CommunicationMethod"
           description: Communication method to be used for this rule.
         name:
           description: Name of the rule.
           title: Name
           type: string
       required:
-      - name
-      - delayInDays
-      - method
+        - name
+        - delayInDays
+        - method
       title: RuleCreateWithoutId
       type: object
     RuleSetCreate:
       properties:
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional description of the rule set to be created.
           title: Description
         name:
@@ -1771,19 +1785,19 @@ components:
           default: []
           description: List of rules to be created.
           items:
-            $ref: '#/components/schemas/RuleCreateWithoutId'
+            $ref: "#/components/schemas/RuleCreateWithoutId"
           title: Rules
           type: array
       required:
-      - name
+        - name
       title: RuleSetCreate
       type: object
     RuleSetSummary:
       properties:
         description:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Optional description of the rule set.
           title: Description
         id:
@@ -1798,26 +1812,26 @@ components:
           default: []
           description: List of rules contained in this rule set.
           items:
-            $ref: '#/components/schemas/RuleSummary'
+            $ref: "#/components/schemas/RuleSummary"
           title: Rules
           type: array
       required:
-      - id
-      - name
+        - id
+        - name
       title: RuleSetSummary
       type: object
     RuleSummary:
       properties:
         amountGreaterThan:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Lower bound for the amount, exclusive.
           title: Amountgreaterthan
         amountLessThan:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Upper bound for the amount, exclusive.
           title: Amountlessthan
         delayInDays:
@@ -1830,19 +1844,19 @@ components:
           type: string
         lessThanOrEqualTo:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Upper bound for the amount, inclusive.
           title: Lessthanorequalto
         message:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Message to be sent when applying this rule.
           title: Message
         method:
           allOf:
-          - $ref: '#/components/schemas/CommunicationMethod'
+            - $ref: "#/components/schemas/CommunicationMethod"
           description: Communication method to be used for this rule.
         name:
           description: Name of the rule.
@@ -1853,50 +1867,51 @@ components:
           title: Rulesetid
           type: string
       required:
-      - id
-      - name
-      - delayInDays
-      - ruleSetId
-      - method
+        - id
+        - name
+        - delayInDays
+        - ruleSetId
+        - method
       title: RuleSummary
       type: object
     RuleUpdate:
       properties:
         amountGreaterThan:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Lower bound for the amount, exclusive.
           title: Amountgreaterthan
         amountLessThan:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Upper bound for the amount, exclusive.
           title: Amountlessthan
         delayInDays:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Number of days to delay before applying the rule.
           title: Delayindays
         lessThanOrEqualTo:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: Upper bound for the amount, inclusive.
           title: Lessthanorequalto
         message:
           anyOf:
-          - type: string
-          - type: 'null'
-          description: Message to be sent when applying this rule, must contain the
+            - type: string
+            - type: "null"
+          description:
+            Message to be sent when applying this rule, must contain the
             {url} and {first_name} placeholders.
           title: Message
         method:
           anyOf:
-          - $ref: '#/components/schemas/CommunicationMethod'
-          - type: 'null'
+            - $ref: "#/components/schemas/CommunicationMethod"
+            - type: "null"
           description: Communication method to be used for this rule.
       title: RuleUpdate
       type: object
@@ -1905,8 +1920,8 @@ components:
         loc:
           items:
             anyOf:
-            - type: string
-            - type: integer
+              - type: string
+              - type: integer
           title: Location
           type: array
         msg:
@@ -1916,23 +1931,23 @@ components:
           title: Error Type
           type: string
       required:
-      - loc
-      - msg
-      - type
+        - loc
+        - msg
+        - type
       title: ValidationError
       type: object
     WebhookCreate:
       properties:
         notificationEmail:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Email address for sending notifications about delivery failures.
           title: Notificationemail
         subscriptions:
           description: List of event types the webhook subscribes to.
           items:
-            $ref: '#/components/schemas/EventType'
+            $ref: "#/components/schemas/WebhookEventType"
           title: Subscriptions
           type: array
         url:
@@ -1940,8 +1955,8 @@ components:
           title: Url
           type: string
       required:
-      - subscriptions
-      - url
+        - subscriptions
+        - url
       title: WebhookCreate
       type: object
     WebhookDeliveryAttemptSummary:
@@ -1954,20 +1969,21 @@ components:
           type: string
         data:
           anyOf:
-          - $ref: '#/components/schemas/PaymentSummary'
-          - $ref: '#/components/schemas/PatientSummary'
-          - $ref: '#/components/schemas/RefundSummary'
-          - $ref: '#/components/schemas/AdjustmentSummary'
-          - $ref: '#/components/schemas/ChargeSummary'
-          description: 'The `Event` associated with this `WebhookDeliveryAttempt`.
+            - $ref: "#/components/schemas/PaymentSummary"
+            - $ref: "#/components/schemas/PatientSummary"
+            - $ref: "#/components/schemas/RefundSummary"
+            - $ref: "#/components/schemas/AdjustmentSummary"
+            - $ref: "#/components/schemas/ChargeSummary"
+          description:
+            "The `Event` associated with this `WebhookDeliveryAttempt`.
             This is one of the following: `PaymentSummary`, `PatientSummary`, `RefundSummary`,
-            `AdjustmentSummary`, or `ChargeSummary`. Which depends on the `EventType`.'
+            `AdjustmentSummary`, or `ChargeSummary`. Which depends on the `WebhookEventType`."
           title: Data
         deliveredDate:
           anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
+            - format: date-time
+              type: string
+            - type: "null"
           description: The date and time when the event was delivered.
           title: Delivereddate
         id:
@@ -1976,32 +1992,32 @@ components:
           type: string
         lastDeliveryAttemptDate:
           anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
+            - format: date-time
+              type: string
+            - type: "null"
           description: The date and time when the last delivery attempt was made.
           title: Lastdeliveryattemptdate
         lastDeliveryAttemptError:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The error message from the last delivery attempt, if any.
           title: Lastdeliveryattempterror
         lastDeliveryAttemptStatus:
           anyOf:
-          - type: integer
-          - type: 'null'
+            - type: integer
+            - type: "null"
           description: The HTTP status of the last delivery attempt.
           title: Lastdeliveryattemptstatus
         type:
           allOf:
-          - $ref: '#/components/schemas/EventType'
+            - $ref: "#/components/schemas/WebhookEventType"
           description: The type of event.
       required:
-      - id
-      - type
-      - data
-      - createdDate
+        - id
+        - type
+        - data
+        - createdDate
       title: WebhookDeliveryAttemptSummary
       type: object
     WebhookSummary:
@@ -2017,8 +2033,8 @@ components:
           type: string
         notificationEmail:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Email address for sending notifications about delivery failures.
           title: Notificationemail
         secret:
@@ -2028,14 +2044,14 @@ components:
         subscriptions:
           description: List of event types the webhook is subscribed to.
           items:
-            $ref: '#/components/schemas/EventType'
+            $ref: "#/components/schemas/WebhookEventType"
           title: Subscriptions
           type: array
         updatedDate:
           anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
+            - format: date-time
+              type: string
+            - type: "null"
           description: The date and time when the webhook was last updated.
           title: Updateddate
         url:
@@ -2043,33 +2059,33 @@ components:
           title: Url
           type: string
       required:
-      - id
-      - subscriptions
-      - url
-      - createdDate
-      - secret
+        - id
+        - subscriptions
+        - url
+        - createdDate
+        - secret
       title: WebhookSummary
       type: object
     WebhookUpdate:
       properties:
         notificationEmail:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: Email address for sending notifications about delivery failures.
           title: Notificationemail
         subscriptions:
           anyOf:
-          - items:
-              $ref: '#/components/schemas/EventType'
-            type: array
-          - type: 'null'
+            - items:
+                $ref: "#/components/schemas/WebhookEventType"
+              type: array
+            - type: "null"
           description: List of event types the webhook subscribes to.
           title: Subscriptions
         url:
           anyOf:
-          - type: string
-          - type: 'null'
+            - type: string
+            - type: "null"
           description: The URL where the webhook will send notifications.
           title: Url
       title: WebhookUpdate
@@ -2077,2026 +2093,2037 @@ components:
 info:
   description: API documentation for the Decoda API.
   title: Decoda API
-  version: '1.0'
+  version: "1.0"
 openapi: 3.1.0
 paths:
   /v1/charge/adjust:
     post:
-      description: Create a new `Adjustment` for an existing `Charge`. This is used
+      description:
+        Create a new `Adjustment` for an existing `Charge`. This is used
         in the event that a balance owed by a `Patient` needs to change (i.e. a write
         off or a mistake)
       operationId: charge_adjust_v1_charge_adjust_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdjustmentCreate'
+              $ref: "#/components/schemas/AdjustmentCreate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdjustmentSummary'
+                $ref: "#/components/schemas/AdjustmentSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Charge Adjust
       tags:
-      - external
+        - external
   /v1/charge/create:
     post:
       description: Create a new `Charge` for a `Patient`.
       operationId: charge_create_v1_charge_create_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ChargeCreateWithoutID'
+              $ref: "#/components/schemas/ChargeCreateWithoutID"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChargeDetail'
+                $ref: "#/components/schemas/ChargeDetail"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Charge Create
       tags:
-      - external
+        - external
   /v1/charge/get/{charge_id}:
     get:
-      description: Get a `Charge` by ID. Also returns any `Adjustments`, `Payments`
+      description:
+        Get a `Charge` by ID. Also returns any `Adjustments`, `Payments`
         or `Refunds` for the `Charge`.
       operationId: charge_get_v1_charge_get__charge_id__get
       parameters:
-      - in: path
-        name: charge_id
-        required: true
-        schema:
-          title: Charge Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: charge_id
+          required: true
+          schema:
+            title: Charge Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChargeDetail'
+                $ref: "#/components/schemas/ChargeDetail"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Charge Get
       tags:
-      - external
+        - external
   /v1/charge/get_by_external_id/{external_id}:
     get:
       description: Get a `Charge` by its external ID (i.e. the ID in your system).
       operationId: charge_get_by_external_id_v1_charge_get_by_external_id__external_id__get
       parameters:
-      - in: path
-        name: external_id
-        required: true
-        schema:
-          title: External Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: external_id
+          required: true
+          schema:
+            title: External Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChargeDetail'
+                $ref: "#/components/schemas/ChargeDetail"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Charge Get By External Id
       tags:
-      - external
+        - external
   /v1/charge/list:
     get:
-      description: Get a list of `Charge`s. You can filter by `patientId`, `total`,
+      description:
+        Get a list of `Charge`s. You can filter by `patientId`, `total`,
         `totalOutstanding`, `description`, `status`, and `external_id`.
       operationId: charge_list_v1_charge_list_get
       parameters:
-      - description: The field to sort by in snake case, i.e. created_date
-        in: query
-        name: sort_by
-        required: false
-        schema:
-          default: created_date
-          description: The field to sort by in snake case, i.e. created_date
-          title: Sort By
-          type: string
-      - description: The direction to sort by
-        in: query
-        name: sort_direction
-        required: false
-        schema:
-          default: desc
-          description: The direction to sort by
-          enum:
-          - asc
-          - desc
-          title: Sort Direction
-          type: string
-      - description: The patient ID to filter by
-        in: query
-        name: patient_id
-        required: false
-        schema:
-          description: The patient ID to filter by
-          title: Patient Id
-          type: string
-      - description: The status to filter by
-        in: query
-        name: status
-        required: false
-        schema:
-          allOf:
-          - $ref: '#/components/schemas/ChargeStatus'
-          description: The status to filter by
-          title: Status
-      - description: The external ID to filter by
-        in: query
-        name: external_id
-        required: false
-        schema:
-          description: The external ID to filter by
-          title: External Id
-          type: string
-      - description: The total to filter by
-        in: query
-        name: total
-        required: false
-        schema:
-          description: The total to filter by
-          title: Total
-          type: number
-      - description: The total outstanding to filter by
-        in: query
-        name: total_outstanding
-        required: false
-        schema:
-          description: The total outstanding to filter by
-          title: Total Outstanding
-          type: number
-      - description: The description to filter by
-        in: query
-        name: description
-        required: false
-        schema:
-          description: The description to filter by
-          title: Description
-          type: string
-      - in: query
-        name: n
-        required: false
-        schema:
-          default: 10
-          title: N
-          type: integer
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The field to sort by in snake case, i.e. created_date
+          in: query
+          name: sort_by
+          required: false
+          schema:
+            default: created_date
+            description: The field to sort by in snake case, i.e. created_date
+            title: Sort By
+            type: string
+        - description: The direction to sort by
+          in: query
+          name: sort_direction
+          required: false
+          schema:
+            default: desc
+            description: The direction to sort by
+            enum:
+              - asc
+              - desc
+            title: Sort Direction
+            type: string
+        - description: The patient ID to filter by
+          in: query
+          name: patient_id
+          required: false
+          schema:
+            description: The patient ID to filter by
+            title: Patient Id
+            type: string
+        - description: The status to filter by
+          in: query
+          name: status
+          required: false
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ChargeStatus"
+            description: The status to filter by
+            title: Status
+        - description: The external ID to filter by
+          in: query
+          name: external_id
+          required: false
+          schema:
+            description: The external ID to filter by
+            title: External Id
+            type: string
+        - description: The total to filter by
+          in: query
+          name: total
+          required: false
+          schema:
+            description: The total to filter by
+            title: Total
+            type: number
+        - description: The total outstanding to filter by
+          in: query
+          name: total_outstanding
+          required: false
+          schema:
+            description: The total outstanding to filter by
+            title: Total Outstanding
+            type: number
+        - description: The description to filter by
+          in: query
+          name: description
+          required: false
+          schema:
+            description: The description to filter by
+            title: Description
+            type: string
+        - in: query
+          name: n
+          required: false
+          schema:
+            default: 10
+            title: N
+            type: integer
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ChargeSummary'
+                  $ref: "#/components/schemas/ChargeSummary"
                 title: Response Charge List V1 Charge List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Charge List
       tags:
-      - external
+        - external
   /v1/invoice/create:
     post:
       description: Create a new `Invoice` for a `Charge`.
       operationId: create_invoice_v1_invoice_create_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InvoiceCreate'
+              $ref: "#/components/schemas/InvoiceCreate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InvoiceSummary'
+                $ref: "#/components/schemas/InvoiceSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Create Invoice
       tags:
-      - external
+        - external
   /v1/invoice/get/{invoice_id}:
     get:
       description: Get an `Invoice` by ID.
       operationId: get_invoice_v1_invoice_get__invoice_id__get
       parameters:
-      - in: path
-        name: invoice_id
-        required: true
-        schema:
-          title: Invoice Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: invoice_id
+          required: true
+          schema:
+            title: Invoice Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InvoiceSummary'
+                $ref: "#/components/schemas/InvoiceSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Get Invoice
       tags:
-      - external
+        - external
   /v1/invoice/list:
     get:
-      description: Get a list of `Invoices`s. You can filter by `patient_id`, `status`,
+      description:
+        Get a list of `Invoices`s. You can filter by `patient_id`, `status`,
         and `external_id`.
       operationId: list_invoices_v1_invoice_list_get
       parameters:
-      - description: The field to sort by in snake case, i.e. created_date
-        in: query
-        name: sort_by
-        required: false
-        schema:
-          default: created_date
-          description: The field to sort by in snake case, i.e. created_date
-          title: Sort By
-          type: string
-      - description: The direction to sort by
-        in: query
-        name: sort_direction
-        required: false
-        schema:
-          default: desc
-          description: The direction to sort by
-          enum:
-          - asc
-          - desc
-          title: Sort Direction
-          type: string
-      - description: The patient ID to filter by
-        in: query
-        name: patient_id
-        required: false
-        schema:
-          description: The patient ID to filter by
-          title: Patient Id
-          type: string
-      - description: The status to filter by
-        in: query
-        name: status
-        required: false
-        schema:
-          description: The status to filter by
-          enum:
-          - active
-          - inactive
-          title: Status
-          type: string
-      - description: The external ID to filter by
-        in: query
-        name: external_id
-        required: false
-        schema:
-          description: The external ID to filter by
-          title: External Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The field to sort by in snake case, i.e. created_date
+          in: query
+          name: sort_by
+          required: false
+          schema:
+            default: created_date
+            description: The field to sort by in snake case, i.e. created_date
+            title: Sort By
+            type: string
+        - description: The direction to sort by
+          in: query
+          name: sort_direction
+          required: false
+          schema:
+            default: desc
+            description: The direction to sort by
+            enum:
+              - asc
+              - desc
+            title: Sort Direction
+            type: string
+        - description: The patient ID to filter by
+          in: query
+          name: patient_id
+          required: false
+          schema:
+            description: The patient ID to filter by
+            title: Patient Id
+            type: string
+        - description: The status to filter by
+          in: query
+          name: status
+          required: false
+          schema:
+            description: The status to filter by
+            enum:
+              - active
+              - inactive
+            title: Status
+            type: string
+        - description: The external ID to filter by
+          in: query
+          name: external_id
+          required: false
+          schema:
+            description: The external ID to filter by
+            title: External Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/InvoiceSummary'
+                  $ref: "#/components/schemas/InvoiceSummary"
                 title: Response List Invoices V1 Invoice List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: List Invoices
       tags:
-      - external
+        - external
   /v1/item/create:
     post:
       operationId: item_create_v1_item_create_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ItemCreateWithoutId'
+              $ref: "#/components/schemas/ItemCreateWithoutId"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ItemSummary'
+                $ref: "#/components/schemas/ItemSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Item Create
       tags:
-      - external
+        - external
   /v1/item/delete/{id}:
     delete:
       operationId: item_delete_v1_item_delete__id__delete
       parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          title: Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: id
+          required: true
+          schema:
+            title: Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 title: Response Item Delete V1 Item Delete  Id  Delete
                 type: boolean
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Item Delete
       tags:
-      - external
+        - external
   /v1/item/get/{id}:
     get:
       description: Get an `Item` by its ID
       operationId: item_get_v1_item_get__id__get
       parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          title: Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: id
+          required: true
+          schema:
+            title: Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ItemSummary'
+                $ref: "#/components/schemas/ItemSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Item Get
       tags:
-      - external
+        - external
   /v1/item/list:
     get:
       description: List `Items`
       operationId: item_list_v1_item_list_get
       parameters:
-      - description: Name of the item
-        in: query
-        name: name
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Name of the item
-          title: Name
-      - description: Category of the item
-        in: query
-        name: category
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Category of the item
-          title: Category
-      - description: Minimum price
-        in: query
-        name: price
-        required: false
-        schema:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          description: Minimum price
-          title: Price
-      - description: Number of items per page
-        in: query
-        name: per_page
-        required: false
-        schema:
-          default: 10
-          description: Number of items per page
-          title: Per Page
-          type: integer
-      - description: Archived status of the item
-        in: query
-        name: archived
-        required: false
-        schema:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          default: false
-          description: Archived status of the item
-          title: Archived
-      - description: Description of the item
-        in: query
-        name: description
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Description of the item
-          title: Description
-      - description: Page number to retrieve
-        in: query
-        name: page
-        required: false
-        schema:
-          default: 1
-          description: Page number to retrieve
-          title: Page
-          type: integer
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: Name of the item
+          in: query
+          name: name
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: "null"
+            description: Name of the item
+            title: Name
+        - description: Category of the item
+          in: query
+          name: category
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: "null"
+            description: Category of the item
+            title: Category
+        - description: Minimum price
+          in: query
+          name: price
+          required: false
+          schema:
+            anyOf:
+              - type: integer
+              - type: "null"
+            description: Minimum price
+            title: Price
+        - description: Number of items per page
+          in: query
+          name: per_page
+          required: false
+          schema:
+            default: 10
+            description: Number of items per page
+            title: Per Page
+            type: integer
+        - description: Archived status of the item
+          in: query
+          name: archived
+          required: false
+          schema:
+            anyOf:
+              - type: boolean
+              - type: "null"
+            default: false
+            description: Archived status of the item
+            title: Archived
+        - description: Description of the item
+          in: query
+          name: description
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: "null"
+            description: Description of the item
+            title: Description
+        - description: Page number to retrieve
+          in: query
+          name: page
+          required: false
+          schema:
+            default: 1
+            description: Page number to retrieve
+            title: Page
+            type: integer
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Page_ItemSummary_'
+                $ref: "#/components/schemas/Page_ItemSummary_"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Item List
       tags:
-      - external
+        - external
   /v1/item/update/{id}:
     put:
       operationId: item_update_v1_item_update__id__put
       parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          title: Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: id
+          required: true
+          schema:
+            title: Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ItemUpdate'
+              $ref: "#/components/schemas/ItemUpdate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ItemSummary'
+                $ref: "#/components/schemas/ItemSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Item Update
       tags:
-      - external
+        - external
   /v1/patient/create:
     post:
-      description: 'Create a new `Patient`.
+      description: "Create a new `Patient`.
 
 
-        Also creates a new `Chat` for the patient.'
+        Also creates a new `Chat` for the patient."
       operationId: patient_create_v1_patient_create_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatientCreate'
+              $ref: "#/components/schemas/PatientCreate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PatientSummary'
+                $ref: "#/components/schemas/PatientSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Patient Create
       tags:
-      - external
+        - external
   /v1/patient/get_by_external_id/{external_id}:
     get:
       description: Get a `Patient` by its external ID (i.e. the ID in your system).
       operationId: patient_get_by_external_id_v1_patient_get_by_external_id__external_id__get
       parameters:
-      - in: path
-        name: external_id
-        required: true
-        schema:
-          title: External Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: external_id
+          required: true
+          schema:
+            title: External Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PatientSummary'
+                $ref: "#/components/schemas/PatientSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Patient Get By External Id
       tags:
-      - external
+        - external
   /v1/patient/list:
     get:
-      description: 'Search for a `Patient` by name or phone number.
+      description: "Search for a `Patient` by name or phone number.
 
 
         If no `search_term` query parameter is provided, returns `n=10` `Patients`
-        in descending order by `createdDate`.'
+        in descending order by `createdDate`."
       operationId: patient_list_v1_patient_list_get
       parameters:
-      - description: Search for a patient by name, phone number, or id.
-        in: query
-        name: search_term
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Search for a patient by name, phone number, or id.
-          title: Search Term
-      - description: The external user ID to filter by
-        in: query
-        name: external_user_id
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The external user ID to filter by
-          title: External User Id
-      - description: Number of results to return, ordered by createdDate
-        in: query
-        name: n
-        required: false
-        schema:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          default: 10
-          description: Number of results to return, ordered by createdDate
-          title: N
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: Search for a patient by name, phone number, or id.
+          in: query
+          name: search_term
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: "null"
+            description: Search for a patient by name, phone number, or id.
+            title: Search Term
+        - description: The external user ID to filter by
+          in: query
+          name: external_user_id
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: "null"
+            description: The external user ID to filter by
+            title: External User Id
+        - description: Number of results to return, ordered by createdDate
+          in: query
+          name: n
+          required: false
+          schema:
+            anyOf:
+              - type: integer
+              - type: "null"
+            default: 10
+            description: Number of results to return, ordered by createdDate
+            title: N
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/PatientSummary'
+                  $ref: "#/components/schemas/PatientSummary"
                 title: Response Patient List V1 Patient List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Patient List
       tags:
-      - external
+        - external
   /v1/patient/update/{patient_id}:
     put:
       description: Update an existing `Patient`.
       operationId: patient_update_v1_patient_update__patient_id__put
       parameters:
-      - in: path
-        name: patient_id
-        required: true
-        schema:
-          title: Patient Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: patient_id
+          required: true
+          schema:
+            title: Patient Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatientUpdate'
+              $ref: "#/components/schemas/PatientUpdate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PatientSummary'
+                $ref: "#/components/schemas/PatientSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Patient Update
       tags:
-      - external
+        - external
   /v1/patient/{patient_id}:
     get:
       description: Get a `Patient` by ID.
       operationId: patient_get_v1_patient__patient_id__get
       parameters:
-      - in: path
-        name: patient_id
-        required: true
-        schema:
-          title: Patient Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: patient_id
+          required: true
+          schema:
+            title: Patient Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PatientSummary'
+                $ref: "#/components/schemas/PatientSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Patient Get
       tags:
-      - external
+        - external
   /v1/provider/create:
     post:
       description: Create a new `Provider`
       operationId: provider_create_v1_provider_create_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProviderCreate'
+              $ref: "#/components/schemas/ProviderCreate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExternalProviderSummary'
+                $ref: "#/components/schemas/ExternalProviderSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Provider Create
       tags:
-      - external
+        - external
   /v1/provider/get/{provider_id}:
     get:
       description: Get a list of all roles for a provider
       operationId: provider_get_v1_provider_get__provider_id__get
       parameters:
-      - in: path
-        name: provider_id
-        required: true
-        schema:
-          title: Provider Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: provider_id
+          required: true
+          schema:
+            title: Provider Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExternalProviderSummary'
+                $ref: "#/components/schemas/ExternalProviderSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Provider Get
       tags:
-      - external
+        - external
   /v1/provider/get_by_external_id/{external_id}:
     get:
       description: Get a `Provider` by its external ID (i.e. the ID in your system).
       operationId: provider_get_by_external_id_v1_provider_get_by_external_id__external_id__get
       parameters:
-      - in: path
-        name: external_id
-        required: true
-        schema:
-          title: External Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: external_id
+          required: true
+          schema:
+            title: External Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExternalProviderSummary'
+                $ref: "#/components/schemas/ExternalProviderSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Provider Get By External Id
       tags:
-      - external
+        - external
   /v1/provider/list:
     get:
       description: Get a list of all `Providers`
       operationId: provider_list_v1_provider_list_get
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ExternalProviderSummary'
+                  $ref: "#/components/schemas/ExternalProviderSummary"
                 title: Response Provider List V1 Provider List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Provider List
       tags:
-      - external
+        - external
   /v1/provider/update/{provider_id}:
     put:
       description: Update an existing `Provider`
       operationId: provider_update_v1_provider_update__provider_id__put
       parameters:
-      - in: path
-        name: provider_id
-        required: true
-        schema:
-          title: Provider Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: provider_id
+          required: true
+          schema:
+            title: Provider Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProviderUpdate'
+              $ref: "#/components/schemas/ProviderUpdate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExternalProviderSummary'
+                $ref: "#/components/schemas/ExternalProviderSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Provider Update
       tags:
-      - external
+        - external
   /v1/role/list:
     get:
       description: Get a list of all available `Roles` for `Providers`.
       operationId: role_list_v1_role_list_get
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/RoleSummary'
+                  $ref: "#/components/schemas/RoleSummary"
                 title: Response Role List V1 Role List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Role List
       tags:
-      - external
+        - external
   /v1/rule-set/create:
     post:
       description: Create a new `RuleSet` with associated `Rule`s.
       operationId: rule_set_create_v1_rule_set_create_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RuleSetCreate'
+              $ref: "#/components/schemas/RuleSetCreate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RuleSetSummary'
+                $ref: "#/components/schemas/RuleSetSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Rule Set Create
       tags:
-      - external
+        - external
   /v1/rule-set/list:
     get:
       description: Get a list of all `RuleSet`s with their associated `Rule`s.
       operationId: rule_set_list_v1_rule_set_list_get
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/RuleSetSummary'
+                  $ref: "#/components/schemas/RuleSetSummary"
                 title: Response Rule Set List V1 Rule Set List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Rule Set List
       tags:
-      - external
+        - external
   /v1/rule/create:
     post:
       description: Create a new `Rule`.
       operationId: rule_create_v1_rule_create_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RuleCreate'
+              $ref: "#/components/schemas/RuleCreate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RuleSummary'
+                $ref: "#/components/schemas/RuleSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Rule Create
       tags:
-      - external
+        - external
   /v1/rule/get/{rule_id}:
     get:
       description: Get a `Rule` by ID.
       operationId: rule_get_v1_rule_get__rule_id__get
       parameters:
-      - in: path
-        name: rule_id
-        required: true
-        schema:
-          title: Rule Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: rule_id
+          required: true
+          schema:
+            title: Rule Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RuleSummary'
+                $ref: "#/components/schemas/RuleSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Rule Get
       tags:
-      - external
+        - external
   /v1/rule/list:
     get:
       description: Get a list of all `Rule`s.
       operationId: rule_list_v1_rule_list_get
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/RuleSummary'
+                  $ref: "#/components/schemas/RuleSummary"
                 title: Response Rule List V1 Rule List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Rule List
       tags:
-      - external
+        - external
   /v1/rule/update/{rule_id}:
     put:
       description: Update an existing `Rule` by ID.
       operationId: rule_update_v1_rule_update__rule_id__put
       parameters:
-      - in: path
-        name: rule_id
-        required: true
-        schema:
-          title: Rule Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: rule_id
+          required: true
+          schema:
+            title: Rule Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RuleUpdate'
+              $ref: "#/components/schemas/RuleUpdate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RuleSummary'
+                $ref: "#/components/schemas/RuleSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Rule Update
       tags:
-      - external
+        - external
   /v1/webhook/create:
     post:
       description: Create a new `Webhook` for the `Tenant`
       operationId: webhook_create_v1_webhook_create_post
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/WebhookCreate'
+              $ref: "#/components/schemas/WebhookCreate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WebhookSummary'
+                $ref: "#/components/schemas/WebhookSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Webhook Create
       tags:
-      - external
+        - external
   /v1/webhook/delete/{webhook_id}:
     delete:
       description: Delete a `Webhook`
       operationId: webhook_delete_v1_webhook_delete__webhook_id__delete
       parameters:
-      - in: path
-        name: webhook_id
-        required: true
-        schema:
-          title: Webhook Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: webhook_id
+          required: true
+          schema:
+            title: Webhook Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 title: Response Webhook Delete V1 Webhook Delete  Webhook Id  Delete
                 type: boolean
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Webhook Delete
       tags:
-      - external
+        - external
   /v1/webhook/events/{webhook_delivery_attempt_id}:
     get:
       description: Get a single `WebhookDeliveryAttempt`
       operationId: webhook_event_get_v1_webhook_events__webhook_delivery_attempt_id__get
       parameters:
-      - in: path
-        name: webhook_delivery_attempt_id
-        required: true
-        schema:
-          title: Webhook Delivery Attempt Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: webhook_delivery_attempt_id
+          required: true
+          schema:
+            title: Webhook Delivery Attempt Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WebhookDeliveryAttemptSummary'
+                $ref: "#/components/schemas/WebhookDeliveryAttemptSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Webhook Event Get
       tags:
-      - external
+        - external
   /v1/webhook/events/{webhook_delivery_attempt_id}/send:
     get:
-      description: Send a `WebhookDeliveryAttempt` event to the `Webhook`. This is
+      description:
+        Send a `WebhookDeliveryAttempt` event to the `Webhook`. This is
         useful if you want to manually retry a webhook event that failed to deliver.
       operationId: webhook_event_send_v1_webhook_events__webhook_delivery_attempt_id__send_get
       parameters:
-      - in: path
-        name: webhook_delivery_attempt_id
-        required: true
-        schema:
-          title: Webhook Delivery Attempt Id
-          type: string
-      - description: Notify the webhook owner via email if the event fails to deliver
-        in: query
-        name: notify_failure
-        required: false
-        schema:
-          default: true
-          description: Notify the webhook owner via email if the event fails to deliver
-          title: Notify Failure
-          type: boolean
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: webhook_delivery_attempt_id
+          required: true
+          schema:
+            title: Webhook Delivery Attempt Id
+            type: string
+        - description: Notify the webhook owner via email if the event fails to deliver
+          in: query
+          name: notify_failure
+          required: false
+          schema:
+            default: true
+            description: Notify the webhook owner via email if the event fails to deliver
+            title: Notify Failure
+            type: boolean
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WebhookDeliveryAttemptSummary'
+                $ref: "#/components/schemas/WebhookDeliveryAttemptSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Webhook Event Send
       tags:
-      - external
+        - external
   /v1/webhook/get/{webhook_id}:
     get:
       description: Get a `Webhook`
       operationId: webhook_get_v1_webhook_get__webhook_id__get
       parameters:
-      - in: path
-        name: webhook_id
-        required: true
-        schema:
-          title: Webhook Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: webhook_id
+          required: true
+          schema:
+            title: Webhook Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WebhookSummary'
+                $ref: "#/components/schemas/WebhookSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Webhook Get
       tags:
-      - external
+        - external
   /v1/webhook/list:
     get:
       description: Get a list of all webhooks connected to the tenant
       operationId: webhook_list_v1_webhook_list_get
       parameters:
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/WebhookSummary'
+                  $ref: "#/components/schemas/WebhookSummary"
                 title: Response Webhook List V1 Webhook List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Webhook List
       tags:
-      - external
+        - external
   /v1/webhook/update/{webhook_id}:
     put:
       description: Update a `Webhook`
       operationId: webhook_update_v1_webhook_update__webhook_id__put
       parameters:
-      - in: path
-        name: webhook_id
-        required: true
-        schema:
-          title: Webhook Id
-          type: string
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
+        - in: path
+          name: webhook_id
+          required: true
+          schema:
+            title: Webhook Id
+            type: string
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
+            type: string
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/WebhookUpdate'
+              $ref: "#/components/schemas/WebhookUpdate"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WebhookSummary'
+                $ref: "#/components/schemas/WebhookSummary"
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Webhook Update
       tags:
-      - external
+        - external
   /v1/webhook/{webhook_id}/delivery-attempts/list:
     get:
-      description: List and search for attempts to *deliver* `Events` for a particular
+      description:
+        List and search for attempts to *deliver* `Events` for a particular
         `Webhook` (i.e. `WebhookDeliveryAttempts`).
       operationId: webhook_events_list_v1_webhook__webhook_id__delivery_attempts_list_get
       parameters:
-      - in: path
-        name: webhook_id
-        required: true
-        schema:
-          title: Webhook Id
-          type: string
-      - description: The type of event to filter by
-        in: query
-        name: event_type
-        required: false
-        schema:
-          anyOf:
-          - $ref: '#/components/schemas/EventType'
-          - type: 'null'
-          description: The type of event to filter by
-          title: Event Type
-      - description: Filter by if the event has not been delivered (i.e. we have not
-          recieved a 200 from you for this event.)
-        in: query
-        name: is_delivered
-        required: false
-        schema:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          description: Filter by if the event has not been delivered (i.e. we have
-            not recieved a 200 from you for this event.)
-          title: Is Delivered
-      - description: Get Events created before this date
-        in: query
-        name: created_before
-        required: false
-        schema:
-          anyOf:
-          - format: date-time
+        - in: path
+          name: webhook_id
+          required: true
+          schema:
+            title: Webhook Id
             type: string
-          - type: 'null'
-          description: Get Events created before this date
-          title: Created Before
-      - description: Get Events created after this date
-        in: query
-        name: created_after
-        required: false
-        schema:
-          anyOf:
-          - format: date-time
-            type: string
-          - type: 'null'
-          description: Get Events created after this date
-          title: Created After
-      - description: Filter by the HTTP status of the most recent delivery attempt
-          (i.e. 200, 404, 500, etc.)
-        in: query
-        name: last_delivery_attempt_status
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Filter by the HTTP status of the most recent delivery attempt
+        - description: The type of event to filter by
+          in: query
+          name: event_type
+          required: false
+          schema:
+            anyOf:
+              - $ref: "#/components/schemas/WebhookEventType"
+              - type: "null"
+            description: The type of event to filter by
+            title: Event Type
+        - description:
+            Filter by if the event has not been delivered (i.e. we have not
+            recieved a 200 from you for this event.)
+          in: query
+          name: is_delivered
+          required: false
+          schema:
+            anyOf:
+              - type: boolean
+              - type: "null"
+            description:
+              Filter by if the event has not been delivered (i.e. we have
+              not recieved a 200 from you for this event.)
+            title: Is Delivered
+        - description: Get Events created before this date
+          in: query
+          name: created_before
+          required: false
+          schema:
+            anyOf:
+              - format: date-time
+                type: string
+              - type: "null"
+            description: Get Events created before this date
+            title: Created Before
+        - description: Get Events created after this date
+          in: query
+          name: created_after
+          required: false
+          schema:
+            anyOf:
+              - format: date-time
+                type: string
+              - type: "null"
+            description: Get Events created after this date
+            title: Created After
+        - description:
+            Filter by the HTTP status of the most recent delivery attempt
             (i.e. 200, 404, 500, etc.)
-          title: Last Delivery Attempt Status
-      - description: Filter by the error message of the most recent delivery attempt
-        in: query
-        name: last_delivery_attempt_error
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Filter by the error message of the most recent delivery attempt
-          title: Last Delivery Attempt Error
-      - description: Get Events with a delivery date before this date
-        in: query
-        name: delivery_date_before
-        required: false
-        schema:
-          anyOf:
-          - format: date-time
+          in: query
+          name: last_delivery_attempt_status
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: "null"
+            description:
+              Filter by the HTTP status of the most recent delivery attempt
+              (i.e. 200, 404, 500, etc.)
+            title: Last Delivery Attempt Status
+        - description: Filter by the error message of the most recent delivery attempt
+          in: query
+          name: last_delivery_attempt_error
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: "null"
+            description: Filter by the error message of the most recent delivery attempt
+            title: Last Delivery Attempt Error
+        - description: Get Events with a delivery date before this date
+          in: query
+          name: delivery_date_before
+          required: false
+          schema:
+            anyOf:
+              - format: date-time
+                type: string
+              - type: "null"
+            description: Get Events with a delivery date before this date
+            title: Delivery Date Before
+        - description: Get Events with a delivery date after this date
+          in: query
+          name: delivery_date_after
+          required: false
+          schema:
+            anyOf:
+              - format: date-time
+                type: string
+              - type: "null"
+            description: Get Events with a delivery date after this date
+            title: Delivery Date After
+        - description: The field to sort by
+          in: query
+          name: sort_by
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: "null"
+            default: created_date
+            description: The field to sort by
+            title: Sort By
+        - description: The direction to sort by
+          in: query
+          name: sort_direction
+          required: false
+          schema:
+            anyOf:
+              - enum:
+                  - asc
+                  - desc
+                type: string
+              - type: "null"
+            default: desc
+            description: The direction to sort by
+            title: Sort Direction
+        - description: The maximum number of results to return
+          in: query
+          name: limit
+          required: false
+          schema:
+            anyOf:
+              - type: integer
+              - type: "null"
+            default: 10
+            description: The maximum number of results to return
+            title: Limit
+        - description: The number of results to skip at the beginning
+          in: query
+          name: offset
+          required: false
+          schema:
+            anyOf:
+              - type: integer
+              - type: "null"
+            default: 0
+            description: The number of results to skip at the beginning
+            title: Offset
+        - description: The tenant you are making this request on behalf of
+          in: header
+          name: TENANT
+          required: true
+          schema:
+            description: The tenant you are making this request on behalf of
+            title: Tenant
             type: string
-          - type: 'null'
-          description: Get Events with a delivery date before this date
-          title: Delivery Date Before
-      - description: Get Events with a delivery date after this date
-        in: query
-        name: delivery_date_after
-        required: false
-        schema:
-          anyOf:
-          - format: date-time
+        - description: Your api key
+          in: header
+          name: API-KEY
+          required: true
+          schema:
+            description: Your api key
+            title: Api-Key
             type: string
-          - type: 'null'
-          description: Get Events with a delivery date after this date
-          title: Delivery Date After
-      - description: The field to sort by
-        in: query
-        name: sort_by
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          default: created_date
-          description: The field to sort by
-          title: Sort By
-      - description: The direction to sort by
-        in: query
-        name: sort_direction
-        required: false
-        schema:
-          anyOf:
-          - enum:
-            - asc
-            - desc
-            type: string
-          - type: 'null'
-          default: desc
-          description: The direction to sort by
-          title: Sort Direction
-      - description: The maximum number of results to return
-        in: query
-        name: limit
-        required: false
-        schema:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          default: 10
-          description: The maximum number of results to return
-          title: Limit
-      - description: The number of results to skip at the beginning
-        in: query
-        name: offset
-        required: false
-        schema:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          default: 0
-          description: The number of results to skip at the beginning
-          title: Offset
-      - description: The tenant you are making this request on behalf of
-        in: header
-        name: TENANT
-        required: true
-        schema:
-          description: The tenant you are making this request on behalf of
-          title: Tenant
-          type: string
-      - description: Your api key
-        in: header
-        name: API-KEY
-        required: true
-        schema:
-          description: Your api key
-          title: Api-Key
-          type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/WebhookDeliveryAttemptSummary'
-                title: Response Webhook Events List V1 Webhook  Webhook Id  Delivery
+                  $ref: "#/components/schemas/WebhookDeliveryAttemptSummary"
+                title:
+                  Response Webhook Events List V1 Webhook  Webhook Id  Delivery
                   Attempts List Get
                 type: array
           description: Successful Response
-        '422':
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Webhook Events List
       tags:
-      - external
+        - external
