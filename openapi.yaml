@@ -525,7 +525,7 @@ components:
         - Native
         - SMS
         - MAIL
-        - PHONE
+        - CALL
         - COLLECTIONS
         - EMAIL
         - SMS_AND_EMAIL
