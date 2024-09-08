@@ -1,43 +1,50 @@
 ---
 title: Introduction
-description: "Patients Payments, Simplified"
+description: "Comprehensive Healthcare Payment Solutions"
 ---
 
 # Quickstart
 
-Decoda Health reimagines how practices manage conversations with patients about payments in a respectful and explainable way. Our mission is to enable practices to abstract away the process and infrastructure of managing patient payments entirely.
+Decoda Health revolutionizes healthcare payments and operations with advanced solutions for clinics and EHRs. Our mission is to streamline payment processes, enhance patient communication, and simplify healthcare administration.
 
-Using our API your team can:
+Using our API, your clinic can leverage:
 
-**Manage Payments**
+**Comprehensive Payment Solutions**
 
-- Collect patient payments online (via payment links and virtual terminals) and in-person (using card terminals), centralizing all payment sources into one system.
-- Support all payment methods, including credit cards, debit cards, ACH/eCheck, HSA/FSA, Gift Cards, and Apple Pay.
-- Handle major payment workflows like refunds, adjustments, write-offs, discounts, payment plans, external settlements, storing cards on file, and placing holds on cards.
+- Collect patient payments online and in-person, centralizing all payment sources.
+- Support various payment methods: credit/debit cards, ACH/eCheck, HSA/FSA, Gift Cards, and Apple Pay.
+- Handle complex billing workflows: refunds, adjustments, write-offs, discounts, payment plans, and more.
 
-**Manage Conversations**
+**In-Person Payment Processing**
 
-- Facilitate conversations with patients through two-way texting, inbound and outbound calling, and one-click physical mailing.
-- Automatically transcribe, record, and summarize phone conversations in the Web App, providing full context on the conversation history with patients.
+- Seamlessly integrate with point-of-sale systems for efficient in-clinic payments.
+- Support contactless payments and mobile wallets for patient convenience.
+- Provide real-time payment reconciliation and reporting.
 
 **Automated Balance Aging**
 
-- Assign every patient bill to a unique ruleset defining the cadence and medium of each touchpoint. For example, send a text on day 0, send another text on day 10, send physical mail on day 20 and charge the card on file on day 30.
-- Configure outreach schedules in Decoda's Web App, allowing the system to determine the best schedule.
+- Assign each patient bill to a unique outreach ruleset.
+- Configure intelligent outreach schedules to optimize collection efforts.
 
-### Accept online payments
+**Intelligent Conversation Management**
 
-- When patient responsibility is finalized with adjustments after insurance processes a claim, use Decoda's API to start aging that balance.
-- Once a payment is made a Payment is created and attached to the Charge. You can opt-in to receive real-time notification of this using our [webhooks](/api-reference/external/webhook/webhooks).
+- Facilitate patient conversations about payments through two-way texting, inbound/outbound calling, and automated mailing.
+- Transcribe, record, and summarize payment-related conversations for comprehensive tracking.
 
-### **Accept In-Person Payments**
+**Smart Scheduling and Reception**
 
-- For in-person payments at the card terminal, use Decoda's API to create the charge and then you can use Decoda's Web App to present that charge on the physical device.
-- Once a payment is successfully made a Payment is created and attached to the Charge. You can opt-in to receive real-time notification of this using our [webhooks](/api-reference/external/webhook/webhooks).
+- Optimize appointment scheduling with integrated payment reminders.
+- Manage cancellations, reschedules, and associated payment adjustments automatically.
+
+### Implementing Decoda Health Payments
+
+- Use Decoda's API to initiate balance aging when patient responsibility is finalized.
+- Receive real-time payment notifications via [webhooks](/api-reference/external/webhook/webhooks).
+- Integrate in-person and online payment flows seamlessly.
 
 ### Authentication
 
-To authenticate with the Decoda Health API, include the `API-KEY` and `TENANT` headers in your requests to `https://api.decodahealth.com/v1/`, like so:
+To authenticate with the Decoda Health API, include the `API-KEY` and `TENANT` headers in your requests:
 
 <CodeGroup>
 
@@ -56,10 +63,10 @@ response = requests.get(
 )
 ```
 
-```javascript auth.ts
+```typescript auth.ts
 import ky from "ky";
 
-const response = ky.get("https://api.decodahealth.com/v1/...", {
+const response = await ky.get("https://api.decodahealth.com/v1/...", {
   headers: {
     API_KEY: "YOUR_API_KEY",
     TENANT: "YOUR_TENANT",
