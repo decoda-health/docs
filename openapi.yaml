@@ -88,7 +88,7 @@ components:
       - ADJUSTMENT_SUCCEEDED
       - INVOICE_SENT
       - INVOICE_FAILED
-      - CALL_RECIEVED
+      - CALL_RECEIVED
       - CALL_MADE
       - MESSAGE_RECIEVED
       - MESSAGE_SENT
