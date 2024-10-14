@@ -182,11 +182,6 @@ components:
             type: string
           - type: 'null'
           title: Updateddate
-        virtualAllowed:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Virtualallowed
       required:
       - id
       - duration
