@@ -1,0 +1,233 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Starter Kit",
+  "colors": {
+    "primary": "#0178D4",
+    "light": "#0178D4",
+    "dark": "#0178D4"
+  },
+  "favicon": "/images/favicon.png",
+  "navigation": {
+    "anchors": [
+      {
+        "anchor": "Documentation",
+        "icon": "book-open",
+        "tabs": [
+          {
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "introduction"
+                ]
+              },
+              {
+                "group": "Help & Support",
+                "pages": [
+                  {
+                    "group": "Payment Devices",
+                    "pages": [
+                      "help/payment-devices/overview",
+                      "help/payment-devices/link_2500",
+                      "help/payment-devices/lane_7000",
+                      "help/payment-devices/lane_3000"
+                    ]
+                  },
+                  {
+                    "group": "Payments",
+                    "pages": [
+                      "help/payments/processing-payments",
+                      "help/payments/refunds"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Updates",
+                "pages": [
+                  "updates/roadmap"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Help Center",
+            "groups": [
+              {
+                "group": "Help & Support",
+                "pages": [
+                  {
+                    "group": "Payment Devices",
+                    "pages": [
+                      "help/payment-devices/overview"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Reference",
+            "groups": [
+              {
+                "group": "API Reference",
+                "pages": [
+                  {
+                    "group": "Charges",
+                    "pages": [
+                      "api-reference/charges/charge-create",
+                      "api-reference/charges/charge-get",
+                      "api-reference/charges/charge-get-by-external-id",
+                      "api-reference/charges/charge-list",
+                      "api-reference/charges/charge-adjust"
+                    ]
+                  },
+                  {
+                    "group": "Invoices",
+                    "pages": [
+                      "api-reference/invoices/create-invoice",
+                      "api-reference/invoices/get-invoice",
+                      "api-reference/invoices/list-invoices"
+                    ]
+                  },
+                  {
+                    "group": "Items",
+                    "pages": [
+                      "api-reference/items/item-create",
+                      "api-reference/items/item-get",
+                      "api-reference/items/item-update",
+                      "api-reference/items/item-delete",
+                      "api-reference/items/item-list"
+                    ]
+                  },
+                  {
+                    "group": "Patients",
+                    "pages": [
+                      "api-reference/patients/patient-create",
+                      "api-reference/patients/patient-get",
+                      "api-reference/patients/patient-get-by-external-id",
+                      "api-reference/patients/patient-update",
+                      "api-reference/patients/patient-list"
+                    ]
+                  },
+                  {
+                    "group": "Providers",
+                    "pages": [
+                      "api-reference/providers/provider-create",
+                      "api-reference/providers/provider-get",
+                      "api-reference/providers/provider-get-by-external-id",
+                      "api-reference/providers/provider-update",
+                      "api-reference/providers/provider-list"
+                    ]
+                  },
+                  {
+                    "group": "Roles",
+                    "pages": [
+                      "api-reference/roles/role-list"
+                    ]
+                  },
+                  {
+                    "group": "Rules",
+                    "pages": [
+                      "api-reference/rules/rule-create",
+                      "api-reference/rules/rule-get",
+                      "api-reference/rules/rule-update",
+                      "api-reference/rules/rule-list",
+                      "api-reference/rules/rule-set-create",
+                      "api-reference/rules/rule-set-list"
+                    ]
+                  },
+                  {
+                    "group": "Webhooks",
+                    "pages": [
+                      "api-reference/webhooks/webhook-create",
+                      "api-reference/webhooks/webhook-get",
+                      "api-reference/webhooks/webhook-update",
+                      "api-reference/webhooks/webhook-delete",
+                      "api-reference/webhooks/webhook-list",
+                      "api-reference/webhooks/webhook-event-get",
+                      "api-reference/webhooks/webhook-event-send",
+                      "api-reference/webhooks/webhook-events-list"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Knowledge Base",
+        "icon": "books",
+        "tabs": [
+          {
+            "tab": "Help Center",
+            "groups": [
+              {
+                "group": "Help & Support",
+                "pages": [
+                  {
+                    "group": "Payment Devices",
+                    "pages": [
+                      "help/payment-devices/overview"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Changelog",
+        "icon": "clock-rotate-left",
+        "tabs": [
+          {
+            "tab": "Changelog",
+            "groups": [
+              {
+                "group": "Updates",
+                "pages": [
+                  "updates/changelog"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Book a demo",
+        "href": "https://fantastical.app/kevincheng97-UJPk/decoda-health-30-min-intro",
+        "icon": "calendar"
+      }
+    ]
+  },
+  "logo": {
+    "light": "/images/decoda-logo.png",
+    "dark": "/images/decoda-logo.png"
+  },
+  "api": {
+    "openapi": [
+      "openapi.yaml"
+    ],
+    "mdx": {
+      "server": "https://api.decodahealth.com/"
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:founders@decodahealth.com"
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/decoda-health",
+      "linkedin": "https://www.linkedin.com/company/decoda-health/"
+    }
+  }
+}
