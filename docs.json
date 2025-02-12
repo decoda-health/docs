@@ -9,149 +9,151 @@
   },
   "favicon": "/images/favicon.png",
   "navigation": {
-    "anchors": [
+    "tabs": [
       {
-        "anchor": "Documentation",
-        "icon": "book-open",
-        "tabs": [
+        "tab": "User Guides",
+        "groups": [
           {
-            "tab": "Documentation",
-            "groups": [
+            "group": "Getting Started",
+            "pages": [
+              "help/introduction"
+            ]
+          },
+          {
+            "group": "Help & Support",
+            "pages": [
+              {
+                "group": "AI Front Desk",
+                "pages": [
+                  "help/ai-front-desk"
+                ]
+              },
+              {
+                "group": "Payments",
+                "pages": [
+                  {
+                    "group": "Payment Devices",
+                    "pages": [
+                      "help/payments/payment-devices/overview",
+                      "help/payments/payment-devices/link_2500",
+                      "help/payments/payment-devices/lane_7000",
+                      "help/payments/payment-devices/lane_3000"
+                    ]
+                  },
+                  "help/payments/processing-payments",
+                  "help/payments/refunds"
+                ]
+              },
+              {
+                "group": "Patient Engagement",
+                "pages": [
+                  "help/patient-engagement"
+                ]
+              },
+              {
+                "group": "Scheduling & Intake",
+                "pages": [
+                  "help/scheduling"
+                ]
+              },
+              {
+                "group": "Scribe & Note-Taking",
+                "pages": [
+                  "help/ai-notes"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Reference",
+            "pages": [
               {
                 "group": "Getting Started",
                 "pages": [
-                  "introduction"
+                  "api-reference/introduction"
                 ]
               },
               {
-                "group": "Help & Support",
+                "group": "Charges",
                 "pages": [
-                  {
-                    "group": "Payment Devices",
-                    "pages": [
-                      "help/payment-devices/overview",
-                      "help/payment-devices/link_2500",
-                      "help/payment-devices/lane_7000",
-                      "help/payment-devices/lane_3000"
-                    ]
-                  },
-                  {
-                    "group": "Payments",
-                    "pages": [
-                      "help/payments/processing-payments",
-                      "help/payments/refunds"
-                    ]
-                  }
+                  "api-reference/charges/charge-create",
+                  "api-reference/charges/charge-get",
+                  "api-reference/charges/charge-get-by-external-id",
+                  "api-reference/charges/charge-list",
+                  "api-reference/charges/charge-adjust"
                 ]
               },
               {
-                "group": "Updates",
+                "group": "Invoices",
                 "pages": [
-                  "updates/roadmap"
+                  "api-reference/invoices/create-invoice",
+                  "api-reference/invoices/get-invoice",
+                  "api-reference/invoices/list-invoices"
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "Help Center",
-            "groups": [
+              },
               {
-                "group": "Help & Support",
+                "group": "Items",
                 "pages": [
-                  {
-                    "group": "Payment Devices",
-                    "pages": [
-                      "help/payment-devices/overview"
-                    ]
-                  }
+                  "api-reference/items/item-create",
+                  "api-reference/items/item-get",
+                  "api-reference/items/item-update",
+                  "api-reference/items/item-delete",
+                  "api-reference/items/item-list"
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "API Reference",
-            "groups": [
+              },
               {
-                "group": "API Reference",
+                "group": "Patients",
                 "pages": [
-                  {
-                    "group": "Charges",
-                    "pages": [
-                      "api-reference/charges/charge-create",
-                      "api-reference/charges/charge-get",
-                      "api-reference/charges/charge-get-by-external-id",
-                      "api-reference/charges/charge-list",
-                      "api-reference/charges/charge-adjust"
-                    ]
-                  },
-                  {
-                    "group": "Invoices",
-                    "pages": [
-                      "api-reference/invoices/create-invoice",
-                      "api-reference/invoices/get-invoice",
-                      "api-reference/invoices/list-invoices"
-                    ]
-                  },
-                  {
-                    "group": "Items",
-                    "pages": [
-                      "api-reference/items/item-create",
-                      "api-reference/items/item-get",
-                      "api-reference/items/item-update",
-                      "api-reference/items/item-delete",
-                      "api-reference/items/item-list"
-                    ]
-                  },
-                  {
-                    "group": "Patients",
-                    "pages": [
-                      "api-reference/patients/patient-create",
-                      "api-reference/patients/patient-get",
-                      "api-reference/patients/patient-get-by-external-id",
-                      "api-reference/patients/patient-update",
-                      "api-reference/patients/patient-list"
-                    ]
-                  },
-                  {
-                    "group": "Providers",
-                    "pages": [
-                      "api-reference/providers/provider-create",
-                      "api-reference/providers/provider-get",
-                      "api-reference/providers/provider-get-by-external-id",
-                      "api-reference/providers/provider-update",
-                      "api-reference/providers/provider-list"
-                    ]
-                  },
-                  {
-                    "group": "Roles",
-                    "pages": [
-                      "api-reference/roles/role-list"
-                    ]
-                  },
-                  {
-                    "group": "Rules",
-                    "pages": [
-                      "api-reference/rules/rule-create",
-                      "api-reference/rules/rule-get",
-                      "api-reference/rules/rule-update",
-                      "api-reference/rules/rule-list",
-                      "api-reference/rules/rule-set-create",
-                      "api-reference/rules/rule-set-list"
-                    ]
-                  },
-                  {
-                    "group": "Webhooks",
-                    "pages": [
-                      "api-reference/webhooks/webhook-create",
-                      "api-reference/webhooks/webhook-get",
-                      "api-reference/webhooks/webhook-update",
-                      "api-reference/webhooks/webhook-delete",
-                      "api-reference/webhooks/webhook-list",
-                      "api-reference/webhooks/webhook-event-get",
-                      "api-reference/webhooks/webhook-event-send",
-                      "api-reference/webhooks/webhook-events-list"
-                    ]
-                  }
+                  "api-reference/patients/patient-create",
+                  "api-reference/patients/patient-get",
+                  "api-reference/patients/patient-get-by-external-id",
+                  "api-reference/patients/patient-update",
+                  "api-reference/patients/patient-list"
+                ]
+              },
+              {
+                "group": "Providers",
+                "pages": [
+                  "api-reference/providers/provider-create",
+                  "api-reference/providers/provider-get",
+                  "api-reference/providers/provider-get-by-external-id",
+                  "api-reference/providers/provider-update",
+                  "api-reference/providers/provider-list"
+                ]
+              },
+              {
+                "group": "Roles",
+                "pages": [
+                  "api-reference/roles/role-list"
+                ]
+              },
+              {
+                "group": "Rules",
+                "pages": [
+                  "api-reference/rules/rule-create",
+                  "api-reference/rules/rule-get",
+                  "api-reference/rules/rule-update",
+                  "api-reference/rules/rule-list",
+                  "api-reference/rules/rule-set-create",
+                  "api-reference/rules/rule-set-list"
+                ]
+              },
+              {
+                "group": "Webhooks",
+                "pages": [
+                  "api-reference/webhooks/webhook-create",
+                  "api-reference/webhooks/webhook-get",
+                  "api-reference/webhooks/webhook-update",
+                  "api-reference/webhooks/webhook-delete",
+                  "api-reference/webhooks/webhook-list",
+                  "api-reference/webhooks/webhook-event-get",
+                  "api-reference/webhooks/webhook-event-send",
+                  "api-reference/webhooks/webhook-events-list"
                 ]
               }
             ]
@@ -159,50 +161,32 @@
         ]
       },
       {
-        "anchor": "Knowledge Base",
-        "icon": "books",
-        "tabs": [
+        "tab": "Updates",
+        "groups": [
           {
-            "tab": "Help Center",
-            "groups": [
-              {
-                "group": "Help & Support",
-                "pages": [
-                  {
-                    "group": "Payment Devices",
-                    "pages": [
-                      "help/payment-devices/overview"
-                    ]
-                  }
-                ]
-              }
+            "group": "Updates",
+            "pages": [
+              "updates/changelog",
+              "updates/roadmap"
             ]
           }
         ]
-      },
-      {
-        "anchor": "Changelog",
-        "icon": "clock-rotate-left",
-        "tabs": [
-          {
-            "tab": "Changelog",
-            "groups": [
-              {
-                "group": "Updates",
-                "pages": [
-                  "updates/changelog"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "anchor": "Book a demo",
-        "href": "https://fantastical.app/kevincheng97-UJPk/decoda-health-30-min-intro",
-        "icon": "calendar"
       }
-    ]
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Platform Login",
+          "href": "https://app.decodahealth.com/login",
+          "icon": "browser"
+        },
+        {
+          "anchor": "Book a demo",
+          "href": "https://fantastical.app/kevincheng97-UJPk/decoda-health-30-min-intro",
+          "icon": "calendar"
+        }
+      ]
+    }
   },
   "logo": {
     "light": "/images/decoda-logo.png",
@@ -226,6 +210,7 @@
   },
   "footer": {
     "socials": {
+      "website": "https://decodahealth.com",
       "github": "https://github.com/decoda-health",
       "linkedin": "https://www.linkedin.com/company/decoda-health/"
     }
