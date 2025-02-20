@@ -47,7 +47,8 @@
               {
                 "group": "Patient Engagement",
                 "pages": [
-                  "help/patient-engagement"
+                  "help/patient-engagement/overview",
+                  "help/patient-engagement/bulk-messaging"
                 ]
               },
               {
