@@ -15,18 +15,14 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": [
-              "help/introduction"
-            ]
+            "pages": ["help/introduction"]
           },
           {
             "group": "Help & Support",
             "pages": [
               {
                 "group": "AI Front Desk",
-                "pages": [
-                  "help/ai-front-desk"
-                ]
+                "pages": ["help/ai-front-desk"]
               },
               {
                 "group": "Payments",
@@ -53,21 +49,15 @@
               },
               {
                 "group": "Scheduling & Intake",
-                "pages": [
-                  "help/scheduling"
-                ]
+                "pages": ["help/scheduling"]
               },
               {
                 "group": "Scribe & Note-Taking",
-                "pages": [
-                  "help/ai-notes"
-                ]
+                "pages": ["help/ai-notes"]
               },
               {
                 "group": "Smart Mentions",
-                "pages": [
-                  "help/smart-mentions"
-                ]
+                "pages": ["help/smart-mentions"]
               }
             ]
           }
@@ -81,9 +71,7 @@
             "pages": [
               {
                 "group": "Getting Started",
-                "pages": [
-                  "api-reference/introduction"
-                ]
+                "pages": ["api-reference/introduction"]
               },
               {
                 "group": "Charges",
@@ -135,9 +123,7 @@
               },
               {
                 "group": "Roles",
-                "pages": [
-                  "api-reference/roles/role-list"
-                ]
+                "pages": ["api-reference/roles/role-list"]
               },
               {
                 "group": "Rules",
@@ -172,10 +158,7 @@
         "groups": [
           {
             "group": "Updates",
-            "pages": [
-              "updates/changelog",
-              "updates/roadmap"
-            ]
+            "pages": ["updates/changelog", "updates/roadmap"]
           }
         ]
       }
@@ -189,7 +172,7 @@
         },
         {
           "anchor": "Book a demo",
-          "href": "https://fantastical.app/kevincheng97-UJPk/decoda-health-30-min-intro",
+          "href": "https://app.apollo.io/#/meet/daniyal_afzal_decoda_health/30-min",
           "icon": "calendar"
         }
       ]
@@ -200,9 +183,7 @@
     "dark": "/images/decoda-logo.png"
   },
   "api": {
-    "openapi": [
-      "openapi.yaml"
-    ],
+    "openapi": ["openapi.yaml"],
     "mdx": {
       "server": "https://api.decodahealth.com/"
     }
