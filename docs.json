@@ -48,6 +48,13 @@
                 ]
               },
               {
+                "group": "Intelligent Invoicing",
+                "pages": [
+                  "help/intelligent-invoicing/invoicing-overview",
+                  "help/intelligent-invoicing/editing-invoices"
+                ]
+              },
+              {
                 "group": "Scheduling & Intake",
                 "pages": ["help/scheduling"]
               },

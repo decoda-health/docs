@@ -1,0 +1,114 @@
+---
+title: "Editing Invoices"
+description: "Learn how to manage and edit invoices in the Decoda Health platform"
+---
+
+The invoice management dashboard gives you a complete view of all invoices in your system, with powerful filtering and bulk action capabilities.
+
+## Filtering Invoices
+
+You can search through your past, future, and current invoices using the search section at the top of the page.
+
+- **Status Filters**: Filter by Active, Paused, Expired, Failed, Will Fail, Cancelled, or Paid
+- **Amount Filter**: Set minimum, maximum, or exact balance amounts
+- **Date Filters**: Filter by creation date or scheduled send time
+- **Search Bar**: Find invoices by patient name, phone, ID, or invoice ID
+
+<Frame>
+  <img
+    src="/help/intelligent-invoicing/images/filter.png"
+    alt="Invoice search bar interface"
+  />
+</Frame>
+
+<Tip>
+  Status filters appear as metric cards at the top of the page. Click to filter,
+  and combine multiple filters for specific views. The URL updates with your
+  filters, allowing you to bookmark or share filtered views.
+</Tip>
+
+To clear filters, click the "X" on any filter pill, deselect active metric cards.
+
+## Invoice Management Interface
+
+<Note>
+  Changes to invoices are logged in the system audit trail for compliance and
+  tracking purposes.
+</Note>
+
+## Available Actions
+
+Depending on an invoice's current status, you can perform the following actions:
+
+- **Write Off**: Clear the balance for patients you don't expect to collect from
+- **Send to Collections**: Mark unpaid invoices as sent to a collections agency
+- **Change Rule Set**: Modify the rules that determine how and when invoices are sent to selected patients.
+- **Pause**: Temporarily stop the invoicing process
+- **Resume**: Continue a previously paused invoice collection process
+- **Cancel**: Permanently stop the invoices from being sent. You can always create new invoices for the same patient in the future.
+
+## Editing Individual Invoices
+
+<Steps>
+  <Step title="Navigate to Invoices">
+    Go to the Invoices section in your Decoda dashboard
+  </Step>
+  <Step title="Find the Invoice">
+    Use the search and filter options to locate the invoice you want to edit
+  </Step>
+  <Step title="Access Actions Menu">
+    Click the three dots (⋮) menu at the end of the invoice row
+  </Step>
+  <Step title="Select Action">
+    Choose the appropriate action from the dropdown menu
+  </Step>
+</Steps>
+
+## Bulk Editing Invoices
+
+To edit multiple invoices simultaneously:
+
+1. Select the checkboxes next to the invoices you want to edit
+2. A bulk actions bar will appear at the bottom of the screen
+3. Click the appropriate action button
+4. Confirm your changes in the modal that appears
+
+## Viewing Invoice Details
+
+<AccordionGroup>
+  <Accordion title="Basic Details">
+    Click on any invoice row to expand and view basic information including
+    patient details, balance, and current status.
+  </Accordion>
+  <Accordion title="Timeline View">
+    The timeline shows all past and scheduled communications for the patient,
+    including emails, calls, and SMS messages.
+  </Accordion>
+  <Accordion title="Individual Invoice View">
+    The individual invoice view gives you a detailed view of the invoice. Simply
+    hover over the invoice to view send times, which channel is being used and
+    edit the invoice directly.
+  </Accordion>
+</AccordionGroup>
+
+## Handling Failed Invoices
+
+If an invoice failed to send, you can take the following actions:
+
+<Check>Update the patient's contact information</Check>
+<Check>Change the delivery method to an alternative channel</Check>
+<Check>Click "Retry" to attempt delivery again</Check>
+
+## Invoice Statuses
+
+Invoices in the system can have the following statuses:
+
+| Status    | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| Active    | Currently in the collection process                         |
+| Paused    | Temporarily stopped                                         |
+| Expired   | Completed all steps in the rule set but still has a balance |
+| Failed    | Could not be delivered                                      |
+| Will Fail | Will fail to send in the future due to missing information  |
+| Cancelled | Permanently stopped                                         |
+| Paid      | Fully paid by the patient                                   |

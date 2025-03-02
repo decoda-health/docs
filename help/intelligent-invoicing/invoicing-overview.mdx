@@ -1,0 +1,134 @@
+---
+title: "Invoicing Overview"
+description: "A comprehensive guide to Decoda Health's intelligent invoicing system"
+---
+
+# Invoicing Overview
+
+Decoda Health's intelligent invoicing system streamlines the entire billing process, from invoice creation to payment collection. This overview explains the key components and workflows of our invoicing system.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Automated Billing" icon="robot">
+    Generate invoices automatically based on patient visits and services
+  </Card>
+  <Card title="Multi-channel Delivery" icon="paper-plane">
+    Send invoices via email, SMS, or physical mail based on patient preferences
+  </Card>
+  <Card title="Payment Processing" icon="credit-card">
+    Accept payments online, over the phone, or through traditional methods
+  </Card>
+  <Card title="Intelligent Follow-ups" icon="clock">
+    Automatically send reminders based on customizable rule sets
+  </Card>
+</CardGroup>
+
+## Invoicing Workflow
+
+The typical invoicing workflow in Decoda Health follows these steps:
+
+<Steps>
+  <Step title="Invoice Creation">
+    Invoices are generated either automatically or manually by staff in the
+    payment terminal by creating an outstanding charge.
+  </Step>
+  <Step title="Delivery">
+    Invoices are delivered to patients through the assigned communication
+    channel. With smart fallbacks.
+  </Step>
+  <Step title="Payment Collection">
+    Payments are processed and applied to outstanding balances. Invoices are
+    automatically updated to reflect the new balance.
+  </Step>
+</Steps>
+
+## Invoice Screen
+
+<Frame>
+  ![Invoice Screen](/help/intelligent-invoicing/images/overview.png)
+</Frame>
+
+Each invoice set in the system progresses through various statuses as it moves through the collection process:
+
+1. **Active** - The invoice set is active and healthy. Invoices are being sent.
+2. **Paused** - Collection process temporarily halted
+3. **Cancelled** - Invoice set has been cancelled
+4. **Expired** - Invoice set has reached the end of its collection period
+5. **Paid** - Fully paid by the patient
+6. **Will Fail** - System has detected issues that will prevent successful delivery of one or more invoices in the future
+7. **Failed** - Collection process has failed due to technical or other issues
+
+Users can perform several actions on entire sets of invoices:
+
+- Resume a paused invoice set
+- Pause an active invoice set
+- Change the rule set applied to an invoice
+- Send to collections agency
+- Write off the balance
+- Cancel the invoice set
+
+## Rule Sets
+
+Rule sets are the core of Decoda's intelligent invoicing system. They define:
+
+<AccordionGroup>
+  <Accordion title="Communication Channels">
+    Which methods (email, SMS, mail) will be used to contact patients
+  </Accordion>
+  <Accordion title="Timing">
+    When initial invoices and follow-up reminders will be sent
+  </Accordion>
+  <Accordion title="Escalation">
+    How to escalate collection efforts for unpaid invoices
+  </Accordion>
+  <Accordion title="Content">
+    What messaging and formatting will be used in communications
+  </Accordion>
+</AccordionGroup>
+
+## Managed Patient Payments
+
+Decoda's intelligent invoicing system handles the entire payment lifecycle automatically, allowing you to focus on patient care while we handle collections:
+
+- **Automated Patient Inquiries**: Our system automatically responds to patient questions about their bills, payment options, and due dates without staff intervention
+- **Smart Balance Extraction**: The platform automatically extracts due amounts from your practice management system, ensuring accuracy and eliminating manual data entry
+- **End-to-End Invoice Management**: From initial bill creation to final payment confirmation, the entire invoicing cycle is managed automatically
+- **Multi-Channel Communications**: Patients receive timely reminders through their preferred channels (email, SMS, mail) based on your configured rule sets
+- **Self-Service Payment Options**: Patients can easily pay online, set up payment plans, or schedule future payments without calling your office
+
+Simply set up your rules once, and the system handles everything else - you just watch the payments come in.
+
+<Note>
+  Custom integrations can be developed using our comprehensive API.
+  Alternatively, we offer a managed human in the loop service for those who
+  prefer to handle payments manually.
+</Note>
+
+## Getting Started
+
+<CardGroup cols={3}>
+  <Card
+    title="Editing Invoices"
+    icon="pen"
+    href="/help/intelligent-invoicing/editing-invoices"
+  >
+    Manage and modify existing invoices
+  </Card>
+  <Card
+    title="Rule Sets"
+    icon="gears"
+    href="/help/intelligent-invoicing/rule-sets"
+  >
+    Configure automated communication sequences
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+<Tip>
+  For optimal collection rates, we recommend: - Sending invoices within 48 hours
+  of service - Using multiple communication channels - Offering online payment
+  options - Setting up automated reminders - Providing clear payment
+  instructions
+</Tip>
