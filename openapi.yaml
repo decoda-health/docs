@@ -1587,10 +1587,8 @@ components:
       - VIRTUAL_TERMINAL
       - PAYMENT_LINK
       - PAYMENT_PLAN
-      - EMBEDDED_FORM
       - SUBSCRIPTION
       - CASH
-      - PATIENT_PORTAL
       title: PaymentMedium
       type: string
     PaymentMethodSummary:
