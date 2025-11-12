@@ -1,0 +1,171 @@
+---
+title: "SpaKinect Integration"
+description: "Set up and use SpaKinect for Good Faith Exam (GFE) requests"
+---
+
+## Overview
+
+SpaKinect is a telehealth platform that provides virtual medical assessments for aesthetic treatments, ensuring compliance with medical board standards for medical spas. The Decoda platform integrates seamlessly with SpaKinect to enable Good Faith Exam (GFE) requests directly from patient appointments.
+
+## What is a Good Faith Exam?
+
+A Good Faith Exam (GFE) is a virtual medical assessment required for aesthetic treatments. SpaKinect provides licensed medical professionals who conduct these exams to ensure patient safety and regulatory compliance before treatments like Botox, dermal fillers, and other aesthetic procedures.
+
+## Setup
+
+### Prerequisites
+
+- Request SpaKinect module enablement from Decoda support
+- You must have a SpaKinect account with location IDs
+
+<Info>
+When you request SpaKinect module enablement, Decoda will:
+- Enable the SpaKinect module for your tenant
+- Set up the "Request GFE" checklist items on your services
+
+You only need to configure your locations after the module is enabled.
+
+</Info>
+
+### Step 1: Request Module Enablement
+
+To get started with SpaKinect integration:
+
+1. Contact Decoda support at [founders@decodahealth.com](mailto:founders@decodahealth.com)
+2. Request SpaKinect module enablement
+3. Provide your SpaKinect account information and location IDs
+4. Decoda will enable the module and configure checklist items for your services
+
+### Step 2: Configure Location
+
+To enable SpaKinect for a location:
+
+1. Navigate to **Settings** → **Locations**
+2. Click on the location you want to configure (or create a new one)
+3. In the location edit form, find the **SpaKinect Location ID** field
+4. Enter your SpaKinect location ID (e.g., `jkA6SQCtwZhRNpOFj0ZN`)
+5. Click **Save**
+
+<Info>
+  The system automatically subscribes your location to SpaKinect when you save a
+  location with a SpaKinect Location ID. You'll see a green "SpaKinect Enabled"
+  badge on locations that are configured.
+</Info>
+
+<Warning>
+  Only locations with a SpaKinect Location ID configured will appear when
+  requesting GFEs. Make sure to configure your locations after module
+  enablement.
+</Warning>
+
+## Using SpaKinect
+
+### Requesting a Good Faith Exam
+
+GFE requests can be made from two places:
+
+#### From Appointment Checklist
+
+1. Open a patient's appointment
+2. Expand the **Checklist** section
+3. Find the **Request GFE** checklist item
+4. Click **Request New GFE**
+5. Fill in the required information:
+   - **Location**: Select a location with SpaKinect configured
+   - **Treatments**: Select one or more treatments (e.g., "Botox Injection", "Dermal Filler")
+   - **Appointment Date & Time**: Choose when the GFE should be scheduled
+   - **Patient Email & Phone**: Pre-filled from patient record, can be overridden
+6. Click **Submit**
+
+#### From Appointments Tab
+
+1. Navigate to the patient's **Appointments** tab
+2. Click **Request GFE** button
+3. Follow the same steps as above
+
+### Viewing GFE Status
+
+Once a GFE is requested, you can track its status:
+
+- **In Checklist**: Recent GFEs appear in the appointment checklist with status badges
+- **In Appointments Tab**: All patient GFEs are listed with their current status
+- **Status Types**:
+  - 🟡 **Processing** / **Pending Review**: GFE is being reviewed
+  - 🟢 **Approved** / **Completed**: GFE is approved and ready
+  - 🔴 **Rejected**: GFE was not approved
+  - ⚪ **Cancelled**: GFE was cancelled
+
+### Patient Experience
+
+When you request a GFE:
+
+1. An appointment is created in SpaKinect
+2. The patient receives notifications via email and SMS
+3. The patient completes the virtual exam through SpaKinect's platform
+4. Status updates automatically sync back to Decoda
+
+## Features
+
+### Automatic Location Subscription
+
+When you add or update a SpaKinect Location ID on a location, the system automatically subscribes that location to SpaKinect. This ensures seamless integration without manual API calls.
+
+### Treatment Selection
+
+The system fetches available treatments directly from SpaKinect's API, ensuring you always have the latest treatment options available.
+
+### Status Synchronization
+
+GFE statuses are automatically synchronized from SpaKinect, so you always see the current status in Decoda without manual refresh.
+
+### Patient Record Integration
+
+GFE requests are linked to patient records, making it easy to track a patient's exam history across all appointments.
+
+## Troubleshooting
+
+### No Locations Available
+
+If you don't see any locations when requesting a GFE:
+
+- Ensure the SpaKinect module has been enabled by Decoda support
+- Verify that at least one location has a SpaKinect Location ID configured
+- Check that the location ID is correct and active in your SpaKinect account
+- Contact Decoda support if the module appears enabled but locations aren't showing
+
+### Patient Contact Information Missing
+
+GFE requests require patient email and phone number:
+
+- Ensure the patient record has valid email and phone number
+- You can override these values when requesting a GFE if needed
+
+### GFE Status Not Updating
+
+If GFE statuses aren't updating:
+
+- Statuses are fetched from SpaKinect when viewing GFEs
+- Refresh the page or navigate away and back to see latest status
+- Contact support if statuses remain stale
+
+## Best Practices
+
+1. **Configure Locations After Enablement**: Set up SpaKinect Location IDs for all locations after Decoda enables the module
+2. **Verify Patient Information**: Ensure patient email and phone are accurate before requesting GFEs
+3. **Schedule Appropriately**: Request GFEs with enough lead time for patients to complete the exam before their treatment appointment
+4. **Monitor Status**: Regularly check GFE statuses to ensure patients complete their exams on time
+5. **Use Consistent Locations**: Use the same SpaKinect location ID for locations that share the same SpaKinect account
+
+## Support
+
+For questions about SpaKinect integration:
+
+- **Decoda Support**: [founders@decodahealth.com](mailto:founders@decodahealth.com)
+- **SpaKinect Support**: Contact your SpaKinect account representative
+
+For technical issues with the integration, contact Decoda support with:
+
+- Tenant subdomain
+- Location ID
+- Patient ID (if applicable)
+- Error messages or screenshots

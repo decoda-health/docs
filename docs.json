@@ -59,6 +59,10 @@
                 "pages": ["help/scheduling"]
               },
               {
+                "group": "SpaKinect Integration",
+                "pages": ["help/spakinect-integration"]
+              },
+              {
                 "group": "Scribe & Note-Taking",
                 "pages": ["help/ai-notes"]
               },
