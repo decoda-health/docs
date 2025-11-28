@@ -1,0 +1,38 @@
+# Mintlify ignore file
+# Files and directories listed here will be excluded from Mintlify parsing
+
+# Exclude files outside the docs directory
+../decoda/
+../notebooks/
+../console/
+../tenant-dashboard/
+../web/
+../forms/
+../zenoti_forms/
+../assistant_prompts/
+../bin/
+../ngrok/
+../node_modules/
+../.github/
+../.git/
+../.vscode/
+../.idea/
+
+# Exclude root-level markdown files
+../README.md
+../CLAUDE.md
+../LICENSE
+
+# Exclude any other non-docs directories
+../*.md
+../*.py
+../*.ts
+../*.tsx
+../*.json
+../*.yaml
+../*.yml
+../*.toml
+../*.lock
+../*.sh
+../*.hcl
+../*.ipynb

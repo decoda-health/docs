@@ -1,0 +1,706 @@
+---
+title: Patient Onboarding Workflow
+description: Complete guide to onboarding a new patient from creation to first appointment
+---
+
+# Patient Onboarding Workflow
+
+This guide walks through the complete patient onboarding process, from creating a patient record to scheduling their first appointment.
+
+## Overview
+
+The patient onboarding workflow typically involves:
+
+1. **Create Patient** - Add patient to the system
+2. **Send Intake Form** - Collect necessary information
+3. **Schedule Appointment** - Book their first visit
+4. **Send Confirmation** - Notify patient of appointment details
+
+## Step 1: Create Patient Record
+
+First, create a new patient in the system:
+
+<CodeGroup>
+
+```bash
+curl -X POST "https://api.decodahealth.com/user/patient/create" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "first_name": "Jane",
+       "last_name": "Smith",
+       "phone_number": "+1234567890",
+       "email": "jane.smith@example.com",
+       "date_of_birth": "1990-01-15",
+       "external_id": "EHR_PATIENT_12345"
+     }'
+```
+
+```python
+import requests
+
+patient = requests.post(
+    "https://api.decodahealth.com/user/patient/create",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "phone_number": "+1234567890",
+        "email": "jane.smith@example.com",
+        "date_of_birth": "1990-01-15",
+        "external_id": "EHR_PATIENT_12345"
+    }
+).json()
+
+patient_id = patient["id"]
+print(f"Created patient: {patient_id}")
+```
+
+```typescript
+import ky from "ky";
+
+const patient = await ky.post("https://api.decodahealth.com/user/patient/create", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    first_name: "Jane",
+    last_name: "Smith",
+    phone_number: "+1234567890",
+    email: "jane.smith@example.com",
+    date_of_birth: "1990-01-15",
+    external_id: "EHR_PATIENT_12345",
+  },
+}).json();
+
+const patientId = patient.id;
+console.log(`Created patient: ${patientId}`);
+```
+
+</CodeGroup>
+
+**Response:**
+
+```json
+{
+  "id": "pat_1234567890",
+  "first_name": "Jane",
+  "last_name": "Smith",
+  "phone_number": "+1234567890",
+  "email": "jane.smith@example.com",
+  "date_of_birth": "1990-01-15",
+  "external_id": "EHR_PATIENT_12345",
+  "created_date": "2024-03-15T10:00:00Z"
+}
+```
+
+<Info>
+Save the `patient_id` from the response - you'll need it for subsequent steps. The `external_id` field allows you to link the patient to your EHR system.
+</Info>
+
+## Step 2: Send Intake Form
+
+Send an intake form to collect additional patient information:
+
+<CodeGroup>
+
+```bash
+curl -X POST "https://api.decodahealth.com/forms/send-intake-forms" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "patient_id": "pat_1234567890",
+       "form_ids": ["form_intake_general"],
+       "send_email": true,
+       "send_sms": true
+     }'
+```
+
+```python
+form_response = requests.post(
+    "https://api.decodahealth.com/forms/send-intake-forms",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "patient_id": patient_id,
+        "form_ids": ["form_intake_general"],
+        "send_email": True,
+        "send_sms": True
+    }
+).json()
+
+print(f"Intake form sent: {form_response['message']}")
+```
+
+```typescript
+const formResponse = await ky.post("https://api.decodahealth.com/forms/send-intake-forms", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    patient_id: patientId,
+    form_ids: ["form_intake_general"],
+    send_email: true,
+    send_sms: true,
+  },
+}).json();
+
+console.log(`Intake form sent: ${formResponse.message}`);
+```
+
+</CodeGroup>
+
+<Info>
+Replace `form_intake_general` with your actual intake form ID. Use the [List Forms endpoint](/api-reference/provider/list-forms) to find available forms.
+</Info>
+
+## Step 3: Check Form Submission Status
+
+Monitor form submission status (optional - you can also use webhooks):
+
+<CodeGroup>
+
+```bash
+curl -X GET "https://api.decodahealth.com/forms/patient-submissions?patient_id=pat_1234567890" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT"
+```
+
+```python
+submissions = requests.get(
+    "https://api.decodahealth.com/forms/patient-submissions",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT"
+    },
+    params={"patient_id": patient_id}
+).json()
+
+for submission in submissions:
+    print(f"Form {submission['form_id']}: {submission['status']}")
+```
+
+```typescript
+const submissions = await ky.get("https://api.decodahealth.com/forms/patient-submissions", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  searchParams: { patient_id: patientId },
+}).json();
+
+submissions.forEach((submission) => {
+  console.log(`Form ${submission.form_id}: ${submission.status}`);
+});
+```
+
+</CodeGroup>
+
+## Step 4: Check Availability
+
+Before scheduling, check available appointment slots:
+
+<CodeGroup>
+
+```bash
+curl -X GET "https://api.decodahealth.com/calendar/availability?start_date=2024-03-20&end_date=2024-03-27&service_id=svc_1234567890" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT"
+```
+
+```python
+availability = requests.get(
+    "https://api.decodahealth.com/calendar/availability",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT"
+    },
+    params={
+        "start_date": "2024-03-20",
+        "end_date": "2024-03-27",
+        "service_id": "svc_1234567890"
+    }
+).json()
+
+print("Available slots:")
+for slot in availability["slots"]:
+    print(f"  {slot['start_time']} - {slot['duration_minutes']} minutes")
+```
+
+```typescript
+const availability = await ky.get("https://api.decodahealth.com/calendar/availability", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  searchParams: {
+    start_date: "2024-03-20",
+    end_date: "2024-03-27",
+    service_id: "svc_1234567890",
+  },
+}).json();
+
+console.log("Available slots:");
+availability.slots.forEach((slot) => {
+  console.log(`  ${slot.start_time} - ${slot.duration_minutes} minutes`);
+});
+```
+
+</CodeGroup>
+
+## Step 5: Schedule Appointment
+
+Create the appointment:
+
+<CodeGroup>
+
+```bash
+curl -X POST "https://api.decodahealth.com/calendar/appointment" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "patient_id": "pat_1234567890",
+       "start_time": "2024-03-20T14:00:00Z",
+       "duration_minutes": 30,
+       "service_id": "svc_1234567890",
+       "provider_id": "prov_1234567890",
+       "location_id": "loc_1234567890",
+       "notes": "New patient intake appointment"
+     }'
+```
+
+```python
+appointment = requests.post(
+    "https://api.decodahealth.com/calendar/appointment",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "patient_id": patient_id,
+        "start_time": "2024-03-20T14:00:00Z",
+        "duration_minutes": 30,
+        "service_id": "svc_1234567890",
+        "provider_id": "prov_1234567890",
+        "location_id": "loc_1234567890",
+        "notes": "New patient intake appointment"
+    }
+).json()
+
+appointment_id = appointment["id"]
+print(f"Scheduled appointment: {appointment_id}")
+```
+
+```typescript
+const appointment = await ky.post("https://api.decodahealth.com/calendar/appointment", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    patient_id: patientId,
+    start_time: "2024-03-20T14:00:00Z",
+    duration_minutes: 30,
+    service_id: "svc_1234567890",
+    provider_id: "prov_1234567890",
+    location_id: "loc_1234567890",
+    notes: "New patient intake appointment",
+  },
+}).json();
+
+const appointmentId = appointment.id;
+console.log(`Scheduled appointment: ${appointmentId}`);
+```
+
+</CodeGroup>
+
+## Step 6: Send Appointment Confirmation
+
+Send confirmation message to the patient:
+
+<CodeGroup>
+
+```bash
+curl -X POST "https://api.decodahealth.com/comms/send-message" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "patient_id": "pat_1234567890",
+       "message": "Your appointment is confirmed for March 20, 2024 at 2:00 PM. We look forward to seeing you!",
+       "send_sms": true,
+       "send_email": true
+     }'
+```
+
+```python
+message = requests.post(
+    "https://api.decodahealth.com/comms/send-message",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "patient_id": patient_id,
+        "message": "Your appointment is confirmed for March 20, 2024 at 2:00 PM. We look forward to seeing you!",
+        "send_sms": True,
+        "send_email": True
+    }
+).json()
+
+print(f"Confirmation sent: {message['id']}")
+```
+
+```typescript
+const message = await ky.post("https://api.decodahealth.com/comms/send-message", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    patient_id: patientId,
+    message: "Your appointment is confirmed for March 20, 2024 at 2:00 PM. We look forward to seeing you!",
+    send_sms: true,
+    send_email: true,
+  },
+}).json();
+
+console.log(`Confirmation sent: ${message.id}`);
+```
+
+</CodeGroup>
+
+## Complete Workflow Example
+
+Here's a complete example that ties everything together:
+
+<CodeGroup>
+
+```python
+import requests
+from datetime import datetime, timedelta
+
+API_KEY = "YOUR_API_KEY"
+TENANT = "YOUR_TENANT"
+BASE_URL = "https://api.decodahealth.com"
+
+headers = {
+    "API-KEY": API_KEY,
+    "TENANT": TENANT,
+    "Content-Type": "application/json"
+}
+
+def onboard_patient(
+    first_name: str,
+    last_name: str,
+    phone_number: str,
+    email: str,
+    service_id: str,
+    provider_id: str,
+    location_id: str
+):
+    """Complete patient onboarding workflow."""
+
+    # Step 1: Create patient
+    patient = requests.post(
+        f"{BASE_URL}/user/patient/create",
+        headers=headers,
+        json={
+            "first_name": first_name,
+            "last_name": last_name,
+            "phone_number": phone_number,
+            "email": email
+        }
+    ).json()
+    patient_id = patient["id"]
+    print(f"✓ Created patient: {patient_id}")
+
+    # Step 2: Send intake form
+    requests.post(
+        f"{BASE_URL}/forms/send-intake-forms",
+        headers=headers,
+        json={
+            "patient_id": patient_id,
+            "form_ids": ["form_intake_general"],
+            "send_email": True,
+            "send_sms": True
+        }
+    )
+    print(f"✓ Sent intake form")
+
+    # Step 3: Check availability (next week)
+    start_date = (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")
+    end_date = (datetime.now() + timedelta(days=14)).strftime("%Y-%m-%d")
+
+    availability = requests.get(
+        f"{BASE_URL}/calendar/availability",
+        headers=headers,
+        params={
+            "start_date": start_date,
+            "end_date": end_date,
+            "service_id": service_id
+        }
+    ).json()
+
+    if not availability.get("slots"):
+        raise Exception("No available slots")
+
+    # Use first available slot
+    slot = availability["slots"][0]
+
+    # Step 4: Schedule appointment
+    appointment = requests.post(
+        f"{BASE_URL}/calendar/appointment",
+        headers=headers,
+        json={
+            "patient_id": patient_id,
+            "start_time": slot["start_time"],
+            "duration_minutes": slot["duration_minutes"],
+            "service_id": service_id,
+            "provider_id": provider_id,
+            "location_id": location_id,
+            "notes": "New patient intake"
+        }
+    ).json()
+    appointment_id = appointment["id"]
+    print(f"✓ Scheduled appointment: {appointment_id}")
+
+    # Step 5: Send confirmation
+    appointment_time = datetime.fromisoformat(slot["start_time"].replace("Z", "+00:00"))
+    message_text = (
+        f"Hi {first_name}, your appointment is confirmed for "
+        f"{appointment_time.strftime('%B %d, %Y at %I:%M %p')}. "
+        "We look forward to seeing you!"
+    )
+
+    requests.post(
+        f"{BASE_URL}/comms/send-message",
+        headers=headers,
+        json={
+            "patient_id": patient_id,
+            "message": message_text,
+            "send_sms": True,
+            "send_email": True
+        }
+    )
+    print(f"✓ Sent confirmation")
+
+    return {
+        "patient_id": patient_id,
+        "appointment_id": appointment_id,
+        "appointment_time": slot["start_time"]
+    }
+
+# Usage
+result = onboard_patient(
+    first_name="Jane",
+    last_name="Smith",
+    phone_number="+1234567890",
+    email="jane.smith@example.com",
+    service_id="svc_1234567890",
+    provider_id="prov_1234567890",
+    location_id="loc_1234567890"
+)
+
+print(f"\n✓ Patient onboarding complete!")
+print(f"  Patient ID: {result['patient_id']}")
+print(f"  Appointment ID: {result['appointment_id']}")
+```
+
+```typescript
+import ky from "ky";
+
+const API_KEY = "YOUR_API_KEY";
+const TENANT = "YOUR_TENANT";
+const BASE_URL = "https://api.decodahealth.com";
+
+const headers = {
+  "API-KEY": API_KEY,
+  "TENANT": TENANT,
+};
+
+interface OnboardResult {
+  patient_id: string;
+  appointment_id: string;
+  appointment_time: string;
+}
+
+async function onboardPatient(
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  email: string,
+  serviceId: string,
+  providerId: string,
+  locationId: string
+): Promise<OnboardResult> {
+  // Step 1: Create patient
+  const patient = await ky.post(`${BASE_URL}/user/patient/create`, {
+    headers,
+    json: {
+      first_name: firstName,
+      last_name: lastName,
+      phone_number: phoneNumber,
+      email,
+    },
+  }).json() as any;
+
+  const patientId = patient.id;
+  console.log(`✓ Created patient: ${patientId}`);
+
+  // Step 2: Send intake form
+  await ky.post(`${BASE_URL}/forms/send-intake-forms`, {
+    headers,
+    json: {
+      patient_id: patientId,
+      form_ids: ["form_intake_general"],
+      send_email: true,
+      send_sms: true,
+    },
+  });
+  console.log("✓ Sent intake form");
+
+  // Step 3: Check availability (next week)
+  const startDate = new Date();
+  startDate.setDate(startDate.getDate() + 7);
+  const endDate = new Date();
+  endDate.setDate(endDate.getDate() + 14);
+
+  const availability = await ky.get(`${BASE_URL}/calendar/availability`, {
+    headers,
+    searchParams: {
+      start_date: startDate.toISOString().split("T")[0],
+      end_date: endDate.toISOString().split("T")[0],
+      service_id: serviceId,
+    },
+  }).json() as any;
+
+  if (!availability.slots || availability.slots.length === 0) {
+    throw new Error("No available slots");
+  }
+
+  // Use first available slot
+  const slot = availability.slots[0];
+
+  // Step 4: Schedule appointment
+  const appointment = await ky.post(`${BASE_URL}/calendar/appointment`, {
+    headers,
+    json: {
+      patient_id: patientId,
+      start_time: slot.start_time,
+      duration_minutes: slot.duration_minutes,
+      service_id: serviceId,
+      provider_id: providerId,
+      location_id: locationId,
+      notes: "New patient intake",
+    },
+  }).json() as any;
+
+  const appointmentId = appointment.id;
+  console.log(`✓ Scheduled appointment: ${appointmentId}`);
+
+  // Step 5: Send confirmation
+  const appointmentTime = new Date(slot.start_time);
+  const messageText = `Hi ${firstName}, your appointment is confirmed for ${appointmentTime.toLocaleString()}. We look forward to seeing you!`;
+
+  await ky.post(`${BASE_URL}/comms/send-message`, {
+    headers,
+    json: {
+      patient_id: patientId,
+      message: messageText,
+      send_sms: true,
+      send_email: true,
+    },
+  });
+  console.log("✓ Sent confirmation");
+
+  return {
+    patient_id: patientId,
+    appointment_id: appointmentId,
+    appointment_time: slot.start_time,
+  };
+}
+
+// Usage
+const result = await onboardPatient(
+  "Jane",
+  "Smith",
+  "+1234567890",
+  "jane.smith@example.com",
+  "svc_1234567890",
+  "prov_1234567890",
+  "loc_1234567890"
+);
+
+console.log("\n✓ Patient onboarding complete!");
+console.log(`  Patient ID: ${result.patient_id}`);
+console.log(`  Appointment ID: ${result.appointment_id}`);
+```
+
+</CodeGroup>
+
+## Using Webhooks for Automation
+
+Instead of polling for form submissions, you can use webhooks to be notified when forms are completed:
+
+1. **Subscribe to `PATIENT_CREATED`** - Get notified when patient is created
+2. **Subscribe to form submission events** - Get notified when intake forms are completed
+3. **Automatically schedule** - When form is complete, automatically check availability and schedule
+
+See the [Webhook Events Reference](/guides/webhook-events) for details.
+
+## Error Handling
+
+Always implement proper error handling:
+
+<CodeGroup>
+
+```python
+try:
+    patient = requests.post(...).json()
+except requests.exceptions.HTTPError as e:
+    if e.response.status_code == 409:
+        # Patient already exists
+        patient_id = extract_patient_id_from_error(e.response.json())
+    else:
+        raise
+except Exception as e:
+    # Log and handle error
+    print(f"Error: {e}")
+    raise
+```
+
+```typescript
+try {
+  const patient = await ky.post(...).json();
+} catch (error: any) {
+  if (error.response?.status === 409) {
+    // Patient already exists
+    const patientId = extractPatientIdFromError(error.response.json());
+  } else {
+    throw error;
+  }
+}
+```
+
+</CodeGroup>
+
+## Next Steps
+
+- Learn about [Payment Processing Workflow](/guides/payment-processing-workflow)
+- Explore [Webhook Events](/guides/webhook-events) for real-time notifications
+- Review [Best Practices](/guides/best-practices) for production deployments

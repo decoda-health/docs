@@ -1,0 +1,464 @@
+---
+title: Webhook Events Reference
+description: Complete reference for all webhook event types and payloads
+---
+
+# Webhook Events Reference
+
+Webhooks allow you to receive real-time notifications about events in your Decoda Health account. This guide documents all available event types and their payload structures.
+
+## Available Event Types
+
+The following event types can be subscribed to:
+
+| Event Type | Description | When It Fires |
+|------------|------------|---------------|
+| `PAYMENT_CREATED` | A payment record is created | When a payment is initiated |
+| `PAYMENT_COMPLETED` | A payment is successfully completed | When payment processing succeeds |
+| `PAYMENT_FAILED` | A payment fails to process | When payment processing fails |
+| `CHARGE_CREATED` | A charge is created | When a new charge/bill is created |
+| `ADJUSTMENT_CREATED` | An adjustment is made to a charge | When discounts, write-offs, or adjustments are applied |
+| `REFUND_CREATED` | A refund is processed | When a refund is issued |
+| `PATIENT_CREATED` | A new patient is created | When a patient record is first created |
+| `PATIENT_UPDATED` | A patient record is updated | When patient information changes |
+
+## Event Payload Structure
+
+All webhook events follow this structure:
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "PAYMENT_CREATED",
+  "data": { /* Event-specific data */ },
+  "createdDate": "2024-03-15T10:30:00Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+### Common Fields
+
+- **id**: Unique identifier for the webhook event
+- **type**: The event type (see table above)
+- **data**: Event-specific payload (varies by event type)
+- **createdDate**: ISO 8601 timestamp when the event occurred
+- **alertId**: Associated alert ID for tracking
+
+## Event-Specific Payloads
+
+### PAYMENT_CREATED
+
+Fired when a payment is initiated (before processing completes).
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "PAYMENT_CREATED",
+  "data": {
+    "id": "pay_1234567890",
+    "charge_id": "chg_1234567890",
+    "patient_id": "pat_1234567890",
+    "amount_cents": 10000,
+    "status": "pending",
+    "payment_method_id": "pm_1234567890",
+    "created_date": "2024-03-15T10:30:00Z"
+  },
+  "createdDate": "2024-03-15T10:30:00Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+### PAYMENT_COMPLETED
+
+Fired when a payment successfully completes processing.
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "PAYMENT_COMPLETED",
+  "data": {
+    "id": "pay_1234567890",
+    "charge_id": "chg_1234567890",
+    "patient_id": "pat_1234567890",
+    "amount_cents": 10000,
+    "status": "completed",
+    "payment_method_id": "pm_1234567890",
+    "completed_date": "2024-03-15T10:30:05Z",
+    "created_date": "2024-03-15T10:30:00Z"
+  },
+  "createdDate": "2024-03-15T10:30:05Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+### PAYMENT_FAILED
+
+Fired when a payment fails to process.
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "PAYMENT_FAILED",
+  "data": {
+    "id": "pay_1234567890",
+    "charge_id": "chg_1234567890",
+    "patient_id": "pat_1234567890",
+    "amount_cents": 10000,
+    "status": "failed",
+    "payment_method_id": "pm_1234567890",
+    "failure_reason": "insufficient_funds",
+    "failure_message": "Insufficient funds in account",
+    "created_date": "2024-03-15T10:30:00Z",
+    "failed_date": "2024-03-15T10:30:03Z"
+  },
+  "createdDate": "2024-03-15T10:30:03Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+### CHARGE_CREATED
+
+Fired when a new charge/bill is created.
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "CHARGE_CREATED",
+  "data": {
+    "id": "chg_1234567890",
+    "patient_id": "pat_1234567890",
+    "total_amount_cents": 10000,
+    "status": "pending",
+    "items": [
+      {
+        "item_id": "item_1234567890",
+        "quantity": 1,
+        "unit_price_cents": 10000,
+        "total_cents": 10000
+      }
+    ],
+    "created_date": "2024-03-15T10:30:00Z"
+  },
+  "createdDate": "2024-03-15T10:30:00Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+### ADJUSTMENT_CREATED
+
+Fired when an adjustment (discount, write-off, etc.) is applied to a charge.
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "ADJUSTMENT_CREATED",
+  "data": {
+    "id": "adj_1234567890",
+    "charge_id": "chg_1234567890",
+    "adjustment_type": "discount",
+    "amount_cents": -1000,
+    "reason": "Promotional discount",
+    "created_date": "2024-03-15T10:30:00Z"
+  },
+  "createdDate": "2024-03-15T10:30:00Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+### REFUND_CREATED
+
+Fired when a refund is processed.
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "REFUND_CREATED",
+  "data": {
+    "id": "ref_1234567890",
+    "payment_id": "pay_1234567890",
+    "charge_id": "chg_1234567890",
+    "amount_cents": 5000,
+    "reason": "Patient request",
+    "status": "completed",
+    "created_date": "2024-03-15T10:30:00Z"
+  },
+  "createdDate": "2024-03-15T10:30:00Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+### PATIENT_CREATED
+
+Fired when a new patient record is created.
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "PATIENT_CREATED",
+  "data": {
+    "id": "pat_1234567890",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "phone_number": "+1234567890",
+    "created_date": "2024-03-15T10:30:00Z"
+  },
+  "createdDate": "2024-03-15T10:30:00Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+### PATIENT_UPDATED
+
+Fired when a patient record is updated.
+
+```json
+{
+  "id": "evt_1234567890",
+  "type": "PATIENT_UPDATED",
+  "data": {
+    "id": "pat_1234567890",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "phone_number": "+1234567890",
+    "updated_fields": ["email", "phone_number"],
+    "created_date": "2024-03-15T10:30:00Z",
+    "updated_date": "2024-03-15T11:00:00Z"
+  },
+  "createdDate": "2024-03-15T11:00:00Z",
+  "alertId": "alert_1234567890"
+}
+```
+
+## Webhook Delivery
+
+### Delivery Guarantees
+
+- **At-least-once delivery**: Events may be delivered multiple times
+- **Ordering**: Events are delivered in order, but network issues may cause out-of-order delivery
+- **Idempotency**: Always check event IDs to avoid processing duplicates
+
+### Retry Logic
+
+If your webhook endpoint returns a non-2xx status code or times out:
+
+1. **Immediate retry**: After 1 second
+2. **Exponential backoff**: Subsequent retries after 5s, 15s, 60s, 5min, 15min
+3. **Maximum attempts**: 6 attempts over ~30 minutes
+4. **Failure notification**: Email sent to `notification_email` after final failure
+
+### Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Idempotency" icon="shield">
+    Always check event IDs to prevent duplicate processing. Store processed event IDs in your database.
+  </Card>
+  <Card title="Quick Response" icon="clock">
+    Respond quickly (within 5 seconds) to avoid timeouts. Process events asynchronously if needed.
+  </Card>
+  <Card title="Error Handling" icon="exclamation-triangle">
+    Return proper HTTP status codes. 2xx = success, anything else triggers retries.
+  </Card>
+  <Card title="Signature Verification" icon="lock">
+    Always verify webhook signatures to ensure events are from Decoda Health.
+  </Card>
+</CardGroup>
+
+## Example Webhook Handler
+
+Here's a complete example of handling webhooks:
+
+<CodeGroup>
+
+```python
+from fastapi import FastAPI, Request, HTTPException, status
+import hmac
+import hashlib
+import json
+from typing import Dict, Any
+
+app = FastAPI()
+
+# Store this securely (environment variable, secrets manager, etc.)
+WEBHOOK_SECRET = "your_webhook_secret_here"
+
+# Track processed events to prevent duplicates
+processed_events: set[str] = set()
+
+def verify_signature(body: bytes, signature: str, secret: str) -> bool:
+    """Verify webhook signature."""
+    expected_signature = hmac.new(
+        secret.encode(),
+        body,
+        hashlib.sha256
+    ).hexdigest()
+    return hmac.compare_digest(signature, expected_signature)
+
+@app.post("/webhook")
+async def handle_webhook(request: Request):
+    # Get signature from header
+    signature = request.headers.get("Decoda-Signature")
+    if not signature:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Missing signature"
+        )
+
+    # Read request body
+    body = await request.body()
+
+    # Verify signature
+    if not verify_signature(body, signature, WEBHOOK_SECRET):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid signature"
+        )
+
+    # Parse event
+    event = json.loads(body)
+    event_id = event.get("id")
+    event_type = event.get("type")
+    event_data = event.get("data")
+
+    # Check for duplicate events
+    if event_id in processed_events:
+        return {"status": "duplicate", "event_id": event_id}
+
+    # Process event based on type
+    try:
+        if event_type == "PAYMENT_COMPLETED":
+            # Handle payment completion
+            payment_id = event_data.get("id")
+            charge_id = event_data.get("charge_id")
+            amount_cents = event_data.get("amount_cents")
+
+            # Your business logic here
+            print(f"Payment {payment_id} completed for charge {charge_id}: ${amount_cents/100}")
+
+        elif event_type == "PAYMENT_FAILED":
+            # Handle payment failure
+            payment_id = event_data.get("id")
+            failure_reason = event_data.get("failure_reason")
+
+            # Your business logic here
+            print(f"Payment {payment_id} failed: {failure_reason}")
+
+        elif event_type == "PATIENT_CREATED":
+            # Handle new patient
+            patient_id = event_data.get("id")
+            patient_name = f"{event_data.get('first_name')} {event_data.get('last_name')}"
+
+            # Your business logic here
+            print(f"New patient created: {patient_name} ({patient_id})")
+
+        # Mark event as processed
+        processed_events.add(event_id)
+
+        return {"status": "success", "event_id": event_id}
+
+    except Exception as e:
+        # Log error but return 200 to prevent retries for application errors
+        print(f"Error processing event {event_id}: {e}")
+        return {"status": "error", "event_id": event_id}
+```
+
+```typescript
+import express, { Request, Response } from "express";
+import crypto from "crypto";
+
+const app = express();
+app.use(express.json());
+
+const WEBHOOK_SECRET = "your_webhook_secret_here";
+const processedEvents = new Set<string>();
+
+function verifySignature(body: string, signature: string, secret: string): boolean {
+  const expectedSignature = crypto
+    .createHmac("sha256", secret)
+    .update(body)
+    .digest("hex");
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(expectedSignature)
+  );
+}
+
+app.post("/webhook", (req: Request, res: Response) => {
+  const signature = req.headers["decoda-signature"] as string;
+
+  if (!signature) {
+    return res.status(401).json({ error: "Missing signature" });
+  }
+
+  const body = JSON.stringify(req.body);
+
+  if (!verifySignature(body, signature, WEBHOOK_SECRET)) {
+    return res.status(401).json({ error: "Invalid signature" });
+  }
+
+  const event = req.body;
+  const eventId = event.id;
+  const eventType = event.type;
+  const eventData = event.data;
+
+  // Check for duplicates
+  if (processedEvents.has(eventId)) {
+    return res.json({ status: "duplicate", event_id: eventId });
+  }
+
+  try {
+    switch (eventType) {
+      case "PAYMENT_COMPLETED":
+        console.log(
+          `Payment ${eventData.id} completed for charge ${eventData.charge_id}: $${eventData.amount_cents / 100}`
+        );
+        break;
+
+      case "PAYMENT_FAILED":
+        console.log(
+          `Payment ${eventData.id} failed: ${eventData.failure_reason}`
+        );
+        break;
+
+      case "PATIENT_CREATED":
+        console.log(
+          `New patient created: ${eventData.first_name} ${eventData.last_name} (${eventData.id})`
+        );
+        break;
+    }
+
+    processedEvents.add(eventId);
+    res.json({ status: "success", event_id: eventId });
+
+  } catch (error) {
+    console.error(`Error processing event ${eventId}:`, error);
+    res.json({ status: "error", event_id: eventId });
+  }
+});
+
+app.listen(3000, () => {
+  console.log("Webhook server listening on port 3000");
+});
+```
+
+</CodeGroup>
+
+## Testing Webhooks
+
+### Using ngrok for Local Development
+
+1. Start your local server
+2. Expose it with ngrok: `ngrok http 3000`
+3. Use the ngrok URL when creating your webhook
+4. Test events will be delivered to your local server
+
+### Webhook Testing Endpoint
+
+You can manually trigger webhook events using the [Send Webhook Event endpoint](/api-reference/webhook/webhook-event-send) for testing purposes.
+
+## Related Documentation
+
+- [Webhook Setup Guide](/webhooks) - Learn how to create and configure webhooks
+- [Webhook Security](/webhooks#security) - Understand webhook signature verification
+- [API Reference: Webhooks](/api-reference/webhook) - Complete webhook API documentation
