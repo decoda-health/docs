@@ -1,55 +1,105 @@
 ---
 title: Introduction
-description: "Comprehensive Healthcare Payment Solutions"
+description: "Comprehensive Healthcare Platform API"
 ---
 
-# Quickstart
+# API Overview
 
-Decoda Health revolutionizes healthcare payments and operations with advanced solutions for clinics and EHRs. Our mission is to streamline payment processes, enhance patient communication, and simplify healthcare administration.
+Decoda Health provides a comprehensive healthcare platform API that enables clinics, EHRs, and healthcare systems to integrate advanced automation, patient communication, payment processing, and practice management capabilities.
 
-Using our API, your clinic can leverage:
+## Platform Capabilities
 
-**Comprehensive Payment Solutions**
+Our API enables you to build powerful healthcare solutions with:
 
-- Collect patient payments online and in-person, centralizing all payment sources.
-- Support various payment methods: credit/debit cards, ACH/eCheck, HSA/FSA, Gift Cards, and Apple Pay.
-- Handle complex billing workflows: refunds, adjustments, write-offs, discounts, payment plans, and more.
+**AI-Powered Automation**
 
-**In-Person Payment Processing**
+- Deploy AI assistants that handle patient calls, scheduling, and inquiries 24/7
+- Automate note-taking and clinical documentation with AI-powered transcription
+- Intelligent patient communication with multi-language support
 
-- Seamlessly integrate with point-of-sale systems for efficient in-clinic payments.
-- Support contactless payments and mobile wallets for patient convenience.
-- Provide real-time payment reconciliation and reporting.
+**Comprehensive Payment Processing**
 
-**Automated Balance Aging**
+- Accept payments online, in-person, and over the phone
+- Support multiple payment methods: credit/debit cards, ACH/eCheck, HSA/FSA, gift cards, and mobile wallets
+- Handle complex billing workflows: refunds, adjustments, write-offs, discounts, payment plans, and insurance payments
+- Integrate with point-of-sale systems for seamless in-clinic transactions
 
-- Assign each patient bill to a unique outreach ruleset.
-- Configure intelligent outreach schedules to optimize collection efforts.
+**Patient Management**
 
-**Intelligent Conversation Management**
+- Complete patient lifecycle management from intake to follow-up
+- Patient communication hub with two-way texting, calling, and email
+- Intelligent scheduling with automated reminders and confirmations
+- Form management and intake workflows
+- Patient document and attachment handling
 
-- Facilitate patient conversations about payments through two-way texting, inbound/outbound calling, and automated mailing.
-- Transcribe, record, and summarize payment-related conversations for comprehensive tracking.
+**Practice Operations**
 
-**Smart Scheduling and Reception**
+- Calendar and appointment management
+- Provider and staff management with role-based access control
+- Inventory and stock management
+- Commission structures and reporting
+- Analytics and reporting dashboards
 
-- Optimize appointment scheduling with integrated payment reminders.
-- Manage cancellations, reschedules, and associated payment adjustments automatically.
+**Clinical Documentation**
 
-### Implementing Decoda Health Payments
+- AI-powered note creation and transcription
+- Note templates and versioning
+- Clinical attachments and annotations
+- Integration with medical coding (CPT, ICD-10)
 
-- Use Decoda's API to initiate balance aging when patient responsibility is finalized.
-- Receive real-time payment notifications via [webhooks](/api-reference/webhooks).
-- Integrate in-person and online payment flows seamlessly.
+## API Organization
+
+The Decoda Health API is organized into logical groups based on functionality:
+
+- **Actions** - Execute background jobs and workflows
+- **Admin** - Manage providers, locations, settings, and system configuration
+- **Alerts** - System alerts and notifications
+- **Analytics** - Dashboards, reports, and business intelligence
+- **Appointment Dashboard** - Appointment analytics and insights
+- **Attachments** - File and document management
+- **Auth** - Authentication and user management
+- **Billing** - Payment processing, charges, invoices, and financial operations
+- **Calendar** - Appointment scheduling and event management
+- **Comms** - Patient communication (calls, chat, email)
+- **Dashboard** - Overview metrics and KPIs
+- **Errors** - Error logging and tracking
+- **Forms** - Intake forms and form submissions
+- **GCS** - Google Cloud Storage integration
+- **Internal Billing** - Internal payment method management
+- **Inventory** - Stock, packages, memberships, and commission management
+- **Medical Codes** - CPT and ICD-10 code lookup
+- **Medications** - Medication management
+- **Metrics** - System metrics endpoint
+- **Notes** - Clinical notes and documentation
+- **Review** - Patient review management
+- **Spakinect** - Spakinect integration endpoints
+- **Suggestions** - AI-generated suggestions
+- **System** - System-level operations
+- **Tenant** - Tenant configuration and management
+- **User** - User and patient management
+- **Webhook** - Webhook configuration and event management
+
+## Getting Started
+
+### Base URL
+
+All API requests should be made to:
+
+```
+https://api.decodahealth.com
+```
 
 ### Authentication
 
-To authenticate with the Decoda Health API, include the `API-KEY` and `TENANT` headers in your requests:
+The Decoda Health API uses API key authentication. Include the following headers in every request:
+
+- `API-KEY`: Your API key (obtained from Decoda Health)
+- `TENANT`: Your tenant identifier
 
 <CodeGroup>
 
 ```bash auth.sh
-curl -X GET "https://api.decodahealth.com/v1/" \
+curl -X GET "https://api.decodahealth.com/tenant/public" \
      -H "API-KEY: YOUR_API_KEY" \
      -H "TENANT: YOUR_TENANT"
 ```
@@ -58,24 +108,83 @@ curl -X GET "https://api.decodahealth.com/v1/" \
 import requests
 
 response = requests.get(
-    "https://api.decodahealth.com/v1/healthz",
-    headers={"API-KEY": "YOUR_API_KEY", "TENANT": "YOUR_TENANT"}
+    "https://api.decodahealth.com/tenant/public",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT"
+    }
 )
 ```
 
 ```typescript auth.ts
 import ky from "ky";
 
-const response = await ky.get("https://api.decodahealth.com/v1/...", {
+const response = await ky.get("https://api.decodahealth.com/tenant/public", {
   headers: {
-    API_KEY: "YOUR_API_KEY",
-    TENANT: "YOUR_TENANT",
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
   },
 });
 ```
 
 </CodeGroup>
 
-Replace `YOUR_API_KEY` with your actual API key. If you don't have one, request one from [Decoda Health Support](https://decodahealth.com).
+### Getting Your API Key
 
-**Ensure that your API key is secure and not shared publicly.**
+If you don't have an API key, contact [Decoda Health Support](mailto:founders@decodahealth.com) to request access.
+
+**Security Best Practices**
+
+- Never expose your API key in client-side code or public repositories
+- Rotate API keys regularly
+- Use environment variables to store API keys securely
+- Monitor API usage and set up alerts for unusual activity
+
+## API Versioning
+
+The Decoda Health API follows semantic versioning. The current API version is **v1**. We maintain backward compatibility within major versions and will provide advance notice for any breaking changes.
+
+## Rate Limits
+
+API rate limits are applied per tenant to ensure fair usage. Rate limit headers are included in all responses:
+
+- `X-RateLimit-Limit`: Maximum number of requests allowed
+- `X-RateLimit-Remaining`: Number of requests remaining in the current window
+- `X-RateLimit-Reset`: Time when the rate limit resets
+
+If you exceed rate limits, you'll receive a `429 Too Many Requests` response. Implement exponential backoff when retrying requests.
+
+## Webhooks
+
+Receive real-time notifications about events in your Decoda Health account by configuring webhooks. See the [Webhook documentation](/api-reference/webhook) for details on setting up and managing webhooks.
+
+## Error Handling
+
+The API uses standard HTTP status codes to indicate success or failure:
+
+- `2xx`: Success
+- `4xx`: Client error (invalid request, authentication failure, etc.)
+- `5xx`: Server error
+
+Error responses include a JSON body with details about what went wrong:
+
+```json
+{
+  "detail": "Error message describing what went wrong"
+}
+```
+
+## Support
+
+For API support, documentation questions, or feature requests:
+
+- Email: [founders@decodahealth.com](mailto:founders@decodahealth.com)
+- Documentation: This site contains comprehensive API reference documentation
+- Status: Check our status page for API availability and incidents
+
+## Next Steps
+
+- Explore the [API Reference](/api-reference) to see all available endpoints
+- Review the [Authentication](/api-reference/auth) endpoints for user management
+- Set up [Webhooks](/api-reference/webhook) to receive real-time notifications
+- Check out the [Billing](/api-reference/billing) endpoints for payment processing
