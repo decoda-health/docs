@@ -11,65 +11,78 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "User Guides",
+        "tab": "Guides",
         "groups": [
           {
-            "group": "Getting Started",
-            "pages": ["help/introduction"]
-          },
-          {
-            "group": "Help & Support",
+            "group": "User Guides",
             "pages": [
               {
-                "group": "AI Front Desk",
-                "pages": ["help/ai-front-desk"]
+                "group": "Getting Started",
+                "pages": ["help/introduction"]
               },
               {
-                "group": "Payments",
+                "group": "Help & Support",
                 "pages": [
                   {
-                    "group": "Payment Devices",
+                    "group": "AI Front Desk",
+                    "pages": ["help/ai-front-desk"]
+                  },
+                  {
+                    "group": "Payments",
                     "pages": [
-                      "help/payments/payment-devices/overview",
-                      "help/payments/payment-devices/link_2500",
-                      "help/payments/payment-devices/lane_7000",
-                      "help/payments/payment-devices/lane_3000"
+                      {
+                        "group": "Payment Devices",
+                        "pages": [
+                          "help/payments/payment-devices/overview",
+                          "help/payments/payment-devices/link_2500",
+                          "help/payments/payment-devices/lane_7000",
+                          "help/payments/payment-devices/lane_3000"
+                        ]
+                      },
+                      "help/payments/processing-payments",
+                      "help/payments/refunds"
                     ]
                   },
-                  "help/payments/processing-payments",
-                  "help/payments/refunds"
+                  {
+                    "group": "Patient Engagement",
+                    "pages": [
+                      "help/patient-engagement/overview",
+                      "help/patient-engagement/bulk-messaging"
+                    ]
+                  },
+                  {
+                    "group": "Intelligent Invoicing",
+                    "pages": [
+                      "help/intelligent-invoicing/invoicing-overview",
+                      "help/intelligent-invoicing/editing-invoices"
+                    ]
+                  },
+                  {
+                    "group": "Scheduling & Intake",
+                    "pages": ["help/scheduling"]
+                  },
+                  {
+                    "group": "SpaKinect Integration",
+                    "pages": ["help/spakinect-integration"]
+                  },
+                  {
+                    "group": "Scribe & Note-Taking",
+                    "pages": ["help/ai-notes"]
+                  },
+                  {
+                    "group": "Smart Mentions",
+                    "pages": ["help/smart-mentions"]
+                  }
                 ]
-              },
-              {
-                "group": "Patient Engagement",
-                "pages": [
-                  "help/patient-engagement/overview",
-                  "help/patient-engagement/bulk-messaging"
-                ]
-              },
-              {
-                "group": "Intelligent Invoicing",
-                "pages": [
-                  "help/intelligent-invoicing/invoicing-overview",
-                  "help/intelligent-invoicing/editing-invoices"
-                ]
-              },
-              {
-                "group": "Scheduling & Intake",
-                "pages": ["help/scheduling"]
-              },
-              {
-                "group": "SpaKinect Integration",
-                "pages": ["help/spakinect-integration"]
-              },
-              {
-                "group": "Scribe & Note-Taking",
-                "pages": ["help/ai-notes"]
-              },
-              {
-                "group": "Smart Mentions",
-                "pages": ["help/smart-mentions"]
               }
+            ]
+          },
+          {
+            "group": "API Guides",
+            "pages": [
+              "guides/quickstart",
+              "guides/patient-onboarding-workflow",
+              "guides/webhook-events"
             ]
           }
         ]
@@ -711,23 +724,6 @@
               "api-reference/webhook/webhook-list",
               "api-reference/webhook/webhook-update"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": ["guides/quickstart"]
-          },
-          {
-            "group": "Workflows",
-            "pages": ["guides/patient-onboarding-workflow"]
-          },
-          {
-            "group": "Webhooks",
-            "pages": ["guides/webhook-events"]
           }
         ]
       },
