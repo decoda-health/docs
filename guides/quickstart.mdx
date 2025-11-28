@@ -1,0 +1,420 @@
+---
+title: Quick Start Guide
+description: Get up and running with the Decoda Health API in minutes
+---
+
+# Quick Start Guide
+
+Welcome to the Decoda Health API! This guide will help you make your first API call and start building integrations.
+
+## Prerequisites
+
+- API credentials (API key and tenant identifier)
+- cURL, Postman, or your preferred HTTP client
+- Basic understanding of REST APIs
+
+## Step 1: Get Your API Credentials
+
+If you don't have API credentials yet, contact [Decoda Health Support](mailto:founders@decodahealth.com) to request access.
+
+You'll receive:
+- **API Key**: Your authentication token
+- **Tenant**: Your tenant identifier (usually your organization's subdomain)
+
+<Warning>
+Never expose your API key in client-side code or public repositories. Always use environment variables or secure configuration management.
+</Warning>
+
+## Step 2: Make Your First API Call
+
+Let's start by fetching your tenant information to verify your credentials work:
+
+<CodeGroup>
+
+```bash
+curl -X GET "https://api.decodahealth.com/tenant/public" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT"
+```
+
+```python
+import requests
+
+response = requests.get(
+    "https://api.decodahealth.com/tenant/public",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT"
+    }
+)
+
+print(response.json())
+```
+
+```typescript
+import ky from "ky";
+
+const response = await ky.get("https://api.decodahealth.com/tenant/public", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+});
+
+console.log(await response.json());
+```
+
+</CodeGroup>
+
+If successful, you'll receive a JSON response with your tenant details. If you get an authentication error, double-check your API key and tenant identifier.
+
+## Step 3: Create Your First Patient
+
+Now let's create a patient record:
+
+<CodeGroup>
+
+```bash
+curl -X POST "https://api.decodahealth.com/user/patient/create" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "first_name": "John",
+       "last_name": "Doe",
+       "phone_number": "+1234567890",
+       "email": "john.doe@example.com"
+     }'
+```
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.decodahealth.com/user/patient/create",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone_number": "+1234567890",
+        "email": "john.doe@example.com"
+    }
+)
+
+patient = response.json()
+print(f"Created patient: {patient['id']}")
+```
+
+```typescript
+import ky from "ky";
+
+const patient = await ky.post("https://api.decodahealth.com/user/patient/create", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    first_name: "John",
+    last_name: "Doe",
+    phone_number: "+1234567890",
+    email: "john.doe@example.com",
+  },
+}).json();
+
+console.log(`Created patient: ${patient.id}`);
+```
+
+</CodeGroup>
+
+Save the patient ID from the response - you'll need it for the next steps!
+
+## Step 4: Create an Appointment
+
+Let's schedule an appointment for the patient you just created:
+
+<CodeGroup>
+
+```bash
+curl -X POST "https://api.decodahealth.com/calendar/appointment" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "patient_id": "PATIENT_ID_FROM_STEP_3",
+       "start_time": "2024-03-15T10:00:00Z",
+       "duration_minutes": 30,
+       "service_id": "YOUR_SERVICE_ID"
+     }'
+```
+
+```python
+import requests
+from datetime import datetime, timedelta
+
+appointment = requests.post(
+    "https://api.decodahealth.com/calendar/appointment",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "patient_id": "PATIENT_ID_FROM_STEP_3",
+        "start_time": "2024-03-15T10:00:00Z",
+        "duration_minutes": 30,
+        "service_id": "YOUR_SERVICE_ID"
+    }
+).json()
+
+print(f"Created appointment: {appointment['id']}")
+```
+
+```typescript
+import ky from "ky";
+
+const appointment = await ky.post("https://api.decodahealth.com/calendar/appointment", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    patient_id: "PATIENT_ID_FROM_STEP_3",
+    start_time: "2024-03-15T10:00:00Z",
+    duration_minutes: 30,
+    service_id: "YOUR_SERVICE_ID",
+  },
+}).json();
+
+console.log(`Created appointment: ${appointment.id}`);
+```
+
+</CodeGroup>
+
+<Info>
+You'll need to replace `YOUR_SERVICE_ID` with an actual service ID from your tenant. Use the [List Services endpoint](/api-reference/provider/list-services) to find available services.
+</Info>
+
+## Step 5: Process a Payment
+
+Now let's create a charge and process a payment:
+
+<CodeGroup>
+
+```bash
+# First, create a charge
+curl -X POST "https://api.decodahealth.com/billing/charge" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "patient_id": "PATIENT_ID_FROM_STEP_3",
+       "items": [
+         {
+           "item_id": "YOUR_ITEM_ID",
+           "quantity": 1,
+           "unit_price_cents": 10000
+         }
+       ]
+     }'
+
+# Then, process the payment
+curl -X POST "https://api.decodahealth.com/billing/payment" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "charge_id": "CHARGE_ID_FROM_ABOVE",
+       "payment_method_id": "PATIENT_PAYMENT_METHOD_ID",
+       "amount_cents": 10000
+     }'
+```
+
+```python
+import requests
+
+# Create charge
+charge = requests.post(
+    "https://api.decodahealth.com/billing/charge",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "patient_id": "PATIENT_ID_FROM_STEP_3",
+        "items": [{
+            "item_id": "YOUR_ITEM_ID",
+            "quantity": 1,
+            "unit_price_cents": 10000
+        }]
+    }
+).json()
+
+# Process payment
+payment = requests.post(
+    "https://api.decodahealth.com/billing/payment",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "charge_id": charge["id"],
+        "payment_method_id": "PATIENT_PAYMENT_METHOD_ID",
+        "amount_cents": 10000
+    }
+).json()
+
+print(f"Payment processed: {payment['id']}")
+```
+
+```typescript
+import ky from "ky";
+
+// Create charge
+const charge = await ky.post("https://api.decodahealth.com/billing/charge", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    patient_id: "PATIENT_ID_FROM_STEP_3",
+    items: [{
+      item_id: "YOUR_ITEM_ID",
+      quantity: 1,
+      unit_price_cents: 10000,
+    }],
+  },
+}).json();
+
+// Process payment
+const payment = await ky.post("https://api.decodahealth.com/billing/payment", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    charge_id: charge.id,
+    payment_method_id: "PATIENT_PAYMENT_METHOD_ID",
+    amount_cents: 10000,
+  },
+}).json();
+
+console.log(`Payment processed: ${payment.id}`);
+```
+
+</CodeGroup>
+
+## Step 6: Set Up Webhooks (Optional)
+
+To receive real-time notifications about events in your account, set up webhooks:
+
+<CodeGroup>
+
+```bash
+curl -X POST "https://api.decodahealth.com/webhook/create" \
+     -H "API-KEY: YOUR_API_KEY" \
+     -H "TENANT: YOUR_TENANT" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "url": "https://your-server.com/webhooks",
+       "subscriptions": ["PAYMENT_CREATED", "PATIENT_CREATED"],
+       "notification_email": "your-email@example.com"
+     }'
+```
+
+```python
+import requests
+
+webhook = requests.post(
+    "https://api.decodahealth.com/webhook/create",
+    headers={
+        "API-KEY": "YOUR_API_KEY",
+        "TENANT": "YOUR_TENANT",
+        "Content-Type": "application/json"
+    },
+    json={
+        "url": "https://your-server.com/webhooks",
+        "subscriptions": ["PAYMENT_CREATED", "PATIENT_CREATED"],
+        "notification_email": "your-email@example.com"
+    }
+).json()
+
+print(f"Webhook created. Secret: {webhook['secret']}")
+```
+
+```typescript
+import ky from "ky";
+
+const webhook = await ky.post("https://api.decodahealth.com/webhook/create", {
+  headers: {
+    "API-KEY": "YOUR_API_KEY",
+    "TENANT": "YOUR_TENANT",
+  },
+  json: {
+    url: "https://your-server.com/webhooks",
+    subscriptions: ["PAYMENT_CREATED", "PATIENT_CREATED"],
+    notification_email: "your-email@example.com",
+  },
+}).json();
+
+console.log(`Webhook created. Secret: ${webhook.secret}`);
+```
+
+</CodeGroup>
+
+<Warning>
+Save the webhook secret securely - you'll need it to verify webhook signatures. See the [Webhook Security guide](/webhooks) for details.
+</Warning>
+
+## Next Steps
+
+Congratulations! You've completed the quick start guide. Here's what to explore next:
+
+<CardGroup cols={2}>
+  <Card title="API Reference" icon="book" href="/api-reference">
+    Browse all available endpoints organized by functionality
+  </Card>
+  <Card title="Webhooks" icon="webhook" href="/webhooks">
+    Learn how to receive real-time event notifications
+  </Card>
+  <Card title="Workflow Guides" icon="workflow" href="/guides">
+    See how to build complete workflows
+  </Card>
+  <Card title="Best Practices" icon="lightbulb" href="/guides/best-practices">
+    Learn recommended patterns and practices
+  </Card>
+</CardGroup>
+
+## Common Issues
+
+### Authentication Errors
+
+If you get a `401 Unauthorized` error:
+- Verify your API key is correct
+- Check that your tenant identifier matches your account
+- Ensure headers are formatted correctly (case-sensitive)
+
+### Not Found Errors
+
+If you get a `404 Not Found` error:
+- Verify the endpoint URL is correct
+- Check that required IDs (patient_id, service_id, etc.) exist in your tenant
+- Ensure you're using the correct API version
+
+### Rate Limiting
+
+If you get a `429 Too Many Requests` error:
+- Implement exponential backoff
+- Check rate limit headers in responses
+- Consider batching requests where possible
+
+## Getting Help
+
+- **Email Support**: [founders@decodahealth.com](mailto:founders@decodahealth.com)
+- **Documentation**: Browse the full [API Reference](/api-reference)
+- **Status Page**: Check [status.decodahealth.com](https://status.decodahealth.com) for API status

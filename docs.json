@@ -715,6 +715,23 @@
         ]
       },
       {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["guides/quickstart"]
+          },
+          {
+            "group": "Workflows",
+            "pages": ["guides/patient-onboarding-workflow"]
+          },
+          {
+            "group": "Webhooks",
+            "pages": ["guides/webhook-events"]
+          }
+        ]
+      },
+      {
         "tab": "Updates",
         "groups": [
           {
