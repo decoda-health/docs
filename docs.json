@@ -18,14 +18,18 @@
             "pages": [
               {
                 "group": "Getting Started",
-                "pages": ["help/introduction"]
+                "pages": [
+                  "help/introduction"
+                ]
               },
               {
                 "group": "Help & Support",
                 "pages": [
                   {
                     "group": "AI Front Desk",
-                    "pages": ["help/ai-front-desk"]
+                    "pages": [
+                      "help/ai-front-desk"
+                    ]
                   },
                   {
                     "group": "Payments",
@@ -59,19 +63,27 @@
                   },
                   {
                     "group": "Scheduling & Intake",
-                    "pages": ["help/scheduling"]
+                    "pages": [
+                      "help/scheduling"
+                    ]
                   },
                   {
                     "group": "SpaKinect Integration",
-                    "pages": ["help/spakinect-integration"]
+                    "pages": [
+                      "help/spakinect-integration"
+                    ]
                   },
                   {
                     "group": "Scribe & Note-Taking",
-                    "pages": ["help/ai-notes"]
+                    "pages": [
+                      "help/ai-notes"
+                    ]
                   },
                   {
                     "group": "Smart Mentions",
-                    "pages": ["help/smart-mentions"]
+                    "pages": [
+                      "help/smart-mentions"
+                    ]
                   }
                 ]
               }
@@ -92,7 +104,9 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["api-reference/introduction"]
+            "pages": [
+              "api-reference/introduction"
+            ]
           },
           {
             "group": "API",
@@ -287,6 +301,7 @@
                   "api-reference/provider/expire-old-quotes",
                   "api-reference/provider/get-1",
                   "api-reference/provider/get-2",
+                  "api-reference/provider/get-available-months",
                   "api-reference/provider/get-cart-by-id",
                   "api-reference/provider/get-carts",
                   "api-reference/provider/get-carts-list",
@@ -297,8 +312,6 @@
                   "api-reference/provider/get-charges-table",
                   "api-reference/provider/get-daily-cash-transactions",
                   "api-reference/provider/get-daily-external-settlements",
-                  "api-reference/provider/get-deposit",
-                  "api-reference/provider/get-deposit-details",
                   "api-reference/provider/get-detailed-tip-export-data",
                   "api-reference/provider/get-expected-cash-balance",
                   "api-reference/provider/get-external-settlement-details",
@@ -694,7 +707,9 @@
               },
               {
                 "group": "System",
-                "pages": ["api-reference/provider/get-system-toasts"]
+                "pages": [
+                  "api-reference/provider/get-system-toasts"
+                ]
               }
             ]
           },
@@ -703,6 +718,7 @@
             "pages": [
               "api-reference/tenant/detail",
               "api-reference/tenant/get-webhook-config",
+              "api-reference/tenant/list-external-ids",
               "api-reference/tenant/logo",
               "api-reference/tenant/private-detail",
               "api-reference/tenant/update-tenant",
@@ -732,7 +748,10 @@
         "groups": [
           {
             "group": "Updates",
-            "pages": ["updates/changelog", "updates/roadmap"]
+            "pages": [
+              "updates/changelog",
+              "updates/roadmap"
+            ]
           }
         ]
       }
@@ -757,7 +776,9 @@
     "dark": "/images/decoda-logo.png"
   },
   "api": {
-    "openapi": ["openapi.yaml"],
+    "openapi": [
+      "openapi.yaml"
+    ],
     "mdx": {
       "server": "https://api.decodahealth.com/"
     }

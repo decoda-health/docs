@@ -283,6 +283,49 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
+  /tenant/list-external-ids:
+    post:
+      tags:
+      - tenant
+      - tenant
+      summary: List External Ids
+      description: List records by external IDs and return a mapping of external_id
+        to internal id.
+      operationId: list_external_ids_tenant_list_external_ids_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListExternalIds'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListExternalIdsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
   /analytics/dashboards:
     post:
       tags:
@@ -1805,6 +1848,16 @@ paths:
               type: string
           - type: 'null'
           title: Location Names
+      - name: patient_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Patient Ids
       - name: payment_mediums
         in: query
         required: false
@@ -1977,6 +2030,16 @@ paths:
               type: string
           - type: 'null'
           title: Location Names
+      - name: patient_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Patient Ids
       - name: payment_mediums
         in: query
         required: false
@@ -2196,6 +2259,16 @@ paths:
               type: string
           - type: 'null'
           title: Location Names
+      - name: patient_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Patient Ids
       - name: payment_mediums
         in: query
         required: false
@@ -2326,6 +2399,16 @@ paths:
               type: string
           - type: 'null'
           title: Location Names
+      - name: patient_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Patient Ids
       - name: payment_mediums
         in: query
         required: false
@@ -7770,7 +7853,7 @@ paths:
       - provider
       - billing
       summary: List Deposits
-      description: List deposits with optional filtering and pagination
+      description: List deposits for a specific month. Month filter is required.
       operationId: list_deposits_billing_deposits_get
       parameters:
       - name: TENANT
@@ -7854,6 +7937,14 @@ paths:
           - type: string
           - type: 'null'
           title: Rainforest Deposit Id
+      - name: month
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Month
       - name: tz
         in: query
         required: false
@@ -7880,21 +7971,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Page_Deposit_'
+                $ref: '#/components/schemas/Page_DepositDetails_'
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /billing/deposits/{deposit_id}:
+  /billing/deposits/available-months:
     get:
       tags:
       - provider
       - billing
-      summary: Get Deposit
-      description: Get a specific deposit by ID
-      operationId: get_deposit_billing_deposits__deposit_id__get
+      summary: Get Available Months
+      description: Get list of months (YYYY-MM format) that have deposits
+      operationId: get_available_months_billing_deposits_available_months_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+                title: Response Get Available Months Billing Deposits Available Months
+                  Get
       parameters:
       - name: TENANT
         in: header
@@ -7910,67 +8012,6 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-      - name: deposit_id
-        in: path
-        required: true
-        schema:
-          type: string
-          title: Deposit Id
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Deposit'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /billing/deposits/{deposit_id}/details:
-    get:
-      tags:
-      - provider
-      - billing
-      summary: Get Deposit Details
-      description: Get comprehensive deposit details including payments and refunds
-      operationId: get_deposit_details_billing_deposits__deposit_id__details_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: deposit_id
-        in: path
-        required: true
-        schema:
-          type: string
-          title: Deposit Id
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DepositDetails'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /billing/insurance-payment/create:
     post:
       tags:
@@ -29959,45 +30000,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /webhook/call/livekit/complete:
-    post:
-      tags:
-      - webhook
-      summary: Livekit Complete
-      operationId: livekit_complete_webhook_call_livekit_complete_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LiveKitWebhook'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: {}
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
 components:
   schemas:
     AddPatientCredit:
@@ -36602,97 +36604,6 @@ components:
       required:
       - dates
       title: DeleteShiftsByDatesRequest
-    Deposit:
-      properties:
-        rainforestDepositId:
-          type: string
-          title: Rainforestdepositid
-          description: Unique identifier from Rainforest
-        merchantAccountId:
-          type: string
-          title: Merchantaccountid
-          description: Associated merchant account ID
-        amount:
-          type: integer
-          title: Amount
-          description: Deposit amount in cents
-        currency:
-          type: string
-          title: Currency
-          description: Currency code
-          default: USD
-        fee:
-          type: integer
-          title: Fee
-          description: Processing fee in cents
-          default: 0
-        netAmount:
-          type: integer
-          title: Netamount
-          description: Net amount after fees in cents
-        status:
-          $ref: '#/components/schemas/DepositStatus'
-          description: Deposit status
-          default: PROCESSING
-        rainforestCreatedDate:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Rainforestcreateddate
-          description: Creation date from Rainforest
-        rainforestUpdatedDate:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Rainforestupdateddate
-          description: Last update date from Rainforest
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-          description: Deposit description
-        externalReference:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Externalreference
-          description: External reference identifier
-        id:
-          type: string
-          title: Id
-        createdDate:
-          type: string
-          format: date-time
-          title: Createddate
-        updatedDate:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Updateddate
-        payinCount:
-          type: integer
-          title: Payincount
-          description: Number of payins in this deposit
-          default: 0
-        refundCount:
-          type: integer
-          title: Refundcount
-          description: Number of refunds in this deposit
-          default: 0
-      type: object
-      required:
-      - rainforestDepositId
-      - merchantAccountId
-      - amount
-      - netAmount
-      - id
-      - createdDate
-      title: Deposit
-      description: Schema for deposit responses
     DepositDetails:
       properties:
         rainforestDepositId:
@@ -36764,16 +36675,24 @@ components:
             format: date-time
           - type: 'null'
           title: Updateddate
-        payinCount:
-          type: integer
-          title: Payincount
-          description: Number of payins in this deposit
-          default: 0
-        refundCount:
-          type: integer
-          title: Refundcount
-          description: Number of refunds in this deposit
-          default: 0
+        subtotal:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Subtotal
+          description: Subtotal (sum of payments - sum of refunds) in cents
+        totalFees:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Totalfees
+          description: Total fees (payment fees + refund fees + deposit fee) in cents
+        amountDeposited:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Amountdeposited
+          description: Amount deposited (net amount) in cents
         payments:
           items:
             $ref: '#/components/schemas/PaymentWithPatient'
@@ -40100,118 +40019,46 @@ components:
       - quantity
       - pricePerItem
       title: ItemWithQuantity
-    LiveKitWebhook:
+    ListExternalIds:
       properties:
-        event:
+        tableName:
           type: string
-          enum:
-          - CALL_STARTED
-          - CALL_ENDED
-          - CALL_ANALYZED
-          title: Event
-          default: CALL_ENDED
-        data:
-          $ref: '#/components/schemas/LivekitCallData'
-      type: object
-      required:
-      - data
-      title: LiveKitWebhook
-    LivekitCallData:
-      properties:
-        externalNumber:
-          type: string
-          title: Externalnumber
-        trunkNumber:
-          type: string
-          title: Trunknumber
-        roomName:
-          type: string
-          title: Roomname
-        startTime:
-          type: string
-          title: Starttime
-        endTime:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Endtime
-        recordingPath:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Recordingpath
-        disconnectReason:
-          type: string
-          title: Disconnectreason
-        turns:
+          title: Tablename
+        externalIds:
           items:
-            anyOf:
-            - $ref: '#/components/schemas/LivekitCallToolCall'
-            - $ref: '#/components/schemas/LivekitCallSpeech'
+            type: string
           type: array
-          title: Turns
+          title: Externalids
       type: object
       required:
-      - externalNumber
-      - trunkNumber
-      - roomName
-      - startTime
-      - endTime
-      - disconnectReason
-      - turns
-      title: LivekitCallData
-    LivekitCallSpeech:
+      - tableName
+      - externalIds
+      title: ListExternalIds
+      description: List records by external IDs and return mapping to internal IDs.
+    ListExternalIdsResponse:
       properties:
-        role:
+        tableName:
           type: string
-          enum:
-          - assistant
-          - user
-          title: Role
-        content:
-          type: string
-          title: Content
-        startTime:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Starttime
-        endTime:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Endtime
+          title: Tablename
+        externalIdToId:
+          additionalProperties:
+            type: string
+          type: object
+          title: Externalidtoid
+        foundCount:
+          type: integer
+          title: Foundcount
+        requestedCount:
+          type: integer
+          title: Requestedcount
       type: object
       required:
-      - role
-      - content
-      title: LivekitCallSpeech
-    LivekitCallToolCall:
-      properties:
-        role:
-          type: string
-          const: tool_call
-          title: Role
-          default: tool_call
-        name:
-          type: string
-          title: Name
-        arguments:
-          type: object
-          title: Arguments
-        result:
-          type: object
-          title: Result
-          default: {}
-        timestamp:
-          type: string
-          title: Timestamp
-      type: object
-      required:
-      - name
-      - arguments
-      - timestamp
-      title: LivekitCallToolCall
+      - tableName
+      - externalIdToId
+      - foundCount
+      - requestedCount
+      title: ListExternalIdsResponse
+      description: Response for listing external IDs.
     LivekitSetupCallParams:
       properties:
         externalNumber:
@@ -42091,14 +41938,15 @@ components:
           title: Name
           description: Name of the membership
         textColor:
-          type: string
+          anyOf:
+          - type: string
+          - type: 'null'
           title: Textcolor
           description: Text color of the membership
       type: object
       required:
       - id
       - name
-      - textColor
       title: MembershipTiny
     MerchantAccount:
       properties:
@@ -43730,11 +43578,11 @@ components:
       - data
       - total
       title: Page[CommissionStructureDetail]
-    Page_Deposit_:
+    Page_DepositDetails_:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/Deposit'
+            $ref: '#/components/schemas/DepositDetails'
           type: array
           title: Data
         total:
@@ -43744,7 +43592,7 @@ components:
       required:
       - data
       - total
-      title: Page[Deposit]
+      title: Page[DepositDetails]
     Page_DocumentSummary_:
       properties:
         data:
