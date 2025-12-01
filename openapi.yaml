@@ -283,47 +283,6 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /tenant/update-created-dates:
-    post:
-      tags:
-      - tenant
-      summary: Update Created Dates
-      description: Update the created dates for a table with a list of ids.
-      operationId: update_created_dates_tenant_update_created_dates_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateCreatedDates'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UpdateCreatedDatesResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
   /tenant/list-external-ids:
     post:
       tags:
@@ -345,48 +304,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListExternalIdsResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-  /tenant/insert-many-to-many:
-    post:
-      tags:
-      - tenant
-      summary: Insert Many To Many Endpoint
-      description: Insert records into an arbitrary many-to-many association table.
-        Only inserts records that don't already exist.
-      operationId: insert_many_to_many_endpoint_tenant_insert_many_to_many_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/InsertManyToMany'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InsertManyToManyResponse'
         '422':
           description: Validation Error
           content:
@@ -39097,40 +39014,6 @@ components:
       - longDesc
       - categorical
       title: ICDTenCode
-    InsertManyToMany:
-      properties:
-        tableName:
-          type: string
-          title: Tablename
-        records:
-          items:
-            type: object
-          type: array
-          title: Records
-      type: object
-      required:
-      - tableName
-      - records
-      title: InsertManyToMany
-      description: Insert records into a many-to-many association table.
-    InsertManyToManyResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-        tableName:
-          type: string
-          title: Tablename
-        insertedCount:
-          type: integer
-          title: Insertedcount
-      type: object
-      required:
-      - message
-      - tableName
-      - insertedCount
-      title: InsertManyToManyResponse
-      description: Response for inserting into many-to-many table.
     InsurancePaymentCreate:
       properties:
         id:
@@ -55150,49 +55033,6 @@ components:
       - FEET
       - INCHES
       title: Unit
-    UpdateCreatedDates:
-      properties:
-        idToCreatedDate:
-          additionalProperties:
-            type: string
-            format: date-time
-          type: object
-          title: Idtocreateddate
-        tableName:
-          type: string
-          title: Tablename
-        useExternalId:
-          type: boolean
-          title: Useexternalid
-          default: false
-      type: object
-      required:
-      - idToCreatedDate
-      - tableName
-      title: UpdateCreatedDates
-      description: Update the created dates for all charges and items.
-    UpdateCreatedDatesResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-        tableName:
-          type: string
-          title: Tablename
-        updatedCount:
-          type: integer
-          title: Updatedcount
-        identifierType:
-          type: string
-          title: Identifiertype
-      type: object
-      required:
-      - message
-      - tableName
-      - updatedCount
-      - identifierType
-      title: UpdateCreatedDatesResponse
-      description: Response for updating created dates.
     UpdateDashboardSchema:
       properties:
         name:
