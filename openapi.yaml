@@ -287,7 +287,6 @@ paths:
     post:
       tags:
       - tenant
-      - tenant
       summary: List External Ids
       description: List records by external IDs and return a mapping of external_id
         to internal id.
@@ -19765,62 +19764,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/providers:
-    get:
-      tags:
-      - provider
-      - calendar
-      summary: Get Providers
-      description: List providers with their appointments for scheduling an appointment
-      operationId: get_providers_calendar_providers_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: search
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Search
-      - name: include_assistants
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          default: false
-          title: Include Assistants
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ProviderWithServices'
-                title: Response Get Providers Calendar Providers Get
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /calendar/locations:
     get:
       tags:
@@ -27478,7 +27421,7 @@ paths:
       - provider
       - inventory
       summary: Cancel Sold Package
-      description: Revoke a sold package by setting its status to REVOKED.
+      description: Cancel a sold package by setting its status to CANCELLED.
       operationId: cancel_sold_package_inventory_packages_cancel_sold_package__sold_package_id__put
       parameters:
       - name: TENANT
@@ -27501,6 +27444,12 @@ paths:
         schema:
           type: string
           title: Sold Package Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PackageCancellationRequest'
       responses:
         '200':
           description: Successful Response
@@ -31561,6 +31510,11 @@ components:
           - type: string
           - type: 'null'
           title: Name
+        external_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: External Id
       type: object
       required:
       - attachment
@@ -31855,6 +31809,11 @@ components:
           - type: string
           - type: 'null'
           title: Spakinectlocationid
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - name
@@ -33212,6 +33171,11 @@ components:
           - type: string
           - type: 'null'
           title: Description
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - name
@@ -33226,6 +33190,11 @@ components:
           - type: string
           - type: 'null'
           title: Description
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         usage:
           $ref: '#/components/schemas/CategoryUsageDetail'
       type: object
@@ -37347,6 +37316,11 @@ components:
           - type: integer
           - type: 'null'
           title: Capacity
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - title
@@ -39720,6 +39694,12 @@ components:
           $ref: '#/components/schemas/ItemType'
           description: Type of item (PRODUCT, MEDICATION, etc.)
           default: PRODUCT
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: Optional external ID for the item
         stocks:
           anyOf:
           - items:
@@ -39806,6 +39786,12 @@ components:
           $ref: '#/components/schemas/ItemType'
           description: Type of item (PRODUCT, MEDICATION, etc.)
           default: PRODUCT
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: Optional external ID for the item
         stocks:
           anyOf:
           - items:
@@ -39952,6 +39938,12 @@ components:
           $ref: '#/components/schemas/ItemType'
           description: Type of item (PRODUCT, MEDICATION, etc.)
           default: PRODUCT
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: Optional external ID for the item
       type: object
       required:
       - name
@@ -40651,6 +40643,11 @@ components:
           type: boolean
           title: Isusedastemplate
           default: false
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         templateAmount:
           anyOf:
           - type: number
@@ -40734,6 +40731,11 @@ components:
           type: boolean
           title: Isusedastemplate
           default: false
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         templateAmount:
           anyOf:
           - type: number
@@ -42310,6 +42312,11 @@ components:
           - type: string
           - type: 'null'
           title: Name
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - url
@@ -42469,6 +42476,11 @@ components:
             type: array
           - type: 'null'
           title: Cptcodes
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - patientId
@@ -43189,6 +43201,12 @@ components:
           type: integer
           title: Price
           description: Price of the package in cents
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: Optional external ID for the package
         internalNotes:
           anyOf:
           - type: string
@@ -43239,6 +43257,12 @@ components:
           type: integer
           title: Price
           description: Price of the package in cents
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: Optional external ID for the package
         internalNotes:
           anyOf:
           - type: string
@@ -43264,6 +43288,17 @@ components:
       - name
       - price
       title: Package
+    PackageCancellationRequest:
+      properties:
+        cancellationReason:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cancellationreason
+          description: Reason for cancelling the package
+      type: object
+      title: PackageCancellationRequest
+      description: Request schema for cancelling a sold package
     PackageDetail:
       properties:
         id:
@@ -43289,6 +43324,12 @@ components:
           type: integer
           title: Price
           description: Price of the package in cents
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: Optional external ID for the package
         internalNotes:
           anyOf:
           - type: string
@@ -43453,6 +43494,12 @@ components:
           type: integer
           title: Price
           description: Price of the package in cents
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: Optional external ID for the package
       type: object
       required:
       - name
@@ -44480,6 +44527,11 @@ components:
           - type: string
           - type: 'null'
           title: Creatorid
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - amount
@@ -48173,6 +48225,11 @@ components:
           - type: string
           - type: 'null'
           title: Primarylocationid
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - email
@@ -48709,68 +48766,6 @@ components:
       - utilizationRate
       title: ProviderUtilization
       description: Provider utilization statistics
-    ProviderWithServices:
-      properties:
-        id:
-          type: string
-          title: Id
-          description: The unique identifier for the user.
-        firstName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Firstname
-          description: The user's first name.
-        lastName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Lastname
-          description: The user's last name.
-        phoneNumber:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Phonenumber
-          description: The user's phone number.
-        email:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Email
-          description: The user's email address.
-        type:
-          $ref: '#/components/schemas/UserType'
-          description: The type of user.
-        locationId:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Locationid
-          description: The location of the user.
-        services:
-          items:
-            $ref: '#/components/schemas/ServiceTiny'
-          type: array
-          title: Services
-          default: []
-        visibleLocationIds:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Visiblelocationids
-        isArchived:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Isarchived
-      type: object
-      required:
-      - id
-      - type
-      title: ProviderWithServices
     ProvidersCommissionStructure:
       properties:
         id:
@@ -49766,6 +49761,11 @@ components:
           - type: string
           - type: 'null'
           title: Eventid
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - patientId
@@ -52275,6 +52275,11 @@ components:
           - type: 'null'
           title: Allowcustompricing
           default: false
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - id
@@ -52864,6 +52869,12 @@ components:
         status:
           $ref: '#/components/schemas/PackageStatus'
           description: Status of the sold package
+        cancellationReason:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cancellationreason
+          description: Reason for cancellation if the package is cancelled
         package:
           anyOf:
           - $ref: '#/components/schemas/Package-Input'
@@ -52910,6 +52921,12 @@ components:
         status:
           $ref: '#/components/schemas/PackageStatus'
           description: Status of the sold package
+        cancellationReason:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cancellationreason
+          description: Reason for cancellation if the package is cancelled
         package:
           anyOf:
           - $ref: '#/components/schemas/Package-Output'
@@ -52956,6 +52973,12 @@ components:
         status:
           $ref: '#/components/schemas/PackageStatus'
           description: Status of the sold package
+        cancellationReason:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cancellationreason
+          description: Reason for cancellation if the package is cancelled
         package:
           $ref: '#/components/schemas/PackageDetail'
           description: Details of the package
