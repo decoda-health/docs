@@ -325,6 +325,48 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
+  /tenant/insert-many-to-many:
+    post:
+      tags:
+      - tenant
+      summary: Insert Many To Many Endpoint
+      description: Insert records into an arbitrary many-to-many association table.
+        Only inserts records that don't already exist.
+      operationId: insert_many_to_many_endpoint_tenant_insert_many_to_many_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsertManyToMany'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertManyToManyResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
   /analytics/dashboards:
     post:
       tags:
@@ -2845,8 +2887,8 @@ paths:
       - analytics
       - analytics
       summary: Get Provider Payment Medium Breakdown
-      description: Get payment medium breakdown for a specific provider with proportional
-        attribution
+      description: Get payment medium breakdown for a specific provider (or None for
+        unassigned provider) with proportional attribution
       operationId: get_provider_payment_medium_breakdown_analytics_dashboards_provider_earnings_provider_payment_medium_breakdown_get
       parameters:
       - name: TENANT
@@ -2863,18 +2905,20 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-      - name: provider_id
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Provider Id
       - name: timezone
         in: query
         required: true
         schema:
           type: string
           title: Timezone
+      - name: provider_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Id
       - name: start_date
         in: query
         required: false
@@ -2927,8 +2971,8 @@ paths:
       - analytics
       - analytics
       summary: Get Provider Item Category Breakdown
-      description: Get item category breakdown for a specific provider with proportional
-        attribution
+      description: Get item category breakdown for a specific provider (or None for
+        unassigned provider) with proportional attribution
       operationId: get_provider_item_category_breakdown_analytics_dashboards_provider_earnings_provider_item_category_breakdown_get
       parameters:
       - name: TENANT
@@ -2945,18 +2989,20 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-      - name: provider_id
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Provider Id
       - name: timezone
         in: query
         required: true
         schema:
           type: string
           title: Timezone
+      - name: provider_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Id
       - name: start_date
         in: query
         required: false
@@ -3009,8 +3055,8 @@ paths:
       - analytics
       - analytics
       summary: Get Provider Payment Medium Payments
-      description: Get all payments for a specific payment medium for a provider with
-        proportional attribution
+      description: Get all payments for a specific payment medium for a provider (or
+        None for unassigned provider) with proportional attribution
       operationId: get_provider_payment_medium_payments_analytics_dashboards_provider_earnings_provider_payment_medium_payments_get
       parameters:
       - name: TENANT
@@ -3027,12 +3073,6 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-      - name: provider_id
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Provider Id
       - name: payment_medium
         in: query
         required: true
@@ -3045,6 +3085,134 @@ paths:
         schema:
           type: string
           title: Timezone
+      - name: provider_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Id
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+          title: Page
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 100
+          minimum: 1
+          default: 25
+          title: Per Page
+      - name: sort_by
+        in: query
+        required: false
+        schema:
+          type: string
+          default: created_date
+          title: Sort By
+      - name: sort_direction
+        in: query
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+          default: desc
+          title: Sort Direction
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_ProviderPaymentDetail_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/dashboards/provider-earnings/provider-item-category-payments:
+    get:
+      tags:
+      - provider
+      - analytics
+      - analytics
+      summary: Get Provider Item Category Payments
+      description: Get all payments for a specific item category for a provider (or
+        None for unassigned provider) with proportional attribution
+      operationId: get_provider_item_category_payments_analytics_dashboards_provider_earnings_provider_item_category_payments_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: item_category
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Item Category
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      - name: provider_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Id
       - name: start_date
         in: query
         required: false
@@ -14085,6 +14253,50 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /admin/settings/show-deleted-providers:
+    put:
+      tags:
+      - provider
+      - admin
+      summary: Update Show Deleted Providers
+      description: Update the show deleted providers setting for a provider
+      operationId: update_show_deleted_providers_admin_settings_show_deleted_providers_put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShowDeletedProvidersUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Update Show Deleted Providers Admin Settings Show
+                  Deleted Providers Put
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
   /admin/providers/role/list:
     get:
       tags:
@@ -19880,6 +20092,14 @@ paths:
               type: string
           - type: 'null'
           title: Location Ids
+      - name: search
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Search
       responses:
         '200':
           description: Successful Response
@@ -20840,16 +21060,6 @@ paths:
       - forms
       summary: List Forms
       operationId: list_forms_forms_table_get
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/FormTable'
-                type: array
-                title: Response List Forms Forms Table Get
       parameters:
       - name: TENANT
         in: header
@@ -20865,6 +21075,31 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
+      - name: include_archived
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Include archived forms
+          default: false
+          title: Include Archived
+        description: Include archived forms
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FormTable'
+                title: Response List Forms Forms Table Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /forms/archive/{form_id}:
     delete:
       tags:
@@ -33165,6 +33400,7 @@ components:
       properties:
         name:
           type: string
+          minLength: 1
           title: Name
         description:
           anyOf:
@@ -33184,6 +33420,7 @@ components:
       properties:
         name:
           type: string
+          minLength: 1
           title: Name
         description:
           anyOf:
@@ -38522,6 +38759,11 @@ components:
           title: Autosignoffnotes
           description: Whether notes should automatically sign off when created.
           default: true
+        showDeletedProviders:
+          type: boolean
+          title: Showdeletedproviders
+          description: Whether to show deleted providers in provider selection lists.
+          default: false
         firebaseUid:
           anyOf:
           - type: string
@@ -39014,6 +39256,40 @@ components:
       - longDesc
       - categorical
       title: ICDTenCode
+    InsertManyToMany:
+      properties:
+        tableName:
+          type: string
+          title: Tablename
+        records:
+          items:
+            type: object
+          type: array
+          title: Records
+      type: object
+      required:
+      - tableName
+      - records
+      title: InsertManyToMany
+      description: Insert records into a many-to-many association table.
+    InsertManyToManyResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+        tableName:
+          type: string
+          title: Tablename
+        insertedCount:
+          type: integer
+          title: Insertedcount
+      type: object
+      required:
+      - message
+      - tableName
+      - insertedCount
+      title: InsertManyToManyResponse
+      description: Response for inserting into many-to-many table.
     InsurancePaymentCreate:
       properties:
         id:
@@ -40227,6 +40503,10 @@ components:
           type: array
           title: Taxes
           default: []
+        isArchived:
+          type: boolean
+          title: Isarchived
+          default: false
       type: object
       required:
       - id
@@ -42659,6 +42939,11 @@ components:
         id:
           type: string
           title: Id
+        eventId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Eventid
         content:
           anyOf:
           - type: string
@@ -48266,6 +48551,12 @@ components:
         amount:
           type: integer
           title: Amount
+        tips:
+          type: integer
+          title: Tips
+        refunds:
+          type: integer
+          title: Refunds
         createdDate:
           type: string
           format: date-time
@@ -48302,6 +48593,8 @@ components:
       required:
       - paymentId
       - amount
+      - tips
+      - refunds
       - createdDate
       - chargeId
       - patientId
@@ -48587,6 +48880,11 @@ components:
           title: Autosignoffnotes
           description: Whether notes should automatically sign off when created.
           default: true
+        showDeletedProviders:
+          type: boolean
+          title: Showdeletedproviders
+          description: Whether to show deleted providers in provider selection lists.
+          default: false
       type: object
       required:
       - id
@@ -52786,6 +53084,15 @@ components:
       - remainingQuantity
       - locationName
       title: Shipment
+    ShowDeletedProvidersUpdate:
+      properties:
+        showDeletedProviders:
+          type: boolean
+          title: Showdeletedproviders
+      type: object
+      required:
+      - showDeletedProviders
+      title: ShowDeletedProvidersUpdate
     SignalwireInboundAssistantStatus:
       properties:
         enabled:
@@ -54187,6 +54494,10 @@ components:
           - type: string
           - type: 'null'
           title: Gcalrefreshtoken
+        markChatReadOnAiResponse:
+          type: boolean
+          title: Markchatreadonairesponse
+          default: false
         auditSmsResponse:
           type: boolean
           title: Auditsmsresponse
@@ -54395,6 +54706,11 @@ components:
           - type: string
           - type: 'null'
           title: Apikey
+        markChatReadOnAiResponse:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Markchatreadonairesponse
         auditSmsResponse:
           anyOf:
           - type: boolean
