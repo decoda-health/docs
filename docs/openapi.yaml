@@ -19453,48 +19453,20 @@ paths:
               schema:
                 $ref: "#/components/schemas/HTTPValidationError"
       parameters:
-        - name: TENANT
-          in: header
-          required: true
-          schema:
-            type: string
-            title: Tenant
-          description: The tenant you are making this request on behalf of
-        - name: API-KEY
-          in: header
-          required: true
-          schema:
-            type: string
-            title: Api-Key
-          description: Your api key
-  /calendar/self-schedule/get-or-create-patient:
-    post:
-      tags:
-        - provider
-        - calendar
-        - self-schedule
-        - public
-      summary: Get Or Create Patient
-      operationId: get_or_create_patient_calendar_self_schedule_get_or_create_patient_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/SelfSchedulePatientRequest"
+      - name: TENANT
+        in: header
         required: true
-      responses:
-        "200":
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/SelfSchedulePatient"
-        "422":
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
       parameters:
         - name: TENANT
           in: header

@@ -19691,34 +19691,6 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /calendar/self-schedule/get-or-create-patient:
-    post:
-      tags:
-      - provider
-      - calendar
-      - self-schedule
-      - public
-      summary: Get Or Create Patient
-      operationId: get_or_create_patient_calendar_self_schedule_get_or_create_patient_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SelfSchedulePatientRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SelfSchedulePatient'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       parameters:
       - name: TENANT
         in: header

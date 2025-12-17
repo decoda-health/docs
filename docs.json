@@ -405,7 +405,6 @@
                   "api-reference/provider/get-events-for-patient",
                   "api-reference/provider/get-front-page",
                   "api-reference/provider/get-locations",
-                  "api-reference/provider/get-or-create-patient",
                   "api-reference/provider/get-shifts-by-date",
                   "api-reference/provider/list-events",
                   "api-reference/provider/update-appointment-checklist",
