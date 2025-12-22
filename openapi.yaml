@@ -1409,7 +1409,8 @@ paths:
       - analytics
       - analytics
       summary: Get Revenue Breakdown Group Summaries
-      description: Get summary statistics for each group in the revenue breakdown.
+      description: Get summary statistics for each group in the revenue breakdown
+        using a single aggregation query.
       operationId: get_revenue_breakdown_group_summaries_analytics_dashboards_product_sales_breakdown_revenue_breakdown_group_summaries_get
       parameters:
       - name: TENANT
@@ -14423,27 +14424,8 @@ paths:
       - admin
       summary: Invite Provider
       description: Create a new provider, create a user in Firebase with a generated
-        password, and send them an invite email
+        password, and optionally send them an invite email
       operationId: invite_provider_admin_providers_invite_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProviderInvite'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProviderSummary'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       parameters:
       - name: TENANT
         in: header
@@ -14459,6 +14441,34 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
+      - name: send_email
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Whether to send an invite email to the provider
+          default: true
+          title: Send Email
+        description: Whether to send an invite email to the provider
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProviderInvite'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderSummary'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /admin/providers/{provider_id}:
     get:
       tags:
@@ -20509,6 +20519,14 @@ paths:
           type: boolean
           default: true
           title: Send Notifications
+      - name: send_sms_confirmation
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Send Sms Confirmation
       requestBody:
         required: true
         content:
@@ -30871,6 +30889,7 @@ components:
       - NOTE_TAKEN
       - PAYMENT_MADE
       - REQUEST_GFE
+      - PICTURE_TAKEN
       title: AppointmentChecklistType
     AppointmentChecklistUpdatedData:
       properties:
@@ -51654,6 +51673,10 @@ components:
           type: integer
           title: Netamount
           description: Net amount after discounts and taxes in cents
+        cost:
+          type: integer
+          title: Cost
+          description: Total cost in cents (for products only)
         paymentMediums:
           anyOf:
           - items:
@@ -51686,6 +51709,7 @@ components:
       - chargeDiscountAmount
       - taxAmount
       - netAmount
+      - cost
       - chargeId
       title: RevenueBreakdownItem
       description: Individual revenue breakdown item.
@@ -56626,6 +56650,10 @@ components:
           type: integer
           title: Totalnetamount
           description: Total net amount (formatted as currency)
+        totalCost:
+          type: integer
+          title: Totalcost
+          description: Total cost in cents
         uniquePatients:
           type: integer
           title: Uniquepatients
@@ -56648,6 +56676,7 @@ components:
       - totalChargeDiscountAmount
       - totalTaxAmount
       - totalNetAmount
+      - totalCost
       - uniquePatients
       - uniqueProviders
       - uniqueLocations
