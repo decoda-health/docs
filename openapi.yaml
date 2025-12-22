@@ -226,6 +226,7 @@ paths:
           content:
             application/json:
               schema:
+                additionalProperties: true
                 type: object
                 title: Response Get Webhook Config Tenant Webhook Config Get
       parameters:
@@ -1408,7 +1409,8 @@ paths:
       - analytics
       - analytics
       summary: Get Revenue Breakdown Group Summaries
-      description: Get summary statistics for each group in the revenue breakdown.
+      description: Get summary statistics for each group in the revenue breakdown
+        using a single aggregation query.
       operationId: get_revenue_breakdown_group_summaries_analytics_dashboards_product_sales_breakdown_revenue_breakdown_group_summaries_get
       parameters:
       - name: TENANT
@@ -4763,18 +4765,18 @@ paths:
       - comms
       summary: Get
       description: |-
-        Returns a list of Chats and the latest message in the chat, ordered by the latest message date by a patient or
+        Returns chats ordered by latest message date using cursor pagination.
 
         Args:
-            per_page (int, optional): Defaults to QueryParam(12).
-            page (int, optional): Defaults to QueryParam(1).
-            search_term (str, optional): a search param representing a patient name or phone number
-            patient_id (str, optional): filter by specific patient ID
-            query_param_chat_id (str, optional): prioritize specific chat ID in results
-            unread_only (bool, optional): filter to only unread chats
-            unresponded_only (bool, optional): filter to chats where last message was from patient
-            location_id (str, optional): filter to patients at current user's location only
-            human_only (bool, optional): filter to chats where latest message is from humans (not AI assistants)
+        per_page (int, optional): Defaults to 12.
+        cursor (str, optional): Cursor for pagination
+        search_term (str, optional): a search param representing a patient name or phone number
+        patient_id (str, optional): filter by specific patient ID
+        chat_id (str, optional): prioritize specific chat ID in results
+        unread_only (bool, optional): filter to only unread chats
+        unresponded_only (bool, optional): filter to chats where last message was from patient
+        location_id (str, optional): filter to patients at current user's location only
+        human_only (bool, optional): filter to chats where latest message is from humans (not AI assistants)
       operationId: get_comms_chat_list_get
       parameters:
       - name: TENANT
@@ -4791,49 +4793,21 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-      - name: page
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Page
       - name: per_page
         in: query
         required: false
         schema:
-          anyOf:
-          - type: integer
-          - type: 'null'
+          type: integer
+          default: 12
           title: Per Page
-      - name: sort_by
+      - name: cursor
         in: query
         required: false
         schema:
           anyOf:
           - type: string
           - type: 'null'
-          title: Sort By
-      - name: sort_direction
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - enum:
-            - asc
-            - desc
-            type: string
-          - type: 'null'
-          title: Sort Direction
-      - name: location_id
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location Id
+          title: Cursor
       - name: search_term
         in: query
         required: false
@@ -4872,6 +4846,14 @@ paths:
           type: boolean
           default: false
           title: Unresponded Only
+      - name: location_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location Id
       - name: human_only
         in: query
         required: false
@@ -4885,7 +4867,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Page_ChatSummary_'
+                $ref: '#/components/schemas/CursorPage_ChatSummary_'
         '422':
           description: Validation Error
           content:
@@ -10229,6 +10211,7 @@ paths:
             application/json:
               schema:
                 type: object
+                additionalProperties: true
                 title: Response Update Payin Config Metadata Billing Payment Terminal
                   Payin Config  Payin Config Id  Metadata Patch
         '422':
@@ -10570,6 +10553,7 @@ paths:
           content:
             application/json:
               schema:
+                additionalProperties: true
                 type: object
                 title: Response Send To Pos Billing Payment Terminal Send To Pos Post
         '422':
@@ -14440,27 +14424,8 @@ paths:
       - admin
       summary: Invite Provider
       description: Create a new provider, create a user in Firebase with a generated
-        password, and send them an invite email
+        password, and optionally send them an invite email
       operationId: invite_provider_admin_providers_invite_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProviderInvite'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProviderSummary'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       parameters:
       - name: TENANT
         in: header
@@ -14476,6 +14441,34 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
+      - name: send_email
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Whether to send an invite email to the provider
+          default: true
+          title: Send Email
+        description: Whether to send an invite email to the provider
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProviderInvite'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderSummary'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /admin/providers/{provider_id}:
     get:
       tags:
@@ -16402,6 +16395,7 @@ paths:
             application/json:
               schema:
                 type: object
+                additionalProperties: true
                 title: Response Delete Patient Credit User Patient  Patient Id  Credit  Credit
                   Id  Delete
         '422':
@@ -17694,50 +17688,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /user/patient/{patient_id}/chat:
-    get:
-      tags:
-      - provider
-      - user
-      summary: Get Patient Chat Id
-      description: Get the chat ID for a patient by their ID.
-      operationId: get_patient_chat_id_user_patient__patient_id__chat_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: patient_id
-        in: path
-        required: true
-        schema:
-          type: string
-          title: Patient Id
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: string
-                title: Response Get Patient Chat Id User Patient  Patient Id  Chat
-                  Get
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /user/patient/{patient_id}/reviews:
     get:
       tags:
@@ -17909,6 +17859,7 @@ paths:
           application/json:
             schema:
               type: object
+              additionalProperties: true
               title: Request
       responses:
         '200':
@@ -19534,15 +19485,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/self-schedule/front-page:
+  /check-in/self-schedule/front-page:
     get:
       tags:
       - provider
-      - calendar
+      - check-in
       - self-schedule
       - public
       summary: Get Front Page
-      operationId: get_front_page_calendar_self_schedule_front_page_get
+      operationId: get_front_page_check_in_self_schedule_front_page_get
       responses:
         '200':
           description: Successful Response
@@ -19565,15 +19516,15 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /calendar/self-schedule/availability:
+  /check-in/self-schedule/availability:
     get:
       tags:
       - provider
-      - calendar
+      - check-in
       - self-schedule
       - public
       summary: Get Availability
-      operationId: get_availability_calendar_self_schedule_availability_get
+      operationId: get_availability_check_in_self_schedule_availability_get
       parameters:
       - name: TENANT
         in: header
@@ -19597,12 +19548,14 @@ paths:
           - type: string
           - type: 'null'
           title: Provider Id
-      - name: service_id
+      - name: service_ids
         in: query
         required: true
         schema:
-          type: string
-          title: Service Id
+          type: array
+          items:
+            type: string
+          title: Service Ids
       - name: location_id
         in: query
         required: true
@@ -19611,21 +19564,17 @@ paths:
           title: Location Id
       - name: start
         in: query
-        required: false
+        required: true
         schema:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
+          type: string
+          format: date-time
           title: Start
       - name: end
         in: query
-        required: false
+        required: true
         schema:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
+          type: string
+          format: date-time
           title: End
       responses:
         '200':
@@ -19636,7 +19585,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/GroupedAvailability'
-                title: Response Get Availability Calendar Self Schedule Availability
+                title: Response Get Availability Check In Self Schedule Availability
                   Get
         '422':
           description: Validation Error
@@ -19644,15 +19593,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/self-schedule/appointment:
+  /check-in/self-schedule/appointment:
     post:
       tags:
       - provider
-      - calendar
+      - check-in
       - self-schedule
       - mfa
       summary: Create Appointment
-      operationId: create_appointment_calendar_self_schedule_appointment_post
+      operationId: create_appointment_check_in_self_schedule_appointment_post
       requestBody:
         content:
           application/json:
@@ -19668,7 +19617,7 @@ paths:
                 anyOf:
                 - $ref: '#/components/schemas/EventDetail'
                 - type: 'null'
-                title: Response Create Appointment Calendar Self Schedule Appointment
+                title: Response Create Appointment Check In Self Schedule Appointment
                   Post
         '422':
           description: Validation Error
@@ -19691,58 +19640,15 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /calendar/self-schedule/get-or-create-patient:
+  /check-in/self-schedule/cancel-appointment/{appointment_id}:
     post:
       tags:
       - provider
-      - calendar
-      - self-schedule
-      - public
-      summary: Get Or Create Patient
-      operationId: get_or_create_patient_calendar_self_schedule_get_or_create_patient_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SelfSchedulePatientRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SelfSchedulePatient'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-  /calendar/self-schedule/cancel-appointment/{appointment_id}:
-    post:
-      tags:
-      - provider
-      - calendar
+      - check-in
       - self-schedule
       - mfa
       summary: Cancel Appointment
-      operationId: cancel_appointment_calendar_self_schedule_cancel_appointment__appointment_id__post
+      operationId: cancel_appointment_check_in_self_schedule_cancel_appointment__appointment_id__post
       parameters:
       - name: TENANT
         in: header
@@ -19769,7 +19675,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SelfScheduleCancellationRequest'
-              default: {}
+              default:
+                sendSms: true
       responses:
         '200':
           description: Successful Response
@@ -19777,7 +19684,7 @@ paths:
             application/json:
               schema:
                 type: boolean
-                title: Response Cancel Appointment Calendar Self Schedule Cancel Appointment  Appointment
+                title: Response Cancel Appointment Check In Self Schedule Cancel Appointment  Appointment
                   Id  Post
         '422':
           description: Validation Error
@@ -19785,15 +19692,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/self-schedule/appointment/{event_id}/forms:
+  /check-in/self-schedule/appointment/{event_id}/forms:
     get:
       tags:
       - provider
-      - calendar
+      - check-in
       - self-schedule
       - mfa
       summary: Get Appointment Forms
-      operationId: get_appointment_forms_calendar_self_schedule_appointment__event_id__forms_get
+      operationId: get_appointment_forms_check_in_self_schedule_appointment__event_id__forms_get
       parameters:
       - name: TENANT
         in: header
@@ -19824,7 +19731,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FormTiny'
-                title: Response Get Appointment Forms Calendar Self Schedule Appointment  Event
+                title: Response Get Appointment Forms Check In Self Schedule Appointment  Event
                   Id  Forms Get
         '422':
           description: Validation Error
@@ -19832,15 +19739,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/self-schedule/appointment/{event_id}/forms/with-status:
+  /check-in/self-schedule/appointment/{event_id}/forms/with-status:
     get:
       tags:
       - provider
-      - calendar
+      - check-in
       - self-schedule
       - public
       summary: Get Appointment Forms With Status
-      operationId: get_appointment_forms_with_status_calendar_self_schedule_appointment__event_id__forms_with_status_get
+      operationId: get_appointment_forms_with_status_check_in_self_schedule_appointment__event_id__forms_with_status_get
       parameters:
       - name: TENANT
         in: header
@@ -19877,7 +19784,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FormTinyWithStatus'
-                title: Response Get Appointment Forms With Status Calendar Self Schedule
+                title: Response Get Appointment Forms With Status Check In Self Schedule
                   Appointment  Event Id  Forms With Status Get
         '422':
           description: Validation Error
@@ -19885,15 +19792,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/self-schedule/check-if-patient-with-appointments/{patient_id}:
+  /check-in/self-schedule/check-if-patient-with-appointments/{patient_id}:
     get:
       tags:
       - provider
-      - calendar
+      - check-in
       - self-schedule
       - mfa
       summary: Check If Patient With Appointments
-      operationId: check_if_patient_with_appointments_calendar_self_schedule_check_if_patient_with_appointments__patient_id__get
+      operationId: check_if_patient_with_appointments_check_in_self_schedule_check_if_patient_with_appointments__patient_id__get
       parameters:
       - name: TENANT
         in: header
@@ -19922,7 +19829,7 @@ paths:
             application/json:
               schema:
                 type: boolean
-                title: Response Check If Patient With Appointments Calendar Self Schedule
+                title: Response Check If Patient With Appointments Check In Self Schedule
                   Check If Patient With Appointments  Patient Id  Get
         '422':
           description: Validation Error
@@ -19930,16 +19837,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/self-schedule/blacklist/check-phone/{phone_number}:
+  /check-in/self-schedule/blacklist/check-phone/{phone_number}:
     get:
       tags:
       - provider
-      - calendar
+      - check-in
       - self-schedule
       - public
       summary: Check Phone Blacklist Status
       description: Check if any patient with this phone number is blacklisted.
-      operationId: check_phone_blacklist_status_calendar_self_schedule_blacklist_check_phone__phone_number__get
+      operationId: check_phone_blacklist_status_check_in_self_schedule_blacklist_check_phone__phone_number__get
       parameters:
       - name: TENANT
         in: header
@@ -19968,7 +19875,7 @@ paths:
             application/json:
               schema:
                 type: boolean
-                title: Response Check Phone Blacklist Status Calendar Self Schedule
+                title: Response Check Phone Blacklist Status Check In Self Schedule
                   Blacklist Check Phone  Phone Number  Get
         '422':
           description: Validation Error
@@ -19976,13 +19883,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/locations:
+  /check-in/calendar/locations:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Locations
-      operationId: get_locations_calendar_locations_get
+      operationId: get_locations_check_in_calendar_locations_get
       responses:
         '200':
           description: Successful Response
@@ -19992,7 +19900,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/LocationDetail'
                 type: array
-                title: Response Get Locations Calendar Locations Get
+                title: Response Get Locations Check In Calendar Locations Get
       parameters:
       - name: TENANT
         in: header
@@ -20008,13 +19916,14 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /calendar/event/list:
+  /check-in/calendar/event/list:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: List Events
-      operationId: list_events_calendar_event_list_get
+      operationId: list_events_check_in_calendar_event_list_get
       parameters:
       - name: TENANT
         in: header
@@ -20109,20 +20018,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventTiny-Output'
-                title: Response List Events Calendar Event List Get
+                title: Response List Events Check In Calendar Event List Get
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/detail/{id}:
+  /check-in/calendar/detail/{id}:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Event Detail
-      operationId: get_event_detail_calendar_detail__id__get
+      operationId: get_event_detail_check_in_calendar_detail__id__get
       parameters:
       - name: TENANT
         in: header
@@ -20163,13 +20073,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/events-for-patient/{patient_id}:
+  /check-in/calendar/events-for-patient/{patient_id}:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Events For Patient
-      operationId: get_events_for_patient_calendar_events_for_patient__patient_id__get
+      operationId: get_events_for_patient_check_in_calendar_events_for_patient__patient_id__get
       parameters:
       - name: TENANT
         in: header
@@ -20218,25 +20129,26 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventDetail'
-                title: Response Get Events For Patient Calendar Events For Patient  Patient
-                  Id  Get
+                title: Response Get Events For Patient Check In Calendar Events For
+                  Patient  Patient Id  Get
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/bookable/usage:
+  /check-in/calendar/bookable/usage:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Bookable Usage
       description: |-
         Return all EventServiceBookable slices for the given bookable IDs within [start, end].
 
         Excludes archived events.
-      operationId: get_bookable_usage_calendar_bookable_usage_get
+      operationId: get_bookable_usage_check_in_calendar_bookable_usage_get
       parameters:
       - name: TENANT
         in: header
@@ -20295,20 +20207,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventServiceBookable'
-                title: Response Get Bookable Usage Calendar Bookable Usage Get
+                title: Response Get Bookable Usage Check In Calendar Bookable Usage
+                  Get
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/event/messages/types:
+  /check-in/calendar/event/messages/types:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Event Message Types
-      operationId: get_event_message_types_calendar_event_messages_types_get
+      operationId: get_event_message_types_check_in_calendar_event_messages_types_get
       parameters:
       - name: TENANT
         in: header
@@ -20343,23 +20257,24 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/MessageType'
-                title: Response Get Event Message Types Calendar Event Messages Types
-                  Get
+                title: Response Get Event Message Types Check In Calendar Event Messages
+                  Types Get
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/event/messages/{event_id}:
+  /check-in/calendar/event/messages/{event_id}:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Event Messages
       description: Return all messages associated with a given event id across related
         chats.
-      operationId: get_event_messages_calendar_event_messages__event_id__get
+      operationId: get_event_messages_check_in_calendar_event_messages__event_id__get
       parameters:
       - name: TENANT
         in: header
@@ -20390,7 +20305,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MessageSummary'
-                title: Response Get Event Messages Calendar Event Messages  Event
+                title: Response Get Event Messages Check In Calendar Event Messages  Event
                   Id  Get
         '422':
           description: Validation Error
@@ -20398,15 +20313,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/appointment-checklist:
+  /check-in/calendar/appointment-checklist:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Event Appointment Checklist
       description: Return checklist items for the given event from AppointmentChecklistItem
         joined with ServiceChecklist.
-      operationId: get_event_appointment_checklist_calendar_appointment_checklist_get
+      operationId: get_event_appointment_checklist_check_in_calendar_appointment_checklist_get
       parameters:
       - name: TENANT
         in: header
@@ -20437,21 +20353,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AppointmentChecklistItem'
-                title: Response Get Event Appointment Checklist Calendar Appointment
-                  Checklist Get
+                title: Response Get Event Appointment Checklist Check In Calendar
+                  Appointment Checklist Get
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/appointment-checklist/update:
+  /check-in/calendar/appointment-checklist/update:
     post:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Update Appointment Checklist
-      operationId: update_appointment_checklist_calendar_appointment_checklist_update_post
+      operationId: update_appointment_checklist_check_in_calendar_appointment_checklist_update_post
       requestBody:
         content:
           application/json:
@@ -20465,7 +20382,7 @@ paths:
             application/json:
               schema:
                 type: boolean
-                title: Response Update Appointment Checklist Calendar Appointment
+                title: Response Update Appointment Checklist Check In Calendar Appointment
                   Checklist Update Post
         '422':
           description: Validation Error
@@ -20488,13 +20405,14 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /calendar/delete/{event_id}:
+  /check-in/calendar/delete/{event_id}:
     delete:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Delete Event
-      operationId: delete_event_calendar_delete__event_id__delete
+      operationId: delete_event_check_in_calendar_delete__event_id__delete
       parameters:
       - name: TENANT
         in: header
@@ -20530,6 +20448,25 @@ paths:
           - type: string
           - type: 'null'
           title: Cancellation Reason
+      - name: send_sms
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Whether to send SMS notification when deleting an appointment
+          default: true
+          title: Send Sms
+        description: Whether to send SMS notification when deleting an appointment
+      - name: cancellation_message
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Custom cancellation message to send to patient
+          title: Cancellation Message
+        description: Custom cancellation message to send to patient
       responses:
         '200':
           description: Successful Response
@@ -20539,20 +20476,21 @@ paths:
                 type: array
                 items:
                   type: string
-                title: Response Delete Event Calendar Delete  Event Id  Delete
+                title: Response Delete Event Check In Calendar Delete  Event Id  Delete
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/create:
+  /check-in/calendar/create:
     post:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Create Event
-      operationId: create_event_calendar_create_post
+      operationId: create_event_check_in_calendar_create_post
       parameters:
       - name: TENANT
         in: header
@@ -20581,6 +20519,14 @@ paths:
           type: boolean
           default: true
           title: Send Notifications
+      - name: send_sms_confirmation
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Send Sms Confirmation
       requestBody:
         required: true
         content:
@@ -20596,20 +20542,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventDetail'
-                title: Response Create Event Calendar Create Post
+                title: Response Create Event Check In Calendar Create Post
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/update-status/{event_id}:
+  /check-in/calendar/update-status/{event_id}:
     put:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Update Event Status
-      operationId: update_event_status_calendar_update_status__event_id__put
+      operationId: update_event_status_check_in_calendar_update_status__event_id__put
       parameters:
       - name: TENANT
         in: header
@@ -20650,13 +20597,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/update:
+  /check-in/calendar/update:
     put:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Update Event
-      operationId: update_event_calendar_update_put
+      operationId: update_event_check_in_calendar_update_put
       requestBody:
         content:
           application/json:
@@ -20672,7 +20620,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/EventDetail'
                 type: array
-                title: Response Update Event Calendar Update Put
+                title: Response Update Event Check In Calendar Update Put
         '422':
           description: Validation Error
           content:
@@ -20694,13 +20642,14 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /calendar/recurring-event/{event_id}:
+  /check-in/calendar/recurring-event/{event_id}:
     delete:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Delete Recurring Event
-      operationId: delete_recurring_event_calendar_recurring_event__event_id__delete
+      operationId: delete_recurring_event_check_in_calendar_recurring_event__event_id__delete
       parameters:
       - name: TENANT
         in: header
@@ -20736,22 +20685,23 @@ paths:
                 type: array
                 items:
                   type: string
-                title: Response Delete Recurring Event Calendar Recurring Event  Event
-                  Id  Delete
+                title: Response Delete Recurring Event Check In Calendar Recurring
+                  Event  Event Id  Delete
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/{event_id}/logs:
+  /check-in/calendar/{event_id}/logs:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Event Logs
       description: Get event logs for a specific event
-      operationId: get_event_logs_calendar__event_id__logs_get
+      operationId: get_event_logs_check_in_calendar__event_id__logs_get
       parameters:
       - name: TENANT
         in: header
@@ -20782,20 +20732,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventLogSummary'
-                title: Response Get Event Logs Calendar  Event Id  Logs Get
+                title: Response Get Event Logs Check In Calendar  Event Id  Logs Get
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/extend-recurring/execute:
+  /check-in/calendar/extend-recurring/execute:
     post:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Execute Extend Recurring
-      operationId: execute_extend_recurring_calendar_extend_recurring_execute_post
+      operationId: execute_extend_recurring_check_in_calendar_extend_recurring_execute_post
       responses:
         '200':
           description: Successful Response
@@ -20817,13 +20768,14 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /calendar/event/shift/conflicts:
+  /check-in/calendar/event/shift/conflicts:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Conflicted Shifts
-      operationId: get_conflicted_shifts_calendar_event_shift_conflicts_get
+      operationId: get_conflicted_shifts_check_in_calendar_event_shift_conflicts_get
       parameters:
       - name: TENANT
         in: header
@@ -20862,18 +20814,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventTiny-Output'
-                title: Response Get Conflicted Shifts Calendar Event Shift Conflicts
-                  Get
+                title: Response Get Conflicted Shifts Check In Calendar Event Shift
+                  Conflicts Get
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/connect-record-to-event:
+  /check-in/calendar/connect-record-to-event:
     put:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Connect Record To Event
       description: |-
@@ -20881,7 +20834,7 @@ paths:
 
         This endpoint automatically finds which table contains the record_id and updates
         the appropriate foreign key column to link it to the specified event.
-      operationId: connect_record_to_event_calendar_connect_record_to_event_put
+      operationId: connect_record_to_event_check_in_calendar_connect_record_to_event_put
       parameters:
       - name: TENANT
         in: header
@@ -20921,14 +20874,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/shifts/by-date:
+  /check-in/calendar/shifts/by-date:
     get:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Get Shifts By Date
       description: Get all shifts for a specific date with provider information
-      operationId: get_shifts_by_date_calendar_shifts_by_date_get
+      operationId: get_shifts_by_date_check_in_calendar_shifts_by_date_get
       parameters:
       - name: TENANT
         in: header
@@ -20965,14 +20919,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /calendar/shifts/delete-by-provider:
+  /check-in/calendar/shifts/delete-by-provider:
     delete:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Delete Shifts By Provider
       description: Delete shifts for specific providers on a specific date
-      operationId: delete_shifts_by_provider_calendar_shifts_delete_by_provider_delete
+      operationId: delete_shifts_by_provider_check_in_calendar_shifts_delete_by_provider_delete
       requestBody:
         content:
           application/json:
@@ -20986,8 +20941,8 @@ paths:
             application/json:
               schema:
                 type: integer
-                title: Response Delete Shifts By Provider Calendar Shifts Delete By
-                  Provider Delete
+                title: Response Delete Shifts By Provider Check In Calendar Shifts
+                  Delete By Provider Delete
         '422':
           description: Validation Error
           content:
@@ -21009,14 +20964,15 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /calendar/shifts/delete-by-dates:
+  /check-in/calendar/shifts/delete-by-dates:
     delete:
       tags:
       - provider
+      - check-in
       - calendar
       summary: Delete Shifts By Dates
       description: Delete all shifts for the specified dates
-      operationId: delete_shifts_by_dates_calendar_shifts_delete_by_dates_delete
+      operationId: delete_shifts_by_dates_check_in_calendar_shifts_delete_by_dates_delete
       requestBody:
         content:
           application/json:
@@ -21030,8 +20986,8 @@ paths:
             application/json:
               schema:
                 type: integer
-                title: Response Delete Shifts By Dates Calendar Shifts Delete By Dates
-                  Delete
+                title: Response Delete Shifts By Dates Check In Calendar Shifts Delete
+                  By Dates Delete
         '422':
           description: Validation Error
           content:
@@ -21053,6 +21009,575 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
+  /check-in/dashboard/trend:
+    get:
+      tags:
+      - provider
+      - check-in
+      - dashboard
+      summary: Get Appointment Trend
+      description: Get appointment count trend over the specified time period
+      operationId: get_appointment_trend_check_in_dashboard_trend_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location Ids
+      - name: group_by
+        in: query
+        required: false
+        schema:
+          type: string
+          description: 'Group by: day, week, or month'
+          default: day
+          title: Group By
+        description: 'Group by: day, week, or month'
+      - name: breakdown
+        in: query
+        required: false
+        schema:
+          type: string
+          description: appointment_volume | new_appointments_percentage
+          default: appointment_volume
+          title: Breakdown
+        description: appointment_volume | new_appointments_percentage
+      - name: by_location
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Break down series by location
+          default: false
+          title: By Location
+        description: Break down series by location
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppointmentTrendByDate'
+                title: Response Get Appointment Trend Check In Dashboard Trend Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/dashboard/by-status:
+    get:
+      tags:
+      - provider
+      - check-in
+      - dashboard
+      summary: Get Appointments By Status
+      description: Get count of appointments grouped by status
+      operationId: get_appointments_by_status_check_in_dashboard_by_status_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location Ids
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppointmentsByStatus'
+                title: Response Get Appointments By Status Check In Dashboard By Status
+                  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/dashboard/by-type:
+    get:
+      tags:
+      - provider
+      - check-in
+      - dashboard
+      summary: Get Appointments By Type
+      description: Get count of appointments grouped by appointment type
+      operationId: get_appointments_by_type_check_in_dashboard_by_type_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location Ids
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppointmentsByType'
+                title: Response Get Appointments By Type Check In Dashboard By Type
+                  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/dashboard/by-provider:
+    get:
+      tags:
+      - provider
+      - check-in
+      - dashboard
+      summary: Get Appointments By Provider
+      description: Get count of appointments grouped by provider
+      operationId: get_appointments_by_provider_check_in_dashboard_by_provider_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location Ids
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppointmentsByProvider'
+                title: Response Get Appointments By Provider Check In Dashboard By
+                  Provider Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/dashboard/provider-utilization:
+    get:
+      tags:
+      - provider
+      - check-in
+      - dashboard
+      summary: Get Provider Utilization
+      description: Get provider utilization rates
+      operationId: get_provider_utilization_check_in_dashboard_provider_utilization_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location Ids
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProviderUtilization'
+                title: Response Get Provider Utilization Check In Dashboard Provider
+                  Utilization Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/dashboard/patient-pending-intake:
+    get:
+      tags:
+      - provider
+      - check-in
+      - dashboard
+      summary: Get Patient Pending Intake
+      description: Get patients with pending intake forms
+      operationId: get_patient_pending_intake_check_in_dashboard_patient_pending_intake_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: tz
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Tz
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location Ids
+      - name: page
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Page
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Per Page
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_PatientPendingIntake_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/dashboard/send-intake-forms/{event_id}:
+    post:
+      tags:
+      - provider
+      - check-in
+      - dashboard
+      summary: Send Intake Forms To Patient
+      description: Send intake forms to a specific patient for their appointment
+      operationId: send_intake_forms_to_patient_check_in_dashboard_send_intake_forms__event_id__post
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: event_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Event Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Send Intake Forms To Patient Check In Dashboard Send
+                  Intake Forms  Event Id  Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /forms/table:
     get:
       tags:
@@ -23359,6 +23884,7 @@ paths:
           application/json:
             schema:
               type: object
+              additionalProperties: true
               title: Annotations
       responses:
         '200':
@@ -28956,569 +29482,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /appointment-dashboard/trend:
-    get:
-      tags:
-      - provider
-      - appointment-dashboard
-      summary: Get Appointment Trend
-      description: Get appointment count trend over the specified time period
-      operationId: get_appointment_trend_appointment_dashboard_trend_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: start_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: Start Date
-      - name: end_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: End Date
-      - name: timezone
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Timezone
-      - name: provider_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Provider Ids
-      - name: location_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location Ids
-      - name: group_by
-        in: query
-        required: false
-        schema:
-          type: string
-          description: 'Group by: day, week, or month'
-          default: day
-          title: Group By
-        description: 'Group by: day, week, or month'
-      - name: breakdown
-        in: query
-        required: false
-        schema:
-          type: string
-          description: appointment_volume | new_appointments_percentage
-          default: appointment_volume
-          title: Breakdown
-        description: appointment_volume | new_appointments_percentage
-      - name: by_location
-        in: query
-        required: false
-        schema:
-          type: boolean
-          description: Break down series by location
-          default: false
-          title: By Location
-        description: Break down series by location
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AppointmentTrendByDate'
-                title: Response Get Appointment Trend Appointment Dashboard Trend
-                  Get
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /appointment-dashboard/by-status:
-    get:
-      tags:
-      - provider
-      - appointment-dashboard
-      summary: Get Appointments By Status
-      description: Get count of appointments grouped by status
-      operationId: get_appointments_by_status_appointment_dashboard_by_status_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: start_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: Start Date
-      - name: end_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: End Date
-      - name: timezone
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Timezone
-      - name: provider_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Provider Ids
-      - name: location_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location Ids
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AppointmentsByStatus'
-                title: Response Get Appointments By Status Appointment Dashboard By
-                  Status Get
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /appointment-dashboard/by-type:
-    get:
-      tags:
-      - provider
-      - appointment-dashboard
-      summary: Get Appointments By Type
-      description: Get count of appointments grouped by appointment type
-      operationId: get_appointments_by_type_appointment_dashboard_by_type_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: start_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: Start Date
-      - name: end_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: End Date
-      - name: timezone
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Timezone
-      - name: provider_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Provider Ids
-      - name: location_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location Ids
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AppointmentsByType'
-                title: Response Get Appointments By Type Appointment Dashboard By
-                  Type Get
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /appointment-dashboard/by-provider:
-    get:
-      tags:
-      - provider
-      - appointment-dashboard
-      summary: Get Appointments By Provider
-      description: Get count of appointments grouped by provider
-      operationId: get_appointments_by_provider_appointment_dashboard_by_provider_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: start_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: Start Date
-      - name: end_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: End Date
-      - name: timezone
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Timezone
-      - name: provider_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Provider Ids
-      - name: location_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location Ids
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AppointmentsByProvider'
-                title: Response Get Appointments By Provider Appointment Dashboard
-                  By Provider Get
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /appointment-dashboard/provider-utilization:
-    get:
-      tags:
-      - provider
-      - appointment-dashboard
-      summary: Get Provider Utilization
-      description: Get provider utilization rates
-      operationId: get_provider_utilization_appointment_dashboard_provider_utilization_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: start_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: Start Date
-      - name: end_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: End Date
-      - name: timezone
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Timezone
-      - name: provider_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Provider Ids
-      - name: location_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location Ids
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ProviderUtilization'
-                title: Response Get Provider Utilization Appointment Dashboard Provider
-                  Utilization Get
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /appointment-dashboard/patient-pending-intake:
-    get:
-      tags:
-      - provider
-      - appointment-dashboard
-      summary: Get Patient Pending Intake
-      description: Get patients with pending intake forms
-      operationId: get_patient_pending_intake_appointment_dashboard_patient_pending_intake_get
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: tz
-        in: query
-        required: true
-        schema:
-          type: string
-          title: Tz
-      - name: start_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: Start Date
-      - name: end_date
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: End Date
-      - name: provider_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Provider Ids
-      - name: location_ids
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location Ids
-      - name: page
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Page
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Per Page
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Page_PatientPendingIntake_'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /appointment-dashboard/send-intake-forms/{event_id}:
-    post:
-      tags:
-      - provider
-      - appointment-dashboard
-      summary: Send Intake Forms To Patient
-      description: Send intake forms to a specific patient for their appointment
-      operationId: send_intake_forms_to_patient_appointment_dashboard_send_intake_forms__event_id__post
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: event_id
-        in: path
-        required: true
-        schema:
-          type: string
-          title: Event Id
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: boolean
-                title: Response Send Intake Forms To Patient Appointment Dashboard
-                  Send Intake Forms  Event Id  Post
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /spakinect/treatments:
     get:
       tags:
@@ -29693,6 +29656,117 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /dosespot/sso:
+    post:
+      tags:
+      - provider
+      - dosespot
+      - sso
+      summary: Generate Sso Url
+      description: |-
+        Generate a Single Sign-On URL for DoseSpot Jumpstart integration.
+
+        This endpoint creates a signed SSO URL that allows users to seamlessly access DoseSpot
+        from within your application without requiring separate login credentials.
+
+        The URL can be used to:
+        - Launch DoseSpot in a new window/tab
+        - Embed DoseSpot in an iframe
+        - Deep link to specific patients or encounters
+
+        Args:
+            request: SSO URL generation request containing location_id, user_id and optional parameters
+            session: Database session
+            tenant: Current tenant
+            current_provider: Current authenticated provider
+
+        Returns:
+            SSOUrlResponse containing the generated signed SSO URL
+
+        Raises:
+            HTTPException: If location_id, user_id is missing or invalid, or location not configured
+      operationId: generate_sso_url_dosespot_sso_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SSOUrlRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SSOUrlResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+  /dosespot/notification-counts/current-provider:
+    get:
+      tags:
+      - provider
+      - dosespot
+      - dosespot-notification-counts
+      summary: Get Current Provider Notification Counts
+      description: |-
+        Get notification counts for the current authenticated provider.
+
+        Returns the latest notification counts from DoseSpot for the currently authenticated provider.
+        Only returns counts if the provider has a DoseSpot User ID configured.
+
+        Args:
+            session: Database session
+            tenant: Current tenant
+            current_provider: Current authenticated provider
+
+        Returns:
+            PrescriberNotificationCountSummary if counts exist, None otherwise
+      operationId: get_current_provider_notification_counts_dosespot_notification_counts_current_provider_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/PrescriberNotificationCountSummary'
+                - type: 'null'
+                title: Response Get Current Provider Notification Counts Dosespot
+                  Notification Counts Current Provider Get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
   /webhook/decoda/create:
     post:
       tags:
@@ -30360,6 +30434,7 @@ components:
           - $ref: '#/components/schemas/ChargeSummary-Output'
           - $ref: '#/components/schemas/ServiceDetail'
           - $ref: '#/components/schemas/MessageSummary'
+          - $ref: '#/components/schemas/MessageWithChatSummary'
           - $ref: '#/components/schemas/PaymentWithCharges'
           - $ref: '#/components/schemas/PatientSummary'
           - $ref: '#/components/schemas/InvoiceUpdate'
@@ -30575,7 +30650,8 @@ components:
           description: Description of the dashboard
         layoutConfig:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Layoutconfig
           description: Grid layout configuration
@@ -30813,6 +30889,7 @@ components:
       - NOTE_TAKEN
       - PAYMENT_MADE
       - REQUEST_GFE
+      - PICTURE_TAKEN
       title: AppointmentChecklistType
     AppointmentChecklistUpdatedData:
       properties:
@@ -31285,9 +31362,11 @@ components:
           type: string
           format: date-time
           title: End
-        serviceId:
-          type: string
-          title: Serviceid
+        serviceIds:
+          items:
+            type: string
+          type: array
+          title: Serviceids
         providerId:
           anyOf:
           - type: string
@@ -31302,7 +31381,7 @@ components:
       required:
       - start
       - end
-      - serviceId
+      - serviceIds
       title: Availability
     AvailableCredit:
       properties:
@@ -32044,6 +32123,16 @@ components:
           - type: string
           - type: 'null'
           title: Spakinectlocationid
+        dosespotClinicId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotclinicid
+        dosespotClinicKey:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotclinickey
         externalId:
           anyOf:
           - type: string
@@ -32073,6 +32162,11 @@ components:
           type: boolean
           title: Parse With Ai
           default: false
+        external_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: External Id
       type: object
       required:
       - patient_id
@@ -32539,7 +32633,8 @@ components:
           title: Summary
         context:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Context
         createdDate:
@@ -32626,7 +32721,8 @@ components:
           title: Summary
         context:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Context
         createdDate:
@@ -33608,7 +33704,8 @@ components:
           description: Any additional comments about the charge.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the charge relevant to your system.
@@ -33765,7 +33862,8 @@ components:
           description: Any additional comments about the charge.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the charge relevant to your system.
@@ -33920,7 +34018,8 @@ components:
           description: Any additional comments about the charge.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the charge relevant to your system.
@@ -34820,7 +34919,8 @@ components:
           description: Any additional comments about the charge.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the charge relevant to your system.
@@ -34962,7 +35062,8 @@ components:
           description: Any additional comments about the charge.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the charge relevant to your system.
@@ -35432,6 +35533,11 @@ components:
           - type: string
           - type: 'null'
           title: Id
+        phoneNumber:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Phonenumber
         patients:
           items:
             $ref: '#/components/schemas/ChatPatient'
@@ -35447,6 +35553,11 @@ components:
           - type: boolean
           - type: 'null'
           title: Optedoutofsms
+        primaryPatientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Primarypatientid
         messages:
           items:
             anyOf:
@@ -35456,6 +35567,8 @@ components:
           title: Messages
           default: []
       type: object
+      required:
+      - primaryPatientId
       title: ChatDetail
     ChatPatient:
       properties:
@@ -35477,12 +35590,18 @@ components:
           - type: string
           - type: 'null'
           title: Primarylocationid
+        profilePictureUrl:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Profilepictureurl
       type: object
       required:
       - id
       - firstName
       - lastName
       - primaryLocationId
+      - profilePictureUrl
       title: ChatPatient
     ChatSnapshot:
       properties:
@@ -36501,7 +36620,8 @@ components:
           description: Optional description of the dashboard
         layoutConfig:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Layoutconfig
           description: Grid layout configuration
@@ -36537,11 +36657,13 @@ components:
           description: Query builder configuration
         chartConfig:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Chartconfig
           description: Chart-specific configuration
         layoutPosition:
+          additionalProperties: true
           type: object
           title: Layoutposition
           description: Grid position and size {x, y, w, h}
@@ -36574,6 +36696,26 @@ components:
       type: object
       title: CreationData
       description: Data structure for event creation
+    CursorPage_ChatSummary_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ChatSummary'
+          type: array
+          title: Data
+        total:
+          type: integer
+          title: Total
+        nextCursor:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Nextcursor
+      type: object
+      required:
+      - data
+      - total
+      title: CursorPage[ChatSummary]
     DailyCashTransactions:
       properties:
         date:
@@ -36674,11 +36816,13 @@ components:
           description: Query builder configuration
         chartConfig:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Chartconfig
           description: Chart-specific configuration
         layoutPosition:
+          additionalProperties: true
           type: object
           title: Layoutposition
           description: Grid position and size
@@ -36953,7 +37097,8 @@ components:
           title: Billingtype
         depositFeeAmount:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Depositfeeamount
         depositType:
@@ -36968,17 +37113,20 @@ components:
           title: Methodtype
         ach:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Ach
         plaidAch:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Plaidach
         metadata:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Metadata
         createdAt:
@@ -37098,6 +37246,11 @@ components:
             format: date-time
           - type: 'null'
           title: Signedoffdate
+        dosespotMedicationId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotmedicationid
         provider:
           anyOf:
           - $ref: '#/components/schemas/UserTiny'
@@ -37298,6 +37451,11 @@ components:
             format: date-time
           - type: 'null'
           title: Signedoffdate
+        dosespotMedicationId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotmedicationid
         isArchived:
           type: boolean
           title: Isarchived
@@ -37861,7 +38019,8 @@ components:
           - $ref: '#/components/schemas/StatusChangeData'
           - $ref: '#/components/schemas/RescheduleData'
           - $ref: '#/components/schemas/CreationData'
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Data
           description: Additional context about the action
@@ -38038,6 +38197,17 @@ components:
           - type: 'null'
           title: Cancellationreason
           description: Required reason when cancelling an appointment
+        sendSms:
+          type: boolean
+          title: Sendsms
+          description: Whether to send SMS notification when cancelling an appointment
+          default: true
+        cancellationMessage:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cancellationmessage
+          description: Custom cancellation message to send to patient
       type: object
       required:
       - status
@@ -38633,7 +38803,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -38759,6 +38930,13 @@ components:
           title: Autosignoffnotes
           description: Whether notes should automatically sign off when created.
           default: true
+        dosespotUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotuserid
+          description: DoseSpot User ID for SSO integration. Set during initial DoseSpot
+            account setup.
         showDeletedProviders:
           type: boolean
           title: Showdeletedproviders
@@ -38932,6 +39110,14 @@ components:
             - $ref: '#/components/schemas/SubmittedMedicalHistoryBlock'
             - $ref: '#/components/schemas/SubmittedInsuranceBlock'
             - $ref: '#/components/schemas/SubmittedDynamicBlock'
+            discriminator:
+              propertyName: blockType
+              mapping:
+                DEMOGRAPHICS: '#/components/schemas/SubmittedDemographicsBlock'
+                DYNAMIC: '#/components/schemas/SubmittedDynamicBlock'
+                INSURANCE: '#/components/schemas/SubmittedInsuranceBlock'
+                MEDICAL_HISTORY: '#/components/schemas/SubmittedMedicalHistoryBlock'
+                PAYMENT_METHODS: '#/components/schemas/SubmittedPaymentMethodBlock'
           type: array
           title: Blocks
           default: []
@@ -39263,6 +39449,7 @@ components:
           title: Tablename
         records:
           items:
+            additionalProperties: true
             type: object
           type: array
           title: Records
@@ -40458,6 +40645,21 @@ components:
           - type: string
           - type: 'null'
           title: Spakinectlocationid
+        dosespotClinicId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotclinicid
+        dosespotClinicKey:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotclinickey
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         description:
           anyOf:
           - type: string
@@ -40578,6 +40780,21 @@ components:
           - type: string
           - type: 'null'
           title: Spakinectlocationid
+        dosespotClinicId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotclinicid
+        dosespotClinicKey:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotclinickey
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - id
@@ -41295,6 +41512,11 @@ components:
             format: date-time
           - type: 'null'
           title: Signedoffdate
+        dosespotMedicationId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotmedicationid
         isUsedAsTemplate:
           type: boolean
           title: Isusedastemplate
@@ -42031,6 +42253,12 @@ components:
           type: string
           title: Id
           description: Unique identifier for the membership discount
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: External system identifier for the discount
         membershipId:
           type: string
           title: Membershipid
@@ -42115,6 +42343,12 @@ components:
           type: string
           title: Id
           description: Unique identifier for the membership discount
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: External system identifier for the discount
         membershipId:
           type: string
           title: Membershipid
@@ -42447,7 +42681,8 @@ components:
           $ref: '#/components/schemas/UserTiny'
         functionCall:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Functioncall
         createdDate:
@@ -42505,6 +42740,18 @@ components:
       - CANCELLED
       - UPDATE
       title: MessageType
+    MessageWithChatSummary:
+      properties:
+        message:
+          $ref: '#/components/schemas/MessageSummary'
+        chat:
+          $ref: '#/components/schemas/ChatSummary'
+      type: object
+      required:
+      - message
+      - chat
+      title: MessageWithChatSummary
+      description: Message summary with associated chat summary for alerts
     Module:
       type: string
       enum:
@@ -42519,6 +42766,7 @@ components:
       - CALENDAR_PATIENT_STATUS
       - SPAKINECT
       - SCRIBE_MEDICAL_CODES
+      - DOSESPOT
       title: Module
     MovePaymentRequest:
       properties:
@@ -42651,6 +42899,7 @@ components:
         annotations:
           anyOf:
           - items:
+              additionalProperties: true
               type: object
             type: array
           - type: 'null'
@@ -43259,6 +43508,7 @@ components:
           type: string
           title: Message
         data:
+          additionalProperties: true
           type: object
           title: Data
           default: {}
@@ -43865,21 +44115,6 @@ components:
       - data
       - total
       title: Page[ChargeTable]
-    Page_ChatSummary_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/ChatSummary'
-          type: array
-          title: Data
-        total:
-          type: integer
-          title: Total
-      type: object
-      required:
-      - data
-      - total
-      title: Page[ChatSummary]
     Page_CommissionReportSummary_:
       properties:
         data:
@@ -44486,7 +44721,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -44555,6 +44791,12 @@ components:
           - type: 'null'
           title: Preferredproviderid
           description: The preferred provider ID for this patient.
+        dosespotPatientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotpatientid
+          description: DoseSpot Patient ID for e-prescribing integration
         memberships:
           anyOf:
           - items:
@@ -44701,7 +44943,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -44994,7 +45237,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -45063,6 +45307,12 @@ components:
           - type: 'null'
           title: Preferredproviderid
           description: The preferred provider ID for this patient.
+        dosespotPatientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotpatientid
+          description: DoseSpot Patient ID for e-prescribing integration
         memberships:
           anyOf:
           - items:
@@ -45395,13 +45645,6 @@ components:
       - EXTERNAL_INTEGRATION
       - OTHER
       title: PatientSource
-    PatientStatus:
-      type: string
-      enum:
-      - NEW
-      - EXISTING
-      - RETURNING
-      title: PatientStatus
     PatientSubmission:
       properties:
         patient:
@@ -45561,7 +45804,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -45630,6 +45874,12 @@ components:
           - type: 'null'
           title: Preferredproviderid
           description: The preferred provider ID for this patient.
+        dosespotPatientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotpatientid
+          description: DoseSpot Patient ID for e-prescribing integration
       type: object
       required:
       - id
@@ -45730,7 +45980,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -45799,6 +46050,12 @@ components:
           - type: 'null'
           title: Preferredproviderid
           description: The preferred provider ID for this patient.
+        dosespotPatientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotpatientid
+          description: DoseSpot Patient ID for e-prescribing integration
         primaryLocation:
           anyOf:
           - $ref: '#/components/schemas/LocationTinyWithName'
@@ -45905,7 +46162,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -45974,6 +46232,12 @@ components:
           - type: 'null'
           title: Preferredproviderid
           description: The preferred provider ID for this patient.
+        dosespotPatientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotpatientid
+          description: DoseSpot Patient ID for e-prescribing integration
         memberships:
           anyOf:
           - items:
@@ -46082,7 +46346,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -46151,6 +46416,12 @@ components:
           - type: 'null'
           title: Preferredproviderid
           description: The preferred provider ID for this patient.
+        dosespotPatientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotpatientid
+          description: DoseSpot Patient ID for e-prescribing integration
         memberships:
           anyOf:
           - items:
@@ -46518,7 +46789,8 @@ components:
           title: Addressvalid
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
         primaryLocationId:
@@ -46870,7 +47142,8 @@ components:
           $ref: '#/components/schemas/MerchantFees'
         deviceData:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Devicedata
         refusalDesc:
@@ -48360,6 +48633,50 @@ components:
       - id
       - status
       title: PlannedPaymentSummary
+    PrescriberNotificationCountSummary:
+      properties:
+        providerId:
+          type: string
+          title: Providerid
+          description: Provider ID
+        pendingPrescriptionCount:
+          type: integer
+          title: Pendingprescriptioncount
+          description: Number of pending prescription requests
+          default: 0
+        transmissionErrorCount:
+          type: integer
+          title: Transmissionerrorcount
+          description: Number of transmission errors
+          default: 0
+        refillRequestCount:
+          type: integer
+          title: Refillrequestcount
+          description: Number of pending refill requests
+          default: 0
+        changeRequestCount:
+          type: integer
+          title: Changerequestcount
+          description: Number of pending prescription changes
+          default: 0
+        updatedDate:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Updateddate
+          description: Last update date
+        totalPending:
+          type: integer
+          title: Totalpending
+          description: Total number of pending notifications.
+          readOnly: true
+      type: object
+      required:
+      - providerId
+      - totalPending
+      title: PrescriberNotificationCountSummary
+      description: Schema for prescriber notification counts response.
     ProviderCapacity:
       properties:
         id:
@@ -48754,7 +49071,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -48880,6 +49198,13 @@ components:
           title: Autosignoffnotes
           description: Whether notes should automatically sign off when created.
           default: true
+        dosespotUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotuserid
+          description: DoseSpot User ID for SSO integration. Set during initial DoseSpot
+            account setup.
         showDeletedProviders:
           type: boolean
           title: Showdeletedproviders
@@ -48985,7 +49310,8 @@ components:
           title: Addressvalid
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
         primaryLocationId:
@@ -49037,6 +49363,13 @@ components:
           - type: 'null'
           title: Showweekendsoncalendar
           description: Whether to show weekends on the calendar for this provider.
+        dosespotUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dosespotuserid
+          description: DoseSpot User ID for SSO integration. Set during initial DoseSpot
+            account setup.
       type: object
       title: ProviderUpdate
     ProviderUtilization:
@@ -49559,6 +49892,10 @@ components:
           type: boolean
           title: Allowmultipleselfscheduleappointments
           default: false
+        maxSelfScheduleServices:
+          type: integer
+          title: Maxselfscheduleservices
+          default: 1
         receiptLogoUrl:
           anyOf:
           - type: string
@@ -49600,6 +49937,7 @@ components:
         filters:
           anyOf:
           - items:
+              additionalProperties: true
               type: object
             type: array
           - type: 'null'
@@ -49709,6 +50047,7 @@ components:
       properties:
         data:
           items:
+            additionalProperties: true
             type: object
           type: array
           title: Data
@@ -49723,7 +50062,8 @@ components:
           description: Query execution time in milliseconds
         metadata:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Metadata
           description: Field metadata for chart rendering
@@ -49805,6 +50145,11 @@ components:
           - type: string
           - type: 'null'
           title: Mappingkey
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         data:
           $ref: '#/components/schemas/QuestionData'
         conditions:
@@ -49851,6 +50196,11 @@ components:
           - type: string
           - type: 'null'
           title: Mappingkey
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         data:
           $ref: '#/components/schemas/QuestionData'
         conditions:
@@ -49897,6 +50247,11 @@ components:
           - type: string
           - type: 'null'
           title: Mappingkey
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         data:
           anyOf:
           - $ref: '#/components/schemas/Address'
@@ -49961,6 +50316,11 @@ components:
           - type: string
           - type: 'null'
           title: Mappingkey
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         data:
           anyOf:
           - $ref: '#/components/schemas/Address'
@@ -50810,6 +51170,7 @@ components:
           - $ref: '#/components/schemas/BillingContact'
           - type: 'null'
         metadata:
+          additionalProperties: true
           type: object
           title: Metadata
         createdAt:
@@ -50889,6 +51250,11 @@ components:
           - type: string
           - type: 'null'
           title: Locationid
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
         organizerId:
           type: string
           title: Organizerid
@@ -50989,6 +51355,11 @@ components:
           - type: string
           - type: 'null'
           title: Locationid
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
       type: object
       required:
       - id
@@ -51302,6 +51673,10 @@ components:
           type: integer
           title: Netamount
           description: Net amount after discounts and taxes in cents
+        cost:
+          type: integer
+          title: Cost
+          description: Total cost in cents (for products only)
         paymentMediums:
           anyOf:
           - items:
@@ -51334,6 +51709,7 @@ components:
       - chargeDiscountAmount
       - taxAmount
       - netAmount
+      - cost
       - chargeId
       title: RevenueBreakdownItem
       description: Individual revenue breakdown item.
@@ -51790,6 +52166,67 @@ components:
       - name
       - ruleSetId
       title: RuleUpdate
+    SSOUrlRequest:
+      properties:
+        locationId:
+          type: string
+          title: Locationid
+          description: Location ID - used to retrieve DoseSpot Clinic ID and Clinic
+            Key
+        patientId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Patientid
+          description: Optional internal patient ID. If provided, patient will be
+            synced to DoseSpot first (if not already synced), then SSO URL will include
+            DoseSpot Patient ID for deep linking
+        userId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Userid
+          description: Optional DoseSpot User ID. If not provided, will be looked
+            up from the current provider's dosespot_user_id field
+        onBehalfOfUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Onbehalfofuserid
+          description: Optional User ID when prescribing on behalf of another provider
+        encounterId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Encounterid
+          description: Optional Encounter ID to link prescription to specific encounter
+        supervisorId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Supervisorid
+          description: Optional Supervisor User ID for supervision workflows
+        refillsErrors:
+          type: boolean
+          title: Refillserrors
+          description: If True, shows refill errors screen
+          default: false
+      type: object
+      required:
+      - locationId
+      title: SSOUrlRequest
+      description: Request schema for generating DoseSpot SSO URL
+    SSOUrlResponse:
+      properties:
+        url:
+          type: string
+          title: Url
+          description: The signed SSO URL to launch DoseSpot
+      type: object
+      required:
+      - url
+      title: SSOUrlResponse
+      description: Response schema containing the generated DoseSpot SSO URL
     SchedulingKPI:
       properties:
         numberAppointmentsScheduled:
@@ -51816,9 +52253,11 @@ components:
       title: SchedulingKPI
     SelfScheduleAppointment:
       properties:
-        serviceId:
-          type: string
-          title: Serviceid
+        serviceIds:
+          items:
+            type: string
+          type: array
+          title: Serviceids
         organizerId:
           type: string
           title: Organizerid
@@ -51856,7 +52295,7 @@ components:
           title: Canceleventid
       type: object
       required:
-      - serviceId
+      - serviceIds
       - organizerId
       title: SelfScheduleAppointment
     SelfScheduleCancellationRequest:
@@ -51867,96 +52306,20 @@ components:
           - type: 'null'
           title: Cancellationreason
           description: Optional reason for cancelling the appointment
+        sendSms:
+          type: boolean
+          title: Sendsms
+          description: Whether to send SMS notification when cancelling an appointment
+          default: true
+        cancellationMessage:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cancellationmessage
+          description: Custom message to send when cancelling an appointment
       type: object
       title: SelfScheduleCancellationRequest
       description: Schema for self-schedule appointment cancellation requests
-    SelfSchedulePatient:
-      properties:
-        id:
-          type: string
-          title: Id
-          description: The unique identifier for the user.
-        firstName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Firstname
-          description: The user's first name.
-        lastName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Lastname
-          description: The user's last name.
-        phoneNumber:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Phonenumber
-          description: The user's phone number.
-        email:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Email
-          description: The user's email address.
-        type:
-          $ref: '#/components/schemas/UserType'
-          description: The type of user.
-          default: PATIENT
-        locationId:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Locationid
-          description: The location of the user.
-        dateOfBirth:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: Dateofbirth
-          description: The date of birth of the patient.
-        onSchedulingBlacklist:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Onschedulingblacklist
-          description: Whether the patient is on the scheduling blacklist.
-        patientStatus:
-          $ref: '#/components/schemas/PatientStatus'
-        futureAppointment:
-          anyOf:
-          - $ref: '#/components/schemas/EventTiny-Output'
-          - type: 'null'
-        hasPaymentMethod:
-          type: boolean
-          title: Haspaymentmethod
-          default: false
-      type: object
-      required:
-      - id
-      - patientStatus
-      title: SelfSchedulePatient
-    SelfSchedulePatientRequest:
-      properties:
-        firstName:
-          type: string
-          minLength: 1
-          title: Firstname
-        lastName:
-          type: string
-          minLength: 1
-          title: Lastname
-        phoneNumber:
-          type: string
-          title: Phonenumber
-      type: object
-      required:
-      - firstName
-      - lastName
-      - phoneNumber
-      title: SelfSchedulePatientRequest
     SendQuoteRequest:
       properties:
         quoteId:
@@ -52075,12 +52438,12 @@ components:
           - type: string
           - type: 'null'
           title: Bookingfeetext
-        reminderDaysBefore:
+        reminderMinutesBefore:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Reminderdaysbefore
-          default: 1
+          title: Reminderminutesbefore
+          default: 1440
         cancellationCost:
           anyOf:
           - type: integer
@@ -52119,11 +52482,11 @@ components:
           - type: integer
           - type: 'null'
           title: Hoursbeforebookingfeerefundable
-        followUpDaysAfter:
+        followUpMinutesAfter:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Followupdaysafter
+          title: Followupminutesafter
           default: 0
         followUpSmsTemplate:
           anyOf:
@@ -52181,11 +52544,11 @@ components:
           - type: string
           - type: 'null'
           title: Remindersmstemplate
-        selfSchedulingBufferTime:
+        shortNoticeBlock:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Selfschedulingbuffertime
+          title: Shortnoticeblock
         visibility:
           $ref: '#/components/schemas/ServiceVisibilityType'
           default: ALL
@@ -52226,6 +52589,12 @@ components:
           - type: boolean
           - type: 'null'
           title: Ispopular
+          default: false
+        onlyBookableOverThePhone:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Onlybookableoverthephone
           default: false
         creditCardRequired:
           anyOf:
@@ -52363,11 +52732,11 @@ components:
           - type: string
           - type: 'null'
           title: Bookingfeetext
-        reminderDaysBefore:
+        reminderMinutesBefore:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Reminderdaysbefore
+          title: Reminderminutesbefore
         cancellationCost:
           anyOf:
           - type: integer
@@ -52403,11 +52772,11 @@ components:
           - type: integer
           - type: 'null'
           title: Hoursbeforebookingfeerefundable
-        followUpDaysAfter:
+        followUpMinutesAfter:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Followupdaysafter
+          title: Followupminutesafter
         followUpSmsTemplate:
           anyOf:
           - type: string
@@ -52471,11 +52840,11 @@ components:
           - type: string
           - type: 'null'
           title: Overridenoticesmstemplate
-        selfSchedulingBufferTime:
+        shortNoticeBlock:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Selfschedulingbuffertime
+          title: Shortnoticeblock
         visibility:
           anyOf:
           - $ref: '#/components/schemas/ServiceVisibilityType'
@@ -52522,6 +52891,12 @@ components:
           - type: boolean
           - type: 'null'
           title: Ispopular
+          default: false
+        onlyBookableOverThePhone:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Onlybookableoverthephone
           default: false
         creditCardRequired:
           anyOf:
@@ -52657,12 +53032,12 @@ components:
           - type: string
           - type: 'null'
           title: Bookingfeetext
-        reminderDaysBefore:
+        reminderMinutesBefore:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Reminderdaysbefore
-          default: 1
+          title: Reminderminutesbefore
+          default: 1440
         cancellationCost:
           anyOf:
           - type: integer
@@ -52701,11 +53076,11 @@ components:
           - type: integer
           - type: 'null'
           title: Hoursbeforebookingfeerefundable
-        followUpDaysAfter:
+        followUpMinutesAfter:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Followupdaysafter
+          title: Followupminutesafter
           default: 0
         followUpSmsTemplate:
           anyOf:
@@ -52763,11 +53138,11 @@ components:
           - type: string
           - type: 'null'
           title: Remindersmstemplate
-        selfSchedulingBufferTime:
+        shortNoticeBlock:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Selfschedulingbuffertime
+          title: Shortnoticeblock
         visibility:
           $ref: '#/components/schemas/ServiceVisibilityType'
           default: ALL
@@ -52808,6 +53183,12 @@ components:
           - type: boolean
           - type: 'null'
           title: Ispopular
+          default: false
+        onlyBookableOverThePhone:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Onlybookableoverthephone
           default: false
         creditCardRequired:
           anyOf:
@@ -53421,6 +53802,12 @@ components:
         unit:
           $ref: '#/components/schemas/Unit'
           description: Unit of measurement
+        minStockLevel:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Minstocklevel
+          description: Minimum stock level before alerting
         isArchived:
           type: boolean
           title: Isarchived
@@ -53470,6 +53857,12 @@ components:
         unit:
           $ref: '#/components/schemas/Unit'
           description: Unit of measurement
+        minStockLevel:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Minstocklevel
+          description: Minimum stock level before alerting
         isArchived:
           type: boolean
           title: Isarchived
@@ -53541,6 +53934,12 @@ components:
         unit:
           $ref: '#/components/schemas/Unit'
           description: Unit of measurement
+        minStockLevel:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Minstocklevel
+          description: Minimum stock level before alerting
         isArchived:
           type: boolean
           title: Isarchived
@@ -53642,6 +54041,12 @@ components:
         unit:
           $ref: '#/components/schemas/Unit'
           description: Unit of measurement
+        minStockLevel:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Minstocklevel
+          description: Minimum stock level before alerting
         isArchived:
           type: boolean
           title: Isarchived
@@ -53957,6 +54362,12 @@ components:
           - type: 'null'
           title: Country
           description: Optional country
+        shipmentTime:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Shipmenttime
+          description: Shipment time in minutes
         isArchived:
           type: boolean
           title: Isarchived
@@ -54038,6 +54449,8 @@ components:
           type: string
           format: date-time
           title: Createddate
+        status:
+          $ref: '#/components/schemas/PaymentStatus'
         description:
           anyOf:
           - type: string
@@ -54053,6 +54466,7 @@ components:
       - amount
       - reason
       - createdDate
+      - status
       title: TableRefund
     TableRefund-Output:
       properties:
@@ -54068,6 +54482,8 @@ components:
           type: string
           format: date-time
           title: Createddate
+        status:
+          $ref: '#/components/schemas/PaymentStatus'
         description:
           anyOf:
           - type: string
@@ -54083,6 +54499,7 @@ components:
       - amount
       - reason
       - createdDate
+      - status
       title: TableRefund
     Tag:
       properties:
@@ -54454,6 +54871,10 @@ components:
           - type: integer
           - type: 'null'
           title: Daysuntilpatientbecomesnew
+        maxSelfScheduleServices:
+          type: integer
+          title: Maxselfscheduleservices
+          default: 1
         authTimeoutMs:
           anyOf:
           - type: integer
@@ -54510,6 +54931,11 @@ components:
           - type: string
           - type: 'null'
           title: Reservationcancellationsmstemplate
+        quoteSmsText:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Quotesmstext
         automaticallySendReceipts:
           type: boolean
           title: Automaticallysendreceipts
@@ -54686,6 +55112,11 @@ components:
           - type: integer
           - type: 'null'
           title: Daysuntilpatientbecomesnew
+        maxSelfScheduleServices:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Maxselfscheduleservices
         introductoryText:
           anyOf:
           - type: string
@@ -54725,6 +55156,11 @@ components:
           - type: string
           - type: 'null'
           title: Reservationcancellationsmstemplate
+        quoteSmsText:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Quotesmstext
         receiptLogoUrl:
           anyOf:
           - type: string
@@ -55053,6 +55489,7 @@ components:
           type: string
           title: Toolname
         toolArguments:
+          additionalProperties: true
           type: object
           title: Toolarguments
         toolCallId:
@@ -55090,6 +55527,7 @@ components:
           type: string
           title: Toolname
         toolArguments:
+          additionalProperties: true
           type: object
           title: Toolarguments
         toolCallId:
@@ -55099,7 +55537,8 @@ components:
           title: Toolcallid
         result:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Result
         toolCallDescription:
@@ -55366,7 +55805,8 @@ components:
           description: Description of the dashboard
         layoutConfig:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Layoutconfig
           description: Grid layout configuration
@@ -55450,13 +55890,15 @@ components:
           description: Query builder configuration
         chartConfig:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Chartconfig
           description: Chart-specific configuration
         layoutPosition:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Layoutposition
           description: Grid position and size
@@ -55657,7 +56099,8 @@ components:
           description: Whether the user's address is valid.
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
           description: Any additional metadata about the user relevant to your system.
@@ -55794,7 +56237,8 @@ components:
           title: Addressvalid
         meta:
           anyOf:
-          - type: object
+          - additionalProperties: true
+            type: object
           - type: 'null'
           title: Meta
         primaryLocationId:
@@ -55917,6 +56361,7 @@ components:
           - $ref: '#/components/schemas/ChargeSummary-Output'
           - $ref: '#/components/schemas/ServiceDetail'
           - $ref: '#/components/schemas/MessageSummary'
+          - $ref: '#/components/schemas/MessageWithChatSummary'
           - $ref: '#/components/schemas/PaymentWithCharges'
           - $ref: '#/components/schemas/PatientSummary'
           - $ref: '#/components/schemas/InvoiceUpdate'
@@ -56205,6 +56650,10 @@ components:
           type: integer
           title: Totalnetamount
           description: Total net amount (formatted as currency)
+        totalCost:
+          type: integer
+          title: Totalcost
+          description: Total cost in cents
         uniquePatients:
           type: integer
           title: Uniquepatients
@@ -56227,6 +56676,7 @@ components:
       - totalChargeDiscountAmount
       - totalTaxAmount
       - totalNetAmount
+      - totalCost
       - uniquePatients
       - uniqueProviders
       - uniqueLocations

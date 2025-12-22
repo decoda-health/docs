@@ -250,18 +250,6 @@
                 ]
               },
               {
-                "group": "Appointment Dashboard",
-                "pages": [
-                  "api-reference/provider/get-appointment-trend",
-                  "api-reference/provider/get-appointments-by-provider",
-                  "api-reference/provider/get-appointments-by-status",
-                  "api-reference/provider/get-appointments-by-type",
-                  "api-reference/provider/get-patient-pending-intake",
-                  "api-reference/provider/get-provider-utilization",
-                  "api-reference/provider/send-intake-forms-to-patient"
-                ]
-              },
-              {
                 "group": "Billing",
                 "pages": [
                   "api-reference/provider/acknowledge-cash-balance-discrepancy",
@@ -379,41 +367,6 @@
                 ]
               },
               {
-                "group": "Calendar",
-                "pages": [
-                  "api-reference/provider/cancel-appointment",
-                  "api-reference/provider/check-if-patient-with-appointments",
-                  "api-reference/provider/check-phone-blacklist-status",
-                  "api-reference/provider/connect-record-to-event",
-                  "api-reference/provider/create-appointment",
-                  "api-reference/provider/create-event",
-                  "api-reference/provider/delete-event",
-                  "api-reference/provider/delete-recurring-event",
-                  "api-reference/provider/delete-shifts-by-dates",
-                  "api-reference/provider/delete-shifts-by-provider",
-                  "api-reference/provider/execute-extend-recurring",
-                  "api-reference/provider/get-appointment-forms",
-                  "api-reference/provider/get-appointment-forms-with-status",
-                  "api-reference/provider/get-availability",
-                  "api-reference/provider/get-bookable-usage",
-                  "api-reference/provider/get-conflicted-shifts",
-                  "api-reference/provider/get-event-appointment-checklist",
-                  "api-reference/provider/get-event-detail",
-                  "api-reference/provider/get-event-logs",
-                  "api-reference/provider/get-event-message-types",
-                  "api-reference/provider/get-event-messages",
-                  "api-reference/provider/get-events-for-patient",
-                  "api-reference/provider/get-front-page",
-                  "api-reference/provider/get-locations",
-                  "api-reference/provider/get-or-create-patient",
-                  "api-reference/provider/get-shifts-by-date",
-                  "api-reference/provider/list-events",
-                  "api-reference/provider/update-appointment-checklist",
-                  "api-reference/provider/update-event",
-                  "api-reference/provider/update-event-status"
-                ]
-              },
-              {
                 "group": "Comms",
                 "pages": [
                   "api-reference/provider/ai-call",
@@ -447,6 +400,13 @@
                   "api-reference/provider/get-payments-over-time-1",
                   "api-reference/provider/get-revenue-1",
                   "api-reference/provider/get-top-selling-items-1"
+                ]
+              },
+              {
+                "group": "Dosespot",
+                "pages": [
+                  "api-reference/provider/generate-sso-url",
+                  "api-reference/provider/get-current-provider-notification-counts"
                 ]
               },
               {
@@ -653,7 +613,6 @@
                   "api-reference/provider/get-event-icon",
                   "api-reference/provider/get-event-icons",
                   "api-reference/provider/get-patient",
-                  "api-reference/provider/get-patient-chat-id",
                   "api-reference/provider/get-patient-credits",
                   "api-reference/provider/get-patient-documents",
                   "api-reference/provider/get-patient-ids",
