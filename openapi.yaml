@@ -914,6 +914,755 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
+  /analytics/dashboards/appointments-breakdown/appointments-breakdown-groups:
+    get:
+      tags:
+      - provider
+      - analytics
+      - analytics
+      summary: Get Appointments Breakdown Groups
+      description: |-
+        Get appointment breakdown groups with totals for the GroupedTableOrchestrator.
+
+        Returns distinct group keys with their total counts for efficient grouping.
+      operationId: get_appointments_breakdown_groups_analytics_dashboards_appointments_breakdown_appointments_breakdown_groups_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: group_by
+        in: query
+        required: true
+        schema:
+          enum:
+          - service
+          - status
+          - provider
+          - scheduling_type
+          - location
+          - start_date
+          - week
+          - month
+          type: string
+          title: Group By
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Timezone for date grouping (e.g., 'America/New_York', 'UTC')
+          title: Timezone
+        description: Timezone for date grouping (e.g., 'America/New_York', 'UTC')
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Date
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      - name: location_names
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Names
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: patient_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Patient Ids
+      - name: service_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Service Ids
+      - name: service_names
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Service Names
+      - name: statuses
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Statuses
+      - name: scheduling_types
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Scheduling Types
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/decoda__apps__api__routes__analytics__dashboards__appointments_breakdown__GroupItem'
+                title: Response Get Appointments Breakdown Groups Analytics Dashboards
+                  Appointments Breakdown Appointments Breakdown Groups Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/dashboards/appointments-breakdown/appointments-breakdown:
+    get:
+      tags:
+      - provider
+      - analytics
+      - analytics
+      summary: Get Appointments Breakdown
+      description: |-
+        Get detailed appointment breakdown with filtering.
+
+        Returns comprehensive appointment data with detailed filtering capabilities.
+      operationId: get_appointments_breakdown_analytics_dashboards_appointments_breakdown_appointments_breakdown_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: group_by
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - enum:
+            - service
+            - status
+            - provider
+            - scheduling_type
+            - location
+            - start_date
+            - week
+            - month
+            type: string
+          - type: 'null'
+          title: Group By
+      - name: group_key
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Group Key
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Timezone for date grouping (e.g., 'America/New_York', 'UTC')
+          title: Timezone
+        description: Timezone for date grouping (e.g., 'America/New_York', 'UTC')
+      - name: sort_by
+        in: query
+        required: false
+        schema:
+          type: string
+          default: start_date
+          title: Sort By
+      - name: sort_direction
+        in: query
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+          default: desc
+          title: Sort Direction
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Date
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      - name: location_names
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Names
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: patient_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Patient Ids
+      - name: service_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Service Ids
+      - name: service_names
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Service Names
+      - name: statuses
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Statuses
+      - name: scheduling_types
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Scheduling Types
+      - name: service
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Service
+      - name: status
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Status
+      - name: provider
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Provider
+      - name: scheduling_type
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Scheduling Type
+      - name: location
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+      - name: startDate
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Startdate
+      - name: week
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Week
+      - name: month
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Month
+      - name: page
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Page
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Per Page
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_AppointmentBreakdownItem_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/dashboards/appointments-breakdown/appointments-breakdown-group-summaries:
+    get:
+      tags:
+      - provider
+      - analytics
+      - analytics
+      summary: Get Appointments Breakdown Group Summaries
+      description: Get summary statistics for each group in the appointment breakdown.
+      operationId: get_appointments_breakdown_group_summaries_analytics_dashboards_appointments_breakdown_appointments_breakdown_group_summaries_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: group_by
+        in: query
+        required: true
+        schema:
+          enum:
+          - service
+          - status
+          - provider
+          - scheduling_type
+          - location
+          - start_date
+          - week
+          - month
+          type: string
+          title: Group By
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Timezone for date grouping (e.g., 'America/New_York', 'UTC')
+          title: Timezone
+        description: Timezone for date grouping (e.g., 'America/New_York', 'UTC')
+      - name: sort_by
+        in: query
+        required: false
+        schema:
+          type: string
+          default: start_date
+          title: Sort By
+      - name: sort_direction
+        in: query
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+          default: desc
+          title: Sort Direction
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Date
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      - name: location_names
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Names
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: patient_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Patient Ids
+      - name: service_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Service Ids
+      - name: service_names
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Service Names
+      - name: statuses
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Statuses
+      - name: scheduling_types
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Scheduling Types
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/decoda__apps__api__routes__analytics__dashboards__appointments_breakdown__GroupSummary'
+                title: Response Get Appointments Breakdown Group Summaries Analytics
+                  Dashboards Appointments Breakdown Appointments Breakdown Group Summaries
+                  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/dashboards/appointments-breakdown/appointments-breakdown-summary:
+    get:
+      tags:
+      - provider
+      - analytics
+      - analytics
+      summary: Get Appointments Breakdown Summary
+      description: Get summary statistics for ungrouped appointment breakdown (all
+        filtered results).
+      operationId: get_appointments_breakdown_summary_analytics_dashboards_appointments_breakdown_appointments_breakdown_summary_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Timezone for date grouping (e.g., 'America/New_York', 'UTC')
+          title: Timezone
+        description: Timezone for date grouping (e.g., 'America/New_York', 'UTC')
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Date
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      - name: location_names
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Names
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: patient_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Patient Ids
+      - name: service_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Service Ids
+      - name: service_names
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Service Names
+      - name: statuses
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Statuses
+      - name: scheduling_types
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Scheduling Types
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/decoda__apps__api__routes__analytics__dashboards__appointments_breakdown__GroupSummary'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /analytics/dashboards/product-sales-breakdown/revenue-breakdown-groups:
     get:
       tags:
@@ -4296,6 +5045,313 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/dashboards/clock-ins/groups:
+    get:
+      tags:
+      - provider
+      - analytics
+      - analytics
+      summary: Get Clock In Groups
+      description: Get available groups for clock-in data
+      operationId: get_clock_in_groups_analytics_dashboards_clock_ins_groups_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: group_by
+        in: query
+        required: true
+        schema:
+          enum:
+          - location
+          - provider
+          - date
+          type: string
+          title: Group By
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/decoda__apps__api__routes__analytics__dashboards__clock_in__GroupItem'
+                title: Response Get Clock In Groups Analytics Dashboards Clock Ins
+                  Groups Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/dashboards/clock-ins/clock-ins:
+    get:
+      tags:
+      - provider
+      - analytics
+      - analytics
+      summary: Get Clock Ins
+      description: Get clock-in data, optionally filtered by group
+      operationId: get_clock_ins_analytics_dashboards_clock_ins_clock_ins_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      - name: group_by
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - enum:
+            - location
+            - provider
+            - date
+            type: string
+          - type: 'null'
+          title: Group By
+      - name: group_key
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Group Key
+      - name: page
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Page
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Per Page
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_ClockInRow_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/dashboards/clock-ins/group-summaries:
+    get:
+      tags:
+      - provider
+      - analytics
+      - analytics
+      summary: Get Clock In Group Summaries
+      description: Get summary statistics for each group
+      operationId: get_clock_in_group_summaries_analytics_dashboards_clock_ins_group_summaries_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: group_by
+        in: query
+        required: true
+        schema:
+          enum:
+          - location
+          - provider
+          - date
+          type: string
+          title: Group By
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      - name: provider_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Provider Ids
+      - name: timezone
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Timezone
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/decoda__apps__api__routes__analytics__dashboards__clock_in__GroupSummary'
+                title: Response Get Clock In Group Summaries Analytics Dashboards
+                  Clock Ins Group Summaries Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /comms/email/send:
     post:
       tags:
@@ -6265,7 +7321,7 @@ paths:
           anyOf:
           - type: array
             items:
-              $ref: '#/components/schemas/CartStatus'
+              type: string
           - type: 'null'
           description: Filter by cart statuses
           title: Statuses
@@ -7542,14 +8598,22 @@ paths:
               $ref: '#/components/schemas/ChargeStatus'
           - type: 'null'
           title: Status
-      - name: external_id
+      - name: charge_external_id
         in: query
         required: false
         schema:
           anyOf:
           - type: string
           - type: 'null'
-          title: External Id
+          title: Charge External Id
+      - name: patient_external_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Patient External Id
       - name: created_date
         in: query
         required: false
@@ -9537,6 +10601,14 @@ paths:
           - type: string
           - type: 'null'
           title: Creator Name
+      - name: creator_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Creator Id
       - name: merchant_account_ids
         in: query
         required: false
@@ -15343,6 +16415,55 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /admin/taxes/bulk:
+    get:
+      tags:
+      - provider
+      - admin
+      summary: List Taxes Bulk
+      description: List all taxes for multiple locations in a single request.
+      operationId: list_taxes_bulk_admin_taxes_bulk_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: location_ids
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+          description: List of location IDs to fetch taxes for
+          title: Location Ids
+        description: List of location IDs to fetch taxes for
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaxSummary'
+                title: Response List Taxes Bulk Admin Taxes Bulk Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /admin/taxes:
     post:
       tags:
@@ -15438,7 +16559,8 @@ paths:
       - provider
       - admin
       summary: Delete Tax
-      description: Delete a tax.
+      description: Archive a tax (soft delete). Cannot archive taxes that are used
+        in transactions.
       operationId: delete_tax_admin_taxes__tax_id__delete
       parameters:
       - name: TENANT
@@ -17776,54 +18898,6 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
-  /user/patient/{patient_id}/add-credit:
-    post:
-      tags:
-      - provider
-      - user
-      summary: Add Patient Credit
-      description: Add credit to a patient's account.
-      operationId: add_patient_credit_user_patient__patient_id__add_credit_post
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
-      - name: patient_id
-        in: path
-        required: true
-        schema:
-          type: string
-          title: Patient Id
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AddPatientCredit'
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PatientSummary'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /user/patient/{patient_id}/preferred-provider:
     put:
       tags:
@@ -18269,7 +19343,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QuickNoteSummary'
+                $ref: '#/components/schemas/QuickNoteSummary-Output'
         '422':
           description: Validation Error
           content:
@@ -18328,7 +19402,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/QuickNoteSummary'
+                  $ref: '#/components/schemas/QuickNoteSummary-Output'
                 title: Response List Quick Notes User Patient Quick Note List  Patient
                   Id  Get
         '422':
@@ -18372,7 +19446,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QuickNoteSummary'
+                $ref: '#/components/schemas/QuickNoteSummary-Output'
         '422':
           description: Validation Error
           content:
@@ -18462,7 +19536,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QuickNoteSummary'
+                $ref: '#/components/schemas/QuickNoteSummary-Output'
         '422':
           description: Validation Error
           content:
@@ -19479,6 +20553,351 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PaymentOverview'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/clock-in/:
+    get:
+      tags:
+      - provider
+      - check-in
+      - clock-in
+      summary: Get Most Recent Time Entry
+      operationId: get_most_recent_time_entry_check_in_clock_in__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/ClockInRecord'
+                - type: 'null'
+                title: Response Get Most Recent Time Entry Check In Clock In  Get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+    post:
+      tags:
+      - provider
+      - check-in
+      - clock-in
+      summary: Clock In
+      operationId: clock_in_check_in_clock_in__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClockInRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClockInRecord'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+  /check-in/clock-in/history:
+    get:
+      tags:
+      - provider
+      - check-in
+      - clock-in
+      summary: List Time Entries
+      operationId: list_time_entries_check_in_clock_in_history_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: start
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Start
+      - name: end
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: End
+      - name: user_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: User Ids
+      - name: location_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Location Ids
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClockInRecord'
+                title: Response List Time Entries Check In Clock In History Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/clock-in/clock-out:
+    post:
+      tags:
+      - provider
+      - check-in
+      - clock-in
+      summary: Clock Out
+      operationId: clock_out_check_in_clock_in_clock_out_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClockInRecord'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+  /check-in/clock-in/{time_entry_id}:
+    put:
+      tags:
+      - provider
+      - check-in
+      - clock-in
+      summary: Update Time Entry
+      description: |-
+        Update a clock-in record's start and/or end time.
+        Requires clock_in:times:edit permission.
+        Creates an audit log entry tracking the change.
+      operationId: update_time_entry_check_in_clock_in__time_entry_id__put
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: time_entry_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Time Entry Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClockInRecordUpdate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClockInRecord'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - provider
+      - check-in
+      - clock-in
+      summary: Delete Time Entry
+      description: |-
+        Delete a clock-in record (soft delete by setting is_archived=True).
+        Requires clock_in:times:edit permission.
+        Creates an audit log entry tracking the deletion.
+      operationId: delete_time_entry_check_in_clock_in__time_entry_id__delete
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: time_entry_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Time Entry Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - $ref: '#/components/schemas/ClockInRecordDelete'
+              - type: 'null'
+              title: Delete Request
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /check-in/clock-in/{time_entry_id}/logs:
+    get:
+      tags:
+      - provider
+      - check-in
+      - clock-in
+      summary: Get Clock In Logs
+      description: |-
+        Get all audit logs for a specific clock-in record.
+        Shows who edited the clock-in record, when, and what changed.
+      operationId: get_clock_in_logs_check_in_clock_in__time_entry_id__logs_get
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: time_entry_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Time Entry Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: '#/components/schemas/ClockInLogCreatedSummary'
+                  - $ref: '#/components/schemas/ClockInLogTimeEditedSummary'
+                  - $ref: '#/components/schemas/ClockInLogClockedOutSummary'
+                  - $ref: '#/components/schemas/ClockInLogDeletedSummary'
+                  discriminator:
+                    propertyName: actionType
+                    mapping:
+                      CREATED: '#/components/schemas/ClockInLogCreatedSummary'
+                      TIME_EDITED: '#/components/schemas/ClockInLogTimeEditedSummary'
+                      CLOCKED_OUT: '#/components/schemas/ClockInLogClockedOutSummary'
+                      DELETED: '#/components/schemas/ClockInLogDeletedSummary'
+                title: Response Get Clock In Logs Check In Clock In  Time Entry Id  Logs
+                  Get
         '422':
           description: Validation Error
           content:
@@ -21423,6 +22842,13 @@ paths:
           - type: string
           - type: 'null'
           title: Location Ids
+      - name: ignore_capacity
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Ignore Capacity
       responses:
         '200':
           description: Successful Response
@@ -23945,6 +25371,100 @@ paths:
                 type: boolean
                 title: Response Update Attachment Name Attachments  Attachment Id  Name
                   Put
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /attachments/bulk-names:
+    put:
+      tags:
+      - provider
+      - scribe
+      - attachments
+      summary: Bulk Update Attachment Names
+      description: Bulk update attachment names for multiple attachments at once.
+      operationId: bulk_update_attachment_names_attachments_bulk_names_put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkAttachmentNameUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Bulk Update Attachment Names Attachments Bulk Names
+                  Put
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+  /attachments/{attachment_id}/image:
+    put:
+      tags:
+      - provider
+      - scribe
+      - attachments
+      summary: Update Attachment Image
+      description: Replace the attachment image with a new file (e.g., after rotation/crop).
+      operationId: update_attachment_image_attachments__attachment_id__image_put
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+      - name: attachment_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Attachment Id
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_update_attachment_image_attachments__attachment_id__image_put'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoteAttachmentResponse'
         '422':
           description: Validation Error
           content:
@@ -26755,7 +28275,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Item'
+              $ref: '#/components/schemas/ItemUpdate'
       responses:
         '200':
           description: Successful Response
@@ -26769,6 +28289,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /inventory/items/bulk-update-taxes:
+    post:
+      tags:
+      - provider
+      - inventory
+      summary: Bulk Update Item Taxes
+      description: Bulk update exempted_tax_ids for multiple items.
+      operationId: bulk_update_item_taxes_inventory_items_bulk_update_taxes_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkItemTaxUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Item'
+                type: array
+                title: Response Bulk Update Item Taxes Inventory Items Bulk Update
+                  Taxes Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
   /inventory/members/bill-members:
     post:
       tags:
@@ -28941,6 +30507,97 @@ paths:
           type: string
           title: Api-Key
         description: Your api key
+  /inventory/stocks/link-supplier:
+    post:
+      tags:
+      - provider
+      - inventory
+      summary: Link Supplier To Stock
+      operationId: link_supplier_to_stock_inventory_stocks_link_supplier_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/SupplierToStock'
+              type: array
+              title: Supplier Links
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SupplierToStock'
+                type: array
+                title: Response Link Supplier To Stock Inventory Stocks Link Supplier
+                  Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
+  /inventory/stocks/unlink-supplier:
+    post:
+      tags:
+      - provider
+      - inventory
+      summary: Unlink Supplier From Stock
+      operationId: unlink_supplier_from_stock_inventory_stocks_unlink_supplier_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/SupplierToStock'
+              type: array
+              title: Supplier Links
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      parameters:
+      - name: TENANT
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Tenant
+        description: The tenant you are making this request on behalf of
+      - name: API-KEY
+        in: header
+        required: true
+        schema:
+          type: string
+          title: Api-Key
+        description: Your api key
   /inventory/stocks/create:
     post:
       tags:
@@ -30260,17 +31917,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    AddPatientCredit:
-      properties:
-        amount:
-          type: integer
-          title: Amount
-          description: Amount to add to patient's credit balance in cents.
-      type: object
-      required:
-      - amount
-      title: AddPatientCredit
-      description: Schema for adding credit to a patient's account.
     Address:
       properties:
         name:
@@ -30630,6 +32276,9 @@ components:
       - ITEM_CREATED
       - ITEM_UPDATED
       - ITEM_ARCHIVED
+      - SUPPLIER_LINKED_TO_STOCK
+      - SUPPLIER_UNLINKED_FROM_STOCK
+      - SUPPLIER_TO_STOCK_UPDATED
       - INVENTORY_ACTION
       title: AlertType
     AnalyticsDashboardSchema:
@@ -30814,6 +32463,60 @@ components:
       - brandDesc
       - description
       title: ApplePay
+    AppointmentBreakdownItem:
+      properties:
+        appointmentId:
+          type: string
+          title: Appointmentid
+          description: Appointment/Event ID
+        startDate:
+          type: string
+          format: date-time
+          title: Startdate
+          description: Appointment start date/time
+        endDate:
+          type: string
+          format: date-time
+          title: Enddate
+          description: Appointment end date/time
+        status:
+          type: string
+          title: Status
+          description: Appointment status
+        location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+          description: Location name
+        patient:
+          $ref: '#/components/schemas/PatientTiny'
+          description: Patient information
+        provider:
+          anyOf:
+          - $ref: '#/components/schemas/ProviderInfo'
+          - type: 'null'
+          description: Provider information
+        serviceName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Servicename
+          description: Primary service name
+        schedulingType:
+          type: string
+          title: Schedulingtype
+          description: Scheduling type (SELF_SCHEDULED or STAFF_SCHEDULED)
+      type: object
+      required:
+      - appointmentId
+      - startDate
+      - endDate
+      - status
+      - patient
+      - schedulingType
+      title: AppointmentBreakdownItem
+      description: Individual appointment breakdown item.
     AppointmentChecklistItem:
       properties:
         id:
@@ -32041,6 +33744,16 @@ components:
       - body
       - subject
       title: Body_send_email_comms_email_send_post
+    Body_update_attachment_image_attachments__attachment_id__image_put:
+      properties:
+        file:
+          type: string
+          format: binary
+          title: File
+      type: object
+      required:
+      - file
+      title: Body_update_attachment_image_attachments__attachment_id__image_put
     Body_update_or_create_location_admin_locations_update_or_create_post:
       properties:
         photo:
@@ -32356,6 +34069,30 @@ components:
       - payinConfigId
       - sandbox
       title: BookingFeePayinResponse
+    BulkAttachmentNameUpdate:
+      properties:
+        updates:
+          items:
+            $ref: '#/components/schemas/BulkAttachmentNameUpdateItem'
+          type: array
+          title: Updates
+      type: object
+      required:
+      - updates
+      title: BulkAttachmentNameUpdate
+    BulkAttachmentNameUpdateItem:
+      properties:
+        attachmentId:
+          type: string
+          title: Attachmentid
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - attachmentId
+      - name
+      title: BulkAttachmentNameUpdateItem
     BulkDeleteNotificationPreferencesRequest:
       properties:
         preferenceIds:
@@ -32369,6 +34106,19 @@ components:
       - preferenceIds
       title: BulkDeleteNotificationPreferencesRequest
       description: Schema for bulk deleting notification preferences.
+    BulkItemTaxUpdate:
+      properties:
+        updates:
+          items:
+            $ref: '#/components/schemas/ItemTaxUpdate'
+          type: array
+          title: Updates
+          description: List of item tax exemption updates to apply
+      type: object
+      required:
+      - updates
+      title: BulkItemTaxUpdate
+      description: Schema for bulk updating multiple items' tax exemptions.
     BulkProviderAssignment:
       properties:
         provider_ids:
@@ -35733,6 +37483,288 @@ components:
       - WEIGHT_LOSS
       - MED_SPA
       title: ClinicType
+    ClockInLogClockedOutSummary:
+      properties:
+        id:
+          type: string
+          title: Id
+        clockInRecordId:
+          type: string
+          title: Clockinrecordid
+        createdDate:
+          type: string
+          format: date-time
+          title: Createddate
+        actionType:
+          type: string
+          const: CLOCKED_OUT
+          title: Actiontype
+          default: CLOCKED_OUT
+      type: object
+      required:
+      - id
+      - clockInRecordId
+      - createdDate
+      title: ClockInLogClockedOutSummary
+      description: Summary view of a CLOCKED_OUT clock-in log
+    ClockInLogCreatedSummary:
+      properties:
+        id:
+          type: string
+          title: Id
+        clockInRecordId:
+          type: string
+          title: Clockinrecordid
+        createdDate:
+          type: string
+          format: date-time
+          title: Createddate
+        actionType:
+          type: string
+          const: CREATED
+          title: Actiontype
+          default: CREATED
+      type: object
+      required:
+      - id
+      - clockInRecordId
+      - createdDate
+      title: ClockInLogCreatedSummary
+      description: Summary view of a CREATED clock-in log
+    ClockInLogDeletedSummary:
+      properties:
+        providerId:
+          type: string
+          title: Providerid
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        id:
+          type: string
+          title: Id
+        clockInRecordId:
+          type: string
+          title: Clockinrecordid
+        createdDate:
+          type: string
+          format: date-time
+          title: Createddate
+        actionType:
+          type: string
+          const: DELETED
+          title: Actiontype
+          default: DELETED
+      type: object
+      required:
+      - providerId
+      - id
+      - clockInRecordId
+      - createdDate
+      title: ClockInLogDeletedSummary
+      description: Summary view of a DELETED clock-in log
+    ClockInLogTimeEditedSummary:
+      properties:
+        oldStartTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Oldstarttime
+        newStartTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Newstarttime
+        oldEndTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Oldendtime
+        newEndTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Newendtime
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        providerId:
+          type: string
+          title: Providerid
+        id:
+          type: string
+          title: Id
+        clockInRecordId:
+          type: string
+          title: Clockinrecordid
+        createdDate:
+          type: string
+          format: date-time
+          title: Createddate
+        actionType:
+          type: string
+          const: TIME_EDITED
+          title: Actiontype
+          default: TIME_EDITED
+      type: object
+      required:
+      - providerId
+      - id
+      - clockInRecordId
+      - createdDate
+      title: ClockInLogTimeEditedSummary
+      description: Summary view of a TIME_EDITED clock-in log
+    ClockInRecord:
+      properties:
+        id:
+          type: string
+          title: Id
+        userId:
+          type: string
+          title: Userid
+        startTime:
+          type: string
+          format: date-time
+          title: Starttime
+        locationId:
+          type: string
+          title: Locationid
+        endTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Endtime
+      type: object
+      required:
+      - id
+      - userId
+      - startTime
+      - locationId
+      title: ClockInRecord
+    ClockInRecordDelete:
+      properties:
+        reason:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Reason
+      type: object
+      title: ClockInRecordDelete
+    ClockInRecordSummary:
+      properties:
+        id:
+          type: string
+          title: Id
+        startTime:
+          type: string
+          format: date-time
+          title: Starttime
+        endTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Endtime
+      type: object
+      required:
+      - id
+      - startTime
+      - endTime
+      title: ClockInRecordSummary
+      description: A single clock-in/out record
+    ClockInRecordUpdate:
+      properties:
+        startTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Starttime
+        endTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Endtime
+        reason:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Reason
+      type: object
+      title: ClockInRecordUpdate
+    ClockInRequest:
+      properties:
+        locationId:
+          type: string
+          title: Locationid
+      type: object
+      required:
+      - locationId
+      title: ClockInRequest
+    ClockInRow:
+      properties:
+        providerId:
+          type: string
+          title: Providerid
+        providerFirstName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Providerfirstname
+        providerLastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Providerlastname
+        locationId:
+          type: string
+          title: Locationid
+        locationName:
+          type: string
+          title: Locationname
+        date:
+          type: string
+          format: date
+          title: Date
+        scheduledShifts:
+          items:
+            $ref: '#/components/schemas/ScheduledShift'
+          type: array
+          title: Scheduledshifts
+        clockIns:
+          items:
+            $ref: '#/components/schemas/ClockInRecordSummary'
+          type: array
+          title: Clockins
+        totalScheduledMinutes:
+          type: integer
+          title: Totalscheduledminutes
+        totalWorkedMinutes:
+          type: integer
+          title: Totalworkedminutes
+      type: object
+      required:
+      - providerId
+      - providerFirstName
+      - providerLastName
+      - locationId
+      - locationName
+      - date
+      - scheduledShifts
+      - clockIns
+      - totalScheduledMinutes
+      - totalWorkedMinutes
+      title: ClockInRow
+      description: A single row in the clock-in report
     ColumnMappingGroupCreate:
       properties:
         name:
@@ -37780,6 +39812,13 @@ components:
           - type: integer
           - type: 'null'
           title: Capacity
+        quickNotes:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/QuickNoteSummary-Output'
+            type: array
+          - type: 'null'
+          title: Quicknotes
         organizer:
           $ref: '#/components/schemas/UserTiny'
         meetingLink:
@@ -37814,13 +39853,6 @@ components:
             format: date-time
           - type: 'null'
           title: Createddate
-        quickNotes:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/QuickNoteSummary'
-            type: array
-          - type: 'null'
-          title: Quicknotes
       type: object
       required:
       - id
@@ -38270,6 +40302,13 @@ components:
           - type: integer
           - type: 'null'
           title: Capacity
+        quickNotes:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/QuickNoteSummary-Input'
+            type: array
+          - type: 'null'
+          title: Quicknotes
       type: object
       required:
       - id
@@ -38335,6 +40374,13 @@ components:
           - type: integer
           - type: 'null'
           title: Capacity
+        quickNotes:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/QuickNoteSummary-Output'
+            type: array
+          - type: 'null'
+          title: Quicknotes
       type: object
       required:
       - id
@@ -39633,6 +41679,9 @@ components:
       - SHIPMENT_ARCHIVED
       - ITEM_LINKED
       - ITEM_UNLINKED
+      - SUPPLIER_TO_STOCK_LINKED
+      - SUPPLIER_TO_STOCK_UPDATED
+      - SUPPLIER_TO_STOCK_UNLINKED
       title: InventoryAction
     InventoryLog:
       properties:
@@ -39682,6 +41731,12 @@ components:
           - type: 'null'
           title: Shipmentid
           description: ID of the shipment
+        supplierId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Supplierid
+          description: ID of the supplier
         note:
           anyOf:
           - type: string
@@ -39708,6 +41763,11 @@ components:
           - $ref: '#/components/schemas/Shipment-Output'
           - type: 'null'
           description: Shipment
+        supplier:
+          anyOf:
+          - $ref: '#/components/schemas/Supplier'
+          - type: 'null'
+          description: Supplier
         creator:
           anyOf:
           - $ref: '#/components/schemas/UserTiny'
@@ -40137,11 +42197,6 @@ components:
           - type: 'null'
           title: Internalnotes
           description: Optional internal notes for the item
-        taxable:
-          type: boolean
-          title: Taxable
-          description: Whether the item is subject to taxes
-          default: false
         sortOrder:
           anyOf:
           - type: integer
@@ -40163,6 +42218,15 @@ components:
           - type: 'null'
           title: Externalid
           description: Optional external ID for the item
+        exemptedTaxIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Exemptedtaxids
+          description: List of tax IDs that this item is exempted from (excludes from
+            scope-based taxes)
         stocks:
           anyOf:
           - items:
@@ -40229,11 +42293,6 @@ components:
           - type: 'null'
           title: Internalnotes
           description: Optional internal notes for the item
-        taxable:
-          type: boolean
-          title: Taxable
-          description: Whether the item is subject to taxes
-          default: false
         sortOrder:
           anyOf:
           - type: integer
@@ -40255,6 +42314,15 @@ components:
           - type: 'null'
           title: Externalid
           description: Optional external ID for the item
+        exemptedTaxIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Exemptedtaxids
+          description: List of tax IDs that this item is exempted from (excludes from
+            scope-based taxes)
         stocks:
           anyOf:
           - items:
@@ -40328,6 +42396,26 @@ components:
       - quantityUsed
       - stock
       title: ItemStockDetail
+    ItemTaxUpdate:
+      properties:
+        itemId:
+          type: string
+          title: Itemid
+          description: ID of the item to update
+        exemptedTaxIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Exemptedtaxids
+          description: List of tax IDs that this item is exempted from. Use empty
+            list to remove all tax exemptions.
+      type: object
+      required:
+      - itemId
+      title: ItemTaxUpdate
+      description: Schema for updating an item's tax exemptions.
     ItemTiny:
       properties:
         id:
@@ -40381,11 +42469,6 @@ components:
           - type: 'null'
           title: Internalnotes
           description: Optional internal notes for the item
-        taxable:
-          type: boolean
-          title: Taxable
-          description: Whether the item is subject to taxes
-          default: false
         sortOrder:
           anyOf:
           - type: integer
@@ -40407,6 +42490,15 @@ components:
           - type: 'null'
           title: Externalid
           description: Optional external ID for the item
+        exemptedTaxIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Exemptedtaxids
+          description: List of tax IDs that this item is exempted from (excludes from
+            scope-based taxes)
       type: object
       required:
       - name
@@ -40422,6 +42514,91 @@ components:
       - PACKAGE
       - MEMBERSHIP
       title: ItemType
+    ItemUpdate:
+      properties:
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+          description: Name of the item
+        brandName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Brandname
+          description: Optional brand name of the item
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+          description: Optional description of the item
+        price:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Price
+          description: Price of the item in cents
+        category:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Category
+          description: Category name (references category.name)
+        unit:
+          anyOf:
+          - $ref: '#/components/schemas/Unit'
+          - type: 'null'
+          description: Unit of measurement for the item
+        isPhysical:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Isphysical
+          description: Whether the item is physical
+        isArchived:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Isarchived
+          description: Whether the item is archived
+        internalNotes:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Internalnotes
+          description: Optional internal notes for the item
+        sortOrder:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Sortorder
+          description: Optional sort order for the item
+        allowCustomPricing:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Allowcustompricing
+          description: Whether custom pricing is allowed for this item
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Externalid
+          description: Optional external ID for the item
+        exemptedTaxIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Exemptedtaxids
+          description: List of tax IDs that this item is exempted from (excludes from
+            scope-based taxes)
+      type: object
+      title: ItemUpdate
+      description: Schema for partial updates to an item.
     ItemWithQuantity:
       properties:
         itemName:
@@ -41128,10 +43305,6 @@ components:
           - type: integer
           - type: 'null'
           title: Sortorder
-        taxable:
-          type: boolean
-          title: Taxable
-          default: false
         allowCustomPricing:
           type: boolean
           title: Allowcustompricing
@@ -41218,9 +43391,6 @@ components:
           - type: integer
           - type: 'null'
           title: Sortorder
-        taxable:
-          type: boolean
-          title: Taxable
         allowCustomPricing:
           type: boolean
           title: Allowcustompricing
@@ -41289,7 +43459,6 @@ components:
       type: object
       required:
       - name
-      - taxable
       - allowCustomPricing
       - id
       - createdDate
@@ -41385,11 +43554,6 @@ components:
           - type: integer
           - type: 'null'
           title: Sortorder
-        taxable:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Taxable
         allowCustomPricing:
           anyOf:
           - type: boolean
@@ -42732,6 +44896,7 @@ components:
       type: string
       enum:
       - REMINDER
+      - PAYMENT_PLAN_RMNDR
       - OVERRIDE
       - FOLLOW_UP
       - EXPIRED
@@ -42767,6 +44932,7 @@ components:
       - SPAKINECT
       - SCRIBE_MEDICAL_CODES
       - DOSESPOT
+      - CLOCK_IN
       title: Module
     MovePaymentRequest:
       properties:
@@ -44070,6 +46236,21 @@ components:
       - data
       - total
       title: Page[AnalyticsDashboardSchema]
+    Page_AppointmentBreakdownItem_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AppointmentBreakdownItem'
+          type: array
+          title: Data
+        total:
+          type: integer
+          title: Total
+      type: object
+      required:
+      - data
+      - total
+      title: Page[AppointmentBreakdownItem]
     Page_CallTable_:
       properties:
         data:
@@ -44115,6 +46296,21 @@ components:
       - data
       - total
       title: Page[ChargeTable]
+    Page_ClockInRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ClockInRow'
+          type: array
+          title: Data
+        total:
+          type: integer
+          title: Total
+      type: object
+      required:
+      - data
+      - total
+      title: Page[ClockInRow]
     Page_CommissionReportSummary_:
       properties:
         data:
@@ -45676,6 +47872,9 @@ components:
         formId:
           type: string
           title: Formid
+        answeredFormId:
+          type: string
+          title: Answeredformid
         submissionDate:
           type: string
           format: date-time
@@ -45692,6 +47891,7 @@ components:
       required:
       - patient
       - formId
+      - answeredFormId
       - submissionDate
       - isCompleted
       title: PatientSubmissionTableItem
@@ -47318,6 +49518,7 @@ components:
           type: integer
           title: Feetopatient
           description: The fee charged to the patient for the transaction.
+          default: 0
         paymentMethod:
           anyOf:
           - $ref: '#/components/schemas/PaymentMethodSummary'
@@ -47337,7 +49538,6 @@ components:
       - status
       - paymentMedium
       - createdDate
-      - feeToPatient
       title: Payment
     Payment-Output:
       properties:
@@ -47418,6 +49618,7 @@ components:
           type: integer
           title: Feetopatient
           description: The fee charged to the patient for the transaction.
+          default: 0
         paymentMethod:
           anyOf:
           - $ref: '#/components/schemas/PaymentMethodSummary'
@@ -47437,7 +49638,6 @@ components:
       - status
       - paymentMedium
       - createdDate
-      - feeToPatient
       title: Payment
     PaymentBreakdownItem:
       properties:
@@ -47779,6 +49979,11 @@ components:
           type: boolean
           title: Isarchived
           default: false
+        restrictedToMerchantId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Restrictedtomerchantid
       type: object
       required:
       - id
@@ -48224,6 +50429,7 @@ components:
           type: integer
           title: Feetopatient
           description: The fee charged to the patient for the transaction.
+          default: 0
       type: object
       required:
       - id
@@ -48231,7 +50437,6 @@ components:
       - status
       - paymentMedium
       - createdDate
-      - feeToPatient
       title: Payment
     PaymentSummaryForTimeline:
       properties:
@@ -48467,6 +50672,7 @@ components:
           type: integer
           title: Feetopatient
           description: The fee charged to the patient for the transaction.
+          default: 0
         charges:
           items:
             $ref: '#/components/schemas/ChargePaymentSummary'
@@ -48479,7 +50685,6 @@ components:
       - status
       - paymentMedium
       - createdDate
-      - feeToPatient
       - charges
       title: Payment
     PaymentWithPatient:
@@ -48561,6 +50766,7 @@ components:
           type: integer
           title: Feetopatient
           description: The fee charged to the patient for the transaction.
+          default: 0
         paymentMethod:
           anyOf:
           - $ref: '#/components/schemas/PaymentMethodSummary'
@@ -48584,7 +50790,6 @@ components:
       - status
       - paymentMedium
       - createdDate
-      - feeToPatient
       - patient
       title: Payment
     Period:
@@ -48800,6 +51005,24 @@ components:
       title: ProviderEarningsProvider
       description: Provider schema for earnings reports, allows None id for uncategorized
         items
+    ProviderInfo:
+      properties:
+        id:
+          type: string
+          title: Id
+        firstName:
+          type: string
+          title: Firstname
+        lastName:
+          type: string
+          title: Lastname
+      type: object
+      required:
+      - id
+      - firstName
+      - lastName
+      title: ProviderInfo
+      description: Provider information for appointment breakdown.
     ProviderInvite:
       properties:
         email:
@@ -49896,6 +52119,10 @@ components:
           type: integer
           title: Maxselfscheduleservices
           default: 1
+        createCreditFromBookingFee:
+          type: boolean
+          title: Createcreditfrombookingfee
+          default: false
         receiptLogoUrl:
           anyOf:
           - type: string
@@ -50430,7 +52657,47 @@ components:
       - note
       - creatorId
       title: QuickNoteCreate
-    QuickNoteSummary:
+    QuickNoteSummary-Input:
+      properties:
+        id:
+          type: string
+          title: Id
+        patientId:
+          type: string
+          title: Patientid
+        note:
+          type: string
+          title: Note
+        creator:
+          $ref: '#/components/schemas/UserTiny'
+        eventId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Eventid
+        createdDate:
+          type: string
+          format: date-time
+          title: Createddate
+        updatedDate:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Updateddate
+        isArchived:
+          type: boolean
+          title: Isarchived
+          default: false
+      type: object
+      required:
+      - id
+      - patientId
+      - note
+      - creator
+      - createdDate
+      title: QuickNoteSummary
+    QuickNoteSummary-Output:
       properties:
         id:
           type: string
@@ -52227,6 +54494,30 @@ components:
       - url
       title: SSOUrlResponse
       description: Response schema containing the generated DoseSpot SSO URL
+    ScheduledShift:
+      properties:
+        shiftId:
+          type: string
+          title: Shiftid
+        startTime:
+          type: string
+          format: date-time
+          title: Starttime
+        endTime:
+          type: string
+          format: date-time
+          title: Endtime
+        title:
+          type: string
+          title: Title
+      type: object
+      required:
+      - shiftId
+      - startTime
+      - endTime
+      - title
+      title: ScheduledShift
+      description: A scheduled shift for a provider on a given day
     SchedulingKPI:
       properties:
         numberAppointmentsScheduled:
@@ -52420,6 +54711,17 @@ components:
           - type: integer
           - type: 'null'
           title: Displayprice
+        displayPriceMax:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Displaypricemax
+        priceStartsAt:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Pricestartsat
+          default: false
         costOfService:
           type: integer
           title: Costofservice
@@ -52634,12 +54936,6 @@ components:
           - type: integer
           - type: 'null'
           title: Sortorder
-        taxable:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Taxable
-          default: false
         allowCustomPricing:
           anyOf:
           - type: boolean
@@ -52712,6 +55008,17 @@ components:
           - type: integer
           - type: 'null'
           title: Displayprice
+        displayPriceMax:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Displaypricemax
+        priceStartsAt:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Pricestartsat
+          default: false
         costOfService:
           type: integer
           title: Costofservice
@@ -52936,12 +55243,6 @@ components:
           - type: integer
           - type: 'null'
           title: Sortorder
-        taxable:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Taxable
-          default: false
         allowCustomPricing:
           anyOf:
           - type: boolean
@@ -53014,6 +55315,17 @@ components:
           - type: integer
           - type: 'null'
           title: Displayprice
+        displayPriceMax:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Displaypricemax
+        priceStartsAt:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Pricestartsat
+          default: false
         costOfService:
           type: integer
           title: Costofservice
@@ -53228,12 +55540,6 @@ components:
           - type: integer
           - type: 'null'
           title: Sortorder
-        taxable:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Taxable
-          default: false
         allowCustomPricing:
           anyOf:
           - type: boolean
@@ -53884,6 +56190,14 @@ components:
           - type: 'null'
           title: Items
           description: Items in the stock
+        suppliers:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/SupplierToStock'
+            type: array
+          - type: 'null'
+          title: Suppliers
+          description: Suppliers linked to the stock
         locationSummaries:
           anyOf:
           - items:
@@ -53961,6 +56275,14 @@ components:
           - type: 'null'
           title: Items
           description: Items in the stock
+        suppliers:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/SupplierToStock'
+            type: array
+          - type: 'null'
+          title: Suppliers
+          description: Suppliers linked to the stock
         locationSummaries:
           anyOf:
           - items:
@@ -54377,6 +56699,39 @@ components:
       required:
       - name
       title: Supplier
+    SupplierToStock:
+      properties:
+        supplierId:
+          type: string
+          title: Supplierid
+          description: ID of the supplier
+        stockId:
+          type: string
+          title: Stockid
+          description: ID of the stock
+        supplierPartNumber:
+          type: string
+          title: Supplierpartnumber
+          description: Supplier part number for this stock
+        price:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Price
+          description: Price in cents
+        leadTime:
+          anyOf:
+          - type: integer
+            exclusiveMinimum: 0.0
+          - type: 'null'
+          title: Leadtime
+          description: Lead time in days (must be > 0)
+      type: object
+      required:
+      - supplierId
+      - stockId
+      - supplierPartNumber
+      title: SupplierToStock
     SystemToastAuthor:
       type: string
       enum:
@@ -54599,15 +56954,27 @@ components:
           minimum: 0.0
           title: Percentage
           description: Tax percentage (e.g., 8.25 for 8.25%)
-        location_id:
+        locationId:
           type: string
-          title: Location Id
+          title: Locationid
           description: Location this tax applies to
+        scope:
+          $ref: '#/components/schemas/TaxScope'
+          description: Scope of the tax (ALL, PRODUCTS_ONLY, SERVICES_ONLY, SPECIFIC_CATEGORIES)
+          default: ALL
+        categoryNames:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Categorynames
+          description: Category names for SPECIFIC_CATEGORIES scope
       type: object
       required:
       - name
       - percentage
-      - location_id
+      - locationId
       title: TaxCreate
       description: Schema for creating a new tax.
     TaxDetail:
@@ -54624,18 +56991,38 @@ components:
           type: number
           title: Percentage
           description: Tax percentage (e.g., 8.25 for 8.25%)
-        location_id:
+        locationId:
           type: string
-          title: Location Id
+          title: Locationid
           description: Location this tax applies to
+        scope:
+          $ref: '#/components/schemas/TaxScope'
+          description: Scope of the tax (ALL, PRODUCTS_ONLY, SERVICES_ONLY, SPECIFIC_CATEGORIES)
+          default: ALL
+        categoryNames:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Categorynames
+          description: Category names for SPECIFIC_CATEGORIES scope
       type: object
       required:
       - id
       - name
       - percentage
-      - location_id
+      - locationId
       title: TaxDetail
       description: Detailed tax information.
+    TaxScope:
+      type: string
+      enum:
+      - ALL
+      - PRODUCTS_ONLY
+      - SERVICES_ONLY
+      - SPECIFIC_CATEGORIES
+      title: TaxScope
     TaxSummary:
       properties:
         id:
@@ -54650,16 +57037,28 @@ components:
           type: number
           title: Percentage
           description: Tax percentage (e.g., 8.25 for 8.25%)
-        location_id:
+        locationId:
           type: string
-          title: Location Id
+          title: Locationid
           description: Location this tax applies to
+        scope:
+          $ref: '#/components/schemas/TaxScope'
+          description: Scope of the tax (ALL, PRODUCTS_ONLY, SERVICES_ONLY, SPECIFIC_CATEGORIES)
+          default: ALL
+        categoryNames:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Categorynames
+          description: Category names for SPECIFIC_CATEGORIES scope
       type: object
       required:
       - id
       - name
       - percentage
-      - location_id
+      - locationId
       title: TaxSummary
       description: Basic tax information.
     TaxUpdate:
@@ -54678,6 +57077,19 @@ components:
           - type: 'null'
           title: Percentage
           description: Tax percentage (e.g., 8.25 for 8.25%)
+        scope:
+          anyOf:
+          - $ref: '#/components/schemas/TaxScope'
+          - type: 'null'
+          description: Scope of the tax
+        categoryNames:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Categorynames
+          description: Category names for SPECIFIC_CATEGORIES scope
       type: object
       title: TaxUpdate
       description: Schema for updating an existing tax.
@@ -54875,6 +57287,10 @@ components:
           type: integer
           title: Maxselfscheduleservices
           default: 1
+        createCreditFromBookingFee:
+          type: boolean
+          title: Createcreditfrombookingfee
+          default: false
         authTimeoutMs:
           anyOf:
           - type: integer
@@ -55117,6 +57533,11 @@ components:
           - type: integer
           - type: 'null'
           title: Maxselfscheduleservices
+        createCreditFromBookingFee:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Createcreditfrombookingfee
         introductoryText:
           anyOf:
           - type: string
@@ -56537,6 +58958,109 @@ components:
       - chargeId
       - reason
       title: WriteOffCreate
+    decoda__apps__api__routes__analytics__dashboards__appointments_breakdown__GroupItem:
+      properties:
+        key:
+          type: string
+          title: Key
+        label:
+          type: string
+          title: Label
+        total:
+          type: integer
+          title: Total
+      type: object
+      required:
+      - key
+      - label
+      - total
+      title: GroupItem
+      description: Represents a single group bucket for grouped appointment breakdown
+        listings.
+    decoda__apps__api__routes__analytics__dashboards__appointments_breakdown__GroupSummary:
+      properties:
+        groupKey:
+          type: string
+          title: Groupkey
+          description: The group key this summary belongs to
+        totalAppointments:
+          type: integer
+          title: Totalappointments
+          description: Total number of appointments in this group
+        uniquePatients:
+          type: integer
+          title: Uniquepatients
+          description: Number of unique patients
+        uniqueProviders:
+          type: integer
+          title: Uniqueproviders
+          description: Number of unique providers
+        uniqueLocations:
+          type: integer
+          title: Uniquelocations
+          description: Number of unique locations
+        uniqueServices:
+          type: integer
+          title: Uniqueservices
+          description: Number of unique services
+      type: object
+      required:
+      - groupKey
+      - totalAppointments
+      - uniquePatients
+      - uniqueProviders
+      - uniqueLocations
+      - uniqueServices
+      title: GroupSummary
+      description: Summary statistics for a specific group.
+    decoda__apps__api__routes__analytics__dashboards__clock_in__GroupItem:
+      properties:
+        key:
+          type: string
+          title: Key
+        label:
+          type: string
+          title: Label
+        total:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Total
+      type: object
+      required:
+      - key
+      - label
+      title: GroupItem
+    decoda__apps__api__routes__analytics__dashboards__clock_in__GroupSummary:
+      properties:
+        groupKey:
+          type: string
+          title: Groupkey
+        totalClockIns:
+          type: integer
+          title: Totalclockins
+        totalScheduledShifts:
+          type: integer
+          title: Totalscheduledshifts
+        totalScheduledMinutes:
+          type: integer
+          title: Totalscheduledminutes
+        totalWorkedMinutes:
+          type: integer
+          title: Totalworkedminutes
+        providerCount:
+          type: integer
+          title: Providercount
+      type: object
+      required:
+      - groupKey
+      - totalClockIns
+      - totalScheduledShifts
+      - totalScheduledMinutes
+      - totalWorkedMinutes
+      - providerCount
+      title: GroupSummary
+      description: Summary statistics for a group
     decoda__apps__api__routes__analytics__dashboards__payment_breakdown__GroupItem:
       properties:
         key:

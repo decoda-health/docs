@@ -163,6 +163,7 @@
                   "api-reference/provider/list-roles-1",
                   "api-reference/provider/list-services",
                   "api-reference/provider/list-tags",
+                  "api-reference/provider/list-taxes-bulk",
                   "api-reference/provider/put-appointment-style-mapping",
                   "api-reference/provider/register-pos-device",
                   "api-reference/provider/remove-provider-from-tenant",
@@ -219,6 +220,13 @@
                   "api-reference/provider/delete-dashboard",
                   "api-reference/provider/delete-widget",
                   "api-reference/provider/execute-query",
+                  "api-reference/provider/get-appointments-breakdown",
+                  "api-reference/provider/get-appointments-breakdown-group-summaries",
+                  "api-reference/provider/get-appointments-breakdown-groups",
+                  "api-reference/provider/get-appointments-breakdown-summary",
+                  "api-reference/provider/get-clock-in-group-summaries",
+                  "api-reference/provider/get-clock-in-groups",
+                  "api-reference/provider/get-clock-ins",
                   "api-reference/provider/get-membership-analytics-by-location",
                   "api-reference/provider/get-membership-analytics-by-membership-status",
                   "api-reference/provider/get-membership-analytics-groups",
@@ -367,6 +375,18 @@
                 ]
               },
               {
+                "group": "Check In",
+                "pages": [
+                  "api-reference/provider/clock-in",
+                  "api-reference/provider/clock-out",
+                  "api-reference/provider/delete-time-entry",
+                  "api-reference/provider/get-clock-in-logs",
+                  "api-reference/provider/get-most-recent-time-entry",
+                  "api-reference/provider/list-time-entries",
+                  "api-reference/provider/update-time-entry"
+                ]
+              },
+              {
                 "group": "Comms",
                 "pages": [
                   "api-reference/provider/ai-call",
@@ -462,6 +482,7 @@
                   "api-reference/provider/bill-members",
                   "api-reference/provider/bulk-assign-providers-to-structure",
                   "api-reference/provider/bulk-remove-providers-from-structure",
+                  "api-reference/provider/bulk-update-item-taxes",
                   "api-reference/provider/cancel-sold-package",
                   "api-reference/provider/create-banked-item",
                   "api-reference/provider/create-commission-structure",
@@ -500,6 +521,7 @@
                   "api-reference/provider/get-stock",
                   "api-reference/provider/get-supplier",
                   "api-reference/provider/link-stock-to-item",
+                  "api-reference/provider/link-supplier-to-stock",
                   "api-reference/provider/list-commission-reports",
                   "api-reference/provider/list-commission-structures",
                   "api-reference/provider/list-item",
@@ -518,6 +540,7 @@
                   "api-reference/provider/search-stocks",
                   "api-reference/provider/unfreeze-members",
                   "api-reference/provider/unlink-stock-from-item",
+                  "api-reference/provider/unlink-supplier-from-stock",
                   "api-reference/provider/update-billing-date",
                   "api-reference/provider/update-commission-structure",
                   "api-reference/provider/update-discount",
@@ -557,6 +580,7 @@
                   "api-reference/provider/add-attachment",
                   "api-reference/provider/add-note-attachment-from-url",
                   "api-reference/provider/archive-note",
+                  "api-reference/provider/bulk-update-attachment-names",
                   "api-reference/provider/chat-with-ai-note",
                   "api-reference/provider/combine-audio-files-async",
                   "api-reference/provider/create-note",
@@ -574,6 +598,7 @@
                   "api-reference/provider/get-patients-with-appointments-now",
                   "api-reference/provider/sign-off-note",
                   "api-reference/provider/update-attachment-annotations",
+                  "api-reference/provider/update-attachment-image",
                   "api-reference/provider/update-attachment-name",
                   "api-reference/provider/update-note-template",
                   "api-reference/provider/upload-note",
@@ -584,7 +609,6 @@
                 "group": "Patients",
                 "pages": [
                   "api-reference/provider/add-measurement",
-                  "api-reference/provider/add-patient-credit",
                   "api-reference/provider/archive-payment-method",
                   "api-reference/provider/assign-patient-tags",
                   "api-reference/provider/change-blacklist-status",
