@@ -96,6 +96,69 @@
               "guides/patient-onboarding-workflow",
               "guides/webhook-events"
             ]
+          },
+          {
+            "group": "Platform Guides",
+            "pages": [
+              {
+                "group": "Core Features",
+                "pages": [
+                  "guides/patient-page",
+                  "guides/appointments-scheduling"
+                ]
+              },
+              {
+                "group": "Billing & Payments",
+                "pages": [
+                  "guides/billing-payments"
+                ]
+              },
+              {
+                "group": "Communications",
+                "pages": [
+                  "guides/communications"
+                ]
+              },
+              {
+                "group": "Forms & Intake",
+                "pages": [
+                  "guides/forms-intake"
+                ]
+              },
+              {
+                "group": "Inventory & Products",
+                "pages": [
+                  "guides/inventory-products",
+                  "guides/memberships-packages"
+                ]
+              },
+              {
+                "group": "Notes & Documentation",
+                "pages": [
+                  "guides/ai-scribe-notes"
+                ]
+              },
+              {
+                "group": "Analytics & Reporting",
+                "pages": [
+                  "guides/analytics-dashboards",
+                  "guides/alerts-system"
+                ]
+              },
+              {
+                "group": "Settings & Configuration",
+                "pages": [
+                  "guides/settings-configuration",
+                  "guides/user-management-roles"
+                ]
+              },
+              {
+                "group": "Integrations",
+                "pages": [
+                  "guides/spakinect-good-faith-exams"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -735,8 +798,7 @@
           {
             "group": "Updates",
             "pages": [
-              "updates/changelog",
-              "updates/roadmap"
+              "updates/changelog"
             ]
           }
         ]
