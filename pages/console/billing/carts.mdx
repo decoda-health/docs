@@ -1,0 +1,157 @@
+---
+title: "Shopping Carts"
+description: "Create and manage item collections before checkout"
+---
+
+# Shopping Carts
+
+Shopping carts let you gather services and products for a patient before processing payment. Think of it like an online shopping cart - you add items, review the total, and then check out when ready.
+
+## When to Use Carts
+
+<CardGroup cols={2}>
+  <Card title="Building an order" icon="cart-shopping">
+    Add multiple services or products before the patient is ready to pay
+  </Card>
+  <Card title="Creating quotes" icon="file-invoice">
+    Send pricing to patients for review before they commit
+  </Card>
+  <Card title="Saving for later" icon="clock">
+    Start an order now and finish it during the patient's next visit
+  </Card>
+  <Card title="Treatment plans" icon="clipboard-list">
+    Bundle recommended services for easy checkout
+  </Card>
+</CardGroup>
+
+## Viewing Your Carts
+
+<Steps>
+  <Step title="Open the Carts page">
+    Click **Billing** in the main menu, then select **Carts**
+  </Step>
+  <Step title="Browse the list">
+    You'll see all carts with the patient name, items, total amount, and status
+  </Step>
+  <Step title="Find a specific cart">
+    Use the search bar to find carts by patient name, phone number, or item name
+  </Step>
+</Steps>
+
+## Creating a New Cart
+
+<Steps>
+  <Step title="Click Create Cart">
+    Look for the **Create Cart** button in the top right corner
+  </Step>
+  <Step title="Select a patient">
+    Search for an existing patient or create a new one
+  </Step>
+  <Step title="Add items">
+    Browse your services and products, clicking to add them to the cart
+  </Step>
+  <Step title="Apply discounts (optional)">
+    Add any applicable discounts or promotional pricing
+  </Step>
+  <Step title="Save the cart">
+    The cart is saved automatically and ready for checkout whenever you need it
+  </Step>
+</Steps>
+
+## What Can You Do With a Cart?
+
+### Convert to a Charge (Checkout)
+
+When the patient is ready to pay, convert the cart to a charge:
+
+<Steps>
+  <Step title="Open the cart">
+    Click on the cart you want to check out
+  </Step>
+  <Step title="Click Convert to Charge">
+    Find this option in the actions menu (three dots)
+  </Step>
+  <Step title="Process payment">
+    You'll be taken to the checkout screen to collect payment
+  </Step>
+</Steps>
+
+### Send as a Quote
+
+Want the patient to review pricing before committing? Send them a quote:
+
+<Steps>
+  <Step title="Open a cart">
+    Click on the cart you want to send as a quote
+  </Step>
+  <Step title="Click Create & Send Quote">
+    Find this in the actions menu
+  </Step>
+  <Step title="Set quote details">
+    Add an expiration date and any notes for the patient
+  </Step>
+  <Step title="Choose delivery method">
+    Send via text message or email
+  </Step>
+</Steps>
+
+<Info>
+Patients receive a link where they can review the quote and accept or decline it. You'll be notified of their response.
+</Info>
+
+### Make a Copy
+
+Need to create a similar order for another visit?
+
+<Steps>
+  <Step title="Open the cart">
+    Click on the cart you want to copy
+  </Step>
+  <Step title="Click Duplicate">
+    A new cart is created with the same items
+  </Step>
+  <Step title="Make changes">
+    Adjust items, quantities, or assign to a different patient
+  </Step>
+</Steps>
+
+## Understanding Cart Status
+
+| Status | What it means |
+|--------|---------------|
+| **Draft** | Work in progress - you can still edit this cart |
+| **Accepted** | Patient accepted the quote you sent |
+| **Rejected** | Patient declined the quote |
+| **Converted** | Cart was checked out and payment was processed |
+| **Abandoned** | Cart was inactive for too long |
+| **Expired** | The cart or quote passed its expiration date |
+
+<Warning>
+You can only edit carts that are in **Draft** status. Once a cart is converted to a charge or a quote is sent, you'll need to create a new cart for changes.
+</Warning>
+
+## Common Questions
+
+<AccordionGroup>
+  <Accordion title="How long do carts last?">
+    Carts remain available until they're converted to a charge, expire, or are deleted. You can set expiration dates when creating quotes.
+  </Accordion>
+  <Accordion title="Can I edit a cart after sending a quote?">
+    No, once a quote is sent, the cart is locked. If you need to change pricing, create a new cart and send a new quote.
+  </Accordion>
+  <Accordion title="What happens to unused carts?">
+    Carts that remain inactive for an extended period are automatically marked as abandoned. You can still access them but may want to review if the items and pricing are still current.
+  </Accordion>
+  <Accordion title="Can multiple staff members work on the same cart?">
+    Yes, any staff member with billing access can view and edit draft carts.
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Can't find a cart | Try searching by the patient's phone number or check the date filters |
+| Can't edit a cart | The cart may have been converted or expired - check the status |
+| Items not adding | Make sure the product or service is still active in your inventory |
+| Patient didn't receive quote | Verify their phone number or email, then try resending |

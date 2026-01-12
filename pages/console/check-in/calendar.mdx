@@ -1,0 +1,159 @@
+---
+title: "Appointment Calendar"
+description: "Visual calendar for managing appointments and schedules"
+---
+
+# Appointment Calendar
+
+The Calendar page is the primary appointment management interface. View appointments in day, week, or month format with filtering, navigation, and comprehensive appointment management.
+
+## Navigation
+
+<CardGroup cols={3}>
+  <Card title="Previous/Next" icon="arrow-left-right">
+    Arrow buttons to navigate between time periods
+  </Card>
+  <Card title="Today" icon="calendar-day">
+    Jump back to current date
+  </Card>
+  <Card title="View Selector" icon="table-columns">
+    Switch between Day, Week, and Month views
+  </Card>
+</CardGroup>
+
+## Filter Appointments
+
+### By Provider
+
+<Steps>
+  <Step title="Open provider filter">
+    In the sidebar or filter dropdown
+  </Step>
+  <Step title="Select providers">
+    Check providers to display, uncheck to hide
+  </Step>
+  <Step title="View filtered calendar">
+    Only selected providers' appointments shown
+  </Step>
+</Steps>
+
+### By Location
+
+<Steps>
+  <Step title="Open location selector">
+    In the filter area
+  </Step>
+  <Step title="Select locations">
+    Multi-select supported
+  </Step>
+</Steps>
+
+## View Appointment Details
+
+Click any appointment block to see:
+- Patient name and contact info
+- Service type and duration
+- Provider assigned
+- Appointment status
+- Notes and special instructions
+
+## Create Appointment
+
+<Steps>
+  <Step title="Click empty time slot">
+    Or use the Add Appointment button
+  </Step>
+  <Step title="Fill details">
+    Patient, service, provider, date/time, duration, location, notes
+  </Step>
+  <Step title="Save">
+    Appointment appears on calendar
+  </Step>
+</Steps>
+
+## Reschedule (Drag & Drop)
+
+<Steps>
+  <Step title="Click and hold appointment">
+    Appointment becomes draggable
+  </Step>
+  <Step title="Drag to new time">
+    Visual indicator shows placement
+  </Step>
+  <Step title="Release to drop">
+    Confirm the change if prompted
+  </Step>
+</Steps>
+
+<Warning>
+Cannot drag to blocked times or create overlaps (unless practice allows).
+</Warning>
+
+## Resize Duration
+
+Hover over the bottom edge of an appointment, then drag up or down to adjust duration.
+
+## Change Status
+
+Click appointment → select new status from the dropdown:
+
+| Status | Meaning |
+|--------|---------|
+| **Scheduled** | Confirmed appointment |
+| **Checked In** | Patient has arrived |
+| **In Progress** | Appointment underway |
+| **Completed** | Appointment finished |
+| **No Show** | Patient didn't arrive |
+| **Cancelled** | Appointment cancelled |
+
+## Cancel Appointment
+
+<Steps>
+  <Step title="Click appointment">
+    Opens details view
+  </Step>
+  <Step title="Click Cancel">
+    Select cancellation reason if required
+  </Step>
+  <Step title="Confirm">
+    Appointment marked as cancelled
+  </Step>
+</Steps>
+
+## Sidebar Features
+
+- **Toggle Sidebar**: Arrow button to expand/collapse
+- **Mini Calendar**: Click dates to jump to that day
+- **Provider Filter**: Quick provider selection
+- **Location Filter**: Quick location selection
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `←` / `→` | Navigate previous/next period |
+| `T` | Jump to today |
+| `D` | Day view |
+| `W` | Week view |
+| `M` | Month view |
+| `Esc` | Close dialogs |
+| `N` | New appointment |
+
+## Color Coding
+
+| Color | Meaning |
+|-------|---------|
+| Provider colors | Each provider has a unique color |
+| Gray/Strikethrough | Cancelled appointments |
+| Faded | Past appointments (if enabled) |
+| Blocked pattern | Unavailable time slots |
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Calendar not loading | Refresh page, check connection |
+| Appointments missing | Check provider/location filters |
+| Can't drag appointments | Check permissions or drag setting |
+| Wrong time zone | Check profile time zone settings |
+| Slow performance | Reduce visible providers, use day view |

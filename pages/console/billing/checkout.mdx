@@ -1,0 +1,244 @@
+---
+title: "Checkout"
+description: "Collect payments from patients quickly and easily"
+---
+
+# Checkout
+
+Checkout is where you collect payment from patients. Whether they're paying by card, cash, or using a payment plan - this is where it all happens.
+
+## Starting a Checkout
+
+There are several ways to start a checkout:
+
+<CardGroup cols={2}>
+  <Card title="From an appointment" icon="calendar">
+    Click **Checkout** when a patient completes their visit
+  </Card>
+  <Card title="From a cart" icon="cart-shopping">
+    Convert a shopping cart to a charge when ready
+  </Card>
+  <Card title="From scratch" icon="plus">
+    Click **Billing** → **Checkout** to start fresh
+  </Card>
+  <Card title="From patient profile" icon="user">
+    Go to their Billing tab and click **New Charge**
+  </Card>
+</CardGroup>
+
+## The Checkout Process
+
+<Steps>
+  <Step title="Select the patient">
+    Search by name or phone number, or create a new patient
+  </Step>
+  <Step title="Add items">
+    Browse your services and products, clicking to add them
+  </Step>
+  <Step title="Apply discounts (optional)">
+    Add any promotional pricing or adjustments
+  </Step>
+  <Step title="Collect payment">
+    Choose how the patient wants to pay
+  </Step>
+  <Step title="Complete">
+    Payment is processed and receipt is available
+  </Step>
+</Steps>
+
+## Adding Items to the Charge
+
+### Services
+Click on any service to add it. Common services are shown first, or use search to find specific ones.
+
+### Products
+Switch to the Products tab to add retail items, supplements, or other products.
+
+### Adjusting Quantities
+Use the **+** and **-** buttons next to items, or click the quantity to type a specific number.
+
+### Removing Items
+Click the **X** next to an item to remove it from the charge.
+
+## Applying Discounts
+
+<Steps>
+  <Step title="Click Add Discount">
+    Look for this below the item list
+  </Step>
+  <Step title="Choose discount type">
+    - **Percentage off** - e.g., 10% off
+    - **Fixed amount** - e.g., $20 off
+  </Step>
+  <Step title="Enter the value">
+    Type the discount amount
+  </Step>
+  <Step title="Apply">
+    The total updates immediately
+  </Step>
+</Steps>
+
+<Tip>
+If a patient has a membership or package, eligible discounts are applied automatically. You'll see this in the price breakdown.
+</Tip>
+
+## Payment Methods
+
+### Credit/Debit Card
+
+**Using a saved card:**
+<Steps>
+  <Step title="View saved cards">
+    Patient's cards appear in the payment section
+  </Step>
+  <Step title="Select a card">
+    Click to choose it
+  </Step>
+  <Step title="Click Pay">
+    Payment processes immediately
+  </Step>
+</Steps>
+
+**Using a new card:**
+<Steps>
+  <Step title="Click New Card">
+    Opens the card entry form
+  </Step>
+  <Step title="Enter card details">
+    Card number, expiration date, CVV, and ZIP code
+  </Step>
+  <Step title="Save for future (optional)">
+    Toggle on to save the card for next time
+  </Step>
+  <Step title="Click Pay">
+    Payment processes
+  </Step>
+</Steps>
+
+### Card Terminal (In-Person)
+
+If you have a physical card terminal:
+
+<Steps>
+  <Step title="Select your terminal">
+    Choose from the list of connected devices
+  </Step>
+  <Step title="Click Send to Terminal">
+    The amount is sent to the device
+  </Step>
+  <Step title="Patient completes payment">
+    They tap, insert, or swipe their card
+  </Step>
+  <Step title="Confirm on screen">
+    You'll see success when payment completes
+  </Step>
+</Steps>
+
+<Info>
+The screen will show "Waiting for payment..." while the patient completes their transaction on the terminal.
+</Info>
+
+### Cash
+
+<Steps>
+  <Step title="Select Cash">
+    Choose cash as the payment method
+  </Step>
+  <Step title="Enter amount received">
+    Type what the patient handed you
+  </Step>
+  <Step title="View change due">
+    The system calculates change automatically
+  </Step>
+  <Step title="Complete payment">
+    Click to record the transaction
+  </Step>
+</Steps>
+
+## Adding a Tip
+
+<Steps>
+  <Step title="Look for the tip section">
+    Usually appears before final payment
+  </Step>
+  <Step title="Select or enter amount">
+    Choose a preset percentage or type a custom amount
+  </Step>
+  <Step title="Continue to payment">
+    Tip is added to the total
+  </Step>
+</Steps>
+
+## Setting Up a Payment Plan
+
+For larger charges, you can split the payment into installments:
+
+<Steps>
+  <Step title="Click Payment Plan">
+    Look for this option in the payment section
+  </Step>
+  <Step title="Configure the plan">
+    - **Down payment**: How much to collect today
+    - **Number of payments**: Split the rest into installments
+    - **Frequency**: Weekly, bi-weekly, or monthly
+  </Step>
+  <Step title="Enter card for autopay">
+    Future payments are charged automatically
+  </Step>
+  <Step title="Confirm">
+    First payment processes, and the plan is set up
+  </Step>
+</Steps>
+
+<Warning>
+Payment plans require a card on file. The patient's card will be automatically charged on each scheduled payment date.
+</Warning>
+
+## After Payment
+
+Once payment is complete, you can:
+
+### Print Receipt
+Click **Print** to open your printer dialog. Works great for in-office receipts.
+
+### Send Receipt
+Click **Send Receipt** to email or text the receipt to the patient.
+
+### Start New Checkout
+Click **New Checkout** to process another patient.
+
+## Using Package Credits
+
+If a patient has a pre-purchased package with remaining credits:
+
+1. The system automatically detects matching services
+2. You'll see a prompt to apply package credits
+3. Click to apply - the service is covered by the package
+4. Any remaining balance is charged normally
+
+## Common Questions
+
+<AccordionGroup>
+  <Accordion title="Can I split payment between two cards?">
+    Yes! Process a partial payment with the first card, then add another payment method for the remaining balance.
+  </Accordion>
+  <Accordion title="What if the card is declined?">
+    You'll see an error message. Ask the patient for a different card or payment method.
+  </Accordion>
+  <Accordion title="Can I void a payment after it's processed?">
+    You'll need to process a refund instead. Go to the charge details and click Refund.
+  </Accordion>
+  <Accordion title="How do I apply insurance?">
+    If you process insurance, enter the insurance payment amount separately after receiving the EOB.
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Card declined | Verify card details are correct, try a different card |
+| Terminal not responding | Check it's powered on and connected to WiFi |
+| Can't find a service | Make sure the service is active in Settings |
+| Discount not applying | Check if there are eligibility requirements |
+| Payment stuck processing | Wait 30 seconds, then refresh if still pending |

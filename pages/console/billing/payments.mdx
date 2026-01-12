@@ -1,0 +1,131 @@
+---
+title: "Payments"
+description: "View payment transactions, process refunds, send receipts"
+---
+
+# Payments
+
+The Payments page displays all payment transactions with filtering, sorting, and management capabilities. View payment details, process refunds, send receipts, move payments between patients, and create one-time payments.
+
+## View Payments
+
+<Steps>
+  <Step title="Navigate to Payments">
+    Go to **Billing** → **Payments**
+  </Step>
+  <Step title="Review payments table">
+    Each row shows amount (in green), patient, payment method, medium, and date
+  </Step>
+  <Step title="Filter payments">
+    Use date range, status, payment medium, patient, or merchant account filters
+  </Step>
+</Steps>
+
+## Create One-Time Payment
+
+Record a payment not tied to a specific charge.
+
+<Steps>
+  <Step title="Click One Time Payment">
+    Button in header area
+  </Step>
+  <Step title="Fill details">
+    Select patient, enter amount, choose payment medium
+  </Step>
+  <Step title="Submit">
+    Payment recorded and appears in table
+  </Step>
+</Steps>
+
+## View Payment Timeline
+
+Click the expand arrow (▼) on a payment row to see:
+- Payment creation details
+- Related charge information
+- Refund history (if any)
+
+## Payment Actions
+
+### Refund Payment
+
+<Steps>
+  <Step title="Open actions menu">
+    Click the three dots (⋮) on payment row
+  </Step>
+  <Step title="Select Refund Payment">
+    Refund modal opens
+  </Step>
+  <Step title="Configure refund">
+    Full or partial amount with reason
+  </Step>
+  <Step title="Process">
+    Funds returned, payment shows "Refunded" badge
+  </Step>
+</Steps>
+
+### View/Send Receipt
+
+<Steps>
+  <Step title="Open actions menu">
+    Select **Receipt Details**
+  </Step>
+  <Step title="View receipt">
+    See amount, date, method, and items paid
+  </Step>
+  <Step title="Send receipt">
+    Enter email or phone, click Send
+  </Step>
+</Steps>
+
+### Move Payment
+
+<CardGroup cols={2}>
+  <Card title="Move to Another Patient" icon="user">
+    Transfer payment to a different patient. Search and select destination patient.
+  </Card>
+  <Card title="Move to Location" icon="location-dot">
+    Change payment's location assignment. Select new location from list.
+  </Card>
+</CardGroup>
+
+### Generate Detailed Receipt
+
+For payments with linked charges, select **Generate Detailed Receipt** to open a comprehensive printable receipt in a new tab.
+
+## Payment Status Badges
+
+| Badge | Meaning |
+|-------|---------|
+| **Succeeded** | Payment completed successfully |
+| **Processing** | Payment in progress |
+| **Refunded** | Payment has been refunded |
+| **Refund Failed** | Refund attempt failed |
+| **Payment Plan** | Part of scheduled payments |
+
+## Payment Methods
+
+| Method | Description |
+|--------|-------------|
+| Card | Credit/debit card |
+| Cash | Cash payment |
+| Check | Check payment |
+| POS Terminal | In-person terminal |
+| Patient Credit | Applied credit balance |
+| Insurance | Insurance payment |
+
+## Export Payments
+
+Click **Export Payments** to download filtered payment data as CSV or Excel.
+
+<Tip>
+Click **View Deposits** in the header to navigate to deposit/credit transactions.
+</Tip>
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Payment not showing | Check date range filters |
+| Can't refund | Check if already refunded |
+| Move failed | Verify permissions |
+| Export empty | Adjust filters |

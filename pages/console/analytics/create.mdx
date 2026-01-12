@@ -1,0 +1,152 @@
+---
+title: "Create Widget"
+description: "Multi-step wizard for building custom analytics widgets"
+---
+
+# Create Analytics Widget
+
+The Create Widget page is a multi-step wizard for building custom analytics widgets. Configure widget details, build data queries, select visualization types, and see live preview as you build.
+
+<Info>
+Access this page from the Analytics dashboard by clicking **Add Widget**. A dashboard ID is required.
+</Info>
+
+## Wizard Steps
+
+<Steps>
+  <Step title="Widget Details">
+    Enter title (required) and optional description
+  </Step>
+  <Step title="Query & Visualization">
+    Select data source, configure query, choose chart type
+  </Step>
+  <Step title="Chart Configuration">
+    Set chart-specific options like targets and stacking
+  </Step>
+</Steps>
+
+## Step 1: Widget Details
+
+<Steps>
+  <Step title="Enter title">
+    Be specific about what's measured (e.g., "Monthly Revenue by Provider")
+  </Step>
+  <Step title="Add description">
+    Optional - explains what the widget shows for other users
+  </Step>
+  <Step title="Click Next">
+    Proceed to query configuration
+  </Step>
+</Steps>
+
+## Step 2: Build Query
+
+### Select Data Source
+
+Choose the table/entity to query from available options.
+
+### Configure Query Components
+
+| Component | Purpose |
+|-----------|---------|
+| Data Source | Which table to query |
+| Fields | Columns to display (for Table charts) |
+| Metrics | Aggregations - Count, Sum, Average, Min, Max |
+| Group By | How to segment data (by date, category, etc.) |
+| Filters | Limit returned data (date range, status) |
+| Order By | Sort results |
+
+### Choose Chart Type
+
+<CardGroup cols={3}>
+  <Card title="Table" icon="table">
+    Raw data in tabular format. Requires Fields.
+  </Card>
+  <Card title="Number" icon="hashtag">
+    Single big number KPI. Requires Metric only.
+  </Card>
+  <Card title="Progress" icon="circle-check">
+    Goal tracking circle. Requires Metric + Target.
+  </Card>
+  <Card title="Area" icon="chart-area">
+    Trends over time. Requires Metric + Group By.
+  </Card>
+  <Card title="Bar" icon="chart-bar">
+    Category comparison. Requires Metric + Group By.
+  </Card>
+  <Card title="Donut" icon="chart-pie">
+    Distribution breakdown. Requires Metric + Group By.
+  </Card>
+</CardGroup>
+
+## Step 3: Chart Configuration
+
+Configuration varies by chart type:
+
+### Progress Charts
+- Set target value for goal tracking
+- Currency or number mode (auto-detected from fields)
+
+### Bar Charts
+- **Default**: Side by side bars
+- **Stacked**: Bars on top of each other
+- **Percent**: 100% stacked view
+
+### Other Charts
+May show "No configuration needed" if fully configured in Step 2.
+
+## Live Preview
+
+The right panel shows a live preview that updates as you build:
+
+- Changes update automatically
+- Click **Refresh Preview** for manual refresh
+- Chart type selector for quick switching
+- Error display shows query issues
+
+## Chart Type Availability
+
+Chart types are dynamically enabled based on your query configuration:
+
+| Has Fields | Has Metrics | Has Group By | Available Charts |
+|------------|-------------|--------------|------------------|
+| ✓ | - | - | Table |
+| - | ✓ | - | Number, Progress |
+| - | ✓ | ✓ | Area, Bar, Donut, Table |
+
+## Available Metrics
+
+| Metric | Description |
+|--------|-------------|
+| Count | Number of records |
+| Sum | Total of values |
+| Average | Mean of values |
+| Min | Minimum value |
+| Max | Maximum value |
+
+## URL Parameters
+
+| Parameter | Purpose |
+|-----------|---------|
+| `dashboard` | Required - Which dashboard to add widget to |
+| `widget` | Optional - Widget ID for editing existing widget |
+
+## Validation
+
+**Step 1 requires:**
+- Widget title
+
+**Step 2 requires:**
+- Data source selected
+- Fields OR metrics configured
+- Group by (for area/bar/donut charts)
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Preview not loading | Check query configuration is complete |
+| Chart type disabled | Configure required fields for that chart type |
+| Can't proceed to next step | Complete all required fields |
+| Widget not saving | Ensure all steps are completed |
+| No data in preview | Check filters, verify data exists |

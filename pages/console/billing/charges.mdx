@@ -1,0 +1,149 @@
+---
+title: "Charges"
+description: "View and manage patient charges, process payments, issue refunds"
+---
+
+# Charges
+
+The Charges page displays all patient charges with comprehensive filtering, sorting, and action capabilities. View charge details, process payments, issue refunds, make adjustments, and manage payment plans.
+
+## View Charges
+
+<Steps>
+  <Step title="Navigate to Charges">
+    Go to **Billing** → **Charges**
+  </Step>
+  <Step title="Review charge table">
+    Each row displays amount, status, patient, date, and settlement details
+  </Step>
+  <Step title="Filter and sort">
+    Use filters for status, date range, amount, patient, or creator
+  </Step>
+</Steps>
+
+## Create Charge
+
+<Steps>
+  <Step title="Click Create Charge">
+    Located in the header area
+  </Step>
+  <Step title="Redirected to checkout">
+    Select patient, add items/services
+  </Step>
+  <Step title="Complete charge">
+    Process payment or save for later
+  </Step>
+</Steps>
+
+## View Charge Details
+
+Click the expand arrow (▼) on any charge row to see:
+- Creation details and history
+- Payment timeline
+- Adjustments and refunds
+
+## Charge Actions
+
+### Take Payment
+
+<Steps>
+  <Step title="Find outstanding charge">
+    Look for "Outstanding" status
+  </Step>
+  <Step title="Open actions menu">
+    Click the three dots (⋮)
+  </Step>
+  <Step title="Select Take Payment">
+    Redirects to checkout for payment processing
+  </Step>
+</Steps>
+
+### Edit Charge Amount
+
+<Steps>
+  <Step title="Open actions menu">
+    On the charge row
+  </Step>
+  <Step title="Select Edit Charge Amount">
+    Adjustment modal opens
+  </Step>
+  <Step title="Enter adjustment">
+    Positive to increase, negative to decrease. Add a reason.
+  </Step>
+  <Step title="Save">
+    Charge total updates and history is recorded
+  </Step>
+</Steps>
+
+### Write Off Charge
+
+<Warning>
+Write-offs reduce the collectible balance. Use for charges that are uncollectible.
+</Warning>
+
+<Steps>
+  <Step title="Open actions menu">
+    On outstanding charge
+  </Step>
+  <Step title="Select Write off charge">
+    Modal opens for write-off configuration
+  </Step>
+  <Step title="Configure">
+    Full or partial amount, select reason, add notes
+  </Step>
+  <Step title="Confirm">
+    Charge status changes and balance is reduced
+  </Step>
+</Steps>
+
+### Refund Payment
+
+<Steps>
+  <Step title="Find paid charge">
+    Status shows "Paid" or "External Settlement"
+  </Step>
+  <Step title="Open actions menu">
+    Select **Refund Payment**
+  </Step>
+  <Step title="Configure refund">
+    Full or partial amount with reason
+  </Step>
+  <Step title="Process">
+    Funds returned to patient
+  </Step>
+</Steps>
+
+### Other Actions
+
+| Action | Description |
+|--------|-------------|
+| Externally Settle | Mark as paid outside system |
+| Cancel Payment Plan | Remove scheduled payments |
+| Add/Edit Comment | Add internal notes |
+| Edit Details | Modify service date, external ID |
+| View Detailed Receipt | Generate comprehensive receipt |
+
+## Charge Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Outstanding** | Unpaid balance |
+| **Payment Plan** | Active scheduled payments |
+| **Paid** | Fully paid |
+| **External Settlement** | Paid outside system |
+| **Partially Paid** | Some amount paid |
+| **Written Off** | Marked uncollectible |
+| **Refunded** | Payment returned |
+
+## Export Charges
+
+Click **Export Charges** in the header to download charge data as CSV or Excel. Export uses current filter settings.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Charge not showing | Check filters and location |
+| Can't refund | Payment may already be refunded |
+| Export taking long | Narrow date range |
+| Payment plan issues | Check for failed scheduled payments |

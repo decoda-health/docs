@@ -1,0 +1,78 @@
+---
+title: "Check-In Dashboard"
+description: "Real-time patient check-in status board and metrics"
+---
+
+# Check-In Dashboard
+
+The Dashboard provides real-time patient check-in status and flow tracking. View today's appointments, check in patients, and monitor wait times.
+
+## Dashboard Overview
+
+<CardGroup cols={3}>
+  <Card title="Waiting" icon="hourglass-half">
+    Patients checked in awaiting appointment
+  </Card>
+  <Card title="In Room" icon="door-open">
+    Patients currently in appointment
+  </Card>
+  <Card title="Completed" icon="circle-check">
+    Finished appointments today
+  </Card>
+</CardGroup>
+
+## View Today's Appointments
+
+<Steps>
+  <Step title="Navigate to Dashboard">
+    Go to **Check-In** → **Dashboard**
+  </Step>
+  <Step title="View appointment cards">
+    Each card shows patient, time, service, and status
+  </Step>
+  <Step title="Filter by provider/status">
+    Use filter controls to narrow the view
+  </Step>
+</Steps>
+
+## Check In Patient
+
+<Steps>
+  <Step title="Find appointment">
+    Locate the patient's appointment card
+  </Step>
+  <Step title="Click Check In">
+    Button on the appointment card
+  </Step>
+  <Step title="Confirm check-in">
+    Status changes to "Checked In" with timestamp
+  </Step>
+</Steps>
+
+## Update Status
+
+| Status | Action |
+|--------|--------|
+| **Check In** | Mark patient as arrived |
+| **In Room** | Move patient to appointment |
+| **Complete** | Finish the appointment |
+| **No Show** | Mark patient as no-show |
+
+## View Wait Times
+
+The dashboard displays:
+- Average wait time for the day
+- Current wait time per patient
+- Color coding for long waits
+
+<Warning>
+Patients waiting longer than the threshold may trigger alerts.
+</Warning>
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Appointments not showing | Check date and location filters |
+| Can't check in | Verify appointment is for today |
+| Status won't update | Check permissions |

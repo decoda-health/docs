@@ -1,0 +1,103 @@
+---
+title: "Forms Management"
+description: "Manage patient intake and consent forms"
+---
+
+# Forms Management
+
+Manage patient intake and consent forms. View all forms, create new ones, send to patients, and view submissions.
+
+## View Forms
+
+<Steps>
+  <Step title="Navigate to Forms">
+    Go to **Check-In** → **Forms**
+  </Step>
+  <Step title="Browse form list">
+    See all active forms with names and submission counts
+  </Step>
+  <Step title="Search forms">
+    Use the search bar to find specific forms
+  </Step>
+</Steps>
+
+## Create New Form
+
+<Steps>
+  <Step title="Click Create Form">
+    Opens the form builder
+  </Step>
+  <Step title="Add form details">
+    Title, description, and settings
+  </Step>
+  <Step title="Add questions">
+    Build your form with various question types
+  </Step>
+  <Step title="Save and publish">
+    Form becomes available for use
+  </Step>
+</Steps>
+
+## Send Form to Patient
+
+<Steps>
+  <Step title="Select form">
+    Click on the form row
+  </Step>
+  <Step title="Click Send">
+    Choose SMS or email
+  </Step>
+  <Step title="Select patient">
+    Search and select the recipient
+  </Step>
+  <Step title="Send">
+    Patient receives the form link
+  </Step>
+</Steps>
+
+## View Submissions
+
+<Steps>
+  <Step title="Click form row">
+    Expands to show submissions
+  </Step>
+  <Step title="Click submission">
+    Opens the submission drawer with full details
+  </Step>
+  <Step title="Download PDF">
+    Export submission as PDF
+  </Step>
+</Steps>
+
+## Bulk Operations
+
+<CardGroup cols={2}>
+  <Card title="Multi-select" icon="list-check">
+    Select multiple forms for bulk sending
+  </Card>
+  <Card title="QR Code" icon="qrcode">
+    Generate QR code for patient self-service
+  </Card>
+</CardGroup>
+
+## Form Actions
+
+| Action | Description |
+|--------|-------------|
+| **Edit** | Modify form questions |
+| **Archive** | Remove from active list |
+| **Duplicate** | Create a copy of the form |
+| **PDF Export** | Download blank form |
+| **Edit Message** | Customize sending message |
+
+<Warning>
+Archiving a form with existing submissions will prompt for confirmation.
+</Warning>
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Form not sending | Check patient contact info |
+| Can't archive | Form may have pending submissions |
+| Submissions missing | Check date filter |

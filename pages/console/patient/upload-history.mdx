@@ -1,0 +1,61 @@
+---
+title: "Upload History"
+description: "View history of patient bulk imports"
+---
+
+# Upload History
+
+View history of all patient bulk imports. Track status, review results, and troubleshoot failed imports.
+
+## View History
+
+<Steps>
+  <Step title="Navigate to Upload History">
+    **Patients** → **Upload History**
+  </Step>
+  <Step title="Browse imports">
+    See date, file name, status, and counts
+  </Step>
+  <Step title="View details">
+    Click an import for full details
+  </Step>
+</Steps>
+
+## Import Status
+
+| Status | Description |
+|--------|-------------|
+| **Completed** | All rows imported successfully |
+| **Partial** | Some rows failed |
+| **Failed** | Import could not complete |
+| **Processing** | Import in progress |
+
+## View Results
+
+For each import:
+- Total rows in file
+- Successfully imported
+- Skipped (duplicates)
+- Failed rows with errors
+
+## Download Error Report
+
+<Steps>
+  <Step title="Open failed import">
+    Click on the import row
+  </Step>
+  <Step title="Download errors">
+    Get CSV of failed rows with error messages
+  </Step>
+  <Step title="Fix and retry">
+    Correct errors and upload again
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Import stuck | Large files take time, refresh to check |
+| All rows failed | Check file format and encoding |
+| Partial failure | Download error report for details |

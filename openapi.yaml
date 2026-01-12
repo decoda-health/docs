@@ -32506,7 +32506,7 @@ components:
         schedulingType:
           type: string
           title: Schedulingtype
-          description: Scheduling type (SELF_SCHEDULED or STAFF_SCHEDULED)
+          description: Scheduling type (ONLINE_BOOKING or STAFF_SCHEDULED)
       type: object
       required:
       - appointmentId

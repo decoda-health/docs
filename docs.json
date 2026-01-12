@@ -159,6 +159,70 @@
                 ]
               }
             ]
+          },
+          {
+            "group": "Page Reference",
+            "pages": [
+              {
+                "group": "Patients",
+                "pages": [
+                  "pages/console/patient/patient-list",
+                  "pages/console/patient/patient-detail",
+                  "pages/console/patient/merge",
+                  "pages/console/patient/upload"
+                ]
+              },
+              {
+                "group": "Scheduling",
+                "pages": [
+                  "pages/console/check-in/calendar",
+                  "pages/console/check-in/dashboard",
+                  "pages/console/check-in/shift-management"
+                ]
+              },
+              {
+                "group": "Billing",
+                "pages": [
+                  "pages/console/billing/checkout",
+                  "pages/console/billing/carts",
+                  "pages/console/billing/charges",
+                  "pages/console/billing/payments",
+                  "pages/console/billing/invoices"
+                ]
+              },
+              {
+                "group": "Inventory",
+                "pages": [
+                  "pages/console/inventory/products",
+                  "pages/console/inventory/memberships",
+                  "pages/console/inventory/packages",
+                  "pages/console/inventory/stock"
+                ]
+              },
+              {
+                "group": "Communications",
+                "pages": [
+                  "pages/console/comms/chat",
+                  "pages/console/comms/call",
+                  "pages/console/comms/alerts"
+                ]
+              },
+              {
+                "group": "AI Scribe",
+                "pages": [
+                  "pages/console/scribe/scribe-list",
+                  "pages/console/scribe/playground",
+                  "pages/console/scribe/gallery"
+                ]
+              },
+              {
+                "group": "Analytics",
+                "pages": [
+                  "pages/console/analytics/analytics",
+                  "pages/console/analytics/usage"
+                ]
+              }
+            ]
           }
         ]
       },

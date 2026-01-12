@@ -1,0 +1,58 @@
+---
+title: "Add Member"
+description: "Enroll a patient in a membership plan"
+---
+
+# Add Member
+
+Enroll a patient in a membership plan. Configure billing and initial setup.
+
+## Enroll Patient
+
+<Steps>
+  <Step title="Select patient">
+    Search and choose the patient
+  </Step>
+  <Step title="Choose membership">
+    Select from available plans
+  </Step>
+  <Step title="Set start date">
+    When the membership begins
+  </Step>
+  <Step title="Configure billing">
+    Select payment method
+  </Step>
+  <Step title="Process">
+    Initial payment collected and membership activated
+  </Step>
+</Steps>
+
+## Payment Setup
+
+<CardGroup cols={2}>
+  <Card title="Card on File" icon="credit-card">
+    Use saved payment method for recurring billing
+  </Card>
+  <Card title="New Card" icon="plus">
+    Add new payment method
+  </Card>
+</CardGroup>
+
+## Initial Payment
+
+The first payment is typically collected at enrollment:
+- Prorated amount if mid-cycle
+- Full amount if at cycle start
+- Setup fees if applicable
+
+<Info>
+Members are automatically billed according to the membership frequency.
+</Info>
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Patient not found | Verify patient exists in system |
+| Payment failed | Check card details |
+| Can't enroll | Check membership is active |

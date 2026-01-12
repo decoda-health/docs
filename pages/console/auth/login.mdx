@@ -1,0 +1,91 @@
+---
+title: "Login"
+description: "Authentication entry point with email/password and Google SSO"
+---
+
+# Login
+
+The Login page is the primary authentication entry point for the Decoda Console. It provides email/password authentication, Google SSO, and password reset functionality.
+
+## Sign In with Email
+
+<Steps>
+  <Step title="Enter email">
+    Type your full email address in the Email field
+  </Step>
+  <Step title="Enter password">
+    Type your password (masked for security)
+  </Step>
+  <Step title="Click Sign in">
+    The button shows "Signing in..." during authentication
+  </Step>
+  <Step title="Complete MFA">
+    If enabled, complete the verification prompt
+  </Step>
+</Steps>
+
+<Note>
+If successful, you'll be redirected to your default tenant's dashboard.
+</Note>
+
+## Sign In with Google
+
+<Steps>
+  <Step title="Click Sign in with Google">
+    Button below the main sign-in form
+  </Step>
+  <Step title="Complete Google auth">
+    Select your Google account in the popup window
+  </Step>
+  <Step title="Grant permissions">
+    If first time, approve the requested permissions
+  </Step>
+</Steps>
+
+<Warning>
+If a popup doesn't appear, check that popups are allowed for this site in your browser settings.
+</Warning>
+
+## Reset Password
+
+<Steps>
+  <Step title="Click Forgot your password?">
+    Link below the sign-in buttons
+  </Step>
+  <Step title="Enter your email">
+    Use the email associated with your account
+  </Step>
+  <Step title="Click Reset Password">
+    A reset email will be sent if the account exists
+  </Step>
+  <Step title="Check your inbox">
+    Follow the link in the email to set a new password
+  </Step>
+</Steps>
+
+## Error Messages
+
+| Error | Meaning | Solution |
+|-------|---------|----------|
+| "invalid email" | Email format incorrect or not registered | Check spelling and format |
+| "wrong password" | Password doesn't match | Re-enter password carefully |
+| "too many requests" | Too many failed attempts | Wait 15-30 minutes |
+| "user disabled" | Account deactivated | Contact your administrator |
+| "No access to platform" | No tenant association | Contact administrator |
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Tab` | Move to next input field |
+| `Shift + Tab` | Move to previous field |
+| `Enter` | Submit the current form |
+
+## Security Notes
+
+<Info>
+- Passwords are transmitted securely over HTTPS
+- Failed login attempts trigger rate limiting
+- Sessions have configurable timeout periods
+- Password reset links expire after a set period
+</Info>

@@ -1,0 +1,77 @@
+---
+title: "Patient Upload"
+description: "Bulk import patients from CSV file"
+---
+
+# Patient Upload
+
+Bulk import patients from a CSV file. Map columns to fields and review before importing.
+
+## Upload Process
+
+<Steps>
+  <Step title="Download template">
+    Click **Download Template** for required format
+  </Step>
+  <Step title="Prepare your data">
+    Fill in the CSV with patient information
+  </Step>
+  <Step title="Upload file">
+    Drag and drop or click to select file
+  </Step>
+  <Step title="Map columns">
+    Match CSV columns to patient fields
+  </Step>
+  <Step title="Preview">
+    Review parsed data before import
+  </Step>
+  <Step title="Import">
+    Patients created in system
+  </Step>
+</Steps>
+
+## Required Fields
+
+| Field | Format |
+|-------|--------|
+| **First Name** | Text |
+| **Last Name** | Text |
+| **Phone** OR **Email** | Valid phone or email |
+
+## Optional Fields
+
+- Date of Birth (YYYY-MM-DD)
+- Gender
+- Address
+- Insurance
+- Custom fields
+
+## Handle Duplicates
+
+<CardGroup cols={2}>
+  <Card title="Skip" icon="forward">
+    Don't import if match found
+  </Card>
+  <Card title="Update" icon="rotate">
+    Update existing record with new data
+  </Card>
+</CardGroup>
+
+## Validation Errors
+
+Common errors and fixes:
+- Invalid phone format → Use format: +1234567890
+- Invalid email → Check @ and domain
+- Missing required field → Ensure name is filled
+
+<Tip>
+Start with a small test file to verify your mapping before large imports.
+</Tip>
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| File rejected | Check CSV format, encoding |
+| Column not mapping | Verify column headers |
+| Import failed | Check validation errors |

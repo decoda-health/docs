@@ -1,0 +1,51 @@
+---
+title: "Notifications"
+description: "Configure automated notifications and reminders"
+---
+
+# Notifications
+
+Configure automated SMS, email, and push notifications for various events.
+
+## Notification Types
+
+<CardGroup cols={2}>
+  <Card title="Appointment Reminders" icon="bell">
+    Before scheduled appointments
+  </Card>
+  <Card title="Confirmation" icon="check">
+    When appointments are booked
+  </Card>
+  <Card title="Payment Receipts" icon="receipt">
+    After successful payments
+  </Card>
+  <Card title="Form Requests" icon="file">
+    When forms need completion
+  </Card>
+</CardGroup>
+
+## Configure Timing
+
+<Steps>
+  <Step title="Select notification type">
+    Choose which to configure
+  </Step>
+  <Step title="Set timing">
+    When to send (e.g., 24 hours before)
+  </Step>
+  <Step title="Choose channels">
+    SMS, email, or both
+  </Step>
+  <Step title="Customize message">
+    Edit the template
+  </Step>
+</Steps>
+
+## Message Templates
+
+Customize messages with dynamic fields:
+- `{patient_name}`
+- `{appointment_date}`
+- `{appointment_time}`
+- `{provider_name}`
+- `{practice_name}`
