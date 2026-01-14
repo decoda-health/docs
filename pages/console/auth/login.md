@@ -1,10 +1,5 @@
 # Login Page - User Actions Guide
 
-**File Path:** `console/src/app/(auth)/login/page.tsx`
-**Route:** `/login`
-
----
-
 ## Overview
 
 The Login page is the primary authentication entry point for the Decoda Console application. It provides email/password authentication, Google SSO, and password reset functionality.

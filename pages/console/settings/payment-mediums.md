@@ -1,10 +1,5 @@
 # Payment Mediums Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/payment-mediums/page.tsx`
-**Route:** `/[tenant]/settings/payment-mediums`
-
----
-
 ## Overview
 
 The Payment Mediums page manages settlement types for transactions. System payment mediums (Cash, Card, etc.) are built-in, while custom mediums (Venmo, Zelle, HSA) can be added to track alternative payment methods.

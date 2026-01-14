@@ -1,10 +1,5 @@
 # Carts Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/carts/page.tsx`
-**Route:** `/[tenant]/billing/carts`
-
----
-
 ## Overview
 
 The Carts page manages patient shopping carts. Staff can view all carts, create new ones, search through existing carts, and convert them to charges or quotes for patient payment.
@@ -76,8 +71,8 @@ The Carts page manages patient shopping carts. Staff can view all carts, create 
 
 **Step-by-Step Instructions:**
 
-1. **Click on cart row**
-   - Opens cart details
+1. **Click "View Details" from the actions menu**
+   - Opens cart details drawer
 
 2. **Review:**
    - Patient information
@@ -85,6 +80,38 @@ The Carts page manages patient shopping carts. Staff can view all carts, create 
    - Quantities and prices
    - Discounts applied
    - Total amount
+
+---
+
+### 4a. Duplicate Cart
+
+**Purpose:** Copy an existing cart for reuse.
+
+**Step-by-Step Instructions:**
+
+1. **Click actions menu on cart row**
+
+2. **Select "Duplicate Cart"**
+
+3. **New cart created**
+   - Contains same items
+   - Ready for editing
+
+---
+
+### 4b. Check Out Cart
+
+**Purpose:** Proceed directly to checkout with a draft cart.
+
+**Step-by-Step Instructions:**
+
+1. **Find cart with Draft status**
+
+2. **Click "Check Out" action**
+   - Available only for Draft carts
+
+3. **Redirected to checkout**
+   - Cart items pre-loaded
 
 ---
 
@@ -134,7 +161,7 @@ The Carts page manages patient shopping carts. Staff can view all carts, create 
 
 1. **Select cart**
 
-2. **Click "Create Quote"**
+2. **Click "Create & Send Quote"**
 
 3. **Configure quote options:**
    - Expiration date
@@ -153,7 +180,7 @@ The Carts page manages patient shopping carts. Staff can view all carts, create 
 
 1. **Select cart**
 
-2. **Click "Delete"**
+2. **Click "Delete Cart"**
 
 3. **Confirm deletion**
    - Cart permanently removed
@@ -164,12 +191,13 @@ The Carts page manages patient shopping carts. Staff can view all carts, create 
 
 | Column | Description |
 |--------|-------------|
-| Patient | Patient name |
-| Status | Draft, Pending, Converted |
-| Items | Number of items |
-| Total | Cart total amount |
-| Creator | Staff who created |
+| Cart | Total amount, cart ID, creator info |
+| Patient | Patient name, phone, patient ID |
+| Status | Draft, Accepted, Rejected, Converted, etc. |
+| Items | Full items list with details |
+| Quotes Created | Number of quotes generated |
 | Created | Creation date |
+| Actions | Available actions |
 
 ---
 
@@ -178,7 +206,9 @@ The Carts page manages patient shopping carts. Staff can view all carts, create 
 | Status | Meaning |
 |--------|---------|
 | Draft | In progress |
-| Pending | Ready for conversion |
+| Abandoned | Cart was abandoned |
+| Accepted | Quote was accepted by patient |
+| Rejected | Quote was rejected by patient |
 | Converted | Became charge/quote |
 | Expired | No longer valid |
 

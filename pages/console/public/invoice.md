@@ -1,10 +1,5 @@
 # Invoice Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/invoice/page.tsx`
-**Route:** `/[tenant]/invoice`
-
----
-
 ## Overview
 
 The Invoice page displays a formatted invoice for a patient charge. It renders a printable invoice with practice branding, patient information, itemized charges, and payment instructions.
@@ -106,29 +101,6 @@ The Invoice page displays a formatted invoice for a patient charge. It renders a
 2. **Click the link**
    - Opens the payment page
    - Patient can pay the balance
-
----
-
-## URL Parameters
-
-The invoice is generated from URL query parameters:
-
-| Parameter | Description |
-|-----------|-------------|
-| `payment_link` | URL for online payment |
-| `items` | JSON array of invoice items |
-| `adjustment` | Discount/adjustment amount |
-| `account_number` | Patient account number |
-| `invoice_id` | Unique invoice identifier |
-| `charge_created_date` | Date charge was created |
-| `first_name` | Patient first name |
-| `last_name` | Patient last name |
-| `address_line1` | Patient address line 1 |
-| `city` | Patient city |
-| `province_or_state` | Patient state |
-| `postal_or_zip` | Patient ZIP code |
-| `digital` | Whether this is a digital invoice |
-| `location_id` | Practice location ID |
 
 ---
 

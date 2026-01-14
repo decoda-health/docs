@@ -1,10 +1,5 @@
 # Scribe List Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/scribe/(list)/page.tsx`
-**Route:** `/[tenant]/scribe`
-
----
-
 ## Overview
 
 The Scribe List page displays all AI-generated medical notes and transcriptions. Providers can view, edit, finalize, and manage scribe recordings and the notes generated from them.
@@ -22,13 +17,14 @@ The Scribe List page displays all AI-generated medical notes and transcriptions.
 1. **Navigate to Scribe**
    - Click "Scribe" in navigation
 
-2. **View notes list**
+2. **View notes table**
    - Each entry shows:
      - Patient name
-     - Date/time
-     - Provider
-     - Status (draft/finalized)
-     - Note preview
+     - Summary (note preview or "In Progress")
+     - Contributors (providers)
+     - Template used
+     - Date (visit date and last edited)
+     - Actions menu
 
 ---
 
@@ -38,20 +34,14 @@ The Scribe List page displays all AI-generated medical notes and transcriptions.
 
 **Step-by-Step Instructions:**
 
-1. **By Date Range:**
-   - Select start/end dates
-   - View notes in range
-
-2. **By Provider:**
-   - Select provider name
-   - See only their notes
-
-3. **By Patient:**
-   - Search patient name
-   - View their notes
-
-4. **By Status:**
-   - Draft, Finalized, etc.
+**Available filters:**
+   - **Note ID:** Search by note ID
+   - **Patient Name:** Search by patient name
+   - **Patient ID:** Search by patient ID
+   - **Provider:** Select from provider list
+   - **Locations:** Filter by location
+   - **Template:** Filter by note template
+   - **Created Date:** Filter by date range
 
 ---
 
@@ -148,60 +138,54 @@ The Scribe List page displays all AI-generated medical notes and transcriptions.
 
 ---
 
-### 8. Link Note to Patient
+### 8. Resume Incomplete Note
 
-**Purpose:** Associate note with patient record.
+**Purpose:** Continue recording an incomplete AI note.
 
 **Step-by-Step Instructions:**
 
-1. **Open note**
+1. **Find incomplete AI note**
+   - Shows "In Progress" status
 
-2. **Click "Link Patient"**
-   - Patient search appears
+2. **Click "Resume" in actions menu**
+   - Recording interface opens
+   - Continue from where you left off
 
-3. **Search for patient**
-   - Enter name or phone
-
-4. **Select patient**
-   - Note attached to their record
+3. **Complete recording**
+   - Note generates when finished
 
 ---
 
-### 9. Link Note to Appointment
+### 9. Print Note
 
-**Purpose:** Associate note with specific visit.
+**Purpose:** Print note as document.
 
 **Step-by-Step Instructions:**
 
 1. **Open note**
 
-2. **Click "Link Appointment"**
-   - Appointment list appears
+2. **Click "Print" in actions menu**
 
-3. **Select appointment**
-   - From patient's appointments
+3. **Print dialog opens**
+   - Select printer
+   - Configure settings
 
-4. **Confirm link**
-   - Note attached to visit
+4. **Print document**
 
 ---
 
-### 10. Export Note
+### 10. View Linked Appointment
 
-**Purpose:** Download note as document.
+**Purpose:** Navigate to the appointment associated with a note.
 
 **Step-by-Step Instructions:**
 
-1. **Open note**
+1. **Find note linked to appointment**
 
-2. **Click "Export"**
+2. **Click "View Appointment" in actions menu**
+   - Only available if note is linked to an appointment
 
-3. **Select format:**
-   - PDF
-   - Word document
-   - Text file
-
-4. **Download file**
+3. **Navigates to appointment details**
 
 ---
 
@@ -221,34 +205,44 @@ The Scribe List page displays all AI-generated medical notes and transcriptions.
 
 ---
 
-### 12. Start New Recording
+### 12. Create New Note
 
-**Purpose:** Begin new scribe session.
+**Purpose:** Begin a new scribe note.
 
 **Step-by-Step Instructions:**
 
-1. **Click "New Recording"**
-   - Recording interface opens
+1. **Click "New Note" button**
+   - Dropdown appears with note types
 
-2. **Select patient (optional)**
-   - Link recording to patient
+2. **Select note type:**
+   - **AI Note:** AI-assisted transcription
+   - **Manual Note:** Fill out template manually
+   - **Upload Note:** Upload existing documentation
 
-3. **Start recording**
-   - Speak clearly
-   - AI transcribes in real-time
+3. **Select patient**
+   - Required for all note types
 
-4. **Stop recording**
-   - Processing begins
-   - Note generated
+4. **For Manual Notes:**
+   - Select a note template
+
+5. **Click "Create Note"**
+   - Note creation begins
 
 ---
+
+## Note Types
+
+| Type | Description |
+|------|-------------|
+| AI Note | AI-assisted transcription from recording |
+| Manual Note | Manually completed using a template |
+| Upload Note | Uploaded from external documentation |
 
 ## Note Status
 
 | Status | Meaning |
 |--------|---------|
-| Recording | Currently recording |
-| Processing | AI generating note |
+| In Progress | Note incomplete/recording in progress |
 | Draft | Note ready for review |
 | Finalized | Note complete and locked |
 

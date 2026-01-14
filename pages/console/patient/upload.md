@@ -1,10 +1,5 @@
 # Patient Upload Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/patient/(patient-upload-page)/upload/page.tsx`
-**Route:** `/[tenant]/patient/upload`
-
----
-
 ## Overview
 
 The Patient Upload page provides a multi-step wizard for bulk importing patient data from CSV files. Supports both collections (with balances) and contact-only uploads. Includes column mapping, data validation, and saved mapping templates.

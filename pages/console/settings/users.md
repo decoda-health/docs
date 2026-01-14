@@ -1,10 +1,5 @@
 # Users Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/users/page.tsx`
-**Route:** `/[tenant]/settings/users`
-
----
-
 ## Overview
 
 The Users page manages staff accounts for the practice. Administrators can add, edit, deactivate users, and assign roles and permissions.
@@ -22,22 +17,27 @@ The Users page manages staff accounts for the practice. Administrators can add, 
 1. **Navigate to Users**
    - Settings → Users
 
-2. **View user list**
-   - Name
+2. **View user sections:**
+   - **Active Users:** Currently active staff
+   - **Pending Invitations:** Users not yet accepted
+
+3. **Table columns:**
+   - User (name)
    - Email
-   - Role
-   - Status (active/inactive)
-   - Last login
+   - Phone
+   - Roles
+   - Primary Location
+   - Locations
 
 ---
 
-### 2. Add New User
+### 2. Invite New User
 
 **Purpose:** Create a new staff account.
 
 **Step-by-Step Instructions:**
 
-1. **Click "Add User"**
+1. **Click "Invite User"**
 
 2. **Enter user details:**
    - First name
@@ -141,59 +141,23 @@ The Users page manages staff accounts for the practice. Administrators can add, 
 
 ---
 
-### 7. Reset Password
+### 7. Resend Invitation
 
-**Purpose:** Send password reset link.
+**Purpose:** Send another invitation to pending user.
 
 **Step-by-Step Instructions:**
 
-1. **Find user**
+1. **Find user in Pending Invitations**
 
-2. **Click "Reset Password"**
+2. **Click "Resend Invitation"**
    - In actions menu
 
-3. **Confirm action**
-   - Email sent to user
-   - Contains reset link
+3. **New invitation sent**
+   - Email delivered to user
 
 ---
 
-### 8. Deactivate User
-
-**Purpose:** Disable access without deleting.
-
-**Step-by-Step Instructions:**
-
-1. **Find user**
-
-2. **Click "Deactivate"**
-   - In actions menu
-
-3. **Confirm deactivation**
-   - User can't log in
-   - Data preserved
-
----
-
-### 9. Reactivate User
-
-**Purpose:** Restore access to deactivated user.
-
-**Step-by-Step Instructions:**
-
-1. **Show inactive users**
-   - Toggle filter
-
-2. **Find user**
-
-3. **Click "Reactivate"**
-
-4. **Confirm**
-   - Access restored
-
----
-
-### 10. Delete User
+### 8. Archive User
 
 **Purpose:** Permanently remove user.
 
@@ -224,22 +188,21 @@ The Users page manages staff accounts for the practice. Administrators can add, 
 
 ---
 
-### 12. Filter Users
+### 10. Filter Users
 
 **Purpose:** View specific user types.
 
 **Step-by-Step Instructions:**
 
-1. **By Status:**
-   - Active only
-   - Inactive only
-   - All
+1. **Available filters:**
+   - Name (text search)
+   - Email (text search)
+   - Roles (multiselect)
 
-2. **By Role:**
-   - Admin, Manager, etc.
-
-3. **By Location:**
-   - Specific location
+2. **Group users by:**
+   - Role
+   - Visible Locations
+   - Primary Location
 
 ---
 

@@ -1,10 +1,5 @@
 # Close Register Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/cash-balances/close-register/page.tsx`
-**Route:** `/[tenant]/billing/cash-balances/close-register`
-
----
-
 ## Overview
 
 The Close Register page allows staff to count cash at the end of a shift or day and reconcile it with the expected balance. It provides a detailed cash counting interface for bills and coins, calculates discrepancies, and records the closing balance.

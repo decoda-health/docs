@@ -1,10 +1,5 @@
 # Clock-In History Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/check-in/clock-in-history/page.tsx`
-**Route:** `/[tenant]/check-in/clock-in-history`
-
----
-
 ## Overview
 
 The Clock-In History page displays staff time tracking records, including clock-in/out times, hours worked, and attendance patterns. This module requires the CLOCK_IN feature to be enabled.

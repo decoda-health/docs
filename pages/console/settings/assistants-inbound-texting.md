@@ -1,10 +1,5 @@
 # Inbound Texting Assistant Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/assistants/inbound-texting/page.tsx`
-**Route:** `/[tenant]/settings/assistants/inbound-texting`
-
----
-
 ## Overview
 
 The Inbound Texting Assistant page configures the AI that handles incoming SMS messages. Customize the assistant's name, behavior, available tools, and AI model selection.

@@ -1,10 +1,5 @@
 # Package Usage Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/packages/package-usage/[packageId]/page.tsx`
-**Route:** `/[tenant]/inventory/packages/package-usage/[packageId]`
-
----
-
 ## Overview
 
 The Package Usage page shows all patients who purchased a specific package and their usage history. Staff can view remaining credits, usage timeline, and manage individual sold packages.

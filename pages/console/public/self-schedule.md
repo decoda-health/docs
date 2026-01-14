@@ -1,10 +1,5 @@
 # Self-Schedule Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/self-schedule/page.tsx`
-**Route:** `/[tenant]/self-schedule`
-
----
-
 ## Overview
 
 The Self-Schedule page enables patients to book their own appointments online. It provides a step-by-step booking flow with service selection, provider selection, location selection, time selection, and checkout.

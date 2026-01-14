@@ -1,10 +1,5 @@
 # Cash Balances Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/cash-balances/page.tsx`
-**Route:** `/[tenant]/billing/cash-balances`
-
----
-
 ## Overview
 
 The Cash Balances page tracks cash on hand at each location. Staff can view the cash timeline, make pay-in/pay-out adjustments, close the register, and reconcile discrepancies between expected and actual cash amounts.

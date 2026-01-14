@@ -1,10 +1,5 @@
 # Commissions Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/commissions/page.tsx`
-**Route:** `/[tenant]/billing/commissions`
-
----
-
 ## Overview
 
 The Commissions page manages provider commission structures and generates payout reports. Staff can create commission rules, assign providers to structures, generate reports for specific date ranges, and export data for payroll processing.

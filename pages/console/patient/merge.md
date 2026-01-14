@@ -1,10 +1,5 @@
 # Merge Patients Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/patient/merge/page.tsx`
-**Route:** `/[tenant]/patient/merge`
-
----
-
 ## Overview
 
 The Merge Patients page allows staff to find and merge duplicate patient records. Staff can search for duplicates by specific fields, review potential matches, select which record to keep as primary, and merge others into it. Charges can optionally be voided during merge.
@@ -214,14 +209,6 @@ When patients are merged:
 | Notes | Transferred to primary |
 | Contact info | Primary's info kept |
 | Merged patients | Soft deleted |
-
----
-
-## URL Parameters
-
-| Parameter | Purpose |
-|-----------|---------|
-| patientIds | Comma-separated list of patient IDs to merge |
 
 ---
 

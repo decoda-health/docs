@@ -1,10 +1,5 @@
 # Members Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/members/[membershipId]/page.tsx`
-**Route:** `/[tenant]/inventory/members/[membershipId]`
-
----
-
 ## Overview
 
 The Members page displays all patients enrolled in a specific membership. Staff can view member status, filter by criteria, manage members, and see membership usage details.
@@ -152,19 +147,6 @@ The Members page displays all patients enrolled in a specific membership. Staff 
 | FROZEN | Temporarily paused |
 | DELINQUENT | Payment failed |
 | CANCELLED | Membership ended |
-
----
-
-## URL Parameters
-
-| Parameter | Description |
-|-----------|-------------|
-| page | Current page number |
-| perPage | Items per page |
-| sortBy | Sort field |
-| sortDirection | asc or desc |
-| status | Filter by status |
-| name | Search by name |
 
 ---
 

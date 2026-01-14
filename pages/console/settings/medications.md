@@ -1,10 +1,5 @@
 # Medications Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/medications/page.tsx`
-**Route:** `/[tenant]/settings/medications`
-
----
-
 ## Overview
 
 The Medications page manages the medication inventory for the organization. Staff can add, edit, and archive medications with pricing, unit types, categories, and template settings.

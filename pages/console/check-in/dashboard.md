@@ -1,10 +1,5 @@
 # Check-In Dashboard Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/check-in/dashboard/page.tsx`
-**Route:** `/[tenant]/check-in/dashboard`
-
----
-
 ## Overview
 
 The Check-In Dashboard provides an analytics and monitoring view of appointment data, including metrics, trends, patient intake status, and alerts. It serves as a central hub for tracking appointment performance and identifying issues.
@@ -144,12 +139,10 @@ The Check-In Dashboard provides an analytics and monitoring view of appointment 
 
    | Metric | Description |
    |--------|-------------|
-   | Total Appointments | All appointments in period |
+   | Total Appointments Booked | All appointments in period |
    | Completed | Successfully finished appointments |
    | No Shows | Patients who didn't show up |
-   | Cancellations | Cancelled appointments |
-   | New Patients | First-time patient appointments |
-   | Revenue | Total revenue generated |
+   | Provider Utilization | Percentage of provider time utilized |
 
 4. **Interpret trend indicators**
    - ↑ Green arrow: Improvement from previous period
@@ -168,12 +161,17 @@ The Check-In Dashboard provides an analytics and monitoring view of appointment 
    - Line/area chart below metrics cards
    - Shows appointments over time
 
-2. **Interpret the graph**
-   - X-axis: Time (days, weeks, or months)
+2. **Use graph controls**
+   - **Group by:** Select Day, Week, or Month
+   - **Breakdown:** Choose Appointment volume or New Patient Appointments
+   - **By Location:** Toggle to view data by location
+
+3. **Interpret the graph**
+   - X-axis: Time (based on group by selection)
    - Y-axis: Number of appointments
    - Line shows appointment count trend
 
-3. **Hover for details**
+4. **Hover for details**
    - Move mouse over data points
    - Tooltip shows exact values
    - Date and count displayed
@@ -185,7 +183,7 @@ The Check-In Dashboard provides an analytics and monitoring view of appointment 
 
 ---
 
-### 7. View Appointments by Type Chart
+### 7. View Services Chart
 
 **Purpose:** See breakdown of appointments by service type.
 
@@ -193,7 +191,7 @@ The Check-In Dashboard provides an analytics and monitoring view of appointment 
 
 1. **Locate the chart**
    - Pie chart, donut chart, or bar chart
-   - Labeled "Appointments by Type" or similar
+   - Labeled "Services"
 
 2. **View service distribution**
    - Each segment represents a service type
@@ -223,10 +221,11 @@ The Check-In Dashboard provides an analytics and monitoring view of appointment 
 
 2. **Review the table columns**
    - Patient Name
-   - Appointment Date/Time
+   - Appointment (date/time)
    - Provider
-   - Forms Pending
-   - Actions
+   - Type (appointment type)
+   - Contact (phone/email)
+   - Action
 
 3. **Sort the table**
    - Click column headers to sort
@@ -256,7 +255,7 @@ The Check-In Dashboard provides an analytics and monitoring view of appointment 
    - Locate the patient row
 
 2. **Click the action button**
-   - Button may show as envelope icon or "Send Reminder"
+   - Button labeled "Send Form"
 
 3. **Confirm send**
    - Confirmation dialog may appear
@@ -366,26 +365,18 @@ The Check-In Dashboard provides an analytics and monitoring view of appointment 
 3. **Appointment Trend Graph**
    - Line chart showing volume over time
 
-4. **Appointments by Type Chart**
+4. **Services Chart**
    - Distribution of appointment types
+
+4a. **Provider Utilization**
+   - Average utilization percentage
+   - Individual provider breakdown
 
 5. **Patients Pending Intake Forms**
    - Table of patients needing attention
 
 6. **Appointment Alerts**
    - Notifications requiring action
-
----
-
-## URL Parameters
-
-Dashboard filters are preserved in URL for sharing:
-
-```
-?startDate=2024-01-01&endDate=2024-01-31&providers=prov_123,prov_456&locations=loc_abc
-```
-
-Share URL to give others the same filtered view.
 
 ---
 

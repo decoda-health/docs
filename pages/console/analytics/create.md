@@ -1,10 +1,5 @@
 # Create Widget Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/analytics/create/page.tsx`
-**Route:** `/[tenant]/analytics/create`
-
----
-
 ## Overview
 
 The Create Widget page is a multi-step wizard for building custom analytics widgets. Users configure widget details, build data queries, select visualization types, and configure chart settings. Includes live preview that updates as you build.
@@ -22,10 +17,7 @@ The Create Widget page is a multi-step wizard for building custom analytics widg
 1. **From Analytics dashboard**
    - Click "Add Widget" or similar
 
-2. **Navigate to create page**
-   - `?dashboard=xxx` parameter required
-
-3. **Step 1 loads**
+2. **Step 1 loads**
    - Widget details form
 
 ---
@@ -148,15 +140,12 @@ The Create Widget page is a multi-step wizard for building custom analytics widg
 
 **Step-by-Step Instructions:**
 
-1. **Access via URL**
-   - `?dashboard=xxx&widget=yyy`
-
-2. **Form pre-fills**
+1. **Form pre-fills**
    - With existing configuration
 
-3. **Make changes**
+2. **Make changes**
 
-4. **Click "Update Widget"**
+3. **Click "Update Widget"**
 
 ---
 
@@ -279,15 +268,6 @@ When multiple metrics or group by fields:
 | Refresh button | Manual data refresh |
 | Chart selector | Switch visualization |
 | Error display | Shows query issues |
-
----
-
-## URL Parameters
-
-| Parameter | Purpose |
-|-----------|---------|
-| dashboard | Required - Which dashboard to add to |
-| widget | Optional - Widget ID for editing |
 
 ---
 

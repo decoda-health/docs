@@ -1,10 +1,5 @@
 # Payments Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/payments/page.tsx`
-**Route:** `/[tenant]/billing/payments`
-
----
-
 ## Overview
 
 The Payments page displays all payment transactions with filtering, sorting, and management capabilities. Staff can view payment details, process refunds, send receipts, move payments between patients, and create one-time payments.
@@ -40,7 +35,7 @@ The Payments page displays all payment transactions with filtering, sorting, and
 **Step-by-Step Instructions:**
 
 1. **Click "One Time Payment" button**
-   - In header area
+   - In header area (shows as "One Time" on smaller screens)
 
 2. **Fill payment details:**
    - Select patient or enter name
@@ -67,8 +62,9 @@ The Payments page displays all payment transactions with filtering, sorting, and
    - **Status:** Succeeded, Processing, Failed
    - **Payment Medium:** Card, Cash, Check, etc.
    - **Patient:** Search by name
-   - **Merchant Account:** For specific processors
-   - **Insurance Payments:** Toggle inclusion
+   - **Creator:** Who processed the payment
+   - **Payment ID:** Search by payment ID
+   - **External ID:** Search by external reference
 
 3. **Apply filters**
    - Table updates automatically

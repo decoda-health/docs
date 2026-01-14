@@ -1,10 +1,5 @@
 # Gallery Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/scribe/gallery/page.tsx`
-**Route:** `/[tenant]/scribe/gallery`
-
----
-
 ## Overview
 
 The Gallery page displays all medical attachments and images across patients. Staff can browse, filter by patient and date range, and view medical documentation. Useful for quickly finding photos, documents, and scans associated with patient visits.

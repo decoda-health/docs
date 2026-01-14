@@ -1,10 +1,5 @@
 # Stock Management Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/stock/page.tsx`
-**Route:** `/[tenant]/inventory/stock`
-
----
-
 ## Overview
 
 The Stock Management page provides inventory tracking and adjustment capabilities. Staff can view stock levels, make adjustments, transfer inventory between locations, and audit stock history.

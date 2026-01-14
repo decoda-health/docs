@@ -1,10 +1,5 @@
 # Payment Management Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/payment-management/page.tsx`
-**Route:** `/[tenant]/settings/payment-management`
-
----
-
 ## Overview
 
 The Payment Management page centralizes payment processing configuration including merchant accounts (Rainforest), POS devices (terminals), tax rates, and payment mediums. Requires PAYMENTS module.

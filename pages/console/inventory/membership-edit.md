@@ -1,10 +1,5 @@
 # Membership Edit Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/memberships/edit/[membershipId]/page.tsx`
-**Route:** `/[tenant]/inventory/memberships/edit/[membershipId]`
-
----
-
 ## Overview
 
 The Membership Edit page allows creating new memberships or editing existing ones. Configure pricing, billing frequency, patient credits, global discounts, and item-specific discounts.

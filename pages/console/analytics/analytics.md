@@ -1,10 +1,5 @@
 # Analytics Dashboard Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/analytics/page.tsx`
-**Route:** `/[tenant]/analytics`
-
----
-
 ## Overview
 
 The Analytics page provides a customizable dashboard for business intelligence and data visualization. Users can view, create, and manage analytics widgets displaying various practice metrics.
@@ -43,7 +38,7 @@ The Analytics page provides a customizable dashboard for business intelligence a
 
 **Step-by-Step Instructions:**
 
-1. **Click "Create Widget" button**
+1. **Click "Add Widget" button**
    - Located in header area
    - Opens widget creation wizard
 
@@ -79,18 +74,13 @@ The Analytics page provides a customizable dashboard for business intelligence a
 
 4. **Step 3: Chart Configuration**
 
-   **For Bar Charts:**
-   - Stacked vs. grouped
-   - Horizontal vs. vertical
-   - Color scheme
-
-   **For Donut Charts:**
-   - Show labels/percentages
-   - Legend position
-
    **For Progress Charts:**
-   - Set target value
-   - Choose color thresholds
+   - Set target value (required)
+   - Currency or number mode (auto-detected from fields)
+
+   **For Other Chart Types (Area, Bar, Donut, Table, Number):**
+   - No additional configuration needed
+   - Proceed directly to create widget
 
 5. **Save Widget**
    - Click "Save" or "Create"
@@ -150,22 +140,19 @@ The Analytics page provides a customizable dashboard for business intelligence a
 
 **Step-by-Step Instructions:**
 
-1. **Enter edit mode**
-   - Click "Edit Layout" or similar button
-   - Widgets become draggable
-
-2. **Drag widgets**
+1. **Drag widgets**
+   - Widgets are always draggable
    - Click and hold widget header
    - Drag to new position
-   - Other widgets reflow
+   - Other widgets reflow automatically
 
-3. **Resize widgets (if supported)**
-   - Drag widget edges
-   - Adjust width/height
+2. **Resize widgets**
+   - Drag widget edges to resize
+   - Changes save automatically
 
-4. **Save layout**
-   - Click "Save Layout"
-   - New arrangement persists
+3. **Layout saves automatically**
+   - No manual save needed
+   - Position updates are sent to server immediately
 
 ---
 

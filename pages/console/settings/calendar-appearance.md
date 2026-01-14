@@ -1,10 +1,5 @@
 # Calendar Appearance Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/calendar-appearance/page.tsx`
-**Route:** `/[tenant]/settings/calendar-appearance`
-
----
-
 ## Overview
 
 The Calendar Appearance page customizes how appointments display on the calendar. Configure status colors/styles and appointment icons to quickly identify appointment types and states.

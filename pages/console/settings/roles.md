@@ -1,10 +1,5 @@
 # Roles Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/roles/page.tsx`
-**Route:** `/[tenant]/settings/roles`
-
----
-
 ## Overview
 
 The Roles page manages user roles and their permissions. Admins can create custom roles, assign permissions by module, manage tags for role categorization, and control what users with each role can access throughout the system.

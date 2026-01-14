@@ -1,10 +1,5 @@
 # Services Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/services/page.tsx`
-**Route:** `/[tenant]/settings/services`
-
----
-
 ## Overview
 
 The Services page manages the practice's service catalog. Staff can create, edit, price, and configure services that patients can book and purchase.
@@ -22,12 +17,13 @@ The Services page manages the practice's service catalog. Staff can create, edit
 1. **Navigate to Services**
    - Settings → Services
 
-2. **View service list**
+2. **View service table**
    - Service name
    - Duration
    - Price
-   - Category
-   - Status (active/inactive)
+   - Providers
+   - Locations
+   - Forms
 
 ---
 
@@ -37,7 +33,7 @@ The Services page manages the practice's service catalog. Staff can create, edit
 
 **Step-by-Step Instructions:**
 
-1. **Click "Add Service"**
+1. **Click "Create Service"**
 
 2. **Enter service details:**
    - **Name:** Service display name
@@ -47,17 +43,33 @@ The Services page manages the practice's service catalog. Staff can create, edit
    - **Price:** Standard price
    - **Color:** Calendar display color
 
-3. **Configure booking settings:**
+3. **Service drawer has multiple tabs:**
+
+   **Scheduling & Booking:**
+   - Duration
    - Buffer time before/after
-   - Online booking enabled
-   - New patient eligible
-   - Resources required
 
-4. **Assign providers:**
-   - Select who can perform
-   - All or specific providers
+   **Providers & Locations:**
+   - Assign providers who can perform
+   - Assign locations where available
 
-5. **Save service**
+   **Pricing & Payments:**
+   - Price and display price
+   - Booking fees and cancellation fees
+
+   **Forms & Intake:**
+   - Link intake forms to service
+
+   **Visibility:**
+   - Online booking settings
+   - New patient eligibility
+
+   **Notifications:**
+   - Service-specific notification settings
+
+4. **Save service**
+   - Button shows "Add Service" for new
+   - Button shows "Update Service" for edit
 
 ---
 
@@ -222,7 +234,7 @@ The Services page manages the practice's service catalog. Staff can create, edit
 2. **Click "Delete"**
 
 3. **Confirm deletion**
-   - Warning if has history
+   - Shows booking count if service has bookings
    - Permanently removed
 
 ---

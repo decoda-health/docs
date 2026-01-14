@@ -1,10 +1,5 @@
 # Call Summarizer Assistant Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/assistants/call-summarizer/page.tsx`
-**Route:** `/[tenant]/settings/assistants/call-summarizer`
-
----
-
 ## Overview
 
 The Call Summarizer Assistant page configures the AI that generates summaries of phone calls. Customize the summary format, behavior, and AI model used for summarization.

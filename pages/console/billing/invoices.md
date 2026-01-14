@@ -1,10 +1,5 @@
 # Invoices Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/invoices/page.tsx`
-**Route:** `/[tenant]/billing/invoices`
-
----
-
 ## Overview
 
 The Invoices page manages outstanding debt collection and patient outreach for unpaid balances. Staff can view, filter, and manage invoices, create new ones, and track payment status.
@@ -41,10 +36,11 @@ The Invoices page manages outstanding debt collection and patient outreach for u
    - Filter bar above table
 
 2. **Apply filters:**
-   - **By Status:** Pending, Paid, Overdue
-   - **By Date Range:** Created date or due date
-   - **By Amount:** Minimum/maximum range
-   - **By Patient:** Search by name
+   - **By Status:** Active, Paused, Cancelled, Expired, Paid, Will Fail, Failed
+   - **By Date Range:** Invoice created date or send time
+   - **By Amount:** Minimum/maximum dollar range
+   - **By Patient:** Search by name, phone number, or ID
+   - **By Rule Set:** Select specific invoice rule sets
 
 3. **View filtered results**
    - Table updates automatically
@@ -111,11 +107,12 @@ The Invoices page manages outstanding debt collection and patient outreach for u
 1. **Select invoice**
 
 2. **Choose action:**
-   - Send reminder
-   - Mark as paid
-   - Void invoice
-   - Edit details
-   - Download PDF
+   - Write Off
+   - Send to Collections
+   - Change Rule Set
+   - Pause (pause outreach)
+   - Resume (resume paused outreach)
+   - Stop Invoicing (cancel)
 
 3. **Confirm action**
 
@@ -125,12 +122,12 @@ The Invoices page manages outstanding debt collection and patient outreach for u
 
 | Column | Description |
 |--------|-------------|
-| Patient | Patient name and ID |
-| Amount | Total invoice amount |
-| Status | Payment status |
-| Due Date | When payment is due |
-| Created | Invoice creation date |
+| Status | Current invoice status with expandable details |
+| Amount Outstanding | Remaining balance |
+| Patient | Patient name and info |
 | Actions | Available actions |
+
+Click "Show Details" on any row to view the invoice timeline history.
 
 ---
 
@@ -138,11 +135,26 @@ The Invoices page manages outstanding debt collection and patient outreach for u
 
 | Status | Meaning |
 |--------|---------|
-| Pending | Awaiting payment |
+| Active | Actively sending invoices to patient |
+| Paused | Outreach temporarily paused |
+| Cancelled | Invoicing stopped |
+| Expired | Rule set completed, balance remains |
 | Paid | Fully paid |
-| Partial | Partially paid |
-| Overdue | Past due date |
-| Voided | Cancelled invoice |
+| Will Fail | Future invoice sends will fail |
+| Failed | Invoice delivery failed |
+
+---
+
+## Status Metrics Cards
+
+The page displays four summary cards:
+
+| Card | Description |
+|------|-------------|
+| Failed | Patients with invoices that cannot be delivered |
+| Expired | Patients who completed a rule set and still have a balance |
+| Paused | Patients with paused outreach |
+| Will Fail | Patients with invoices that will fail to send in the future |
 
 ---
 
@@ -152,8 +164,8 @@ The Invoices page manages outstanding debt collection and patient outreach for u
 |--------|-------|---------|-------|
 | View invoices | ✓ | ✓ | ✓ |
 | Create invoices | ✓ | ✓ | ✓ |
-| Void invoices | ✓ | ✓ | ✗ |
-| Send reminders | ✓ | ✓ | ✓ |
+| Stop invoicing | ✓ | ✓ | ✗ |
+| Pause/Resume | ✓ | ✓ | ✓ |
 
 ---
 

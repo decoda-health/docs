@@ -1,10 +1,5 @@
 # Create/Edit Cart Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/carts/create/page.tsx`
-**Route:** `/[tenant]/billing/carts/create`
-
----
-
 ## Overview
 
 The Create Cart page allows staff to build shopping carts for patients. It supports creating new carts, editing existing ones, and duplicating carts. The page provides real-time preview and supports products, packages, and discounts.

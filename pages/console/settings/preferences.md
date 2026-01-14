@@ -1,10 +1,5 @@
 # Preferences Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/preferences/page.tsx`
-**Route:** `/[tenant]/settings/preferences`
-
----
-
 ## Overview
 
 The Preferences page allows users to customize their personal experience including theme, calendar settings, Google Calendar integration, and communication preferences.

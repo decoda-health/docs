@@ -1,10 +1,5 @@
 # Inbound Assistant Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/assistants/inbound/page.tsx`
-**Route:** `/[tenant]/settings/assistants/inbound`
-
----
-
 ## Overview
 
 The Inbound Assistant page manages AI phone assistants that handle incoming calls. Configure assistant behavior, scripts, and settings for automated call handling.

@@ -1,10 +1,5 @@
 # Detailed Receipt Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/charges/[chargeId]/detailed-receipt/page.tsx`
-**Route:** `/[tenant]/billing/charges/[chargeId]/detailed-receipt`
-
----
-
 ## Overview
 
 The Detailed Receipt page generates comprehensive receipts for insurance reimbursement or tax purposes. It includes practice information, patient details, itemized services, medical codes (ICD-10 and CPT), and payment history. The page is optimized for printing.

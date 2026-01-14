@@ -1,10 +1,5 @@
 # Purchase Orders Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/purchase-orders/page.tsx`
-**Route:** `/[tenant]/inventory/purchase-orders`
-
----
-
 ## Overview
 
 The Purchase Orders page manages supplier orders for inventory replenishment. Staff can create orders, track shipments, take deliveries, and manage the entire procurement workflow.

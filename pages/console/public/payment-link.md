@@ -1,10 +1,5 @@
 # Payment Link Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/pay/(payment-link)/[patientId]/page.tsx`
-**Route:** `/[tenant]/pay/[patientId]`
-
----
-
 ## Overview
 
 The Payment Link page allows patients to view their outstanding balance and make payments online. It supports full payments, payment plans, and multiple payment methods including credit cards, debit cards, and digital wallets.

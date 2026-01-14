@@ -1,10 +1,5 @@
 # Chat Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/comms/chat/page.tsx`
-**Route:** `/[tenant]/comms/chat`
-
----
-
 ## Overview
 
 The Chat page provides a full SMS messaging interface for patient communication. Staff can view conversation lists, send/receive messages, attach files, use AI-suggested responses, and manage multiple patient conversations. Mobile-responsive with drawer navigation.

@@ -1,10 +1,5 @@
 # Receipt Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/receipt/[paymentId]/page.tsx`
-**Route:** `/[tenant]/receipt/[paymentId]`
-
----
-
 ## Overview
 
 The Receipt page displays a payment receipt for a completed transaction. It's accessible to patients without authentication and provides a printable record of their payment.

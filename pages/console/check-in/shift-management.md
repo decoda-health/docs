@@ -1,10 +1,5 @@
 # Shift Management Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/check-in/shift-management/page.tsx`
-**Route:** `/[tenant]/check-in/shift-management`
-
----
-
 ## Overview
 
 The Shift Management page allows practice administrators to manage provider schedules, work shifts, time blocks, and holidays. It displays a weekly view of all providers' availability with tools for creating and editing shifts.

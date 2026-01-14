@@ -1,10 +1,5 @@
 # Single Form Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/form/(form-page)/[formPath]/page.tsx`
-**Route:** `/[tenant]/form/[formPath]`
-
----
-
 ## Overview
 
 The Single Form page allows patients to complete a single consent or intake form. It's accessed via a unique form path and requires phone verification before submission.

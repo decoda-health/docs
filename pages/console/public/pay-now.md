@@ -1,10 +1,5 @@
 # Pay Now Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/pay/(pay-now)/page.tsx`
-**Route:** `/[tenant]/pay`
-
----
-
 ## Overview
 
 The Pay Now page is an entry point for patients to access their payment portal. It requires phone verification to identify the patient, then redirects to their personalized payment page.

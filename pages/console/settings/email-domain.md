@@ -1,10 +1,5 @@
 # Email Domain Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/email-domain/page.tsx`
-**Route:** `/[tenant]/settings/email-domain`
-
----
-
 ## Overview
 
 The Email Domain page configures custom email domains via Mailgun for branded email sending. Add your domain, configure DNS records, and verify to send emails from your own domain.

@@ -1,10 +1,5 @@
 # Scribe Playground Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/scribe/playground/[id]/page.tsx`
-**Route:** `/[tenant]/scribe/playground/[noteId]`
-
----
-
 ## Overview
 
 The Scribe Playground is the main note editing interface supporting three creation methods: AI-generated from audio transcription, manual text entry, or upload from documents/images. Includes rich text editing, AI chat for modifications, medical code assignment, and version history.

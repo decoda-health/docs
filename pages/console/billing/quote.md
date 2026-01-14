@@ -1,10 +1,5 @@
 # Quote View Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/quote/[quoteId]/page.tsx`
-**Route:** `/[tenant]/billing/quote/[quoteId]`
-
----
-
 ## Overview
 
 The Quote View page displays a quote for staff review. This is the internal/tenant view of quotes, allowing staff to see what patients see and track quote status. Patient response actions are disabled in this view.

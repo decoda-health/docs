@@ -1,21 +1,8 @@
 # Checkout Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/check-out/page.tsx`
-**Route:** `/[tenant]/billing/check-out`
-
----
-
 ## Overview
 
 The Checkout page is the primary payment collection interface. It guides staff through creating charges, adding items, and processing payments with support for multiple payment methods including cards, cash, POS terminals, and payment plans.
-
----
-
-## Checkout Flow
-
-```
-Charge Edit → Payment Details → (POS Processing) → Payment Success
-```
 
 ---
 
@@ -143,7 +130,7 @@ Charge Edit → Payment Details → (POS Processing) → Payment Success
    - Click to choose
 
 3. **Process payment**
-   - Click "Pay $X.XX"
+   - Click "Charge $X.XX"
    - Payment processes
 
 ---
@@ -154,20 +141,17 @@ Charge Edit → Payment Details → (POS Processing) → Payment Success
 
 **Step-by-Step Instructions:**
 
-1. **Click "New Card"**
-   - Card form appears
-
-2. **Enter card details:**
+1. **Enter card details directly in form:**
    - Card number
    - Expiration (MM/YY)
    - CVV
    - ZIP code
 
-3. **Save card (optional)**
+2. **Save card (optional)**
    - Toggle to save for future
 
-4. **Process payment**
-   - Click "Pay $X.XX"
+3. **Process payment**
+   - Click "Charge $X.XX"
 
 ---
 
@@ -181,7 +165,7 @@ Charge Edit → Payment Details → (POS Processing) → Payment Success
    - Choose terminal device
 
 2. **Initiate payment**
-   - Click "Send to Terminal"
+   - Click "Charge $X.XX on POS"
 
 3. **Wait for customer action**
    - Page shows processing
@@ -240,7 +224,7 @@ Charge Edit → Payment Details → (POS Processing) → Payment Success
 
 **Step-by-Step Instructions:**
 
-1. **Click "Payment Plan"**
+1. **Click "Setup Payment Plan"**
    - Plan options appear
 
 2. **Configure plan:**
@@ -329,24 +313,9 @@ Charge Edit → Payment Details → (POS Processing) → Payment Success
 
 ---
 
-## URL Parameters
-
-Checkout can be pre-populated:
-- `?patientId=xxx` - Pre-select patient
-- `?chargeId=xxx` - Load existing charge
-- `?eventId=xxx` - Link to appointment
-
----
-
 ## Permissions
 
-| Action | Admin | Manager | Staff |
-|--------|-------|---------|-------|
-| Create charges | ✓ | ✓ | ✓ |
-| Process payments | ✓ | ✓ | ✓ |
-| Apply discounts | ✓ | ✓ | Limited |
-| Create payment plans | ✓ | ✓ | ✗ |
-| Use POS terminal | ✓ | ✓ | ✓ |
+All checkout actions are available to users with appropriate billing access. Specific permissions may be configured per role in Settings.
 
 ---
 

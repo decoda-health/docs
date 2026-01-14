@@ -1,10 +1,5 @@
 # Call Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/comms/call/page.tsx`
-**Route:** `/[tenant]/comms/call`
-
----
-
 ## Overview
 
 The Call page displays a history of all phone calls handled by the system. Staff can view call details, listen to recordings, read transcripts, see AI actions taken, and filter/sort the call log. Calls are automatically transcribed and summarized by AI.

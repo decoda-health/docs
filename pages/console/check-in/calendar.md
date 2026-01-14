@@ -1,10 +1,5 @@
 # Calendar Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/check-in/calendar/page.tsx`
-**Route:** `/[tenant]/check-in/calendar`
-
----
-
 ## Overview
 
 The Calendar page is the primary appointment management interface for healthcare providers and staff. It displays appointments in a visual calendar format with filtering, navigation, and appointment management capabilities.
@@ -189,9 +184,8 @@ The Calendar page is the primary appointment management interface for healthcare
    - Click on the desired time
    - New appointment form opens
 
-2. **Method 2: Use add button**
-   - Click the "+" or "Add Appointment" button
-   - Typically in the header or sidebar
+2. **Method 2: Use create button**
+   - Click "Create Event" button in the sidebar
    - New appointment form opens
 
 3. **Fill in appointment details**
@@ -378,20 +372,6 @@ The Calendar page is the primary appointment management interface for healthcare
 3. **Book resources with appointments**
    - When creating appointment, select resource
    - Resource shows as occupied for that time
-
----
-
-## Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `←` / `→` | Navigate previous/next period |
-| `T` | Jump to today |
-| `D` | Switch to day view |
-| `W` | Switch to week view |
-| `M` | Switch to month view |
-| `Esc` | Close open dialogs/panels |
-| `N` | New appointment (when enabled) |
 
 ---
 

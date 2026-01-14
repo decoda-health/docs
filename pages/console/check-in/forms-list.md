@@ -1,10 +1,5 @@
 # Forms List Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/check-in/forms/list/page.tsx`
-**Route:** `/[tenant]/check-in/forms/list`
-
----
-
 ## Overview
 
 The Forms List page is the management hub for all patient intake and consent forms. Staff can view, create, edit, send, and manage form submissions from this central location.

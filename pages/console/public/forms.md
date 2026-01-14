@@ -1,10 +1,5 @@
 # Multi-Form Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/forms/page.tsx`
-**Route:** `/[tenant]/forms?forms=form1,form2,form3`
-
----
-
 ## Overview
 
 The Multi-Form page allows patients to complete multiple forms in a single session. Forms are specified via URL query parameters and presented sequentially with progress tracking.

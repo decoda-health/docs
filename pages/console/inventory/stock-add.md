@@ -1,10 +1,5 @@
 # Stock Add Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/stock/add/page.tsx`
-**Route:** `/[tenant]/inventory/stock/add`
-
----
-
 ## Overview
 
 The Stock Add page allows creating new stock items for inventory tracking. It offers two methods: AI-assisted creation from images/descriptions, or manual entry. Staff can also use existing stock items as templates.

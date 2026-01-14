@@ -1,10 +1,5 @@
 # Bookables Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/bookables/page.tsx`
-**Route:** `/[tenant]/settings/bookables`
-
----
-
 ## Overview
 
 The Bookables page manages schedulable resources like rooms, equipment, and other assets that can be reserved for appointments. Bookables prevent double-booking of shared resources.

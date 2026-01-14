@@ -1,10 +1,5 @@
 # Products Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/products/page.tsx`
-**Route:** `/[tenant]/inventory/products`
-
----
-
 ## Overview
 
 The Products page manages the practice's product catalog including retail items, consumables, and equipment. Staff can add, edit, categorize, and track inventory levels.
@@ -22,13 +17,15 @@ The Products page manages the practice's product catalog including retail items,
 1. **Navigate to Products**
    - Inventory → Products
 
-2. **View product list**
+2. **View product table**
    - Each product shows:
-     - Name and image
-     - SKU
+     - Product name, ID, and description
+     - Brand
      - Price
-     - Stock level
-     - Category
+     - Inventory (linked stock with location breakdown)
+     - Settings (custom pricing, tax exemptions)
+     - Usage count
+     - Actions menu
 
 ---
 
@@ -51,20 +48,26 @@ The Products page manages the practice's product catalog including retail items,
 
 ---
 
-### 3. Filter by Category
+### 3. Filter Products
 
-**Purpose:** View products in specific categories.
+**Purpose:** Find products using various criteria.
 
 **Step-by-Step Instructions:**
 
-1. **Locate category filter**
-   - Dropdown or sidebar
+1. **Available filters:**
+   - **Name:** Text search for product names
+   - **Brand:** Select brand (includes "No Brand" option)
+   - **Category:** Select category (includes "No Category" option)
+   - **Price:** Dollar range filter
+   - **Settings:** Filter by "Has Tax Exemptions", "Custom Pricing", or "No Settings"
+   - **Usage:** Filter by usage count
 
-2. **Select category**
-   - Click category name
+2. **Group by Category**
+   - Toggle to organize products by category groups
 
-3. **View filtered products**
-   - Only category items shown
+3. **Apply filters**
+   - Select/enter values
+   - Table updates automatically
 
 ---
 
@@ -77,22 +80,25 @@ The Products page manages the practice's product catalog including retail items,
 1. **Click "Add Product"**
    - Button in header
 
-2. **Fill product details:**
-   - **Name:** Product display name
-   - **SKU:** Stock keeping unit
-   - **Description:** Product details
+2. **Product drawer has three tabs:**
+
+   **Basics Tab:**
+   - **Name:** Product display name (required)
+   - **Brand Name:** Product brand
    - **Category:** Assign to category
+   - **Description:** Product details
+   - **Internal Notes:** Staff-only notes
+
+   **Pricing Tab:**
    - **Price:** Selling price
-   - **Cost:** Your cost (for profit tracking)
-   - **Tax:** Tax category
-   - **Image:** Upload product photo
+   - **Unit of Measurement:** Pricing unit
 
-3. **Configure inventory:**
-   - Track inventory toggle
-   - Initial stock quantity
-   - Reorder threshold
+   **Settings Tab:**
+   - **Sort Order:** Display order
+   - **Tax Exemptions:** Configure tax exemptions
+   - **Custom Pricing:** Toggle to allow custom pricing
 
-4. **Save product**
+3. **Save product**
    - Product added to catalog
 
 ---
@@ -174,22 +180,21 @@ The Products page manages the practice's product catalog including retail items,
 
 ---
 
-### 9. Set Low Stock Alert
+### 9. View Low Stock Status
 
-**Purpose:** Get notified when stock is low.
+**Purpose:** Identify products with low inventory.
 
 **Step-by-Step Instructions:**
 
-1. **Edit product**
+1. **View product list**
 
-2. **Find reorder threshold**
-   - Inventory settings
+2. **Look for "Low" badge**
+   - Appears in Inventory column
+   - Shows when linked stock is running low
 
-3. **Set threshold**
-   - Enter minimum quantity
-   - Alert triggers below this
-
-4. **Save product**
+3. **Stock levels tracked through linked inventory**
+   - Product links to inventory items
+   - Stock levels managed on inventory items
 
 ---
 
@@ -210,36 +215,63 @@ The Products page manages the practice's product catalog including retail items,
 
 ---
 
-### 11. Delete Product
+### 11. Archive Product
 
-**Purpose:** Permanently remove product.
+**Purpose:** Deactivate product for archival.
 
 **Step-by-Step Instructions:**
 
 1. **Find product**
 
-2. **Click delete option**
-   - In actions menu
+2. **Click "Archive" in actions menu**
+   - Or select multiple and use bulk archive
 
-3. **Confirm deletion**
-   - Warning about data loss
-   - Click confirm
+3. **Confirm archival**
+   - Product will be deactivated
+   - History preserved
 
 ---
 
-### 12. Export Products
+### 12. Link to Inventory
 
-**Purpose:** Download product catalog.
+**Purpose:** Connect product to inventory stock items.
 
 **Step-by-Step Instructions:**
 
-1. **Click "Export"**
+1. **Find product in list**
 
-2. **Select format**
-   - CSV or Excel
+2. **Click "Link to inventory" in actions menu**
 
-3. **Download file**
-   - Complete catalog data
+3. **Select stock items**
+   - Choose which inventory items to link
+
+4. **Save link**
+   - Inventory column shows linked stock
+
+---
+
+### 13. Bulk Edit Products
+
+**Purpose:** Edit multiple products at once.
+
+**Step-by-Step Instructions:**
+
+1. **Select multiple products**
+   - Use checkboxes on left
+
+2. **Click bulk edit option**
+   - Bulk edit drawer opens
+
+3. **Select fields to update:**
+   - Category
+   - Price
+   - Unit of Measurement
+   - Sort Order
+   - Tax Exemptions
+   - Custom Pricing
+
+4. **Apply changes**
+   - All selected products updated
 
 ---
 
@@ -248,14 +280,15 @@ The Products page manages the practice's product catalog including retail items,
 | Field | Description |
 |-------|-------------|
 | Name | Display name |
-| SKU | Stock keeping unit (unique) |
+| Brand Name | Product brand |
 | Description | Detailed description |
 | Category | Product category |
 | Price | Selling price |
-| Cost | Your cost |
-| Tax Category | Tax treatment |
-| Stock | Current quantity |
-| Threshold | Low stock alert level |
+| Unit of Measurement | Pricing unit |
+| Internal Notes | Staff-only notes |
+| Sort Order | Display ordering |
+| Tax Exemptions | Exemption settings |
+| Custom Pricing | Allow price overrides |
 
 ---
 
@@ -266,7 +299,7 @@ The Products page manages the practice's product catalog including retail items,
 | View products | ✓ | ✓ | ✓ |
 | Add products | ✓ | ✓ | ✗ |
 | Edit products | ✓ | ✓ | ✗ |
-| Delete products | ✓ | ✗ | ✗ |
+| Archive products | ✓ | ✓ | ✗ |
 | Adjust stock | ✓ | ✓ | ✓ |
 
 ---
@@ -278,4 +311,4 @@ The Products page manages the practice's product catalog including retail items,
 | Product not showing | Check if active, check category |
 | Image not uploading | Check file size/format |
 | Stock incorrect | Review adjustment history |
-| Can't delete | May have associated transactions |
+| Can't archive | May have associated transactions |

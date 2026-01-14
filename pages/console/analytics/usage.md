@@ -1,10 +1,5 @@
 # Usage & Billing Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/usage/page.tsx`
-**Route:** `/[tenant]/usage`
-
----
-
 ## Overview
 
 The Usage page provides transparency into your Decoda platform usage and billing. It displays usage metrics, costs, historical statements, and payment management options.

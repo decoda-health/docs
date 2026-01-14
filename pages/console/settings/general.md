@@ -1,10 +1,5 @@
 # General Settings Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/general/page.tsx`
-**Route:** `/[tenant]/settings/general`
-
----
-
 ## Overview
 
 The General Settings page contains core practice configuration options including business information, branding, contact details, and default settings that affect the entire practice.

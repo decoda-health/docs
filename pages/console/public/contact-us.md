@@ -1,10 +1,5 @@
 # Contact Us Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/contact-us/page.tsx`
-**Route:** `/[tenant]/contact-us`
-
----
-
 ## Overview
 
 The Contact Us page provides a simple form for patients and prospective patients to reach out to the healthcare practice. It collects basic contact information and an optional message.

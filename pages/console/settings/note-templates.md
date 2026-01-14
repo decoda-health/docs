@@ -1,10 +1,5 @@
 # Note Templates Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/note-templates/page.tsx`
-**Route:** `/[tenant]/settings/note-templates`
-
----
-
 ## Overview
 
 The Note Templates page manages reusable templates for AI Scribe notes. Templates define the structure and format for auto-generated clinical notes.

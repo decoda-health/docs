@@ -1,10 +1,5 @@
 # Patient Detail Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/patient/(patient-page)/[id]/page.tsx`
-**Route:** `/[tenant]/patient/[id]`
-
----
-
 ## Overview
 
 The Patient Detail page is the comprehensive patient profile view, containing all information about a patient organized into tabs. It includes overview, timeline, appointments, medical notes, billing, forms/documents, gallery, memberships, packages, and settings.
@@ -112,12 +107,7 @@ The Patient Detail page is the comprehensive patient profile view, containing al
    - Messages sent/received
    - Status changes
 
-4. **Filter timeline:**
-   - Filter by activity type
-   - Filter by date range
-   - Search within timeline
-
-5. **Click activity for details:**
+4. **Click activity for details:**
    - Expand activity item
    - View full details
    - Navigate to related item
@@ -398,7 +388,7 @@ The Patient Detail page is the comprehensive patient profile view, containing al
 
 ### 11. Manage Settings Tab
 
-**Purpose:** Configure patient-specific preferences.
+**Purpose:** Configure patient-specific preferences and access.
 
 **Step-by-Step Instructions:**
 
@@ -408,22 +398,21 @@ The Patient Detail page is the comprehensive patient profile view, containing al
 2. **Configure settings:**
 
    **Communication Preferences:**
-   - SMS opt-in/out
-   - Email preferences
-   - Reminder settings
+   - SMS opt-in/out for appointment reminders
+   - Marketing message preferences
 
-   **Privacy Settings:**
-   - Data sharing preferences
-   - Marketing consent
+   **Patient Portal:**
+   - View portal access status
+   - Send portal invitation
+   - Reset portal password
 
-   **Account Settings:**
-   - Patient portal access
-   - Password reset (if applicable)
+   **Account Management:**
+   - Archive patient record
+   - Delete patient (if permitted)
 
-3. **Save changes:**
-   - Modify settings as needed
-   - Click "Save"
-   - Changes applied immediately
+3. **Changes apply immediately**
+   - Toggle switches save automatically
+   - No manual save button required
 
 ---
 
@@ -485,30 +474,6 @@ The Patient Detail page is the comprehensive patient profile view, containing al
 | Gallery | Photo/file attachments |
 | Memberships | Active memberships |
 | Packages | Purchased packages |
-
----
-
-## URL Structure
-
-Tab selection is preserved in URL:
-```
-/[tenant]/patient/[id]?tab=billing
-```
-
-This allows:
-- Direct linking to specific tab
-- Browser back/forward navigation
-- Bookmark specific view
-
----
-
-## Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `1-9` | Switch to tab by number |
-| `Ctrl/Cmd + S` | Save current form |
-| `Escape` | Close modal/dialog |
 
 ---
 

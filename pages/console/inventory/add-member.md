@@ -1,10 +1,5 @@
 # Add Member Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/memberships/add-member/page.tsx`
-**Route:** `/[tenant]/inventory/memberships/add-member`
-
----
-
 ## Overview
 
 The Add Member page enrolls patients in membership plans. It supports immediate payment, deferred billing, prorated first payments, and various payment methods including saved cards and new card entry.
@@ -185,15 +180,6 @@ The Add Member page enrolls patients in membership plans. It supports immediate 
 1. **Click "Cancel" button**
 
 2. **Return to previous page**
-
----
-
-## URL Parameters
-
-| Parameter | Pre-fills |
-|-----------|-----------|
-| membershipId | Membership selection |
-| patientId | Patient selection |
 
 ---
 

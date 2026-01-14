@@ -1,10 +1,5 @@
 # Patient List Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/patient/page.tsx`
-**Route:** `/[tenant]/patient`
-
----
-
 ## Overview
 
 The Patient List page is the central hub for managing all patients in the practice. It provides a searchable, filterable table of patients with quick actions for viewing, creating, merging, and exporting patient data.
@@ -103,13 +98,11 @@ The Patient List page is the central hub for managing all patients in the practi
    - By last name, ascending (A-Z)
 
 **Sortable Columns:**
-- First Name
-- Last Name
-- Phone
-- Email
+- Patient Name
 - Date of Birth
+- Completed Appointments
+- Total Spent
 - Created Date
-- Last Visit
 
 ---
 
@@ -123,11 +116,16 @@ The Patient List page is the central hub for managing all patients in the practi
    - Above or beside the table
    - Dropdown menus or filter buttons
 
-2. **Available filters may include:**
-   - **Tags:** Filter by patient tags
-   - **Status:** Active, Inactive, etc.
-   - **Last Visit:** Date range
+2. **Available filters:**
+   - **Name:** Search by patient name
+   - **Patient ID:** Search by ID
+   - **Email:** Search by email
+   - **Phone Number:** Search by phone
+   - **Created Date:** Filter by date range
+   - **Date of Birth:** Filter by birth date
    - **Location:** Patients at specific locations
+   - **Tags:** Filter by patient tags
+   - **Lead Source:** Filter by how patient was acquired
 
 3. **Apply filters**
    - Select filter criteria
@@ -291,31 +289,19 @@ The Patient List page is the central hub for managing all patients in the practi
 
 **Step-by-Step Instructions:**
 
-1. **Hover over a patient row**
-   - Action buttons appear
-   - Or find actions column on right
+1. **Click patient name**
+   - Opens patient detail sidebar
+   - View patient information quickly
 
-2. **Available quick actions:**
+2. **Click phone number**
+   - Initiates call via system
 
-   **View/Open:**
-   - Click patient name or row
-   - Opens patient detail page
-
-   **Call:**
-   - Click phone icon
-   - Initiates call via system phone
-
-   **Message:**
-   - Click message icon
-   - Opens chat/SMS with patient
-
-   **Schedule:**
-   - Click calendar icon
-   - Opens appointment scheduling with patient pre-selected
-
-   **More Actions (⋮ menu):**
-   - Additional options in dropdown
-   - Edit, Delete, Tag, etc.
+3. **Select multiple patients**
+   - Use checkboxes to select
+   - Bulk actions appear:
+     - Merge selected patients
+     - Send bulk text message
+     - Archive patients
 
 ---
 
@@ -323,13 +309,13 @@ The Patient List page is the central hub for managing all patients in the practi
 
 | Column | Description |
 |--------|-------------|
-| Name | Patient's full name (link to detail) |
-| Phone | Mobile phone number |
-| Email | Email address |
-| DOB | Date of birth |
-| Tags | Assigned patient tags |
-| Last Visit | Most recent appointment date |
-| Actions | Quick action buttons |
+| Patient Name | Full name with gender icon (link to detail) |
+| Date of Birth | Patient's birth date |
+| Contact Info | Phone, email, and lead source |
+| Address | Street address, city, state, ZIP |
+| Completed Appointments | Count of completed appointments |
+| Total Spent | Total amount spent by patient |
+| Created Date | When patient was added to system |
 
 ---
 
@@ -356,15 +342,7 @@ The Patient List page is the central hub for managing all patients in the practi
 
 ## Permissions
 
-| Action | Admin | Manager | Staff |
-|--------|-------|---------|-------|
-| View patients | ✓ | ✓ | ✓ |
-| Create patients | ✓ | ✓ | ✓ |
-| Edit patients | ✓ | ✓ | Limited |
-| Delete patients | ✓ | ✓ | ✗ |
-| Merge patients | ✓ | ✓ | ✗ |
-| Export data | ✓ | ✓ | ✗ |
-| Bulk import | ✓ | ✓ | ✗ |
+All patient management actions are available to users with appropriate patient access. Specific permissions may be configured per role in Settings.
 
 ---
 

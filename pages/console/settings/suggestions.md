@@ -1,10 +1,5 @@
 # Suggestions Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/suggestions/page.tsx`
-**Route:** `/[tenant]/settings/suggestions`
-
----
-
 ## Overview
 
 The Suggestions page manages text shortcuts and saved responses. Create quick text snippets that can be inserted anywhere by typing "@" followed by the suggestion label.

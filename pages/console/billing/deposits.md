@@ -1,10 +1,5 @@
 # Deposits Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/deposits/page.tsx`
-**Route:** `/[tenant]/billing/deposits`
-
----
-
 ## Overview
 
 The Deposits page tracks bank deposits from payment processing. Staff can view deposit history, see transaction breakdowns, track fees, and reconcile payments with bank statements.
@@ -32,20 +27,21 @@ The Deposits page tracks bank deposits from payment processing. Staff can view d
 
 ---
 
-### 2. Filter by Month
+### 2. Filter Deposits
 
-**Purpose:** View deposits for a specific time period.
+**Purpose:** View deposits for a specific time period or criteria.
 
 **Step-by-Step Instructions:**
 
-1. **Locate month selector**
-   - Top right corner
+1. **Available filters:**
+   - **Month:** Select from available months
+   - **Merchant Account:** Filter by payment processor (if multiple)
+   - **Status:** Filter by deposit status
+   - **Date Range:** Filter by created date
 
-2. **Click dropdown**
-   - Shows available months
-
-3. **Select month**
-   - Table updates to show that month's deposits
+2. **Apply filter**
+   - Select from dropdown
+   - Table updates to show matching deposits
 
 ---
 
@@ -75,7 +71,8 @@ The Deposits page tracks bank deposits from payment processing. Staff can view d
 **Step-by-Step Instructions:**
 
 1. **Click column header**
-   - Amount, Date, Status, etc.
+   - Subtotal, Fees, Amount Deposited, Transactions, Created
+   - Note: Status column is not sortable
 
 2. **Toggle sort direction**
    - Ascending/descending
@@ -144,11 +141,11 @@ The Deposits page tracks bank deposits from payment processing. Staff can view d
 
 When clicking a deposit, the drawer shows:
 
-- **Payment List:** Each payment included
-- **Refund List:** Any refunds applied
-- **Fee Breakdown:** Per-transaction and deposit fees
+- **Transactions:** Combined list of payments and refunds included
+- **Fee Summary:** Payment fees, refund fees, deposit fees, and total
+- **Merchant Account:** Payment processor info (if multiple accounts)
+- **Description:** Additional details if available
 - **Timing:** When initiated and completed
-- **Bank Info:** Destination account details
 
 ---
 
@@ -168,7 +165,6 @@ If your practice has multiple merchant accounts:
 |--------|-------|---------|-------|
 | View deposits | ✓ | ✓ | ✗ |
 | View details | ✓ | ✓ | ✗ |
-| Export data | ✓ | ✓ | ✗ |
 
 ---
 

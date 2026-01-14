@@ -1,10 +1,5 @@
 # Profile Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/profile/page.tsx`
-**Route:** `/[tenant]/settings/profile`
-
----
-
 ## Overview
 
 The Profile page allows users to manage their personal information including profile picture, contact details, and bio. Changes auto-save as you type.

@@ -1,10 +1,5 @@
 # Memberships Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/memberships/page.tsx`
-**Route:** `/[tenant]/inventory/memberships`
-
----
-
 ## Overview
 
 The Memberships page manages recurring membership plans. Staff can create, edit, and archive memberships, view member counts, track revenue, and manage membership benefits like credits and discounts.

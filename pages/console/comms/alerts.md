@@ -1,10 +1,5 @@
 # Alerts Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/alerts/page.tsx`
-**Route:** `/[tenant]/alerts`
-
----
-
 ## Overview
 
 The Alerts page is the central hub for viewing and managing system notifications across all modules. It displays alerts requiring attention, organized by module with filtering and action capabilities.
@@ -272,17 +267,6 @@ Each card shows:
 | `↑` / `↓` | Navigate alerts |
 | `Enter` | Open alert details |
 | `Escape` | Close details |
-
----
-
-## URL Parameters
-
-Filters preserved in URL:
-```
-?lastNDays=7&alertType=NO_SHOW,PAYMENT_FAILED&actionRequired=true
-```
-
-Share URL to give others same filtered view.
 
 ---
 

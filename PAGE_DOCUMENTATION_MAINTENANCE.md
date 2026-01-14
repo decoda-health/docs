@@ -47,11 +47,6 @@ Each individual page documentation file should follow this template:
 ```markdown
 # [Page Name] Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/.../.../page.tsx`
-**Route:** `/[tenant]/.../...`
-
----
-
 ## Overview
 
 [1-2 sentence description of what the page does and who uses it]
@@ -224,12 +219,12 @@ Use the template format from docs/PAGE_DOCUMENTATION_MAINTENANCE.md
 Before committing documentation updates:
 
 - [ ] All page.tsx files have corresponding documentation
-- [ ] File paths in documentation match actual paths
-- [ ] Routes in documentation are accurate
 - [ ] All visible UI actions are documented
 - [ ] Permission tables reflect actual role restrictions
 - [ ] No placeholder text remains
 - [ ] Troubleshooting section addresses common issues
+- [ ] Documentation is non-technical (no file paths, routes, or code references)
+- [ ] Instructions are factually accurate and match actual UI
 
 ---
 

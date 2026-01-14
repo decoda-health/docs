@@ -1,10 +1,5 @@
 # Upload History Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/patient/upload-history/page.tsx`
-**Route:** `/[tenant]/patient/upload-history`
-
----
-
 ## Overview
 
 The Upload History page displays the status and history of all patient CSV uploads. Staff can monitor processing uploads, view completed uploads, and see error details for failed uploads. Page auto-refreshes while uploads are processing.

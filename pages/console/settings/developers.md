@@ -1,10 +1,5 @@
 # Developers Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/developers/page.tsx`
-**Route:** `/[tenant]/settings/developers`
-
----
-
 ## Overview
 
 The Developers page provides API and integration tools including Google Tag Manager configuration, webhook management, and links to API documentation. For technical integrations.

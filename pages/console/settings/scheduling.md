@@ -1,10 +1,5 @@
 # Scheduling Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/scheduling/page.tsx`
-**Route:** `/[tenant]/settings/scheduling`
-
----
-
 ## Overview
 
 The Scheduling page configures appointment booking settings including self-scheduling options, capacity limits, and blacklisted time slots. Controls how patients can book and what limits are enforced.

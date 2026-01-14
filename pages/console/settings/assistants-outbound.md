@@ -1,10 +1,5 @@
 # Outbound Assistant Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/assistants/outbound/page.tsx`
-**Route:** `/[tenant]/settings/assistants/outbound`
-
----
-
 ## Overview
 
 The Outbound Assistant page manages AI phone assistants that make outgoing calls. Configure biller assistants, reminder calls, follow-up calls, and lab technician calls.

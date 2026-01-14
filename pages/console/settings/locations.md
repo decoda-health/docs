@@ -1,10 +1,5 @@
 # Locations Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/locations/page.tsx`
-**Route:** `/[tenant]/settings/locations`
-
----
-
 ## Overview
 
 The Locations page manages practice locations. Staff can add, edit, and configure multiple physical or virtual locations with their own hours, staff, and settings.

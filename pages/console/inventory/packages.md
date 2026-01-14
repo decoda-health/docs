@@ -1,10 +1,5 @@
 # Packages Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/inventory/packages/page.tsx`
-**Route:** `/[tenant]/inventory/packages`
-
----
-
 ## Overview
 
 The Packages page manages product/service bundles sold at bundled prices. Staff can create, edit, and delete packages, view usage statistics, and manage pricing and categories.

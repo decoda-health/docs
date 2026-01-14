@@ -1,10 +1,5 @@
 # Scribe Assistant Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/assistants/scribe/page.tsx`
-**Route:** `/[tenant]/settings/assistants/scribe`
-
----
-
 ## Overview
 
 The Scribe Assistant page configures the AI that generates clinical notes from audio recordings. Customize note generation behavior and AI model selection.

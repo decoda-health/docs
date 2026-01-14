@@ -1,10 +1,5 @@
 # Review Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/review/[eventId]/page.tsx`
-**Route:** `/[tenant]/review/[eventId]`
-
----
-
 ## Overview
 
 The Review page allows patients to provide feedback about their appointment experience. After submitting, positive reviews may be redirected to external review platforms (Google, Yelp, etc.) while negative reviews are captured internally for service improvement.

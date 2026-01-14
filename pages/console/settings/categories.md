@@ -1,10 +1,5 @@
 # Categories Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/categories/page.tsx`
-**Route:** `/[tenant]/settings/categories`
-
----
-
 ## Overview
 
 The Categories page manages categories for organizing services, items, and stock. Categories help group related items for easier navigation and reporting.

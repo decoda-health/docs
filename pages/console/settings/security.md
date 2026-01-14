@@ -1,10 +1,5 @@
 # Security Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/security/page.tsx`
-**Route:** `/[tenant]/settings/security`
-
----
-
 ## Overview
 
 The Security page allows users to update their account password. Requires current password verification before setting new password.

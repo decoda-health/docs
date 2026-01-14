@@ -1,10 +1,5 @@
 # Charges Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/billing/charges/page.tsx`
-**Route:** `/[tenant]/billing/charges`
-
----
-
 ## Overview
 
 The Charges page displays all patient charges with comprehensive filtering, sorting, and action capabilities. Staff can view charge details, process payments, issue refunds, make adjustments, and manage payment plans.
@@ -26,8 +21,11 @@ The Charges page displays all patient charges with comprehensive filtering, sort
    - Each row displays:
      - Amount and status
      - Patient information
+     - Provider
+     - Service
+     - Location
+     - Source
      - Created date
-     - Settlement details
      - Actions
 
 ---
@@ -62,11 +60,14 @@ The Charges page displays all patient charges with comprehensive filtering, sort
    - Below page header
 
 2. **Available filters:**
-   - **Status:** Outstanding, Paid, Refunded, etc.
+   - **Status:** Outstanding, Paid, Written Off, etc.
    - **Date Range:** Start and end dates
-   - **Amount:** Min/max amounts
    - **Patient:** Search by name
-   - **Creator:** Who created the charge
+   - **Provider:** Filter by provider
+   - **Service:** Filter by service type
+   - **Location:** Filter by location
+   - **Charge ID:** Search by charge ID
+   - **External ID:** Search by external ID
 
 3. **Apply filters**
    - Select/enter filter values
@@ -325,9 +326,10 @@ The Charges page displays all patient charges with comprehensive filtering, sort
 | Payment Plan | Active payment plan |
 | Paid | Fully paid |
 | External Settlement | Paid outside system |
-| Partially Paid | Some amount paid |
 | Written Off | Marked uncollectible |
 | Refunded | Payment returned |
+| Void | Charge voided |
+| Chargeback | Disputed transaction |
 
 ---
 

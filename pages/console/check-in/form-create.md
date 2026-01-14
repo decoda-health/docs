@@ -1,10 +1,5 @@
 # Create Consent Form Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/check-in/forms/create-consent/page.tsx`
-**Route:** `/[tenant]/check-in/forms/create-consent`
-
----
-
 ## Overview
 
 The Create Consent Form page provides a form builder interface for creating new intake and consent forms. Users can add various field types, configure conditional logic, and set up signature requirements.

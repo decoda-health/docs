@@ -1,10 +1,5 @@
 # Reschedule Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/reschedule/page.tsx`
-**Route:** `/[tenant]/reschedule`
-
----
-
 ## Overview
 
 The Reschedule page is a redirect page maintained for backward compatibility. It automatically redirects users to the Self-Schedule page where they can manage their appointments.
@@ -31,23 +26,6 @@ The Reschedule page is a redirect page maintained for backward compatibility. It
    - Click "Reschedule or Cancel" button
    - Complete MFA verification
    - Manage their appointment
-
----
-
-## URL Parameters
-
-| Parameter | Description |
-|-----------|-------------|
-| `locationId` | Optional - pre-selects a specific location |
-
----
-
-## Redirect Behavior
-
-**From:** `/[tenant]/reschedule?locationId=xxx`
-**To:** `/[tenant]/self-schedule?locationId=xxx`
-
-The redirect preserves the locationId parameter if present.
 
 ---
 

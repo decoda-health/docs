@@ -1,10 +1,5 @@
 # Rules Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/rules/page.tsx`
-**Route:** `/[tenant]/settings/rules`
-
----
-
 ## Overview
 
 The Rules page manages rule sets for patient collections and billing. Rule sets define how patient balances are processed, aging rules, and automated collection workflows.

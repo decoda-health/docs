@@ -1,10 +1,5 @@
 # Notifications Page - User Actions Guide
 
-**File Path:** `console/src/app/[tenant]/(console)/settings/notifications/page.tsx`
-**Route:** `/[tenant]/settings/notifications`
-
----
-
 ## Overview
 
 The Notifications page allows users to configure their personal notification preferences. Control which alerts you receive via SMS and Email, enable location filtering, and manage bulk notification settings.
