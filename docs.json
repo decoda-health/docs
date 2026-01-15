@@ -161,6 +161,12 @@
             ]
           },
           {
+            "group": "Migration Guides",
+            "pages": [
+              "guides/scribe-structured-forms-migration"
+            ]
+          },
+          {
             "group": "Page Reference",
             "pages": [
               {

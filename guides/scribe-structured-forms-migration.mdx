@@ -1,0 +1,214 @@
+# Scribe Structured Forms Update
+
+We're excited to announce a major upgrade to how notes work in Decoda. Templates now use **structured form fields** instead of a content block, giving you more control over your documentation and better integration with patient records.
+
+**Rolling out January 2026.**
+
+> Need help? Ask your AI assistant using this prompt:
+>
+> "Help me understand the Decoda Scribe structured forms update. Here is the documentation: https://docs.decoda.com/guides/scribe-structured-forms-migration"
+>
+> [<img src="/images/logos/chatgpt-logo.svg" alt="ChatGPT" width="20" height="20" style={{display: 'inline', verticalAlign: 'middle', marginRight: '4px'}} /> **ChatGPT**](https://chatgpt.com/?q=Help%20me%20understand%20the%20Decoda%20Scribe%20structured%20forms%20update.%20Here%20is%20the%20documentation%3A%20https%3A%2F%2Fdocs.decoda.com%2Fguides%2Fscribe-structured-forms-migration) • [<img src="/images/logos/claude-logo.svg" alt="Claude" width="20" height="20" style={{display: 'inline', verticalAlign: 'middle', marginRight: '4px'}} /> **Claude**](https://claude.ai/new?q=Help%20me%20understand%20the%20Decoda%20Scribe%20structured%20forms%20update.%20Here%20is%20the%20documentation%3A%20https%3A%2F%2Fdocs.decoda.com%2Fguides%2Fscribe-structured-forms-migration)
+
+---
+
+## What's New
+
+**Before:** Templates were blocks of text with placeholders like `{{chief_complaint}}`. AI filled these in as free-form prose.
+
+**Now:** Templates are structured forms with specific field types. Each piece of information has its own input—text fields, dropdowns, toggles, date pickers, and more.
+
+### Why This Matters
+
+- **Cleaner data** — Information is organized into discrete fields, not buried in paragraphs
+- **Patient record sync** — Vitals and medical history fields automatically update the patient chart
+- **Better AI extraction** — Structured fields help AI understand exactly what to capture from recordings
+- **Easier editing** — Edit individual answers instead of hunting through text blocks
+- **Flexible inputs** — Use the right input type for each piece of data (dropdowns for choices, toggles for yes/no, etc.)
+
+---
+
+## Template Management
+
+Templates now contain **questions** (form fields) instead of a content block.
+
+### Creating a Template
+
+1. Go to **Settings > Note Templates**
+2. Click **Create Template**
+3. Name your template
+4. Add questions from the left panel
+
+### Adding Questions
+
+The left panel has three sections:
+
+**Form Fields** — Basic input types you can add:
+
+- Short Text / Long Text
+- Number
+- Date
+- Single Choice (dropdown or radio)
+- Multiple Choice (checkboxes)
+- Yes/No Toggle (on/off switch)
+
+**Patient Record** — Pre-mapped fields that auto-save to the patient chart:
+
+- Weight, Height, Blood Pressure, etc.
+- Allergies, Medications, Medical History
+- These show with a green indicator
+
+**Attachments** — Photo upload field with placeholder slots for organizing and annotating images (e.g., "Before Photo", "After Photo"). Previously attachments lived in a separate tab—now they can be placed inline with your note content wherever you want them
+
+### Configuring Questions
+
+Each question has:
+
+- **Label** — The question text shown to users (e.g., "Chief Complaint")
+- **Required** — Switch to make it mandatory
+- **AI Description** — Extra context to help AI extract the right answer from recordings. For example, if your label is "Subjective", you might add "Patient's chief complaint, history of present illness, and symptoms in their own words" so AI knows what to look for in the transcript
+- **Placeholder** — Gray hint text shown inside empty fields (e.g., "Enter chief complaint here")
+- **Options** — For choice fields, the list of selectable options
+
+### Reordering & Editing
+
+- **Drag** the handle icon to reorder questions
+- **Click** any question to edit it
+- **Delete** using the trash icon in edit mode
+
+### Provider Access
+
+Control which providers can use this template:
+
+1. Click **Provider Access** in the sidebar
+2. Select providers by name or location
+3. Use "All" or "None" for quick selection
+
+---
+
+## Creating Notes
+
+Both AI Scribe and Manual notes now use the structured form approach.
+
+### AI Scribe Notes
+
+1. Start a recording as usual
+2. When finished, click **Generate AI Note**
+3. Select a template (if not already selected)
+4. AI extracts answers for each question from your recording
+5. Review the structured answers in the **Clinician's Note** tab
+6. Edit any fields as needed
+7. Save when ready
+
+**Tabs available:**
+
+- **Clinician's Note** — Your structured answers
+- **Transcript** — Full recording transcription
+- **Note Template** — Reference view of the template
+- **Codes** — Medical codes (if enabled)
+
+**AI Chat:** After generation, use the chat at the bottom to refine answers. Ask things like "Make the assessment more concise" or "Add more detail about symptoms."
+
+### Manual Notes
+
+1. Click **Create Note** and choose **Manual**
+2. Select a template
+3. Fill in each question directly
+4. Save when complete
+
+All template questions appear as a form—fill them in one by one using the appropriate input controls.
+
+---
+
+## Field Types Reference
+
+| Type            | Best For         | Example                         |
+| --------------- | ---------------- | ------------------------------- |
+| Short Text      | Brief answers    | Chief complaint, diagnosis      |
+| Long Text       | Detailed notes   | Assessment, plan, history       |
+| Number          | Measurements     | Age, dosage amounts             |
+| Date            | Dates            | Onset date, follow-up           |
+| Single Choice   | Pick one option  | Severity (Mild/Moderate/Severe) |
+| Multiple Choice | Pick several     | Symptoms checklist              |
+| Yes/No Toggle   | Binary questions | "Side effects reported?"        |
+| Weight          | Patient weight   | Auto-formats with "lbs"         |
+| Height          | Patient height   | Shows as 5' 10"                 |
+| Medications     | Medication list  | Pulls from patient record       |
+| Attachments     | Photos           | Before/after images             |
+
+---
+
+## Migrating Existing Templates
+
+Templates from before this update were automatically converted. They appear as a single "Long Text" field containing your old template structure. **You can keep using them this way**—conversion to structured fields is optional but recommended.
+
+### Convert to Structured Form
+
+For better organization, convert these legacy templates:
+
+1. Open the template in **Settings > Note Templates**
+2. Look for the blue **"Legacy Template Detected"** banner
+3. Click **Convert to Structured Form**
+4. AI analyzes your old template and suggests structured questions
+5. Questions appear one by one as they're generated—review each one
+6. Click **Apply Questions** to replace the legacy field
+7. Review and adjust the generated questions as needed
+8. **Save** the template
+
+The AI does its best to infer the right field types (text vs. dropdown vs. toggle) based on your original template content.
+
+**Tips:**
+
+- Want to keep the original? Duplicate the template first before running the conversion
+- Not happy with the suggestions? Discard the changes and your template stays unchanged
+- After applying, you can still manually edit, add, or remove questions before saving
+
+---
+
+## Your Data is Safe
+
+**Existing notes are unchanged.** All notes created before this update remain exactly as they were. You can still view and access them normally.
+
+The new structured format only applies to notes created after the update.
+
+---
+
+## Quick Reference
+
+| Task                       | How                                                                |
+| -------------------------- | ------------------------------------------------------------------ |
+| Create template            | Settings > Note Templates > Create                                 |
+| Add a question             | Click field type in left panel                                     |
+| Reorder questions          | Drag the handle icon                                               |
+| Make field required        | Toggle "Required" in question settings                             |
+| Help AI extract better     | Add description in "AI Description" field                          |
+| Auto-save to patient chart | Use fields from "Patient Record" section                           |
+| Convert old template       | Click "Convert to Structured Form" banner                          |
+| Edit AI-generated answers  | Click the pencil icon on the note, edit fields directly, then Save |
+
+---
+
+## Tips for Best Results
+
+**For AI Scribe:**
+
+- Add **AI Descriptions** to questions to guide extraction (e.g., "Chief complaint and history of present illness")
+- Use specific field types—dropdowns work better than free text for fixed options
+- Review the transcript tab if AI missed something
+
+**For Templates:**
+
+- Use **Patient Record** fields for vitals so they sync to the chart
+- Mark truly required fields as required—don't overdo it
+- Group related questions together using consistent ordering
+
+---
+
+## Need Help?
+
+- Contact support if you have questions about migrating specific templates
+- Ask your AI assistant for quick answers using this prompt:
+
+  > "Help me with Decoda Scribe structured forms. Docs: https://docs.decoda.com/guides/scribe-structured-forms-migration"
+
+  [<img src="/images/logos/chatgpt-logo.svg" alt="ChatGPT" width="20" height="20" style={{display: 'inline', verticalAlign: 'middle', marginRight: '4px'}} /> **ChatGPT**](https://chatgpt.com/?q=Help%20me%20with%20Decoda%20Scribe%20structured%20forms.%20Docs%3A%20https%3A%2F%2Fdocs.decoda.com%2Fguides%2Fscribe-structured-forms-migration) • [<img src="/images/logos/claude-logo.svg" alt="Claude" width="20" height="20" style={{display: 'inline', verticalAlign: 'middle', marginRight: '4px'}} /> **Claude**](https://claude.ai/new?q=Help%20me%20with%20Decoda%20Scribe%20structured%20forms.%20Docs%3A%20https%3A%2F%2Fdocs.decoda.com%2Fguides%2Fscribe-structured-forms-migration)
