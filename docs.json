@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/docs.json",
   "redirects": [
     {
-      "source": "/guides/scribe-forms-migration",
-      "destination": "/guides/scribe-structured-forms-migration"
+      "source": "/guides/scribe-structured-forms-migration",
+      "destination": "/guides/scribe-forms-migration"
     }
   ],
   "theme": "mint",
@@ -169,7 +169,7 @@
           {
             "group": "Migration Guides",
             "pages": [
-              "guides/scribe-structured-forms-migration"
+              "guides/scribe-forms-migration"
             ]
           },
           {
