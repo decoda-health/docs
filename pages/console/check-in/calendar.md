@@ -50,14 +50,14 @@ The Calendar page is the primary appointment management interface for healthcare
    - "Today" button to return to current date
 
 2. **Navigate to previous period**
-   - Click the left arrow (◀ or <)
+   - Click the left arrow (◀ or `<`)
    - View shifts based on current view:
      - Day view: Previous day
      - Week view: Previous week
      - Month view: Previous month
 
 3. **Navigate to next period**
-   - Click the right arrow (▶ or >)
+   - Click the right arrow (▶ or `>`)
    - View shifts based on current view
 
 4. **Return to today**

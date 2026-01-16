@@ -168,8 +168,8 @@ The Patient List page is the central hub for managing all patients in the practi
    - Shows current page and total
 
 2. **Navigate pages:**
-   - Click "Next" or ">" for next page
-   - Click "Previous" or "<" for previous page
+   - Click "Next" or `>` for next page
+   - Click "Previous" or `<` for previous page
    - Click page number for specific page
 
 3. **Change page size:**

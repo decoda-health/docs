@@ -201,8 +201,8 @@ The Self-Schedule page enables patients to book their own appointments online. I
    - Unavailable dates are grayed out
 
 2. **Navigate between months**
-   - Click the left arrow (<) to go to the previous month
-   - Click the right arrow (>) to go to the next month
+   - Click the left arrow (`<`) to go to the previous month
+   - Click the right arrow (`>`) to go to the next month
    - Current month name and year are displayed at top
 
 3. **Select a date**
