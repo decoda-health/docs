@@ -1,5 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
+  "redirects": [
+    {
+      "source": "/guides/scribe-forms-migration",
+      "destination": "/guides/scribe-structured-forms-migration"
+    }
+  ],
   "theme": "mint",
   "name": "Decoda Health",
   "colors": {
@@ -163,7 +169,7 @@
           {
             "group": "Migration Guides",
             "pages": [
-              "guides/scribe-forms-migration"
+              "guides/scribe-structured-forms-migration"
             ]
           },
           {

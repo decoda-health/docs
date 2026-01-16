@@ -1,20 +1,18 @@
 # AI Scribe & Medical Notes Guide
 
-Use artificial intelligence to create clinical notes automatically. Save time on documentation while maintaining comprehensive patient records...
+Use artificial intelligence to create clinical notes automatically. Save time on documentation while maintaining comprehensive patient records.
 
 ## Getting Started
 
-Access the scribe feature by clicking **Clinical \> Scribe** or **Patient \> Medical Notes & Data**.
+Access the scribe feature by clicking **Clinical > Scribe** or **Patient > Medical Notes & Data**.
 
 Two main capabilities:
-
 - **AI Scribe** - AI listens to appointments and creates notes
 - **Note Templates** - Pre-formatted notes you customize quickly
 
 ## AI Scribe Explained
 
 The AI Scribe works by:
-
 1. Recording the appointment (voice or video)
 2. Transcribing what was said
 3. Extracting key clinical information
@@ -24,7 +22,6 @@ The AI Scribe works by:
 ### How It Works
 
 **During Appointment:**
-
 1. Open patient appointment
 2. Click **Start Scribe**
 3. AI listens to conversation
@@ -32,7 +29,6 @@ The AI Scribe works by:
 5. Click **Stop Scribe** when done
 
 **After Appointment:**
-
 1. AI processes recording
 2. Creates transcript
 3. Generates draft note
@@ -44,7 +40,6 @@ The AI Scribe works by:
    - Follow-up instructions
 
 **You Review:**
-
 1. Read AI-generated note
 2. Edit for accuracy
 3. Add missing information
@@ -54,7 +49,6 @@ The AI Scribe works by:
 ### Starting a Recording
 
 **Before Appointment:**
-
 1. Go to appointment in calendar
 2. Click **Create Note**
 3. Choose **AI Scribe**
@@ -62,14 +56,12 @@ The AI Scribe works by:
 5. Device starts recording
 
 **During Appointment:**
-
 1. Speak naturally
 2. No special equipment needed
 3. Built-in microphone works
 4. Can move around freely
 
 **After Appointment:**
-
 1. Click **Stop Recording**
 2. System starts processing
 3. Takes 5-15 minutes typically
@@ -79,14 +71,12 @@ The AI Scribe works by:
 ### Processing Time
 
 Processing depends on:
-
 - Appointment length
 - Audio quality
 - System load
 - Speech clarity
 
 Typical timeline:
-
 - 30-minute appointment → 10 minutes processing
 - 60-minute appointment → 15 minutes processing
 
@@ -96,7 +86,7 @@ You'll receive notification when note is ready.
 
 ### Reading the Transcript
 
-1. Go to **Clinical \> Scribe**
+1. Go to **Clinical > Scribe**
 2. Find appointment
 3. Click **View Transcript**
 4. Read full word-for-word transcript
@@ -104,7 +94,6 @@ You'll receive notification when note is ready.
 6. Search feature finds specific topics
 
 Use transcript to:
-
 - Review exactly what was said
 - Find specific information
 - Verify accuracy
@@ -123,7 +112,6 @@ AI creates draft note, you edit:
 7. Refine plan/next steps
 
 **What to look for:**
-
 - Drug names spelled correctly
 - Dosages accurate
 - Plan is clear and actionable
@@ -143,7 +131,6 @@ For cosmetic/aesthetic procedures:
 6. Attaches to patient record
 
 Photos useful for:
-
 - Before/after documentation
 - Treatment assessment
 - Patient satisfaction
@@ -176,37 +163,31 @@ Instead of AI Scribe, use templates for faster entry:
 Templates typically include:
 
 **Header:**
-
 - Patient name, DOB, MRN
 - Date of visit
 - Provider name
 - Appointment type
 
 **Chief Complaint:**
-
 - Patient's main concern
 - Duration/onset
 
 **History of Present Illness:**
-
 - Detailed symptom description
 - Relevant medical history
 - What's been tried
 - Results
 
 **Physical Examination:**
-
 - Vital signs
 - Examination findings
 - Relevant observations
 
 **Assessment:**
-
 - Diagnosis or impression
 - Brief reasoning
 
 **Plan:**
-
 - Treatment plan
 - Medications prescribed
 - Follow-up needed
@@ -217,16 +198,15 @@ Templates typically include:
 
 Create your own template:
 
-1. Go to **Settings \> Note Templates**
+1. Go to **Settings > Note Templates**
 2. Click **Create Template**
 3. Name it (e.g., "Botox Consultation")
 4. Add sections
 5. Add standard text (auto-fills)
-6. Add variable fields ({PATIENT_NAME})
+6. Add variable fields ({{PATIENT_NAME}})
 7. Save
 
 Variables auto-populate:
-
 - {{PATIENT_NAME}}
 - {{DOB}}
 - {{DATE}}
@@ -247,7 +227,6 @@ See all notes in order:
 6. Search for keywords
 
 Each note shows:
-
 - Date created
 - Provider who created
 - Note type
@@ -284,7 +263,6 @@ Type-free note creation:
 5. Save
 
 Good for:
-
 - Quick notes after appointment
 - Hands-free entry while in clinic
 - When keyboard not available
@@ -292,7 +270,6 @@ Good for:
 ### API Integration
 
 Connect notes to external systems:
-
 - Electronic health records (EHR)
 - Accounting software
 - Patient portals
@@ -316,7 +293,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 ### Recording Quality
 
 **Good Audio:**
-
 - Quiet environment
 - Close to microphone
 - Clear speech
@@ -324,7 +300,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - Slow and clear pronunciation
 
 **Poor Audio:**
-
 - Loud background noise
 - Far from microphone
 - Mumbling or unclear speech
@@ -336,7 +311,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 ### Note Completeness
 
 **Always Include:**
-
 - Chief complaint
 - Relevant history
 - Examination findings
@@ -347,7 +321,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - Patient education
 
 **Never Forget:**
-
 - Patient allergies
 - Medication interactions
 - Contraindications
@@ -357,7 +330,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 ### Using AI Effectively
 
 **AI is Good At:**
-
 - Transcribing words
 - Organizing information
 - Creating structure
@@ -365,7 +337,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - Suggesting sections
 
 **AI May Miss:**
-
 - Clinical judgment
 - Subtle findings
 - Differential diagnoses
@@ -373,7 +344,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - Risk assessments
 
 **Always:**
-
 - Review AI output
 - Make corrections
 - Add clinical thinking
@@ -383,7 +353,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 ### Documentation Standards
 
 **Legal Requirements:**
-
 - Legible and clear
 - Dated and signed
 - Complete and accurate
@@ -391,7 +360,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - Protected from unauthorized access
 
 **Best Practices:**
-
 - Use objective language
 - Document what you observed (not assumptions)
 - Include patient education given
@@ -402,7 +370,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 ### Protecting Patient Privacy
 
 **Security:**
-
 - Records encrypted
 - Only authorized staff access
 - Audit trail of who accessed note
@@ -410,7 +377,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - HIPAA compliant
 
 **Never:**
-
 - Leave notes visible on screens
 - Discuss patients where overheard
 - Share notes with unauthorized people
@@ -420,7 +386,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 ## Troubleshooting
 
 **"Recording didn't work"**
-
 - Check microphone is enabled
 - Verify internet connection stable
 - Try in quieter environment
@@ -428,7 +393,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - Try different browser
 
 **"Transcription is inaccurate"**
-
 - Audio quality may be poor
 - Background noise was present
 - Speech too fast or unclear
@@ -436,7 +400,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - Edit manually or re-record
 
 **"AI missed important information"**
-
 - AI focused on main points
 - Add missing info in edit
 - Use templates for consistency
@@ -444,7 +407,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 - Report errors to improve system
 
 **"Can't find note I created"**
-
 - Check date range filter
 - Search by keyword
 - Check patient's name spelling
@@ -465,7 +427,6 @@ Example: "Patient doing well post-op. No complications. Pain managed. Next visit
 ### Documentation Audits
 
 Regular audits ensure:
-
 - Notes complete and accurate
 - Timely completion
 - Proper authentication
@@ -475,7 +436,6 @@ Regular audits ensure:
 ### Retention Requirements
 
 Keep notes:
-
 - Minimum 3-7 years (varies by state)
 - Some states require longer
 - Consult legal/regulatory requirements
@@ -485,12 +445,11 @@ Keep notes:
 ### Patient Access
 
 Patients have right to:
-
 - Request copy of notes
 - Request corrections
 - Know who accessed records
 - Data privacy
 
-Implement in **Settings \> Patient Portal**.
+Implement in **Settings > Patient Portal**.
 
 For advanced documentation features, speech recognition in multiple languages, or custom templates, contact your account manager.
