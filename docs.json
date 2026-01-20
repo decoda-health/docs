@@ -24,18 +24,14 @@
             "pages": [
               {
                 "group": "Getting Started",
-                "pages": [
-                  "help/introduction"
-                ]
+                "pages": ["help/introduction"]
               },
               {
                 "group": "Help & Support",
                 "pages": [
                   {
                     "group": "AI Front Desk",
-                    "pages": [
-                      "help/ai-front-desk"
-                    ]
+                    "pages": ["help/ai-front-desk"]
                   },
                   {
                     "group": "Payments",
@@ -69,27 +65,19 @@
                   },
                   {
                     "group": "Scheduling & Intake",
-                    "pages": [
-                      "help/scheduling"
-                    ]
+                    "pages": ["help/scheduling"]
                   },
                   {
                     "group": "SpaKinect Integration",
-                    "pages": [
-                      "guides/spakinect-good-faith-exams"
-                    ]
+                    "pages": ["guides/spakinect-good-faith-exams"]
                   },
                   {
                     "group": "Scribe & Note-Taking",
-                    "pages": [
-                      "help/ai-notes"
-                    ]
+                    "pages": ["help/ai-notes"]
                   },
                   {
                     "group": "Smart Mentions",
-                    "pages": [
-                      "help/smart-mentions"
-                    ]
+                    "pages": ["help/smart-mentions"]
                   }
                 ]
               }
@@ -115,21 +103,15 @@
               },
               {
                 "group": "Billing & Payments",
-                "pages": [
-                  "guides/billing-payments"
-                ]
+                "pages": ["guides/billing-payments"]
               },
               {
                 "group": "Communications",
-                "pages": [
-                  "guides/communications"
-                ]
+                "pages": ["guides/communications"]
               },
               {
                 "group": "Forms & Intake",
-                "pages": [
-                  "guides/forms-intake"
-                ]
+                "pages": ["guides/forms-intake"]
               },
               {
                 "group": "Inventory & Products",
@@ -140,16 +122,11 @@
               },
               {
                 "group": "Notes & Documentation",
-                "pages": [
-                  "guides/ai-scribe-notes"
-                ]
+                "pages": ["guides/ai-scribe-notes"]
               },
               {
                 "group": "Analytics & Reporting",
-                "pages": [
-                  "guides/analytics-dashboards",
-                  "guides/alerts-system"
-                ]
+                "pages": ["guides/analytics-dashboards", "guides/alerts-system"]
               },
               {
                 "group": "Settings & Configuration",
@@ -160,17 +137,13 @@
               },
               {
                 "group": "Integrations",
-                "pages": [
-                  "guides/spakinect-good-faith-exams"
-                ]
+                "pages": ["guides/spakinect-good-faith-exams"]
               }
             ]
           },
           {
             "group": "Migration Guides",
-            "pages": [
-              "guides/scribe-forms-migration"
-            ]
+            "pages": ["guides/scribe-forms-migration"]
           },
           {
             "group": "Page Reference",
@@ -243,9 +216,7 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": [
-              "api-reference/introduction"
-            ]
+            "pages": ["api-reference/introduction"]
           },
           {
             "group": "API",
@@ -874,9 +845,7 @@
               },
               {
                 "group": "System",
-                "pages": [
-                  "api-reference/provider/get-system-toasts"
-                ]
+                "pages": ["api-reference/provider/get-system-toasts"]
               }
             ]
           },
@@ -917,9 +886,7 @@
         "groups": [
           {
             "group": "Updates",
-            "pages": [
-              "updates/changelog"
-            ]
+            "pages": ["updates/changelog"]
           }
         ]
       }
@@ -944,9 +911,7 @@
     "dark": "/images/decoda-logo.png"
   },
   "api": {
-    "openapi": [
-      "openapi.yaml"
-    ],
+    "openapi": ["openapi.yaml"],
     "mdx": {
       "server": "https://api.decodahealth.com/"
     }
