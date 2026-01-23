@@ -92,4 +92,4 @@ Customize the platform for your practice.
 
 ## Need Help?
 
-Can't find what you're looking for? Contact support at **founders@decodahealth.com**
+Can't find what you're looking for? Contact support at **support@decodahealth.com**

@@ -621,4 +621,4 @@ Before going live, ensure these are configured:
 - **Communications** - Uses Notification settings
 - **Inventory** - Configure products here too
 
-For help with specific settings or complex configurations, contact Decoda support at founders@decodahealth.com.
+For help with specific settings or complex configurations, contact Decoda support at support@decodahealth.com.
