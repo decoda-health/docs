@@ -9,9 +9,16 @@ SpaKinect is a telehealth platform that provides virtual medical assessments for
 
 ## What is a Good Faith Exam?
 
-A Good Faith Exam (GFE) is a virtual medical assessment required for aesthetic treatments. SpaKinect provides licensed medical professionals who conduct these exams to ensure patient safety and regulatory compliance before treatments like Botox, dermal fillers, and other aesthetic procedures.
+A Good Faith Exam (GFE) is a medical assessment required for aesthetic treatments. SpaKinect provides licensed medical professionals who conduct these exams to ensure patient safety and regulatory compliance before treatments like Botox, dermal fillers, and other aesthetic procedures.
 
 This requirement protects both patients and your clinic by ensuring appropriate medical oversight.
+
+### Assessment Types
+
+SpaKinect supports two types of GFE assessments:
+
+- **On Demand** - Immediate in-person exams for patients at your clinic. The patient scans a QR code or opens a link to complete the exam right away. Best for walk-in patients or same-day treatment needs.
+- **At Home** - Scheduled virtual exams that the patient completes remotely before their appointment. The patient receives email and SMS notifications with instructions. Best when there's advance notice before treatment.
 
 ## Getting Started
 
@@ -51,26 +58,46 @@ The system automatically subscribes your location to SpaKinect. You'll see a gre
 
 ## Requesting a Good Faith Exam
 
-### From Appointment Checklist
+When requesting a GFE, you'll choose between **On Demand** and **At Home** assessment types.
+
+### On Demand GFE (In-Person)
+
+Use this when the patient is at your clinic and needs an immediate exam:
+
+1. Open the patient's record or appointment
+2. Click **Request GFE**
+3. Select the **On Demand** tab
+4. Fill in the required information:
+   - **Location** - Select a location with SpaKinect configured
+   - **Treatments** - Select one or more treatments
+5. Click **Start On Demand GFE**
+6. A QR code and link will be generated - show the QR code to the patient or open the link on a tablet for them to complete the exam immediately
+
+### At Home GFE (Scheduled)
+
+Use this when the patient will complete the exam remotely before their appointment:
+
+#### From Appointment Checklist
 
 1. Open a patient's appointment
 2. Expand the **Checklist** section
 3. Find the **Request GFE** checklist item
 4. Click **Request New GFE**
-5. Fill in the required information:
+5. Select the **At Home** tab
+6. Fill in the required information:
    - **Location** - Select a location with SpaKinect configured
    - **Treatments** - Select one or more treatments (e.g., "Botox Injection", "Dermal Filler")
-   - **Appointment Date & Time** - When the GFE should be scheduled
-   - **Patient Email & Phone** - Pre-filled from patient record (can edit)
-6. Click **Submit**
+   - **Appointment/Event** - The appointment date/time (auto-filled from checklist context)
+   - **Patient Email & Phone** - Required for notifications (pre-filled from patient record)
+7. Click **Request GFE**
 
-### From Appointments Tab
-
-Alternatively:
+#### From Patient Page
 
 1. Navigate to patient's **Appointments** tab
 2. Click **Request GFE** button
-3. Follow the same steps as checklist method
+3. Select the **At Home** tab
+4. Search and select an existing appointment
+5. Complete the remaining fields (e.g., Location, Treatments) and click **Request GFE**
 
 ## Tracking GFE Status
 
@@ -89,11 +116,20 @@ Once a GFE is requested, track its progress:
 
 ## Patient Experience
 
-When you request a GFE:
+### On Demand (In-Person)
+
+1. Staff shows the patient a QR code or opens the visit link on a clinic device
+2. Patient completes the exam immediately through SpaKinect's platform
+3. Status updates automatically sync back to Decoda
+4. You see approval status once the exam is complete
+
+No email or SMS notifications are sent - the exam happens on the spot.
+
+### At Home (Scheduled)
 
 1. An appointment is created in SpaKinect
 2. Patient receives notifications via email and SMS
-3. Patient completes the virtual exam through SpaKinect's platform
+3. Patient completes the virtual exam through SpaKinect's platform before their treatment appointment
 4. Status updates automatically sync back to Decoda
 5. You see approval status in appointment
 
@@ -121,13 +157,47 @@ Patient receives all communications from SpaKinect - no action needed from you.
 - Easy to track exam history across appointments
 - Available in patient timeline and medical records
 
+## Importing Existing GFEs
+
+If you have GFEs in SpaKinect that were created outside of Decoda, you can import them to link them with your patient records.
+
+### Sync GFEs from SpaKinect
+
+1. Go to **Settings > Locations**
+2. Find a location with SpaKinect configured
+3. Open the location menu (three dots) and click **Sync GFEs**
+4. The system fetches all GFEs from SpaKinect for that location
+5. Review the preview showing:
+   - **Ready to Import** - GFEs matched to existing patients by name and date of birth
+   - **Already Imported** - GFEs already in your system (collapsed by default)
+   - **Cannot Import** - GFEs with no matching patient in Decoda
+6. Select which GFEs to import (all matched GFEs are selected by default)
+7. Click **Import** to create the GFE records in Decoda
+
+### How Matching Works
+
+GFEs are matched to patients using:
+- Exact match on first name (case-insensitive)
+- Exact match on last name (case-insensitive)
+- Exact match on date of birth
+
+GFEs that cannot be automatically matched will appear in the "Cannot Import" section. To import these, first create the patient in Decoda with matching name and date of birth, then sync again.
+
+### What Gets Imported
+
+When you import a GFE:
+- A GFE record is created linking the patient to the SpaKinect GFE
+- If the GFE has a PDF document, it's downloaded and attached
+- The GFE appears in the patient's history and appointments tab
+
 ## Best Practices
 
 ### Before Requesting a GFE
 
-1. **Verify Patient Info** - Ensure patient email and phone number are accurate
-2. **Schedule with Lead Time** - Request GFEs with enough time for patient to complete before treatment appointment (typically 24-48 hours minimum)
+1. **Verify Patient Info** - For At Home GFEs, ensure patient email and phone number are accurate
+2. **Schedule with Lead Time** - For At Home GFEs, request with enough time for patient to complete before treatment (typically 24-48 hours minimum)
 3. **Configure Locations** - Set up SpaKinect Location IDs for all relevant locations after module enablement
+4. **Choose the Right Type** - Use On Demand for walk-ins and same-day needs; use At Home when there's advance notice
 
 ### During Treatment
 
@@ -181,6 +251,33 @@ If patient missed the GFE notification:
 4. Provide patient with direct link if available
 5. Contact SpaKinect support for delivery issues
 
+### On Demand GFE - No Visit Link Generated
+
+If the On Demand GFE is created but no QR code appears:
+
+1. The GFE was still created in SpaKinect
+2. Click the link to open SpaKinect portal directly
+3. Find the GFE in the portal and share the link with the patient
+4. Contact support if this happens repeatedly
+
+### Sync Shows "Cannot Import" for Known Patients
+
+If GFEs show as unmatched but you have those patients:
+
+1. Check that patient name spelling matches exactly (including middle names)
+2. Verify the date of birth matches exactly
+3. SpaKinect uses MM/DD/YYYY format - ensure the DOB was entered correctly there
+4. If needed, update the patient record in Decoda to match, then sync again
+
+### Sync Button Not Appearing
+
+If you don't see the Sync GFEs option for a location:
+
+1. Verify the location has a SpaKinect Location ID configured
+2. Ensure the SpaKinect module is enabled for your tenant
+3. Refresh the page
+4. Contact Decoda support if issue persists
+
 ## Common Tasks
 
 ### Requesting GFE for Multiple Treatments
@@ -212,6 +309,25 @@ If patient missed the GFE notification:
 2. Patient can reschedule through SpaKinect portal
 3. Changes sync back to Decoda automatically
 4. Or cancel and request new GFE at different time
+
+### On Demand GFE for Walk-In Patient
+
+1. Open or create the patient record
+2. Click **Request GFE**
+3. Select **On Demand** tab
+4. Select location and treatments
+5. Click **Start On Demand GFE**
+6. Show QR code to patient or use the visit link
+
+### Importing GFEs After Migration
+
+If you're migrating from another system or used SpaKinect before connecting to Decoda:
+
+1. Go to **Settings > Locations**
+2. Click the menu on a SpaKinect-enabled location
+3. Click **Sync GFEs**
+4. Review and import matched GFEs
+5. For unmatched GFEs, create the patients first, then sync again
 
 ## Related Features
 
