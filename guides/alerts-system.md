@@ -540,4 +540,4 @@ Purpose: Reduce bad debt, improve collections
 - **Patient Records** - Patient safety alerts
 - **Forms** - Form completion alerts
 
-For advanced alert workflows or custom triggers, contact Decoda support at founders@decodahealth.com.
+For advanced alert workflows or custom triggers, contact Decoda support at support@decodahealth.com.

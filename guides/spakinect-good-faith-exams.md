@@ -37,7 +37,7 @@ You only need to configure your locations after the module is enabled.
 
 To get started with SpaKinect integration:
 
-1. Contact Decoda support at founders@decodahealth.com
+1. Contact Decoda support at support@decodahealth.com
 2. Request SpaKinect module enablement
 3. Provide your SpaKinect account information and location IDs
 4. Decoda will enable the module and configure checklist items for your services
@@ -341,7 +341,7 @@ If you're migrating from another system or used SpaKinect before connecting to D
 
 For questions about SpaKinect integration:
 
-**Decoda Support:** founders@decodahealth.com
+**Decoda Support:** support@decodahealth.com
 **SpaKinect Support:** Contact your SpaKinect account representative
 
 When contacting support, provide:
