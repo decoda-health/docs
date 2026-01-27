@@ -44,6 +44,8 @@ To get started with SpaKinect integration:
 
 ### Step 2: Set EMR System in SpaKinect
 
+**Note:** Only SpaKinect admins can perform this step.
+
 Configure your SpaKinect account to connect with Decoda:
 
 1. Log in to your SpaKinect dashboard
