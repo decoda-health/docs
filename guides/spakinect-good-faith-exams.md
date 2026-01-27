@@ -42,7 +42,20 @@ To get started with SpaKinect integration:
 3. Provide your SpaKinect account information and location IDs
 4. Decoda will enable the module and configure checklist items for your services
 
-### Step 2: Configure Your Location
+### Step 2: Set EMR System in SpaKinect
+
+Configure your SpaKinect account to connect with Decoda:
+
+1. Log in to your SpaKinect dashboard
+2. Go to **Manage Account**
+3. Click **Edit Location** for the location you want to connect
+4. Find the **EMR System** dropdown
+5. Select **Decoda Health**
+6. Save your changes
+
+This allows Decoda to create GFE requests directly and receive updates and documents from SpaKinect automatically.
+
+### Step 3: Configure Your Location in Decoda
 
 Enable SpaKinect for each location:
 
