@@ -35614,7 +35614,7 @@ components:
           type: boolean
           title: Deductcost
           description:
-            Whether to deduct cost_of_service before calculating commission
+            Whether to deduct item cost before calculating commission
             (services only)
           default: false
         isArchived:
@@ -35699,7 +35699,7 @@ components:
           type: boolean
           title: Deductcost
           description:
-            Whether to deduct cost_of_service before calculating commission
+            Whether to deduct item cost before calculating commission
             (services only)
           default: false
         isArchived:

@@ -66,7 +66,7 @@ Record and manage all patient phone interactions.
 
 ### Making a Call
 
-If integrated with Vonage/Signalwire:
+If integrated with Signalwire:
 
 1. Go to **Communications > Calls**
 2. Search patient
@@ -404,7 +404,7 @@ System maintains audit trail:
 
 **"Call not recording"**
 - Verify recording is enabled in settings
-- Check Vonage/Signalwire account active
+- Check Signalwire account active
 - Ensure HIPAA consent obtained
 - Contact support if persistent
 

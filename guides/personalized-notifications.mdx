@@ -1,0 +1,155 @@
+---
+title: "Personalized Notifications"
+---
+
+Notifications are now personalized to each user. You only see alerts relevant to your role and permissions, and you can configure exactly how you receive them.
+
+**Rolling out February 2026.**
+
+---
+
+## What Changed?
+
+**Old way:** Everyone on the team received the same notifications. Billing staff saw clinical alerts, front desk saw inventory alerts — a lot of noise.
+
+**New way:** Notifications are filtered by your permissions. You only see what's relevant to your role.
+
+<CardGroup cols={2}>
+  <Card title="Before" icon="xmark">
+    - Everyone gets every notification
+    - No way to filter by role
+    - Same delivery settings for all alert types
+    - Notifications from all locations
+  </Card>
+  <Card title="After" icon="check">
+    - Only see alerts you have permission to act on
+    - Toggle SMS, Email, and In-App per alert type
+    - Filter notifications by your current location
+    - Control when notifications are marked as read
+  </Card>
+</CardGroup>
+
+---
+
+## Setting Up Your Preferences
+
+Go to **Settings > Notifications** to configure your notification preferences.
+
+<Steps>
+  <Step title="Review Your Alert Types">
+    You'll see a table of alert types grouped by category (Communication, Billing, Scheduling, etc.). Only the alert types relevant to your role are shown — if you don't have billing permissions, you won't see billing alerts here.
+  </Step>
+  <Step title="Choose Delivery Methods">
+    For each alert type, toggle **SMS**, **Email**, and **In-App** independently. Enable only the channels that matter to you.
+  </Step>
+  <Step title="Set Auto-Mark as Read">
+    Choose when notifications are automatically marked as read:
+    - **Manual Only** — You must explicitly click "mark as read"
+    - **On Action** — Marked as read when you click a notification's action button
+    - **On Open** — Automatically marked as read when you open the notification panel
+  </Step>
+  <Step title="Enable Location Filtering (Optional)">
+    If your practice has multiple locations, turn on the location filter to only receive notifications from your currently selected location. Appointment, communication, and patient alerts will be scoped to that location; system-wide alerts (like deposit notifications) are always delivered.
+  </Step>
+</Steps>
+
+---
+
+## How Permission Filtering Works
+
+Notifications are filtered based on your role's permissions. Here's what each role typically sees:
+
+<AccordionGroup>
+  <Accordion title="Front Desk / Scheduling">
+    - Appointment scheduled, cancelled, updated
+    - Self-scheduled appointments
+    - Patient check-in and form submissions
+    - Schedule blocks and shifts
+  </Accordion>
+  <Accordion title="Billing Staff">
+    - Payments created, failed, succeeded
+    - Payment plan failures
+    - Charges, refunds, and adjustments
+    - Invoice updates
+    - Deposit notifications
+  </Accordion>
+  <Accordion title="Clinical / Providers">
+    - Clinical note creation and updates
+    - Form submissions
+    - Patient updates
+    - Appointment checklist updates
+  </Accordion>
+  <Accordion title="Communications">
+    - Messages received, sent, delivered, and failed
+    - Calls received and made
+    - Emails received and sent
+    - AI system notifications
+  </Accordion>
+  <Accordion title="Inventory Management">
+    - Low stock alerts
+    - Stock additions, updates, and drawdowns
+    - Shipment received and updated
+    - Purchase order status changes
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  Users with multiple roles see the combined set of alerts from all their permissions. Admins with full access see everything.
+</Info>
+
+---
+
+## Notification Channels
+
+<CardGroup cols={3}>
+  <Card title="In-App" icon="bell">
+    Appears in the notification panel inside Decoda. Click the bell icon or open from the sidebar.
+  </Card>
+  <Card title="SMS" icon="message">
+    Text messages sent to your phone number on file. Configure your number in **Settings > Profile**.
+  </Card>
+  <Card title="Email" icon="envelope">
+    Sent to your account email address. Check your inbox or spam folder if you're not receiving them.
+  </Card>
+</CardGroup>
+
+---
+
+## Location Filtering
+
+If your practice has multiple locations, you can scope notifications to your selected location.
+
+**What gets filtered:** Appointment alerts, communication alerts (calls, messages), patient alerts, form submissions, and clinical notes — any alert tied to a specific location.
+
+**What's always delivered:** System-wide alerts like deposit notifications, invoice updates, and inventory alerts that aren't location-specific.
+
+<Tip>
+  Switch your active location from the profile menu in the sidebar. Your notification filter updates automatically.
+</Tip>
+
+---
+
+## Quick Tips
+
+<CardGroup cols={2}>
+  <Card title="Reduce Noise" icon="volume-xmark">
+    - Turn off SMS for low-priority alerts
+    - Use In-App only for informational alerts
+    - Enable location filtering if you work at one location
+  </Card>
+  <Card title="Stay on Top of Things" icon="bell">
+    - Enable SMS for payment failures and urgent alerts
+    - Set auto-mark-read to "Manual Only" if you need to track every notification
+    - Keep In-App on for everything so you have a full history
+  </Card>
+</CardGroup>
+
+---
+
+## Need Help?
+
+Contact support if you have questions about your notification setup:
+
+> "Help me configure my Decoda notification preferences. Docs: https://docs.decodahealth.com/guides/personalized-notifications"
+
+[<img src="/images/logos/chatgpt-logo.svg" alt="ChatGPT" width="20" height="20" style={{display: 'inline', verticalAlign: 'middle', marginRight: '4px'}} /> **ChatGPT**](https://chatgpt.com/?q=Help%20me%20configure%20my%20Decoda%20notification%20preferences.%20Docs%3A%20https%3A%2F%2Fdocs.decodahealth.com%2Fguides%2Fpersonalized-notifications) • [<img src="/images/logos/claude-logo.svg" alt="Claude" width="20" height="20" style={{display: 'inline', verticalAlign: 'middle', marginRight: '4px'}} /> **Claude**](https://claude.ai/new?q=Help%20me%20configure%20my%20Decoda%20notification%20preferences.%20Docs%3A%20https%3A%2F%2Fdocs.decodahealth.com%2Fguides%2Fpersonalized-notifications)

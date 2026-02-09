@@ -143,7 +143,10 @@
           },
           {
             "group": "Migration Guides",
-            "pages": ["guides/scribe-forms-migration"]
+            "pages": [
+              "guides/scribe-forms-migration",
+              "guides/personalized-notifications"
+            ]
           },
           {
             "group": "Page Reference",
