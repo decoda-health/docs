@@ -1,0 +1,138 @@
+---
+title: "Tip Screen"
+description: "Use a customer-facing display to collect tips during checkout"
+---
+
+The tip screen lets you connect a tablet or secondary display to the checkout flow, so customers can see their order total and choose a tip amount directly on their own screen.
+
+<Frame>
+  <iframe
+    src="https://www.loom.com/embed/d57c2f5ed4c94883b1a7577f753a23d9"
+    frameBorder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowFullScreen
+    style={{ width: "100%", height: "400px" }}
+  />
+</Frame>
+
+---
+
+## Part 1: Register a Tip Display
+
+Before using the tip screen, an admin needs to register the display in settings. This only needs to be done once per device.
+
+<Steps>
+  <Step title="Open Payment Management settings">
+    Navigate to **Settings → Payment Management** and scroll down to the **Tip Displays** section.
+  </Step>
+  <Step title="Add a new display">
+    Click **Add Tip Display** to open the setup dialog.
+  </Step>
+  <Step title="Name your display and select a location">
+    Give it a descriptive name (e.g. "Front Desk", "Checkout 1") and select the location it belongs to. The location is important — the display will only appear as an option during checkout when that same location is selected.
+
+    <Note>
+      The location cannot be changed after creation. If you need to move a display to a different location, delete it and create a new one.
+    </Note>
+  </Step>
+  <Step title="Save">
+    Click **Add Display**. The display will now appear in the Tip Displays list and can be activated from any device.
+  </Step>
+</Steps>
+
+---
+
+## Part 2: Set Up the Display Device
+
+This is done on the device that will face the customer — typically an iPad or secondary monitor. The device needs to be logged into the platform.
+
+<Steps>
+  <Step title="Navigate to the tip screen">
+    There are two ways to open the tip screen on the device:
+
+    - **Quick search:** Press `Cmd+K` (or `Ctrl+K` on Windows) to open the search, then type **"screen"** or **"tip screen"** and select the result.
+    - **Direct URL:** Go to `/{your-tenant}/tip-screen` in the browser.
+
+    <Note>
+      You need to be signed into the platform on this device. If prompted, log in before continuing.
+    </Note>
+  </Step>
+  <Step title="Select a location">
+    If the device doesn't have a default location set, you'll be prompted to pick one first. Select the location this display is assigned to.
+  </Step>
+  <Step title="Select the display">
+    You'll see a list of tip displays registered for that location. Tap the one that matches this device.
+  </Step>
+  <Step title="Confirm the display is ready">
+    The screen will show a standby state with the display's name and a **Ready** indicator. It will read "Waiting for checkout to connect" — this means everything is set up correctly and the display is waiting for a staff member to connect from the checkout page.
+
+    A **Change Display** button is available at the bottom if you need to switch to a different display.
+  </Step>
+</Steps>
+
+---
+
+## Part 3: Collect a Tip at Checkout
+
+Once the display device is set up and showing the standby screen, follow these steps on the checkout terminal (staff-facing device).
+
+<Steps>
+  <Step title="Open checkout and select the patient">
+    Navigate to **Billing → Checkout** and select the patient as usual.
+  </Step>
+  <Step title="Select the correct location">
+    This step is critical — the location selected on the checkout **must match** the location of the tip display you want to use. If they don't match, the display won't appear as an available option.
+  </Step>
+  <Step title="Connect to the customer display">
+    Once a location is selected, a **Connect Customer Display** button will appear in the checkout sidebar. Click it to open the display picker.
+
+    A dialog will show the available displays for that location with their status:
+
+    - **Ready to connect** (green) — the display device is online and available
+    - **Display not active** (gray) — the display device hasn't opened the tip screen yet
+    - **In use by another checkout** (yellow) — another checkout terminal is already connected
+
+    Click a display marked **Ready to connect** to connect.
+  </Step>
+  <Step title="Build the charge">
+    With the display connected, the checkout sidebar will show a **Live** badge — the customer can now see the running order total and line items on their screen in real time as you add items.
+
+    Add all products and services to the charge before requesting a tip, since the total shown to the customer will update as you build the order.
+  </Step>
+  <Step title="Request a tip">
+    Once the charge is complete and you're ready to collect a tip, click **Request Tip** in the connected display bar.
+
+    <Warning>
+      Request the tip after you've finished building the charge. The tip options are calculated from the current subtotal, so requesting too early (before all items are added) may show the customer an incorrect total.
+    </Warning>
+
+    The display will show the customer tip options — 15%, 18%, and 20% — along with a no-tip option. The checkout bar will change to show a **Waiting for tip** indicator.
+  </Step>
+  <Step title="Customer selects a tip">
+    The customer taps their preferred tip amount on the display. Once selected, the tip is automatically applied to the charge and you can proceed to payment as normal.
+
+    If you need to cancel the tip request before the customer selects, click **Cancel Request** in the checkout bar.
+  </Step>
+</Steps>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The display shows 'Display not active'">
+    The display device hasn't opened the tip screen yet, or the page wasn't loaded. On the customer-facing device, open the tip screen and confirm it shows the standby "Ready" state before trying to connect from checkout.
+  </Accordion>
+  <Accordion title="The display shows 'In use by another checkout'">
+    Another checkout terminal is already connected to this display. That connection needs to be disconnected before you can take over. Either disconnect from the other terminal, or select a different available display.
+  </Accordion>
+  <Accordion title="The display device shows 'Display active on another device'">
+    This means another device has already activated this display as a tip screen (opened the tip-screen page and selected this display). Only one device can act as the display at a time. Close the tip screen on the other device, then reconnect by tapping **Reconnect** on this device.
+  </Accordion>
+  <Accordion title="The 'Connect Customer Display' button isn't showing">
+    The button only appears when a location is selected in checkout and at least one tip display is configured for that location. Make sure you've selected a location and that a tip display has been registered under **Settings → Payment Management → Tip Displays** for that location.
+  </Accordion>
+  <Accordion title="The display isn't showing for the right location">
+    Displays are tied to a specific location. Double-check that the location selected in checkout matches the location assigned to the display in settings. If they don't match, the display won't appear.
+  </Accordion>
+</AccordionGroup>
