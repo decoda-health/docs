@@ -24,14 +24,18 @@
             "pages": [
               {
                 "group": "Getting Started",
-                "pages": ["help/introduction"]
+                "pages": [
+                  "help/introduction"
+                ]
               },
               {
                 "group": "Help & Support",
                 "pages": [
                   {
                     "group": "AI Front Desk",
-                    "pages": ["help/ai-front-desk"]
+                    "pages": [
+                      "help/ai-front-desk"
+                    ]
                   },
                   {
                     "group": "Payments",
@@ -66,19 +70,27 @@
                   },
                   {
                     "group": "Scheduling & Intake",
-                    "pages": ["help/scheduling"]
+                    "pages": [
+                      "help/scheduling"
+                    ]
                   },
                   {
                     "group": "SpaKinect Integration",
-                    "pages": ["guides/spakinect-good-faith-exams"]
+                    "pages": [
+                      "guides/spakinect-good-faith-exams"
+                    ]
                   },
                   {
                     "group": "Scribe & Note-Taking",
-                    "pages": ["help/ai-notes"]
+                    "pages": [
+                      "help/ai-notes"
+                    ]
                   },
                   {
                     "group": "Smart Mentions",
-                    "pages": ["help/smart-mentions"]
+                    "pages": [
+                      "help/smart-mentions"
+                    ]
                   }
                 ]
               }
@@ -104,15 +116,21 @@
               },
               {
                 "group": "Billing & Payments",
-                "pages": ["guides/billing-payments"]
+                "pages": [
+                  "guides/billing-payments"
+                ]
               },
               {
                 "group": "Communications",
-                "pages": ["guides/communications"]
+                "pages": [
+                  "guides/communications"
+                ]
               },
               {
                 "group": "Forms & Intake",
-                "pages": ["guides/forms-intake"]
+                "pages": [
+                  "guides/forms-intake"
+                ]
               },
               {
                 "group": "Inventory & Products",
@@ -123,11 +141,16 @@
               },
               {
                 "group": "Notes & Documentation",
-                "pages": ["guides/ai-scribe-notes"]
+                "pages": [
+                  "guides/ai-scribe-notes"
+                ]
               },
               {
                 "group": "Analytics & Reporting",
-                "pages": ["guides/analytics-dashboards", "guides/alerts-system"]
+                "pages": [
+                  "guides/analytics-dashboards",
+                  "guides/alerts-system"
+                ]
               },
               {
                 "group": "Settings & Configuration",
@@ -138,7 +161,9 @@
               },
               {
                 "group": "Integrations",
-                "pages": ["guides/spakinect-good-faith-exams"]
+                "pages": [
+                  "guides/spakinect-good-faith-exams"
+                ]
               }
             ]
           },
@@ -220,7 +245,9 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["api-reference/introduction"]
+            "pages": [
+              "api-reference/introduction"
+            ]
           },
           {
             "group": "API",
@@ -228,8 +255,12 @@
               {
                 "group": "Admin",
                 "pages": [
+                  "api-reference/provider/add-allowed-ip",
                   "api-reference/provider/archive-assistant",
                   "api-reference/provider/bulk-delete-notification-preferences",
+                  "api-reference/provider/bulk-update-provider-ip-blocking-exempt",
+                  "api-reference/provider/bulk-update-services",
+                  "api-reference/provider/complete-onboarding-step",
                   "api-reference/provider/create-assistant",
                   "api-reference/provider/create-category",
                   "api-reference/provider/create-mailgun-domain",
@@ -239,6 +270,7 @@
                   "api-reference/provider/create-service",
                   "api-reference/provider/create-tag",
                   "api-reference/provider/create-tax",
+                  "api-reference/provider/delete-allowed-ip",
                   "api-reference/provider/delete-bookable",
                   "api-reference/provider/delete-category",
                   "api-reference/provider/delete-location",
@@ -251,6 +283,7 @@
                   "api-reference/provider/delete-tag",
                   "api-reference/provider/delete-tax",
                   "api-reference/provider/disable-inbound-assistant",
+                  "api-reference/provider/dismiss-onboarding",
                   "api-reference/provider/enable-inbound-assistant",
                   "api-reference/provider/fetch-assistant",
                   "api-reference/provider/fetch-assistant-tools",
@@ -264,6 +297,7 @@
                   "api-reference/provider/get-notification-preferences",
                   "api-reference/provider/get-provider",
                   "api-reference/provider/get-provider-capacity",
+                  "api-reference/provider/get-provider-ip-blocking-exempt",
                   "api-reference/provider/get-provider-roles",
                   "api-reference/provider/get-provider-visible-locations",
                   "api-reference/provider/get-public-locations",
@@ -271,7 +305,9 @@
                   "api-reference/provider/get-role-tags",
                   "api-reference/provider/invite-provider",
                   "api-reference/provider/is-assistant-default",
+                  "api-reference/provider/list-allowed-ips",
                   "api-reference/provider/list-bookables",
+                  "api-reference/provider/list-exempt-providers",
                   "api-reference/provider/list-external-settlement-mediums",
                   "api-reference/provider/list-locations",
                   "api-reference/provider/list-payment-mediums",
@@ -284,8 +320,10 @@
                   "api-reference/provider/put-appointment-style-mapping",
                   "api-reference/provider/register-pos-device",
                   "api-reference/provider/remove-provider-from-tenant",
+                  "api-reference/provider/revert-onboarding-step",
                   "api-reference/provider/send",
                   "api-reference/provider/set-assistant-as-default-forwarding-number",
+                  "api-reference/provider/skip-onboarding",
                   "api-reference/provider/unregister-pos-device",
                   "api-reference/provider/update-adjust-calendar-hours",
                   "api-reference/provider/update-appointment-time-step",
@@ -293,12 +331,15 @@
                   "api-reference/provider/update-auto-sign-off-notes",
                   "api-reference/provider/update-calendar-grid-interval",
                   "api-reference/provider/update-category",
+                  "api-reference/provider/update-notification-auto-mark-read",
                   "api-reference/provider/update-or-create-bookable",
                   "api-reference/provider/update-or-create-location",
                   "api-reference/provider/update-payment-medium",
+                  "api-reference/provider/update-payment-medium-1",
                   "api-reference/provider/update-pos-device-location",
                   "api-reference/provider/update-provider",
                   "api-reference/provider/update-provider-capacity",
+                  "api-reference/provider/update-provider-ip-blocking-exempt",
                   "api-reference/provider/update-provider-primary-location",
                   "api-reference/provider/update-provider-roles",
                   "api-reference/provider/update-provider-visible-locations",
@@ -326,9 +367,11 @@
                   "api-reference/provider/generate-brand-name",
                   "api-reference/provider/generate-category",
                   "api-reference/provider/generate-description",
+                  "api-reference/provider/generate-editor-assistant",
                   "api-reference/provider/generate-patient-qa",
                   "api-reference/provider/generate-patient-suggestions",
                   "api-reference/provider/generate-patient-summary",
+                  "api-reference/provider/generate-provider-bio",
                   "api-reference/provider/generate-sms-template",
                   "api-reference/provider/generate-unit",
                   "api-reference/provider/submit-ai-chat-feedback"
@@ -357,32 +400,43 @@
                   "api-reference/provider/get-appointments-breakdown-group-summaries",
                   "api-reference/provider/get-appointments-breakdown-groups",
                   "api-reference/provider/get-appointments-breakdown-summary",
+                  "api-reference/provider/get-cancellation-reasons",
                   "api-reference/provider/get-clock-in-group-summaries",
                   "api-reference/provider/get-clock-in-groups",
                   "api-reference/provider/get-clock-ins",
+                  "api-reference/provider/get-inactive-patients",
                   "api-reference/provider/get-membership-analytics-by-location",
                   "api-reference/provider/get-membership-analytics-by-membership-status",
                   "api-reference/provider/get-membership-analytics-groups",
                   "api-reference/provider/get-membership-analytics-list",
+                  "api-reference/provider/get-memberships-grouped",
                   "api-reference/provider/get-notes-breakdown",
                   "api-reference/provider/get-notes-breakdown-group-summaries",
                   "api-reference/provider/get-notes-breakdown-groups",
                   "api-reference/provider/get-notes-breakdown-summary",
+                  "api-reference/provider/get-patient-age-histogram",
+                  "api-reference/provider/get-patient-analytics",
+                  "api-reference/provider/get-patient-analytics-grouped",
+                  "api-reference/provider/get-patient-analytics-summary",
+                  "api-reference/provider/get-patient-last-visit-histogram",
+                  "api-reference/provider/get-patient-source-histogram",
+                  "api-reference/provider/get-patient-spend-histogram",
+                  "api-reference/provider/get-patient-tenure-histogram",
+                  "api-reference/provider/get-patient-visit-span-histogram",
                   "api-reference/provider/get-payment-breakdown",
                   "api-reference/provider/get-payment-breakdown-group-summaries",
+                  "api-reference/provider/get-payment-breakdown-grouped",
                   "api-reference/provider/get-payment-breakdown-groups",
                   "api-reference/provider/get-payment-breakdown-summary",
-                  "api-reference/provider/get-provider-earnings",
-                  "api-reference/provider/get-provider-earnings-group-summaries",
-                  "api-reference/provider/get-provider-earnings-groups",
+                  "api-reference/provider/get-payment-plans-grouped",
+                  "api-reference/provider/get-product-sales-grouped",
+                  "api-reference/provider/get-provider-activity-grouped",
+                  "api-reference/provider/get-provider-earnings-grouped",
                   "api-reference/provider/get-provider-item-category-breakdown",
                   "api-reference/provider/get-provider-item-category-payments",
                   "api-reference/provider/get-provider-payment-medium-breakdown",
                   "api-reference/provider/get-provider-payment-medium-payments",
-                  "api-reference/provider/get-revenue-breakdown",
-                  "api-reference/provider/get-revenue-breakdown-group-summaries",
-                  "api-reference/provider/get-revenue-breakdown-groups",
-                  "api-reference/provider/get-revenue-breakdown-summary",
+                  "api-reference/provider/get-provider-performance-grouped",
                   "api-reference/provider/get-widget",
                   "api-reference/provider/list-dashboards",
                   "api-reference/provider/list-widgets",
@@ -409,6 +463,7 @@
                   "api-reference/provider/create-cash-payment",
                   "api-reference/provider/create-cash-settled",
                   "api-reference/provider/create-charge",
+                  "api-reference/provider/create-embed-payment-config",
                   "api-reference/provider/create-insurance-payment",
                   "api-reference/provider/create-manual-invoice",
                   "api-reference/provider/create-patient-credit-payment",
@@ -422,6 +477,7 @@
                   "api-reference/provider/create-rainforest-payin-config",
                   "api-reference/provider/create-rule-set",
                   "api-reference/provider/create-tip",
+                  "api-reference/provider/create-tip-display",
                   "api-reference/provider/create-write-off",
                   "api-reference/provider/delete-cart",
                   "api-reference/provider/delete-charge-endpoint",
@@ -429,6 +485,7 @@
                   "api-reference/provider/delete-rule",
                   "api-reference/provider/delete-rule-set",
                   "api-reference/provider/delete-tip",
+                  "api-reference/provider/delete-tip-display",
                   "api-reference/provider/execute-action",
                   "api-reference/provider/expire-old-carts",
                   "api-reference/provider/expire-old-quotes",
@@ -466,12 +523,16 @@
                   "api-reference/provider/get-receipt",
                   "api-reference/provider/get-receipt-items",
                   "api-reference/provider/get-revenue",
+                  "api-reference/provider/get-sales-tax-report",
                   "api-reference/provider/get-tip",
+                  "api-reference/provider/get-tip-display",
                   "api-reference/provider/get-top-selling-items",
                   "api-reference/provider/list-deposits",
                   "api-reference/provider/list-devices",
                   "api-reference/provider/list-merchant-accounts",
                   "api-reference/provider/list-payments",
+                  "api-reference/provider/list-tip-displays",
+                  "api-reference/provider/list-tip-displays-with-status",
                   "api-reference/provider/mark-no-charge",
                   "api-reference/provider/move-payment",
                   "api-reference/provider/move-payment-to-location",
@@ -504,6 +565,7 @@
                   "api-reference/provider/update-quote-item",
                   "api-reference/provider/update-sold-by-provider",
                   "api-reference/provider/update-tip",
+                  "api-reference/provider/update-tip-display",
                   "api-reference/provider/verify-patient",
                   "api-reference/provider/void-cash-balance",
                   "api-reference/provider/void-cash-balance-adjustment"
@@ -512,12 +574,11 @@
               {
                 "group": "Check In",
                 "pages": [
-                  "api-reference/provider/clock-in",
                   "api-reference/provider/clock-out",
                   "api-reference/provider/create-clock-in-record",
                   "api-reference/provider/delete-time-entry",
                   "api-reference/provider/get-clock-in-logs",
-                  "api-reference/provider/get-most-recent-time-entry",
+                  "api-reference/provider/get-patient-status",
                   "api-reference/provider/list-time-entries",
                   "api-reference/provider/update-time-entry"
                 ]
@@ -526,25 +587,41 @@
                 "group": "Comms",
                 "pages": [
                   "api-reference/provider/ai-call",
+                  "api-reference/provider/compose-email",
                   "api-reference/provider/create-chat",
+                  "api-reference/provider/create-draft",
                   "api-reference/provider/create-message",
+                  "api-reference/provider/delete-draft",
+                  "api-reference/provider/download-attachment",
+                  "api-reference/provider/forward-thread",
                   "api-reference/provider/get",
                   "api-reference/provider/get-chat",
+                  "api-reference/provider/get-message",
+                  "api-reference/provider/get-message-attachment-urls",
+                  "api-reference/provider/get-message-engagement",
                   "api-reference/provider/get-opt-out-from-automated-messages",
                   "api-reference/provider/get-tags",
+                  "api-reference/provider/get-thread",
                   "api-reference/provider/get-transcript",
                   "api-reference/provider/get-unread-count",
                   "api-reference/provider/list-calls",
+                  "api-reference/provider/list-system-threads",
+                  "api-reference/provider/list-threads",
+                  "api-reference/provider/mark-read",
+                  "api-reference/provider/mark-unread",
                   "api-reference/provider/opt-in-from-automated-messages",
                   "api-reference/provider/opt-out-from-automated-messages",
                   "api-reference/provider/opt-out-from-texting",
                   "api-reference/provider/regenerate-ai-text",
-                  "api-reference/provider/send-bulk-email",
+                  "api-reference/provider/reply-to-thread",
                   "api-reference/provider/send-bulk-messages",
-                  "api-reference/provider/send-email",
+                  "api-reference/provider/send-draft",
                   "api-reference/provider/send-suggested-message",
                   "api-reference/provider/setup-call",
+                  "api-reference/provider/toggle-archive",
+                  "api-reference/provider/toggle-star",
                   "api-reference/provider/update-chat-status",
+                  "api-reference/provider/update-draft",
                   "api-reference/provider/update-primary-patient"
                 ]
               },
@@ -590,6 +667,7 @@
                   "api-reference/provider/service-forms-exist",
                   "api-reference/provider/update-form",
                   "api-reference/provider/update-form-default-text",
+                  "api-reference/provider/update-form-expiry-days",
                   "api-reference/provider/upload-file"
                 ]
               },
@@ -615,10 +693,13 @@
                   "api-reference/provider/archive-stock",
                   "api-reference/provider/archive-supplier",
                   "api-reference/provider/assign-provider-to-structure",
+                  "api-reference/provider/auto-generate-purchase-orders",
                   "api-reference/provider/bill-members",
+                  "api-reference/provider/bulk-archive-memberships",
                   "api-reference/provider/bulk-assign-providers-to-structure",
                   "api-reference/provider/bulk-remove-providers-from-structure",
                   "api-reference/provider/bulk-update-item-taxes",
+                  "api-reference/provider/bulk-update-memberships",
                   "api-reference/provider/cancel-purchase-order",
                   "api-reference/provider/cancel-sold-package",
                   "api-reference/provider/create-banked-item",
@@ -638,6 +719,7 @@
                   "api-reference/provider/delete-shipment",
                   "api-reference/provider/drawdown-stock",
                   "api-reference/provider/duplicate-commission-structure",
+                  "api-reference/provider/duplicate-membership",
                   "api-reference/provider/enroll-member-deferred-billing",
                   "api-reference/provider/freeze-members",
                   "api-reference/provider/freeze-membership",
@@ -659,6 +741,8 @@
                   "api-reference/provider/get-shipment",
                   "api-reference/provider/get-sold-package-charge-items",
                   "api-reference/provider/get-stock",
+                  "api-reference/provider/get-stock-groups",
+                  "api-reference/provider/get-stock-stats",
                   "api-reference/provider/get-supplier",
                   "api-reference/provider/link-stock-to-item",
                   "api-reference/provider/link-supplier-to-stock",
@@ -682,6 +766,7 @@
                   "api-reference/provider/unfreeze-members",
                   "api-reference/provider/unlink-stock-from-item",
                   "api-reference/provider/unlink-supplier-from-stock",
+                  "api-reference/provider/update-banked-item",
                   "api-reference/provider/update-billing-date",
                   "api-reference/provider/update-commission-structure",
                   "api-reference/provider/update-discount",
@@ -709,6 +794,8 @@
               {
                 "group": "Medications",
                 "pages": [
+                  "api-reference/provider/bulk-archive-medications",
+                  "api-reference/provider/bulk-update-medications",
                   "api-reference/provider/create-medication",
                   "api-reference/provider/delete-medication",
                   "api-reference/provider/get-medication",
@@ -720,19 +807,22 @@
                 "group": "Notes",
                 "pages": [
                   "api-reference/provider/add-attachment",
+                  "api-reference/provider/add-attachments-bulk",
                   "api-reference/provider/add-note-attachment-from-url",
                   "api-reference/provider/archive-note",
                   "api-reference/provider/assign-attachment-tags",
                   "api-reference/provider/bulk-update-attachment-names",
+                  "api-reference/provider/change-attachment-patient",
                   "api-reference/provider/chat-with-ai-note",
-                  "api-reference/provider/combine-audio-files-async",
                   "api-reference/provider/create-attachment-tag",
                   "api-reference/provider/create-comparison-attachment",
                   "api-reference/provider/create-note",
                   "api-reference/provider/create-note-template",
+                  "api-reference/provider/create-note-template-from-form",
                   "api-reference/provider/delete-attachment-tag",
                   "api-reference/provider/delete-note-attachment",
                   "api-reference/provider/delete-note-template",
+                  "api-reference/provider/duplicate-attachment",
                   "api-reference/provider/get-attachment-annotation-history",
                   "api-reference/provider/get-attachment-tag",
                   "api-reference/provider/get-attachment-tags",
@@ -741,21 +831,45 @@
                   "api-reference/provider/get-attachments-count",
                   "api-reference/provider/get-lot-numbers",
                   "api-reference/provider/get-note-detail",
+                  "api-reference/provider/get-note-documents",
+                  "api-reference/provider/get-note-mappings",
                   "api-reference/provider/get-note-revision",
+                  "api-reference/provider/get-note-template-detail",
                   "api-reference/provider/get-note-templates",
                   "api-reference/provider/get-note-versions",
                   "api-reference/provider/get-notes",
                   "api-reference/provider/get-patients-with-appointments-now",
+                  "api-reference/provider/get-prefilled-answers",
+                  "api-reference/provider/link-attachments-to-note",
+                  "api-reference/provider/link-documents-to-note",
+                  "api-reference/provider/list-dynamic-fields",
+                  "api-reference/provider/migrate-legacy-question",
                   "api-reference/provider/restore-attachment-annotations",
                   "api-reference/provider/sign-off-note",
+                  "api-reference/provider/toggle-pin-note",
                   "api-reference/provider/toggle-template-favorite",
+                  "api-reference/provider/unlink-document-from-note",
                   "api-reference/provider/update-attachment-annotations",
                   "api-reference/provider/update-attachment-image",
                   "api-reference/provider/update-attachment-name",
                   "api-reference/provider/update-attachment-tag",
+                  "api-reference/provider/update-note-answers",
                   "api-reference/provider/update-note-template",
+                  "api-reference/provider/update-note-title",
                   "api-reference/provider/upload-note",
-                  "api-reference/provider/upload-template-attachment"
+                  "api-reference/provider/upload-note-document",
+                  "api-reference/provider/upload-placeholder-image"
+                ]
+              },
+              {
+                "group": "Notifications",
+                "pages": [
+                  "api-reference/provider/archive-notifications",
+                  "api-reference/provider/bulk-notification-action",
+                  "api-reference/provider/get-notifications",
+                  "api-reference/provider/get-undelivered-notifications",
+                  "api-reference/provider/mark-notifications-read",
+                  "api-reference/provider/mark-notifications-unread"
                 ]
               },
               {
@@ -835,7 +949,9 @@
                   "api-reference/provider/cancel-gfe",
                   "api-reference/provider/create-gfe-request",
                   "api-reference/provider/get-available-treatments",
-                  "api-reference/provider/get-patient-gfes"
+                  "api-reference/provider/get-patient-gfes",
+                  "api-reference/provider/get-sync-preview",
+                  "api-reference/provider/sync-gfes"
                 ]
               },
               {
@@ -849,7 +965,9 @@
               },
               {
                 "group": "System",
-                "pages": ["api-reference/provider/get-system-toasts"]
+                "pages": [
+                  "api-reference/provider/get-system-toasts"
+                ]
               }
             ]
           },
@@ -890,7 +1008,9 @@
         "groups": [
           {
             "group": "Updates",
-            "pages": ["updates/changelog"]
+            "pages": [
+              "updates/changelog"
+            ]
           }
         ]
       }
@@ -915,7 +1035,9 @@
     "dark": "/images/decoda-logo.png"
   },
   "api": {
-    "openapi": ["openapi.yaml"],
+    "openapi": [
+      "openapi.yaml"
+    ],
     "mdx": {
       "server": "https://api.decodahealth.com/"
     }
