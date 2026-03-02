@@ -100,13 +100,13 @@ Click **Create Manually** to open the stock form. You can also search for an exi
 
 ## Viewing Stock Details
 
-Click any stock row to open the detail panel. The panel shows summary statistics and four tabs:
+Click any stock row to open the detail panel. The panel shows summary statistics and five tabs:
 
 ### Summary
 
 - **Total Stock** -- Combined remaining quantity across all locations.
 - **Stock Value** -- Total dollar value of remaining inventory.
-- **Activity Chart** -- A bar chart showing daily usage and received quantities over a configurable time range (7, 14, 30, 60, or 90 days).
+- **Activity Chart** -- An area chart showing daily usage and received quantities over a configurable time range (7, 30, or 90 days).
 
 ### Shipments
 
@@ -119,6 +119,10 @@ A timeline of all inventory changes -- stock added, drawn down, sold, or adjuste
 <Info>
   **If you're wondering why a stock quantity changed**, check the Activity tab. Every change is logged with a reason, whether it was a sale, a drawdown, or a delivery.
 </Info>
+
+### Purchase Orders
+
+Lists all purchase orders associated with this stock item. You can see each order's supplier, total cost, delivery progress, status, and creation date. You can also create a new purchase order directly from this view.
 
 ### Suppliers
 
@@ -152,6 +156,50 @@ Drawing down stock manually reduces the quantity without a sale or appointment. 
   </Step>
 </Steps>
 
+## Stock Transfers
+
+Stock transfers let you move inventory from one clinic location to another. This is useful when one location is running low on an item while another has plenty.
+
+### Starting a Transfer
+
+You can create a transfer in two ways:
+
+- **Single stock item** -- Click the gear icon on a stock row and select **Transfer Stock**. This opens the transfer form with that item pre-selected.
+- **Bulk transfer** -- Select multiple stock items using the checkboxes in the table (up to 25 items at a time), then click **Transfer** from the bulk actions bar.
+
+<Steps>
+  <Step title="Choose Locations">
+    Select the **From** location (where the stock is now) and the **To** location (where you want to send it).
+  </Step>
+  <Step title="Set Quantities">
+    For each stock item, enter how many units to transfer. You can also choose which specific shipments to pull from.
+  </Step>
+  <Step title="Add Notes (Optional)">
+    Include any notes about the transfer (e.g., "Restocking for busy weekend").
+  </Step>
+  <Step title="Create">
+    Click **Create Transfer**. The transfer is saved as **Pending** until the receiving location confirms it.
+  </Step>
+</Steps>
+
+### Reviewing Pending Transfers
+
+Click the **Transfers** button on the Stockroom page to open the transfers panel. If there are pending transfers waiting for your review, the button shows a count badge.
+
+The panel lets you filter transfers by status: **Pending**, **Completed**, **Cancelled**, or **All**. Each transfer card shows the source and destination locations, the items being moved, and the date it was created.
+
+### Completing a Transfer
+
+When stock arrives at the destination location, open the transfers panel, find the pending transfer, and click **Complete**. This updates stock quantities at both locations -- the source goes down and the destination goes up.
+
+### Cancelling a Transfer
+
+If a transfer is no longer needed, open the transfers panel and click **Cancel** on the pending transfer. Cancelled transfers are kept in the history for reference.
+
+<Info>
+  **Use transfers instead of drawing down and re-adding stock.** Transfers keep a clear audit trail showing exactly where inventory moved, rather than separate drawdown and addition entries.
+</Info>
+
 ## Linking Stock to Products, Services, and Medications
 
 Linking is what makes inventory tracking automatic. When a stock item is linked to a product, service, or medication, every time that item is sold or administered, the stock quantity decreases by the amount you configured.
@@ -172,10 +220,11 @@ You can link stock from several places:
 
 Click the gear icon on any stock row to access:
 
-- **View Details** -- Open the detail panel with shipments, activity, suppliers, and linked items.
-- **Edit Stock** -- Change the name, category, unit, minimum level, or other details.
+- **View Details** -- Open the detail panel with shipments, activity, purchase orders, suppliers, and linked items.
+- **Edit Stock** -- Open a full editing view where you can change the name, category, unit, minimum level, linked items, suppliers, shipments, and other details.
 - **Link to Items** -- Connect this stock to products, services, or medications.
 - **Link Supplier** -- Associate a supplier with this stock item.
+- **Transfer Stock** -- Create a transfer to move this item to another location.
 - **Drawdown Stock** -- Manually reduce the quantity.
 - **Delete Stock** -- Archive the stock item. It's removed from active lists but historical data is preserved.
 

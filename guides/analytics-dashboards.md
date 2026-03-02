@@ -1,589 +1,147 @@
 # Analytics & Dashboards Guide
 
-Understand your clinic's performance with data visualizations. Create custom dashboards to track metrics that matter most to your business.
+Use Analytics to understand how your clinic is performing. This guide walks you through navigating the built-in dashboards, building your own custom dashboards, and exporting data.
 
-## Getting Started
+## Finding Analytics
 
-Access analytics by clicking **Analytics** from the main menu.
+In the left sidebar, click **Analytics**. Use the dashboard picker at the top of the page to switch between dashboards.
 
-You'll find:
-- **Dashboards** - Pre-built and custom analytics views
-- **Reports** - Detailed data exports and analysis
-- **Widgets** - Individual metrics and charts
+Before Analytics shows useful numbers, you need data in other parts of the system -- appointments in Scheduling, charges in Billing, and patient records in Patients.
 
-## Pre-Built Dashboards
+## Built-In Dashboards
 
-Start with templates designed for common use cases.
+Analytics comes with ten built-in dashboards. Each one answers a different set of questions. Here is a quick summary of what each one covers.
 
-### Revenue Dashboard
+### Appointment Dashboard
 
-Track money coming in:
+Shows appointment volume, value, booking sources, cancellation rates, and no-show rates. Group by provider, location, service, date, week, or month. Filter by provider, location, service, status, or patient type (new vs. returning).
 
-**Metrics shown:**
-- Total revenue (this month, this year)
-- Revenue by service type
-- Revenue by provider
-- Daily/weekly revenue trend
-- Average transaction value
-- Top-performing services
+When you filter to only cancelled appointments, extra columns appear automatically: Cancellation Reason and Cancellation Date.
 
-Use this to:
-- Understand revenue trends
-- Identify best-performing services
-- Track seasonal patterns
-- Forecast monthly revenue
+### Product Sales Breakdown
 
-### Appointments Dashboard
+Shows every item on every charge -- services, products, memberships, and packages -- with revenue, discounts, taxes, cost, and profit columns. Use it to understand what you sold and how profitable it was. Group by location, provider, category, payment method, or date.
 
-Monitor scheduling and patient flow:
+Hover over the Net Revenue and Discount cells to see the full calculation breakdown (item-level vs. charge-level discounts). Use the **Columns** button to show or hide columns like Brand and Charge Status.
 
-**Metrics shown:**
-- Total appointments (today, this week, this month)
-- Appointments by provider
-- Appointments by service
-- No-show rate
-- Cancellation rate
-- Average wait time
-- Busiest hours/days
+### Payment Breakdown
 
-Use this to:
-- Optimize scheduling
-- Identify understaffed times
-- Monitor no-show patterns
-- Improve patient flow
+Shows every payment transaction -- every time money changed hands. Includes date, patient, location, comment, payment method, card details, amount, processing fees, and net amount. Group by location, payment method, date, week, or month.
+
+Use this dashboard for reconciling with your bank or payment processor.
 
 ### Patient Dashboard
 
-Analyze patient data:
+Analyzes your patient base with histogram charts for spending, tenure, last visit, visit span, age, and source. The table shows per-patient metrics like total spent, average spend per visit, and days since last visit.
 
-**Metrics shown:**
-- New patients (this month)
-- Patient retention rate
-- Total active patients
-- Patients by location
-- Appointments per patient
-- Patient lifetime value
-- Churn rate (patients who left)
+Use the "No appointment in last X days" filter to find inactive patients for re-engagement.
 
-Use this to:
-- Understand patient base growth
-- Measure retention success
-- Track patient acquisition
-- Identify at-risk patients
+### Provider Earnings Report
 
-### Staff Performance Dashboard
+A financial summary for each provider showing total sold, discounts, tips, voids, adjustments, taxes, outstanding balances, and refunds. Click a provider's name to see their individual transactions.
 
-Evaluate team productivity:
+The Total column adjusts based on which columns are visible -- hide columns that are not part of your commission formula and the Total recalculates automatically.
 
-**Metrics shown:**
-- Appointments per provider
-- Revenue per provider
-- Patient satisfaction by provider
-- Utilization rate (booked vs. available time)
-- Earnings/commission by provider
-- Top rated providers
+### Provider Activity
 
-Use this to:
-- Recognize high performers
-- Identify training needs
-- Ensure fair workload
-- Calculate commissions
+A chronological feed of everything each provider has done: charges, payments, notes, memberships, measurements, and more. Click any entry to go directly to the source record.
 
-### Billing Dashboard
+### Note Analytics
 
-Monitor financial health:
+Tracks clinical note volume per provider, including whether notes were created with AI Scribe or written manually. Use the note type filter to compare AI vs. manual note counts.
 
-**Metrics shown:**
-- Outstanding balances
-- Days sales outstanding (DSO)
-- Payment methods breakdown
-- Invoice aging report
-- Write-offs and adjustments
-- Payment failure rate
+### Memberships Analytics
 
-Use this to:
-- Improve collection rates
-- Reduce outstanding debt
-- Identify payment issues
-- Forecast cash flow
+Shows the status of all memberships with summary cards for total members, projected monthly recurring revenue, new members this month, and cancellations this month. Two charts show all-time membership breakdowns by status and by location.
+
+The table lists every member with their plan, status, price, start date, created date, next billing date, payment method, and who enrolled them. Filter by patient name, location, membership type, status, provider who sold it, or created date.
+
+### Payment Plan Analytics
+
+Tracks active payment plans with summary cards for active plans, total plan value, amount collected, amount outstanding, and failed/cancelled plans. Click any patient name to see the full installment schedule and payment history.
+
+### Sales Tax Details
+
+Daily tax breakdowns by location with export to Excel. This dashboard is only available for select clinics.
+
+## Controls That Every Dashboard Shares
+
+All built-in dashboards use the same set of controls:
+
+- **Date range** -- Pick a preset (Today, This Week, This Month, etc.) or set custom start and end dates. The table updates automatically.
+- **Group by** -- Collapse rows by a category (location, provider, date, etc.) to see subtotals. Click a group header to expand or collapse the rows underneath.
+- **Filters** -- Narrow results by location, provider, status, and other fields. The available filters change depending on which dashboard you are viewing.
+- **Column visibility** -- Some dashboards let you show or hide columns. Click the **Columns** button where available.
+- **Export** -- Download the current view as a spreadsheet. Requires the **Analytics Export** permission.
 
 ## Creating Custom Dashboards
 
-Build dashboards tailored to your needs.
-
-### Creating a Dashboard
-
-1. Go to **Analytics**
-2. Click **Create Dashboard**
-3. Name it (e.g., "Daily Operations")
-4. Click **Create**
-
-Dashboard is blank and ready for widgets.
-
-### Adding Widgets
-
-Add metrics/charts to dashboard:
-
-1. Click **Add Widget**
-2. Choose widget type:
-   - **Metric** - Single number (Total Revenue = $50,000)
-   - **Line Chart** - Trends over time
-   - **Bar Chart** - Comparisons
-   - **Pie Chart** - Breakdown/distribution
-   - **Table** - Detailed data
-3. Select data source (Revenue, Appointments, etc.)
-4. Set filters (date range, location, etc.)
-5. Customize display (colors, labels)
-6. Click **Add**
-
-### Widget Types Explained
-
-**Metric Widget**
-Shows single important number:
-- Example: "Total Revenue This Month: $50,000"
-- Good for KPIs
-- Displayed prominently
-
-**Line Chart Widget**
-Shows trends over time:
-- Example: Daily revenue trend
-- X-axis: Time
-- Y-axis: Value
-- Good for spotting trends
-
-**Bar Chart Widget**
-Compares values:
-- Example: Revenue by provider
-- X-axis: Categories
-- Y-axis: Values
-- Good for comparisons
-
-**Pie Chart Widget**
-Shows breakdown:
-- Example: Appointments by service type
-- Shows percentages
-- Good for composition
-
-**Table Widget**
-Shows detailed data:
-- Rows and columns of data
-- Sortable and filterable
-- Good for detailed analysis
-
-### Filtering Data
-
-Refine what displays in widgets:
-
-1. Open dashboard
-2. Set filters at top:
-   - **Date Range** - This week, month, year, custom
-   - **Location** - Specific clinic or all
-   - **Provider** - Specific staff or all
-   - **Service** - Specific service or all
-3. Filters apply to all widgets
-
-Filters help you:
-- Compare time periods
-- See individual location performance
-- Track specific provider metrics
-- Analyze specific services
-
-### Arranging Dashboard
-
-Customize layout:
-
-1. Click **Edit** on dashboard
-2. Drag widgets to reorder
-3. Resize widgets (large, medium, small)
-4. Priority widgets up top
-5. Less important details lower
-6. Click **Save Layout**
-
-Good dashboard organization:
-- Top: Most important KPIs (big metrics)
-- Middle: Trends and performance
-- Bottom: Details and supporting data
-
-## Key Metrics Explained
-
-### Revenue Metrics
-
-**Total Revenue**
-- All money received for services/products
-- Best measure of business size
+You can build your own dashboards with personalized charts and tables.
 
-**Revenue by Service**
-- Which services generate most income
-- Helps with pricing and marketing
+### Create a Dashboard
 
-**Revenue by Provider**
-- Which providers generate most revenue
-- Helps with commission calculations
+1. Click the dashboard picker at the top of the Analytics page.
+2. Select **Create new dashboard** at the bottom of the list.
+3. Give it a name and optional description.
+4. Click **Create Dashboard**.
 
-**Average Transaction Value**
-- Revenue divided by number of transactions
-- High value = larger visits/packages
+Your new dashboard starts empty and is ready for widgets.
 
-**Revenue Growth**
-- Comparing this period to last
-- Shows business momentum
+### Add Widgets
 
-### Appointment Metrics
+1. Click **Add Widget** on your custom dashboard.
+2. Follow the three-step process:
+   - **Details** -- Set a title and optional description for the widget.
+   - **Query** -- Choose which data to pull in, add filters, pick groupings, and select metrics.
+   - **Visualization** -- Pick a chart type. Available types include table, area chart, bar chart, donut chart, progress circle, and single number. A live preview appears on the right as you build.
+3. Click **Create Widget** to add it to your dashboard.
 
-**Total Appointments**
-- Number of appointments scheduled/completed
-- Indicator of patient demand
+### Arrange Your Layout
 
-**No-Show Rate**
-- Percentage of booked appointments patient misses
-- High rate = operational issue
-- Affects scheduling efficiency
+Drag widgets around on the grid to organize your dashboard. Put the most important numbers at the top where they are easy to spot.
 
-**Cancellation Rate**
-- Percentage of appointments cancelled
-- By patient or by clinic
-- Affects revenue predictability
+### Edit or Delete a Dashboard
 
-**Utilization Rate**
-- Percentage of available time that's booked
-- 80%+ is healthy
-- Below 60% means underutilization
+In the dashboard picker, custom dashboards show a pencil icon (edit) and a trash icon (delete) next to their name. Built-in dashboards cannot be edited or deleted.
 
-**Average Wait Time**
-- Time from appointment start to seeing provider
-- Higher wait = patient dissatisfaction
-- Target: Under 15 minutes
+## Exporting Data
 
-### Patient Metrics
+Every built-in dashboard has an **Export** button. Click it to download the current filtered view as a spreadsheet file. The export respects whatever filters, date range, and grouping you have set -- so set up the view you want first, then export.
 
-**New Patients**
-- New patients acquired this period
-- Growth indicator
+Exporting requires the **Analytics Export** permission. If the button is grayed out, ask your administrator to grant this permission under **Settings > Users & Roles**.
 
-**Patient Retention Rate**
-- Percentage of patients who return
-- Higher is better
-- Typical: 70-85%
+## Permissions
 
-**Patient Lifetime Value**
-- Total revenue from average patient
-- Guides acquisition spending
+Analytics access is controlled by three permissions, configured under **Settings > Users & Roles**:
 
-**Churn Rate**
-- Percentage of patients who stop coming
-- Inverse of retention rate
-- Lower is better
+| Permission | What it controls |
+|---|---|
+| **Analytics Read** | Required to see the Analytics section at all. Without this, Analytics is hidden from the sidebar. |
+| **Analytics Write** | Required to create, edit, and delete custom dashboards and widgets. |
+| **Analytics Export** | Required to download data as a spreadsheet. |
 
-**Repeat Visit Rate**
-- How often patients return
-- Service quality indicator
+## Tips
 
-### Financial Metrics
-
-**Outstanding Balance**
-- Total money patients owe you
-- Affects cash flow
-
-**Days Sales Outstanding (DSO)**
-- Average days to collect payment
-- Lower is better
-- Healthy: 15-30 days
-
-**Invoice Aging**
-- How long invoices have been unpaid
-- 30/60/90+ days breakdown
-
-**Write-Off Rate**
-- Percentage of charges you can't collect
-- Affects profitability
-
-**Payment Methods**
-- Breakdown by cash, card, check, etc.
-- Helps with payment processing
-
-## Analyzing Data
-
-### Comparing Periods
-
-See how you're doing vs. last period:
-
-1. Create dashboard
-2. Add metric widget
-3. Set filter: "This month"
-4. Note the number
-5. Change filter: "Last month"
-6. Compare the numbers
-
-Use % change to measure growth.
-
-### Identifying Trends
-
-Spot patterns over time:
-
-1. Add line chart widget
-2. Set X-axis: Time (daily, weekly, monthly)
-3. Set Y-axis: Metric (revenue, appointments)
-4. Look for:
-   - Upward/downward trends
-   - Seasonal patterns
-   - Unusual spikes or dips
-
-### Benchmarking
-
-Compare your performance:
-
-1. Track your KPIs monthly
-2. Compare to industry benchmarks
-3. Set targets for improvement
-4. Monitor progress toward targets
-
-Industry benchmarks vary by specialty:
-- Medical practices: 20-40% profit margin
-- Aesthetic clinics: 40-60% profit margin
-- Therapy: 50-70% profit margin
-
-### Drilling Down
-
-Go from summary to details:
-
-1. See high-level metric (e.g., $50K revenue)
-2. Click on it to drill down
-3. View breakdown by service
-4. Click on service to see patients
-5. Understand what's driving numbers
-
-## Advanced Analytics Features
-
-<AccordionGroup>
-  <Accordion title="Advanced Widget Filtering">
-    Combine multiple filters for powerful insights:
-    - **Date range filtering** - Custom periods, rolling windows, year-over-year
-    - **Multi-select filtering** - Include/exclude multiple values
-    - **Relative date filtering** - Last 30 days, current quarter, YTD, etc.
-    - **Segment filtering** - By location, provider, service category, patient type
-    - **Complex logic** - AND/OR combinations of filters
-
-    Example: Show revenue from aesthetic services (excluding medical) in Q4 for Dr. Smith's location, excluding write-offs
-  </Accordion>
-
-  <Accordion title="Custom Calculations & Formulas">
-    Create calculated metrics:
-    - **Derived metrics** - Calculate new KPIs from existing data
-    - **Ratios** - Profit margin, revenue per appointment, etc.
-    - **Percentages** - % of total, % change over time
-    - **Averages & sums** - Aggregate data in custom ways
-    - **Conditional calculations** - IF/THEN logic for metrics
-
-    Example: Calculate "revenue per service type as % of total" or "average transaction value excluding refunds"
-  </Accordion>
-
-  <Accordion title="Cohort Analysis">
-    Compare groups of patients or periods:
-    - **Patient cohorts** - Track groups by start date, acquisition source, etc.
-    - **Retention cohorts** - See if patients acquired in Jan vs Feb retain differently
-    - **Spending cohorts** - Track spending patterns across patient segments
-    - **Service cohorts** - Compare outcomes across different service types
-
-    Example: Analyze if patients acquired through referral vs web have different retention rates
-  </Accordion>
-
-  <Accordion title="Predictive Analytics & Forecasting">
-    Project future trends:
-    - **Trend projection** - Predict revenue based on growth rate
-    - **Seasonal forecasting** - Account for seasonal ups/downs
-    - **Churn prediction** - Identify at-risk patients likely to leave
-    - **Growth forecasting** - Project patient growth or service demand
-    - **Capacity planning** - Predict staffing needs
-
-    For: Planning, budgeting, identifying resource needs
-  </Accordion>
-
-  <Accordion title="Data Export for External BI Tools">
-    Export dashboards and reports to external tools:
-    - **CSV/Excel export** - Raw data for spreadsheet analysis
-    - **API export** - Programmatic access to data
-    - **Direct BI tool integration** - Connect to Tableau, Power BI, Looker
-    - **Scheduled exports** - Automatic daily/weekly data exports
-    - **Webhook integration** - Send data to external systems
-
-    Use for: Deep analysis, enterprise reporting, integrations with accounting software
-  </Accordion>
-
-  <Accordion title="Comparative Analysis & Benchmarking">
-    Compare across dimensions:
-    - **Location comparison** - How do clinics perform vs each other?
-    - **Provider comparison** - Which providers are most productive?
-    - **Service comparison** - Revenue, profitability, and volume per service
-    - **Period comparison** - Month-over-month, year-over-year
-    - **Internal benchmarking** - Compare current performance to targets
-
-    Example: This month's revenue vs last month, vs same month last year, vs target
-  </Accordion>
-
-  <Accordion title="Segmented Reporting">
-    Break down metrics across multiple dimensions:
-    - **Multi-dimensional analysis** - View by service AND location AND provider
-    - **Hierarchical breakdowns** - Drill from category > service > appointment
-    - **Cross-tabulation** - Row/column analysis
-    - **Pivot tables** - Flexible data reshaping
-    - **Custom segments** - Create segments based on business logic
-
-    Example: See revenue by service category, then by specific service, then by provider for each service
-  </Accordion>
-</AccordionGroup>
-
-## Reports
-
-Export detailed data for analysis:
-
-### Creating a Report
-
-1. Go to **Analytics > Reports**
-2. Click **Create Report**
-3. Select report type:
-   - Revenue Report
-   - Appointment Report
-   - Patient Report
-   - Inventory Report
-   - Billing Report
-4. Set filters and date range
-5. Click **Generate**
-6. Download as CSV or Excel
-
-### Using Reports
-
-Reports useful for:
-- Monthly review with management
-- Year-end accounting
-- Comparing locations
-- Detailed analysis
-- Sharing with accountant
-
-## Sharing Dashboards
-
-Share with team members:
-
-1. Open dashboard
-2. Click **Share**
-3. Enter email addresses
-4. Set permission level:
-   - **View** - Can see only
-   - **Edit** - Can modify dashboard
-5. Send
-
-Team members get access to dashboard and can monitor metrics.
-
-## Alerts & Notifications
-
-Get notified of important changes:
-
-### Setting Alerts
-
-1. Go to **Settings > Alerts**
-2. Create alert:
-   - Metric (e.g., Daily Revenue)
-   - Condition (e.g., Falls below $1000)
-   - Action (Email me)
-3. Save
-
-Examples:
-- Revenue below target
-- No-show rate above 10%
-- Inventory below minimum
-- Outstanding balance above threshold
-
-## Tips for Effective Analytics
-
-### Focus on Key Metrics
-
-Don't track everything. Choose 5-10 metrics that:
-- Directly impact your business
-- You can act on
-- Align with goals
-
-Example for aesthetic clinic:
-1. Daily revenue
-2. New patients
-3. No-show rate
-4. Average transaction value
-5. Patient retention
-
-### Review Regularly
-
-- Daily: Revenue, appointments, no-shows
-- Weekly: Staffing metrics, outstanding balance
-- Monthly: Retention, profitability, trends
-- Quarterly: Year-over-year comparisons
-
-### Act on Insights
-
-Data only matters if you change behavior:
-
-"No-show rate is 15%" → Implement reminder SMS → Rate drops to 8%
-
-"Revenue down 20%" → Analyze by service → Promote underperforming service
-
-### Create Goals
-
-Set targets and track progress:
-- Increase daily revenue 10%
-- Reduce no-show rate to under 10%
-- Achieve 80% patient retention
-- Add 5 new patients per week
-
-Monitor actual vs. goal in dashboards.
-
-## Common Dashboards to Build
-
-### "Morning Briefing"
-- Today's appointments
-- No-shows from yesterday
-- Outstanding balances
-- Key metrics vs. goal
-
-### "Provider Performance"
-- Revenue by provider
-- Appointments per provider
-- Patient satisfaction by provider
-- Earnings/commissions
-
-### "Financial Health"
-- Revenue trend
-- Outstanding balance
-- Payment failures
-- DSO (days to collect)
-
-### "Operational Efficiency"
-- Utilization rate
-- Wait times
-- No-show rate
-- Staff productivity
+- **Start with the built-in dashboards.** They cover the most common questions. Only create custom dashboards when you need a view that does not already exist.
+- **Use Group By to spot trends.** Grouping by date, week, or month shows patterns over time. Grouping by provider or location compares performance across your team or clinics.
+- **Set a weekly review cadence.** Check delinquent memberships and failed payment plans at least once a week. The sooner you catch a failed payment, the easier it is to resolve.
+- **Export for your accountant.** Product Sales Breakdown is usually what accountants need (revenue, taxes, discounts, and profit). Payment Breakdown is better for reconciling with your bank.
+- **Watch your costs.** If Net Profit numbers look surprisingly low, check the Cost column. Product costs come from inventory shipment data -- if those costs are not entered correctly, profit numbers will not be accurate.
 
 ## Troubleshooting
 
-**"Widget shows no data"**
-- Check date range includes data
-- Verify filter selections
-- Make sure data exists for metric
-- Try different time period
+**Dashboard shows no data**
+- Make sure the date range covers a period with actual activity.
+- Check that no filters are excluding all results.
+- Confirm that relevant data exists in the source modules (Scheduling, Billing, Patients).
 
-**"Numbers seem wrong"**
-- Verify filters applied correctly
-- Check if this includes refunds/credits
-- Make sure tax is/isn't included
-- Double-check data source
+**Numbers seem wrong**
+- Double-check your filters and date range.
+- Hover over calculated cells (Net Revenue, Net Profit, Discount) to see the exact formula being used.
+- Remember that Product Sales shows what was billed, while Payment Breakdown shows what was collected -- these are different numbers.
 
-**"Can't create custom dashboard"**
-- Verify you have admin access
-- Check feature enabled for your plan
-- Contact support if issue persists
+**Cannot create a custom dashboard**
+- You need the **Analytics Write** permission. Ask your administrator to check your role under **Settings > Users & Roles**.
 
-## Related Features
-
-- **Billing** - See transactions and payments
-- **Appointments** - Track scheduling data
-- **Inventory** - Monitor product sales
-- **Patient Records** - Understand patient base
-- **Staff Management** - Monitor provider performance
-
-For advanced reporting, predictive analytics, or custom integrations, contact your account manager.
+**Export button is grayed out**
+- You need the **Analytics Export** permission. Ask your administrator to grant it.

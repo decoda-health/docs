@@ -45,6 +45,8 @@ Use the filter bar above the table to narrow results by:
 - **Date of Birth** -- date filter (ignores year, useful for finding birthdays).
 - **Opted Out of SMS** -- filter by patients who have opted out of text messages.
 - **Scheduling Blacklist** -- filter by blacklisted patients.
+- **Opted In to SMS Marketing** -- Yes or No.
+- **Opted In to Email Marketing** -- Yes or No.
 - **Location** -- filter patients by their primary location.
 - **Tags** -- filter by one or more patient tags.
 - **Lead Source** -- filter by how the patient was acquired (e.g., referral, walk-in, website).
@@ -60,7 +62,7 @@ Available bulk actions:
 
 ### Export Patient Data
 
-Click the **Export** button in the top-right corner to download patient data as a file. The export includes: Patient ID, External ID, Name, Date of Birth, Gender, Phone Number, Email, Primary Location, Address, Appointment Count, Last Appointment Date, Total Spent, Opted Out of SMS, Blacklist Status, and Created Date.
+Click the **Export** button in the top-right corner to download patient data as a file. The export includes: Patient ID, External ID, Name, Date of Birth, Gender, Phone Number, Email, Primary Location ID, Primary Location Name, Address Line 1, Address Line 2, City, State, Zip Code, Number of Appointments, Last Appointment Date, Total Amount Spent, Opted Out of SMS, Opted In to SMS Marketing, Opted In to Email Marketing, On Scheduling Blacklist, and Patient Created Date.
 
 <Info>
   **Permission Required:** Exporting patients requires the **Export Patients** permission. If the button is disabled, contact your administrator.
@@ -115,10 +117,10 @@ Click the **Export** button in the top-right corner to download patient data as 
     - **Phone Number** (required)
     - **Email**
     - **External ID**
-    - **Gender** -- searchable dropdown with options (Male, Female, Non-Binary, etc.)
+    - **Gender** -- searchable list with options (Male, Female, Other, Prefer Not To Say)
     - **Pronouns** -- free text (e.g., he/him, she/her, they/them)
     - **Preferred Name** -- nickname or preferred name, up to 255 characters
-    - **Lead Source** -- searchable dropdown of acquisition channels
+    - **Lead Source** -- searchable list of acquisition channels
     - **Address** -- street address with autocomplete, plus city, state, and zip code
     - **Primary Location** -- only appears if your organization has multiple locations
   </Step>

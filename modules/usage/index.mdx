@@ -1,5 +1,5 @@
 ---
-title: 'Usage & Subscription'
+title: 'Your Usage'
 description: 'Understand your monthly bill, track service consumption, review past statements, and manage the payment method for your Decoda subscription.'
 ---
 
@@ -11,7 +11,7 @@ description: 'Understand your monthly bill, track service consumption, review pa
   **Admin only:** The Usage page requires the **Usage Read** permission. Only account owners and administrators can access it.
 </Info>
 
-The Usage page is where you keep track of what your organization is spending on Decoda each month. It shows a day-by-day breakdown of metered services — things like AI assistant call time, text messages sent to patients, and phone minutes — so you can spot trends, catch unexpected spikes, and stay on top of costs before the bill arrives.
+The Your Usage page is where you keep track of what your organization is spending on Decoda each month. It shows a day-by-day breakdown of metered services — things like AI assistant call time, text messages sent to patients, and phone minutes — so you can spot trends, catch unexpected spikes, and stay on top of costs before the bill arrives.
 
 <CardGroup cols={2}>
   <Card title="Understand Your Bill" icon="file-invoice-dollar" href="#how-billing-works">
@@ -32,29 +32,47 @@ The Usage page is where you keep track of what your organization is spending on 
 
 Decoda bills on a **monthly cycle**. At the end of each month, the system totals up everything your organization used and generates a statement. Your default payment method is automatically charged on the **first of the following month**.
 
+<Info>
+  Some organizations may have automatic billing turned off. In that case, statements are still generated each month, but you will need to pay manually using the **Settle with Default Payment Method** button instead of being charged automatically.
+</Info>
+
 ### What's metered
 
-You're charged based on how much you use. Common metered services include:
+You're charged based on how much you use. Metered services include:
 
 | Service | What it measures |
 |---|---|
-| **AI Assistant Minutes** | Time your AI assistant spends handling phone calls on your behalf (answering, scheduling, taking messages, etc.) |
-| **SMS Messages** | Text messages sent to patients — appointment reminders, form links, two-way conversations |
-| **Phone Minutes** | Voice call time through Decoda's built-in phone system |
+| **Call minutes used** | Time your AI assistant spends handling phone calls on your behalf (answering, scheduling, taking messages, etc.). Shown in the daily chart and summary table. |
+| **Calls facilitated** | A flat per-call fee charged each time a call is placed or received through Decoda. Shown in the daily chart and summary table. |
+| **Texts sent** | Text messages sent to patients — appointment reminders, form links, two-way conversations. Appears as a line item on your monthly statement. |
+| **Mails sent** | Physical mail pieces sent on your behalf (letters, statements, etc.). Shown in the daily chart and summary table. |
+| **Monthly Flat Fee** | Your base subscription fee, charged every month regardless of usage. Appears as a line item on your monthly statement. |
+| **One-Time Service Fee** | Any one-time setup or service charges. Appears as a line item on your monthly statement. |
+| **Monthly Per Location Fee** | A recurring fee for each active location in your organization. Appears as a line item on your monthly statement. |
+| **E-Prescription Users** | The number of providers set up to send electronic prescriptions. Appears as a line item on your monthly statement. |
+| **Collections Fee** | A percentage-based fee applied to patient accounts that have been sent to collections. Appears as a line item on your monthly statement. |
 
 Each service has a **per-unit price** (for example, a cost per minute or per message). Your monthly total is the sum of all units used multiplied by their per-unit rates.
 
+<Info>
+  **Daily chart vs. monthly statement:** The daily usage chart and summary table only show services tracked in real time (call minutes, calls facilitated, and mails sent). Other services like texts, flat fees, per-location fees, e-prescription users, and collections fees appear only as line items on your finalized monthly statement.
+</Info>
+
 ### What's included free
 
-Your Decoda plan may include a set amount of usage each month at no extra charge — for example, a certain number of AI minutes or SMS messages. Only usage **above** that included amount is billed. To see what's included in your plan, hover over the **included monthly usage** text beneath the usage table on the Usage page.
+Your Decoda plan may include a set amount of usage each month at no extra charge — for example, a certain number of AI minutes or SMS messages. Only usage **above** that included amount is billed.
 
 <Info>
-  The chart and table on the Usage page show **estimates** based on raw usage. They don't account for your free included usage, taxes, or rounding adjustments, so your final statement may be slightly different.
+  If your plan includes free usage, a hoverable **included monthly usage** link appears beneath the usage table on the Your Usage page. Hover over it to see exactly what's included. If your plan does not include any free usage, the text still appears but is not hoverable.
+</Info>
+
+<Info>
+  The chart and table on the Your Usage page show **estimates** based on raw usage. They don't account for your free included usage, taxes, or rounding adjustments, so your final statement may be slightly different.
 </Info>
 
 ## Reading the Usage Chart
 
-When you open the Usage page, the first thing you see is the **Daily Usage Breakdown** chart. This is a stacked bar chart where each day of the month gets its own bar, and each service (AI minutes, SMS, etc.) is shown as a colored section within that bar.
+When you open the Your Usage page, the first thing you see is the **Daily Usage Breakdown** chart. This is a stacked bar chart where each day of the month gets its own bar, and each service (AI minutes, SMS, etc.) is shown as a colored section within that bar.
 
 ### What to look for
 
@@ -88,16 +106,29 @@ The **Grand Total** row at the bottom is the combined cost across all services.
 Scroll below the usage chart and table to find the **Statements** section. This is your billing history — every finalized invoice Decoda has generated for your organization.
 
 Each statement row shows:
-- **Description** — usually the billing period (e.g., "January 2026 Usage")
-- **Date** — when the statement was created
-- **Amount** — the final billed total
-- **Status** — either **Paid** or **Outstanding**
+- **Left side** — the description (usually the billing period, e.g., "January 2026 Usage") and the date the statement was created
+- **Right side** — the total amount and a status badge
+
+The displayed amount reflects the total charges minus any adjustments (credits, discounts, etc.) applied to that statement.
+
+### Statement statuses
+
+Most statements will show one of these statuses:
+- **Paid** — the statement has been fully paid
+- **Outstanding** — payment has not been collected yet
+
+Other statuses you may see:
+- **Payment Plan** — the balance is being paid in installments
+- **Refunded** — the payment was returned
+- **External Settlement** — the balance was settled outside of Decoda
+- **Chargeback** — the payment was disputed and reversed
+- **Collections** — the balance has been sent to a collections agency
 
 ### View statement details
 
-Click any statement row to expand it. You'll see a full line-item breakdown showing the same columns as the usage table: item name, quantity, unit price, and total. This is your finalized invoice — it reflects your actual charges after applying the free included usage, taxes, and any adjustments.
+Click any statement row to expand it. You'll see a full line-item breakdown with the following columns: **Item**, **Quantity**, **Unit Price**, and **Total**. This is your finalized invoice — it reflects your actual charges after applying the free included usage, taxes, and any adjustments.
 
-If credits or discounts were applied to a statement, they appear in a separate **Adjustments** section below the line items. Each adjustment shows a reason and the amount deducted.
+If credits or discounts were applied to a statement, they appear in a separate **Adjustments** section below the line items. Each adjustment shows the following columns: **Reason**, **Quantity** (always 1), **Unit Price**, and **Total**.
 
 <Info>
   When you expand a statement, the usage chart and table above automatically update to show that statement's billing period. This lets you cross-reference the daily breakdown with the finalized invoice.
@@ -105,17 +136,17 @@ If credits or discounts were applied to a statement, they appear in a separate *
 
 ## Managing Payment Methods
 
-Click the **Manage Payments** button in the top-right corner of the Usage page. A window opens showing your saved cards and a form to add new ones.
+Click the **Manage Payments** button in the top-right corner of the Your Usage page. A window opens showing your saved cards and a form to add new ones.
 
 <Steps>
   <Step title="View your saved cards">
     The top of the window lists all payment methods on file. The card marked as **default** is the one that gets charged automatically each month.
   </Step>
   <Step title="Add a new card">
-    Scroll to the bottom of the window and enter your new card details in the secure form. Click **Save** to add it. The new card automatically becomes your default payment method.
+    Below your saved cards, you'll see a heading that says **Add a new default payment method** with a secure embedded payment form powered by Rainforest. Enter your card details in this form and follow its submission steps to save the card. The new card automatically becomes your default payment method.
   </Step>
   <Step title="Change your default card">
-    If you have more than one card on file, select the card you want to use going forward, then click **Set as Default** at the top of the window.
+    If you have two or more cards on file, a **Set as Default** button appears in the header of the window. Select the card you want to use, then click **Set as Default** to make it your new default payment method.
   </Step>
 </Steps>
 
@@ -144,7 +175,7 @@ When you have an outstanding balance, a **Settle with Default Payment Method** b
 ## Tips
 
 <Info>
-  **Check usage monthly.** Get in the habit of reviewing the Usage page at least once a month. Catching a spike early — before the statement is finalized — gives you time to investigate and adjust.
+  **Check usage monthly.** Get in the habit of reviewing the Your Usage page at least once a month. Catching a spike early — before the statement is finalized — gives you time to investigate and adjust.
 </Info>
 
 <Info>
@@ -165,7 +196,7 @@ When you have an outstanding balance, a **Settle with Default Payment Method** b
     - **More text messages** — Sending appointment reminders, form links, or running a recall campaign increases SMS usage.
     - **New services activated** — If you recently enabled a new feature like two-way texting or AI call handling, those services will appear on your next bill.
 
-    Open the Usage page, select the month in question, and compare the summary table to the previous month. Look at the **Quantity** column to see which service increased.
+    Open the Your Usage page, select the month in question, and compare the summary table to the previous month. Look at the **Quantity** column to see which service increased.
   </Accordion>
   <Accordion title="What counts as an AI minute?">
     An AI minute is one minute of time that your AI assistant spends on an active phone call. This includes the full duration of the call — greeting the patient, looking up information, scheduling appointments, and wrapping up. If the AI handles a 3-minute call, that's 3 AI minutes billed.
@@ -174,7 +205,7 @@ When you have an outstanding balance, a **Settle with Default Payment Method** b
     If the automatic charge on the first of the month fails (usually due to an expired or declined card), the statement is marked as **Outstanding**. Your Decoda account continues to work, but you should resolve the balance promptly. Update your payment method, then use the **Settle with Default Payment Method** button to pay the outstanding amount.
   </Accordion>
   <Accordion title="Can I set a usage limit or budget alert?">
-    Decoda does not currently offer automatic budget alerts or usage caps. We recommend checking the Usage page regularly — at least once a month — to monitor your costs. If you notice unexpected usage, contact your Decoda account representative for help investigating.
+    Decoda does not currently offer automatic budget alerts or usage caps. We recommend checking the Your Usage page regularly — at least once a month — to monitor your costs. If you notice unexpected usage, contact your Decoda account representative for help investigating.
   </Accordion>
   <Accordion title="What are adjustments on my statement?">
     Adjustments are credits or discounts applied to your bill after it was calculated. Common reasons include promotional credits, billing corrections, or negotiated discounts. Each adjustment shows a reason and the amount deducted from your total.
@@ -185,8 +216,8 @@ When you have an outstanding balance, a **Settle with Default Payment Method** b
 
 <AccordionGroup>
   <Accordion title="Permissions">
-    The Usage page is gated by the following permission:
-    - **Usage Read** — Required to access the Usage page. Without this permission, the Usage link does not appear in your profile menu.
+    The Your Usage page is gated by the following permission:
+    - **Usage Read** — Required to access the Your Usage page. Without this permission, the Usage link does not appear in your profile menu.
 
     Admin users have this permission by default.
   </Accordion>

@@ -1,558 +1,191 @@
 # Forms & Intake Guide
 
-Collect patient information digitally with custom forms. Automate intake, consent, and assessment processes to save time and improve data quality.
+Collect patient information digitally with custom forms. Replace paper intake packets so patients can fill everything out on their phone before they arrive.
 
 ## Getting Started
 
-Access forms by clicking **Check-In > Forms** or **Inventory > Forms & Documents**.
+Go to **Check-In > Forms**. You'll see two tabs:
+- **Forms List** -- Where you create, edit, and manage all forms.
+- **Submissions** -- Where you view patient responses (requires the **Forms Submissions Read** permission).
 
-Two main areas:
-- **Form Templates** - Pre-built forms you can customize
-- **Form Submissions** - Responses from patients
+## How Forms Work
 
-## Form Basics
-
-### What Forms Can Do
-
-- **Intake** - New patient information (address, insurance, medical history)
-- **Consent** - Medical consent, release forms, waivers
-- **Assessments** - Health questionnaires, symptom checkers
-- **Custom** - Any information your clinic needs to collect
-
-### Form Flow
-
-1. You create form with questions
-2. Patient receives link via email or fills at check-in
-3. Patient answers questions on mobile or desktop
-4. Answers saved to patient's record
-5. You can view, download, or print responses
+1. You create a form with sections and questions.
+2. You send the form link to a patient via text message, or a staff member fills it in person.
+3. The patient opens the link on their phone or computer and answers the questions.
+4. Answers are saved to the patient's record automatically (for mapped fields like demographics and medical history).
+5. Staff can view submissions, export them to PDF, and follow up as needed.
 
 ## Creating a Form
 
-### Starting a Form
-
-1. Go to **Settings > Form Templates** (or Check-In > Forms)
-2. Click **Create Form**
-3. Enter form name (e.g., "New Patient Intake")
-4. Select form type:
-   - Intake
-   - Consent
-   - Assessment
-   - Custom
-5. Click **Create**
-
-Form builder opens and ready for questions.
-
-### Adding Questions
-
-Add different question types to your form.
-
-**Text Input**
-- Short text response
-- Example: "What is your name?"
-- Good for: Names, addresses, phone numbers
-
-**Text Area**
-- Longer text response
-- Example: "Describe your symptoms"
-- Good for: Detailed information, comments
-
-**Multiple Choice**
-- Choose one option
-- Example: "Gender: Male / Female / Other"
-- Good for: Categorical data
-
-**Checkboxes**
-- Choose multiple options
-- Example: "Check any that apply: Headaches, Nausea, Fatigue"
-- Good for: Multiple selections allowed
-
-**Dropdown**
-- Select from list (saves space)
-- Example: State selection
-- Good for: Long lists of options
-
-**Date Picker**
-- Calendar date selection
-- Example: "Date of Birth"
-- Good for: Dates, easy to use
-
-**File Upload**
-- Patient uploads document or photo
-- Example: "Upload insurance card"
-- Good for: Documents, images
-
-**Rating Scale**
-- 1-5 star or numeric rating
-- Example: "Rate your pain: 1-10"
-- Good for: Surveys, assessments
-
-### Building Your Form
-
-Best practices:
-
-1. **Start with identification**
-   - Name, DOB, contact info
-   - Gets basics filled first
-
-2. **Group related questions**
-   - Medical history together
-   - Insurance questions together
-   - Prevents patient confusion
+### Start a New Form
 
-3. **Keep it short**
-   - 10-15 questions max
-   - Long forms = incomplete submissions
-   - Patients more likely to finish
+1. Go to **Check-In > Forms > Forms List**.
+2. Click **Create Form** in the top right corner.
+3. The form editor opens with a blank form.
 
-4. **Be specific**
-   - Clear question wording
-   - Provide examples
-   - Avoid jargon
-
-5. **Use conditional logic** (see section below)
-   - Only show relevant questions
-   - Reduces form length
-   - Better completion rates
-
-### Conditional Logic
-
-Show/hide questions based on answers.
-
-Example:
-- Question: "Have you been to our clinic before?"
-- If "No" → Show new patient intake questions
-- If "Yes" → Show returning patient update form
-
-### Setting Up Conditional Logic
-
-1. Click question you want to make conditional
-2. Click **Add Condition**
-3. Set trigger:
-   - When [previous question]
-   - [equals/contains/is not]
-   - [specific answer]
-4. This question shows only when condition met
-5. Save
-
-Use cases:
-- "Any surgeries?" If yes → ask details
-- "Insurance?" If yes → ask plan details
-- "Medications?" If yes → ask which ones
-
-### Required vs. Optional
-
-Mark which fields are required:
-
-1. Click question
-2. Toggle **Required**
-3. Patient must answer before submitting
-
-Example required fields:
-- Name
-- Contact info
-- Consent signature
-- Medical allergies
-
-Optional fields:
-- Comments
-- Middle name
-- Preferred pronouns
-- Additional notes
-
-## Assigning Forms to Appointments
-
-Link forms to appointments so patients fill them.
-
-### During Scheduling
-
-1. Create appointment
-2. Click **Add Forms**
-3. Select forms patient should complete
-4. Patient receives form link via email
-5. Can complete before arrival
-6. Staff sees when complete
-
-### At Check-In
-
-1. Patient checks in
-2. Staff hands tablet/computer
-3. Patient fills form on-site
-4. Answers save immediately
-5. Provider sees answers before visit
-
-### Multiple Forms
-
-Assign multiple forms per appointment:
-- Intake form
-- Health history form
-- Consent form
-- Specific assessment
-
-Patient completes in order or can skip around.
-
-## Form Templates
-
-Pre-built templates save time.
-
-### Built-In Templates
-
-**New Patient Intake**
-- Name, contact, address
-- Insurance information
-- Medical history
-- Current medications
-- Emergency contact
-
-**Health History**
-- Previous surgeries
-- Allergies
-- Family medical history
-- Lifestyle habits
-- Current health conditions
-
-**Consent & Release**
-- Medical consent
-- Release of information
-- Photo consent
-- Treatment consent
-
-**Pain Assessment**
-- Pain level (scale 1-10)
-- Pain location
-- Duration
-- Treatments tried
-- Severity description
-
-**Cosmetic Assessment**
-- Goals
-- Previous treatments
-- Product sensitivities
-- Before photos
-- Expectations
-
-### Customizing Templates
-
-1. Select template
-2. Click **Edit**
-3. Add/remove questions
-4. Change wording to fit your clinic
-5. Reorder questions
-6. Set required fields
-7. Save as custom form
-
-All templates can be modified to match your process.
-
-## Form Responses
-
-View and manage patient answers.
-
-### Viewing Responses
-
-1. Go to **Forms > Submissions** (or patient record)
-2. Select form
-3. View all responses for that form
-4. Click response to see patient's answers
-5. View:
-   - Full answers
-   - Time submitted
-   - Device used (mobile/desktop)
-   - Patient name and date
-
-### Patient Response Status
-
-Forms show completion status:
-- **Not Sent** - Form not yet assigned
-- **Pending** - Sent but not completed
-- **Completed** - Patient submitted
-- **Overdue** - Not completed by appointment
-
-### Taking Action on Responses
-
-**View in Patient Record**
-1. Open form response
-2. Click **View Patient Record**
-3. Answers appear in patient profile
-4. Visible to all providers
-
-**Requesting Signatures**
-1. Create digital signature field
-2. Patient signs on device or prints/signs
-3. Signature stored with form
-4. Legally binding
-
-**Exporting Responses**
-1. Go to **Forms > Submissions**
-2. Select form(s) and date range
-3. Click **Export**
-4. Download as CSV or PDF
-5. Use for records, analysis, or import
-
-**Printing Forms**
-1. Click response
-2. Click **Print**
-3. Send to printer
-4. Patient can sign paper copy
-5. File in medical record
-
-## Advanced Form Features
-
-<AccordionGroup>
-  <Accordion title="Form Versioning & Change Management">
-    Manage form updates safely:
-    - **Form versions** - Keep versions of forms over time
-    - **Version comparison** - See what changed between versions
-    - **Rollback capability** - Revert to previous form version
-    - **Legacy form access** - Access old forms for historical records
-    - **Change tracking** - See who changed what and when
-
-    Use for: Compliance, audit trails, managing updates
-  </Accordion>
-
-  <Accordion title="Complex Conditional Logic">
-    Advanced branching and dependencies:
-    - **Multi-level conditions** - IF/THEN chains
-    - **AND/OR logic** - Combine multiple conditions
-    - **Skip entire sections** - Hide sections based on conditions
-    - **Dynamic field values** - Populate fields based on answers
-    - **Calculated fields** - Auto-calculate based on other answers
-    - **Regular expression validation** - Complex field validation
-
-    Example: If patient answers "Yes" to surgery, show detailed surgery questionnaire. If "No", skip it entirely.
-  </Accordion>
-
-  <Accordion title="HIPAA & Privacy Compliance">
-    Ensure patient data security:
-    - **Encrypted transmission** - Forms sent/received securely
-    - **Access controls** - Only authorized staff can view responses
-    - **Audit logging** - Track who accessed form responses
-    - **Data residency** - Ensure data stored in compliant locations
-    - **Right to be forgotten** - Delete patient responses on request
-    - **PHI redaction** - Hide sensitive data in exports
-
-    Critical for: HIPAA compliance, regulatory requirements
-  </Accordion>
-
-  <Accordion title="Digital Signatures & Legal Compliance">
-    Legally binding consent and signatures:
-    - **E-signature** - Patient signs on tablet/device
-    - **Signature validation** - Verify signature authenticity
-    - **Timestamp** - When signature was made
-    - **Legal compliance** - E-signatures legally binding
-    - **Consent audit trail** - Prove patient gave consent
-    - **Multi-signatory** - Multiple people sign (patient + guardian)
-
-    For: Medical consent, liability protection, legal defensibility
-  </Accordion>
-
-  <Accordion title="Form Pre-Population & Smart Defaults">
-    Reduce patient typing:
-    - **Auto-fill from patient record** - Use existing data
-    - **Smart defaults** - Common answers pre-selected
-    - **API population** - Pull data from external systems
-    - **Cross-form data** - Carry answers from previous forms
-    - **Provider defaults** - Different defaults based on provider
-    - **Location defaults** - Different defaults by clinic location
-
-    Example: Patient's address auto-fills from record, they just confirm it
-  </Accordion>
-
-  <Accordion title="Form Branching & Custom Flows">
-    Create personalized form experiences:
-    - **Adaptive forms** - Different paths based on answers
-    - **Single question per screen** - Interview-style forms
-    - **Progress tracking** - Show completion percentage
-    - **Estimated time** - Show how long form takes
-    - **Save & resume** - Patient can complete later
-    - **Skipping sections** - Don't show irrelevant questions
-
-    Example: Spanish-speaking patient sees form in Spanish, medical history patient sees longer history section
-  </Accordion>
-
-  <Accordion title="Third-Party Form Integrations">
-    Connect to external form systems:
-    - **Typeform/JotForm integration** - Use external form builders
-    - **Document upload** - Collect files/scans
-    - **External API webhooks** - Send form data to other systems
-    - **CMS integration** - Embed forms on your website
-    - **Data mapping** - Map external form fields to Decoda
-
-    For: Specialized forms, legacy system integration
-  </Accordion>
-</AccordionGroup>
-
-## Advanced Features
-
-### Sections
-
-Organize long forms into sections:
-
-1. Click **Add Section**
-2. Name section (e.g., "Medical History", "Insurance")
-3. Add questions under section
-4. Patient sees progress (1 of 3 sections)
-5. Sections can be conditional
-
-### Calculations
-
-Auto-calculate values from answers:
-
-Example: BMI calculator
-- Ask height and weight
-- System calculates BMI
-- Displays result
-
-Example: Insurance deductible
-- Ask insurance plan
-- System looks up deductible
-- Shows remaining deductible
-
-### Integrations
-
-Link form responses to other systems:
-- Insurance verification
-- Patient contact databases
-- Analytics platforms
-
-## Form Settings
-
-Configure how forms work.
-
-**General Settings:**
-- Form name and description
-- Instructions for patients
-- Confirmation message after submission
-- Email notification when submitted
-
-**Access Settings:**
-- Who can fill form (only assigned patients)
-- Public vs. private forms
-- Expiration date
-- Response limits
-
-**Data Settings:**
-- Save responses to patient record
-- Export responses to external system
-- Data retention period
-- Backup and archive
+### Name Your Form
+
+Click the form name area at the top of the editor and type a name (e.g., "New Patient Intake" or "Telemedicine Consent"). You can also add an optional description below the name.
+
+### Add Sections
+
+Click **Add Section** at the bottom of the editor area. A menu appears with four section types:
+
+- **Custom Section** -- An empty section for any custom questions you define. Use this for intake questions, consent language, screening tools, and anything else.
+- **Demographics** -- Collects name, date of birth, contact info. Answers auto-save to the patient's record.
+- **Medical History** -- Collects allergies, medications, family history, and other health data. Answers auto-save to the patient's chart.
+- **Payment Methods** -- Securely collects a credit card on file from the patient.
+
+You can add multiple sections to a single form. For example, a full intake form might have a Demographics section, a Medical History section, a Custom Section for consent language, and a Payment Methods section.
+
+### Add Questions Using the Field Palette
+
+The left sidebar shows the **field palette** -- a list of all question types organized by category. Click any field to add it to the currently selected section.
+
+**Form Fields** -- Standard question types:
+- Short Text, Long Text, Number, Date
+- Yes/No (on/off switch)
+- Single Choice, Multiple Choice
+- Address, Phone, Email
+- Signature, File Upload
+- Disclaimer (read-only text), Statement (list of points), Document (embedded PDF)
+
+**Demographics** -- Fields that auto-save to the patient record:
+- Date of Birth, Gender, Email, Address
+
+**Vitals** -- Patient measurement fields:
+- Weight, Height
+
+**Medical History** -- Health data fields:
+- Allergies, Medications, Family History, Medical History, Prescriptions
+- Surgical History, Social History, Autoimmune Disorders, Skin Conditions, Neurological Conditions
+
+**Marketing** -- Opt-in fields:
+- SMS Marketing Opt-In, Email Marketing Opt-In
+
+Mapped fields (Demographics, Vitals, Medical History, Marketing) automatically update the patient's record when they submit the form.
+
+### Reorder Sections and Questions
+
+Drag and drop sections or questions within a section to change their order. Grab the drag handle and move items to the desired position.
+
+### Set Up Conditional Logic
+
+You can make questions appear only when the patient gives a specific answer to another question. This keeps forms shorter and more relevant.
+
+1. Select the question you want to make conditional.
+2. Click **Add Condition**.
+3. Set the condition:
+   - Pick the **dependent question** (the earlier question whose answer controls visibility).
+   - Pick an **operator**: Equals, Not Equals, or Contains.
+   - Enter the **value** to compare against.
+4. The question will only appear when the condition is met.
+
+**Example:** You have a "Do you have any allergies?" yes/no question. Add a condition on the follow-up "List your allergies" question: Dependent = "Do you have any allergies?", Operator = Equals, Value = Yes. The follow-up only appears when the patient says Yes.
+
+### Mark Questions as Required
+
+When editing a question, you can mark it as **Required**. Patients must answer required questions before they can submit the form.
+
+### Set Submission Expiry
+
+Use the expiry setting in the top bar of the editor to set the number of days before a completed submission expires. After expiry, the patient must re-complete the form. Leave it empty if submissions should never expire.
+
+### Use the AI Editor Assistant
+
+Click the chat icon in the bottom-right corner of the form editor to open the AI assistant. Describe what you need -- for example, "Add a section about surgical history" or "Create a PHQ-9 depression screening" -- and the assistant will suggest changes. You can review each suggested change and accept or reject it before saving.
+
+### Save Your Form
+
+Click **Save** in the top bar. The form is now listed in your Forms List and ready to send.
+
+## Creating a Consent Form
+
+Consent forms are built using the same editor as all other forms. There is no separate consent form wizard.
+
+1. Click **Create Form** and name it (e.g., "HIPAA Consent" or "Treatment Consent").
+2. Add a **Custom Section**.
+3. Add a **Disclaimer** question and enter the full consent text. You can format it:
+   - `**text**` for bold red text (key points).
+   - `*text*` for bold text.
+   - `__text__` for underlined text.
+4. Add a **Statement** question if you need a list of consent points.
+5. Add a **Signature** question for the patient to sign.
+6. Save.
+
+## Sending Forms to Patients
+
+### Send a Single Form
+
+1. From the Forms List, click the form name or click the gear icon and select **Send to Patient**.
+2. Search for and select a patient.
+3. Choose **Open Chat** to send the form link via text message, or **Fill In Person** to complete it on your screen.
+
+### Send Multiple Forms
+
+1. Check the boxes next to the forms you want to send.
+2. Click **Send to Patient** in the toolbar that appears.
+3. Search for a patient and click **Send Forms**.
+
+### Send Forms from an Appointment
+
+If forms are linked to a service (set up in **Settings > Services > Forms & Intake**), those forms are automatically tied to appointments for that service. Open the appointment and click **Send Forms to Patient** to text the patient the links.
+
+This is the recommended approach -- link forms to services so they are sent automatically as part of the appointment workflow.
+
+## Filling a Form In Person
+
+When a patient can't complete a form on their phone:
+
+1. Click the gear icon on the form and select **Fill In Person**.
+2. Search for and select the patient.
+3. Complete each section on your screen.
+4. Submit. The submission is recorded under the patient's name.
+
+## Viewing Submissions
+
+Go to **Check-In > Forms > Submissions** to see all patient responses. You can filter by:
+- Patient name or ID
+- Phone number
+- Submission date
+- Specific form
+- Completion status (complete or partial)
+- Follow-up status (upload issues)
+
+### Submission Badges
+
+Each submission may show one or more badges:
+
+- **Partial Submission** -- The patient started the form but did not finish all sections.
+- **Requires Follow-up** -- The patient had trouble uploading a file. The file needs to be collected another way.
+- **Expired** -- The submission has passed its expiry date and the patient needs to re-complete the form.
+- **Expires [date]** -- The submission will expire on the shown date.
+
+Click **View Submission** on any row to see the patient's full answers.
+
+## Patient Data Mapping
+
+When you use mapped fields (from the Demographics, Vitals, Medical History, or Marketing sections of the field palette), the patient's answers automatically update their record in Decoda. This means a single intake form can fill in a patient's demographics, medical history, and more -- no manual data entry required.
+
+## Form URLs and QR Codes
+
+Each form has a unique URL. From the gear menu on any form:
+
+- **Copy URL** -- Copy the link to share via email, text, or your website.
+- **Generate QR Code** -- Download a QR code image linking to the form. Print and post it in your lobby, on brochures, or at the front desk.
+
+When you select multiple forms, a combined URL is generated that walks the patient through all selected forms in sequence.
+
+## Converting Forms to Note Templates
+
+Forms can be converted into clinical note templates for use in Scribe. Click the gear icon on any form and select **Convert to Note Template**. You can also bulk-convert multiple forms using the checkbox selection.
 
 ## Best Practices
 
-### Intake Form Tips
-
-**Keep It Relevant**
-- Only ask what you actually need
-- Clinic needs vary
-- Review annually
-
-**Make It Clear**
-- Use patient-friendly language
-- Avoid medical jargon
-- Provide examples where helpful
-- Use conditional logic to reduce confusion
-
-**Collect Critical Data**
-- Allergies (critical for safety)
-- Insurance
-- Emergency contact
-- Consent to treat
-- Known drug interactions
-
-**Be Specific with Allergies**
-- Drug allergies
-- Material allergies (latex, tape)
-- Environmental allergies
-- Food allergies
-- Reaction severity
-
-### Consent Form Tips
-
-**Include Key Elements:**
-- Name of procedures/treatments
-- Risks and benefits explained
-- Consent to proceed
-- Release of liability (where applicable)
-- Signature and date
-- Witness if required
-
-**Make It Understandable**
-- Use simple language
-- Avoid legalese where possible
-- Explain procedures in detail
-- Ask if patient has questions
-
-**Get All Needed Consents**
-- Medical consent to treat
-- Photo consent (if taking before/afters)
-- Release of records (if referring)
-- Payment responsibility
-
-### Health Assessment Tips
-
-**Group Related Items**
-- Medical history questions together
-- Medication questions together
-- Symptom questions together
-
-**Use Scales Appropriately**
-- Pain scales for pain
-- Severity scales for symptoms
-- Rating scales for satisfaction
-
-**Make Conditional Logic**
-- If "yes" to surgery → ask which
-- If "yes" to medication → ask which ones
-- If "yes" to condition → ask when diagnosed
-
-### Collecting Accurate Data
-
-**Clear Instructions**
-- At top: "Please answer all questions"
-- Before medical questions: "For medical safety"
-- Before financial questions: "For insurance purposes"
-
-**Validation**
-- Require all necessary fields
-- Check format (email, phone)
-- Validate dates (DOB must be in past)
-
-**Follow-Up**
-- Review incomplete responses
-- Follow up with patient
-- Complete critical info before appointment
-
-## Troubleshooting
-
-**"Form won't send to patient"**
-- Verify patient email is correct
-- Check email not in spam
-- Resend form link
-- Try SMS if available
-
-**"Patient says they answered but form is blank"**
-- Check internet connection when they filled it
-- Patient may not have clicked submit
-- May need to fill again
-- Check if browser cookies blocked
-
-**"Conditional logic not working"**
-- Verify condition is on correct question
-- Check trigger question and answer
-- May need to refresh page
-- Contact support if persists
-
-**"Can't see patient's answers"**
-- Check form was submitted (not pending)
-- Verify correct patient selected
-- Check form response date range
-- Patient answers visible in history
-
-## Related Features
-
-- **Appointments** - Assign forms to appointments
-- **Patient Records** - Form responses appear in profile
-- **Check-In** - Complete forms at check-in
-- **Consent** - Legal consent and signature storage
-- **Data Export** - Export form data for analysis
-
-For advanced form features, API integrations, or HIPAA compliance certification, contact your account manager.
+- **Keep forms short** -- Patients are more likely to finish shorter forms. Use conditional logic to hide questions that don't apply.
+- **Group related questions** -- Put medical history questions together, insurance questions together, etc.
+- **Use mapped fields** -- Mapped fields auto-save to the patient record, saving your staff from manual data entry.
+- **Link forms to services** -- Instead of manually sending forms, link them to services so they're automatically part of the appointment workflow.
+- **Set expiry dates** -- For consent forms and other time-sensitive documents, set an expiry so patients re-sign periodically.
+- **Use clear language** -- Write questions in plain language your patients will understand. Avoid medical jargon where possible.

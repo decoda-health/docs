@@ -12,10 +12,12 @@ Manual notes are written by hand using a structured template. Each template defi
     Click **New Note** and select **Manual Note**. If you are inside a patient chart, the patient is pre-selected. Otherwise, search for and select the patient.
   </Step>
   <Step title="Select a Template">
-    Choose a note template. Templates that match the patient's recent data may pre-fill certain fields automatically. A template is required for manual notes -- you cannot proceed without selecting one.
+    Choose a note template. A template is required for manual notes -- you cannot proceed without selecting one.
+
+    When a template is selected for a patient, some fields may auto-fill based on existing patient data (such as allergies, medications, or other previously recorded information). If auto-fill data is not available, fields will use default values.
   </Step>
   <Step title="Fill In the Note">
-    The note editor displays each question from the template. Depending on the question type, you may enter:
+    The note editor shows the **Doctor's Note** tab with each question from the template. Depending on the question type, you may enter:
     - **Free text** or **long text** -- Type directly in the field.
     - **Single select / Radio** -- Choose one option.
     - **Multi-select / Checkboxes** -- Choose one or more options.
@@ -32,7 +34,7 @@ Manual notes are written by hand using a structured template. Each template defi
 
 ### Change a Template on a Manual Note
 
-If a manual note was created without a template, a template selection modal automatically appears. You can also switch templates by selecting a new one from the modal, which replaces the current note structure. Any unsaved edits will be lost.
+If a manual note was created without a template, a template selection window automatically appears. You can also switch templates by selecting a new one, which replaces the current note structure. Any unsaved edits will be lost.
 
 ## Note Templates
 
@@ -40,13 +42,13 @@ Templates define the structure of your clinical notes. When creating or editing 
 
 ### Select a Template
 
-The template selection modal shows all templates you have access to. Key features:
+The template selection window shows all templates you have access to. Key features:
 
 - **Search** -- Type to filter templates by name or question content.
 - **Favorites** -- Click the star icon next to a template to mark it as a favorite. Favorited templates appear in a dedicated section at the top of the list for quick access.
 - **Question count and attachment count** -- Each template row shows the number of questions and any placeholder attachments.
 - **Access restrictions** -- Templates may be restricted to specific providers. If you do not have access to a template, it appears greyed out.
-- **Create New Template** -- Click the link at the bottom of the modal to open the template editor in a new window.
+- **Create New Template** -- Click the link at the bottom to open the template editor in a new window.
 
 <Info>
   To create and manage note templates (add questions, set access controls, configure expiry), go to **Settings > Note Templates**. See [Note Templates Settings](/modules/settings/note-templates) for details.

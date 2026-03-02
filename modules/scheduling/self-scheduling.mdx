@@ -13,10 +13,10 @@ Self-scheduling allows patients to book appointments online without calling the 
 
 <Steps>
   <Step title="Select Patient Type">
-    The patient indicates whether they are a new patient, existing patient, or returning patient. Services may be restricted based on patient type.
+    The patient indicates whether they are a new patient, existing patient, or not sure. The options are: "Yes, I'm an existing patient", "No, I'm a new patient", and "I'm not sure". Services may be restricted based on patient type. Existing patients go through phone-based MFA verification before proceeding.
   </Step>
   <Step title="Choose Location Type">
-    The patient selects between in-person, virtual, or all appointment types.
+    The patient selects between In-Person, Telehealth, or "Skip, I'll decide later".
   </Step>
   <Step title="Select Service">
     The patient browses available services, filtered by category if configured. Services marked as "popular" appear first. Services marked "only bookable over the phone" are visible but cannot be selected.
@@ -31,12 +31,22 @@ Self-scheduling allows patients to book appointments online without calling the 
     The patient selects from available time slots. Availability is calculated based on provider shifts, existing appointments, service duration, and any short-notice blocks.
   </Step>
   <Step title="Confirm and Pay">
-    The patient reviews appointment details in an itinerary view. If a booking fee is configured, they enter payment information. If credit card collection is required, they must provide a card before finalizing.
+    The patient goes through a multi-step checkout process:
+
+    1. **Confirmation** -- The patient reviews appointment details in an itinerary view (service, provider, location, date and time).
+    2. **Payment Method** -- If credit card collection is required, the patient enters their card information.
+    3. **Secure Appointment** -- The system reserves the time slot for the patient.
+    4. **Checkout** -- If a booking fee is configured, the patient pays the fee.
   </Step>
   <Step title="Booking Complete">
-    The appointment is created and a confirmation SMS is sent to the patient. The appointment appears on the clinic calendar.
+    The appointment is created and a confirmation SMS is sent to the patient. The appointment appears on the clinic calendar. If the service has required forms, they are shown to the patient after booking (and also sent via text message for later completion).
   </Step>
 </Steps>
+
+### Existing Appointments and Saved Progress
+
+- **Existing future appointments:** When a returning patient has an existing upcoming appointment, the system shows their booking and lets them reschedule or cancel it before making a new one. If the appointment is within 24 hours, rescheduling and cancellation are blocked and the patient is asked to call the clinic.
+- **Saved progress:** The system saves booking progress automatically. If a patient leaves and returns, a "Welcome back!" prompt appears offering to continue where they left off or start over.
 
 <Info>
   Configure self-scheduling options per service in [Settings > Services](/modules/settings/services) under the **Visibility & Discovery**, **Pricing & Payments**, and **Scheduling & Booking** tabs.

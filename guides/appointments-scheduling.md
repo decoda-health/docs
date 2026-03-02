@@ -1,328 +1,168 @@
 # Appointments & Scheduling Guide
 
-The Appointments system is the backbone of your clinic's operations. It lets you schedule, manage, and track all patient appointments with an intuitive calendar interface.
+This guide covers day-to-day scheduling tasks: viewing the calendar, booking appointments, managing shifts and blocks, patient self-scheduling, and tracking patients through their visit.
 
-## Getting Started
+## Calendar Views
 
-Access appointments by clicking **Check-In** from the main menu, then select the **Calendar** tab.
+The calendar is accessed from the **Check-In** section in the main navigation. There are three views:
 
-## Understanding the Calendar View
+- **Day View** -- Shows a single day with each provider in their own column. Appointments appear as blocks on a time grid. This is the default view and is best for managing a busy clinic day.
+- **Week View** -- Displays a seven-column grid (or five if weekends are hidden). Useful for seeing the full week at a glance.
+- **Schedule View** -- A list of appointments in chronological order showing patient name, provider, service, location, time, and duration. This view supports exporting to PDF or CSV.
 
-The calendar displays all appointments for your selected date range and location. Each appointment shows:
-- **Patient name**
-- **Time slot**
-- **Status** (Scheduled, Checked In, Completed, Cancelled)
-- **Service type**
-- **Provider assigned**
+There is no month view.
 
-You can view appointments by **day**, **week**, or **month** depending on your preference.
+## Creating Appointments
 
-## Scheduling a New Appointment
+1. Click **Create Event** in the sidebar, or click any empty time slot on the calendar grid.
+2. Select **Appointment**.
+3. Search for an existing patient by name, phone, or email. You can also create a new patient record from the search.
+4. Select one or more services. Each service can have its own provider, start time, and duration.
+5. Choose the provider and location. Only providers qualified for the selected service appear in the list.
+6. Set the date and start time. The end time auto-calculates based on the service duration. If the service has prep time, a prep segment is added before the main appointment. If the service has cleanup time, a cleanup segment is added after.
+7. Optionally set recurrence (daily, weekly, weekdays, monthly, annually, or custom).
+8. Add notes or memos if needed.
+9. Click **Save**. The system sends notifications to the patient based on the service's configuration.
 
-### Quick Schedule
-1. Click an empty time slot on the calendar
-2. Select **New Appointment**
-3. Enter patient information:
-   - Search for existing patient or create new
-   - Select service/appointment type
-   - Choose provider
-   - Set time and date
-4. Add optional details (notes, forms to complete)
-5. Click **Save**
+You can also drag appointments to a new time slot on the calendar in Day or Week view to quickly move them.
 
-### From Patient Profile
-1. Open any patient's profile
-2. Click **Appointments** tab
-3. Click **Schedule Appointment**
-4. Fill in details and save
+## Appointment Statuses
 
-### Patient Self-Booking
-Patients can book their own appointments through your patient portal:
-- They see available time slots based on your scheduling rules
-- They select service type and preferred provider
-- Appointments appear in your calendar for approval (if required)
+| Status | Meaning |
+|--------|---------|
+| **Pending** | The patient has not yet confirmed the appointment. |
+| **Reserved** | The patient has reserved the slot but has not paid a required booking fee. |
+| **Confirmed** | The patient has confirmed and the appointment is locked in. |
+| **Overridable** | The patient has not confirmed and another patient can book over this slot. |
+| **Completed** | The appointment is finished. |
+| **No Show** | The patient did not arrive. |
+| **Cancelled** | The appointment was cancelled by staff or the patient. |
 
-### Recurring Appointments (Series)
+Customize the colors and visual style for each status in **Settings > Calendar Appearance**.
 
-Create a pattern of appointments that repeats:
+## Editing and Canceling Appointments
 
-1. Click **New Appointment**
-2. Fill in appointment details
-3. Click **Repeat/Series**
-4. Select pattern:
-   - Daily (every day, every X days)
-   - Weekly (specific days of week)
-   - Monthly (specific date or relative day)
-   - Custom interval
-5. Set end date (or number of occurrences)
-6. Click **Create Series**
+### Editing
 
-Series appointments:
-- Create multiple appointments at once
-- All linked to the same service/provider
-- Can modify individual appointments without affecting series
-- Cancel entire series or individual appointments
+Click the edit icon on an appointment (visible on hover) or open the appointment form. From the form you can:
 
-Example: Weekly therapy sessions every Monday for 12 weeks
+- Change the date, time, or duration
+- Change the provider (select a different one from the provider list in the form)
+- Change the location
+- Add or remove services
+- Modify recurrence settings
+- Add bookable resources (rooms, equipment)
 
-## Appointment Status Types
-
-| Status | Meaning | Action |
-|--------|---------|--------|
-| **Scheduled** | Appointment is booked but patient hasn't arrived | Check in when they arrive |
-| **Checked In** | Patient has checked in at reception | Proceed with appointment |
-| **Completed** | Appointment finished | Charges and notes auto-save |
-| **Cancelled** | Appointment was cancelled | No-shows impact metrics |
-| **Pending** | Awaiting patient confirmation | Send reminder |
-
-## Managing Appointments
+For recurring appointments, you choose the scope: this event only, this and following events, or all events.
 
 ### Rescheduling
-1. Click the appointment on the calendar
-2. Select **Reschedule**
-3. Choose new date/time
-4. Save - patient is automatically notified
 
-### Cancelling
-1. Click the appointment
-2. Select **Cancel**
-3. Note the reason (optional)
-4. Confirm - patient receives cancellation notice
+To reschedule, edit the appointment and change the date or time. You can also drag the appointment to a new time slot on the calendar grid. The system can send an update notification to the patient.
 
-### Adding Notes
-1. Click the appointment
-2. Add notes in the **Notes** field
-3. These appear in patient timeline and medical records
+### Canceling
 
-### Linking Forms
-Before appointment:
-1. Click the appointment
-2. Select **Add Forms**
-3. Choose intake, consent, or assessment forms
-4. Patient completes before arrival
+Open the appointment form and click **Cancel**. You can optionally provide a reason, choose whether to send an SMS to the patient, and customize the cancellation message. If the service has a cancellation fee configured and the appointment is within the fee window, the charge can be applied.
 
-## The Check-In Process
+## Blocks and Shifts
 
-When patients arrive:
+Blocks and shifts are best managed from the **Shift Management** page (under **Check-In > Shift Management**), which shows all providers across all locations in a graphical timeline.
 
-1. **Step 1: Clock In** - Patient or staff records arrival time
-2. **Step 2: Update Information** - Verify address, insurance, emergency contacts
-3. **Step 3: Complete Forms** - Patient fills required forms
-4. **Step 4: Provider Review** - Provider reviews patient info and forms
-5. **Step 5: Appointment** - Service is delivered
-6. **Step 6: Check Out** - Process payment and confirm completion
+### Shifts
 
-## Appointment Analytics
+Shifts define when a provider is available to see patients. When the "Show Working Hours" on/off switch is enabled on the calendar, time outside of shifts is marked with diagonal stripes.
 
-View metrics on the **Dashboard** tab:
-- Total appointments (today, this week, this month)
-- No-show rate
-- Average appointment duration
-- Busiest time slots
-- Provider utilization
-- Cancellation trends
+To create a shift:
 
-Use this data to optimize scheduling and identify staffing needs.
+1. In Shift Management, click **Add > Create new Shift**.
+2. Set the start and end times.
+3. Select the provider.
+4. Select the location.
+5. Optionally set capacity (max concurrent appointments) and recurrence.
+6. Click **Create**.
 
-## Scheduling Rules & Availability
+### Shift Conflicts
 
-Configure how appointments work in **Settings > Scheduling**:
+When providers have overlapping shifts, Shift Management shows a warning banner listing the conflicts. Expand the banner to see the specific shift times and locations, then click on an overlapping shift bar to edit or delete it.
 
-### Basic Rules
+### Blocks
 
-**Appointment Rules:**
-- Default appointment duration
-- Buffer time between appointments
-- Earliest booking (how far in advance)
-- Latest booking (how far in the past)
-- Days/hours clinic operates
-- Provider availability by day
+Blocks prevent appointments from being booked during specific times. Use them for lunch breaks, meetings, training, or any unavailable period.
 
-**Service-Specific Rules:**
-- Different duration per service type
-- Required forms per service
-- Specific provider requirements
-- Location restrictions
+To create a block:
 
-**Advance Bookings:**
-- Control how far ahead patients can book
-- Prevent last-minute changes
-- Require cancellation notice period
+1. In Shift Management, click **Add > Create new Block**.
+2. Enter a title (e.g., "Lunch", "Staff Meeting").
+3. Set the start and end times.
+4. Select one or more providers.
+5. Optionally restrict to specific services and set recurrence.
+6. Click **Create**.
 
-### Advanced Scheduling Scenarios
+## Self-Scheduling
 
-<AccordionGroup>
-  <Accordion title="Buffer Time & Appointment Spacing">
-    Fine-tune spacing between appointments:
-    - **Default buffer** - Minutes between all appointments
-    - **Service-specific buffer** - Different buffer for specific services
-    - **Provider buffer** - Personalized spacing per provider
-    - **Location buffer** - Vary by location
+Self-scheduling lets patients book appointments online without calling the clinic. The patient-facing booking page guides them through:
 
-    Example: Botox needs 15-min buffer for cleanup, but consultations only need 5 min.
-  </Accordion>
+1. **Patient type** -- "Yes, I'm an existing patient", "No, I'm a new patient", or "I'm not sure". Existing patients verify their identity through phone-based MFA.
+2. **Location type** -- In-Person, Telehealth, or "Skip, I'll decide later".
+3. **Service selection** -- Browse available services, filtered by category. Popular services appear first.
+4. **Location** -- For in-person visits, select a clinic location.
+5. **Provider** -- If individual provider booking is enabled, the patient can choose a specific provider. Otherwise, one is auto-assigned.
+6. **Time** -- Select from available time slots based on provider shifts, existing appointments, and service duration.
+7. **Confirmation and payment** -- Review details, provide a credit card if required, reserve the slot, and pay any booking fee.
+8. **Booking complete** -- A confirmation SMS is sent and any required forms are shown.
 
-  <Accordion title="Timezone Handling for Remote/Telehealth">
-    If offering virtual appointments across time zones:
-    - Set appointment time zone during booking
-    - System shows availability in patient's local time
-    - Reminders sent in patient's timezone
-    - Providers see appointments in their timezone
+The system checks for existing future appointments and lets returning patients reschedule or cancel existing bookings before making new ones. Booking progress is saved automatically, so if a patient leaves and returns, they see a "Welcome back!" prompt to continue or start over.
 
-    Example: Virtual consultation at 2pm PT shows as 5pm ET for East Coast patient.
-  </Accordion>
+Configure self-scheduling per service in **Settings > Services** under the **Visibility & Discovery**, **Pricing & Payments**, and **Scheduling & Booking** tabs.
 
-  <Accordion title="Waiting Lists & Cancellation Lists">
-    When appointments are fully booked:
-    - Patient joins waiting list for that appointment slot
-    - Automatic notification if cancellation opens slot
-    - Patient can accept or decline the newly available time
-    - Tracking of how often patients actually book from waitlist
+## Appointment Checklist
 
-    Use for: Peak times, popular providers, high-demand services
-  </Accordion>
+The **Patient Status** panel tracks patients through their visit in real time. Each appointment has a configurable checklist defined per service in **Settings > Services > Checklists**. Available checklist steps:
 
-  <Accordion title="Recurring Appointment Exceptions">
-    Modify series appointments without breaking the series:
-    - Skip a single occurrence
-    - Move one appointment to different time/date
-    - Change provider for one appointment
-    - Cancel just that occurrence
-    - Original series continues unaffected
+| Step | Description |
+|------|-------------|
+| **Filled Form** | Patient has completed required intake forms. |
+| **Checked In** | Patient has arrived and been checked in. |
+| **With MA** | Patient is with the medical assistant. |
+| **Measurement Taken** | Vitals or measurements recorded. |
+| **Dose Taken** | Medication or treatment dose administered. |
+| **With Provider** | Patient is with the provider. |
+| **Note Taken** | Clinical note has been created. |
+| **Payment Made** | Patient has completed checkout and payment. |
+| **Picture Taken** | Before/after photos documented. |
+| **Request GFE** | Good Faith Exam has been requested. |
 
-    Useful for: Holidays, provider absences, patient requests for specific dates
-  </Accordion>
+Staff mark each step complete from the Patient Status panel or the patient sidebar. Each completed step shows who completed it and when. An overdue indicator appears when a patient has been waiting too long at a stage.
 
-  <Accordion title="Complex Availability Rules">
-    Advanced scheduling rules per provider:
-    - **Capacity limits** - Max appointments per day/week/month
-    - **Rotation scheduling** - Alternate between providers
-    - **Lunch/break times** - Automatic unavailable periods
-    - **Vacation blocks** - Multi-day unavailability
-    - **Meeting time blocks** - Staff meetings, training, etc.
-    - **Min consecutive time** - Require X minutes free between appointments
+Use the filter icon in the Patient Status panel to show only patients at specific stages.
 
-    Example: Dr. Smith available Mon-Wed, limit to 8 patients/day, lunch 12-1pm, vacation July 10-20
-  </Accordion>
+## Google Calendar Sync
 
-  <Accordion title="Double-Booking & Overbooking">
-    In some scenarios you may want to allow exceptions:
-    - Allow double-booking with admin approval
-    - Waiting room overflow capacity
-    - Emergency appointment slots (override rules)
-    - Virtual + in-person same time (different locations)
+Sync your Decoda calendar with Google Calendar so appointments automatically appear on your Google Calendar.
 
-    Requires: Manual override each time, not automatic
-  </Accordion>
-</AccordionGroup>
+- **Organization-level:** Go to **Settings > General** and find the Google Calendar Integration section. Connect a centralized Google account to sync all appointments.
+- **Individual provider:** Each provider can connect their own Google Calendar from **Settings > Preferences > Calendar**. When enabled, the "Send Google Calendar Invites" switch adds calendar invites for each appointment.
 
-## Shift Management
+Individual provider calendars take precedence over the organization-level calendar.
 
-The **Shift Management** page (found under **Check-In**) is the primary hub for planning provider schedules and availability across all locations.
-
-1. Go to **Shift Management** in the Check-In section.
-2. View the graphical timeline of all providers by day and location.
-3. Use the **Add** button to create shifts for each provider.
-4. Set hours and break times (blocks).
-5. The system uses these shifts to calculate patient booking availability and prevent overbooking.
-
-Staff can then clock in/out according to these shifts. View all staff time entries in **Clock-In History**.
-
-## Best Practices
+## Tips for Daily Use
 
 ### Before Your Day
 - Review the morning schedule and confirm high-priority appointments.
-- Send reminder notifications to patients the day before.
+- Verify provider availability in Shift Management.
 - Ensure all required forms are ready.
-- Verify provider availability in **Shift Management**.
 
 ### During Your Day
-- Check in patients promptly when they arrive.
+- Check in patients promptly when they arrive and mark checklist steps as they progress.
+- Use quick notes (memos) to attach short reminders to appointments.
 - Update appointment status as it progresses.
-- Flag any changes (running late, extended time needed).
-- Document notes immediately after appointment.
 
 ### After Your Day
 - Review no-shows and cancellations.
 - Follow up with patients who missed appointments.
-- Process all payments before closing.
-- Verify all notes and forms are completed.
-
-## Common Tasks
-
-### Handling No-Shows
-1. Mark appointment as no-show.
-2. Flag patient in system.
-3. Follow up with phone call or message.
-4. Reschedule if appropriate.
-5. Track no-show trend for patient.
-
-### Moving an Appointment Across Providers
-1. Open appointment.
-2. Click **Reassign Provider**.
-3. Select new provider.
-4. Check availability.
-5. Save and notify both providers.
-
-### Blocking Time Off
-While you can add blocks on the main calendar, the **Shift Management** page is the intended place for managing provider availability.
-
-1. Go to **Shift Management**.
-2. Click **Add > Create new Block**.
-3. Select provider(s), dates, and times.
-4. Add a note/title (e.g., vacation, training).
-5. The time becomes automatically unavailable for patient booking.
-
-
-## Patient Communications
-
-Patients receive automatic notifications:
-- **Confirmation** - When appointment is booked
-- **Reminder** - 24 hours before appointment
-- **Changes** - If you reschedule or rescind appointment
-- **Thank You** - After appointment completion with request for review
-
-Customize these messages in **Settings > Notifications**.
-
-## Integrations
-
-### Google Calendar Sync
-Your appointments can sync with Google Calendar:
-1. Go to **Settings > Integrations**
-2. Enable **Google Calendar**
-3. Select which calendars to sync
-4. Appointments appear in Google Calendar (read-only)
-
-### Patient Portal
-Patients see their appointments in their online portal and can:
-- View upcoming appointments
-- Reschedule available slots
-- Fill forms before arrival
-- Receive reminders
-
-## Troubleshooting
-
-**"No available time slots"**
-- Check provider availability rules
-- Verify location hours are set correctly
-- Check for blocked time
-
-**"Patient not showing in search"**
-- New patient may need to be created first
-- Check spelling of name
-- Try searching by phone number
-
-**"Can't reschedule appointment"**
-- Check provider availability on new date
-- Verify scheduling rules allow changes
-- Confirm patient hasn't already checked in
+- Verify all notes, forms, and payments are completed.
 
 ## Related Features
 
-- **Patient Management** - Link appointments to patient records
-- **Billing** - Create charges from appointment services
-- **Communications** - Send reminders and notifications
-- **Forms** - Collect intake information before appointments
-- **Medical Notes** - Document what happened during appointment
-
-For advanced scheduling rules and multi-location management, contact your account manager.
+- [Appointments](/modules/scheduling/appointments) -- Full details on booking, editing, and appointment statuses.
+- [Blocks, Shifts & Patient Status](/modules/scheduling/blocks-and-shifts) -- Managing provider availability and patient check-in progress.
+- [Self-Scheduling](/modules/scheduling/self-scheduling) -- Configuring the patient-facing online booking page.

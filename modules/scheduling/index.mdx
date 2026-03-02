@@ -47,7 +47,7 @@ The sidebar provides several filters to control what appears on the calendar:
 
 - **Location:** Filter events by one or more clinic locations.
 - **Providers:** Select which providers' columns appear in Day view. In Week view, events are filtered to the selected providers.
-- **Event Types:** Toggle visibility of Appointments and Blocks. Shifts are shown automatically when the "Only Active Providers" toggle is on.
+- **Event Types:** Toggle visibility of Appointments and Blocks. Shift backgrounds are controlled separately by the "Show Working Hours" on/off switch.
 - **Event Statuses:** Choose which appointment statuses to display (Pending, Confirmed, Completed, No Show, Overridable, Reserved, Cancelled). Each status has a tooltip description explaining what it means.
 - **Only Active Providers** (Day view only): When enabled, hides providers who have no shifts or appointments for the day.
 - **Show Working Hours** (Day view only): Highlights periods when providers are not working with diagonal stripes.
@@ -85,7 +85,6 @@ In **Schedule View**, click the **Export Schedule** button in the top-right corn
     Each user can customize their calendar experience from **Settings > Preferences**:
 
     - **Show Weekends:** Toggle Saturday and Sunday columns on or off.
-    - **Show Cancelled Appointments:** Show cancelled appointments with strikethrough text, or hide them entirely.
     - **Show Past Events as Translucent:** Fade completed events so current and upcoming appointments stand out.
     - **Calendar Hours:** Set the visible start and end hours for the time grid (e.g., 8 AM to 6 PM). Events outside these hours are accessible via overflow indicators.
     - **Calendar Grid Lines:** Choose the interval for sub-hour grid lines: None, 10 minutes, 15 minutes, or 30 minutes.
@@ -108,10 +107,11 @@ In **Schedule View**, click the **Export Schedule** button in the top-right corn
   </Accordion>
   <Accordion title="Permissions">
     Scheduling actions are gated by role-based permissions:
-    - **Scheduling Read** -- Required to view the calendar, see appointments, and access the Patient Status panel. Without this permission, the Check-In section is not visible.
-    - **Scheduling Appointments Write** -- Required to create, edit, reschedule, and cancel appointments. Users with only Read access can view the calendar but cannot make changes.
-    - **Scheduling Blocks Write** -- Required to create, edit, and delete provider time blocks (lunch, meetings, etc.).
-    - **Scheduling Shifts Write** -- Required to create, edit, and delete provider shifts.
+    - **View Schedule** (Scheduling Read) -- Required to view the calendar, see appointments, and access the Patient Status panel. Without this permission, the Check-In section is not visible.
+    - **Manage Appointments** (Scheduling Appointments Write) -- Required to create, edit, reschedule, and cancel appointments. Users with only View access can see the calendar but cannot make changes.
+    - **Delete Appointments** (Scheduling Appointments Delete) -- Required to permanently delete appointments. This is a separate permission from Manage Appointments.
+    - **Manage Blocks** (Scheduling Blocks Write) -- Required to create, edit, and delete provider time blocks (lunch, meetings, etc.).
+    - **Manage Shifts** (Scheduling Shifts Write) -- Required to create, edit, and delete provider shifts.
     - **Downloads/Export** -- Required to export the schedule to PDF or CSV from Schedule view.
 
     Admin users have full access to all scheduling features by default.

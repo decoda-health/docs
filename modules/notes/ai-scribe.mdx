@@ -11,28 +11,46 @@ AI Scribe records audio during a patient encounter, transcribes it, and uses AI 
   <Step title="Start a New AI Note">
     From the **Notes** page, click **New Note** and select **AI Note**. Alternatively, open a patient chart and start an AI note from within the **Medical Notes** tab. Select the patient if not already chosen.
   </Step>
-  <Step title="Allow Microphone Access">
+  <Step title="Allow Microphone Access and Select a Device">
     When prompted, grant your browser permission to use the microphone. If permission was previously denied, a warning banner will appear with instructions to re-enable it in your browser settings.
+
+    After granting permission, select a microphone device from the device selector. An input level meter shows your current volume so you can confirm the microphone is working before recording. You can also change the microphone device from the Recording PiP (see below) at any time during a recording.
   </Step>
   <Step title="Record the Encounter">
-    The recording begins automatically. Speak naturally during the appointment -- the system captures and transcribes audio in real time. You can:
+    Click the **play button** to begin recording. Speak naturally during the appointment -- the system captures and transcribes audio in real time. You can:
     - **Pause** the recording and resume later.
-    - **Switch to a different note** mid-recording; the recording continues in the background.
+    - **Switch to a different note** mid-recording; the recording continues in the background via the Recording PiP.
     - View the live transcript in the **Transcript** tab.
   </Step>
   <Step title="Select a Template">
-    Before generating, select a note template. You can choose a template ahead of time from the **Note Template** dropdown on the note page, or you will be prompted to select one when you click **Generate AI Note**. Favorite templates appear at the top of the list for quick access.
+    Before generating, select a note template. You can choose a template ahead of time from the **Note Template** selector on the note page, or you will be prompted to select one when you click **Generate AI Note**. Favorite templates appear at the top of the list for quick access.
+
+    Use the **Note Template** tab to preview the selected template's questions and structure before generating. This tab shows each question name, description, type, and whether it is required.
   </Step>
   <Step title="Generate the Note">
     Click the **Generate AI Note** button. The system finalizes the transcription and sends it to the AI model, which fills in each template question based on the conversation. This may take a moment -- you can navigate away and return later.
   </Step>
   <Step title="Review and Edit">
-    Once generated, the **Clinician's Note** tab displays structured answers organized by the template's questions. Review each field and make corrections as needed. The AI-generated content is a starting point -- always verify clinical accuracy before finalizing.
+    Once generated, the **Clinician's Note** tab displays structured answers organized by the template's questions. (This tab is named "Clinician's Note" specifically for AI-generated notes; manual notes use "Doctor's Note" instead.) Review each field and make corrections as needed. The AI-generated content is a starting point -- always verify clinical accuracy before finalizing.
   </Step>
   <Step title="Save">
     Click **Save** to persist your edits. The note auto-tracks unsaved changes and will prompt you if you try to navigate away.
   </Step>
 </Steps>
+
+### Recording PiP (Picture-in-Picture)
+
+When a recording is active, a floating mini-player appears on screen showing the recording status. This mini-player is draggable, so you can reposition it anywhere on the page. It includes:
+
+- **Timer** -- Shows elapsed recording time.
+- **Audio visualizer** -- Displays live audio input levels.
+- **Pause / Resume** -- Pause and resume the recording without stopping it.
+- **Stop** -- End the recording session.
+- **Microphone selector** -- Switch microphone devices during the recording.
+- **Generate Note** -- Jump to note generation directly from the mini-player.
+- **Go to note** -- Navigate back to the recording note if you are on a different page.
+
+The Recording PiP lets you navigate to other parts of the application while the recording continues in the background.
 
 ### Chat with AI to Refine a Note
 
@@ -50,7 +68,7 @@ If you need to restructure an AI note using a different template:
 
 1. Open the note and click the **actions menu** (three-dot icon) in the note toolbar.
 2. Select **Change Template**.
-3. Choose a new template from the modal.
+3. Choose a new template from the list.
 4. The AI regenerates the note from the original transcript using the new template structure, creating a new revision.
 
 <Info>

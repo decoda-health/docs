@@ -16,8 +16,8 @@ Forms replace paper intake packets. Patients fill everything out on their phone 
 Each form is built from **blocks** and **questions**. A block is like a section on a paper form — for example, "Personal Information" or "Insurance Details." Inside each block, you add questions for the patient to answer. Patients complete forms via a direct link sent by text or email, or staff can fill forms in person. Submitted answers can automatically update patient demographics, insurance, medical history, and payment methods.
 
 <CardGroup cols={2}>
-  <Card title="Create a Consent Form" icon="file-signature" href="#create-a-consent-form">
-    Build a disclaimer-and-signature consent form.
+  <Card title="Build a Form" icon="file-signature" href="#create-a-form">
+    Create any form — intake, consent, assessment, or custom.
   </Card>
   <Card title="Send Forms to Patients" icon="paper-plane" href="/modules/forms/sending-forms">
     Send one or multiple forms via text message or fill in person.
@@ -34,51 +34,62 @@ Each form is built from **blocks** and **questions**. A block is like a section 
   **What your patients see:** Patients receive a text message with a link to the form. They open it on their phone, fill out each section, sign if required, and submit. If they close the browser mid-form, their progress is auto-saved — they can pick up where they left off by opening the same link again.
 </Info>
 
-## Create a Consent Form
+## Create a Form
 
-Consent forms collect a disclaimer acknowledgment and a patient signature. Use these for treatment consent, HIPAA agreements, telehealth consent, and similar documents.
+All forms — intake, consent, assessment, or anything else — are built from the same editor. There is no separate consent form wizard. To create a consent form, simply add Disclaimer, Signature, and Statement questions to a regular form.
 
 <Steps>
-  <Step title="Navigate to the Form Creator">
-    Go to **Check-In > Forms > Forms List** and click **Create Consent Form** in the top right corner.
+  <Step title="Open the Form Editor">
+    Go to **Check-In > Forms > Forms List** and click **Create Form** in the top right corner. This opens the form editor.
   </Step>
-  <Step title="Enter Form Details">
-    Fill in the following fields:
-    - **Form Name** (required) -- The name displayed to staff and patients (e.g., "Telemedicine Consent Form").
-    - **URL Path** (required) -- A short name used in the form's web link (e.g., "telemedicine-consent"). This is auto-generated from the form name, but you can change it.
-    - **Description** -- An optional summary of the form's purpose.
+  <Step title="Name Your Form">
+    Click the form name area at the top and type a name (e.g., "New Patient Intake" or "Telemedicine Consent"). Optionally add a description below the name.
   </Step>
-  <Step title="Write the Disclaimer Content">
-    Enter the full text of your disclaimer in the **Disclaimer Content** field. This is the legal or informational text patients read before signing. You can format text by wrapping words with special characters:
-    - Wrap text in double asterisks (e.g., `**important**`) for **bold red text** to emphasize key points.
-    - Wrap text in single asterisks (e.g., `*notice*`) for **bold text**.
-    - Wrap text in double underscores (e.g., `__terms__`) for underlined text.
+  <Step title="Add Sections">
+    Click **Add Section** at the bottom of the editor. Choose a section type:
+    - **Custom Section** -- An empty section for any custom questions.
+    - **Demographics** -- Collects name, DOB, contact info. Answers auto-save to the patient record.
+    - **Medical History** -- Collects allergies, medications, history. Answers auto-save to the patient chart.
+    - **Payment Methods** -- Securely collects a credit card on file.
   </Step>
-  <Step title="Add the Signature Text">
-    Enter the text that appears above the signature field in **Signature Text**. This typically says something like "By signing below, I acknowledge that I have read and understood the above disclaimer."
-  </Step>
-  <Step title="Configure Witness Signature (Optional)">
-    Check **Include Witness Signature** if the form requires a second signature from a witness. When enabled, an additional field appears for **Witness Signature Text**.
+  <Step title="Add Questions">
+    Use the field palette on the left sidebar to add questions to the selected section. Click any field to add it. The palette is organized into categories:
+    - **Form Fields** -- Standard question types (short text, long text, number, date, yes/no, single choice, multiple choice, address, phone, email, signature, file upload, disclaimer, statement, document).
+    - **Demographics** -- Mapped fields that auto-update the patient's record (date of birth, gender, email, address).
+    - **Vitals** -- Weight and height fields.
+    - **Medical History** -- Health data fields (allergies, medications, family history, etc.).
+    - **Marketing** -- SMS and email marketing opt-in fields.
+
+    You can also drag and drop to reorder both sections and questions within a section.
   </Step>
   <Step title="Set Submission Expiry (Optional)">
-    Configure **Submission Expiry** to set the number of days before a completed submission expires. After expiry, the patient must re-complete the form. Leave empty if submissions should never expire.
+    Use the expiry setting in the top bar to set the number of days before a completed submission expires. After expiry, the patient must re-complete the form. Leave empty if submissions should never expire.
   </Step>
-  <Step title="Preview and Save">
-    The right panel shows a live preview of how the form will appear to patients. When satisfied, click **Create Form**.
+  <Step title="Use the AI Assistant (Optional)">
+    Click the chat bubble in the bottom-right corner of the editor to open the AI assistant. Describe what you want — for example, "Add a section for surgical history with relevant questions" — and the assistant will suggest changes you can review and accept or reject.
+  </Step>
+  <Step title="Save Your Form">
+    Click **Save** in the top bar. The form is now available in your Forms List and ready to send to patients.
   </Step>
 </Steps>
 
-### Edit a Consent Form
+### Build a Consent Form
 
-From the Forms List, click the gear icon on a consent form and select **Edit**. The editor loads the existing content. Make changes and click **Update Form**.
+Consent forms use the same editor as all other forms. To create one:
 
-<Info>
-  The consent form editor only supports forms with a simple structure: a disclaimer, a patient signature, and optionally a witness signature. Forms with other question types (text fields, multi-select, file uploads, etc.) are managed through the full form builder.
-</Info>
+1. Click **Create Form** and name it (e.g., "HIPAA Consent Form").
+2. Add a **Custom Section**.
+3. Add a **Disclaimer** question with the full text of your consent language. You can format text with special characters:
+   - Wrap text in double asterisks (e.g., `**important**`) for **bold red text** to emphasize key points.
+   - Wrap text in single asterisks (e.g., `*notice*`) for **bold text**.
+   - Wrap text in double underscores (e.g., `__terms__`) for underlined text.
+4. Add a **Statement** question if you need a list of consent points the patient must read.
+5. Add a **Signature** question for the patient's signature.
+6. Save the form.
 
 ## Manage Forms
 
-Navigate to **Check-In > Forms > Forms List** to see all active forms. The table shows each form's name, number of submissions, creation date, and expiry setting (if configured).
+Navigate to **Check-In > Forms > Forms List** to see all active forms. The table shows one column per form row: the form name, with subtitle text showing the number of submissions, creation date, and expiry setting (if configured).
 
 ### Search Forms
 
@@ -88,7 +99,7 @@ Type in the search bar at the top of the list to filter forms by name. The list 
 
 Click the gear icon on any form row to access these options:
 
-- **Edit** -- Open the consent form editor (available only for simple consent forms with disclaimer and signature fields).
+- **Edit Form** -- Open the form in the editor to make changes.
 - **Send to Patient** -- Search for a patient and send the form link via text message.
 - **Fill In Person** -- Open the form in the console so a staff member can fill it out on behalf of a patient.
 - **Edit Default Message** -- Customize the default SMS text that accompanies the form link when sent to patients.
@@ -105,7 +116,7 @@ Click the gear icon on any form row to access these options:
 Select multiple forms using the checkboxes on the left side of each row. A toolbar appears with bulk options:
 
 - **Copy Link** -- Copy a single URL that combines all selected forms into one patient workflow.
-- **Export PDF for Printing** -- Download a ZIP file containing blank PDF versions of all selected forms.
+- **Export PDF for Printing** -- Download blank PDF versions of all selected forms.
 - **Convert to Note Templates** -- Turn all selected forms into clinical note layouts for providers at once.
 - **Send to Patient** -- Send all selected forms to a single patient.
 
@@ -144,7 +155,7 @@ Archived forms no longer appear in the active forms list, cannot be sent to pati
   </Accordion>
   <Accordion title="Permissions">
     Form features are gated by role-based permissions:
-    - **Forms Submissions Read** -- Required to view form submissions and patient responses. Without this permission, the Submissions table is not accessible.
+    - **Forms Submissions Read** -- Required to view the Submissions page and patient responses. Without this permission, the Submissions tab is not visible.
     - **Downloads/Export** -- Required to export individual submissions to PDF and to export blank forms for printing.
     - **Settings Note Templates Write** -- Required to use the "Convert to Note Template" feature on forms.
 

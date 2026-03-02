@@ -52,9 +52,20 @@ The **Calls** page shows a table of every phone call across your organization. I
   </Accordion>
   <Accordion title="Permissions">
     Communications features are controlled by these permissions:
+
+    **Chat:**
     - **Messaging Chats Read** -- Required to view the Chat page and read patient conversations. Without this permission, the Chat section is not accessible.
     - **Messaging Chats Write** -- Required to send text messages and manage conversation status (mark as resolved, opt out of texting).
     - **Patients Create / Patients Profiles Write** -- Required to use the **New Chat** button, since starting a new chat may require creating a patient record.
+
+    **Calls:**
+    - **Messaging Calls Read** -- Required to view the Calls page and call history.
+    - **Messaging Calls Make** -- Required to make outbound phone calls to patients.
+
+    **Email:**
+    - **Messaging Emails Read** -- Required to view emails in the chat timeline.
+    - **Messaging Emails Write** -- Required to reply to or forward emails.
+    - **Messaging Emails Read All** -- Allows viewing emails across all users, not just your own.
 
     Permissions are configured under **Settings > Users & Roles**. Admin users have full access to all communication features by default.
   </Accordion>

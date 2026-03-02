@@ -24,13 +24,15 @@ The Product Sales dashboard breaks down every item on every charge. Here's what 
 
 | Column | What it means |
 |---|---|
+| **Status** | The status of the charge this item belongs to (Paid, Partial, Void, etc.) |
 | **Qty x Price** | How many units were sold at what price (e.g., "2 x $50.00") |
 | **Gross Revenue** | Total before any discounts or taxes -- quantity times price |
 | **Discount** | Total discounts applied (hover to see the breakdown between item-level and charge-level discounts) |
 | **Tax** | Tax amount charged |
-| **Net Revenue** | What you actually earned: Gross Revenue + Tax - Discounts (hover for the full calculation) |
+| **Net Revenue** | What you actually earned: Gross Revenue + Tax - Item Discounts - Charge Discounts (hover for the full calculation) |
 | **Cost** | Your cost for the item -- for products, this comes from the weighted average of shipment costs; for services, it's the cost field from the service setup |
 | **Net Profit** | Net Revenue minus Cost -- your actual profit after expenses (hover for the calculation) |
+| **Brand** | The brand associated with the item (hidden by default -- use the Columns button to show it) |
 
 <Info>
   **Hover for details:** The revenue and profit cells show a breakdown when you hover over them. This is especially helpful when you want to understand exactly how a number was calculated.
@@ -97,6 +99,10 @@ The Payment Breakdown dashboard shows every payment transaction -- every time mo
 
 | Column | What it means |
 |---|---|
+| **Date** | When the payment was made |
+| **Patient** | The patient who made the payment |
+| **Location** | The clinic location where the payment was received |
+| **Comment** | Any notes or comments attached to the payment |
 | **Payment Method** | How the patient paid (credit card, cash, etc.) |
 | **Card Details** | For card payments: the last four digits and card brand, plus the transaction status |
 | **Amount** | The total payment amount |

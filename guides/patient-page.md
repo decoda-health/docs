@@ -7,7 +7,7 @@ The Patient Page is the central hub for managing all patient-related information
 The Patient Page consists of two main sections:
 
 1. **Patient List** - A searchable table of all patients with filtering and bulk operations
-2. **Patient Detail** - A comprehensive profile view for individual patients with 10 specialized tabs
+2. **Patient Detail** - A comprehensive profile view for individual patients with 11 tabs (when the Tasks module is enabled)
 
 ## Patient List
 
@@ -15,25 +15,23 @@ Access the patient list by navigating to the **Patients** section from the main 
 
 ### Features
 
-- **Search & Filter**: Find patients by name, phone number, patient ID, external ID, or date of birth
-- **Advanced Filtering**: Filter by location, patient source, tags, date range, and age
-- **Sorting**: Sort by name, external ID, creation date, date of birth, appointment count, or total spent
+- **Search & Filter**: Find patients by name, phone number, patient ID, external ID, email, or date of birth
+- **Advanced Filtering**: Filter by location, lead source, tags, created date, date of birth, opted out of SMS, scheduling blacklist, opted in to SMS marketing, opted in to email marketing
+- **Sorting**: Sort by name, date of birth, appointment count, total spent, or created date
 - **Bulk Actions**:
-  - Create new patient
-  - Merge duplicate patients
+  - Create new patient (click **New**)
+  - Merge duplicate patients (click **Merge**)
   - Upload patients (bulk import)
-  - Export patient data to CSV/Excel
+  - Export patient data
 
 ### Creating a Patient
 
-1. Click **Create Patient** button
+1. Click the **New** button in the top-right corner
 2. Enter required information:
    - First name & last name
    - Phone number
-   - Email (optional)
-   - Date of birth
-   - Address information
-3. Click **Save**
+   - Additional fields may be required depending on your organization's settings
+3. Click **Create Patient**
 
 The patient will be created with status as manually created and assigned a unique patient ID.
 
@@ -57,7 +55,7 @@ The patient header displays key information at a glance:
 
 ## Patient Detail Tabs
 
-The main content area contains 10 tabs for managing different aspects of patient care:
+The main content area contains 11 tabs for managing different aspects of patient care (the Tasks tab only appears when the Tasks module is enabled):
 
 ### 1. Overview (Default Tab)
 
@@ -166,7 +164,11 @@ View and manage service packages sold to the patient.
 - Purchase date
 - Expiration information
 
-### 10. Settings
+### 10. Tasks
+
+View and manage tasks related to this patient (only shown when the Tasks module is enabled). Displays a table with Title, Status, Priority, Assignee, and Due Date columns. You can create new tasks and view task details from here.
+
+### 11. Settings
 
 Configure patient-specific preferences and restrictions.
 
@@ -186,8 +188,8 @@ Configure patient-specific preferences and restrictions.
 **Preferred Provider**
 - Set default provider for scheduling
 
-**Advanced**
-- **Delete Patient** - Permanently archive patient record (cannot be undone)
+**Danger Zone**
+- **Delete Patient** - Permanently delete this patient and all associated data. This action cannot be undone.
 
 ## Common Tasks
 
@@ -196,7 +198,7 @@ Configure patient-specific preferences and restrictions.
 If duplicate patient records are detected:
 
 1. Go to **Patient List**
-2. Click **Merge Duplicates**
+2. Click **Merge**
 3. Select the patients to merge
 4. Confirm the merge action
 5. The records will be combined, consolidating appointments, charges, and medical history
@@ -227,10 +229,8 @@ If duplicate patient records are detected:
 
 ### Exporting Patient Data
 
-1. From **Patient List**, select patients to export
-2. Click **Export**
-3. Choose format (CSV or Excel)
-4. Download file with patient data
+1. From **Patient List**, click **Export** in the top-right corner
+2. The export downloads as a file containing all patient data matching your current filters
 
 ## Data Privacy & Security
 
@@ -238,7 +238,7 @@ If duplicate patient records are detected:
 - Only users with appropriate permissions can view patient records
 - All access is logged for audit purposes
 - Patient can opt out of certain communications
-- Deleted patient records are archived, not permanently removed
+- Deleting a patient permanently removes the patient and all associated data. This action cannot be undone.
 
 ## Tips & Best Practices
 

@@ -11,19 +11,26 @@ Every form is organized into **blocks** and **questions**. A block is a section 
 
 ## Block Types
 
-A block is a named section within a form. Each block has a **type** that determines its behavior:
+A block is a named section within a form. Each block has a **type** that determines its behavior. When you click **Add Section** in the form editor, you can choose from four types:
 
-| Block Type | Purpose | When to Use |
-|---|---|---|
-| **Dynamic** | Standard section with custom questions you define. | Most blocks — use this for any custom intake questions, consent acknowledgments, or assessment questionnaires. |
-| **Demographics** | Collects patient information (name, DOB, address, etc.) and saves it to the patient's record automatically. | New patient intake — saves front desk staff from manually entering demographics. |
-| **Insurance** | Collects primary and secondary insurance details. Answers create or update insurance coverage records. | Insurance-based practices that need to verify coverage before appointments. |
-| **Payment Methods** | Collects credit card information securely within the form. | Collecting a card on file during intake so it's ready at checkout. |
-| **Medical History** | Collects health information (allergies, medications, family history, etc.) and saves it to the patient's medical history. | Clinical intake — information flows into the patient's chart for provider review. |
+| Block Type | Menu Label | Purpose | When to Use |
+|---|---|---|---|
+| **Dynamic** | Custom Section | Standard section with custom questions you define. | Most blocks — use this for any custom intake questions, consent acknowledgments, or assessment questionnaires. |
+| **Demographics** | Demographics | Collects patient information (name, DOB, address, etc.) and saves it to the patient's record automatically. | New patient intake — saves front desk staff from manually entering demographics. |
+| **Medical History** | Medical History | Collects health information (allergies, medications, family history, etc.) and saves it to the patient's medical history. | Clinical intake — information flows into the patient's chart for provider review. |
+| **Payment Methods** | Payment Methods | Collects credit card information securely within the form. | Collecting a card on file during intake so it's ready at checkout. |
+
+<Info>
+  The **Insurance** block type also exists in the system and supports integrated insurance verification through PVerify. However, it is not available in the **Add Section** menu. Insurance blocks appear on forms that were created with them previously or configured through the API.
+</Info>
 
 <Tip>
-  Use **Demographics**, **Insurance**, **Medical History**, and **Payment Methods** blocks when you want form answers to automatically update patient records. Use **Dynamic** blocks for everything else — custom questions, consent language, screening tools, etc.
+  Use **Demographics**, **Medical History**, and **Payment Methods** blocks when you want form answers to automatically update patient records. Use **Custom Section** (Dynamic) blocks for everything else — custom questions, consent language, screening tools, etc.
 </Tip>
+
+### Reordering Blocks and Questions
+
+Both blocks and questions within a block support drag-and-drop reordering. Grab the drag handle on a block or question and move it to a new position. This lets you arrange your form in the order that makes most sense for your patients.
 
 ## Question Types
 
@@ -31,29 +38,44 @@ Forms support these question types:
 
 | Type | What the Patient Sees |
 |---|---|
-| **Text** | A single-line text field |
-| **Text Area** | A larger, multi-line text field |
+| **Short Text** | A single-line text field |
+| **Long Text** | A larger, multi-line text field |
 | **Number** | A field that only accepts numbers |
 | **Date** | A date picker (can be limited to a specific date range) |
 | **Single Select** | A list where the patient picks one option |
-| **Radial Single Select** | A set of choices where the patient picks one (shown as round buttons) |
+| **Radial Single Select** | A set of choices where the patient picks one (shown as round buttons). *In the form editor, this appears as "Single Choice."* |
 | **Multi Select** | A list where the patient can pick multiple options |
-| **Radial Multi Select** | A set of choices where the patient can check multiple boxes |
-| **Toggle** | An on/off switch (e.g., "Do you have allergies? Yes/No") |
+| **Radial Multi Select** | A set of choices where the patient can check multiple boxes. *In the form editor, this appears as "Multiple Choice."* |
+| **Yes/No** | An on/off switch (e.g., "Do you have allergies? Yes/No") |
 | **Address** | A full address form (street, city, state, ZIP, country) |
-| **Phone Number** | A phone number field |
+| **Phone** | A phone number field |
 | **Email** | An email address field |
 | **Signature** | A signature pad where the patient signs with their finger or mouse |
-| **File Upload** | A file upload area (e.g., for ID photos, insurance cards). You can set allowed file types, max file size, and how many files are allowed. |
-| **Tag** | A field where the patient can type and add multiple items one by one (e.g., listing allergies) |
+| **File** | A file upload area (e.g., for ID photos, insurance cards). You can set allowed file types, max file size, and how many files are allowed. |
+| **Tag** | A field where the patient can type and add multiple items one by one (e.g., listing allergies). *Not available in the form editor palette — used on forms configured through the system.* |
 | **Disclaimer** | Read-only legal or informational text the patient reads and acknowledges |
 | **Statement** | A list of points the patient reads (used for consent statements) |
 | **Document** | An embedded PDF shown within the form (e.g., a policy document) |
 | **Height (Feet/Inches)** | A field for entering height |
 | **Weight (Pounds)** | A field for entering weight |
-| **Calculated Score** | An auto-calculated total based on the patient's other answers (used for clinical assessments like PHQ-9) |
-| **Medications** | A field for listing current medications |
-| **Payment Method** | A credit card entry field connected to the payment processor |
+| **Calculated Score** | An auto-calculated total based on the patient's other answers (used for clinical assessments like PHQ-9). *Added automatically by certain mapped fields — not directly available in the palette.* |
+| **Medications** | A field for listing current medications. *Added automatically by the Medical History block — not directly available in the palette.* |
+| **Payment Method** | A credit card entry field connected to the payment processor. *Added automatically by the Payment Methods block.* |
+| **Scribe Attachments** | A field for attaching scribe-related documents. *Used internally by the notes system — not directly available in the palette.* |
+
+## The Field Palette
+
+The form editor has a left sidebar called the **field palette** that organizes all available fields into categories. Click any field to add it to the currently selected section.
+
+| Category | What It Contains |
+|---|---|
+| **Form Fields** | All standard question types listed above (Short Text, Long Text, Number, Date, Yes/No, Single Choice, Multiple Choice, Address, Phone, Email, Signature, File Upload, Disclaimer, Statement, Document) |
+| **Demographics** | Mapped fields that auto-save to the patient record: Date of Birth, Gender, Email, Address |
+| **Vitals** | Patient measurements: Weight, Height |
+| **Medical History** | Health data fields: Allergies, Medications, Family History, Medical History, Prescriptions, Surgical History, Social History, Autoimmune Disorders, Skin Conditions, Neurological Conditions |
+| **Marketing** | Opt-in fields: SMS Marketing Opt-In, Email Marketing Opt-In |
+
+Fields in the Demographics, Vitals, Medical History, and Marketing categories are "mapped" — when a patient submits the form, their answers automatically update the corresponding field on their patient record.
 
 ## Conditional Logic
 
@@ -62,18 +84,18 @@ You can set up questions that only appear when the patient gives a specific answ
 **How to set it up:** Each condition has three parts:
 
 - **Dependent Question** -- The earlier question whose answer controls visibility.
-- **Operator** -- How to compare the answer:
+- **Operator** -- How to compare the answer. The form editor shows three operators:
   - **Equals** / **Not Equals** -- The answer matches (or doesn't match) a specific value.
   - **Contains** -- The answer includes a specific value. Useful when the patient can pick multiple options.
-  - **Years Ago Minimum** / **Years Ago Maximum** -- For date questions. For example, "Years Ago Minimum = 18" would check if the date entered is at least 18 years ago — useful for verifying a patient is 18 or older.
-  - **Sum** -- Used with calculated score questions. For example, show a follow-up question if the patient's assessment score is above a certain number.
 - **Value** -- The specific answer to compare against.
+
+<Info>
+  Additional operators (**Years Ago Minimum**, **Years Ago Maximum**, and **Sum**) are supported by the form system and work on the patient-facing form, but they are not configurable through the form editor. These are used for date-based age checks and calculated score thresholds on forms configured through the API.
+</Info>
 
 You can add multiple conditions to a single question to create more complex rules (all conditions must be true for the question to appear).
 
-**Example:** You have a "Do you have any allergies?" on/off switch. When the patient answers **Yes**, a follow-up "Please list your allergies" question appears. The condition would be: Dependent Question = "Do you have any allergies?", Operator = **Equals**, Value = **Yes**.
-
-**Example:** You have a "Date of Birth" question and want to show a parental consent question only for patients under 18. The condition would be: Dependent Question = "Date of Birth", Operator = **Years Ago Maximum**, Value = **18**.
+**Example:** You have a "Do you have any allergies?" yes/no switch. When the patient answers **Yes**, a follow-up "Please list your allergies" question appears. The condition would be: Dependent Question = "Do you have any allergies?", Operator = **Equals**, Value = **Yes**.
 
 ## Patient Data Mapping
 
@@ -91,6 +113,9 @@ Available fields that can auto-update:
 **Medical History:**
 - Allergies, medications, family history, medical history, prescriptions
 - Surgical history, social history, autoimmune disorders, skin conditions, neurological conditions
+
+**Marketing:**
+- SMS Marketing Opt-In, Email Marketing Opt-In
 
 **Insurance:**
 - Primary and secondary insurer name, member ID, group ID, policy holder name, policy holder DOB, phone number

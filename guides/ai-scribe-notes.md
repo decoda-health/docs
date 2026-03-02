@@ -1,455 +1,215 @@
-# AI Scribe & Medical Notes Guide
-
-Use artificial intelligence to create clinical notes automatically. Save time on documentation while maintaining comprehensive patient records.
-
-## Getting Started
-
-Access the scribe feature by clicking **Clinical > Scribe** or **Patient > Medical Notes & Data**.
-
-Two main capabilities:
-- **AI Scribe** - AI listens to appointments and creates notes
-- **Note Templates** - Pre-formatted notes you customize quickly
-
-## AI Scribe Explained
-
-The AI Scribe works by:
-1. Recording the appointment (voice or video)
-2. Transcribing what was said
-3. Extracting key clinical information
-4. Auto-generating medical note
-5. You review and edit before saving
-
-### How It Works
-
-**During Appointment:**
-1. Open patient appointment
-2. Click **Start Scribe**
-3. AI listens to conversation
-4. You provide care normally
-5. Click **Stop Scribe** when done
-
-**After Appointment:**
-1. AI processes recording
-2. Creates transcript
-3. Generates draft note
-4. Extracts:
-   - Chief complaint
-   - Assessment
-   - Plan
-   - Medications discussed
-   - Follow-up instructions
-
-**You Review:**
-1. Read AI-generated note
-2. Edit for accuracy
-3. Add missing information
-4. Correct any errors
-5. Approve and save
-
-### Starting a Recording
-
-**Before Appointment:**
-1. Go to appointment in calendar
-2. Click **Create Note**
-3. Choose **AI Scribe**
-4. Click **Record**
-5. Device starts recording
-
-**During Appointment:**
-1. Speak naturally
-2. No special equipment needed
-3. Built-in microphone works
-4. Can move around freely
-
-**After Appointment:**
-1. Click **Stop Recording**
-2. System starts processing
-3. Takes 5-15 minutes typically
-4. Generates draft note
-5. Sends notification when ready
-
-### Processing Time
-
-Processing depends on:
-- Appointment length
-- Audio quality
-- System load
-- Speech clarity
-
-Typical timeline:
-- 30-minute appointment → 10 minutes processing
-- 60-minute appointment → 15 minutes processing
-
-You'll receive notification when note is ready.
-
-## Reviewing AI-Generated Notes
-
-### Reading the Transcript
-
-1. Go to **Clinical > Scribe**
-2. Find appointment
-3. Click **View Transcript**
-4. Read full word-for-word transcript
-5. Timestamps show when things were discussed
-6. Search feature finds specific topics
-
-Use transcript to:
-- Review exactly what was said
-- Find specific information
-- Verify accuracy
-- Support note creation
-
-### Editing the Note
-
-AI creates draft note, you edit:
-
-1. Click **Edit Note**
-2. Make corrections to text
-3. Add missing details provider forgot to mention
-4. Remove irrelevant information
-5. Add clinical assessments
-6. Update medication list
-7. Refine plan/next steps
-
-**What to look for:**
-- Drug names spelled correctly
-- Dosages accurate
-- Plan is clear and actionable
-- No contradictions
-- Professional tone
-- Complete information
-
-### Before vs. After Photos
-
-For cosmetic/aesthetic procedures:
-
-1. Click **Add Media**
-2. Upload before photos (taken before appointment)
-3. Upload after photos (same day or follow-up)
-4. AI identifies relevant images
-5. Links to note automatically
-6. Attaches to patient record
-
-Photos useful for:
-- Before/after documentation
-- Treatment assessment
-- Patient satisfaction
-- Results tracking
-- Insurance claims
-
-## Note Templates
-
-Pre-formatted templates speed up documentation.
-
-### Using a Template
-
-Instead of AI Scribe, use templates for faster entry:
-
-1. Open patient
-2. Click **Create Note**
-3. Choose **Template**
-4. Select template type:
-   - Consultation
-   - Follow-up Visit
-   - Procedure Note
-   - Assessment
-   - Procedure Complication
-5. Fields auto-populate
-6. Fill in patient-specific information
-7. Save
+# Clinical Notes Guide
 
-### Template Sections
-
-Templates typically include:
-
-**Header:**
-- Patient name, DOB, MRN
-- Date of visit
-- Provider name
-- Appointment type
-
-**Chief Complaint:**
-- Patient's main concern
-- Duration/onset
-
-**History of Present Illness:**
-- Detailed symptom description
-- Relevant medical history
-- What's been tried
-- Results
+Create, manage, and organize clinical notes for patient encounters. This guide covers AI-generated notes, manual notes, document uploads, attachments, and the gallery.
 
-**Physical Examination:**
-- Vital signs
-- Examination findings
-- Relevant observations
+## Navigating Notes
 
-**Assessment:**
-- Diagnosis or impression
-- Brief reasoning
+Open the **Notes** page from the sidebar. You will see a list of all clinical notes, grouped into **Notes Taken Today** and **Earlier Notes**. Each row shows the patient name, a preview of the note, contributing providers, the template used, visit date, and last edited date. Signed-off notes display a green checkmark. Pinned notes appear at the top.
 
-**Plan:**
-- Treatment plan
-- Medications prescribed
-- Follow-up needed
-- Patient education provided
-- Next visit scheduled
+Use the filter bar to narrow results by note ID, patient name, patient ID, provider, location, template, created date, or sign-off status (signed or unsigned). By default, the list shows notes for your current provider and primary location. Click **Clear Filters** to reset.
 
-### Customizing Templates
+Click the three-dot actions menu on any note row to edit, view, print, duplicate, pin, view the linked appointment, resume a recording, or delete the note.
 
-Create your own template:
+## Creating an AI Scribe Note
 
-1. Go to **Settings > Note Templates**
-2. Click **Create Template**
-3. Name it (e.g., "Botox Consultation")
-4. Add sections
-5. Add standard text (auto-fills)
-6. Add variable fields ({{PATIENT_NAME}})
-7. Save
+AI Scribe records audio during a patient encounter, transcribes it, and uses AI to fill in a structured note based on the template you select.
 
-Variables auto-populate:
-- {{PATIENT_NAME}}
-- {{DOB}}
-- {{DATE}}
-- {{PROVIDER_NAME}}
-- {{SERVICE_TYPE}}
+### Step 1: Start a New AI Note
 
-## Viewing Notes
+From the **Notes** page, click **New Note** and select **AI Note**. You can also start an AI note from within a patient's **Medical Notes** tab. Select the patient if not already chosen.
 
-### Patient Note Timeline
+### Step 2: Grant Microphone Access and Select a Device
 
-See all notes in order:
+When prompted, allow your browser to use the microphone. If you previously denied permission, a warning banner will appear with instructions to re-enable it.
 
-1. Open patient
-2. Go to **Medical Notes & Data**
-3. View all notes in timeline
-4. Most recent at top
-5. Filter by date range
-6. Search for keywords
+After granting access, select a microphone device from the device selector on the note page. An input level meter shows your current volume -- check that it reads "Good volume input" before starting. If the level is too low or too loud, try a different device or adjust your distance from the microphone.
 
-Each note shows:
-- Date created
-- Provider who created
-- Note type
-- First few lines of content
+### Step 3: Record the Encounter
 
-### Reading a Full Note
+Recording begins when you click the play button. Speak naturally during the appointment. You can:
 
-1. Click note in timeline
-2. Full note content displays
-3. View photos/attachments
-4. See medications prescribed
-5. View plan/follow-up
+- **Pause** the recording and resume later.
+- **Navigate away** from the note page -- the recording continues in the background via the floating Recording PiP (picture-in-picture) mini-player.
+- **View the live transcript** in the **Transcript** tab.
 
-### Note Visibility
+**About the Recording PiP:** When a recording is active, a small floating player appears on screen. You can drag it to reposition it. The PiP shows the recording timer, a live audio visualizer, and buttons to pause, resume, stop, switch microphone devices, navigate back to the note, or generate the note directly.
 
-Control who sees notes:
+### Step 4: Select a Template
 
-- **Private** - Only you and patient
-- **Shared** - All providers see it
-- **Practice** - All staff can see
+Before generating, select a note template from the template selector on the note page. Favorite templates appear at the top of the list for quick access.
 
-Set privacy when creating note.
+Use the **Note Template** tab to preview the selected template's questions and structure. This tab shows each question's name, description, type, and whether it is required -- helpful for choosing the right template before generating.
 
-## Advanced Features
+### Step 5: Generate the Note
 
-### Voice Dictation
+Click the **Generate AI Note** button. The system finalizes the transcription and sends it to the AI model, which fills in each template question based on the conversation. You can navigate away and return later -- the note will be ready when processing completes.
 
-Type-free note creation:
+### Step 6: Review and Edit
 
-1. Click **Dictate Note**
-2. Speak into microphone
-3. Your speech transcribed to text
-4. Edit as needed
-5. Save
+Once generated, the **Clinician's Note** tab shows structured answers organized by the template's questions. Review each field and make corrections. The AI-generated content is a starting point -- always verify clinical accuracy before finalizing.
 
-Good for:
-- Quick notes after appointment
-- Hands-free entry while in clinic
-- When keyboard not available
+### Step 7: Save
 
-### API Integration
+Click **Save** to keep your edits. The note tracks unsaved changes and will prompt you if you try to navigate away without saving.
 
-Connect notes to external systems:
-- Electronic health records (EHR)
-- Accounting software
-- Patient portals
-- Insurance systems
+### Refining a Note with AI Chat
 
-Contact support to set up.
+After an AI note is generated, use the chat input at the bottom of the note to ask the AI to make changes. For example:
 
-### Handoff Notes
+- "Add a note about the patient's allergy to penicillin"
+- "Change the dosage to 20mg twice daily"
+- "Expand the assessment section"
 
-Create quick notes for handoff:
+Each chat interaction creates a new version of the note, so you can always go back to an earlier version.
 
-Example: "Patient doing well post-op. No complications. Pain managed. Next visit Tuesday."
+### Regenerating with a Different Template
 
-1. Click **Create Handoff Note**
-2. Quick 1-2 line summary
-3. Used for staff communication
-4. Different from full medical note
+If you need to restructure an AI note:
+
+1. Open the note and click the three-dot actions menu in the toolbar.
+2. Select **Change Template**.
+3. Choose a new template.
+4. The AI regenerates the note from the original transcript using the new template, creating a new version.
+
+Regenerating creates a new version. Any manual edits on the current version will not carry over -- the new version is generated fresh from the original transcript.
+
+## Creating a Manual Note
+
+Manual notes are written by hand using a structured template.
+
+### Step 1: Start a New Manual Note
+
+Click **New Note** and select **Manual Note**. If you are inside a patient chart, the patient is pre-selected. Otherwise, search for and select the patient.
+
+### Step 2: Select a Template
+
+Choose a note template. A template is required for manual notes. When a template is selected for a patient, some fields may auto-fill based on existing patient data (such as allergies, medications, or other previously recorded information).
+
+### Step 3: Fill In the Note
+
+The **Doctor's Note** tab shows each question from the template. Depending on the question type, enter free text, select options, check boxes, use on/off switches, enter numbers, pick dates, upload files, or add photo attachments.
+
+### Step 4: Save
+
+Click **Save** to keep the note. The Save button is only enabled when you have made edits.
+
+## Uploading Documents to Create Notes
+
+You can upload images, PDFs, or Word documents to create a note. The system can optionally use AI to extract note content from the uploaded files.
+
+1. Click **New Note** and select **Upload**.
+2. Select the patient.
+3. Choose files to upload (images, PDFs, or Word documents up to 10 MB each).
+4. Optionally select a template and enable AI extraction.
+5. The system creates a note with the uploaded content.
+
+The **Upload Notes** permission is required to use this feature.
+
+## Working with Attachments
+
+### Adding and Viewing Attachments
+
+The **Attachments** tab on a note shows all attached photos and images in a grid. You can:
+
+- Upload new images directly to the note.
+- Click any thumbnail to open the full-size image.
+- Annotate images with drawing tools, text labels, shapes, and arrows.
+- Undo, redo, and restore annotations to previous states.
+
+### Template Placeholders
+
+If the note template includes placeholder images, they are automatically converted to real attachments when the template is selected. No manual conversion step is needed.
+
+### Bulk Rename
+
+Select multiple attachments and rename them all at once. You can enter a name that applies to all selected photos or set individual names for each one.
+
+### Image Comparison
+
+Compare two images side by side or using a slider overlay -- useful for before-and-after documentation:
+
+1. Open an attachment and select a second image to compare.
+2. Choose **Side-by-side** or **Slider** mode.
+3. Adjust zoom, pan, and rotation on each image independently.
+4. Save the comparison as a new image in the gallery if needed.
+
+### Documents
+
+The **Documents** section within the Attachments tab lets you attach and manage PDFs, Word files, or images linked to the note.
+
+## Attachments Gallery
+
+The **Gallery** page (accessible from the Notes sidebar) gives you a view of all medical attachments across patients. You can:
+
+- Browse all attachments in a grid layout.
+- Filter by patient or date range.
+- Upload new images directly from the gallery.
+- Click any attachment to view it full-size or open the annotation editor.
+
+## Sign-Off and Versioning
+
+### Signing Off a Note
+
+Notes can be signed off by providers with the **Sign Off Notes** permission. Click the **Sign off** button in the note toolbar to finalize. Signed-off notes display a green checkmark in the notes list.
+
+Providers can enable automatic sign-off in **Settings > Preferences** so notes are signed off automatically upon saving.
+
+### Version History
+
+Each time a note is edited by AI chat or regenerated with a different template, a new version is created. Use the version history (accessible from the note toolbar) to view and switch between previous versions. The current version is labeled, and you can navigate to any earlier version to review it.
+
+When viewing a previous version, a banner indicates you are not on the latest version. To make changes, switch back to the current version.
+
+## Printing and Exporting
+
+From the note toolbar or the notes list actions menu, select **Print / Export to PDF** to print a note or save it as a PDF. This generates a formatted document suitable for printing or sharing.
+
+## Medical Codes
+
+When the **Medical Codes** module is enabled, notes include a **Codes** tab where you can search and attach ICD-10 diagnosis codes and CPT procedure codes. This tab appears for notes that have generated content.
+
+## Quick Notes
+
+Quick notes are short, freeform text notes attached to an appointment from the calendar. Unlike clinical notes, quick notes do not use templates. They are designed for brief observations or reminders (for example, "Patient arrived 10 minutes late"). Quick notes are created from the appointment detail panel on the calendar.
 
 ## Best Practices
 
 ### Recording Quality
 
-**Good Audio:**
-- Quiet environment
-- Close to microphone
-- Clear speech
-- No background noise
-- Slow and clear pronunciation
+- Record in a quiet environment close to the microphone.
+- Speak clearly at a moderate pace.
+- Test your microphone input level before starting -- the level meter should read "Good volume input."
+- Avoid overlapping conversations and loud background noise.
 
-**Poor Audio:**
-- Loud background noise
-- Far from microphone
-- Mumbling or unclear speech
-- Overlapping conversations
-- Results in transcription errors
+### Reviewing AI-Generated Notes
 
-**Tip:** Test recording in room before using for patient.
-
-### Note Completeness
-
-**Always Include:**
-- Chief complaint
-- Relevant history
-- Examination findings
-- Assessment/diagnosis
-- Treatment plan
-- Medications
-- Follow-up plan
-- Patient education
-
-**Never Forget:**
-- Patient allergies
-- Medication interactions
-- Contraindications
-- Safety warnings
-- Consent obtained
-
-### Using AI Effectively
-
-**AI is Good At:**
-- Transcribing words
-- Organizing information
-- Creating structure
-- Identifying key terms
-- Suggesting sections
-
-**AI May Miss:**
-- Clinical judgment
-- Subtle findings
-- Differential diagnoses
-- Nuanced patient history
-- Risk assessments
-
-**Always:**
-- Review AI output
-- Make corrections
-- Add clinical thinking
-- Don't trust AI implicitly
-- Verify accuracy
+- Always review AI output for clinical accuracy before saving.
+- Check that drug names, dosages, and the treatment plan are correct.
+- Use AI chat to make targeted corrections instead of rewriting entire sections.
+- Each AI chat interaction creates a new version, so you can revert if needed.
 
 ### Documentation Standards
 
-**Legal Requirements:**
-- Legible and clear
-- Dated and signed
-- Complete and accurate
-- Timely (within 24 hours typical)
-- Protected from unauthorized access
-
-**Best Practices:**
-- Use objective language
-- Document what you observed (not assumptions)
-- Include patient education given
-- Include patient response to treatment
-- Note any complications
-- Document informed consent obtained
-
-### Protecting Patient Privacy
-
-**Security:**
-- Records encrypted
-- Only authorized staff access
-- Audit trail of who accessed note
-- Secure storage
-- HIPAA compliant
-
-**Never:**
-- Leave notes visible on screens
-- Discuss patients where overheard
-- Share notes with unauthorized people
-- Email notes insecurely
-- Print and leave unattended
+- Complete notes promptly after the encounter.
+- Include all relevant clinical information: chief complaint, findings, assessment, and plan.
+- Sign off notes when finalized to indicate they have been reviewed.
+- Use templates consistently across providers for standardized documentation.
 
 ## Troubleshooting
 
-**"Recording didn't work"**
-- Check microphone is enabled
-- Verify internet connection stable
-- Try in quieter environment
-- Reload page and try again
-- Try different browser
+**"Recording did not start"**
+- Confirm that microphone permission is granted in your browser.
+- Select a working microphone device from the device selector.
+- Check the input level meter to verify audio is being detected.
+- Try refreshing the page and starting again.
 
 **"Transcription is inaccurate"**
-- Audio quality may be poor
-- Background noise was present
-- Speech too fast or unclear
-- Accents or dialects may affect
-- Edit manually or re-record
+- Audio quality may be poor -- try recording in a quieter environment.
+- Speak more slowly and clearly.
+- Review and edit the note manually after generation.
 
-**"AI missed important information"**
-- AI focused on main points
-- Add missing info in edit
-- Use templates for consistency
-- AI learning from corrections
-- Report errors to improve system
-
-**"Can't find note I created"**
-- Check date range filter
-- Search by keyword
-- Check patient's name spelling
-- Verify correct patient selected
-- Note may still be processing
-
-## Related Features
-
-- **Appointments** - Create notes from appointments
-- **Patient Records** - All notes in medical record
-- **Forms** - Intake information before notes
-- **Gallery** - Photos and attachments in notes
-- **Billing** - Document services for charges
-- **Communications** - Document patient conversations
-
-## Compliance & HIPAA
-
-### Documentation Audits
-
-Regular audits ensure:
-- Notes complete and accurate
-- Timely completion
-- Proper authentication
-- No errors or omissions
-- Legal defensibility
-
-### Retention Requirements
-
-Keep notes:
-- Minimum 3-7 years (varies by state)
-- Some states require longer
-- Consult legal/regulatory requirements
-- Secure storage and backup
-- Accessible if patient requests
-
-### Patient Access
-
-Patients have right to:
-- Request copy of notes
-- Request corrections
-- Know who accessed records
-- Data privacy
-
-Implement in **Settings > Patient Portal**.
-
-For advanced documentation features, speech recognition in multiple languages, or custom templates, contact your account manager.
+**"Cannot find a note"**
+- Check the date range filter on the Notes page.
+- Search by patient name or note ID.
+- Clear all filters to see the full list.
+- The note may still be processing if it was recently generated.

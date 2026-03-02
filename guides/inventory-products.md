@@ -1,481 +1,157 @@
-# Inventory & Products Guide
+# Inventory Guide
 
-Manage your clinic's products, services, and inventory stock. Track what you have, reorder when needed, and sell to patients.
+Manage your clinic's stock -- track what you have on hand, order more when supplies run low, move stock between locations, and keep your supplier contacts organized.
 
-## Getting Started
+## Navigating Inventory
 
-Access inventory in **Inventory** from the main menu.
+Open **Inventory** from the left sidebar. You'll see three separate pages at the top:
 
-Main sections:
-- **Products** - Your service and product catalog
-- **Stock** - Current inventory levels
-- **Packages** - Bundle products/services
-- **Members** - Patient accounts (if using memberships)
-- **Purchase Orders** - Supplies to reorder
+- **Stockroom** -- Your stock items, quantities, and alerts.
+- **Purchase Orders** -- Orders you've placed with suppliers.
+- **Suppliers** -- Your vendor directory with contact details.
 
-## Products
+Click the page name at the top to switch between them.
 
-Products are anything you sell: services, physical items, or packages.
+> **Note:** Products, services, and medications are configured in **Settings**, not in the Inventory section. Inventory is specifically for tracking physical stock levels, placing orders, and managing suppliers.
 
-### Creating a Product
+## Managing Stock
 
-1. Go to **Inventory > Products**
-2. Click **Create Product**
-3. Enter product information:
-   - **Name** (e.g., "Botox Units", "Facial Treatment")
-   - **Category** (e.g., "Injectables", "Facials", "Services")
-   - **Description** (optional)
-   - **Price** (what you charge patients)
-   - **Cost** (what you pay for it - for profit tracking)
-4. Set product type:
-   - **Service** - Staff time (appointments)
-   - **Physical** - Inventory item (stock tracking)
-   - **Digital** - Membership or package
-5. Click **Save**
+### Viewing Your Stock
 
-### Product Categories
+The Stockroom page shows all your stock items in a table. Each row displays the item name, current quantity, dollar value, linked items, and earliest expiry date.
 
-Organize products into categories:
-- **Services**: Botox, Fillers, Facials, Consultations
-- **Products**: Skincare, Supplements, Devices
-- **Packages**: Monthly Memberships, Treatment Plans
+- **Status badges** appear when you've set a minimum stock level: **Low** (at or below minimum), **Critical** (25% or less of minimum), and **Out of Stock** (zero remaining).
+- Use the **filter bar** to search by name, location, or category.
+- Use **Group By** to organize the table by category or supplier.
+- Click the **expand arrow** on a row to see a per-location breakdown of quantities.
 
-Categories help with:
-- Reporting by category
-- Finding products quickly
-- Setting category-level pricing
-- Revenue tracking
+### Creating a Stock Item
 
-### Managing Product Details
+Click **Add Stock** on the Stockroom page. You have two options:
 
-Update product information:
-1. Go to **Products**
-2. Click product name
-3. Edit details:
-   - Price
-   - Cost
-   - Category
-   - Description
-   - Tax settings
-4. Save
+**With AI:** Upload a photo of a purchase order, receipt, or inventory list (or a CSV file). Select a supplier and location, then click **Process**. AI extracts the details for you -- review and confirm.
 
-### Pricing
+**Manually:** Click **Create Manually** and fill in the name, unit, category, and optional fields like minimum stock level, description, and notes. You can also link suppliers, connect to products/services/medications, and add initial shipments.
 
-Set prices two ways:
+### Editing a Stock Item
 
-**Fixed Price**
-- Standard price for all customers
-- Example: Botox = $12 per unit
+Click the gear icon on any stock row and select **Edit Stock**. This opens a full editing view where you can change the name, category, unit, minimum level, linked items, suppliers, shipments, and other details.
 
-**Variable Price**
-- Charged per appointment (by duration)
-- Example: Consultation = $100/hour
+### Drawing Down Stock
 
-For variable pricing:
-1. Click **Pricing**
-2. Select "Per Unit" (hour, minute, etc.)
-3. Set rate
-4. Auto-calculates based on appointment length
+Drawing down reduces a stock item's quantity without a sale. Use this for waste, expired product, samples, or corrections.
 
-### Discounts
+1. Click the gear icon on a stock row and select **Drawdown Stock** (or use the drawdown option from the stock detail panel).
+2. Enter the quantity to remove.
+3. Add a note explaining the reason (optional but recommended).
+4. Click **Draw Down**.
 
-Apply discounts to products:
-- Percentage (10% off)
-- Fixed amount ($20 off)
-- Bundle discount (buy 3, get discount)
+The reduction and your note appear in the item's activity log.
 
-1. Click product
-2. Go to **Discounts**
-3. Click **Add Discount**
-4. Set discount rules
-5. Save
+### Viewing Stock Details
 
-## Stock Management
+Click any stock row to open the detail panel. You'll see summary statistics (total stock, stock value, and an activity chart) along with five sections:
 
-Track inventory levels for physical products.
+- **Shipments** -- All shipments for this item, with quantities, costs, lot numbers, expiry dates, and SKUs.
+- **Activity** -- A timeline of every inventory change (stock added, drawn down, sold, transferred, etc.).
+- **Purchase Orders** -- All purchase orders associated with this item. You can also create a new purchase order from here.
+- **Suppliers** -- Suppliers linked to this item, with their pricing and units of measure.
+- **Linked Items** -- Products, services, and medications connected to this item, showing how many units each uses per sale.
 
-### Adding Stock
+### Linking Stock to Products, Services, and Medications
 
-When you receive new inventory:
+When a stock item is linked to a product, service, or medication, every sale or administration automatically reduces the stock quantity by the amount you configured.
 
-1. Go to **Inventory > Stock**
-2. Click **Receive Stock**
-3. Select product
-4. Enter quantity received
-5. Enter cost per unit (if different from default)
-6. Note purchase order number
-7. Click **Save**
+You can create links from:
+- The gear icon on a stock row (select **Link to Items**)
+- The Linked Items section in the stock detail panel
+- The Inventory section within a product, service, or medication editor in Settings
 
-Stock level automatically increases.
+## Stock Transfers
 
-### Using Stock
+Transfers let you move stock from one clinic location to another.
 
-When you sell a product:
+### Creating a Transfer
 
-1. Create a charge for patient
-2. Add product to charge
-3. System automatically deducts from stock
-4. Stock level decreases
+- **Single item:** Click the gear icon on a stock row and select **Transfer Stock**.
+- **Bulk transfer:** Select multiple items using the checkboxes in the table (up to 25 at a time), then click **Transfer** from the bulk actions bar.
 
-Stock is tracked in real-time.
+In the transfer form:
+1. Choose the **From** location and the **To** location.
+2. Set the quantity for each item.
+3. Add notes if needed.
+4. Click **Create Transfer**.
 
-### Inventory Levels
+The transfer is saved as **Pending** until the receiving location confirms it.
 
-Monitor what you have:
+### Reviewing and Completing Transfers
 
-1. Go to **Inventory > Stock**
-2. View all products with quantities
-3. See items below minimum threshold
-4. Filter by category
+Click the **Transfers** button on the Stockroom page. A badge on the button shows how many pending transfers are waiting. The transfers panel lets you filter by status: Pending, Completed, Cancelled, or All.
 
-### Setting Minimum Stock
-
-Alert when inventory gets low:
-
-1. Click product
-2. Set **Minimum Stock Level** (e.g., 100 units)
-3. When stock falls below minimum, system alerts you
-4. Create purchase order automatically
-
-### Physical Inventory Count
-
-Periodically verify actual inventory:
-
-1. Go to **Stock > Inventory Count**
-2. Physical count all products
-3. Enter actual counts
-4. System compares to recorded counts
-5. Adjust for discrepancies (loss, damage, errors)
-
-Document the count date and who counted.
-
-### Adjusting Stock
-
-If count doesn't match:
-
-1. Go to **Stock > Adjustments**
-2. Click **Create Adjustment**
-3. Select product
-4. Enter adjustment amount (negative or positive)
-5. Note reason (loss, damage, correction, etc.)
-6. Save
-
-Adjustments documented for audit trail.
-
-## Packages
-
-Bundles of products/services sold together at a combined price.
-
-### Creating a Package
-
-1. Go to **Inventory > Packages**
-2. Click **Create Package**
-3. Enter package information:
-   - Name (e.g., "Complete Facial Package")
-   - Description
-   - Total price
-   - Included items and quantities
-4. Set expiration (if time-limited)
-5. Click **Save**
-
-### Package Types
-
-**Treatment Packages**
-- Multiple services bundled
-- Example: "6-Pack Treatments" (6 sessions for discounted price)
-
-**Membership Packages**
-- Monthly or annual fee
-- Includes multiple services
-- Auto-renews
-
-**Product Bundles**
-- Physical items grouped
-- Example: "Skincare Kit" (cleanser + toner + moisturizer)
-
-**Membership + Services**
-- Monthly fee + access to specific services
-
-### Selling Packages
-
-1. At appointment, select package instead of individual service
-2. Patient pays bundled price (usually discounted vs. individual items)
-3. Package balance shown in patient account
-4. Services deducted from package as used
+- **Complete** a transfer when the stock has arrived at the destination. This updates quantities at both locations.
+- **Cancel** a transfer if it's no longer needed. Cancelled transfers remain in the history.
 
 ## Purchase Orders
 
-Track supplier orders for inventory replenishment.
-
 ### Creating a Purchase Order
 
-1. Go to **Inventory > Purchase Orders**
-2. Click **Create Order**
-3. Select supplier
-4. Add items:
-   - Product
-   - Quantity needed
-   - Unit cost
-   - Delivery date
-5. Review total cost
-6. Click **Create**
+1. Go to the **Purchase Orders** page and click **New Purchase Order**.
+2. Select a supplier. The available stock items are those linked to that supplier.
+3. Add line items with quantities and costs.
+4. Optionally set a lead time and add notes (default supplier notes are included automatically).
+5. Save as **Pending** to edit later, or place the order immediately.
 
-### Order Status
+### Auto-Generating Orders
 
-Track order progress:
-- **Draft** - Not yet sent to supplier
-- **Sent** - Submitted to supplier
-- **Pending** - Waiting for delivery
-- **Received** - Arrived (process Receipt)
-- **Cancelled** - Cancelled order
+Click **Auto-Generate** on the Purchase Orders page. Select which locations to check, and the system creates one order per supplier for all items below their minimum stock level. Orders are created as Pending drafts for you to review.
 
-### Receiving Order
+### Order Statuses
 
-When supplier delivery arrives:
+| Status | Meaning |
+|--------|---------|
+| **Pending** | A draft order. You can still edit it. The supplier hasn't been notified. |
+| **Placed** | Sent to the supplier via email with a PDF. Can no longer be edited. |
+| **Completed** | All items have been received. |
+| **Cancelled** | The order was cancelled permanently. |
 
-1. Go to **Purchase Orders**
-2. Find order
-3. Click **Receive**
-4. Verify items received match order
-5. Update quantities if different
-6. Click **Confirm Received**
+### Taking Delivery
 
-Stock levels update automatically.
+When a shipment arrives:
+1. On a **Placed** order, click the gear icon and select **Take Delivery**.
+2. Enter the quantities received for each item (plus lot numbers, expiry dates, and SKUs if applicable).
+3. Confirm. Stock quantities update automatically.
 
-### Supplier Management
+You can record partial deliveries -- take delivery multiple times as items arrive. When everything has been received, the order status changes to **Completed** automatically.
 
-Track supplier information:
+### Reordering
 
-1. Go to **Settings > Suppliers**
-2. Add supplier:
-   - Name
-   - Contact info
-   - Preferred products
-   - Standard delivery time
-   - Payment terms
-3. Save
+Find a completed or cancelled order, click the gear icon, and select **Reorder**. A new order is created with the same supplier and line items pre-filled.
 
-Use supplier list when creating orders.
+## Suppliers
 
-## Product Usage & Reporting
+### Adding a Supplier
 
-### Sales by Product
+1. Go to the **Suppliers** page and click **Add Supplier**.
+2. Fill in the supplier name, contact details (email, phone, preferred contact method), address, website, shipment time, and default PO notes.
+3. Click **Add Supplier**.
 
-See which products generate most revenue:
+The **Shipment Time** field is flexible -- you can enter the time in minutes, hours, or days, and the system displays it in the most appropriate unit.
 
-1. Go to **Analytics > Sales**
-2. Select date range
-3. View revenue by product
-4. Sort by highest revenue
-5. Filter by category
+**Default PO Notes** are automatically added to every new purchase order for that supplier, which is useful for recurring instructions like delivery requirements.
 
-### Inventory Turnover
+### Editing and Archiving
 
-Understand inventory efficiency:
-- Cost of goods sold per product
-- Inventory holding costs
-- Turn rate (how fast stock moves)
+- Click the gear icon on a supplier row and select **Edit** to update their details.
+- Select **Archive** to remove a supplier from active lists. Their data and order history are preserved.
 
-Use this to adjust ordering:
-- Faster-moving items: order more
-- Slow-moving items: reduce orders
+### Linking Suppliers to Stock
 
-### Stock-Out Reports
+When a supplier is linked to a stock item, that item appears as an option when you create a purchase order for that supplier. You can link suppliers from the Stockroom table, the stock editor, or the stock detail panel. Each link can have supplier-specific pricing and units of measure.
 
-When inventory runs out:
-- System alerts you
-- Creates automatic reorder
-- Affects appointment scheduling
-- Patient notified of delays
+## Tips
 
-Minimize stock-outs with minimum levels.
-
-## Advanced Features
-
-### Product Variants
-
-Different sizes/versions of same product:
-
-Example: Botox comes in 50U and 100U vials
-1. Create base product "Botox"
-2. Add variants with different prices
-3. When selling, customer chooses variant
-
-### Service Add-Ons
-
-Offer extras during appointments:
-- Premium service upgrade
-- Add-on products
-- Extended time
-
-1. Mark product as "Add-On"
-2. Displays as option during appointment
-3. Patient selects if interested
-4. Charged along with appointment
-
-### Taxation
-
-Handle sales tax properly:
-
-1. Go **Settings > Tax**
-2. Set tax rate (varies by location)
-3. Set which products are taxable
-4. Tax automatically calculated on invoices
-
-Some products exempt (varies by location):
-- Medical services (sometimes)
-- Certain items
-- Non-profit items
-
-Consult with accountant for your jurisdiction.
-
-## Advanced Inventory Features
-
-<AccordionGroup>
-  <Accordion title="Batch & Lot Number Tracking">
-    Track products by batch for recalls/tracing:
-    - **Batch/lot numbers** - Track which batch each product came from
-    - **Batch expiration** - Different expiration per batch
-    - **Batch recall** - Recall specific batch if issue found
-    - **Lot rotation** - Use oldest/soonest-expiring first (FIFO)
-    - **Batch sourcing** - Track which supplier each batch from
-
-    Critical for: Cosmetics, medications, perishables, safety
-  </Accordion>
-
-  <Accordion title="Serial Number Tracking">
-    For high-value items:
-    - **Serial number assignment** - Unique identifier per unit
-    - **Serial number warranty** - Track warranty per serial
-    - **Asset tracking** - Physical location of equipment
-    - **Maintenance logs** - Service history per serial
-    - **Depreciation tracking** - Calculate asset value over time
-
-    For: Expensive equipment, devices, long-term assets
-  </Accordion>
-
-  <Accordion title="Expiration Date Management">
-    Automate expiration handling:
-    - **Expiration date tracking** - Know when products expire
-    - **Expiration alerts** - Notify when approaching expiration
-    - **Expired product quarantine** - Prevent use of expired items
-    - **Auto-removal** - Remove from sellable inventory at expiration
-    - **Waste tracking** - Track cost of expired/damaged items
-
-    For: Medications, skincare, perishables, any time-sensitive items
-  </Accordion>
-
-  <Accordion title="Supplier Management & Sourcing">
-    Manage supplier relationships:
-    - **Supplier profiles** - Contact info, payment terms, lead times
-    - **Supplier comparison** - Price/quality across suppliers
-    - **Preferred suppliers** - Flag primary vendors
-    - **Supplier performance** - Track delivery, quality, cost
-    - **Multiple suppliers per product** - Source from different vendors
-    - **Vendor contracts** - Track agreements and terms
-
-    For: Procurement, cost control, supply chain management
-  </Accordion>
-
-  <Accordion title="Damaged/Defective Stock Management">
-    Handle problem inventory:
-    - **Damage tracking** - Mark items as damaged/defective
-    - **Return authorization** - Track supplier returns
-    - **Warranty claims** - Process under warranty
-    - **Scrap tracking** - Log destroyed inventory
-    - **Loss documentation** - Reason codes for write-offs
-    - **Claim submissions** - Track insurance/supplier claims
-
-    For: Quality control, cost recovery, accountability
-  </Accordion>
-
-  <Accordion title="Multi-Location Inventory Transfer">
-    Move stock between locations:
-    - **Transfer orders** - Move inventory from location A to B
-    - **Transfer tracking** - See items in transit
-    - **Location reconciliation** - Balance sheet by location
-    - **Stock splitting** - Divide purchase across locations
-    - **Centralized vs local** - Track which location manages stock
-
-    For: Multi-clinic operations, regional distribution
-  </Accordion>
-
-  <Accordion title="Inventory Forecasting & Demand Planning">
-    Predict future needs:
-    - **Usage trends** - Analyze consumption patterns
-    - **Seasonal demand** - Adjust for seasonal fluctuations
-    - **Reorder recommendations** - System suggests when/how much to order
-    - **Lead time factors** - Account for supplier delivery times
-    - **Growth projections** - Forecast based on growth
-    - **Safety stock calculation** - Ensure adequate buffer
-
-    For: Planning, avoiding stockouts, optimizing cash flow
-  </Accordion>
-</AccordionGroup>
-
-## Best Practices
-
-### Keep Prices Updated
-- Review pricing regularly
-- Adjust for cost increases
-- Offer seasonal promotions
-- Discount for packages
-
-### Manage Inventory Levels
-- Set appropriate minimums
-- Don't overstock (ties up cash)
-- Don't understock (turns away patients)
-- Regular physical counts
-
-### Track Costs
-- Know actual cost of products
-- Calculate profit margins
-- Watch for waste/loss
-- Adjust pricing if needed
-
-### Organize Products
-- Use clear naming conventions
-- Group by category logically
-- Keep descriptions updated
-- Remove discontinued products
-
-### Bundle Strategically
-- Packages encourage larger purchases
-- Discounted bundles increase revenue
-- Memberships improve retention
-- Create perceived value
-
-## Troubleshooting
-
-**"Stock too low, can't create charge"**
-- Check minimum stock setting
-- Receive more inventory
-- Or temporarily reduce minimum
-- Create purchase order for restock
-
-**"Can't delete product"**
-- Product in use (history or open orders)
-- Archive instead of delete
-- Contact support for removal
-
-**"Price shown is wrong"**
-- Check if discounts applied
-- Check for variable pricing
-- Verify tax is/isn't included
-- Check product vs. actual price
-
-**"Inventory count doesn't match"**
-- Do physical count
-- Check for unprocessed receipts
-- Look for adjustment history
-- Document discrepancies
-
-## Related Features
-
-- **Billing** - Process payments for products sold
-- **Appointments** - Services often linked to appointments
-- **Memberships** - Package subscriptions
-- **Analytics** - Track product sales and revenue
-- **Suppliers** - Manage inventory sources
-
-For advanced inventory forecasting or multi-location inventory management, contact your account manager.
+- **Set minimum stock levels** on your most-used items so you get alerts before running out.
+- **Check expiry dates regularly.** Items expiring within 30 days show a warning. Use drawdowns to remove expired stock from your counts.
+- **Add suppliers before stock items.** This lets you link stock to suppliers right away and makes purchase order creation easier.
+- **Use transfers instead of drawdowns** when moving stock between locations. Transfers keep a clear audit trail.
+- **Use auto-generate** before placing monthly orders. It catches items you might have missed and groups everything by supplier.

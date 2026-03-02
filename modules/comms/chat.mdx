@@ -68,7 +68,7 @@ Click the filter chips above the search bar to narrow your conversation list:
 | **Unread** | Focus on conversations with new messages you haven't opened yet. These show a blue dot. |
 | **Unresponded** | Find conversations where the patient sent the last message and no one from your team has replied. This is the best filter for making sure no patient gets left waiting. |
 | **Human Only** | Hide conversations where only the AI assistant has replied. Use this when you want to focus on conversations that need a real person's attention. |
-| **My Location** | Show only conversations from patients at your current location. This filter only appears if your organization has multiple locations. |
+| **My Location** | Show only conversations from patients at your current location. This filter only appears if your organization has multiple locations and the **Locations** module is enabled. |
 
 You can also type a patient's name in the search bar to find a specific conversation.
 
@@ -90,11 +90,15 @@ You can also mark a resolved conversation as unresolved if you realize there's s
 
 ## The Conversation Header
 
-At the top of an open conversation, you'll see the patient's name, profile picture, and phone number. Click the gear icon to access these options:
+At the top of an open conversation, you'll see the patient's name, profile picture, and phone number.
 
-- **View Patient's Page** -- Open the patient's full chart in a sidebar without leaving the conversation.
+On the full Chat page, a **phone icon** appears next to the gear icon in the header. Click it to start a call with the patient directly from the conversation.
+
+Click the gear icon to access these options:
+
+- **View Patient's Page** -- Open the patient's full chart in a sidebar without leaving the conversation. (Full Chat page only.)
 - **Mark as Resolved / Mark as Unresolved** -- Switch the conversation's status (see above).
-- **Call Patient** -- Start a phone call to the patient directly from the conversation.
+- **Call Patient** -- Start a phone call to the patient. (Mini chat only -- on the full Chat page, use the standalone phone icon instead.)
 - **Merge Patients** -- Combine duplicate patient records that share this phone number. See [Patients](/modules/patients) for details.
 - **Opt out of texting** -- Permanently stop your clinic from sending SMS to this number. You'll still receive any messages the patient sends. **This cannot be undone.**
 
@@ -122,6 +126,39 @@ For outgoing messages, a status appears below the message:
 <Info>
   If a message shows **Undelivered** or **Failed**, check that the patient's phone number is correct and that the number can receive SMS. Some landlines and VoIP numbers cannot receive text messages.
 </Info>
+
+## Email in Chat
+
+If your organization has email integration enabled, emails appear directly in the chat timeline alongside text messages and call summaries. You can manage email conversations without leaving the Chat page.
+
+### Reading Emails
+
+When an email arrives for a patient, it shows up as a message in the conversation timeline with the subject line and a preview snippet. Click the email to open the full thread in a side panel.
+
+### Replying and Forwarding
+
+Inside the email thread panel, you can:
+
+- **Reply** to any message in the thread.
+- **Forward** a message to another email address.
+- **View and download attachments** sent or received in the thread.
+
+The panel shows the full conversation history, including how many messages are in the thread and when the last update was.
+
+<Info>
+  Email permissions are separate from chat permissions. You need **Messaging Emails Read** to view emails and **Messaging Emails Write** to reply or forward. **Messaging Emails Read All** lets you see emails across all users, not just your own. See [Permissions](#permissions) in the overview page.
+</Info>
+
+## Bulk Text Messaging
+
+Bulk text messaging is available from the **Patients** page, not from Chat. To send a text to multiple patients at once:
+
+1. Go to the **Patients** page.
+2. Select the patients you want to message using the checkboxes.
+3. Click the **Bulk Text** button that appears.
+4. Type your message and send.
+
+This is useful for appointment reminders, office closures, or announcements.
 
 ## Shared Phone Numbers
 

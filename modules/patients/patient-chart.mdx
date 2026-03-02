@@ -62,7 +62,7 @@ Lists all past and upcoming appointments for this patient in a table with column
 
 Click **Schedule Appointment** to create a new appointment pre-filled with this patient's information.
 
-If your organization uses the **SpaKinect** module, a **Good Faith Exams** section also appears, showing GFE records with their status (Intake, Processing, Pending Review, Approved, Completed, Rejected, Cancelled). Click **Request GFE** to initiate a new exam request.
+If your organization uses the **SpaKinect** module, a **Good Faith Exams** section also appears, showing GFE records with their status (Intake, Processing, Pending Review, Approved, Completed, Rejected, Cancelled, Cancelled by Client). Click **Request GFE** to initiate a new exam request.
 
 ### Medical Notes & Data Tab
 
@@ -78,13 +78,17 @@ Contains three sections:
 
 Provides a complete financial picture for the patient:
 
-- **Summary Cards** -- at the top, quick stats for outstanding balance, total charges, total payments, available credit, and total refunds.
+- **Summary Cards** -- at the top, quick stats for outstanding balance, total paid, total payments (count), and average payment.
 - **Credits** -- click **Manage Credits** to open the credits panel where you can view, add, edit, and delete patient credits. Each credit shows the original amount, remaining balance, comment, status (Active, Used, Expired), creation date, expiry date, and who created it.
-- **Banked Items** -- items held in the patient's account (e.g., from packages). Click **Add Banked Item** to add one manually.
+- **Banked Items** -- items held in the patient's account (e.g., from packages). Click **Add Banked Item** to add one manually, or click the edit icon on an existing banked item to update it.
 - **Payment Methods** -- stored credit cards on file. Click **Add Payment Method** to store a new card.
 - **Charge History** -- a timeline of all charges and payments, with status badges, amounts, dates, and links to full charge details. Use the **Create Charge** dropdown to start a new charge or navigate to checkout.
 
 ### Forms & Documents Tab
+
+<Info>
+  This tab label changes to just **Forms** when the current user does not have the **Patients Documents Read** permission.
+</Info>
 
 **Forms** -- lists all form submissions from this patient, showing the form name, submission date, and whether the submission is complete or partial. Click the eye icon to view the full submission. Click **Send to Patient** to text a form link to the patient's phone number.
 
@@ -121,6 +125,14 @@ Shows all purchased packages and their usage. Each package displays:
 
 Click **Sell Package** to navigate to checkout with this patient pre-selected.
 
+### Tasks Tab
+
+<Info>
+  This tab only appears when the **Tasks** module is enabled for your organization.
+</Info>
+
+Displays all tasks related to this patient in a table with the following columns: **Title**, **Status**, **Priority**, **Assignee**, and **Due Date**. Click any row to view the full task details. Click **Create Task** to add a new task linked to this patient.
+
 ### Settings Tab
 
 Manage per-patient configuration:
@@ -132,6 +144,8 @@ Manage per-patient configuration:
 - **Surcharge Disabled** -- disables automatic surcharges for this patient.
 - **Block Text Messages** -- prevents the clinic from sending SMS to the patient's phone number. Incoming messages from the patient are still received.
 - **Opt Out of Automated Messages** -- stops automated messages (appointment reminders, confirmations, follow-ups) while still allowing manual messages.
+
+**Marketing Opt-In** -- shows whether the patient has opted in to **SMS Marketing** and **Email Marketing**. These values are read-only and can only be changed by the patient through a form submission.
 
 **Preferred Provider** -- select which provider should be suggested when scheduling appointments for this patient. Choose "No preferred provider" to clear the selection.
 
