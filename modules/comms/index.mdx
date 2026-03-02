@@ -1,0 +1,61 @@
+---
+title: 'Overview'
+description: 'Send and receive text messages with patients, manage phone calls, and use AI-suggested responses.'
+---
+
+<Info>
+  **Where to find Communications:** In the left sidebar, click **Comms**, then select **Chat** for text messaging or **Calls** for phone call history.
+</Info>
+
+<Info>
+  **Prerequisites:** You should have [Patients](/modules/patients) in the system before messaging. To use AI-suggested responses, configure a texting assistant in [Assistants Settings](/modules/settings/assistants). Chat requires the **Texting** module and Calls requires the **Calling** module to be enabled for your organization.
+</Info>
+
+The Communications module is where your team handles patient messaging and phone calls. Chat gives you a shared inbox for two-way text conversations with patients, with optional AI-suggested replies. Calls logs every phone call your organization makes and receives, complete with recordings, transcripts, and AI summaries.
+
+<CardGroup cols={2}>
+  <Card title="Messaging Patients" icon="message" href="/modules/comms/chat">
+    Send and receive texts, manage your inbox, and handle shared phone numbers.
+  </Card>
+  <Card title="AI-Suggested Replies" icon="wand-magic-sparkles" href="/modules/comms/ai-responses">
+    Review AI-generated responses, give feedback, and execute AI-suggested actions.
+  </Card>
+  <Card title="Call History & Recordings" icon="phone" href="/modules/comms/calls">
+    Browse past calls, listen to recordings, read transcripts, and review AI actions.
+  </Card>
+</CardGroup>
+
+## What New Users Should Expect
+
+When you first open the **Chat** page, your inbox will be empty until patients start texting your clinic's number or you start a new conversation. Once messages begin coming in, conversations appear in a list on the left side of the screen. Click any conversation to read and reply.
+
+The **Calls** page shows a table of every phone call across your organization. If your clinic uses an AI calling assistant, you'll see AI-generated summaries and transcripts for each call right away.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="AI Texting Assistant">
+    The AI texting assistant generates suggested replies for patient messages. Configure it under **Settings > Assistants > Texting**:
+    - **Assistant Name** -- The display name that appears on AI-generated messages.
+    - **Custom Prompt** -- Instructions that guide how the AI composes replies (tone, length, phrases to use, etc.).
+    - **AI Model** -- Select which AI model generates suggestions.
+    - **Phone Number** -- The phone number used for outbound AI messages.
+
+    See [Assistants Settings](/modules/settings/assistants) for full details.
+  </Accordion>
+  <Accordion title="AI Calling Assistants">
+    AI calling assistants handle inbound and outbound phone calls automatically. Configure them under **Settings > Assistants**:
+    - **Inbound Assistant** -- Handles incoming calls, answers patient questions, and can take actions like booking appointments or sending invoices.
+    - **Outbound Assistants** -- Make automated calls for reminders, follow-ups, billing, and lab results.
+
+    Each assistant type can be customized with its own prompt, voice, and phone number. See [Assistants Settings](/modules/settings/assistants) for full details.
+  </Accordion>
+  <Accordion title="Permissions">
+    Communications features are controlled by these permissions:
+    - **Messaging Chats Read** -- Required to view the Chat page and read patient conversations. Without this permission, the Chat section is not accessible.
+    - **Messaging Chats Write** -- Required to send text messages and manage conversation status (mark as resolved, opt out of texting).
+    - **Patients Create / Patients Profiles Write** -- Required to use the **New Chat** button, since starting a new chat may require creating a patient record.
+
+    Permissions are configured under **Settings > Users & Roles**. Admin users have full access to all communication features by default.
+  </Accordion>
+</AccordionGroup>

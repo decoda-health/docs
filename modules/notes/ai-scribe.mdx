@@ -1,0 +1,58 @@
+---
+title: 'AI Scribe Notes'
+description: 'Record patient encounters and automatically generate structured clinical notes.'
+---
+
+## Create an AI Scribe Note
+
+AI Scribe records audio during a patient encounter, transcribes it, and uses AI to generate a structured clinical note based on your selected template.
+
+<Steps>
+  <Step title="Start a New AI Note">
+    From the **Notes** page, click **New Note** and select **AI Note**. Alternatively, open a patient chart and start an AI note from within the **Medical Notes** tab. Select the patient if not already chosen.
+  </Step>
+  <Step title="Allow Microphone Access">
+    When prompted, grant your browser permission to use the microphone. If permission was previously denied, a warning banner will appear with instructions to re-enable it in your browser settings.
+  </Step>
+  <Step title="Record the Encounter">
+    The recording begins automatically. Speak naturally during the appointment -- the system captures and transcribes audio in real time. You can:
+    - **Pause** the recording and resume later.
+    - **Switch to a different note** mid-recording; the recording continues in the background.
+    - View the live transcript in the **Transcript** tab.
+  </Step>
+  <Step title="Select a Template">
+    Before generating, select a note template. You can choose a template ahead of time from the **Note Template** dropdown on the note page, or you will be prompted to select one when you click **Generate AI Note**. Favorite templates appear at the top of the list for quick access.
+  </Step>
+  <Step title="Generate the Note">
+    Click the **Generate AI Note** button. The system finalizes the transcription and sends it to the AI model, which fills in each template question based on the conversation. This may take a moment -- you can navigate away and return later.
+  </Step>
+  <Step title="Review and Edit">
+    Once generated, the **Clinician's Note** tab displays structured answers organized by the template's questions. Review each field and make corrections as needed. The AI-generated content is a starting point -- always verify clinical accuracy before finalizing.
+  </Step>
+  <Step title="Save">
+    Click **Save** to persist your edits. The note auto-tracks unsaved changes and will prompt you if you try to navigate away.
+  </Step>
+</Steps>
+
+### Chat with AI to Refine a Note
+
+After an AI note is generated, use the chat input at the bottom of the note to ask the AI to make changes. For example:
+
+- "Add a note about the patient's allergy to penicillin"
+- "Change the dosage to 20mg twice daily"
+- "Expand the assessment section"
+
+Type your instruction and press **Enter** (or click the send button). The AI creates a new revision of the note with your requested changes. Each chat interaction produces a new version, so you can always revert to an earlier state.
+
+### Regenerate with a Different Template
+
+If you need to restructure an AI note using a different template:
+
+1. Open the note and click the **actions menu** (three-dot icon) in the note toolbar.
+2. Select **Change Template**.
+3. Choose a new template from the modal.
+4. The AI regenerates the note from the original transcript using the new template structure, creating a new revision.
+
+<Info>
+  Regenerating a note with a different template creates a new revision. Any manual edits on the current version will not carry over -- the new version is generated fresh from the original transcript.
+</Info>

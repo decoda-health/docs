@@ -1,0 +1,102 @@
+---
+title: 'Patient Insights'
+description: 'Analyze patient demographics, spending habits, visit patterns, and retention to understand your patient base.'
+---
+
+<Info>
+  **Where to find it:** Go to **Analytics** and select **Patient Dashboard** from the dashboard picker.
+</Info>
+
+The Patient Dashboard helps you understand who your patients are, how they spend, and whether they're coming back. It's the go-to dashboard for patient retention analysis and re-engagement campaigns.
+
+## Histogram Charts
+
+At the top of the dashboard, a set of bar charts gives you a visual breakdown of your patient base. Switch between tabs to see different views:
+
+| Tab | What it shows | What to look for |
+|---|---|---|
+| **Spending** | How patients are distributed by total lifetime spending | Are most patients low-spenders, or do you have a healthy spread of high-value patients? |
+| **Tenure** | How long patients have been with you (days since first appointment) | A cluster of newer patients means your marketing is working; a cluster of long-term patients means good retention |
+| **Last Visit** | How many days since each patient's most recent appointment | A large bar on the right (many days) means lots of patients haven't come back recently |
+| **Visit Span** | The number of days between each patient's first and last appointment | A low span with multiple visits means patients come frequently; a long span means they come back over time |
+| **Age** | Patient age distribution | Understand your demographics for marketing and service planning |
+| **Source** | How patients found you (Walk In, Online Booking, Referral, Other) | See which acquisition channels bring in the most patients |
+
+<Info>
+  **Grouped histograms:** When you group the table (by Location, Source, or Provider), the charts update to show stacked bars broken down by that grouping. For example, grouping by Location shows each location's patients in a different color on the same chart.
+</Info>
+
+## What the Table Metrics Mean
+
+| Metric | What it means | Why it matters |
+|---|---|---|
+| **Total Spent** | How much the patient has spent across all visits | Identifies your highest-value patients |
+| **Tenure** | How long they've been a patient (days since their first appointment) | Long tenure with multiple visits = loyal patient |
+| **Appointments** | Total number of appointments | Combined with tenure, shows visit frequency |
+| **Avg Spend/Visit** | Total Spent divided by Appointments | Helps you understand per-visit revenue and compare across patient types |
+| **Last Visit Days** | Days since their most recent appointment | High numbers mean the patient may need outreach |
+| **Visit Span Days** | Days between their first and last appointment | Short span with few visits could mean they tried you once and didn't come back |
+| **First / Last Appointment** | The dates of their earliest and most recent visits | Quick reference for patient history |
+| **Last Service** | The service from their most recent appointment | Useful context when reaching out to inactive patients |
+| **Last Provider** | The provider who saw them most recently | Helpful if you want that provider to personally reach out |
+
+## Commonly Asked Questions
+
+### Who should we reach out to for re-engagement?
+
+| Setting | Value |
+|---|---|
+| **Filters** | No appointment in last (days) = 90 |
+| **Sort by** | Total Spent (descending) |
+
+This gives you a prioritized list of inactive patients, starting with high-value ones. Use the **Last Service** and **Last Provider** columns to personalize outreach -- "Hi Sarah, it's been a while since your last facial with Dr. Kim" works much better than a generic reminder.
+
+### Which location is losing patients?
+
+| Setting | Value |
+|---|---|
+| **Group by** | Location |
+| **Histogram tab** | Last Visit |
+
+The histogram updates to show each location separately. Locations with more patients clustered in the "many days since last visit" range are losing patients -- the stacked bars make this easy to spot visually compared to scanning the table.
+
+### Are our new patients coming back?
+
+| Setting | Value |
+|---|---|
+| **Filters** | Last Visit (Days) = 30–180 |
+| **Sort by** | Appointments (ascending) |
+
+Patients with only 1 appointment and a Last Visit beyond 30 days likely tried your clinic once and didn't return. Look at their **Last Service** and **Last Provider** columns to spot patterns -- if a specific service or provider shows up repeatedly, that's worth investigating.
+
+## Filters
+
+| Filter | What it does |
+|---|---|
+| **Patient Name** | Search by name |
+| **Patient ID** | Search by Decoda patient ID |
+| **Locations** | Show only patients from selected locations |
+| **Patient Source** | Filter by how the patient found you: Walk In, Online Booking, Referral, or Other |
+| **Last Appointment Services** | Filter by what service was in their most recent appointment |
+| **Last Appointment Providers** | Filter by who saw them last |
+| **No appointment in last (days)** | Show patients who haven't had an appointment in at least this many days |
+| **Last Visit (Days)** | Filter by a range of days since last visit |
+| **Visit Span (Days)** | Filter by a range of visit span days |
+
+## Grouping Options
+
+| Group by | What it shows |
+|---|---|
+| **Location** | Patients grouped by their primary location |
+| **Patient Source** | Patients grouped by how they found your clinic |
+| **Provider** | Patients grouped by their most recent provider |
+
+## Tips
+
+<Info>
+  **Spot churn early:** Set up a regular routine of checking the "No appointment in last 60 days" filter. Reaching out before patients hit 90 days of inactivity dramatically improves re-engagement rates.
+</Info>
+
+<Info>
+  **Combine filters for targeted lists:** Filter by Patient Source = "Online Booking" and sort by Total Spent to find your most valuable online-acquired patients. This is great data for understanding whether your online booking investment is paying off.
+</Info>

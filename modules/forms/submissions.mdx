@@ -1,0 +1,64 @@
+---
+title: 'Submissions'
+description: 'Review, filter, and export patient form responses.'
+---
+
+## Submissions by Form
+
+From the Forms List, click the gear icon on a form with submissions and select **View Submissions**. A panel opens on the right showing:
+
+- **Patient name** with a link to their chart
+- **Phone number** and **email**
+- **Submission date and time**
+- **Section-by-section answers** organized by block
+- **Assessment results** displayed prominently for calculated score questions
+- **Archived questions** shown separately at the bottom if the form has been modified since submission
+- **File uploads** displayed inline with preview capabilities
+
+Use the left/right arrows at the top of the panel to navigate between submissions.
+
+## Export a Submission to PDF
+
+Click **Export to PDF** in the submission panel to download a PDF containing all form answers, consent content, signature images, and uploaded files. This requires the Downloads/Export permission.
+
+## All Submissions Table
+
+Navigate to **Check-In > Forms > Submissions** for a unified view across all forms. The table shows:
+
+| Column | Description |
+|---|---|
+| **Patient Name** | The patient who submitted the form, linked to their chart. |
+| **Phone Number** | The patient's verified phone number. |
+| **Submission Date** | When the form was submitted, with date and time. |
+| **Form Name** | Which form was submitted, linked to the live form. |
+
+### Filter Submissions
+
+Use the filter bar above the table to narrow results:
+
+- **Patient Name** -- Text search by patient name.
+- **Patient ID** -- Search by Decoda patient ID.
+- **Phone Number** -- Search by phone number.
+- **Submission Date** -- Filter by date or date range.
+- **By Form** -- Select one or more specific forms.
+- **Requires Follow-up** -- Filter for submissions where the patient had trouble uploading a file and needs to be contacted.
+- **Completion Status** -- Filter by complete or partial submissions.
+
+### Submission Status Badges
+
+Each submission may display status badges:
+
+- **Partial Submission** -- The patient started but did not finish the form. Their progress is saved and they can resume by reopening the form link.
+- **Requires Follow-up** -- The patient had trouble uploading a file (e.g., their photo ID or insurance card). Staff should reach out to collect the file another way — for example, ask the patient to email it, bring a physical copy, or re-submit the form.
+- **Expired** -- The submission has passed its expiry date and is no longer valid. The patient will need to re-complete the form.
+- **Expires [date]** -- The submission will expire on the displayed date.
+
+Click **View Submission** on any row to open the full submission in a panel.
+
+## Submission Expiry
+
+Forms can be configured with an expiry period so submissions must be renewed periodically.
+
+- **Setting expiry:** From the Forms List, click the gear icon and select **Edit Expiry**. Enter the number of days a submission remains valid. Leave the field empty for submissions that never expire.
+- **How expiry works:** When a form has an expiry period, the system checks whether a patient has a valid (non-expired, completed) submission. If the previous submission expired, the patient is prompted to fill out the form again.
+- **Expiry badges:** In the submissions table, expired submissions show an "Expired" badge. Submissions approaching expiry show the expiry date.

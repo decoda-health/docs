@@ -1,0 +1,157 @@
+---
+title: 'Messaging Patients'
+description: 'Send and receive text messages, manage your inbox, and handle conversations with patients.'
+---
+
+<Info>
+  **Where to find Chat:** In the left sidebar, click **Comms > Chat**.
+</Info>
+
+The Chat page is your team's shared inbox for two-way text messaging with patients. Every conversation is tied to a phone number, so the full history -- texts, images, files, call summaries, and emails -- appears in one timeline.
+
+## What You See When You First Open Chat
+
+If your clinic is brand new, the inbox will be empty. Conversations appear as patients text your clinic's number or as you start new ones. The page is split into two areas:
+
+- **Left side** -- Your conversation list. Each entry shows the patient's name, their last message, and a timestamp. Unread conversations have a blue dot.
+- **Right side** -- The active conversation. Select a conversation on the left to open it here. If nothing is selected, you'll see a prompt to pick one.
+
+## Start a New Conversation
+
+<Steps>
+  <Step title="Open the Chat Page">
+    Go to **Comms > Chat**.
+  </Step>
+  <Step title="Click New Chat">
+    Click the **New Chat** button at the top of the conversation list. A patient search window opens.
+  </Step>
+  <Step title="Select or Create a Patient">
+    Search for an existing patient by name or phone number. If the patient doesn't exist yet, you can create a new record from the same window. A conversation is automatically created for their phone number.
+  </Step>
+</Steps>
+
+<Info>
+  The **New Chat** button requires the **Patients Create** or **Patients Profiles Write** permission. If you don't see the button, ask your admin to check your role.
+</Info>
+
+## Send a Text Message
+
+<Steps>
+  <Step title="Select a Conversation">
+    Click a conversation in the list on the left to open it.
+  </Step>
+  <Step title="Type Your Message">
+    Type in the message box at the bottom of the screen.
+  </Step>
+  <Step title="Attach Files (Optional)">
+    Click the paperclip icon to attach images or files. You can select multiple files at once.
+  </Step>
+  <Step title="Send">
+    Press **Enter** or click the send button. The message is delivered via SMS to the patient's phone.
+  </Step>
+</Steps>
+
+<Info>
+  Press **Shift+Enter** to add a new line without sending. Press **Enter** alone to send.
+</Info>
+
+## Manage Your Inbox
+
+As your clinic gets busier, you'll have dozens of conversations in your inbox. Use filters to focus on what needs attention right now.
+
+### Filter Your Conversations
+
+Click the filter chips above the search bar to narrow your conversation list:
+
+| Filter | When to Use It |
+|--------|----------------|
+| **Unread** | Focus on conversations with new messages you haven't opened yet. These show a blue dot. |
+| **Unresponded** | Find conversations where the patient sent the last message and no one from your team has replied. This is the best filter for making sure no patient gets left waiting. |
+| **Human Only** | Hide conversations where only the AI assistant has replied. Use this when you want to focus on conversations that need a real person's attention. |
+| **My Location** | Show only conversations from patients at your current location. This filter only appears if your organization has multiple locations. |
+
+You can also type a patient's name in the search bar to find a specific conversation.
+
+<Info>
+  **Tip for a busy inbox:** Start your day with the **Unresponded** filter. This shows you exactly which patients are waiting for a reply, so you can work through them one by one. Once you've replied, mark the conversation as resolved to keep things tidy.
+</Info>
+
+### Mark Conversations as Resolved
+
+When you've finished a conversation -- the patient's question is answered, the appointment is confirmed, etc. -- mark it as resolved so your team knows it's handled:
+
+1. Open the conversation.
+2. Click the gear icon in the conversation header.
+3. Select **Mark as Resolved**.
+
+This removes the unread indicator. If the patient sends a new message later, the conversation will automatically show as unread again.
+
+You can also mark a resolved conversation as unresolved if you realize there's still follow-up needed.
+
+## The Conversation Header
+
+At the top of an open conversation, you'll see the patient's name, profile picture, and phone number. Click the gear icon to access these options:
+
+- **View Patient's Page** -- Open the patient's full chart in a sidebar without leaving the conversation.
+- **Mark as Resolved / Mark as Unresolved** -- Switch the conversation's status (see above).
+- **Call Patient** -- Start a phone call to the patient directly from the conversation.
+- **Merge Patients** -- Combine duplicate patient records that share this phone number. See [Patients](/modules/patients) for details.
+- **Opt out of texting** -- Permanently stop your clinic from sending SMS to this number. You'll still receive any messages the patient sends. **This cannot be undone.**
+
+## What Appears in the Conversation Timeline
+
+The timeline shows all communications with a patient in order:
+
+- **Text messages** -- Standard SMS messages. Outgoing messages appear on the right; incoming messages appear on the left.
+- **Images and files** -- Photos and documents sent or received. Click an image to view it full-screen.
+- **Call summaries** -- When a phone call happens with this patient, a summary card appears showing the call outcome, any AI actions taken, and an audio player for the recording.
+- **Emails** -- If email integration is enabled, inbound and outbound emails appear in the timeline. Click an email to open the full thread.
+
+### Message Delivery Status
+
+For outgoing messages, a status appears below the message:
+
+| Status | What It Means |
+|--------|---------------|
+| **Sending...** | The message is being sent. |
+| **Sent** | The message was accepted by the carrier. |
+| **Delivered** | The message reached the patient's phone. |
+| **Undelivered** | The carrier could not deliver the message. Hover over the status to see the reason. |
+| **Failed** | The message failed to send entirely. Hover over the status to see what went wrong. |
+
+<Info>
+  If a message shows **Undelivered** or **Failed**, check that the patient's phone number is correct and that the number can receive SMS. Some landlines and VoIP numbers cannot receive text messages.
+</Info>
+
+## Shared Phone Numbers
+
+It's common for family members or couples to share a phone number. When multiple patients are linked to the same number, the conversation header shows how many patients share it (e.g., "+1 other patient"). Click that label to see all linked patients.
+
+### Why This Matters
+
+When two or more patients share a phone number, all their messages go to the same conversation. You need to know which patient is talking. Here's how to manage it:
+
+- **Primary patient** -- One patient is marked as the primary for this conversation (shown with a star icon). AI suggestions and auto-saved data are tied to the primary patient. Click the star icon next to a different patient to change who is primary.
+- **View any patient's chart** -- Click any linked patient's name to open their chart.
+- **Merge duplicates** -- If two patient records are actually the same person, use **Merge Patients** from the gear menu.
+
+<Info>
+  **Tip:** If a family shares a phone number and a parent texts about their child, make sure to set the child as the primary patient for that conversation. This ensures AI suggestions reference the right patient's records.
+</Info>
+
+## Common Questions
+
+<AccordionGroup>
+  <Accordion title="Why can't I see a patient's messages?">
+    Check that you have the **Messaging Chats Read** permission. Without it, the Chat page is not accessible. If you have the permission but still can't find a conversation, the patient may not have texted your clinic's number yet. Try searching for their name in the search bar, or start a new conversation using the **New Chat** button.
+  </Accordion>
+  <Accordion title="What happens if a message fails?">
+    Failed messages show a red **Failed** status below the message bubble. Hover over it to see the error. Common causes include invalid phone numbers, carrier blocks, or the patient having opted out of SMS. You can try sending again by typing a new message.
+  </Accordion>
+  <Accordion title="Can I text a patient who hasn't texted us first?">
+    Yes. Click **New Chat**, find the patient, and start typing. Keep in mind that some patients may not recognize your clinic's number. The first message should identify your clinic by name.
+  </Accordion>
+  <Accordion title="How do I stop texting a phone number?">
+    Open the conversation, click the gear icon, and select **Opt out of texting**. This permanently prevents your clinic from sending SMS to that number. You'll still receive any messages the patient sends. This action cannot be undone, so use it carefully.
+  </Accordion>
+</AccordionGroup>

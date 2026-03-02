@@ -1,0 +1,160 @@
+---
+title: 'General Preferences'
+description: 'Configure system-wide branding, communication templates, invoicing rules, and clinic-wide defaults.'
+---
+
+<Info>
+  **First-time setup:** General Preferences is typically one of the first pages to configure when setting up a new organization. Complete this before inviting staff or scheduling appointments.
+</Info>
+
+This is where you make Decoda look and feel like your clinic. Set your logo, customize patient-facing messages, and configure invoicing behavior — it's typically the very first page you set up.
+
+The General Preferences page controls organization-wide settings that affect how your clinic appears to patients, how communications are sent, and how the system behaves by default. Navigate to **Settings > General** to access these options.
+
+## Configure Branding
+
+<Steps>
+  <Step title="Navigate to General Settings">
+    Click the **Settings** gear icon in the main navigation menu and select **General**.
+  </Step>
+  <Step title="Set Your Practice Identity">
+    Fill in the following fields:
+    - **Practice Name:** The display name patients see on receipts, emails, and booking pages.
+    - **Introductory Text:** A welcome message shown to patients on public-facing pages. A rich text editor is available for formatting.
+    - **Practice Logo:** Upload your clinic logo (PNG, JPG, or GIF, max 5 MB). Drag-and-drop is supported. This logo appears on patient-facing pages and communications.
+  </Step>
+  <Step title="Save">
+    Click **Save** to apply your branding changes.
+  </Step>
+</Steps>
+
+## Set Up Contact Information
+
+These fields define your organization's primary address and timezone defaults.
+
+- **Address:** Your organization's primary mailing address, including line 1, line 2, city, state, zip code, and country. This appears on invoices and receipts.
+- **Default Timezone:** The timezone applied to new locations by default. Existing locations keep their individually configured timezone.
+
+## Configure Communication Templates
+
+Decoda sends automated messages to patients at various points in their journey. Customize each template below to match your clinic's voice and policies.
+
+- **Reply-To Email:** The email address patients see when they reply to automated emails from your clinic.
+- **CC Email:** An email address that receives a copy of all outgoing patient communications. Useful for compliance or administrative oversight.
+- **Manual Invoice Text:** The message included in manually sent invoices. Supports variables: `{first_name}`, `{tenant_name}`, `{url}`.
+- **Receipt Text:** Message displayed on payment receipts. Supports the same variables as invoice text.
+- **Reservation Cancellation SMS:** Template for text messages sent when an appointment is cancelled. Variables: `{appointment}`, `{start_time}`, `{first_name}`, `{tenant_name}`.
+- **Successful Payment Text:** Message shown to patients after a payment is processed.
+- **Quote SMS Text:** Message sent to patients along with price quotes. Variables: `{first_name}`, `{tenant_name}`, `{url}`.
+- **Auto-Respond to SMS:** Toggle automatic text replies to incoming patient messages. When enabled, patients receive an immediate acknowledgment.
+- **AI-Generated SMS Responses:** Toggle AI-powered response suggestions for incoming patient texts. When enabled, the system drafts suggested replies that staff can review before sending.
+
+## Configure Invoicing Rules
+
+Control when and how often invoices are delivered to patients.
+
+- **Max Invoices Per Day:** Limit the total number of invoices sent per day across your organization. This prevents overwhelming patients with multiple invoices in a short period.
+- **Max Invoices Per Minute:** Rate limit for invoice delivery (this prevents the system from sending too many at once). Helps manage system load during bulk invoicing.
+- **Invoicing Hours:** Set the start and end time window for when invoices can be sent (e.g., 9:00 AM to 5:00 PM). Invoices queued outside these hours are held until the next eligible window.
+- **Allow Invoicing on Weekends:** Toggle whether invoices are delivered on Saturdays and Sundays.
+- **Exclude Holidays:** Toggle whether recognized holidays are skipped for invoice delivery.
+
+## Customize Receipts
+
+Tailor the look and delivery method of payment receipts.
+
+- **Receipt Logo:** Upload a separate logo specifically for receipts. This can differ from your practice logo if needed.
+- **Header Gradient Color:** Choose a color for the receipt header bar using the color picker. This adds a branded accent to receipt documents.
+- **Automatically Send Receipts:** Toggle whether receipts are sent to patients immediately after a payment is processed.
+- **Default Receipt Method:** Choose **SMS** or **Email** as the default delivery method for receipts.
+
+## Configure Payment Settings
+
+These options control how payments and billing items are presented to patients and staff.
+
+- **Pass Fee to Patient:** When enabled, the credit card processing fee is added to the patient's total instead of your clinic absorbing it. For example, a 3% fee on a $100 charge adds $3 to the patient's bill.
+- **Hide Patient Payment Plans:** Toggle to hide the payment plan option from patient-facing pages. Use this if your clinic does not offer payment plans.
+- **Item Sort Type:** Choose how services and products are ordered in billing views. Options include: **Category**, **Usage**, **Defined Order**, **Name**, or **Price**.
+
+## Configure Patient Settings
+
+Define rules for patient registration and record management.
+
+- **Required Patient Fields:** Select which patient profile fields are mandatory during registration (e.g., phone number, date of birth, address).
+- **Duplicate Detection Fields:** Choose which fields the system uses to identify potential duplicate patient records. Common choices include name, date of birth, and email address.
+- **Days Until Patient Becomes New:** Set how many days of inactivity must pass before a returning patient is classified as "new" again. This affects reporting and intake workflows.
+
+## Personal Preferences
+
+The settings below affect only the currently logged-in user's experience. They do not change anything for other staff members or patients.
+
+### Theme & Appearance
+
+- **Theme:** Choose from preset color themes or customize the interface colors to your preference.
+- **Dark/Light Mode:** Toggle between a light and dark interface.
+
+### Calendar Display
+
+- **Show Weekends:** Toggle whether weekend columns appear on the calendar view.
+- **Show Cancelled Appointments:** Toggle visibility of cancelled appointments on the calendar.
+- **Show Translucent Past Events:** When enabled, past appointments appear dimmed on the calendar so you can focus on upcoming ones.
+- **Show Ghost Events:** Display proposed or tentative appointments that have not yet been confirmed.
+- **Show IDs:** Display internal record IDs in the interface. This is primarily useful when working with support.
+- **Show Messages Box:** Toggle the messages panel on the main screen.
+- **Show Deleted Providers:** Include deactivated providers in dropdown lists and filters.
+- **Adjust Calendar Hours:** Automatically fit the calendar view to your location's operating hours so off-hours are collapsed.
+- **Calendar Grid Interval:** Set the time slot granularity displayed on the calendar (e.g., 15 minutes, 30 minutes).
+- **Appointment Time Step:** Set the smallest time increment for dragging or resizing appointments on the calendar (e.g., 5-minute steps mean you can drag in 5-minute increments).
+
+### Clinical Settings
+
+- **Auto Sign-Off Notes:** When enabled, clinical notes are automatically signed off after creation. Disable this if your workflow requires a manual review step before sign-off.
+
+### Notification Sounds
+
+Choose an alert sound for incoming notifications. Available options: **None**, **Pop**, **Droplet**, **Gentle**, **Aurora**, **Cosmic**. Use the preview button next to each option to hear the sound before selecting it.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Connecting Google Calendar">
+    To sync Decoda appointments with your Google Calendar:
+
+    1. Scroll to the **Google Calendar** section in General Settings.
+    2. Click **Connect Google Calendar** and sign in with your Google account.
+    3. Authorize Decoda to read and write calendar events.
+    4. Once connected, toggle **Send Google Calendar Invites** to automatically send calendar invitations to patients when appointments are booked.
+
+    Each staff member must connect their own Google account individually.
+  </Accordion>
+  <Accordion title="Session Timeout Configuration">
+    The **Auth Timeout** setting controls how long a user can remain inactive before being automatically logged out. Shorter timeouts improve security for clinics where multiple staff share workstations. Adjust this value under the security section of General Settings.
+  </Accordion>
+  <Accordion title="IP Blocking">
+    For organizations that require strict network security:
+
+    1. Enable **IP Restrictions** in the security section.
+    2. Add allowed IP addresses or CIDR ranges to the whitelist.
+    3. Once enabled, only users connecting from listed IP addresses can access the platform.
+
+    Use caution when enabling this feature. If your office IP changes or is entered incorrectly, staff may be locked out. Contact support if you need to reset IP restrictions.
+  </Accordion>
+  <Accordion title="Permissions">
+    Most General Preferences settings require administrative access:
+    - **Settings Read** -- Required to view the General Preferences page.
+    - **Settings Write** -- Required to modify branding, communication templates, invoicing rules, receipt settings, payment settings, and patient settings. Without this permission, the page is read-only.
+
+    Personal Preferences (theme, calendar display, notification sounds) can be changed by any user for their own account and do not require additional permissions.
+  </Accordion>
+  <Accordion title="Template Variables Reference">
+    The following variables can be used in communication templates. The system replaces them with actual values when messages are sent.
+
+    | Variable | Description | Available In |
+    |----------|-------------|-------------|
+    | `{first_name}` | Patient's first name | Invoice text, Receipt text, Cancellation SMS, Quote SMS |
+    | `{tenant_name}` | Your organization's name | Invoice text, Receipt text, Cancellation SMS, Quote SMS |
+    | `{url}` | Payment or quote link | Invoice text, Receipt text, Quote SMS |
+    | `{appointment}` | Appointment details | Cancellation SMS |
+    | `{start_time}` | Appointment start time | Cancellation SMS |
+  </Accordion>
+</AccordionGroup>

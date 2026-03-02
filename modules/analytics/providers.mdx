@@ -1,0 +1,139 @@
+---
+title: 'Provider Performance'
+description: 'Review provider earnings, track individual activity, and monitor staff productivity.'
+---
+
+<Info>
+  **Where to find it:** Go to **Analytics** and select **Provider Earnings Report** or **Provider Activity** from the dashboard picker.
+</Info>
+
+Two dashboards help you understand what your providers are doing and earning:
+
+- **Provider Earnings Report** -- A financial summary showing sales, tips, discounts, refunds, and total earnings for each staff member.
+- **Provider Activity** -- A combined feed of everything each provider has done across the platform: charges created, payments received, notes written, memberships enrolled, and more.
+
+---
+
+## Provider Earnings Report
+
+### What the Numbers Mean
+
+Each row represents a provider, with their financial activity broken down into columns:
+
+| Column | What it means |
+|---|---|
+| **Total Sold** | Gross sales amount -- the total value of everything they sold (price times quantity) before any deductions |
+| **Discounts** | Total discounts given on their sales |
+| **Tips** | Tips received from patients |
+| **Void + Adjustments** | Charges that were voided or manually adjusted (money that was originally charged but then removed) |
+| **Taxes** | Tax amount collected on their sales |
+| **Outstanding Balances** | Amounts still owed by patients on their charges |
+| **Refunds** | Total refunds issued on their sales |
+| **Total** | The calculated total: Total Sold - Discounts + Tips - Voids - Taxes + Outstanding - Refunds |
+
+<Info>
+  **The Total column adjusts to what you see.** If you hide certain columns (like Taxes or Tips), the Total recalculates based on only the visible columns. This lets you build the earnings formula that makes sense for your clinic's commission structure.
+</Info>
+
+### View a Provider's Detailed Breakdown
+
+Click any provider name in the table to open a detail panel. This shows the individual transactions that make up their totals -- every charge, every payment, every refund. Use this when you need to understand exactly where a provider's numbers come from or when a provider has questions about their earnings.
+
+### Commonly Asked Questions
+
+#### How do I calculate commissions?
+
+| Setting | Value |
+|---|---|
+| **Date Range** | The pay period (e.g., last 2 weeks) |
+| **Columns** | Hide columns that aren't part of your commission formula |
+
+The **Total** column automatically recalculates based on only the visible columns. For example, if commissions are based on Total Sold minus Discounts, hide Tips, Taxes, Voids, Outstanding, and Refunds -- the Total will show exactly Total Sold - Discounts. Export the result to calculate commission amounts.
+
+### Filters
+
+| Filter | What it does |
+|---|---|
+| **Providers** | Show only selected providers |
+| **Locations** | Show only earnings from selected locations |
+| **Provider Names** | Search by provider name |
+
+### Grouping Options
+
+| Group by | What it shows |
+|---|---|
+| **Location** | Provider totals grouped by clinic location |
+| **Date** | Provider totals grouped by day |
+
+---
+
+## Provider Activity
+
+The Provider Activity dashboard is a chronological feed that shows everything a provider has done across the platform. Unlike the Earnings Report (which focuses on money), this shows all activity types.
+
+### Activity Types Tracked
+
+| Activity | What it represents |
+|---|---|
+| **Charge** | A charge was created for a patient |
+| **Payment** | A payment was received |
+| **Insurance Payment** | An insurance payment was processed |
+| **Quote** | A quote was created for a patient |
+| **Note** | A clinical note was written |
+| **Quick Note** | A quick note was added to a patient's chart |
+| **Membership** | A patient was enrolled in a membership |
+| **Measurement** | A measurement was recorded (weight, blood pressure, etc.) |
+| **Patient Credit** | A credit was applied to a patient's account |
+| **Inventory Log** | An inventory update was made |
+
+Click any entry in the **Type** column to go directly to the source record. For example, clicking a Note entry opens that note, and clicking a Charge entry opens the charge details.
+
+### Commonly Asked Questions
+
+#### Are providers using AI Scribe?
+
+This isn't on the Provider Activity dashboard -- go to [Note Analytics](#note-analytics) instead. Use the note type filter at the top to switch between **AI** and **Manual** notes to see which providers have adopted AI Scribe and how it affects their note volume.
+
+### Filters
+
+| Filter | What it does |
+|---|---|
+| **Locations** | Show only activity at selected locations |
+| **Providers** | Show only activity for selected providers |
+| **Activity Types** | Show only specific types of activity (e.g., only Charges and Payments) |
+
+### Grouping Options
+
+| Group by | What it shows |
+|---|---|
+| **Provider** | All activity grouped by provider |
+| **Activity Type** | All activity grouped by type (all charges together, all payments together, etc.) |
+
+---
+
+## Note Analytics
+
+<Info>
+  **Where to find it:** Go to **Analytics** and select **Note Analytics** from the dashboard picker.
+</Info>
+
+The Note Analytics dashboard tracks clinical note volume, showing how many notes each provider creates and whether they're using AI Scribe or writing notes manually.
+
+### Columns
+
+| Column | What it shows |
+|---|---|
+| **Provider** | Provider name (click to open a detail panel listing their individual notes) |
+| **Total Notes** | Number of notes created in the selected period |
+| **Unique Patients** | Number of distinct patients with notes |
+| **Unique Locations** | Number of locations where notes were created |
+| **First Note** | Date of the earliest note in the period |
+| **Last Note** | Date of the most recent note in the period |
+
+Use the note type filter at the top to switch between **All**, **AI**, or **Manual** notes. This helps you see which providers are using AI Scribe and how it's affecting their note volume.
+
+### Filters and Grouping
+
+**Filters:** Locations, Providers.
+
+**Group by:** Location, Date, Week, or Month.

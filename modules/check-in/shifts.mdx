@@ -1,0 +1,114 @@
+---
+title: 'Shift Planning'
+description: 'Plan provider shifts and blocks for the week, resolve scheduling conflicts, and clear holiday schedules.'
+---
+
+<Info>
+  **Where to find it:** Go to **Check-In > Shift Management**.
+</Info>
+
+<Info>
+  Shifts and blocks can also be created and edited from the main calendar. See [Scheduling > Add a Shift](/modules/scheduling/blocks-and-shifts#add-a-shift) and [Scheduling > Create a Block](/modules/scheduling/blocks-and-shifts#create-a-block) for details. The Shift Management page gives you a broader weekly view across all providers and locations.
+</Info>
+
+The Shift Management page is a weekly calendar that shows all provider shifts and blocks across your locations. Use it to plan who's working when, spot and fix scheduling conflicts, and clear shifts for holidays.
+
+## Navigate the Week
+
+- **Left and right arrows** — Move backward or forward one week.
+- **Calendar icon** — Jump directly to any date. The page shows the full week containing that date.
+- A small repeat icon on any shift or block means it's part of a recurring series.
+
+## Filter the Calendar
+
+Use the controls at the top of the page to customize what you see:
+
+| Filter | What it does |
+|---|---|
+| **Show AI Assistants** | Turn on to include AI assistant schedules alongside provider schedules. |
+| **Location** | Filter by one or more clinic locations. Each location appears as its own section in the calendar. |
+| **Providers / Staff** | Select which providers appear in the calendar rows. |
+| **Include blocks-only providers** | Turn on to show providers who have blocks scheduled (like lunch or time off) but no shifts for the week. Useful for seeing who's unavailable even if they're not working. |
+
+<Info>
+  If the Clock-In module is enabled, the Shift Management page shows a staff selector instead of the standard provider selector. This lets you manage shifts for non-provider staff as well.
+</Info>
+
+## Read the Calendar
+
+The calendar is organized by location. Each location section shows a row for each provider, with colored bars representing their scheduled time:
+
+- **Shift bars** — Show when the provider is available to see patients. These are the working hours.
+- **Block bars** — Show when the provider is unavailable. Blocks are used for lunch breaks, meetings, training, personal time, or anything else that prevents the provider from seeing patients.
+- **Repeat icon** — A small icon on a bar means the shift or block repeats on a schedule.
+
+Click any shift or block bar to edit or delete it.
+
+## Create a Shift or Block
+
+Click the **Add** button in the top-right corner. A menu appears with two options:
+
+- **Create new Shift** — Opens the shift creation form. Set the provider, location, date, start/end times, capacity, and optional recurrence. Shifts define when a provider is available for appointments.
+- **Create new Block** — Opens the block creation form. Set the title, provider, date, start/end times, and optional recurrence. Blocks prevent appointments from being booked during that time.
+
+<Info>
+  **What's the difference between a shift and a block?** A shift says "this provider is available to work." A block says "this provider is unavailable during this time." Use shifts to define working hours and blocks for lunch breaks, meetings, or time off. When patients try to self-schedule, they can only book during shift hours and outside of blocks.
+</Info>
+
+<Info>
+  **Plan shifts a week ahead** so the dashboard can show accurate provider utilization numbers. If shifts aren't set up, utilization can't be calculated.
+</Info>
+
+## Resolve Shift Conflicts
+
+When a provider has overlapping shifts on the same day — for example, two shifts at different locations at the same time — a red **Conflicting shifts detected** alert appears at the top of the calendar.
+
+Click the alert to expand it. It shows:
+- Which providers have conflicts.
+- The specific dates and times where shifts overlap.
+- The locations involved.
+
+To fix a conflict, click on one of the overlapping shift bars and either edit its time or delete it.
+
+## Delete Holiday Shifts
+
+When a holiday is coming up, you can clear shifts for that day in bulk instead of deleting them one by one.
+
+<Steps>
+  <Step title="Open the Holiday Deletion Window">
+    Click **Delete Holiday Shifts** in the top-right toolbar.
+  </Step>
+  <Step title="Select a Date">
+    Choose from a list of upcoming U.S. federal holidays (past holidays are hidden). If your closure date isn't a federal holiday, expand **Or Select Custom Date** to pick any future date.
+  </Step>
+  <Step title="Review Providers">
+    The system loads all providers who have shifts on the selected date. Each provider card shows their name, shift times, location, and how many appointments they have that day. Providers without appointments are automatically selected for deletion.
+  </Step>
+  <Step title="Select or Deselect Providers">
+    Check or uncheck providers to control whose shifts are deleted. Use **Select All** or **Deselect All** for quick changes. Pay attention to the appointment count — if a provider has appointments on that day, you may need to reschedule those before deleting the shift.
+  </Step>
+  <Step title="Confirm Deletion">
+    Review the warning showing how many shifts will be deleted, then click **Delete**. This action cannot be undone.
+  </Step>
+</Steps>
+
+<Info>
+  **Before deleting holiday shifts**, check whether any affected providers have appointments that day. The window shows an appointment count for each provider — if someone has appointments, reschedule or cancel those appointments first, then delete the shift.
+</Info>
+
+## Tips for Shift Planning
+
+<AccordionGroup>
+  <Accordion title="Use blocks for lunch breaks">
+    Create a recurring block for each provider's lunch break (e.g., 12:00-1:00 PM, Monday through Friday). This prevents patients from booking appointments during that time, whether they're booking online or being scheduled by staff.
+  </Accordion>
+  <Accordion title="Set up recurring shifts to save time">
+    If a provider works the same schedule every week, create a recurring shift instead of adding individual shifts for each day. Click the recurrence option when creating a shift and set it to repeat weekly. You can always edit or delete individual occurrences later.
+  </Accordion>
+  <Accordion title="Check conflicts after making changes">
+    After adding or editing shifts, look for the red conflict alert at the top of the calendar. It's easy to accidentally create overlapping shifts, especially when copying schedules or adjusting times.
+  </Accordion>
+  <Accordion title="Plan for holidays early">
+    Don't wait until the day before a holiday to clear shifts. Use the Delete Holiday Shifts feature a week or two ahead so patients aren't booking into slots that will be cancelled.
+  </Accordion>
+</AccordionGroup>

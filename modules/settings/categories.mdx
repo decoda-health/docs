@@ -1,0 +1,59 @@
+---
+title: 'Categories'
+description: 'Organize services, products, medications, and packages into logical groups for reporting and commission tracking.'
+---
+
+Categories group related items together across your clinic's catalog. They apply to [Services](/modules/settings/services), [Products](/modules/settings/products), [Medications](/modules/settings/medications), and [Packages](/modules/settings/packages) — so you only manage one set of categories for everything.
+
+Use categories to organize your offerings by treatment area (e.g., "Facials", "Injectables", "Consultations"), track revenue by group, and structure commission rules.
+
+## Create a Category
+
+<Steps>
+  <Step title="Navigate to Categories">
+    Go to **Settings** and select **Categories**.
+  </Step>
+  <Step title="Create Category">
+    Click the **Create Category** button.
+  </Step>
+  <Step title="Enter Details">
+    - **Name:** A descriptive label for the category (e.g., "Facials", "Injectables", "Consultations").
+    - **Description:** An optional summary of the category's purpose.
+  </Step>
+  <Step title="Save">
+    Click **Save**. The category is immediately available for assignment to services, products, medications, and packages.
+  </Step>
+</Steps>
+
+You can also create categories inline when editing a service, product, medication, or package — type a new name in the Category dropdown and select **Create new category**.
+
+## Edit a Category
+
+Click on a category name in the list to open the editor. Update the name or description and click **Save**.
+
+## Where Categories Are Used
+
+Categories appear throughout the platform:
+
+- **Services, Products, Medications, Packages** -- Each item can be assigned to one category for organization.
+- **Billing & Checkout** -- Items can be grouped by category in the checkout flow (controlled by the **Item Sort Type** setting in [General Preferences](/modules/settings/general)).
+- **Commission Structures** -- Commission rules can be scoped to specific categories.
+- **Membership Discounts** -- Membership plans can offer category-level discounts that apply to all items in a category.
+- **Tax Rules** -- Tax rates can be scoped to items in specific categories.
+- **Reporting** -- Revenue and sales data can be filtered and grouped by category.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Category Merging">
+    If you rename a category to match an existing category's name, the system will merge them. All items previously assigned to the renamed category will be reassigned to the existing one.
+  </Accordion>
+  <Accordion title="Shared Across Item Types">
+    Categories are shared across services, products, medications, and packages. Creating a new category from any item editor makes it available everywhere. This keeps your catalog organized with a single, consistent set of groupings.
+  </Accordion>
+  <Accordion title="Permissions">
+    - **Settings Services Write** -- Required to create, edit, and delete categories.
+
+    Admin users have full access to category management by default.
+  </Accordion>
+</AccordionGroup>

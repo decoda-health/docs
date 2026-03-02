@@ -1,0 +1,109 @@
+---
+title: 'Checkout & Payment Methods'
+description: 'Walk through the checkout flow, choose a payment method, split payments, and manage surcharge fees.'
+---
+
+<Info>
+  Navigate to **Billing > Check Out** to start the checkout flow, or click **Create Charge** from the Charges table.
+</Info>
+
+## Check Out a Patient
+
+The checkout flow is a multi-step process for creating charges and collecting payment. Navigate to **Billing > Check Out** or click **Create Charge** from the Charges table.
+
+<Steps>
+  <Step title="Select a Patient">
+    Search for and select the patient you are billing. If the patient has existing outstanding charges, they appear automatically so you can collect on them.
+  </Step>
+  <Step title="Select Location">
+    If your organization has multiple locations, choose the location for this transaction. This determines which POS devices are available and which tax rules apply.
+  </Step>
+  <Step title="Select Merchant Account">
+    If multiple merchant accounts are configured, choose which account should process the payment.
+  </Step>
+  <Step title="Build the Charge">
+    Add items to the charge using any combination of:
+    - **Services & Products:** Search and add services, items, or packages. Each line item shows its price, and you can adjust quantities.
+    - **Custom Amount:** Enter a one-time dollar amount with an optional description.
+    - **Discount:** Apply a flat dollar or percentage discount to the charge total.
+    - **Tip:** Add a tip amount.
+    - **Description:** Add a free-text description for the charge.
+    - **External ID:** Attach an external reference identifier.
+    - **Date of Service:** Override the service date if it differs from today.
+    - **Comment:** Add an internal comment visible only to staff.
+
+    If the patient has **sold packages** or **banked items** (pre-purchased service credits), those appear above the charge builder so you can redeem them.
+  </Step>
+  <Step title="Select Existing Charges (Optional)">
+    If the patient has outstanding charges from previous visits, you can select one or more of those charges to pay instead of (or in addition to) creating a new one.
+  </Step>
+  <Step title="Choose a Payment Method">
+    Select how to collect payment. See [Payment Methods](#payment-methods) for details on each option.
+  </Step>
+  <Step title="Complete Payment">
+    Depending on the method chosen, either the terminal processes the card, the patient enters details in the virtual terminal, or you record the external payment. After success, the system displays a confirmation screen with options to send a receipt.
+  </Step>
+</Steps>
+
+### Customer Display
+
+During checkout, you can connect a customer-facing display that mirrors the charge preview in real time. Click the **Preview** button in the header to toggle the charge preview panel.
+
+## Payment Methods
+
+When collecting payment at checkout, you choose from the following options. Your organization's administrator controls which methods are enabled.
+
+<Tabs>
+  <Tab title="POS Terminal">
+    Send the charge directly to a physical payment terminal (e.g., Lane 3000, Lane 7000, Link 2500) connected at the selected location.
+
+    - The terminal prompts the patient to tap, insert, or swipe their card.
+    - A processing screen appears while the terminal communicates with the payment processor.
+    - If no terminal is configured for the location, this option is disabled with a message.
+  </Tab>
+  <Tab title="Charge a Card">
+    Use the virtual terminal to charge a card without a physical device.
+
+    - If the patient has **saved payment methods**, they appear for selection.
+    - Otherwise, enter card details (number, expiration, CVC, ZIP) directly.
+    - Supports both debit and credit cards.
+  </Tab>
+  <Tab title="Payment Plan">
+    Set up a recurring payment schedule for the outstanding balance.
+
+    - Configure the **initial payment amount** (can be $0 for zero-down plans).
+    - Set the **installment amount**, **number of installments**, and **frequency** (weekly, bi-weekly, monthly).
+    - Choose a **start date** for the first installment.
+    - The patient must provide a card on file for automatic future charges.
+    - A payment plan preview shows the full schedule before confirmation.
+  </Tab>
+  <Tab title="Send Invoices">
+    Create the charge and send invoices to the patient using Decoda's automated collection system.
+
+    - **Intelligent Invoicing (recommended):** Select a rule set that defines the automated sequence of SMS/email reminders, their timing, and escalation rules.
+    - **Manual Invoice:** Write a custom message using the rich text editor with patient variable support.
+    - The patient receives a payment link where they can pay online.
+    - The patient gets a text or email with a link. They tap it, see their balance, and pay with a credit card — no app download or account required.
+  </Tab>
+  <Tab title="Settle Externally">
+    Record a payment made outside the system (cash, care credit, check, or other external method).
+
+    - Enter the amount received.
+    - The charge is marked as settled without processing a card transaction.
+  </Tab>
+  <Tab title="Patient Credit">
+    Apply available credit from the patient's account toward the charge.
+
+    - Shows the patient's current credit balance.
+    - If the patient has no credit available, this option is disabled.
+    - Credit is deducted from the patient's balance upon confirmation.
+  </Tab>
+</Tabs>
+
+### Split Payments
+
+For POS terminal, virtual terminal, and patient credit methods, you can enable **Split Payment** to collect only a portion of the total. Click **Split Payment**, enter the partial amount, and process it. The remaining balance stays outstanding for future collection.
+
+### Surcharge Fees
+
+If your organization has credit card surcharging enabled, an additional fee may be applied to credit card payments. The surcharge is calculated automatically based on the card type detected during checkout. Patients with surcharging disabled on their profile are exempt.

@@ -1,0 +1,81 @@
+---
+title: 'Import & Merge Patients'
+description: 'Bulk upload patient records from CSV files and merge duplicate patient records.'
+---
+
+<Info>
+  These features are available from the main **Patients** page using the **Upload** and **Merge** buttons.
+</Info>
+
+## Import Patients from CSV
+
+Bulk upload patient records from a CSV file. From the **Patients** page, click the **Upload** button.
+
+<Steps>
+  <Step title="Select Upload Type">
+    Choose the type of upload:
+    - **Contact Upload** -- imports basic patient information (name, phone, email, address, etc.).
+    - **Collections Upload** -- imports patient records with outstanding balance data for billing purposes.
+  </Step>
+  <Step title="Upload Your CSV File">
+    Drag and drop a CSV file or click to browse. The file is parsed and validated immediately. The system checks for:
+    - Valid CSV format
+    - Required columns present
+    - Data type validation on each row
+  </Step>
+  <Step title="Map Columns">
+    The **Column Mapper** shows each CSV column on the left and a dropdown on the right to map it to a Decoda field. The system automatically suggests mappings based on column name similarity. Fields are organized into three tiers:
+    - **Required** -- `first_name` and `phone_number` must be mapped.
+    - **Recommended** -- `email`, `last_name`, `external_id`, and `gender` are strongly suggested.
+    - **Optional** -- `date_of_birth`, `address`, `address_line_two`, `city`, `state`, `zip_code`, `outstanding_balance`, `balance_description`, `external_charge_id`, `external_charge_created_date`, and `full_name`.
+
+    If you upload CSV files regularly, you can **save your column mapping** for reuse. Saved mappings can be set as the default so they auto-apply on future uploads.
+  </Step>
+  <Step title="Select Patient Identifiers">
+    Choose which fields the system should use to match incoming rows to existing patients (to prevent duplicates). Options include external ID, phone number, email, and name combinations.
+  </Step>
+  <Step title="Configure File Rules">
+    Set additional options such as whether to update existing patient records when a match is found or skip duplicate rows.
+  </Step>
+  <Step title="Review and Upload">
+    Review the validation summary showing any errors or warnings. Click **Upload** to begin the import. You are redirected to the **Upload History** page where you can monitor progress.
+  </Step>
+</Steps>
+
+Click **View Upload History** (clock icon in the top-right of the upload page) to see all past imports with their status and results.
+
+## Merge Duplicate Patients
+
+From the **Patients** page, click the **Merge** button, or select multiple patients and click **Merge** from the bulk action bar.
+
+### Find Duplicates Automatically
+
+<Steps>
+  <Step title="Select Match Fields">
+    If you navigated to the merge page without preselected patients, the **Find Duplicates** screen appears. Select one or more fields to check for matches:
+    - First Name
+    - Last Name
+    - Date of Birth
+    - Phone Number
+    - Email
+  </Step>
+  <Step title="Search">
+    Click **Find Duplicates**. The system scans your patient database and groups matching records together.
+  </Step>
+  <Step title="Review Duplicate Groups">
+    Each group shows the matched patients side by side. The patient on the right is marked as the **Primary** record -- this is the record that will be kept. All other records in the group will be merged into it.
+  </Step>
+  <Step title="Select the Primary Record">
+    Click on any patient card on the left side to swap it to the primary position. Choose the record with the most complete and accurate data.
+  </Step>
+  <Step title="Configure Merge Options">
+    - **Void Other Charges** -- check this box to void all outstanding charges on the duplicate records being merged. Leave unchecked to transfer them to the primary record.
+  </Step>
+  <Step title="Merge">
+    Click **Merge Patients**. All appointments, charges, notes, forms, documents, and other data from the duplicate records are transferred to the primary patient. The duplicate records are removed.
+  </Step>
+</Steps>
+
+<Info>
+  **Merge Restrictions:** Patients cannot be merged if they have different email addresses **and** different phone numbers. At least one of these identifiers must match or be absent for the merge to proceed.
+</Info>

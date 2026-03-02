@@ -1,0 +1,160 @@
+---
+title: 'Memberships & Payment Plans'
+description: 'Track membership status, monitor payment plan collection progress, and catch failed payments early.'
+---
+
+<Info>
+  **Where to find it:** Go to **Analytics** and select **Memberships Analytics** or **Payment Plan Analytics** from the dashboard picker.
+</Info>
+
+Two dashboards help you track recurring revenue and installment payments:
+
+- **Memberships Analytics** -- Shows the status of all memberships: who's active, who's frozen or cancelled, and when the next billing cycle is.
+- **Payment Plan Analytics** -- Tracks active payment plans, how much has been collected, and what's still outstanding.
+
+---
+
+## Memberships Analytics
+
+### Charts
+
+Two bar charts appear above the table, each with their own date range picker (separate from the table filters):
+
+- **Memberships by Status** -- Shows how many memberships are Active, Frozen, Cancelled, Delinquent, or Expired. A quick glance tells you the overall health of your membership program.
+- **Members by Location & Membership** -- Shows member counts broken down by clinic location and membership plan. Useful for seeing which locations and plans are performing best.
+
+### What the Statuses Mean
+
+| Status | What it means |
+|---|---|
+| **Active** | The membership is in good standing and billing normally |
+| **Frozen** | The membership is temporarily paused -- the patient isn't being charged, but they haven't cancelled |
+| **Cancelled** | The patient ended their membership |
+| **Delinquent** | A payment failed and hasn't been resolved yet -- the patient still has a membership, but their card isn't going through |
+| **Expired** | The membership reached its end date (for memberships with a fixed term) |
+
+<Info>
+  **Watch for Delinquent status.** Delinquent memberships mean a patient's payment method failed. These need attention quickly -- reach out to the patient to update their card on file before the membership lapses.
+</Info>
+
+### Table Columns
+
+| Column | What it shows |
+|---|---|
+| **Patient** | The member's name |
+| **Membership** | Which membership plan they're on |
+| **Status** | Current status (Active, Frozen, Cancelled, Delinquent, or Expired) |
+| **Price** | The recurring price they're being charged |
+| **Start Date** | When the membership started |
+| **Next Billing** | When the next charge will be attempted |
+| **Payment Method** | The card or payment method on file |
+| **Sold By** | Which provider enrolled the member |
+
+### Commonly Asked Questions
+
+#### Which provider is best at enrolling members?
+
+| Setting | Value |
+|---|---|
+| **Group by** | Sold By Provider |
+
+Each group shows how many memberships a provider enrolled and their status breakdown. Use this to identify who's actively selling memberships and who might need encouragement or training.
+
+### Filters
+
+| Filter | What it does |
+|---|---|
+| **Locations** | Show only memberships at selected locations |
+| **Membership Type** | Filter by specific membership plans |
+| **Status** | Filter by membership status |
+
+### Grouping Options
+
+| Group by | What it shows |
+|---|---|
+| **Location** | Memberships grouped by clinic location |
+| **Membership Type** | Memberships grouped by plan |
+| **Status** | Memberships grouped by status |
+| **Sold By Provider** | Memberships grouped by who enrolled the member |
+
+---
+
+## Payment Plan Analytics
+
+### Summary Cards
+
+Five summary cards at the top give you a quick overview:
+
+| Card | What it shows |
+|---|---|
+| **Active Plans** | Number of currently active payment plans |
+| **Total Plan Value** | Combined dollar value of all plans |
+| **Amount Collected** | Total payments received so far across all plans |
+| **Amount Outstanding** | Remaining balance across all plans |
+| **Failed / Cancelled** | Count of plans in failed or cancelled status |
+
+<Info>
+  **Quick health check:** Compare Amount Collected to Total Plan Value. If the ratio is low and you have many active plans, your plans are still early in their lifecycle. If it's high, most of your plans are nearly paid off.
+</Info>
+
+### Table Columns
+
+| Column | What it shows |
+|---|---|
+| **Patient** | Patient name (click to open the full plan details) |
+| **Plan Total** | The full value of the payment plan |
+| **Amount Paid** | How much has been collected so far |
+| **Remaining** | Outstanding balance |
+| **Installments** | Progress shown as completed out of total (e.g., "3 / 6") |
+| **Frequency** | How often payments are charged: Weekly, Biweekly, or Monthly |
+| **Status** | Current plan status: Active, Completed, Failed, or Cancelled |
+| **Next Payment** | Date of the next scheduled installment |
+| **Created** | When the plan was created |
+| **Location** | Clinic location |
+| **Payment Method** | Card or method used for automatic charges |
+
+### View Plan Details
+
+Click any patient name to open a detail panel showing:
+- The full installment schedule
+- Payment history for each installment
+- Which payments succeeded and which failed
+
+### Commonly Asked Questions
+
+#### Which patients owe the most?
+
+| Setting | Value |
+|---|---|
+| **Filters** | Status = Active |
+| **Sort by** | Remaining (descending) |
+
+Filter to Active plans first, then sort by Remaining to prioritize the largest outstanding balances. Click any patient name to see their full installment schedule and which payments have succeeded or failed.
+
+### Filters
+
+| Filter | What it does |
+|---|---|
+| **Locations** | Show only plans at selected locations |
+| **Status** | Filter by plan status: Active, Completed, Failed, or Cancelled |
+| **Frequency** | Filter by payment frequency: Weekly, Biweekly, or Monthly |
+
+### Grouping Options
+
+| Group by | What it shows |
+|---|---|
+| **Status** | Plans grouped by status |
+| **Location** | Plans grouped by clinic location |
+| **Frequency** | Plans grouped by payment frequency |
+
+---
+
+## Tips
+
+<Info>
+  **Set a weekly review cadence.** Check Delinquent memberships and Failed payment plans at least once a week. The sooner you catch a failed payment, the easier it is to resolve -- patients are more likely to update their card when contacted quickly.
+</Info>
+
+<Info>
+  **Export for accounting.** Both dashboards support exporting to spreadsheets. Your accountant or bookkeeper may want the Payment Plan data monthly to track receivables.
+</Info>

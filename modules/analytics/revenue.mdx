@@ -1,0 +1,159 @@
+---
+title: 'Revenue & Payment Reports'
+description: 'Track what you sold, what you collected, and where your money is going with the Product Sales and Payment Breakdown dashboards.'
+---
+
+<Info>
+  **Where to find it:** Go to **Analytics** and select either **Product Sales Breakdown** or **Payment Breakdown** from the dashboard picker.
+</Info>
+
+Two dashboards cover the financial side of your clinic. They answer different questions, so it helps to know which one to use:
+
+- **Product Sales Breakdown** -- Shows what was *sold*. Every service, product, membership, and package that appeared on a charge, along with revenue, discounts, taxes, cost, and profit.
+- **Payment Breakdown** -- Shows what was *collected*. Every payment transaction, including the payment method, processing fees, and net amount your clinic actually received.
+
+Think of it this way: Sales tells you what you billed for, Payments tells you what came in.
+
+---
+
+## Product Sales Breakdown
+
+### What the Numbers Mean
+
+The Product Sales dashboard breaks down every item on every charge. Here's what each column tells you:
+
+| Column | What it means |
+|---|---|
+| **Qty x Price** | How many units were sold at what price (e.g., "2 x $50.00") |
+| **Gross Revenue** | Total before any discounts or taxes -- quantity times price |
+| **Discount** | Total discounts applied (hover to see the breakdown between item-level and charge-level discounts) |
+| **Tax** | Tax amount charged |
+| **Net Revenue** | What you actually earned: Gross Revenue + Tax - Discounts (hover for the full calculation) |
+| **Cost** | Your cost for the item -- for products, this comes from the weighted average of shipment costs; for services, it's the cost field from the service setup |
+| **Net Profit** | Net Revenue minus Cost -- your actual profit after expenses (hover for the calculation) |
+
+<Info>
+  **Hover for details:** The revenue and profit cells show a breakdown when you hover over them. This is especially helpful when you want to understand exactly how a number was calculated.
+</Info>
+
+### Understanding Profit Margins
+
+- **Gross Revenue** is the starting point -- what you would have earned if there were no discounts or taxes.
+- **Net Revenue** is what you earned after discounts and taxes are factored in.
+- **Net Profit** is the bottom line -- what's left after subtracting your cost for the item.
+
+If your Net Profit is low or negative on certain items, it could mean your pricing doesn't account for costs, or you're giving too many discounts on those items.
+
+### Commonly Asked Questions
+
+#### What are our most profitable services?
+
+| Setting | Value |
+|---|---|
+| **Date Range** | Last 3 months |
+| **Group by** | Category |
+
+Don't just look at **Gross Revenue** -- a high-revenue service can still have low profit. Check the **Net Profit** column instead, which factors in discounts, taxes, and your costs. Items with negative Net Profit mean you're losing money on them.
+
+#### How much are we losing to discounts?
+
+| Setting | Value |
+|---|---|
+| **Date Range** | This Month |
+| **Group by** | Provider |
+
+Compare the **Discount** column across providers. If one provider's discounts are significantly higher than others, it may be worth reviewing their discount authority or checking if charge-level discounts are being stacked with item-level ones (hover the Discount cell to see the breakdown).
+
+### Filters
+
+| Filter | What it does |
+|---|---|
+| **Providers** | Show only items sold by selected providers |
+| **Locations** | Show only items sold at selected locations |
+| **Item Categories** | Filter by category (e.g., "Injectables," "Skincare") |
+| **Item Types** | Filter by type: Service, Product, Membership, or Package |
+| **Item Names** | Search by item name |
+| **Payment Methods** | Filter by how the patient paid |
+| **Charge Status** | Filter by status: Paid, Partial, Void, etc. |
+| **Patient** | Search by patient name |
+
+### Grouping Options
+
+| Group by | What it shows |
+|---|---|
+| **Location** | Totals per clinic location |
+| **Provider** | Totals per staff member |
+| **Category** | Totals per item category |
+| **Payment Method** | Totals per payment method |
+| **Date** | Totals per day |
+
+---
+
+## Payment Breakdown
+
+### What the Numbers Mean
+
+The Payment Breakdown dashboard shows every payment transaction -- every time money actually changed hands.
+
+| Column | What it means |
+|---|---|
+| **Payment Method** | How the patient paid (credit card, cash, etc.) |
+| **Card Details** | For card payments: the last four digits and card brand, plus the transaction status |
+| **Amount** | The total payment amount |
+| **Fee** | The processing fee charged by your payment provider (e.g., credit card processing fees) |
+| **Net Amount** | Amount minus Fee -- what actually ended up in your account |
+
+<Info>
+  **Why Net Amount matters:** Credit card processing fees can add up significantly. The Net Amount column shows you what you actually received after the payment processor took their cut. If you're comparing revenue to bank deposits, this is the number to look at.
+</Info>
+
+### Commonly Asked Questions
+
+#### How much are we paying in processing fees?
+
+| Setting | Value |
+|---|---|
+| **Date Range** | This Month |
+| **Group by** | Payment Method |
+
+The difference between **Amount** and **Net Amount** is your total in processing fees for each method. Compare methods to decide whether to encourage cash payments or negotiate better rates with your processor.
+
+#### Are there payments that haven't settled?
+
+| Setting | Value |
+|---|---|
+| **Date Range** | This Week |
+| **Filters** | Payment Status = Processing |
+
+Payments in "Processing" status haven't settled yet. This is normal for recent transactions, but if a payment stays in Processing for more than a day or two, there may be an issue with your payment processor.
+
+### Filters
+
+| Filter | What it does |
+|---|---|
+| **Locations** | Show only payments at selected locations |
+| **Payment Status** | Filter by status (Processing or Succeeded) |
+| **Comment** | Search by payment comments or notes |
+| **Payment Methods** | Filter by how the patient paid |
+
+### Grouping Options
+
+| Group by | What it shows |
+|---|---|
+| **Location** | Totals per clinic location |
+| **Payment Method** | Totals per payment method |
+| **Date** | Totals per day |
+| **Week** | Totals per week |
+| **Month** | Totals per month |
+
+---
+
+## Tips
+
+<Info>
+  **Sales vs. Payments -- which to export?** For your accountant, the Product Sales Breakdown is usually what they want (it shows revenue, taxes, discounts, and profit). The Payment Breakdown is better for reconciling with your bank or payment processor.
+</Info>
+
+<Info>
+  **Watch your costs:** If you see Net Profit numbers that look surprisingly low, check the Cost column. Products use weighted average cost from your inventory shipments, so if those costs aren't entered correctly in the Inventory module, your profit numbers won't be accurate either.
+</Info>

@@ -1,0 +1,33 @@
+---
+title: 'Document Uploads'
+description: 'Upload external documents to create a note, optionally extracting content with AI.'
+---
+
+## Upload a Medical Document
+
+Upload external documents (images, PDFs, Word files) to create a note. The AI can optionally analyze the uploaded content and extract clinical information into a structured note.
+
+<Steps>
+  <Step title="Start an Upload Note">
+    Click **New Note** and select the upload option. Select the patient if not already chosen.
+  </Step>
+  <Step title="Select a Template">
+    Choose a note template from the dropdown. A template is required before uploading.
+  </Step>
+  <Step title="Upload Files">
+    Drag and drop files into the upload area, or click **Select File** to browse. You can upload multiple files at once. Supported formats:
+    - **Images:** JPEG, PNG, HEIC (up to 10 MB each; large images are automatically compressed)
+    - **Documents:** PDF, DOCX (up to 10 MB each)
+  </Step>
+  <Step title="Choose Processing Mode">
+    - **AI Processing (default):** The AI analyzes your uploads and extracts medical information (medications, dosages, vital signs, clinical notes) into the template's structured fields.
+    - **Skip AI Processing:** Check the **Skip AI processing** checkbox to attach files to the note without any AI analysis. Files are stored as-is.
+  </Step>
+  <Step title="Generate or Upload">
+    Click **Generate Note** (with AI) or **Upload Files** (without AI). After processing, you are redirected to the generated note where you can review and edit the extracted content.
+  </Step>
+</Steps>
+
+## Source Documents
+
+When a note is generated from uploaded files (via the Upload flow), the original source documents are displayed at the top of the note with a distinct banner. These are the files the AI analyzed to produce the note content.

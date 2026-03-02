@@ -1,0 +1,225 @@
+---
+title: 'Memberships'
+description: 'Create recurring membership plans with credits, discounts, and automated billing for loyal patients.'
+---
+
+<Info>
+  **Prerequisites:** You should have [Services](/modules/settings/services) and/or [Products](/modules/settings/products) created before setting up memberships, since membership discounts and credits reference existing catalog items.
+</Info>
+
+Memberships generate predictable recurring revenue for your clinic. Patients enroll, get billed automatically, and receive benefits like discounts and credits — so they keep coming back.
+
+Memberships let you offer recurring subscription plans to patients. Each membership defines its own pricing, billing frequency, discounts, credits, and enrollment terms. Patients enroll in a membership and are billed automatically on a recurring schedule, while receiving the benefits you configure.
+
+## Create a Membership
+
+<Steps>
+  <Step title="Navigate to Memberships">
+    Go to **Settings** and select **Memberships**.
+  </Step>
+  <Step title="Add Membership">
+    Click the **Add Membership** button in the top right corner. This opens a full-page editor with multiple sections.
+  </Step>
+  <Step title="Fill in Basic Information">
+    Enter the following details:
+    - **Membership Name:** The name patients will see (e.g., "Gold Membership", "VIP Monthly Plan").
+    - **Description:** An optional summary of what the membership includes. Use the AI generator to draft this automatically.
+    - **Setup Fee / Promotional Discount:** A one-time charge when a patient enrolls. Enter a negative value to apply a promotional discount to the first payment.
+    - **Freeze Fee:** The amount charged when a patient freezes (pauses) their membership.
+    - **Minimum Billing Cycles:** The number of billing cycles a patient must complete before they can cancel.
+    - **Maximum Billing Cycles:** The total number of billing cycles before the membership expires automatically. Set to 0 for unlimited.
+    - **Text Color:** Pick a color to visually distinguish this membership name in the platform.
+  </Step>
+  <Step title="Configure Fee Schedule">
+    Set the recurring price and optional cycle-specific pricing overrides. See the [Fee Schedule](#configure-a-fee-schedule) section below.
+  </Step>
+  <Step title="Set Billing Frequency">
+    Choose how often the membership bills: Daily, Weekly, Biweekly, Monthly, Quarterly, Semi-Annually, or Yearly. If you have multiple bank accounts configured, select which **Deposit to** account receives membership payments.
+  </Step>
+  <Step title="Configure Credits and Discounts">
+    Set up patient credits, global discounts, category-level discounts, item type discounts, and per-item discounts. See the sections below for details.
+  </Step>
+  <Step title="Save">
+    Click **Save Membership** in the top right corner. The membership is immediately available for patient enrollment.
+  </Step>
+</Steps>
+
+## Configure a Fee Schedule
+
+The fee schedule lets you set different prices for specific billing cycles, which is useful for introductory pricing or promotional periods.
+
+- **Cycle-Specific Prices:** Click **Add Cycle-Specific Price** to override the price for a specific cycle number (e.g., Cycle 1 at $0, Cycle 2 at $50).
+- **Going-Forward Price:** The standard recurring price that applies to all cycles without a specific override. If no cycle-specific prices are defined, this is the membership price.
+
+For example, you could set Cycle 1 to $0 (free trial), Cycle 2 to $25 (half price), and $50 going forward.
+
+## Set Up Credits and Discounts
+
+Memberships can include multiple types of benefits that apply to enrolled patients.
+
+### Patient Credits
+
+A dollar amount credited to the patient's account each billing cycle. Credits can be used toward any purchase. Configure the credit amount in the **Patient Credits** field.
+
+**Banking Options:** Enable **Rollover Unused** so unused credits carry over to the next billing cycle instead of disappearing. For example, if the membership includes $50/month in credits and the patient only uses $30, the remaining $20 rolls to next month. Optionally set a **Rollover Expiry** in days to automatically expire banked credits after a specified period. Leave blank for no expiry.
+
+### Global Discount
+
+A blanket percentage discount applied to all services for membership holders. Set the percentage in the **Global Discount** field (0-100%).
+
+### Category Discounts
+
+Apply discounts to all items within a specific category. Click **Add Category Discount** to select a category and set a discount percentage and quantity. Set quantity to 0 for unlimited usage within that category.
+
+### Item Type Discounts
+
+Apply discounts broadly to all physical products or all services. Click **Add Item Type Discount** and choose whether the discount applies to physical items or services. Set the discount percentage and quantity.
+
+### Per-Item Discounts
+
+Discount specific services, products, or packages individually.
+
+<Steps>
+  <Step title="Search and Select">
+    Use the item search field under the **Discounts** section to find and add specific services, products, or packages. You can also click **+ Create new item or package** to create one inline.
+  </Step>
+  <Step title="Set Discount Details">
+    For each added item, configure:
+    - **Quantity:** How many times per billing cycle the patient can use this discount. Set to 0 for unlimited usage.
+    - **Discount Amount:** The dollar amount off the original price.
+    - **Discount Percentage:** The percentage off the original price. Changing one automatically recalculates the other.
+  </Step>
+  <Step title="Configure Rollover">
+    For items with a set quantity, enable **Rollover Unused** to bank unused quantities for future cycles. Optionally set an expiry period in days.
+  </Step>
+</Steps>
+
+<Info>
+  Items with a 100% discount must have a quantity specified. Set quantity to 0 for unlimited free usage, or enter a specific number to cap how many times the item is included per cycle.
+</Info>
+
+<Info>
+  **What your patients see:** At checkout, membership discounts are applied automatically. The patient sees the original price crossed out with the discounted price below it. Staff don't need to manually apply anything.
+</Info>
+
+### Discount Groups
+
+Group multiple item discounts together so patients can choose one option from the group each cycle, rather than receiving all discounts independently.
+
+<Steps>
+  <Step title="Select Items for Grouping">
+    Check the **Add to a group** checkbox on two or more individual item discounts. Only items with a set quantity (greater than 0) can be grouped.
+  </Step>
+  <Step title="Create the Group">
+    When two or more items are selected, a blue banner appears. Click **Create Group** and enter a group name.
+  </Step>
+  <Step title="Configure Group Settings">
+    Set the discount percentages and quantities for each item in the group. Rollover settings are managed at the group level and apply to all items in the group.
+  </Step>
+</Steps>
+
+## Enroll a Patient
+
+<Steps>
+  <Step title="Open Enrollment Page">
+    From the memberships list, click the actions menu (gear icon) on any membership and select **Add New Member**. Or click **Add Membership** from a patient's profile.
+  </Step>
+  <Step title="Select Patient and Membership">
+    Search for and select a patient. If navigating from a specific membership, it is pre-selected; otherwise, choose from the list of active memberships.
+  </Step>
+  <Step title="Set Start Date and Sold By">
+    Pick the membership start date. The **Sold By** field defaults to your user and attributes the enrollment to a specific staff member.
+  </Step>
+  <Step title="Configure Billing Options">
+    - **Prorate First Payment:** Toggle on to adjust the first payment based on how far into the billing cycle the patient starts. For example, if they enroll halfway through the month, they pay half.
+    - **Deferred Billing:** Toggle on to delay the first charge to a future date — the patient enrolls now but isn't billed until later. Select a saved payment method for future automated billing.
+    - **Save Payment Method:** When checked, the card used for enrollment is saved for future recurring charges.
+  </Step>
+  <Step title="Process Payment">
+    For immediate billing, the payment terminal appears for credit card entry. For deferred billing or $0 memberships, select a saved payment method and click **Enroll with Deferred Billing** or **Enroll (Free Membership)**.
+  </Step>
+</Steps>
+
+<Info>
+  A patient cannot be enrolled in the same membership twice if they already have an active, frozen, or delinquent status on that membership.
+</Info>
+
+## Manage Enrolled Members
+
+Click the **active members** count on any membership row, or select **View Members** from the actions menu, to open the members page.
+
+The members table shows each enrolled patient with their status, start/end dates, billing details, sold-by provider, and recent activity. Use the filters to narrow by **Name**, **Status** (Active, Frozen, Cancelled, Expired, Delinquent), or **Start Date**.
+
+### Member Actions
+
+Click the actions menu on any member row to access these options:
+
+- **Freeze Membership:** Pause billing temporarily. You can schedule a freeze for a future date and optionally set an auto-unfreeze date. A freeze fee is charged if configured on the membership.
+- **Unfreeze Membership:** Resume billing for a frozen membership.
+- **Change Payment Method:** Update the card on file for future recurring charges.
+- **Change Billing Date:** Adjust when the next billing cycle occurs.
+- **Cancel Membership:** Permanently end the membership. Requires a comment explaining the reason. Available for active, frozen, and delinquent members.
+- **Process Payment:** (Delinquent members only) Manually collect a failed payment.
+- **Reactivate Membership:** (Delinquent members only) Restore the membership to active status.
+- **View Member:** Navigate to the patient's profile, opened to their memberships tab.
+
+### Member Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Active** | Patient is enrolled and billing normally. |
+| **Frozen** | Billing is paused. Can be unfrozen to resume. |
+| **Delinquent** | A payment has failed. Requires manual intervention. |
+| **Cancelled** | Membership has been terminated by staff. |
+| **Expired** | Membership reached its maximum billing cycles. |
+
+## Edit a Membership
+
+From the memberships list, click the actions menu on any membership and select **Edit Membership**, or click the membership name to expand it, then navigate to the edit page. The editor contains the same sections used during creation.
+
+## Duplicate a Membership
+
+To quickly create a similar plan, click the actions menu on any membership and select **Duplicate**. A copy is created with the same settings, which you can then rename and modify.
+
+## Bulk Edit Memberships
+
+Select multiple memberships using the checkboxes in the table. A bulk actions bar appears at the bottom with two options:
+
+- **Edit:** Opens a drawer where you can update the **Name**, **Description**, and **Price** for all selected memberships at once. Only fields you modify are applied.
+- **Archive:** Archive all selected memberships simultaneously.
+
+## View Membership Details
+
+Click the expand arrow next to any membership name in the list to view an inline summary showing:
+
+- **Financial Details:** Price (or fee schedule), setup fee, freeze fee, and patient credit amount.
+- **Membership Stats:** Active member count, total lifetime revenue, billing frequency, and cancellation policy.
+- **Members:** Expandable list of enrolled patients with search and pagination.
+- **Discounts:** Expandable list of all configured discounts (grouped and individual) with search and pagination.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Grouping by Billing Frequency">
+    Use the **Group By** dropdown above the memberships table to organize memberships by billing frequency (Monthly, Weekly, Yearly, etc.). This helps you see all plans of the same type together.
+  </Accordion>
+  <Accordion title="Filtering and Searching">
+    Use the filter bar to search memberships by **Name** or by **Discount Item** name. Combine filters to quickly find specific plans.
+  </Accordion>
+  <Accordion title="Revenue Tracking">
+    Each membership row in the table displays its **Total Revenue** -- the lifetime sum of all payments collected from enrolled members. Use this to evaluate the financial performance of each plan.
+  </Accordion>
+  <Accordion title="Archiving a Membership">
+    To discontinue a membership, click the actions menu and select **Archive**. Memberships with active members cannot be archived -- you must cancel or move all enrolled patients first. Archived memberships no longer appear in enrollment flows but historical billing data is preserved.
+  </Accordion>
+  <Accordion title="Permissions">
+    - **Memberships Read** -- Required to view the Memberships page, membership details, and enrolled members.
+    - **Billing Payments Process** -- Required to enroll patients (since enrollment processes a payment) and to manually collect failed payments for delinquent members.
+    - **Billing Payments Refund** -- Required to process refunds on membership payments.
+
+    Admin users have full access to all membership features by default. Membership creation and editing within Settings requires settings-level access.
+  </Accordion>
+  <Accordion title="Deposit Routing">
+    If your organization has multiple bank accounts (merchant accounts), you can choose which account receives membership payments in the **Billing Frequency** section of the membership editor. This lets you route recurring revenue to a specific bank.
+  </Accordion>
+</AccordionGroup>

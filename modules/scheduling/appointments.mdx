@@ -1,0 +1,121 @@
+---
+title: 'Appointments'
+description: 'Book new appointments, view details, edit, cancel, reschedule, and understand appointment statuses and icons.'
+---
+
+<Info>
+  **Where to find this:** Open the **Check-In** section in the main navigation to access the calendar, then click **Create Event** to book an appointment.
+</Info>
+
+## Book an Appointment
+
+<Steps>
+  <Step title="Open the Event Creator">
+    Click **Create Event** in the sidebar, or click any empty time slot on the calendar grid. You'll be asked to choose between **Appointment** and **Block**.
+  </Step>
+  <Step title="Select Appointment">
+    Click **Appointment**. You are taken to the appointment form page.
+  </Step>
+  <Step title="Select a Patient">
+    Search for an existing patient by name, phone number, or email. If the patient is new, you can create their record inline from the search.
+  </Step>
+  <Step title="Choose Services">
+    Select one or more services for the appointment. Each service can have its own provider, start time, and duration. The system respects provider assignments -- only providers qualified for a given service appear in the provider dropdown.
+  </Step>
+  <Step title="Set Provider and Location">
+    Choose the provider for each service segment. Select the clinic location for the appointment. If the appointment was initiated by clicking a specific provider's column, the provider is pre-filled.
+  </Step>
+  <Step title="Pick Date and Time">
+    Set the start time for the appointment. The end time auto-calculates based on the service duration. If the service has prep time configured, a prep segment is automatically added before the main appointment.
+  </Step>
+  <Step title="Configure Recurrence (Optional)">
+    To make this a recurring appointment, use the recurrence dropdown. Quick options include:
+    - **Daily**
+    - **Weekly** on the same day
+    - **Every weekday** (Monday through Friday)
+    - **Monthly** on the same relative day (e.g., "second Tuesday")
+    - **Annually**
+    - **Custom** -- lets you set advanced recurrence rules (interval, specific days, end date or count)
+  </Step>
+  <Step title="Add Notes (Optional)">
+    Add internal memos or quick notes to the appointment. These appear on the calendar and in the patient sidebar.
+  </Step>
+  <Step title="Review and Save">
+    Review the appointment details and click **Save**. The system sends notifications to the patient based on the service's notification configuration (confirmation SMS, reminders, etc.).
+  </Step>
+</Steps>
+
+<Info>
+  **Keyboard shortcut:** Hold **Cmd** (Mac) or **Ctrl** (Windows) and click an appointment in Schedule view to jump directly to that patient's chart.
+</Info>
+
+## Manage Appointments
+
+### View Appointment Details
+
+Click any appointment on the calendar to open the **Patient Sidebar**. The sidebar displays:
+
+- Patient name and contact information
+- Appointment time, duration, and status
+- Assigned provider and location
+- Services included in the appointment
+- Checklist progress
+- Quick notes/memos attached to the appointment
+
+### Edit an Appointment
+
+Click the **edit icon** on an appointment (visible on hover) or navigate to the appointment form. From the form you can:
+
+- Change the date, time, or duration
+- Reassign to a different provider
+- Change the location
+- Add or remove services
+- Modify recurrence settings
+- Add bookable resources (rooms, equipment)
+
+For recurring appointments, editing prompts you to choose the scope of changes:
+
+- **This event only** -- modifies only the selected occurrence.
+- **This and following events** -- applies changes from this date forward.
+- **All events** -- updates the entire recurring series.
+
+### Appointment Status Workflow
+
+Appointments progress through the following statuses:
+
+| Status | Meaning |
+|--------|---------|
+| **Pending** | The patient has not yet confirmed the appointment. |
+| **Reserved** | The patient has reserved the slot but has not paid any required booking fee. |
+| **Confirmed** | The patient has confirmed and the appointment is locked in. |
+| **Overridable** | The patient has not confirmed and another patient can book over this slot. |
+| **Completed** | The appointment is finished and the patient has left the clinic. |
+| **No Show** | The patient did not arrive for their appointment. |
+| **Cancelled** | The appointment was cancelled by staff or patient. |
+
+### Appointment Icons
+
+Small icons appear on appointments to convey important information at a glance:
+
+- **Booking fee paid** -- the patient paid a deposit when booking.
+- **New patient** -- this is the patient's first visit.
+- **Scheduled by AI** -- the appointment was booked by an AI assistant.
+- **Form completed / not completed** -- indicates whether required intake forms are done.
+- **Checked in** -- the patient has arrived.
+- **Online booking** -- the appointment was booked through self-scheduling.
+
+Customize icon colors and visibility from **Settings > Calendar Appearance**.
+
+### Cancel an Appointment
+
+Open the appointment for editing and click **Cancel**. You are prompted to:
+
+- Provide an optional cancellation reason.
+- Choose whether to send an SMS notification to the patient.
+- Customize the cancellation message.
+
+If the service has a cancellation fee configured and the appointment is within the fee window, the system can apply the charge.
+
+### Reschedule an Appointment
+
+Open the appointment form and change the date or time, or drag the appointment to a new time slot on the calendar grid in Day or Week view. The system can send an update notification to the patient with the new time.

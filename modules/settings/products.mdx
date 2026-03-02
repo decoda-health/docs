@@ -1,0 +1,136 @@
+---
+title: 'Products'
+description: 'Manage the physical products and retail items your clinic sells, including pricing, inventory, and supplier tracking.'
+---
+
+<Info>
+  **Prerequisites:** You should have at least one [Category](/modules/settings/categories) created before adding products so you can organize them effectively. If you plan to track inventory, set up your [Inventory & Stock](/modules/settings/inventory) records first.
+</Info>
+
+If your clinic sells retail items to patients — skincare, supplements, devices — this is where you set them up. Products are separate from services (which are appointment-based treatments).
+
+Products represent the physical items your clinic sells to patients -- skincare products, supplements, medical devices, and other retail goods. Each product has its own pricing, unit of measurement, category, inventory tracking, and tax configuration. Products are separate from [Services](/modules/settings/services), which represent appointment-based treatments.
+
+## Create a New Product
+
+<Steps>
+  <Step title="Navigate to Products">
+    Go to **Settings** and select **Products**.
+  </Step>
+  <Step title="Add Product">
+    Click the **Add Product** button in the top right corner. A drawer opens with a tabbed editor containing **Basics**, **Pricing**, **Settings**, and **Inventory** tabs.
+  </Step>
+  <Step title="Fill in Basics">
+    On the **Basics** tab, enter:
+    - **Product Name** (required): The name as it appears on invoices and internal lists.
+    - **Brand Name:** The manufacturer or brand. Select from existing brands or type a new one. An AI generator can suggest a brand name based on the product name.
+    - **Category:** Group this product with similar items. Select an existing category, create one inline, or use the AI generator to suggest a category.
+    - **Description:** Additional details about the product. Use the AI generator to draft this automatically based on the product name and brand.
+    - **Internal Notes:** Private notes only visible to staff.
+  </Step>
+  <Step title="Configure Pricing">
+    Switch to the **Pricing** tab:
+    - **Price** (required): The amount charged to patients when this product is sold.
+    - **Cost:** Internal cost to your clinic for profit margin tracking. Not shown to patients. A warning appears if cost exceeds price (negative margin).
+    - **Unit of Measurement** (required): How the product is measured or counted (e.g., Units, Milliliters, Ounces, Grams). An AI generator can suggest the appropriate unit.
+  </Step>
+  <Step title="Adjust Settings">
+    Switch to the **Settings** tab:
+    - **Sort Order:** Controls where this product appears in lists. Lower numbers appear first. Leave at 0 for default ordering.
+    - **Tax Exemptions:** By default, products are taxed according to each tax rule's scope. Check specific taxes to exempt this product from them. Taxes are grouped by location.
+    - **Custom Pricing:** Enable to allow staff to modify the price during checkout.
+  </Step>
+  <Step title="Link Inventory (Optional)">
+    Switch to the **Inventory** tab to connect this product to stock records. This enables automatic inventory tracking when the product is sold. You can link existing stock items or create new ones directly from the product drawer.
+  </Step>
+  <Step title="Save">
+    Click **Add Product** at the bottom of the drawer. The product is immediately available for sale.
+  </Step>
+</Steps>
+
+## Product Table
+
+The product table displays all your products with the following columns:
+
+- **Product:** Name, ID, and description.
+- **Brand:** The manufacturer or brand name.
+- **Price:** The sale price and unit of measurement.
+- **Inventory:** Linked stock items with per-location quantities. A red **Low** badge appears when stock drops to 2 units or below.
+- **Settings:** Badges indicating active settings like **Custom Price** or tax exemptions.
+- **Usage:** How many times the product has been sold.
+
+### Filter and Sort Products
+
+Use the filter bar above the table to narrow results:
+
+- **Name:** Free-text search across product name, brand, and category.
+- **Brand:** Multi-select filter by brand name, including a "No Brand" option.
+- **Category:** Multi-select filter by category, including a "No Category" option.
+- **Price:** Dollar range filter to find products within a price bracket.
+- **Settings:** Filter by tax exemptions, custom pricing, or products with no special settings.
+- **Usage:** Numeric filter (equals, greater than, or less than a count).
+
+Click any sortable column header to sort ascending or descending by that field. Sortable columns: Product, Brand, Price, and Usage.
+
+### Group by Category
+
+If any products have a category assigned, a **Group By** dropdown appears above the table. Select **Category** to organize products into collapsible category groups.
+
+## Edit a Product
+
+Click the settings icon (three dots) on any product row and select **Edit**, or click on a product name. The same tabbed drawer opens with the product's current values pre-filled. Make your changes and click **Update Product**.
+
+## Link a Product to Inventory
+
+To track stock levels for a product:
+
+1. Click the settings icon on the product row and select **Link to inventory**.
+2. Select an existing stock item or create a new one.
+3. Once linked, the **Inventory** column in the product table displays per-location quantities.
+
+You can also link inventory from within the product drawer's **Inventory** tab.
+
+## Bulk Edit Products
+
+To update settings across multiple products at once:
+
+1. Select the checkboxes next to the products you want to edit. Use the header checkbox to select all visible products.
+2. A bulk actions bar appears at the bottom of the screen showing the number of selected items.
+3. Click **Edit** to open the bulk edit drawer with two tabs:
+   - **Pricing:** Update price, unit of measurement, or toggle custom pricing for all selected products.
+   - **Settings:** Change category, sort order, or tax exemptions for all selected products.
+4. Only fields you modify are applied. Unchanged fields keep their current values.
+5. Click **Update Products** to apply changes to all selected products simultaneously.
+
+<Info>
+  If you select a single product and click **Edit**, the individual product drawer opens instead of the bulk editor.
+</Info>
+
+## Archive Products
+
+To discontinue a product without losing historical data:
+
+- **Single product:** Click the settings icon on the product row and select **Archive**. Confirm when prompted.
+- **Bulk archive:** Select multiple products using checkboxes, then click **Archive** in the bulk actions bar. Confirm when prompted.
+
+Archived products no longer appear in the product list or at checkout, but all past sales, billing records, and inventory history referencing the product are preserved.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="AI-Assisted Product Setup">
+    Several fields in the product drawer support AI generation. When you enter a product name, sparkle icons appear next to compatible fields (Brand Name, Category, Description, Unit). Click the icon to have the AI suggest a value based on the product name and context. You can accept, edit, or discard the suggestion.
+  </Accordion>
+  <Accordion title="Tax Exemption Details">
+    The Settings tab in the product drawer lists all configured tax rules grouped by location. Each tax shows its name, percentage rate, and scope (e.g., "Applies to Products Only" or "Applies to All Items"). Check a tax to exempt this product from it. Exempted taxes appear with a warning badge in the product table's Settings column. Manage tax rules under [Payment Management](/modules/settings/payment-management).
+  </Accordion>
+  <Accordion title="Permissions">
+    - **Inventory Read** -- Required to view the Products page and product details.
+    - **Inventory Write** -- Required to create, edit, bulk edit, link inventory, and archive products.
+
+    Admin users have full access to all product settings by default.
+  </Accordion>
+  <Accordion title="Products vs. Services">
+    Products are physical items sold to patients (skincare, supplements, devices). Services are appointment-based treatments configured under [Settings > Services](/modules/settings/services). If you need to create a schedulable treatment, use the Services page instead. The product drawer displays a reminder about this distinction when adding a new product.
+  </Accordion>
+</AccordionGroup>

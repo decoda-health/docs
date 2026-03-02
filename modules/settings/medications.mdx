@@ -1,0 +1,145 @@
+---
+title: 'Medications'
+description: 'Track medications your clinic dispenses, including dosages, pricing, and inventory levels by location.'
+---
+
+<Info>
+  **Prerequisite:** If you plan to track medication inventory, set up your [Inventory & Stock](/modules/settings/inventory) records first. Medications share the category system with [Services](/modules/settings/services) and [Products](/modules/settings/products), so having categories configured helps with organization.
+</Info>
+
+Keep your medication catalog organized with pricing, dosing defaults, and inventory tracking. When a provider administers a medication, the system can auto-fill dose details from your templates — saving time during patient encounters.
+
+Medications represent the drugs and compounds your clinic dispenses or administers to patients. Each medication has its own pricing, unit of measurement, category, inventory tracking, and optional template defaults for dosing. Medications are distinct from [Products](/modules/settings/products) (retail items) and [Services](/modules/settings/services) (appointment treatments).
+
+## Create a New Medication
+
+<Steps>
+  <Step title="Navigate to Medications">
+    Go to **Settings** and select **Medications**.
+  </Step>
+  <Step title="Add Medication">
+    Click the **Add New Medication** button in the top right corner. A drawer opens with three sections: Core Information, Template Settings, and Inventory.
+  </Step>
+  <Step title="Fill in Core Information">
+    Enter the medication details:
+    - **Name** (required): The medication name as it appears in clinical records and billing (e.g., "Semaglutide").
+    - **Unit** (required): How the medication is measured (e.g., Milliliters, Units, Milligrams). An AI generator can suggest the appropriate unit.
+    - **Price** (required): The amount charged to patients per unit when this medication is administered. Must be zero or greater.
+    - **Cost:** Internal cost to your clinic for profit margin tracking. Not shown to patients. A warning appears if cost exceeds price.
+    - **Category:** Assign a category for organization. Select an existing category or create one inline.
+    - **Brand Name:** The manufacturer or brand. An AI generator can suggest a brand name.
+    - **Description:** Additional details about the medication. Use the AI generator to draft this automatically.
+    - **Internal Notes:** Private notes about this medication, only visible to staff.
+    - **Sort Order:** Controls where this medication appears in lists. Lower numbers appear first. Leave empty for default ordering.
+    - **Custom Pricing:** Check to allow staff to modify the price during checkout.
+  </Step>
+  <Step title="Configure Template (Optional)">
+    In the **Template Settings** section, check **Use as default template** to set this medication as a dosing template. When enabled, additional fields appear:
+    - **Amount:** Default dose amount (e.g., 0.5).
+    - **Quantity:** Default quantity administered per session (e.g., 1).
+    - **Administration Location:** Where on the body the medication is administered (e.g., "Subcutaneous injection").
+    - **Frequency:** How often the medication is given (e.g., "Weekly", "Daily").
+    - **Lot Number:** Default lot number if applicable.
+    - **Instructions/Notes:** Default instructions or notes for the administering provider.
+
+    These values are automatically pre-filled when a provider administers this medication, saving time during patient encounters.
+  </Step>
+  <Step title="Link Inventory (Optional)">
+    In the **Inventory** section, connect this medication to stock records. This enables automatic inventory tracking when the medication is administered. You can link existing stock items or create new ones directly from the medication drawer.
+  </Step>
+  <Step title="Save">
+    Click **Create Medication** at the bottom of the drawer. The medication is immediately available for administration and billing.
+  </Step>
+</Steps>
+
+<Info>
+  Medication names are unique per unit type. You cannot create two medications with the same name and unit (case-insensitive). This prevents duplicate entries and ensures accurate inventory tracking.
+</Info>
+
+## Medication Table
+
+The medication table displays all your medications with the following columns:
+
+- **Medication:** Name and ID.
+- **Brand:** The manufacturer or brand name.
+- **Unit:** The unit of measurement (e.g., Milliliters, Units).
+- **Price:** The sale price per unit.
+- **Inventory:** Linked stock items with per-location quantities.
+- **Category:** The assigned category.
+- **Template:** A green **Template** badge indicates this medication is configured as a dosing template.
+
+### Filter and Sort Medications
+
+Use the filter bar above the table to narrow results:
+
+- **Name:** Free-text search across medication name, brand, and category.
+- **Brand:** Multi-select filter by brand name, including a "No Brand" option.
+- **Category:** Multi-select filter by category, including a "No Category" option.
+
+Click any sortable column header to sort ascending or descending. Sortable columns: Medication, Brand, Price, and Category.
+
+## Edit a Medication
+
+Click on any medication row, or click the settings icon (three dots) and select **Edit Medication**. The same drawer opens with the medication's current values pre-filled. Make your changes and click **Update Medication**.
+
+## Template Medications
+
+A medication marked as a template provides default dosing values that auto-populate when a provider administers it to a patient. This is useful for standardizing protocols across your clinic.
+
+Template defaults include:
+- **Amount and Quantity:** Pre-filled dose amounts reduce manual entry during patient encounters.
+- **Administration Location:** Standard injection sites or routes are automatically selected.
+- **Frequency:** Default scheduling for recurring administrations.
+- **Lot Number:** If the same lot is in use, it carries forward automatically.
+- **Instructions/Notes:** Standard care instructions for the patient.
+
+Templates appear with a green **Template** badge in the medication table for easy identification.
+
+## Bulk Edit Medications
+
+To update settings across multiple medications at once:
+
+1. Select the checkboxes next to the medications you want to edit. Use the header checkbox to select all visible medications.
+2. A bulk actions bar appears at the bottom of the screen showing the number of selected items.
+3. Click **Edit** to open the bulk edit drawer with two tabs:
+   - **Pricing:** Update price, cost, unit of measurement, or toggle custom pricing for all selected medications.
+   - **Settings:** Change category or sort order for all selected medications.
+4. Only fields you modify are applied. Unchanged fields keep their current values.
+5. Click **Update Medications** to apply changes to all selected medications simultaneously.
+
+<Info>
+  If you select a single medication and click **Edit**, the individual medication drawer opens instead of the bulk editor.
+</Info>
+
+## Archive Medications
+
+To discontinue a medication without losing historical data:
+
+- **Single medication:** Click the settings icon on the medication row and select **Archive Medication**. Confirm when prompted. The medication is hidden from the system but all historical administration records, billing data, and dose logs are preserved.
+- **Bulk archive:** Select multiple medications using checkboxes, then click **Archive** in the bulk actions bar. Confirm when prompted.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="AI-Assisted Medication Setup">
+    Several fields in the medication drawer support AI generation. When you enter a medication name, sparkle icons appear next to compatible fields (Brand Name, Description, Unit). Click the icon to have the AI suggest a value based on the medication name and context. You can accept, edit, or discard the suggestion.
+  </Accordion>
+  <Accordion title="Medications vs. Products vs. Services">
+    Decoda distinguishes three types of billable items:
+    - **Medications:** Drugs and compounds administered or dispensed during patient care.
+    - **Products:** Physical retail items sold to patients (skincare, supplements, devices). Configured under [Settings > Products](/modules/settings/products).
+    - **Services:** Appointment-based treatments and procedures. Configured under [Settings > Services](/modules/settings/services).
+
+    All three share the same category system and can be linked to inventory for stock tracking.
+  </Accordion>
+  <Accordion title="Permissions">
+    - **Inventory Read** -- Required to view the Medications page and medication details.
+    - **Inventory Write** -- Required to create, edit, bulk edit, link inventory, and archive medications.
+    - **Patients Doses Provider Write** -- Required for providers to administer doses to patients using medication templates.
+
+    Admin users have full access to all medication settings by default.
+  </Accordion>
+  <Accordion title="Inventory Tracking for Medications">
+    When a medication is linked to stock, the system can track inventory levels per location. The medication table's **Inventory** column shows real-time quantities broken down by clinic location. Low stock warnings help you reorder before running out. Stock operations (linking, quantity adjustments) are performed within the medication drawer's Inventory section.
+  </Accordion>
+</AccordionGroup>

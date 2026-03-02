@@ -1,0 +1,53 @@
+---
+title: 'Overview'
+description: 'Your front desk command center — monitor appointments, track staff hours, and plan provider shifts.'
+---
+
+<Info>
+  **Where to find it:** In the left sidebar, click **Check-In**. You'll see pages for the **Dashboard**, **Calendar**, **Shift Management**, **Clock In / Out**, and **Forms**.
+</Info>
+
+<Info>
+  **Prerequisites:** You need at least one [Location](/modules/settings/locations), [Provider](/modules/settings/users), and [Service](/modules/settings/services) set up. The calendar and appointment booking are covered in [Scheduling](/modules/scheduling) — this section focuses on the dashboard, staff time tracking, and shift planning.
+</Info>
+
+The Check-In section is where front desk staff start their day. It brings together everything you need to run the clinic smoothly: a dashboard showing today's appointment activity, tools to track when staff clock in and out, and a weekly calendar for planning provider shifts.
+
+Think of it as your daily operations hub. The [Calendar](/modules/scheduling) is where you book and manage individual appointments — Check-In is where you step back and see the bigger picture.
+
+<CardGroup cols={3}>
+  <Card title="Daily Dashboard" icon="chart-line" href="/modules/check-in/dashboard">
+    See appointment metrics, chase pending intake forms, and handle alerts.
+  </Card>
+  <Card title="Staff Time Tracking" icon="clock" href="/modules/check-in/clock-in">
+    View clock-in records, compare scheduled vs. worked hours, and export for payroll.
+  </Card>
+  <Card title="Shift Planning" icon="calendar-week" href="/modules/check-in/shifts">
+    Plan provider shifts and blocks for the week, resolve conflicts, and clear holiday schedules.
+  </Card>
+</CardGroup>
+
+## What New Front Desk Staff Should Know
+
+When you first open Check-In, here's what to expect:
+
+- **Start on the Dashboard.** It gives you a snapshot of how busy the day (or week) looks — how many appointments are booked, which patients still need to fill out forms, and any alerts that need attention.
+- **The Calendar lives here too.** The main appointment calendar (documented in [Scheduling](/modules/scheduling)) is accessible from the Check-In section. That's where you book, reschedule, and manage individual appointments.
+- **Shift Management is for planning ahead.** If you're responsible for setting provider schedules, the shift calendar lets you see and edit who's working when across all locations.
+- **Clock In / Out is for time tracking.** If your clinic uses time tracking, this page shows who clocked in, when, and how their hours compare to what was scheduled.
+
+## Permissions
+
+Check-In features are controlled by role-based permissions:
+
+| Permission | What it allows |
+|---|---|
+| **Scheduling Read** | Required to access the Check-In section at all. Without it, the entire section is hidden. |
+| **Scheduling Shifts Write** | Create, edit, and delete provider shifts. Also needed for the Delete Holiday Shifts feature. |
+| **Scheduling Blocks Write** | Create, edit, and delete provider blocks (lunch, meetings, etc.). |
+| **Clock-In History Read** | View the clock-in/out history page. |
+| **Clock-In Times Edit** | Add new time entries and edit existing clock-in records. |
+| **Clock-In Export** | Export clock-in history data. |
+| **Clock-In Skip** | When granted, the provider is not required to clock in. Staff without this permission see only their own clock-in records by default. |
+
+Admin users have full access to all Check-In features.

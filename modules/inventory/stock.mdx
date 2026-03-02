@@ -1,0 +1,184 @@
+---
+title: 'Managing Your Stock'
+description: 'View stock levels across locations, understand alerts, draw down inventory, and link stock to the items you sell.'
+---
+
+## The Stockroom
+
+The **Stockroom** is your main view of everything you have on hand. Each row in the table represents one stock item and shows its current quantity, dollar value, linked products or services, and the earliest expiry date.
+
+When you first open the Stockroom, you'll see either your existing stock items or an empty state prompting you to add your first item.
+
+### Understanding the Table
+
+| Column | What It Shows |
+|--------|---------------|
+| Stock Item | Name, category, and status badges (**Out of Stock**, **Critical**, **Low**) |
+| Stock Level | Remaining quantity and unit. A progress bar appears when a minimum stock level is set. |
+| Inventory Value | Total dollar value of remaining stock, plus cost per unit |
+| Linked Items | Products, services, or medications that use this stock when sold |
+| Expiry | Earliest expiry date among active shipments |
+
+### Status Badges
+
+If you've set a minimum stock level on an item, the system monitors quantities and shows a badge when you need to take action:
+
+- **Low** -- The remaining quantity has fallen to or below the minimum level you set. Time to reorder.
+- **Critical** -- The remaining quantity is at 25% or less of the minimum level. Reorder urgently.
+- **Out of Stock** -- Quantity has reached zero.
+
+<Info>
+  **Set minimum levels on your most-used items so you never run out.** The progress bar gives you a quick visual -- green means you're well-stocked, yellow means you're getting low, and red means you need to reorder now.
+</Info>
+
+### Filtering and Grouping
+
+Use the filter bar above the table to narrow results:
+
+- **Name** -- Search by stock item name.
+- **Locations** -- Show stock at specific clinic locations.
+- **Category** -- Filter by stock category.
+
+You can also group the table by **Category** or **Supplier** using the **Group By** option next to the filters. This is helpful when you want to see all items from the same supplier or all items in the same category together.
+
+### Location Breakdown
+
+When you have multiple locations, click the expand arrow on any stock row to see a per-location breakdown. This shows you the quantity, value, and expiry at each location separately, so you can spot if one location is running low while another is well-stocked.
+
+## Adding Stock
+
+Click **Add Stock** on the Stockroom page. You have two options:
+
+### Add Stock with AI
+
+Upload an image (a photo of a purchase order, receipt, or inventory list) or a CSV file, and AI will extract the item details for you. This is the fastest way to add many items at once.
+
+<Steps>
+  <Step title="Choose Your Upload Type">
+    Select **Image/Photo** or **CSV File**.
+  </Step>
+  <Step title="Upload Your File">
+    Drag and drop your file or click to browse.
+  </Step>
+  <Step title="Select Supplier and Location">
+    Choose the supplier and clinic location for the incoming stock.
+  </Step>
+  <Step title="Add a Description (Optional)">
+    Enter any extra context to help AI process the data more accurately.
+  </Step>
+  <Step title="Review and Confirm">
+    Click **Process**. AI analyzes your upload and generates stock entries. Review the results, edit anything that needs correcting, and confirm.
+  </Step>
+</Steps>
+
+### Add Stock Manually
+
+Click **Create Manually** to open the stock form. You can also search for an existing stock item to use as a starting template.
+
+<Steps>
+  <Step title="Enter Basic Information">
+    Fill in the required fields:
+    - **Name** (required) -- The stock item name (e.g., "Botox 100U Vial").
+    - **Category** -- Group similar items together (e.g., "Injectables", "Skincare"). AI can suggest a category based on the name.
+    - **Unit** (required) -- How you measure this item (e.g., vials, units, milliliters).
+    - **Minimum Stock Level** -- The threshold below which you want to see a low-stock alert.
+    - **Description** and **Notes** -- Optional details for your team.
+  </Step>
+  <Step title="Link Items (Optional)">
+    Connect the stock to products, services, or medications. For each link, set the **Quantity Used Per Sale** -- how many stock units are consumed each time that item is sold or administered.
+  </Step>
+  <Step title="Link Suppliers (Optional)">
+    Associate one or more suppliers with this stock item. You can set supplier-specific pricing and units of measure for each.
+  </Step>
+  <Step title="Add Shipments (Optional)">
+    Record initial quantities by adding shipments. Each shipment includes a supplier, location, quantity, cost, and optional lot number, expiry date, and SKU.
+  </Step>
+  <Step title="Save">
+    Click **Save** to create the stock item.
+  </Step>
+</Steps>
+
+## Viewing Stock Details
+
+Click any stock row to open the detail panel. The panel shows summary statistics and four tabs:
+
+### Summary
+
+- **Total Stock** -- Combined remaining quantity across all locations.
+- **Stock Value** -- Total dollar value of remaining inventory.
+- **Activity Chart** -- A bar chart showing daily usage and received quantities over a configurable time range (7, 14, 30, 60, or 90 days).
+
+### Shipments
+
+Lists all shipments for this stock item. Each shipment shows the supplier, location, quantity received vs. remaining, cost, lot number, expiry date, and SKU. Shipments with low remaining quantities or approaching expiry dates are flagged.
+
+### Activity
+
+A timeline of all inventory changes -- stock added, drawn down, sold, or adjusted. Each entry shows what happened, when, and any notes attached to the change.
+
+<Info>
+  **If you're wondering why a stock quantity changed**, check the Activity tab. Every change is logged with a reason, whether it was a sale, a drawdown, or a delivery.
+</Info>
+
+### Suppliers
+
+Lists suppliers linked to this stock item, including their pricing and units of measure.
+
+### Linked Items
+
+Shows all products, services, and medications connected to this stock item, along with how many units each uses per sale.
+
+## Drawing Down Stock
+
+Drawing down stock manually reduces the quantity without a sale or appointment. Use this for:
+
+- **Waste** -- Product spilled or damaged
+- **Expired product** -- Disposing of items past their expiry date
+- **Samples** -- Product given to a patient as a sample
+- **Corrections** -- Fixing a count that doesn't match what's physically on the shelf
+
+<Steps>
+  <Step title="Open the Drawdown Window">
+    From the Stockroom table, click the gear icon on a stock row and select **Drawdown Stock**. Or open the stock detail panel and use the drawdown option from there.
+  </Step>
+  <Step title="Enter the Quantity">
+    Type the number of units to remove. This cannot exceed the remaining quantity.
+  </Step>
+  <Step title="Add a Note (Optional)">
+    Explain why the stock is being reduced (e.g., "Expired product disposed" or "Sample given to patient"). This note appears in the activity log.
+  </Step>
+  <Step title="Confirm">
+    Click **Draw Down** to apply the reduction.
+  </Step>
+</Steps>
+
+## Linking Stock to Products, Services, and Medications
+
+Linking is what makes inventory tracking automatic. When a stock item is linked to a product, service, or medication, every time that item is sold or administered, the stock quantity decreases by the amount you configured.
+
+**Example:** You link "Botox 100U Vial" to the "Botox Treatment" service with a quantity of 20 units per sale. Each time a Botox Treatment is sold, 20 units are deducted from the stock.
+
+You can link stock from several places:
+
+- **Stockroom table** -- Click the gear icon on a stock row and select **Link to Items**.
+- **Stock detail panel** -- Open the Linked Items tab.
+- **Product/Service/Medication editor** -- Each has an **Inventory** tab where you can create or link stock.
+
+<Info>
+  **What's the difference between stock and products?** Stock items represent the physical goods you keep on the shelf. Products are what you sell to patients. A single stock item (like a vial of filler) might be linked to multiple products or services. Stock tracks quantities; products track pricing and sales.
+</Info>
+
+## Stock Row Actions
+
+Click the gear icon on any stock row to access:
+
+- **View Details** -- Open the detail panel with shipments, activity, suppliers, and linked items.
+- **Edit Stock** -- Change the name, category, unit, minimum level, or other details.
+- **Link to Items** -- Connect this stock to products, services, or medications.
+- **Link Supplier** -- Associate a supplier with this stock item.
+- **Drawdown Stock** -- Manually reduce the quantity.
+- **Delete Stock** -- Archive the stock item. It's removed from active lists but historical data is preserved.
+
+<Info>
+  **Check the expiry column regularly.** Items expiring within 30 days show a yellow warning icon. Expired items show the date in red. Use drawdowns to remove expired product from your counts.
+</Info>

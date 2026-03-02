@@ -1,0 +1,178 @@
+---
+title: 'Overview'
+description: 'Create and manage patient records, search and filter the patient list, and configure patient settings.'
+---
+
+The Patient module is the central hub for all patient data in Decoda. Every appointment, billing transaction, form submission, clinical note, and communication is tied to a patient record. From here you can create new patients, view their full clinical chart, import patient lists from CSV files, merge duplicates, and export data.
+
+Every other module in Decoda connects back to a patient record. This is where you see the full picture — appointments, payments, notes, forms, memberships, and communications — all in one place.
+
+<CardGroup cols={2}>
+  <Card title="Patient Chart" icon="clipboard-medical" href="/modules/patients/patient-chart">
+    Access the full clinical chart: overview, timeline, billing, notes, forms, and more.
+  </Card>
+  <Card title="Import & Merge Patients" icon="file-import" href="/modules/patients/import-and-merge">
+    Bulk upload patient records from CSV or merge duplicate patients.
+  </Card>
+</CardGroup>
+
+## Patient List
+
+The main **Patients** page displays a searchable, sortable table of all patients in your organization.
+
+### Table Columns
+
+Each row shows:
+- **Patient Name** -- full name, patient ID, external ID (if set), and health badges (medications, measurements, goal weight, allergies).
+- **Date of Birth** -- with a birthday indicator when applicable.
+- **Contact Info** -- clickable phone number, email link, and lead source label.
+- **Address** -- linked to Google Maps for quick directions.
+- **Completed Appointments** -- total count plus the patient's primary location name. A "Blacklisted" badge appears if the patient is on the scheduling blacklist.
+- **Total Spent** -- lifetime dollar amount across all charges.
+- **Created Date** -- when the patient record was first added.
+
+### Sort and Filter
+
+Click any sortable column header to sort ascending or descending. The following columns are sortable: **Patient Name**, **Date of Birth**, **Completed Appointments**, **Total Spent**, and **Created Date**.
+
+Use the filter bar above the table to narrow results by:
+- **Name** -- partial or full name search.
+- **Patient ID** -- internal Decoda ID.
+- **External ID** -- ID from a third-party system.
+- **Email** -- email address search.
+- **Phone Number** -- phone number search.
+- **Created Date** -- date range filter.
+- **Date of Birth** -- date filter (ignores year, useful for finding birthdays).
+- **Opted Out of SMS** -- filter by patients who have opted out of text messages.
+- **Scheduling Blacklist** -- filter by blacklisted patients.
+- **Location** -- filter patients by their primary location.
+- **Tags** -- filter by one or more patient tags.
+- **Lead Source** -- filter by how the patient was acquired (e.g., referral, walk-in, website).
+
+### Bulk Actions
+
+Select one or more patients using the checkboxes in each row. A floating action bar appears at the bottom of the screen showing the number of selected patients. When all patients on the current page are selected, you can click **Select all [N] patients** to select every patient matching your current filters.
+
+Available bulk actions:
+- **Merge** -- sends the selected patients to the [merge workflow](/modules/patients/import-and-merge#merge-duplicate-patients).
+- **Bulk Text** -- opens a window to compose and send an SMS message to all selected patients at once.
+- **Archive** -- archives the selected patients (reversible).
+
+### Export Patient Data
+
+Click the **Export** button in the top-right corner to download patient data as a file. The export includes: Patient ID, External ID, Name, Date of Birth, Gender, Phone Number, Email, Primary Location, Address, Appointment Count, Last Appointment Date, Total Spent, Opted Out of SMS, Blacklist Status, and Created Date.
+
+<Info>
+  **Permission Required:** Exporting patients requires the **Export Patients** permission. If the button is disabled, contact your administrator.
+</Info>
+
+## Create a New Patient
+
+<Steps>
+  <Step title="Open the Create Patient Form">
+    From the **Patients** page, click the **New** button in the top-right corner.
+  </Step>
+  <Step title="Enter Required Fields">
+    Fill in the always-required fields:
+    - **First Name** -- letters, spaces, hyphens, and apostrophes only.
+    - **Last Name** -- same character rules as first name.
+    - **Phone Number** -- must be exactly 10 digits.
+  </Step>
+  <Step title="Fill in Configurable Required Fields">
+    Depending on your organization's settings, additional fields may be required. These are configured by your administrator under **Settings > General > Required Patient Fields**. When a field is required, it appears in the required section of the form with a mandatory indicator. Possible configurable required fields:
+    - **Email**
+    - **External ID** -- a unique identifier from another system. The system checks that no other patient has the same external ID.
+    - **Address** -- street address, city, state, and zip code with autocomplete suggestions.
+    - **Date of Birth**
+    - **Lead Source** -- how this patient found your clinic (e.g., referral, website, walk-in). You can select from existing sources or type a new one.
+    - **Credit Card on File** -- collects and stores a payment method for the patient.
+  </Step>
+  <Step title="Add Optional Fields">
+    Any configurable fields not marked as required appear as optional, expandable sections below. Click to expand and fill them in as needed.
+  </Step>
+  <Step title="Create the Patient">
+    Click **Create Patient**. The form closes and the patient is immediately available in the patient list.
+  </Step>
+</Steps>
+
+<Info>
+  **Permission Required:** Creating patients requires the **Create Patients** or **Patients Profiles Write** permission.
+</Info>
+
+## Edit Patient Information
+
+<Steps>
+  <Step title="Open the Patient Chart">
+    Navigate to the patient's chart by clicking their name in the patient list.
+  </Step>
+  <Step title="Open the Edit Demographics Form">
+    On the **Overview** tab, scroll to the **Demographics** section and click the **Edit** button.
+  </Step>
+  <Step title="Update Fields">
+    The form contains all editable demographic fields:
+    - **First Name** and **Last Name** (required)
+    - **Date of Birth**
+    - **Phone Number** (required)
+    - **Email**
+    - **External ID**
+    - **Gender** -- searchable dropdown with options (Male, Female, Non-Binary, etc.)
+    - **Pronouns** -- free text (e.g., he/him, she/her, they/them)
+    - **Preferred Name** -- nickname or preferred name, up to 255 characters
+    - **Lead Source** -- searchable dropdown of acquisition channels
+    - **Address** -- street address with autocomplete, plus city, state, and zip code
+    - **Primary Location** -- only appears if your organization has multiple locations
+  </Step>
+  <Step title="Save Changes">
+    Click **Save Changes** to update the patient record.
+  </Step>
+</Steps>
+
+To update the patient's **profile picture**, click on the photo area in the patient header (sidebar) and upload a new image.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Configuring Required Patient Fields">
+    Administrators can customize which fields are mandatory when creating a new patient. Go to **Settings > General** and find the **Required Patient Fields** section. Options include: Email, External ID, Address, Date of Birth, Lead Source, and Credit Card on File. When a field is required, it appears in the mandatory section of the create patient form and cannot be skipped.
+  </Accordion>
+  <Accordion title="Duplicate Detection">
+    Decoda automatically checks for potential duplicates when viewing a patient's chart. If matches are detected based on shared identifiers (name, phone number, email, date of birth), a warning banner appears below the patient header linking directly to the merge workflow with the duplicates pre-loaded.
+  </Accordion>
+  <Accordion title="Saved Column Mappings for CSV Import">
+    If you regularly import CSV files with the same column structure, save your column mapping on the upload page. Saved mappings remember which CSV headers map to which Decoda fields. You can set one mapping as the default so it auto-applies on every new upload. If a saved mapping references columns not found in a new CSV, the system warns you about the mismatches.
+  </Accordion>
+  <Accordion title="Patient Identification for CSV Imports">
+    When uploading patients via CSV, you choose which fields the system uses to detect existing patients and prevent duplicates. Options include External ID, phone number, email, and name-based matching. Choose the identifier that is most consistently populated in your data.
+  </Accordion>
+  <Accordion title="Collections Upload (Outstanding Balances)">
+    The CSV upload supports a **Collections** mode designed for importing patients with outstanding balances from another system. Map the `outstanding_balance`, `balance_description`, `external_charge_id`, and `external_charge_created_date` columns to automatically create charges for each imported patient.
+  </Accordion>
+  <Accordion title="Scheduling Blacklist">
+    Toggle the scheduling blacklist from the patient's **Settings** tab. A blacklisted patient cannot be booked for new appointments through the calendar or self-scheduling. The blacklist status is visible as a badge on the patient list and is available as a filter.
+  </Accordion>
+  <Accordion title="Blocking and Opting Out of Messages">
+    The patient **Settings** tab provides granular control over messaging:
+    - **Block Text Messages** stops all outbound SMS from your clinic to this patient while still receiving their incoming messages.
+    - **Opt Out of Automated Messages** stops only automated messages (reminders, confirmations, follow-ups) while still allowing staff to manually text the patient.
+    - Patients who have opted out of SMS entirely show a warning icon next to their phone number in the patient list.
+  </Accordion>
+  <Accordion title="Permissions">
+    Patient management is gated by role-based permissions:
+    - **Patients Create** -- Required to create new patient records and import patients from CSV.
+    - **Patients Read** -- Required to view the patient list.
+    - **Patients Profiles Read** -- Required to view patient chart details, demographics, and contact information.
+    - **Patients Profiles Write** -- Required to edit patient demographics, contact info, settings, and tags.
+    - **Patients Documents Read** -- Required to view uploaded documents in the patient chart.
+    - **Patients Notes Write** -- Required to add notes and documents to a patient's chart.
+    - **Patients Notes Upload** -- Required to upload files and attachments to patient records.
+    - **Patients Notes Archive** -- Required to delete notes from a patient's chart.
+    - **Patients Export** -- Required to export the patient list to CSV.
+    - **Patients Doses Provider Write** -- Required for providers to log medication doses on a patient's record.
+    - **Clinical Gallery Read** -- Required to access the patient gallery (before/after photos).
+
+    Admin users have full access to all patient features by default. Users can be restricted to specific locations, limiting which patients they can view.
+  </Accordion>
+  <Accordion title="Surcharge Management">
+    If your organization applies automatic surcharges (e.g., credit card processing fees), you can disable them for individual patients. Toggle **Surcharge Disabled** in the patient's **Settings** tab.
+  </Accordion>
+</AccordionGroup>

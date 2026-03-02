@@ -1,0 +1,89 @@
+---
+title: 'Appointment Reports'
+description: 'Track appointment volume, value, cancellation rates, and booking sources across your clinic.'
+---
+
+<Info>
+  **Where to find it:** Go to **Analytics** and select **Appointment Dashboard** from the dashboard picker at the top of the page.
+</Info>
+
+The Appointment Dashboard answers the questions clinic owners and front desk staff ask most often: How busy are we? Which services are most popular? Are patients actually showing up?
+
+## What the Key Metrics Mean
+
+When you group appointments (by provider, location, service, etc.), the table shows summary metrics for each group. Here's what each one tells you:
+
+| Metric | What it means | Why it matters |
+|---|---|---|
+| **Total Value** | Combined dollar value of all appointments in the group | Shows revenue potential -- though keep in mind this reflects what was booked, not necessarily what was collected |
+| **Avg Value** | Average dollar value per appointment | Helps you understand the typical value of each visit |
+| **Online %** | Percentage of appointments booked by patients online | A high number means your online booking is working well; a low number might mean patients prefer to call, or don't know online booking exists |
+| **Cancelled %** | Percentage of appointments that were cancelled | Helps you spot services or providers with unusually high cancellation rates -- if you see a spike, it might mean patients are finding better options or that scheduling is too far out |
+| **No Show %** | Percentage of appointments where the patient didn't show up | Persistent no-shows cost you money; this helps you identify which patients, services, or time slots have the worst no-show rates |
+| **New Patients** | Count of first-time patients | Useful for measuring marketing ROI -- are your campaigns bringing in new people? |
+| **Unique Patients** | Count of distinct patients (not repeat visits) | Tells you how many different people you're seeing, not just how many appointments you have |
+
+<Info>
+  When viewing individual appointments (with "Group By" set to none), the Online, Cancelled, No Show, and New Patient columns show a checkmark icon instead of percentages.
+</Info>
+
+## Commonly Asked Questions
+
+### How many new patients did we get this month?
+
+| Setting | Value |
+|---|---|
+| **Date Range** | This Month |
+| **Filters** | Patient Type = New Patients |
+| **Group by** | Month (to see the trend) or Provider (to see who's bringing them in) |
+
+Use the **Patient Type** filter to isolate first-time visits. Group by Month to compare against your marketing spend, or by Provider to see which team members are attracting new patients.
+
+### Why are patients cancelling?
+
+| Setting | Value |
+|---|---|
+| **Date Range** | Last 3 months |
+| **Filters** | Status = Cancelled |
+| **Group by** | Service or Provider |
+
+<Warning>
+  **Special behavior:** When you filter by **Cancelled** status only, the table automatically shows **Cancellation Reason** and **Cancellation Date** columns and hides Online % and No Show % (since they don't apply). This makes it easy to scan why patients are cancelling without having to manually adjust columns.
+</Warning>
+
+## Filters
+
+Narrow your results with these filters:
+
+| Filter | What it does |
+|---|---|
+| **Providers** | Show only appointments for selected providers |
+| **Locations** | Show only appointments at selected locations |
+| **Services** | Show only appointments for selected services |
+| **Status** | Filter by appointment status: Pending, Reserved, Confirmed, Completed, Cancelled, or No Show |
+| **Patient Type** | Show only New Patients (first-timers) or Existing Patients (returning) |
+
+<Info>
+  **Special behavior when filtering by status:** When you filter by **Cancelled** only, the table automatically adds **Cancellation Reason** and **Cancellation Date** columns and hides Online % and No Show %. When you filter by **Confirmed** only, Online % and No Show % are also hidden since those metrics don't apply to confirmed appointments. See the [Commonly Asked Questions](#commonly-asked-questions) section for more on using these filters.
+</Info>
+
+## Grouping Options
+
+| Group by | What it shows |
+|---|---|
+| **Provider** | One row per provider with their appointment totals |
+| **Location** | One row per clinic location |
+| **Service** | One row per service type |
+| **Date** | One row per day |
+| **Week** | One row per week (labeled "Week of [date]") |
+| **Month** | One row per month |
+
+## Tips
+
+<Info>
+  **Compare provider workloads:** Group by Provider to quickly see who's booked up and who has capacity. If one provider has significantly more appointments than others, it might be time to redistribute.
+</Info>
+
+<Info>
+  **Export for meetings:** Use the Export button to download the current view as a spreadsheet. This is handy for weekly team meetings or monthly reports -- set your filters and date range first, then export exactly what you need.
+</Info>

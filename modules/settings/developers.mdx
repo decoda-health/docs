@@ -1,0 +1,181 @@
+---
+title: 'Developer Settings'
+description: 'Configure webhooks, API access, custom email domains, and third-party integrations.'
+---
+
+Developer settings provide tools for integrating Decoda with external systems, tracking analytics on your self-scheduling pages, and sending emails from your own domain.
+
+Connect Decoda to your other tools and track website visitors. Most clinics only need this page if they work with a developer or want to add Google Analytics to their booking page.
+
+## Set Up Google Tag Manager
+
+Google Tag Manager (GTM) allows you to add tracking scripts and analytics tags to your self-scheduling pages without modifying code.
+
+<Steps>
+  <Step title="Navigate to Developer Settings">
+    Go to **Settings** and select **Developers**.
+  </Step>
+  <Step title="Add or Edit GTM ID">
+    In the **Google Tag Manager** card, click **Add** (or **Edit** if one is already configured).
+  </Step>
+  <Step title="Enter Container ID">
+    Enter your GTM Container ID in the format `GTM-XXXXXXX` (e.g., `GTM-NQD4F7NK`).
+  </Step>
+  <Step title="Save">
+    Click **Save**. The GTM container will load on all self-scheduling pages for your organization.
+  </Step>
+</Steps>
+
+To remove GTM tracking, edit the field and clear the value, then save.
+
+## Generate an API Key
+
+An API key is a password that lets other software connect to Decoda. You need one before you can set up webhooks or use the Decoda API.
+
+<Steps>
+  <Step title="Navigate to Developer Settings">
+    Go to **Settings** and select **Developers**.
+  </Step>
+  <Step title="Generate API Key">
+    In the **API Access** card, click **Generate API Key**.
+  </Step>
+  <Step title="Create API User">
+    Enter a **First Name** and **Last Name** for the API user. This user will have admin privileges and its name will appear in Decoda when the API performs actions (e.g., creating appointments or updating patient records).
+  </Step>
+  <Step title="Copy the Key">
+    After generation, the full API key is displayed once. Use the **copy** button to save it immediately. Use the **eye** icon to show or hide the full key.
+  </Step>
+</Steps>
+
+<Info>
+  The API key is only shown once at the time of creation. If you lose it, you must generate a new key. Generating a new key replaces the previous one.
+</Info>
+
+### Revoke an API Key
+
+To revoke an existing API key, click the **delete** icon next to the key preview and confirm. Revoking an API key immediately disables all API access and deletes all configured webhooks.
+
+### API Documentation
+
+A link to the full [API Documentation](https://docs.decodahealth.com/api-reference/introduction) is available in the top-right corner of the Developer Settings page.
+
+## Configure Webhooks
+
+Webhooks are automatic notifications sent to another system when something happens in Decoda — like a new appointment being booked or a payment going through. Your developer uses these to connect Decoda with other software. An active API key is required before webhooks can be configured.
+
+### Create a Webhook
+
+<Steps>
+  <Step title="Open Webhook Configuration">
+    After generating an API key, scroll to the **Webhook Configuration** section and click **Add Webhook**.
+  </Step>
+  <Step title="Enter Webhook Details">
+    Fill in the following fields:
+    - **Webhook URL** (required): The endpoint on your server that will receive POST requests (e.g., `https://your-server.com/webhook`).
+    - **Notification Email** (optional): An email address to receive notifications if webhook delivery fails.
+    - **Subscriptions** (required): Select at least one event type to subscribe to. Events are grouped by category:
+      - **Patient:** Patient Created, Patient Updated
+      - **Appointments:** Appointment Scheduled, Appointment Updated, Appointment Cancelled, Self-Scheduled Appointment, and more
+      - **Payments:** Payment Created, Payment Succeeded, Payment Failed, Charge Created, Refund events, and more
+      - **Communications:** Call Received, Message Received, Email Sent, and more
+      - **Forms:** Form Submitted
+      - **Notes:** Note Created, Note Updated
+      - **Inventory:** Stock Low, Stock Added, Shipment Received, and more
+  </Step>
+  <Step title="Save and Copy Secret">
+    Click **Create Webhook**. A webhook secret is generated and displayed once. Copy it immediately using the **copy** button -- you will need this secret to verify incoming webhook payloads from Decoda.
+  </Step>
+</Steps>
+
+<Info>
+  The webhook secret is only shown once at creation time. Store it securely. If you lose the secret, you must delete the webhook and create a new one.
+</Info>
+
+### Edit a Webhook
+
+Click the **edit** icon on a webhook card to update its URL, notification email, or event subscriptions.
+
+### Delete a Webhook
+
+Click the **delete** icon on a webhook card and confirm. Deleting a webhook stops all future event deliveries to that endpoint.
+
+## Set Up a Custom Email Domain
+
+Custom email domains allow Decoda to send patient notifications, appointment reminders, and other emails from your own domain (e.g., `no-reply@mail.yourclinic.com`) instead of the default Decoda address. This is powered by Mailgun.
+
+<Info>
+  You need the **Manage Email Domains** permission to configure custom email domains.
+</Info>
+
+### Add a Domain
+
+<Steps>
+  <Step title="Navigate to Email Domain">
+    Go to **Settings** and select **Email Domain**.
+  </Step>
+  <Step title="Add Domain">
+    Click **Add Domain** and enter your domain name. It is recommended to use a subdomain like `mail.yourdomain.com` rather than your root domain.
+  </Step>
+  <Step title="Configure DNS Records">
+    After creation, Decoda shows the DNS records (settings you add at your domain provider like GoDaddy or Cloudflare) needed to verify you own the domain. The records are organized into three groups:
+
+    - **Sending Records** (required): TXT and CNAME records that authorize Decoda to send emails on behalf of your domain. These must be verified before email sending works.
+    - **Receiving Records (MX)** (optional): MX records for receiving emails at the domain.
+    - **DMARC Records** (optional): DMARC policy records for email authentication and reporting.
+
+    Each record shows its **Type**, **Name/Host**, **Value**, and verification **Status**. Use the **copy** button next to each field to copy the value to your clipboard.
+  </Step>
+  <Step title="Verify DNS">
+    After adding all records in your DNS provider, return to this page and click **Verify DNS**. The status of each record updates to show whether it has been verified.
+  </Step>
+</Steps>
+
+### Domain Status
+
+The domain card displays an overall status badge:
+
+- **Active**: All required DNS records are verified and email sending is operational.
+- **Unverified**: DNS records have been created but not yet verified. Click **Verify DNS** to check again.
+- **Disabled**: The domain has been disabled.
+
+Two verification indicators are shown:
+
+- **Sending** (required): Must be verified for Decoda to send emails from your domain.
+- **Receiving** (optional): Indicates whether MX records are configured for inbound email.
+
+### DNS Provider Help
+
+If you need help adding DNS records, expand the **Need help setting up DNS records?** section for direct links to setup guides for common providers:
+
+- GoDaddy
+- Cloudflare
+- Namecheap
+- Squarespace Domains
+- Digital Ocean
+
+### Delete a Domain
+
+Click the **Delete** button on the domain card and confirm. This removes the domain from Mailgun and Decoda will revert to using the default email sender address.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Webhook Payload Verification">
+    Use the webhook secret to verify that incoming requests are genuinely from Decoda. Compare the signature in the request headers against a hash computed using your secret. See the [Webhook Events guide](/guides/webhook-events) for implementation details.
+  </Accordion>
+  <Accordion title="API Key Rotation">
+    When you generate a new API key, the previous key is immediately revoked. All existing webhooks are preserved and continue to function with the new key. Plan key rotations during low-traffic periods to minimize disruption.
+  </Accordion>
+  <Accordion title="Permissions">
+    Developer Settings is gated by role-based permissions:
+    - **Settings Developers Read** -- Required to view the Developer Settings page, including GTM configuration, API keys, and webhooks.
+    - **Settings Developers Write** -- Required to modify GTM settings, generate/revoke API keys, and create/edit/delete webhooks.
+    - **Settings Email Domain Read** -- Required to view the Custom Email Domain page and DNS records.
+    - **Settings Email Domain Write** -- Required to add, verify, and delete custom email domains.
+
+    Admin users have full access to all developer settings by default.
+  </Accordion>
+  <Accordion title="GTM and Privacy Compliance">
+    The Google Tag Manager container loads on your public self-scheduling pages. Ensure that any tags you configure (e.g., Google Analytics, Facebook Pixel) comply with your organization's privacy policy and applicable regulations such as HIPAA or state privacy laws.
+  </Accordion>
+</AccordionGroup>

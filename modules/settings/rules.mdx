@@ -1,0 +1,111 @@
+---
+title: 'Billing Rules'
+description: 'Automate billing workflows with rule-based triggers and actions for payments, invoices, and patient accounts.'
+---
+
+Set up automatic follow-up sequences so unpaid invoices don't slip through the cracks. Instead of manually chasing patients, you create a rule set that does it for you — texts, emails, phone calls, and card charges on a timeline you define.
+
+A **rule set** is a sequence of follow-up steps that run automatically after an invoice is created. For example, you could send a text on day 3, an email on day 7, and charge the card on file on day 14.
+
+<Info>
+  **What your patients receive:** Each step in the rule set sends a message to the patient — a text, email, phone call, or letter — with a link to pay online. The patient can pay at any point to stop the sequence.
+</Info>
+
+Navigate to **Settings > Rules** to view and manage all rule sets.
+
+## Understand Rule Sets
+
+A rule set contains:
+
+- **Title:** A descriptive name for the workflow (e.g., "Standard Follow-Up", "Collections Escalation").
+- **Description:** An optional summary of the rule set's purpose.
+- **Rules:** An ordered list of actions, each configured with a delay (in days), a communication method, a title, and an optional message.
+- **Expiry:** A final step that marks the invoicing cycle as complete after a set number of days.
+
+When collapsed, each rule set shows a visual **timeline** of icons representing the communication methods and their delay intervals. Click a rule set to expand it and see full details.
+
+## Create a New Rule Set
+
+<Steps>
+  <Step title="Add a Rule Set">
+    Click **Add New Rule Set** in the top right corner. A new blank rule set appears at the top of the list in edit mode.
+  </Step>
+  <Step title="Enter Title and Description">
+    - **Title:** Give the rule set a clear name.
+    - **Description:** Optionally describe when and how this rule set should be used.
+  </Step>
+  <Step title="Configure the First Rule">
+    Each rule set starts with one blank rule and an expiry step. For the first rule:
+    - **Communication method:** Select how to contact the patient. Available methods:
+      - **SMS** -- sends a text message.
+      - **Email** -- sends an email.
+      - **Call** -- triggers an automated phone call.
+      - **Mail** -- triggers a physical mail piece.
+      - **Charge Card** -- automatically charges the patient's card on file.
+    - **Title:** Enter a short label for this step (required).
+    - **Message:** For SMS and Email methods, compose the message body. The editor supports variable placeholders (e.g., patient name, balance) through the suggestions menu.
+  </Step>
+  <Step title="Add More Rules">
+    - **Add another method:** Click **Add another method** within the same delay day to send multiple communication types simultaneously (e.g., both SMS and Email on day 3). Each method can only be used once per delay day.
+    - **Add a new delay day:** Click the **+** button at the bottom of the timeline to add a rule at a new point in the sequence. The system automatically increments the delay.
+  </Step>
+  <Step title="Adjust Timing">
+    Each delay day shows the number of days after the invoice is created. You can modify the delay for any step. The expiry step automatically adjusts to remain after the last communication rule.
+  </Step>
+  <Step title="Save">
+    Click **Save** to create the rule set. The title and at least one rule with a method and title are required.
+  </Step>
+</Steps>
+
+## Edit a Rule Set
+
+<Steps>
+  <Step title="Enter Edit Mode">
+    Click the **Edit** button on the rule set header. The rule set expands into edit mode, showing all rules with editable fields.
+  </Step>
+  <Step title="Make Changes">
+    - Update the title, description, or any rule's method, title, and message.
+    - Add or remove rules and delay days.
+    - Adjust the delay timing for each step.
+  </Step>
+  <Step title="Save or Cancel">
+    Click **Save** to apply changes, or **Cancel** to discard them and revert to the previous state.
+  </Step>
+</Steps>
+
+## Duplicate a Rule Set
+
+Click the **Duplicate** button on the rule set header. A copy of the rule set is created with "(Copy)" appended to the name, and it opens in edit mode. Modify the copy as needed and click **Save**.
+
+## Archive a Rule Set
+
+Click the **Archive** button on the rule set header. The rule set is removed from the active list.
+
+## Remove a Rule
+
+While editing a rule set, click the **Remove** button on an individual rule to delete it. If only one saved rule remains, the remove button is disabled -- a rule set must contain at least one rule.
+
+When a rule at a specific delay day is removed, the delay values for subsequent rules are automatically decremented to keep the timeline sequential.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Multi-Method Delay Days">
+    A single delay day can include multiple communication methods. For example, you could send both an SMS and an Email on day 3. Click **Add another method** within a delay to add a second method. Each method type (SMS, Email, Call, Mail, Charge Card) can only appear once per delay day. Rules at the same delay day share the same title and message.
+  </Accordion>
+  <Accordion title="Expiry Timing">
+    The expiry step defines when the invoicing cycle ends. It always appears after the last communication rule and cannot be placed before it. When you adjust the timing of communication rules, the expiry step automatically shifts to remain at least one day after the highest non-expiry delay.
+  </Accordion>
+  <Accordion title="Message Variables">
+    SMS and Email rules support dynamic placeholders pulled from patient, tenant, and saved suggestion data. As you type in the message editor, use the suggestions menu to insert variables like patient name, outstanding balance, or clinic contact information.
+  </Accordion>
+  <Accordion title="Permissions">
+    - **Settings Rules Read** -- Required to view the Billing Rules page and see rule set details.
+    - **Settings Rules Write** -- Required to create, edit, duplicate, and archive rule sets.
+
+    Admin users have full access to all billing rules by default.
+  </Accordion>
+  <Accordion title="Assigning Rule Sets to Patients">
+    Rule sets are applied to patients through the invoicing workflow in the **Billing** module. When setting up invoicing for a patient's outstanding balance, you select which rule set governs the follow-up sequence. You can also change a patient's active rule set, pause invoicing, or cancel it from the Billing section.
+  </Accordion>
+</AccordionGroup>

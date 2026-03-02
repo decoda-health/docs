@@ -1,0 +1,223 @@
+---
+title: 'Scheduling Configuration'
+description: 'Configure self-scheduling rules, bookable resources, calendar appearance, and appointment display settings.'
+---
+
+<Info>
+  **Prerequisites:** You should have at least one [Location](/modules/settings/locations) created and [Services](/modules/settings/services) configured before adjusting scheduling settings.
+</Info>
+
+Control how patients book online and how your calendar behaves behind the scenes. This is where you configure self-scheduling rules, set provider capacity, manage bookable resources like rooms and equipment, and customize how appointments look on the calendar.
+
+Scheduling settings control how patients book appointments through your self-scheduling page, how providers manage their capacity, and how appointments appear on the calendar.
+
+## Configure Self-Scheduling
+
+Self-scheduling settings determine how patients interact with your online booking page.
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Go to **Settings** and select **Scheduling**.
+  </Step>
+  <Step title="Adjust Settings">
+    The Self-Scheduling section contains the following options:
+
+    - **Redirect URL After Booking:** An optional URL to redirect patients to after they successfully book an appointment. Leave empty to show the default Decoda confirmation page.
+    - **Days Until Patient Becomes New:** The number of days to look back when determining if a patient has prior appointments. If all of a patient's appointments are older than this value, they will be classified as a new patient during self-scheduling. Leave empty to count all appointments regardless of age.
+    - **Allow Multiple Bookings:** When enabled, patients can book additional appointments even if they already have an existing appointment scheduled. When off, patients with an upcoming appointment cannot book another.
+    - **Max Self-Schedule Services:** The maximum number of services a patient can add to a single self-scheduled appointment. Defaults to 1.
+    - **Convert Booking Fee to Credit:** When enabled, booking fees paid by patients are automatically converted into a patient credit that can be applied toward their balance at checkout.
+    - **Service Display Mode:** Choose how services appear on the self-scheduling page. Select **Grid View** for a card-based layout or **Menu View** for a list-based layout with descriptions.
+  </Step>
+</Steps>
+
+<Info>
+  **What your patients see:** On your booking page, patients browse available services, pick a location and time, and confirm their appointment. They only see time slots where a provider has an active shift and isn't already booked. Short-notice blocks and capacity limits are enforced automatically — patients never see unavailable slots.
+</Info>
+
+## Set Provider Capacity
+
+Provider capacity controls how many patients a provider can see during the same time slot, which helps prevent overbooking.
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Go to **Settings > Scheduling** and scroll to the **Provider Capacity** section.
+  </Step>
+  <Step title="Set Capacity per Provider">
+    A table lists all providers with an editable **Capacity** field. Enter the maximum number of patients each provider can see during the same 15-minute time slot. For example, setting a provider's capacity to 2 means they can have up to 2 overlapping appointments.
+  </Step>
+  <Step title="Save">
+    Click **Save** next to each provider after updating their capacity.
+  </Step>
+</Steps>
+
+## Manage the Patient Blacklist
+
+The patient blacklist prevents specific patients from booking appointments through self-scheduling.
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Go to **Settings > Scheduling** and scroll to the **Patient Blacklist** section.
+  </Step>
+  <Step title="Add a Patient">
+    Click **Add Patient**. Search for the patient by name, date of birth, or phone number and select them from the results.
+  </Step>
+  <Step title="Confirm">
+    Click **Add to Blacklist**. The patient will immediately be unable to book appointments online.
+  </Step>
+</Steps>
+
+To remove a patient from the blacklist, click the **delete** icon next to their name in the blacklist table.
+
+## Manage Bookable Resources
+
+Bookable resources are rooms, equipment, or other physical assets that need to be reserved when an appointment is scheduled — like a laser machine or treatment room. Assigning bookables to services prevents double-booking of shared resources.
+
+<Steps>
+  <Step title="Navigate to Bookables">
+    Go to **Settings** and select **Bookables**.
+  </Step>
+  <Step title="Create a Bookable">
+    Click the **Create Bookable** button. In the popover form, enter:
+    - **Name** (required): A descriptive label for the resource (e.g., "Treatment Room A", "Laser Machine").
+    - **Description** (optional): Additional details about the resource.
+    - **Locations**: Select which clinic locations this bookable is available at. By default all locations are selected.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The bookable is immediately available for assignment to services.
+  </Step>
+</Steps>
+
+### Edit a Bookable
+
+Click on a bookable's **name** or **description** cell in the table to edit it inline. Click on the **Locations** column to add or remove location assignments.
+
+### Delete a Bookable
+
+Click the **delete** icon on the bookable's row. Confirm when prompted. Deleting a bookable removes it from all service assignments.
+
+<Info>
+  Bookable resources are assigned to services in the **Scheduling & Booking** tab of the service editor. See [Services](/modules/settings/services) for details.
+</Info>
+
+## Customize Calendar Appearance
+
+Calendar appearance settings control how appointments look on the provider calendar based on their status.
+
+### Appointment Status Styles
+
+Each appointment status can be displayed with one of three visual styles:
+
+- **White:** A white bar with a colored left border.
+- **Translucent:** A semi-transparent fill using the service's color.
+- **Opaque:** A solid fill using the service's color.
+
+<Steps>
+  <Step title="Navigate to Calendar Appearance">
+    Go to **Settings** and select **Calendar Appearance**.
+  </Step>
+  <Step title="Set Styles per Status">
+    For each appointment status, select a visual variant. The available statuses are:
+
+    - **Reserved** -- The time slot has been held, but the patient has not paid the booking fee.
+    - **Pending** -- The appointment is scheduled but not yet confirmed by the patient.
+    - **Confirmed** -- The patient has confirmed the appointment.
+    - **Completed** -- The appointment has been completed.
+    - **No-show** -- The patient did not attend the appointment.
+    - **Cancelled** -- The appointment has been cancelled.
+
+    A live preview appears next to each status so you can see how the style will look on the calendar.
+  </Step>
+  <Step title="Save">
+    Click **Save changes** when you are done.
+  </Step>
+</Steps>
+
+### Appointment Icons
+
+Appointment icons are small indicators displayed on calendar events to convey additional context at a glance. Each icon type represents a specific condition:
+
+| Icon Type | Meaning |
+|-----------|---------|
+| Booking Fee Paid | Patient has paid the booking fee |
+| New Patient | First appointment for this patient |
+| Scheduled by AI | Appointment was booked by the AI assistant |
+| Form Completed | Patient has completed required forms |
+| Form Not Completed | Patient has not completed required forms |
+| Checked In | Patient has checked in for the appointment |
+| Online Booking | Patient self-scheduled online |
+
+<Steps>
+  <Step title="Add an Icon">
+    In the **Appointment Icons** section, click **Add Icon**. Select the icon type, choose an emoji or color, and save.
+  </Step>
+  <Step title="Edit or Delete">
+    Use the **edit** and **delete** buttons next to each configured icon to modify or remove it.
+  </Step>
+</Steps>
+
+## Understanding Capacity, Double Booking, and Multiple Bookings
+
+These three settings sound similar but control completely different things. Here's how they differ:
+
+| Setting | Where It Lives | What It Controls | Who It Affects |
+|---------|---------------|------------------|----------------|
+| **Provider Capacity** | Settings > Scheduling | Max concurrent patients a provider can see in the same time slot | The provider's calendar |
+| **Allow Double Booking** | Settings > Services > Scheduling & Booking tab | Whether a specific service can overlap with other appointments on the same provider | A single service type |
+| **Allow Multiple Bookings** | Settings > Scheduling > Self-Scheduling | Whether a patient can book a new appointment when they already have one scheduled | The patient booking online |
+
+### Provider Capacity
+
+This is a **per-provider limit**. If Dr. Smith's capacity is set to 3, she can have up to 3 patients scheduled in the same time slot. This applies regardless of which services are booked. Think of it as: "How many chairs does this provider have in their room?"
+
+The default capacity for each provider is set in **Settings > Scheduling > Provider Capacity**, but you can also override it on individual shifts. When editing or creating a shift in **Shift Management**, there is an optional **Capacity** field. If you set a capacity on a shift, it completely overrides the provider's default for the duration of that shift. If you leave it empty, the provider's default capacity applies.
+
+This is useful when a provider's capacity varies depending on the type of work. For example, Dr. Smith might handle 3 patients at a time during a general consultation shift but only 1 during a surgical shift.
+
+### Allow Double Booking (Service-Level)
+
+This is a **per-service toggle**. When enabled on a service, that service can be scheduled at the same time as another appointment on the same provider. When off, the system treats the service as exclusive — no other appointments can overlap it on that provider's calendar. Think of it as: "Can this service share a time slot with something else?"
+
+**How it interacts with Provider Capacity:** A provider with capacity set to 1 can **never** have overlapping appointments, even if every service has double booking enabled. Capacity is the hard ceiling. Double booking is a per-service permission that works *within* the capacity limit.
+
+<Warning>
+  Setting a provider's capacity to 1 effectively disables double booking for that provider, regardless of service-level settings.
+</Warning>
+
+### Allow Multiple Bookings (Self-Scheduling)
+
+This has nothing to do with overlapping time slots. It controls whether a **patient** can book a second appointment when they already have an upcoming one. When off, a patient who already has an appointment scheduled will be blocked from booking another one through self-scheduling. Staff can still book additional appointments for the patient manually from the calendar.
+
+### Quick Examples
+
+<AccordionGroup>
+  <Accordion title="I want Dr. Smith to see 2 patients at a time" defaultOpen>
+    Set Dr. Smith's **Provider Capacity** to 2 in Settings > Scheduling.
+  </Accordion>
+  <Accordion title="Botox can overlap with other appointments, but Laser cannot" defaultOpen>
+    Enable **Allow Double Booking** on the Botox service. Leave it off on Laser.
+  </Accordion>
+  <Accordion title="Patients shouldn't book a second appointment if they already have one" defaultOpen>
+    Disable **Allow Multiple Bookings** in the self-scheduling settings.
+  </Accordion>
+  <Accordion title="Dr. Smith has capacity 2, but Laser should take the full slot" defaultOpen>
+    Keep capacity at 2, but disable **Allow Double Booking** on Laser. The Laser appointment fills the slot even though the provider could technically see 2 patients.
+  </Accordion>
+</AccordionGroup>
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Blacklist vs. Archiving a Patient">
+    Blacklisting a patient only blocks them from self-scheduling. Staff can still book appointments for blacklisted patients manually through the calendar. To fully prevent all interactions with a patient record, use the **Archive** function on the patient's profile instead.
+  </Accordion>
+  <Accordion title="Permissions">
+    - **Settings Scheduling Read** -- Required to view the Scheduling Configuration page, including self-scheduling settings, provider capacity, blacklist, bookables, and calendar appearance.
+    - **Settings Scheduling Write** -- Required to modify self-scheduling rules, update provider capacity, manage the patient blacklist, create/edit/delete bookable resources, and change calendar appearance settings.
+
+    Admin users have full access to all scheduling settings by default.
+  </Accordion>
+  <Accordion title="Bookable Conflicts">
+    When a bookable resource is assigned to multiple services, the system automatically checks for conflicts during scheduling. If a room or piece of equipment is already reserved for an appointment during a given time slot, that resource will not be available for other appointments. This check applies to both self-scheduling and manual booking from the calendar.
+  </Accordion>
+</AccordionGroup>

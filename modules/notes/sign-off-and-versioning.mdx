@@ -1,0 +1,52 @@
+---
+title: 'Sign-Off & Versioning'
+description: 'Finalize clinical notes, track revision history, and manage note metadata.'
+---
+
+## Sign-Off and Versioning
+
+### Sign Off a Note
+
+Signing off a note marks it as reviewed and finalized by an authorized provider.
+
+- Open the note and click the **Sign off** button in the note toolbar. The button is visible when the note has content and the current user has the **Sign Off Notes** permission.
+- Once signed off, the note displays a green **Signed off** badge with the provider name and date.
+- Signed-off notes can still be viewed and printed but edits are discouraged.
+
+### Auto Sign-Off
+
+Providers can enable automatic sign-off so that notes are finalized automatically after saving. This setting is managed per-provider in **Settings > Preferences** under the **Auto Sign-Off** toggle.
+
+### Note Versioning
+
+Every significant change to a note (AI generation, chat refinement, template change) creates a new **revision**. The version history is accessible from the note toolbar:
+
+1. Click the **clock icon** or the **View Revisions** submenu in the actions dropdown.
+2. A dropdown lists all versions, showing the creation date and version number.
+3. The current version is labeled **Current Version** with a green badge. The first version is labeled **Original Version**.
+4. Click any version to view it. A banner indicates you are viewing a previous version.
+5. To make edits, switch back to the latest (current) version.
+
+### Note Expiry
+
+Templates can be configured with an **expiry period** (in days). After the expiry period passes, the note displays an **Expired** badge. Expired notes remain accessible but are flagged for review.
+
+## Note Header and Metadata
+
+Each note displays the following in its header:
+
+- **Patient name** -- Click to open the patient sidebar with full details.
+- **Note title** -- Defaults to the template name. Click the title to edit it inline. Press **Enter** to save or **Escape** to cancel.
+- **Note ID** -- A unique identifier for the note, displayed below the title. Click to copy.
+- **Signed-off status** -- Shows a green checkmark with provider name and timestamp if signed off.
+- **Linked appointment** -- If the note is connected to an appointment, a **Go to linked appointment** link appears in the top right.
+
+## Print and Export
+
+To print or export a note:
+
+1. Open the note.
+2. Click the **copy icon** in the note toolbar to copy the note content to your clipboard as plain text.
+3. Click the **actions menu** (three-dot icon) and select **Print / Export to PDF** to open the browser's print window with the note formatted for printing.
+
+You can also print from the notes list by clicking **Print** in the note's row action menu.

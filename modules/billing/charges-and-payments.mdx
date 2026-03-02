@@ -1,0 +1,190 @@
+---
+title: 'Charges & Payments'
+description: 'View and manage charges, process payments and refunds, send receipts, handle write-offs, and monitor deposits.'
+---
+
+<Info>
+  Navigate to **Billing > Charges** or **Billing > Payments** to access the features described on this page.
+</Info>
+
+## Charges
+
+Navigate to **Billing > Charges** to view and manage all charges across your organization.
+
+### Charges Table
+
+The table displays each charge with:
+
+- **Amount:** The charge total and status badge (Outstanding, Paid, Payment Plan, Written Off, External Settlement, Refunded).
+- **Outstanding Balance:** If the charge is partially paid, the remaining amount is shown.
+- **Patient:** The patient's name and identifiers.
+- **Created Date:** When the charge was created, plus the date of service if different.
+- **Payment Date:** When the most recent payment was recorded.
+
+Use the **filter bar** to narrow results by patient name, charge ID, patient ID, external IDs, amount range, date range, status, or location.
+
+### Charge Actions
+
+Click the settings icon on any charge row to access actions specific to its status:
+
+**Outstanding charges:**
+- **Take Payment** -- Opens checkout pre-loaded with the charge.
+- **Edit Charge Amount** -- Opens an adjustment window to increase or decrease the charge total.
+- **Write off charge** -- Marks the outstanding balance as uncollectable.
+- **Externally Settle Charge** -- Mark as paid outside Decoda (cash, check, Venmo, etc.). The charge shows as settled without processing a card.
+
+**Payment plan charges:**
+- **Cancel Payment Plan** -- Stops future automatic installment charges.
+
+**Paid / Externally settled charges:**
+- **Detailed Receipt** -- Opens a printable receipt in a new tab.
+
+**All charges:**
+- **Edit Details** -- Modify the charge description, external ID, or date of service.
+- **Add/Edit Comment** -- Attach or update an internal staff comment.
+- **Delete Charge** -- Permanently remove the charge (disabled for charges with card payments).
+
+### Charge Timeline
+
+Click the expand arrow on any charge row to reveal the **Charge Timeline**, which shows every event in the charge's lifecycle -- creation, payments, refunds, adjustments, write-offs, invoice sends, and status changes.
+
+### Export Charges
+
+Click **Export Charges** to download all charges matching your current filters as a CSV file. Requires the Export Charges permission.
+
+## Payments
+
+Navigate to **Billing > Payments** to view every individual payment transaction.
+
+### Payments Table
+
+Each row shows:
+- **Amount:** The payment amount in green, with the payment ID, creator, and location.
+- **Status badges:** Refunded, Refund Failed, Payment Plan, Succeeded, or Processing.
+- **Patient:** Contact details including phone, email, and external IDs.
+- **Card:** The card brand icon and last four digits (if a card payment).
+- **Payment Method:** The method used (POS Terminal, Virtual Terminal, Cash, Patient Credit, Payment Plan, Payment Link).
+- **Date:** When the payment was recorded.
+
+Click the expand arrow to view the **Charge Timeline** for the associated charge.
+
+### Payment Actions
+
+Click the settings icon on any payment row:
+
+- **Refund Payment** -- Opens the [refund window](#process-a-refund). Only available when the payment has un-refunded balance remaining. Requires the Process Refunds permission.
+- **Receipt Details** -- View and send the receipt via SMS or email.
+- **Generate Detailed Receipt** -- Opens a printable detailed receipt in a new tab.
+- **Move to Another Patient** -- Transfer the payment to a different patient's account.
+- **Move to Location** -- Reassign the payment to a different clinic location.
+- **Change Settlement Type** -- Change the payment method label on a non-card payment (e.g., reclassify "cash" to "check"). Not available for card payments.
+- **Delete Payment** -- Permanently remove the payment (disabled for card payments, insurance payments, and payments with refunds).
+
+### One-Time Payment
+
+Click **One Time Payment** to record an insurance or manual payment without going through the full checkout flow. This creates a standalone payment record linked to a patient.
+
+### Export Payments
+
+Click **Export Payments** to download all payments matching your current filters. Requires the Export Payments permission.
+
+### View Deposits
+
+Click **View Deposits** to navigate to the [Deposits](#deposits) page. Requires the View Deposits permission.
+
+## Process a Refund
+
+<Steps>
+  <Step title="Navigate to Payments">
+    Go to **Billing > Payments** and find the payment you need to refund.
+  </Step>
+  <Step title="Open Refund Window">
+    Click the settings icon on the payment row and select **Refund Payment**.
+  </Step>
+  <Step title="Review Existing Refunds">
+    If previous partial refunds exist, they are listed at the top with their dates, reasons, statuses, and amounts.
+  </Step>
+  <Step title="Enter Refund Details">
+    - **Amount:** Enter the refund amount (from $0.01 up to the remaining refundable balance).
+    - **Reason:** Select a reason (Duplicate, Fraudulent, Customer Request, or Other).
+    - **Description:** If you selected "Other," provide a written explanation.
+  </Step>
+  <Step title="Restore Inventory (Full Refunds Only)">
+    For full refunds, an **Inventory Options** section appears. Check **Restore inventory for refunded items** to add products back to their original shipment stock.
+  </Step>
+  <Step title="Process">
+    Click **Process Refund**. Card refunds take 6-7 business days to reach the patient's account. Patient credit refunds are added back to the patient's credit balance immediately. Cash/external refunds are marked as processed.
+  </Step>
+</Steps>
+
+## Receipts
+
+Receipts can be sent after any successful payment.
+
+### Send a Receipt
+
+From the **Payments** table, click the settings icon on a payment and select **Receipt Details**. From there you can:
+
+- **Send via SMS:** Sends a receipt link to the patient's phone number.
+- **Send via Email:** Sends a formatted receipt to the patient's email address.
+
+### Detailed Receipt
+
+For paid and externally settled charges, select **Detailed Receipt** or **Generate Detailed Receipt** to open a printable receipt page in a new tab. This receipt includes full line-item details, tax breakdowns, and payment information.
+
+## Write-Offs & Adjustments
+
+### Write Off a Charge
+
+To write off an outstanding charge:
+
+1. Navigate to **Billing > Charges**.
+2. Find the charge and click the settings icon.
+3. Select **Write off charge**.
+4. Confirm the write-off. The charge status changes to **Written Off** and the outstanding balance is zeroed out.
+
+Write-offs can also be applied in bulk from the [Invoice Management](/modules/billing/invoices) page.
+
+### Adjust a Charge Amount
+
+To increase or decrease an outstanding charge:
+
+1. Navigate to **Billing > Charges**.
+2. Find the charge and click the settings icon.
+3. Select **Edit Charge Amount**.
+4. Enter the adjustment amount (positive to increase, negative to decrease).
+5. Confirm the adjustment.
+
+### External Settlement
+
+To mark a charge as settled outside the payment system:
+
+1. Navigate to **Billing > Charges**.
+2. Find the outstanding charge and click the settings icon.
+3. Select **Externally Settle Charge**.
+4. Confirm the settlement. The charge status changes to **External Settlement**.
+
+## Deposits
+
+Navigate to **Billing > Deposits** (accessible from the Payments page via **View Deposits**) to monitor bank deposits from your payment processor.
+
+### Deposits Table
+
+Each deposit row shows:
+
+- **Subtotal:** The gross payment amount minus refunds.
+- **Total Fees:** Processing fees, refund fees, and deposit fees combined.
+- **Amount Deposited:** The net amount deposited into your bank account.
+- **Transactions:** Count of payments and refunds included in the deposit.
+- **Status:** Processing, In Review, Succeeded, or Failed.
+- **Created:** When the deposit was initiated.
+
+If you have multiple merchant accounts, deposits are grouped by account with subtotals for each group.
+
+### Deposit Details
+
+Click any deposit row to open the **Deposit Details Drawer**, which shows the individual payments and refunds included in that deposit along with their fees and amounts.
+
+### Filter by Month
+
+Use the month selector in the top right to view deposits from a specific month.

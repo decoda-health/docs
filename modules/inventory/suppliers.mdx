@@ -1,0 +1,80 @@
+---
+title: 'Managing Suppliers'
+description: 'Add supplier contacts, set default order notes, and link suppliers to stock items.'
+---
+
+<Info>
+  **Where to find Suppliers:** Go to **Inventory** in the left sidebar, then click the **Suppliers** tab.
+</Info>
+
+The Suppliers tab is your directory of vendors you order from. Each supplier record stores contact information, address, expected shipping time, and default notes that get added to purchase orders automatically.
+
+<Info>
+  **Add your suppliers before creating stock items.** When you add stock later, you can link it to a supplier right away, and when you create purchase orders, the system uses these links to show the right stock items for each supplier.
+</Info>
+
+## The Suppliers Table
+
+Each row shows one supplier with these columns:
+
+| Column | What It Shows |
+|--------|---------------|
+| Supplier | Name, ID, and website link |
+| Contact | Email, phone number, and preferred contact method |
+| Address | Street address, city, state, and ZIP code |
+| Shipment Time | Expected delivery time from this supplier |
+
+Use the filter bar to search by **Name** or **City**.
+
+## Adding a Supplier
+
+<Steps>
+  <Step title="Open the Supplier Form">
+    Click **Add Supplier** on the Suppliers page.
+  </Step>
+  <Step title="Enter Supplier Details">
+    Fill in the fields:
+    - **Supplier Name** (required) -- The vendor's name as you want it to appear on purchase orders.
+    - **Description** -- A note about what this supplier provides (e.g., "Main injectable supplier" or "Office supplies and disposables").
+    - **Website** and **Email Address** -- So your team can quickly reach the supplier or place orders online.
+    - **Phone Number** -- For calling in orders or checking on deliveries.
+    - **Preferred Contact Method** -- Choose Email, Phone, Website, or In Person. This shows as a badge on the suppliers table so your team knows the best way to reach out.
+    - **Address** -- The supplier's physical address.
+    - **Shipment Time** -- How long deliveries typically take from this supplier. This appears on purchase orders as the lead time.
+    - **Default PO Notes** -- Notes that are automatically added to every new purchase order for this supplier. Useful for recurring instructions like "Requires signature on delivery" or "Ship to back entrance."
+  </Step>
+  <Step title="Save">
+    Click **Add Supplier** to save.
+  </Step>
+</Steps>
+
+<Info>
+  **Add default PO notes for special delivery instructions.** If a supplier always needs to ship to a specific entrance or requires a PO number format, put it in the default notes so it's included on every order automatically.
+</Info>
+
+## Editing a Supplier
+
+Click the gear icon on a supplier row and select **Edit**. The supplier form opens with the current details pre-filled. Make your changes and click **Update Supplier**.
+
+<Info>
+  **Keep contact info current so the team can reach suppliers quickly.** If a supplier changes their email or phone number, update it here so everyone on your staff has the right information.
+</Info>
+
+## Archiving a Supplier
+
+If you no longer order from a supplier, you can archive them:
+
+1. Click the gear icon on the supplier row and select **Archive**.
+2. Confirm when prompted.
+
+Archiving removes the supplier from active lists but preserves their data and order history. Archived suppliers no longer appear when creating new purchase orders.
+
+## Linking Suppliers to Stock Items
+
+When a supplier is linked to a stock item, that stock item appears as an option when you create a purchase order for that supplier. You can link suppliers to stock from several places:
+
+- **Stockroom table** -- Click the gear icon on a stock row and select **Link Supplier**.
+- **Stock editor** -- When creating or editing a stock item, use the Suppliers section to add links.
+- **Stock detail panel** -- Open the Suppliers tab to view and manage links.
+
+For each supplier-stock link, you can set supplier-specific pricing and units of measure. This is useful when a supplier sells in different packaging than how you track internally (e.g., they sell boxes of 10 but you track individual vials).

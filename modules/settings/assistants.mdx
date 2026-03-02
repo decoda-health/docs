@@ -1,0 +1,250 @@
+---
+title: 'AI Assistants & Suggestions'
+description: 'Configure AI-powered phone assistants, note scribes, and text messaging automation for your clinic.'
+---
+
+<Info>
+  **Prerequisites:** You should have at least one [Location](/modules/settings/locations) configured before setting up AI assistants, as inbound and outbound assistants are tied to locations and phone numbers.
+</Info>
+
+Let AI handle phone calls, clinical notes, and text messages so your staff can focus on patients. Set up assistants that answer after-hours calls, transcribe appointments into structured notes, and respond to incoming texts automatically.
+
+AI Assistants automate phone calls, note summarization, and text messaging for your clinic. Each assistant type serves a different purpose -- from answering inbound patient calls to transcribing clinical notes. You can customize each assistant's behavior, AI model, tools, and scheduling.
+
+## Assistant Types
+
+Decoda provides several categories of AI assistants, each accessed from a different sub-page under **Settings > AI Assistants**.
+
+| Type | Purpose |
+|------|---------|
+| **Inbound Calling** | Answers incoming patient phone calls, handles scheduling, routes to fallback numbers, and manages caller inquiries. |
+| **Outbound Calling** | Makes outgoing calls for billing, reminders, follow-ups, and lab results. Includes sub-types: Biller, Outbound Call, Call Reminder, Call Follow-Up, and Lab Technician. |
+| **Scribe** | Summarizes clinical notes and transcriptions. Assists providers with documentation by auto-generating structured note content. |
+| **Call Summarizer** | Generates summaries of completed phone calls for quick review by staff. |
+| **Inbound Texting** | Handles incoming text messages from patients with AI-powered responses. Supports tool-assisted actions. |
+
+## Inbound Calling Assistants
+
+Inbound calling assistants answer phone calls to your clinic's AI phone numbers. Each assistant is assigned a dedicated phone number and can be scheduled to answer calls during specific shifts.
+
+### Create an Inbound Assistant
+
+<Steps>
+  <Step title="Navigate to Inbound Assistants">
+    Go to **Settings > AI Assistants > Inbound Calling**.
+  </Step>
+  <Step title="Provision a Phone Number">
+    Click **Provision new phone number** in the top right corner. This opens the assistant creation form and assigns a new phone number.
+  </Step>
+  <Step title="Configure the Assistant">
+    Fill in the required fields:
+    - **Assistant Name:** A descriptive name (e.g., "After Hours Assistant", "Main Line AI").
+    - **Primary Location:** Select which clinic location this assistant serves.
+    - **Timezone:** Set the timezone for shift scheduling.
+    - **Greeting Message:** Customize the opening message callers hear. Supports suggestion shortcuts (type `@` to insert saved text snippets). If left blank, the default greeting is used.
+    - **Assistant Behaviour:** Write custom instructions that control how the assistant handles conversations. Examples: escalation procedures, call transfer numbers, operating hours, and available services.
+    - **Tools:** Select capabilities the assistant can use during calls (e.g., ending calls, sending texts, transferring calls, verifying callers).
+    - **AI Model:** Choose which AI model powers the assistant. The recommended model is pre-selected.
+    - **Phone Number:** The provisioned number assigned to this assistant (read-only after creation).
+    - **Fallback Phone Number:** The number that receives calls when the assistant is disabled or outside scheduled shifts. Must be a valid 10-digit number.
+  </Step>
+  <Step title="Add Shifts">
+    Configure the days and times the assistant should answer calls:
+    - Click the day-of-week circles to activate days.
+    - Set start and end times for each shift using the time dropdowns.
+    - Add multiple shifts per day by clicking the **+** button.
+    - Use the **Copy to all** button to apply the same times across all selected days.
+    - Click the checkmark to save each shift.
+  </Step>
+  <Step title="Save">
+    Click **Create Assistant**. The assistant immediately begins answering calls during its scheduled shifts.
+  </Step>
+</Steps>
+
+### Edit an Inbound Assistant
+
+1. From the **Inbound Calling** page, click on an assistant group card to expand it.
+2. Click on the individual assistant's name button to open the editor.
+3. Modify any settings and click **Save Changes**.
+
+### Manage Assistant Groups
+
+Inbound assistants are grouped by phone number. Each group can contain multiple assistants with different shift schedules -- the system routes calls to the assistant whose shift is currently active.
+
+- **Default Assistant:** One phone number can be set as the default forwarding number. When patients call your main texting number, calls are directed to the default assistant. A "Default" badge appears on the card.
+- **Change Default Number:** Click the edit icon next to the default number description in the header, then select a new number from the dropdown.
+- **Enable/Disable:** Click the three-dot menu on an expanded assistant group and select **Enable this number** or **Disable this number**. When disabled, calls route to the fallback number.
+- **Add New Shift:** Click **Add new assistant** from the three-dot menu to create an additional shift for the same phone number.
+
+### Search Assistants
+
+Use the search bar on the Inbound Calling page to filter assistants by name or phone number.
+
+## Outbound Calling Assistants
+
+Outbound assistants make automated calls on behalf of your clinic. They are pre-configured by type and appear as cards on the Outbound Calling page.
+
+### Edit an Outbound Assistant
+
+<Steps>
+  <Step title="Navigate to Outbound Assistants">
+    Go to **Settings > AI Assistants > Outbound Calling**.
+  </Step>
+  <Step title="Select Assistant">
+    Click **Edit** on the assistant card you want to modify. Each card shows the assistant's name, description, and active tools.
+  </Step>
+  <Step title="Configure Settings">
+    - **Assistant Name:** Update the display name.
+    - **Primary Location:** Assign the assistant to a specific location.
+    - **Greeting Message:** Customize the opening message for voice assistants.
+    - **Assistant Behaviour:** Provide custom instructions. Supports `@` suggestion shortcuts.
+    - **Tools:** Select which capabilities the assistant can use.
+    - **AI Model:** Choose the AI model.
+  </Step>
+  <Step title="Save">
+    Click **Save Changes**.
+  </Step>
+</Steps>
+
+## Scribe Assistant
+
+The Scribe assistant powers AI-generated clinical notes. It processes transcriptions and structured form data to produce documentation for providers.
+
+<Steps>
+  <Step title="Navigate to Scribe">
+    Go to **Settings > AI Assistants > Scribe**.
+  </Step>
+  <Step title="Configure Settings">
+    - **Assistant Name:** Update the scribe's display name.
+    - **Assistant Behaviour:** Provide instructions on how notes should be summarized (e.g., format preferences, level of detail, terminology to use). Supports `@` suggestion shortcuts.
+    - **AI Model:** Choose which AI model powers the scribe.
+  </Step>
+  <Step title="Save">
+    Click **Save Changes**.
+  </Step>
+</Steps>
+
+## Call Summarizer
+
+The Call Summarizer generates post-call summaries that staff can review.
+
+<Steps>
+  <Step title="Navigate to Call Summarizer">
+    Go to **Settings > AI Assistants > Call Summarizer**.
+  </Step>
+  <Step title="Configure Settings">
+    - **Assistant Name:** Update the display name.
+    - **Assistant Behaviour:** Provide instructions on how call summaries should be structured. Supports `@` suggestion shortcuts.
+    - **AI Model:** Choose the AI model.
+  </Step>
+  <Step title="Save">
+    Click **Save Changes**.
+  </Step>
+</Steps>
+
+## Inbound Texting Assistant
+
+The Inbound Texting assistant handles incoming text messages from patients, providing AI-powered responses and performing automated actions.
+
+<Steps>
+  <Step title="Navigate to Inbound Texting">
+    Go to **Settings > AI Assistants > Inbound Texting**.
+  </Step>
+  <Step title="Configure Settings">
+    - **Assistant Name:** Update the display name.
+    - **Assistant Behaviour:** Provide instructions for text message interactions (e.g., response length, handoff procedures, service hours). Supports `@` suggestion shortcuts.
+    - **Tools:** Select capabilities the texting assistant can use. Available tools differ from voice assistants -- tools like call-specific functions are filtered out.
+    - **AI Model:** Choose the AI model.
+  </Step>
+  <Step title="Save">
+    Click **Save Changes**.
+  </Step>
+</Steps>
+
+## AI Model Selection
+
+All assistant types include an AI Model selector. Available models include options from Google (Gemini) and OpenAI (GPT), with a **Recommended** option pre-selected. Different models offer varying performance characteristics -- the recommended model is suitable for most use cases.
+
+## Behaviour Prompts and Suggestions
+
+The **Assistant Behaviour** field on every assistant type accepts rich text with `@` mention shortcuts. When you type `@` in the behaviour editor, a dropdown appears with available suggestions. Select a suggestion to insert its content into the prompt.
+
+This lets you build reusable text snippets (managed under Suggestions) that can be quickly inserted into any assistant's behaviour instructions.
+
+---
+
+## Suggestions
+
+Suggestions are reusable text shortcuts that can be inserted into assistant behaviour prompts and other text fields by typing `@`. Manage suggestions from **Settings > AI Assistants > Suggestions** (accessible via the Suggestions tab).
+
+### Create a Suggestion
+
+<Steps>
+  <Step title="Navigate to Suggestions">
+    Go to **Settings > AI Assistants** and click the **Suggestions** tab.
+  </Step>
+  <Step title="Add Suggestion">
+    Click the **+** button in the top right corner of the suggestions panel.
+  </Step>
+  <Step title="Enter Details">
+    - **Label:** A short identifier for the suggestion (e.g., "ClinicHours", "EscalationProcess"). Labels can only contain letters, numbers, and spaces. The label cannot be changed after creation.
+    - **Content:** The full text that gets inserted when the suggestion is selected. This can be as long as needed.
+  </Step>
+  <Step title="Save">
+    Click **Create Suggestion**. The suggestion is immediately available for use in assistant behaviour prompts.
+  </Step>
+</Steps>
+
+### Edit a Suggestion
+
+1. From the Suggestions tab, click on a suggestion in the left panel to select it.
+2. Modify the **Content** field (the label cannot be changed after creation).
+3. Click **Save Changes**.
+
+### Delete a Suggestion
+
+1. Select the suggestion you want to remove.
+2. Click the **Delete** button on the suggestion editor.
+3. Confirm the deletion.
+
+### Search Suggestions
+
+Use the search bar in the left panel to filter suggestions by label.
+
+### How Suggestions Work
+
+Suggestions are available in the rich text editor used for assistant behaviour prompts. When editing any assistant's behaviour:
+
+1. Type `@` in the behaviour text field.
+2. A dropdown appears showing available suggestions filtered by what you type after `@`.
+3. Click a suggestion to insert its content at the cursor position.
+
+Suggestions pull from multiple categories including saved suggestions, assistant-specific suggestions, tenant-level data, and patient information.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Fallback Phone Numbers">
+    Every inbound calling assistant requires a fallback phone number. This number receives calls when the AI assistant is disabled or when no shift is currently active. Make sure the fallback number is staffed during business hours to avoid missed patient calls.
+  </Accordion>
+  <Accordion title="Shift Scheduling Best Practices">
+    Inbound assistants use shifts to determine when they answer calls. If no assistant has an active shift for a phone number, calls route to the fallback number. Consider creating multiple assistants on the same number with different shifts to provide 24/7 coverage, or use a single assistant with a staffed fallback during off-hours.
+  </Accordion>
+  <Accordion title="Tool Selection">
+    Tools extend what an assistant can do during a conversation. For inbound calling assistants, tools might include verifying callers, sending texts, transferring calls, or ending calls. For texting assistants, the available tool set is different and excludes voice-only capabilities. Only enable tools the assistant needs to keep conversations focused.
+  </Accordion>
+  <Accordion title="Permissions">
+    AI Assistant settings use granular per-type permissions:
+    - **Settings Assistants Inbound Read / Write** -- View and modify inbound calling assistants and phone numbers.
+    - **Settings Assistants Outbound Read / Write** -- View and modify outbound calling assistants.
+    - **Settings Assistants Scribe Read / Write** -- View and modify the Scribe assistant configuration.
+    - **Settings Assistants Summarizer Read / Write** -- View and modify the Call Summarizer assistant.
+    - **Settings Assistants Texting Read / Write** -- View and modify the Inbound Texting assistant.
+    - **Settings Suggestions Read / Write** -- View and modify the reusable text suggestions (the Suggestions tab).
+
+    Each assistant type has its own read/write pair. A user needs the **Read** permission to see the assistant's page and the **Write** permission to make changes. Admin users have full access to all assistants by default.
+  </Accordion>
+  <Accordion title="Deleting an Inbound Assistant">
+    To delete an inbound calling assistant, open the assistant editor and click the **Delete** button. This action cannot be undone, and any active calls to the assistant's phone number will fail after deletion.
+  </Accordion>
+</AccordionGroup>

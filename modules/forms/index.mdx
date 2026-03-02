@@ -1,0 +1,153 @@
+---
+title: 'Overview'
+description: 'Build intake forms, send them to patients, collect responses, and manage consent documentation.'
+---
+
+<Info>
+  **Where to find Forms:** In the left sidebar, click **Check-In**, then select **Forms**. You'll see tabs for **Forms List** (where you create and manage forms) and **Submissions** (where you view patient responses).
+</Info>
+
+<Info>
+  **Prerequisites:** You should have [Patients](/modules/patients) in the system before sending forms. To auto-attach forms to appointments, configure them in [Services](/modules/settings/services).
+</Info>
+
+Forms replace paper intake packets. Patients fill everything out on their phone before they arrive, and the answers flow directly into their chart — no scanning, no retyping.
+
+Each form is built from **blocks** and **questions**. A block is like a section on a paper form — for example, "Personal Information" or "Insurance Details." Inside each block, you add questions for the patient to answer. Patients complete forms via a direct link sent by text or email, or staff can fill forms in person. Submitted answers can automatically update patient demographics, insurance, medical history, and payment methods.
+
+<CardGroup cols={2}>
+  <Card title="Create a Consent Form" icon="file-signature" href="#create-a-consent-form">
+    Build a disclaimer-and-signature consent form.
+  </Card>
+  <Card title="Send Forms to Patients" icon="paper-plane" href="/modules/forms/sending-forms">
+    Send one or multiple forms via text message or fill in person.
+  </Card>
+  <Card title="View Submissions" icon="table" href="/modules/forms/submissions">
+    Review, filter, and export patient responses.
+  </Card>
+  <Card title="Manage Your Forms" icon="list-check" href="#manage-forms">
+    Search, edit, archive, and configure form settings.
+  </Card>
+</CardGroup>
+
+<Info>
+  **What your patients see:** Patients receive a text message with a link to the form. They open it on their phone, fill out each section, sign if required, and submit. If they close the browser mid-form, their progress is auto-saved — they can pick up where they left off by opening the same link again.
+</Info>
+
+## Create a Consent Form
+
+Consent forms collect a disclaimer acknowledgment and a patient signature. Use these for treatment consent, HIPAA agreements, telehealth consent, and similar documents.
+
+<Steps>
+  <Step title="Navigate to the Form Creator">
+    Go to **Check-In > Forms > Forms List** and click **Create Consent Form** in the top right corner.
+  </Step>
+  <Step title="Enter Form Details">
+    Fill in the following fields:
+    - **Form Name** (required) -- The name displayed to staff and patients (e.g., "Telemedicine Consent Form").
+    - **URL Path** (required) -- A short name used in the form's web link (e.g., "telemedicine-consent"). This is auto-generated from the form name, but you can change it.
+    - **Description** -- An optional summary of the form's purpose.
+  </Step>
+  <Step title="Write the Disclaimer Content">
+    Enter the full text of your disclaimer in the **Disclaimer Content** field. This is the legal or informational text patients read before signing. You can format text by wrapping words with special characters:
+    - Wrap text in double asterisks (e.g., `**important**`) for **bold red text** to emphasize key points.
+    - Wrap text in single asterisks (e.g., `*notice*`) for **bold text**.
+    - Wrap text in double underscores (e.g., `__terms__`) for underlined text.
+  </Step>
+  <Step title="Add the Signature Text">
+    Enter the text that appears above the signature field in **Signature Text**. This typically says something like "By signing below, I acknowledge that I have read and understood the above disclaimer."
+  </Step>
+  <Step title="Configure Witness Signature (Optional)">
+    Check **Include Witness Signature** if the form requires a second signature from a witness. When enabled, an additional field appears for **Witness Signature Text**.
+  </Step>
+  <Step title="Set Submission Expiry (Optional)">
+    Configure **Submission Expiry** to set the number of days before a completed submission expires. After expiry, the patient must re-complete the form. Leave empty if submissions should never expire.
+  </Step>
+  <Step title="Preview and Save">
+    The right panel shows a live preview of how the form will appear to patients. When satisfied, click **Create Form**.
+  </Step>
+</Steps>
+
+### Edit a Consent Form
+
+From the Forms List, click the gear icon on a consent form and select **Edit**. The editor loads the existing content. Make changes and click **Update Form**.
+
+<Info>
+  The consent form editor only supports forms with a simple structure: a disclaimer, a patient signature, and optionally a witness signature. Forms with other question types (text fields, multi-select, file uploads, etc.) are managed through the full form builder.
+</Info>
+
+## Manage Forms
+
+Navigate to **Check-In > Forms > Forms List** to see all active forms. The table shows each form's name, number of submissions, creation date, and expiry setting (if configured).
+
+### Search Forms
+
+Type in the search bar at the top of the list to filter forms by name. The list updates as you type.
+
+### Form Actions
+
+Click the gear icon on any form row to access these options:
+
+- **Edit** -- Open the consent form editor (available only for simple consent forms with disclaimer and signature fields).
+- **Send to Patient** -- Search for a patient and send the form link via text message.
+- **Fill In Person** -- Open the form in the console so a staff member can fill it out on behalf of a patient.
+- **Edit Default Message** -- Customize the default SMS text that accompanies the form link when sent to patients.
+- **Edit Expiry** -- Set or change the number of days after which a submission expires and must be re-completed.
+- **View Submissions** -- Open a panel showing all patient responses for this form (only visible if the form has at least one submission).
+- **Copy URL** -- Copy the direct form URL to your clipboard for sharing manually.
+- **Generate QR Code** -- Download a QR code image that links to the form. Useful for printing and posting in your clinic.
+- **Convert to Note Template** -- Turn this form into a clinical note layout that providers can use when documenting visits. The form's questions become fields in the note template. See [Note Templates](/modules/settings/note-templates) for more.
+- **Export PDF for Printing** -- Download a blank PDF version of the form for paper-based workflows.
+- **Archive Form** -- Remove the form from active use. If the form has existing submissions, a confirmation prompt appears.
+
+### Bulk Actions
+
+Select multiple forms using the checkboxes on the left side of each row. A toolbar appears with bulk options:
+
+- **Copy Link** -- Copy a single URL that combines all selected forms into one patient workflow.
+- **Export PDF for Printing** -- Download a ZIP file containing blank PDF versions of all selected forms.
+- **Convert to Note Templates** -- Turn all selected forms into clinical note layouts for providers at once.
+- **Send to Patient** -- Send all selected forms to a single patient.
+
+### Archive a Form
+
+To retire a form without deleting historical data:
+
+1. From the Forms List, click the gear icon and select **Archive Form**.
+2. If the form has existing submissions, confirm the archive action when prompted.
+
+Archived forms no longer appear in the active forms list, cannot be sent to patients, and are removed from service form assignments. All historical submissions and patient data linked to the form are preserved.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Link Forms to Services">
+    Forms can be attached to services so they are automatically required when a patient books an appointment for that service. This is configured in [Services](/modules/settings/services) under the **Forms & Intake** tab of the service editor. When a patient books an appointment, the linked forms are included in their pre-appointment workflow.
+  </Accordion>
+  <Accordion title="Insurance Verification (PVerify)">
+    The Insurance block type supports integrated insurance verification through PVerify. When a patient fills out the insurance section of the form, they enter their insurance provider and member ID. Behind the scenes, the system checks whether their coverage is active and estimates what the patient may owe. The insurance information they enter is automatically saved to their patient record, so your front desk doesn't need to enter it manually.
+  </Accordion>
+  <Accordion title="Payment Method Collection">
+    The Payment Methods block type lets you securely collect a credit card as part of the form. The patient sees a standard card entry field within the form, enters their card details, and submits. The card is saved to their account so it's ready for future billing — no need to collect it separately at the front desk. This is especially useful for collecting a card on file during intake.
+  </Accordion>
+  <Accordion title="Converting Forms to Note Templates">
+    Forms can be converted into clinical note templates for use in the Scribe module. Click the gear icon on any form and select **Convert to Note Template**. The form's questions become fields in the template. You can also bulk-convert multiple forms using the checkbox selection. Converted templates appear in **Settings > Note Templates**.
+  </Accordion>
+  <Accordion title="Calculated Score Questions">
+    Calculated score questions automatically compute a total based on the patient's answers to other questions in the same block. These are useful for clinical assessments and screening tools (e.g., PHQ-9 depression screening). The score displays prominently in the submission viewer under an "Assessment Results" header.
+  </Accordion>
+  <Accordion title="File Upload Handling">
+    File upload questions allow patients to upload documents such as ID photos, insurance cards, or medical records. You can configure allowed file types, maximum file size, and maximum file count per question. If a patient encounters an upload error, the submission is flagged with a "Requires Follow-up" badge so staff can collect the file through another method.
+  </Accordion>
+  <Accordion title="Consent Document Embedding">
+    Document-type questions embed PDF files directly within the form. These are displayed to the patient as part of the consent workflow. When a submission is exported to PDF, the embedded document content is included in the export for a complete record.
+  </Accordion>
+  <Accordion title="Permissions">
+    Form features are gated by role-based permissions:
+    - **Forms Submissions Read** -- Required to view form submissions and patient responses. Without this permission, the Submissions table is not accessible.
+    - **Downloads/Export** -- Required to export individual submissions to PDF and to export blank forms for printing.
+    - **Settings Note Templates Write** -- Required to use the "Convert to Note Template" feature on forms.
+
+    All staff can send forms to patients and fill forms in person. Admin users have full access to all form features by default.
+  </Accordion>
+</AccordionGroup>

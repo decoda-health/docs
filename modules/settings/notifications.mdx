@@ -1,0 +1,191 @@
+---
+title: 'Notifications & Alerts'
+description: 'Control which events trigger alerts and how you receive them — via SMS, email, or in-app notifications.'
+---
+
+<Info>
+  **Prerequisite:** Notification preferences are per-user and depend on role permissions. Ensure your account has the appropriate role assigned in [Users & Roles](/modules/settings/users) before configuring alerts.
+</Info>
+
+Choose what you want to know about and how you want to hear about it. Whether it's a new appointment, a failed payment, or low inventory — you decide which events trigger alerts and whether they come as in-app notifications, emails, or texts.
+
+Decoda tracks 46+ event types across your clinic — from new appointments to low inventory warnings. The Notifications settings page lets each user choose which events they want to be alerted about and how those alerts are delivered.
+
+## Notification Delivery Methods
+
+Each alert can be delivered through one or more of the following channels:
+
+- **In-App**: Appears in the notification bell inside Decoda. Always available to all users.
+- **Email**: Sent to the email address registered on your user account.
+- **SMS**: Sent as a text message to the phone number on your user account.
+
+## Configure Your Notification Preferences
+
+<Steps>
+  <Step title="Open Notification Settings">
+    Click the **Settings** gear icon in the main navigation and select **Notifications**.
+  </Step>
+  <Step title="Browse Alert Categories">
+    Alerts are organized into categories (e.g., Patient, Appointment, Billing). Expand a category to see all available alert types.
+  </Step>
+  <Step title="Toggle Delivery Methods">
+    For each alert type, toggle **In-App**, **Email**, and/or **SMS** on or off depending on how you want to be notified.
+  </Step>
+  <Step title="Save">
+    Changes save automatically as you toggle preferences.
+  </Step>
+</Steps>
+
+## Alert Categories
+
+### Patient Alerts
+
+| Alert | When It Fires |
+|-------|--------------|
+| Patient Created | A new patient record is added |
+| Patient Updated | An existing patient's information is modified |
+| Low Patient Review | A patient leaves a low satisfaction review |
+
+### Appointment & Scheduling Alerts
+
+| Alert | When It Fires |
+|-------|--------------|
+| Appointment Scheduled | A new appointment is booked by staff |
+| Appointment Updated | An existing appointment is modified |
+| Appointment Cancelled | An appointment is cancelled |
+| Appointment Request | A patient submits a booking request requiring approval |
+| Self-Scheduled Appointment | A patient books their own appointment online |
+| Self-Scheduled Appointment Updated | A patient modifies their self-booked appointment |
+| Self-Scheduled Appointment Cancelled | A patient cancels their self-booked appointment |
+| Block Created | A calendar block (e.g., lunch, meeting) is added |
+| Block Updated | A calendar block is modified |
+| Block Cancelled | A calendar block is removed |
+| Shift Created | A provider shift is added to the schedule |
+| Shift Updated | A provider shift is modified |
+| Shift Cancelled | A provider shift is removed |
+
+### Payment & Billing Alerts
+
+| Alert | When It Fires |
+|-------|--------------|
+| Payment Created | A new payment is initiated |
+| Payment Succeeded | A payment is successfully processed |
+| Payment Failed | A payment attempt fails |
+| Planned Payment Succeeded | A scheduled or recurring payment processes successfully |
+| Planned Payment Failed | A scheduled or recurring payment fails |
+| Charge Created | A new charge is added to a patient's account |
+| Refund Created | A refund is initiated |
+| Refund Succeeded | A refund processes successfully |
+| Refund Failed | A refund attempt fails |
+| Adjustment Created | A billing adjustment is applied |
+| Adjustment Succeeded | A billing adjustment processes successfully |
+| Adjustment Failed | A billing adjustment fails |
+| Invoice Updated | An invoice is modified |
+| Invoice Status Updated | An invoice changes status (e.g., sent, paid, overdue) |
+| Invoice Set Updated | A batch of invoices is updated |
+| Deposit In Review | A bank deposit is under review |
+| Deposit Succeeded | A bank deposit clears successfully |
+| Deposit Failed | A bank deposit fails |
+
+### Communication Alerts
+
+| Alert | When It Fires |
+|-------|--------------|
+| Call Received | An incoming phone call arrives |
+| Call Made | An outbound call is placed |
+| Message Received | An incoming text message arrives |
+| Message Sent | An outbound text message is sent |
+| Message Delivered | A text message is confirmed delivered |
+| Message Failed | A text message fails to send |
+| Email Received | An incoming email arrives |
+| Email Sent | An outbound email is sent |
+| Mail Sent | A physical mail piece is dispatched |
+| Mail Delivery Failed | A physical mail delivery fails |
+
+### Form & Checklist Alerts
+
+| Alert | When It Fires |
+|-------|--------------|
+| Form Submitted | A patient completes and submits an intake form |
+| Appointment Checklist Updated | A checklist item is marked complete for an appointment |
+
+### Inventory Alerts
+
+| Alert | When It Fires |
+|-------|--------------|
+| Stock Low | Inventory level drops below the minimum threshold |
+| Stock Added | New stock is added to inventory |
+| Stock Updated | Stock details are modified |
+| Stock Drawdown | Stock is fully consumed for a service |
+| Stock Partial Drawdown | A portion of stock is consumed |
+| Stock Archived | A stock item is archived |
+| Stock Linked to Item | Stock is associated with a service or product |
+| Stock Unlinked from Item | Stock association is removed |
+| Shipment Received | An inventory shipment arrives |
+| Shipment Updated | Shipment details are modified |
+| Shipment Archived | A shipment record is archived |
+| Item Created | A new inventory item is added |
+| Item Updated | An inventory item is modified |
+| Item Archived | An inventory item is archived |
+| Supplier Linked | A supplier is associated with stock |
+| Supplier Unlinked | A supplier association is removed |
+| Supplier Updated | Supplier-stock relationship details change |
+| Purchase Order Created | A new PO is drafted |
+| Purchase Order Placed | A PO is submitted to the supplier |
+| Purchase Order Cancelled | A PO is cancelled |
+| Purchase Order Completed | A PO is fully received |
+| Purchase Order Archived | A PO is archived |
+
+### Note Alerts
+
+| Alert | When It Fires |
+|-------|--------------|
+| Note Created | A new clinical note is created |
+| Note Updated | An existing clinical note is modified |
+
+## Bulk Toggle Controls
+
+You do not need to configure each alert individually. Use the bulk controls to manage preferences quickly:
+
+- **Section Toggle**: Enable or disable all alerts within a single category at once.
+- **Toggle All**: Enable or disable every alert across all categories in one click.
+- **Method-Level Toggle**: Turn an entire delivery method on or off (e.g., disable all SMS alerts while keeping In-App and Email active).
+
+## Location Filtering
+
+Some alerts support location-based filtering so you only receive notifications for events at specific clinics:
+
+- When enabled, alerts are limited to events at your assigned location(s).
+- This is useful for multi-location organizations where staff only need to see their own clinic's activity.
+
+To enable location filtering for an alert type, look for the **Location Filter** option next to the alert toggle. Select the locations you want to receive alerts for, and events at other facilities will be excluded.
+
+## Notification Sounds
+
+You can choose a sound that plays when new in-app notifications arrive. This setting is found in **Settings > Preferences** under the notification sound option.
+
+Available sounds: **None** (silent), **Pop**, **Droplet**, **Gentle**, **Aurora**, **Cosmic**.
+
+Use the **Preview** button next to each sound to hear it before selecting.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Permission-Based Alert Visibility">
+    Users only see alert types that match their role permissions. For example, a front desk user without billing access will not see payment alerts in their notification settings. If an alert type you expect to see is missing, check that your role has the relevant module permissions in [Users & Roles](/modules/settings/users).
+  </Accordion>
+  <Accordion title="Auto-Mark as Read">
+    Configure whether notifications are automatically marked as read after a period of time. Options include **Immediately**, **Never**, or a custom duration (e.g., after 5 minutes). This is found within your notification preferences on the Notifications settings page.
+  </Accordion>
+  <Accordion title="Mark All as Read">
+    To clear the notification badge, click the **notification bell** icon and select **Mark All as Read**. This dismisses the unread count for all current notifications without deleting them.
+  </Accordion>
+  <Accordion title="Troubleshooting Missing Alerts">
+    If you are not receiving expected alerts, check the following:
+
+    - **Permissions**: Your role may not have access to the module that generates the alert. See [Users & Roles](/modules/settings/users).
+    - **Deactivated preferences**: The alert type or delivery method may be toggled off in your notification settings.
+    - **Location filter**: If location filtering is enabled, events at other locations will be excluded.
+    - **SMS/Email delivery**: Verify that your phone number and email address are correct on your user profile. SMS and email delivery depend on valid contact information.
+  </Accordion>
+</AccordionGroup>

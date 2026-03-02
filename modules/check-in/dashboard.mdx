@@ -1,0 +1,143 @@
+---
+title: 'Daily Dashboard'
+description: 'See appointment metrics at a glance, follow up on pending intake forms, and resolve appointment alerts.'
+---
+
+<Info>
+  **Where to find it:** Go to **Check-In > Dashboard**. The dashboard is the default page when you open the Check-In section.
+</Info>
+
+The dashboard is your morning briefing. It answers the questions front desk staff ask every day: How many appointments do we have? Are any providers underbooked? Which patients still haven't filled out their forms? Are there any alerts I need to deal with?
+
+## Filter the Dashboard
+
+Use the filters at the top of the page to control what the dashboard shows:
+
+- **Provider** -- Narrow results to one or more specific providers.
+- **Location** -- Focus on one or more clinic locations.
+- **Date Range** -- Pick a preset (Today, Last 7 Days, Last 30 Days, etc.) or set custom start and end dates.
+
+Click **Reset** to clear all filters and return to defaults.
+
+<Info>
+  **Bookmarkable filters:** Your filter selections are saved in the page URL. You can bookmark a specific view or share the link with a coworker to show them exactly what you're looking at.
+</Info>
+
+## Appointment Metrics
+
+At the top of the dashboard, two summary cards give you a quick read on how the clinic is performing.
+
+### Total Appointments Booked
+
+This card shows the total number of appointments in your selected date range, broken down by status:
+
+| Status | What it means |
+|---|---|
+| **Completed** | The appointment happened and the patient has left. |
+| **Confirmed** | The patient confirmed — this appointment is locked in. |
+| **Pending** | The patient hasn't confirmed yet. |
+| **No Show** | The patient didn't show up. |
+| **Cancelled** | The appointment was cancelled. |
+| **Overridable** | The patient hasn't confirmed, and another patient can book over this slot. |
+
+A color-coded bar shows the proportion of each status so you can quickly see, for example, if you have a high no-show rate.
+
+### Provider Utilization
+
+This card shows how much of your providers' available time is actually filled with appointments. It displays:
+
+- **Average utilization percentage** — the overall rate across all providers.
+- **Total appointment hours vs. total shift hours** — for example, "24h of 40h scheduled."
+- **Per-provider breakdown** — each provider listed with their individual utilization rate, appointment count, and hours.
+
+**What does utilization mean?** If a provider is scheduled for 8 hours and has 6 hours of appointments, their utilization is 75%. Higher utilization means the provider's time is being used well. Low utilization might mean you need to fill gaps in their schedule or adjust their shift hours.
+
+The color dot next to each provider's name gives you a quick signal:
+- **Green** — 80% or higher. Schedule is well-filled.
+- **Yellow** — 60-79%. Some room to fill.
+- **Red** — Below 60%. A lot of open time.
+
+<Info>
+  **Calendar time only mode:** Click the gear icon on the Provider Utilization card and check **View utilization by calendar time only**. This calculates utilization based purely on shift hours without factoring in capacity limits — useful if you want a simpler view of how time is being used.
+</Info>
+
+## Appointment Trends
+
+Below the metrics, a chart shows how appointment volume changes over time. This helps you spot patterns — a dip on Mondays, a spike around flu season, or a gradual increase in new patient bookings.
+
+You can customize the chart with these controls:
+
+| Control | Options | When to use it |
+|---|---|---|
+| **Group by** | Day, Week, or Month | Use Day for recent ranges, Week or Month for longer periods. |
+| **Breakdown** | Appointment volume / New Patient Appointments | Switch to "New Patient Appointments" to see what percentage of visits are first-time patients. |
+| **By Location** | On / Off | Turn on to split the chart by clinic location, so you can compare locations side by side. |
+
+When set to **Appointment volume**, the chart shows three stacked areas:
+- **Appointments Scheduled** — total appointments on the books.
+- **New Bookings Made** — new appointments created during this period.
+- **Cancelled/No-Shows** — appointments that were cancelled or where the patient didn't show.
+
+When set to **New Patient Appointments**, the chart shows the percentage of appointments that were for new (first-time) patients. Hover over any point to see the exact count of new vs. existing patient appointments.
+
+### Appointments by Service Type
+
+Below the trend chart, a bar chart breaks down appointments by service type. This shows which services are most popular and helps you plan staffing and resources.
+
+## Patients Pending Intake Forms
+
+This table is one of the most useful parts of the dashboard. It lists patients who have upcoming appointments but haven't completed their intake forms yet.
+
+Each row shows:
+
+| Column | What it shows |
+|---|---|
+| **Patient Name** | The patient's name, linked to their chart. |
+| **Appointment** | The date and time of their upcoming appointment. |
+| **Provider** | Which provider they're seeing. |
+| **Type** | The service type for the appointment. |
+| **Contact** | The patient's phone number and email. |
+| **Action** | A **Send Form** button to text the intake forms directly to the patient. |
+
+Click **Send Form** to send the patient a text message with a link to their intake forms. After sending, the patient is removed from the list.
+
+<Info>
+  **Best practice:** Check this table 24 hours before appointments. That gives patients enough time to fill out their forms before they arrive, which means less paperwork at the front desk and shorter wait times.
+</Info>
+
+## Appointment Alerts
+
+At the bottom of the dashboard, you'll find unresolved appointment alerts. These are notifications about changes that need your attention.
+
+Each alert shows:
+
+- **Badge** — The type of change: **New** (a new appointment was booked), **Updated** (an existing appointment was changed), **Cancelled** (an appointment was cancelled), or **Request** (a patient requested an appointment).
+- **Patient name** — Who the alert is about.
+- **Description** — Details about what happened.
+- **Date** — When the alert was created.
+
+Click **Resolve** on any alert after you've addressed it. This removes it from the list.
+
+<Info>
+  **Don't let alerts pile up.** Review and resolve alerts regularly so the list stays manageable and you don't miss anything important. Unresolved alerts from days ago are a sign something fell through the cracks.
+</Info>
+
+## Common Workflow: Starting Your Morning
+
+<Steps>
+  <Step title="Open the Dashboard">
+    Navigate to **Check-In > Dashboard**. Set the date range to **Today** to see what's coming up.
+  </Step>
+  <Step title="Check the Numbers">
+    Look at Total Appointments Booked to see how busy the day will be. Glance at Provider Utilization to see if any providers have a light schedule — you may be able to fit in same-day requests.
+  </Step>
+  <Step title="Chase Pending Forms">
+    Scroll down to the Pending Intake Forms table. For any patient whose appointment is today or tomorrow, click **Send Form** to text them a reminder. This saves time at check-in.
+  </Step>
+  <Step title="Handle Alerts">
+    Review any appointment alerts at the bottom. New bookings, cancellations, or schedule changes may need follow-up — a phone call to confirm, a room reassignment, or a waitlist notification.
+  </Step>
+  <Step title="Move to the Calendar">
+    Once you've reviewed the dashboard, switch to the [Calendar](/modules/scheduling) to manage individual appointments throughout the day.
+  </Step>
+</Steps>

@@ -1,0 +1,77 @@
+---
+title: 'Ingenico Lane/3000'
+description: 'Setup guide for the Ingenico Lane/3000 payment terminal.'
+---
+
+<Frame>
+  <img src="/images/pos-devices/lane_3000.png" alt="Ingenico Lane/3000" width="250" />
+</Frame>
+
+<Warning>
+  The Lane/3000 does **not** support Wi-Fi. It must be connected via Ethernet.
+</Warning>
+
+## What's in the Box
+
+- Ingenico Lane/3000 terminal
+- Ingenico Multipoint Interface Cable
+- Ingenico power supply
+
+## Initial Setup
+
+<Steps>
+  <Step title="Power Connection">
+    - Plug the power supply connector into the jack on the Multipoint Interface Cable.
+    - Connect the Multipoint Interface Cable into the Multipoint Port on the underside of the terminal.
+    - Plug the power supply adapter into an available power outlet.
+  </Step>
+  <Step title="Network Connection">
+    Connect the other end of the Multipoint Interface Cable to an Ethernet port (router, modem, wall jack, etc.).
+  </Step>
+</Steps>
+
+## Powering On and Registering the Terminal
+
+<Steps>
+  <Step title="Initialize">
+    Once power is supplied, the initialization process begins.
+  </Step>
+  <Step title="Establish Connection">
+    After establishing its IP address, the terminal starts the registration process.
+  </Step>
+  <Step title="Register Device">
+    The terminal will display a four-digit code. Use this code when [registering the device](/modules/settings/payment-management#register-a-new-device) in Decoda.
+  </Step>
+</Steps>
+
+## Entering Text Using the Multi-Tap Method
+
+Each number key represents a set of letters. Pressing the key multiple times will cycle through the numbers and letters. For example, pressing `2`:
+
+| Presses | Character |
+|---------|-----------|
+| 1 | `2` |
+| 2 | `a` |
+| 3 | `b` |
+| 4 | `c` |
+| 5 | `A` |
+| 6 | `B` |
+| 7 | `C` |
+
+## Troubleshooting
+
+### Restart Your Terminal
+
+There are two ways to restart your terminal:
+
+**Soft Reboot:** Access the Admin Menu and select the Restart Terminal option.
+
+**Hard Reboot:** Press and hold the `.`, `#`, `*` key and `<` (yellow key) simultaneously until the device powers off.
+
+### Device Disconnected
+
+If your device becomes disconnected, verify the following:
+
+- Ensure you are using the provided multi-point mono connector (Ethernet) cable and power supply.
+- Check that the Ethernet jack on the multi-point mono connector cable is securely plugged into your router, modem, networking switch, or Ethernet wall jack.
+- Verify that the Ethernet port being used has access to the Internet and that your internal network allows Integrated Terminal connections.

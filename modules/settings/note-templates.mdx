@@ -1,0 +1,178 @@
+---
+title: 'Note Templates'
+description: 'Create and manage reusable clinical note templates for consistent documentation across providers.'
+---
+
+<Info>
+  **Prerequisites:** You should have [Providers](/modules/settings/users) set up before configuring note templates, since templates can be restricted to specific providers.
+</Info>
+
+Templates ensure every provider documents consistently. Instead of free-typing notes, providers fill in structured fields — which makes notes easier to review, search, and use for AI-powered features like Scribe.
+
+Note templates define the structured forms that providers use to document clinical encounters. Each template contains a set of fields (questions) that guide providers through consistent documentation. Templates support multiple field types, vitals tracking, medication logging, image attachments, and patient health data auto-fill.
+
+## Create a Note Template
+
+<Steps>
+  <Step title="Navigate to Note Templates">
+    Go to **Settings** and select **Note Templates**.
+  </Step>
+  <Step title="Start Creation">
+    Click the **Create Note Template** button in the top right corner. This opens the template editor.
+  </Step>
+  <Step title="Enter Template Name">
+    Type a name for your template in the **Template Name** field at the top of the editor (e.g., "Initial Consultation", "Follow-Up Visit", "Botox Treatment").
+  </Step>
+  <Step title="Add Fields from the Sidebar">
+    Use the left sidebar to add fields to your template. Click any field type to append it to the form. Available field categories:
+
+    - **Form Fields:** Short Text, Long Text, Number, Date, Yes/No Toggle, Single Choice, Multiple Choice.
+    - **Medications:** Structured medication dose tracking (dose, frequency, lot number).
+    - **Vitals:** Weight and Height fields that map to patient records.
+    - **Patient Health Data:** Dynamic fields that auto-fill from the patient's health record. Includes both standard and custom health data fields.
+    - **Attachments:** Photo Upload (for images with annotation support) and Document Upload (for PDFs and documents).
+  </Step>
+  <Step title="Configure Each Field">
+    Click on any field in the editor to expand its settings:
+    - **Name:** The label shown to providers when filling out the note.
+    - **Description:** Optional helper text displayed below the field name.
+    - **Required:** Toggle on to make the field mandatory.
+    - **Field Type:** Change the question type using the dropdown (Short Text, Long Text, Number, Date, Toggle, Single Choice, Multiple Choice).
+    - **Options:** For Single Choice and Multiple Choice fields, add the selectable options.
+    - **Placeholder Images:** For Photo Upload fields, add named placeholders that guide providers on what images to capture.
+  </Step>
+  <Step title="Reorder Fields">
+    Drag fields using the grip handle on the left side of each field card to reorder them. The order determines how providers see the fields when creating a note.
+  </Step>
+  <Step title="Set Expiry (Optional)">
+    Enter a value in the **Expiry Days** field to set how many days after creation a note based on this template expires. Leave blank for no expiry.
+  </Step>
+  <Step title="Configure Provider Access">
+    Under **Provider Access**, choose who can use this template:
+    - **Everyone:** All providers in your organization can use this template.
+    - **Specific Providers:** Select individual providers. You can filter by location and search by name.
+  </Step>
+  <Step title="Save">
+    Click **Save Template**. The template is immediately available for providers to use when creating clinical notes.
+  </Step>
+</Steps>
+
+## Edit a Template
+
+From the **Note Templates** page, click on a template name to open the editor. You can modify any field, reorder questions, add new fields, or remove existing ones. Click **Save Template** when finished.
+
+Each field in the editor shows a preview of how it will appear to providers. You can:
+
+- Click any field to enter edit mode and modify its settings.
+- Click **Done** on an expanded field to collapse it.
+- Click the trash icon to delete a field.
+
+## Manage the Template Table
+
+The template list page provides several ways to organize and manage your templates.
+
+- **Search:** Use the search bar to filter templates by name or ID.
+- **Sort:** Click the **Name** or **Created Date** column headers to sort ascending or descending.
+- **Pagination:** Navigate through pages using the pagination controls at the bottom.
+- **Row Actions:** Click the three-dot menu on any template row to access quick actions: Edit, Duplicate, Edit Provider Access, or Delete.
+
+## Duplicate a Template
+
+To create a copy of an existing template:
+
+1. On the **Note Templates** page, find the template you want to duplicate.
+2. Click the three-dot menu on the template row.
+3. Select **Duplicate**.
+
+The system creates a new template named "[Original Name] (Copy)" with the same fields, provider access, and expiry settings. You can then edit the copy independently.
+
+## Configure Provider Access
+
+Provider access controls which providers can see and use a template when creating notes.
+
+<Steps>
+  <Step title="Open Provider Access">
+    Click the three-dot menu on a template row and select **Edit Provider Access**, or click the access cell directly in the table.
+  </Step>
+  <Step title="Choose Access Mode">
+    - **Everyone:** All providers in your organization can use this template.
+    - **Specific Providers:** Manually select which providers have access.
+  </Step>
+  <Step title="Select Providers (if Specific)">
+    When using Specific Providers mode:
+    - Providers are grouped by location for easy selection.
+    - Check individual providers or use the location checkbox to select all providers at a location.
+    - Use the search bar to find providers by name.
+    - Use the **All** and **None** quick-select buttons.
+  </Step>
+  <Step title="Save">
+    Click **Save** to apply the access changes.
+  </Step>
+</Steps>
+
+## Bulk Delete Templates
+
+To delete multiple templates at once:
+
+1. Select templates by checking the boxes in the left column of the table.
+2. A bulk actions bar appears at the bottom of the page showing the number of selected templates.
+3. Click **Delete** on the bulk actions bar.
+4. Confirm when prompted. This action cannot be undone.
+
+## Manage Image Tags
+
+Image tags are used to categorize and label photo attachments on clinical notes. They appear below the template table on the Note Templates page.
+
+### Create a Tag
+
+<Steps>
+  <Step title="Navigate to Image Tags">
+    Scroll down below the template table to the **Image Tags** section.
+  </Step>
+  <Step title="Create Tag">
+    Click the **Create Tag** button.
+  </Step>
+  <Step title="Enter Details">
+    - **Name:** A descriptive label for the tag (e.g., "Before", "After", "Left Side").
+    - **Color:** Select a color using the color picker. This color appears as a visual badge on tagged images.
+  </Step>
+  <Step title="Save">
+    Click **Create Tag**. The tag is immediately available for use on note attachments.
+  </Step>
+</Steps>
+
+### Edit or Delete a Tag
+
+- Click on a tag row in the Image Tags table to open the editor. Change the name or color and click **Save Changes**.
+- To delete a tag, click the three-dot menu on the tag row and select **Delete**. Confirm the deletion. This removes the tag from all images it was applied to.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Template Migration Notice">
+    If your organization previously used legacy free-text note templates, a migration banner appears at the top of the Note Templates page. Legacy templates can be converted to the new structured form format for better organization, reporting, and AI integration. Click the migration link in the banner for details on the conversion process.
+  </Accordion>
+  <Accordion title="Mapped Fields (Vitals & Medications)">
+    Vitals (Weight, Height) and Medication fields are "mapped" -- their values automatically sync to the patient's health record. Each mapped field type can only be added to a template once. Once added, it appears grayed out in the sidebar. This ensures data consistency across notes.
+  </Accordion>
+  <Accordion title="Patient Health Data Auto-Fill">
+    Fields from the Patient Health Data category auto-populate with the patient's existing health record values when a provider creates a new note. This saves time and ensures accuracy for recurring data like allergies, conditions, and custom health fields.
+  </Accordion>
+  <Accordion title="Photo Upload Placeholders">
+    The Photo Upload field supports named placeholders that serve as guides for providers. For example, a "Facial Treatment" template might include placeholders named "Front View", "Left Profile", and "Right Profile". Providers see these placeholders and can upload images directly into each slot. Placeholder images can also be pre-uploaded as reference guides.
+  </Accordion>
+  <Accordion title="Favoriting Templates">
+    Providers can favorite templates for quick access. Favorited templates appear at the top of the template selection list when creating a new note. This is managed at the individual provider level and does not affect other users.
+  </Accordion>
+  <Accordion title="Permissions">
+    Note template management is gated by role-based permissions:
+    - **Settings Note Templates Read** -- Required to view the Note Templates page and see template details.
+    - **Settings Note Templates Write** -- Required to create, edit, duplicate, and delete note templates, as well as manage image tags.
+    - **Settings Note Templates Manage Access** -- Required to configure which providers can use a template (the Provider Access settings). Without this permission, the provider access controls are hidden.
+
+    Admin users have full access to all note template settings by default.
+  </Accordion>
+  <Accordion title="Expiry Days">
+    When set, notes created from the template will have an expiry date calculated as the note creation date plus the configured number of days. Expired notes are flagged in the system. Leave this field blank if notes should not expire.
+  </Accordion>
+</AccordionGroup>

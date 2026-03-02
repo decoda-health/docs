@@ -1,0 +1,116 @@
+---
+title: 'Cash Management & Commissions'
+description: 'Track and reconcile physical cash at each location, and set up provider commission structures with payout reports.'
+---
+
+<Info>
+  Navigate to **Billing > Cash Balances** for cash management or **Billing > Commissions** for commission structures.
+</Info>
+
+## Cash Management
+
+Navigate to **Billing > Cash Balances** to track and reconcile physical cash at each location.
+
+<Info>
+  Cash Balances are location-specific. Select your current location from the location picker before accessing this page.
+</Info>
+
+### Set Up Initial Balance
+
+If no cash balance has been recorded for a location, the page displays an **Initial Cash Setup** prompt. Enter the starting amount in the drawer to establish the baseline.
+
+### Cash Balance Timeline
+
+After setup, the page shows a chronological timeline of all cash-related events:
+
+- **Balance Closures:** Register close records showing the counted total, expected total, and any discrepancy.
+- **Cash Payments:** Payments received in cash.
+- **Cash Refunds:** Refunds issued in cash.
+- **Adjustments:** Manual pay-in and pay-out transactions.
+- **External Settlements:** Charges settled outside the payment system.
+
+The timeline loads the most recent 7 days and automatically loads more history as you scroll down.
+
+### Pay In / Pay Out
+
+Click **Pay In** or **Pay Out** to record manual cash adjustments:
+
+- **Pay In:** Add cash to the drawer (e.g., restocking change, petty cash deposit).
+- **Pay Out:** Remove cash from the drawer (e.g., vendor payment, petty cash withdrawal).
+
+Enter the amount and a reason, then confirm.
+
+### Close the Register
+
+<Steps>
+  <Step title="Navigate to Close Register">
+    From the **Cash Balances** page, click **Close Cash Balance**. If you have multiple locations, select the location first.
+  </Step>
+  <Step title="Review Expected Balance">
+    The left panel shows the expected cash total based on:
+    - Last closing balance
+    - Cash payments received since close
+    - Cash refunds issued since close
+    - Adjustments (pay-ins and pay-outs) since close
+    - Last close date
+  </Step>
+  <Step title="Count Cash">
+    Use the denomination counter on the right to enter the quantity of each bill ($100, $50, $20, $10, $5, $1) and coin (25c, 10c, 5c, 1c). The system calculates running totals for bills, coins, and the grand total automatically.
+  </Step>
+  <Step title="Review Reconciliation">
+    The **Reconciliation Summary** at the bottom shows:
+    - Your counted total
+    - The expected total
+    - The discrepancy (over or short)
+  </Step>
+  <Step title="Submit">
+    Click **Close Register** to record the balance. The closing record appears in the Cash Balance Timeline.
+  </Step>
+</Steps>
+
+### Manage Discrepancies
+
+When a closing balance does not match the expected amount, the timeline entry is flagged. You can **Acknowledge** a discrepancy to mark it as reviewed without changing the recorded amounts.
+
+You can also **void** a cash balance closure or adjustment if it was recorded in error, and **update the date** on a closure or adjustment to correct a timestamp mistake.
+
+## Commissions
+
+Navigate to **Billing > Commissions** to set up and manage provider commission structures and generate payout reports.
+
+### Commission Structures
+
+A commission structure defines the rules for calculating provider payouts. Each structure includes:
+
+- **Name and Description:** Identifying information.
+- **Commission Rules:** One or more rules that define how commissions are calculated (e.g., percentage of revenue, per-service flat fee). Rules can be scoped to specific services, items, or packages.
+- **Assigned Providers:** The staff members whose earnings are calculated using this structure.
+
+### Manage Structures
+
+- **Create:** Click **New Structure** and configure rules and provider assignments on the edit page.
+- **Edit:** Modify rules, name, description, or assignments.
+- **Duplicate:** Create a copy of an existing structure.
+- **Add/Remove Providers:** Assign or unassign staff members.
+- **Delete:** Permanently remove a structure.
+
+### Generate Commission Reports
+
+<Steps>
+  <Step title="Open Report Generator">
+    Click **Generate Report** from the Commissions page.
+  </Step>
+  <Step title="Configure Parameters">
+    Select the commission structure, date range, and any filters.
+  </Step>
+  <Step title="Review Results">
+    The generated report opens in a details view showing each provider's payouts, totals, and line items.
+  </Step>
+  <Step title="Export">
+    Click **Export Report** to download the report as a CSV file. Requires the Export Commissions permission.
+  </Step>
+</Steps>
+
+### Export Tips
+
+Click **Export Tips** to download a report of all tips collected during a specified date range, broken down by provider.

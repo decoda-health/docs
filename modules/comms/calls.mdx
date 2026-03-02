@@ -1,0 +1,108 @@
+---
+title: 'Call History & Recordings'
+description: 'Browse past calls, listen to recordings, read transcripts, and review AI actions taken during calls.'
+---
+
+<Info>
+  **Where to find Calls:** In the left sidebar, click **Comms > Calls**.
+</Info>
+
+The Calls page is a searchable log of every phone call your organization makes and receives. Each call shows who called, when, how long it lasted, and -- if your clinic uses AI calling assistants -- an AI-generated summary, a recording, and a transcript.
+
+## What You See on the Calls Page
+
+The page shows a table of all calls, sorted by most recent. Each row includes:
+
+| Column | What It Shows |
+|--------|---------------|
+| **Date** | When the call happened, how long it lasted, and the call ID. For completed calls, an audio player and transcript link appear here. |
+| **From** | Who made the call -- a patient name (linked to their chart), a provider, or an AI assistant (linked to assistant settings). |
+| **To** | Who received the call. Same display as From. |
+| **Status** | How the call ended (see [Call Statuses](#call-statuses) below). |
+| **Summary** | An AI-generated summary of the call. Tags appear as badges above the summary. If the AI took actions during the call, an **Actions Taken** link appears below. |
+
+If your organization has multiple locations, a location label also appears under the summary showing which location the call belongs to.
+
+## Find a Specific Call
+
+Use the filter bar above the table to narrow results. You can filter by:
+
+- **Date** -- Filter by when the call happened.
+- **Name** -- Search by patient or caller name.
+- **Patient ID** -- Search by Decoda patient ID.
+- **Phone Number** -- Search by phone number.
+- **Call ID** -- Search by a specific call ID (useful when troubleshooting).
+- **Direction** -- Show only **Inbound** or **Outbound** calls.
+- **Status** -- Filter by one or more statuses (Ongoing, Finished, Voicemail, Transferred, Disconnected, Failed).
+- **Tags** -- Filter by call tags assigned by the AI (e.g., "Billing Inquiry", "Appointment Request").
+
+<Info>
+  **Tip:** To quickly review all calls that the AI handled, filter by **Direction: Inbound** and scan the summaries. This is a fast way to check that the AI is handling calls the way you expect.
+</Info>
+
+## Listen to a Call Recording
+
+For completed calls that have a recording, an audio player appears in the Date column. Click the play button to listen to the recording directly in the table -- no need to open a separate page.
+
+## Read a Call Transcript
+
+<Steps>
+  <Step title="Find the Call">
+    Locate the call in the table. Completed calls show a **Transcript** link in the Date column.
+  </Step>
+  <Step title="Open the Transcript">
+    Click **Transcript**. A window opens showing the full conversation in a chat-style layout.
+  </Step>
+  <Step title="Read the Conversation">
+    Messages from the patient appear on one side and messages from the assistant or provider appear on the other. Each message shows the speaker's name and a timestamp relative to the start of the call. AI assistant messages are marked with an AI badge.
+  </Step>
+  <Step title="Listen Along (Optional)">
+    If a recording is available, an audio player appears at the top of the transcript window. You can listen to the recording while following along with the text.
+  </Step>
+</Steps>
+
+## Review AI Actions Taken During a Call
+
+When the AI assistant performs actions during a call -- such as sending an invoice, texting a form link, or notifying staff -- an **Actions Taken** link appears in the Summary column.
+
+Click this link to open a window listing each action. For each action, you'll see:
+
+- **Action name** -- What the AI did (e.g., "Send Text Invoice", "Notify Billing Staff").
+- **Inputs and Results** -- Click the action to expand its details and see the data involved.
+- **Linked records** -- Direct links to related items like the patient chart, the alert, the message, or the invoice. Click these to jump straight to the relevant page.
+
+<Info>
+  **Tip for reviewing AI calls:** Make it a habit to check the Actions Taken for AI-handled calls, especially in the first few weeks. This helps you verify the AI is taking the right actions and catch anything that needs follow-up. Over time, as you get comfortable with the AI's behavior, you can check less frequently.
+</Info>
+
+## Call Statuses
+
+Each call has a status that tells you how it ended:
+
+| Status | What It Means |
+|--------|---------------|
+| **Ongoing** | The call is happening right now. Shows a pulsing green indicator. |
+| **Finished** | The call ended normally. Recording and transcript are available. |
+| **Voicemail** | The caller left a voicemail or was sent to voicemail. |
+| **Transferred** | The call was transferred to another number or extension. |
+| **Disconnected** | The call dropped unexpectedly. The reason appears below the status (e.g., network issue, caller hung up). |
+| **Failed** | The call could not connect at all. |
+
+## Call Tags
+
+Tags categorize calls automatically based on the call content. For example, a call about scheduling might be tagged "Appointment Request" and a call about a bill might be tagged "Billing Inquiry." Tags appear as badges above the call summary and can be used as filters to find all calls of a certain type.
+
+Tags are managed by the AI -- your team doesn't need to tag calls manually.
+
+## Following Up After an AI-Handled Call
+
+After the AI handles a call, check these things:
+
+1. **Read the summary** -- Does it accurately describe what the patient wanted?
+2. **Check Actions Taken** -- Did the AI take the right actions? Did it send the correct invoice or notify the right staff member?
+3. **Listen to the recording** (if needed) -- If the summary seems off or you want more detail, listen to the actual call.
+4. **Follow up with the patient** -- If the AI couldn't fully resolve the patient's request, send them a text message from the Chat page to follow up.
+
+<Info>
+  AI calling assistants are configured under **Settings > Assistants**. Each assistant type (inbound, outbound) can have its own voice, prompt, and phone number. See [Assistants Settings](/modules/settings/assistants) for full setup details.
+</Info>

@@ -1,0 +1,116 @@
+---
+title: 'Blocks, Shifts & Patient Status'
+description: 'Block provider time, define working shifts, track patient progress through appointments, and add quick notes.'
+---
+
+<Info>
+  **Where to find this:** Open the **Check-In** section in the main navigation to access the calendar. Use **Create Event** to add blocks, or click a provider's shift picker to manage shifts. The Patient Status panel appears alongside the calendar.
+</Info>
+
+## Create a Block
+
+Blocks prevent appointments from being booked during specific time periods. Use them for lunch breaks, meetings, training, personal time, or any period a provider is unavailable.
+
+<Steps>
+  <Step title="Open the Event Creator">
+    Click **Create Event** in the sidebar and select **Block**. Alternatively, click an empty time slot on the calendar and choose Block.
+  </Step>
+  <Step title="Set Title">
+    Enter a descriptive title (e.g., "Lunch", "Staff Meeting"). If you skip the title, it auto-generates as "Block - [Provider Name]".
+  </Step>
+  <Step title="Set Date and Time">
+    Pick the start and end times for the block. The minimum duration is 30 minutes by default.
+  </Step>
+  <Step title="Select Providers">
+    Choose one or more providers to block. You can select multiple providers to block the same time for everyone at once.
+  </Step>
+  <Step title="Select Services (Optional)">
+    Optionally restrict the block to specific services. If no services are selected, the block applies to all services for the selected providers.
+  </Step>
+  <Step title="Set Recurrence (Optional)">
+    Make the block repeat daily, weekly, on weekdays, monthly, yearly, or on a custom schedule.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The block appears on the calendar as a gray event.
+  </Step>
+</Steps>
+
+### Edit or Delete a Block
+
+Click the block on the calendar to open the editor. Make changes and click **Save**, or click **Delete** to remove it. For recurring blocks, you are asked whether to apply the change to this occurrence only, this and future occurrences, or the entire series.
+
+## Add a Shift
+
+Shifts define when a provider is available to see patients. When the "Show Working Hours" toggle is enabled, time outside of shifts is visually marked with diagonal stripes.
+
+<Steps>
+  <Step title="Open the Shift Picker">
+    In the calendar header area (Day view), click the provider's shift picker. Or create a shift from the administrative interface.
+  </Step>
+  <Step title="Set Date and Time">
+    Choose the start and end times for the shift.
+  </Step>
+  <Step title="Select Provider">
+    Choose the provider or AI assistant for this shift. If only one provider exists, they are auto-selected.
+  </Step>
+  <Step title="Select Location">
+    Choose the clinic location for the shift. Location is required for providers but optional for AI assistants.
+  </Step>
+  <Step title="Set Capacity (Optional)">
+    Enter the maximum number of concurrent appointments allowed during this shift. Leave blank to use the provider's default capacity setting.
+  </Step>
+  <Step title="Set Recurrence (Optional)">
+    Make the shift repeat on a schedule. Options are the same as for blocks: daily, weekly, weekdays, monthly, yearly, or custom.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The shift appears as a background highlight on the provider's calendar column.
+  </Step>
+</Steps>
+
+### Edit or Delete a Shift
+
+Click an existing shift on the calendar to open the editor. Modify the time, provider, location, capacity, or recurrence and click **Save**. Click **Delete** to remove the shift. For recurring shifts, you choose the scope: this occurrence, this and future, or all.
+
+## Patient Status Panel
+
+The **Patient Status** panel appears alongside the calendar and tracks the real-time progress of patients through their appointments. It displays patients who are currently checked in and shows their progression through checklist steps.
+
+Each row shows:
+
+- **Patient name** and the service they are here for
+- **Appointment time range**
+- **Last updated** -- how long since the last checklist step was completed
+- A **completion button** to mark the next checklist step as done
+
+Use the **filter icon** to show only patients at specific stages (e.g., Checked In, With MA, With Provider, Payment Made).
+
+An overdue indicator appears in red when a patient has been waiting too long at their current stage.
+
+### Appointment Checklists
+
+Checklists define the steps staff follow for each appointment. Checklist items are configured per service (in **Settings > Services > Checklists**) and can include:
+
+| Step | Description |
+|------|-------------|
+| **Filled Form** | Patient has completed required intake forms. |
+| **Checked In** | Patient has arrived and been checked in. |
+| **With MA** | Patient is with the medical assistant. |
+| **Measurement Taken** | Vitals or measurements recorded. |
+| **Dose Taken** | Medication or treatment dose administered. |
+| **With Provider** | Patient is with the provider. |
+| **Note Taken** | Clinical note has been created. |
+| **Payment Made** | Patient has completed checkout and payment. |
+| **Picture Taken** | Before/after photos documented. |
+| **Request GFE** | Good Faith Exam has been requested (SpaKinect integration). |
+
+Staff mark each step complete from the Patient Status panel or the patient sidebar. Completed steps show who completed them and when.
+
+## Quick Notes (Memos)
+
+Attach short notes to any appointment. Click the **memo icon** on an appointment, or use the **Add Memo** button in the patient sidebar. Quick notes appear:
+
+- On the appointment card in Schedule view
+- In the patient sidebar
+- In the schedule export (PDF/CSV)
+
+Notes can be edited or added at any time, even after the appointment is complete.

@@ -1,0 +1,79 @@
+---
+title: 'Users, Roles & Permissions'
+description: 'Manage staff access, invite team members, and configure security roles.'
+---
+
+<Info>
+  **Prerequisite:** Ensure you have created at least one [Location](/modules/settings/locations) before inviting users, as staff must be assigned to a facility to view schedules.
+</Info>
+
+Control who can access what in your clinic. Every staff member gets a login, a role, and location access — so front desk sees the calendar, providers see patient charts, and billing staff sees payments.
+
+Decoda uses a role-based access control system. Every user is assigned a specific Role that determines which modules (e.g., Billing, Scheduling) they can access and what actions they can perform.
+
+## Invite a New User
+
+To add a staff member to your organization:
+
+<Steps>
+  <Step title="Navigate to Users">
+    Go to **Settings** and select **Users**.
+  </Step>
+  <Step title="Send Invitation">
+    Click the **Invite User** button.
+  </Step>
+  <Step title="Enter Staff Details">
+    Fill in the following:
+    - **Email Address:** The staff member's work email.
+    - **Name:** The user's full name as it should appear on clinical notes and signatures.
+    - **Primary Location:** The main facility where this user works.
+  </Step>
+  <Step title="Assign a Role">
+    Select a predefined Role (e.g., Front Desk, Provider, Billing Manager). This can be changed later.
+  </Step>
+  <Step title="Send">
+    Click **Send Invitation**. The user will receive an email with instructions to set up their account.
+  </Step>
+</Steps>
+
+## Manage Roles & Permissions
+
+Roles allow you to manage permissions for groups of users simultaneously.
+
+<Steps>
+  <Step title="Open Roles Settings">
+    Go to **Settings** and select **Roles & Permissions**.
+  </Step>
+  <Step title="Select or Create Role">
+    Choose an existing role to edit or click **Create Custom Role**.
+  </Step>
+  <Step title="Configure Permissions">
+    Toggle access for specific modules. Common categories include:
+    - **Calendar:** View, create, or delete appointments.
+    - **Billing:** Process payments, issue refunds, or view revenue reports.
+    - **Clinical:** Access patient charts, write notes, or manage medications.
+  </Step>
+  <Step title="Save Changes">
+    Click **Save**. Changes apply immediately to all users assigned to that role.
+  </Step>
+</Steps>
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Resending Pending Invitations">
+    If a staff member hasn't received their invitation email, find their name in the **Users** list. If their status is **Pending**, click the **Resend Invite** button next to their name to trigger a new email.
+  </Accordion>
+  <Accordion title="Provider Credentials (NPI, Bio, Taxonomy)">
+    For clinical staff, you can add professional credentials within their user profile. This information is often required for insurance billing, e-prescribing, and patient-facing bios on self-scheduling pages.
+  </Accordion>
+  <Accordion title="Restricting Access to Specific Locations">
+    If a staff member should only see data for one specific clinic, navigate to their user profile in **Settings > Users** and update their **Access Rules**. You can toggle access for each individual facility in your organization.
+  </Accordion>
+  <Accordion title="Deactivating Users">
+    To revoke access for a former staff member, find them in the **Users** list and select **Deactivate**. This prevents further login attempts while preserving their historical clinical notes and transaction records for auditing purposes.
+  </Accordion>
+  <Accordion title="Provider Capacity & Scheduling">
+    For clinical staff, you can configure their individual **Capacity** (how many appointments they can handle at once) and their unique **Scheduling Step** (e.g., 15-minute vs. 30-minute intervals) within their user profile settings.
+  </Accordion>
+</AccordionGroup>

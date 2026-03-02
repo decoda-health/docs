@@ -1,0 +1,140 @@
+---
+title: 'Ordering & Receiving Stock'
+description: 'Create purchase orders, auto-generate orders for low stock, track deliveries, and reorder from past orders.'
+---
+
+<Info>
+  **Where to find Purchase Orders:** Go to **Inventory** in the left sidebar, then click the **Purchase Orders** tab.
+</Info>
+
+Purchase orders track what you've ordered from suppliers and how much has arrived. They help you keep a record of every order, catch partial deliveries, and know exactly when your stock levels are up to date.
+
+## The Purchase Orders Table
+
+Each row in the table shows one order. Here's what the columns mean:
+
+| Column | What It Shows |
+|--------|---------------|
+| Supplier | Supplier name, number of line items, and order ID |
+| Total | Total cost of all line items, or "Sample" if the order is free |
+| Progress | How many units have been received vs. expected, shown with a progress bar |
+| Lead Time | Estimated delivery time in days |
+| Status | Current order status (see below) |
+| Created | Date and time the order was created |
+
+### Order Statuses
+
+| Status | What It Means |
+|--------|---------------|
+| **Pending** | A draft order. You can still edit the line items, quantities, and pricing. The supplier hasn't been notified yet. |
+| **Placed** | The order has been sent to the supplier. A PDF is generated and emailed to them. The order can no longer be edited. |
+| **Completed** | All items have been received. |
+| **Cancelled** | The order was cancelled. This cannot be undone. |
+
+### Filtering Orders
+
+Use the filter bar to narrow by **Status** or **Supplier**. This is useful when you want to see only your open orders or check all orders from a specific vendor.
+
+### Viewing Line Items
+
+Click the expand arrow on any order row to see its line items. Each line item shows the stock item name, ordered quantity, received quantity, cost, and a button to record a delivery for that specific item.
+
+## Creating a Purchase Order
+
+<Steps>
+  <Step title="Start a New Order">
+    Click **New Purchase Order** on the Purchase Orders page.
+  </Step>
+  <Step title="Select a Supplier">
+    Choose which supplier you're ordering from. The stock items available on this order will be those linked to the selected supplier.
+  </Step>
+  <Step title="Add Line Items">
+    Add stock items to the order. For each item, specify the quantity and cost. You'll see the current on-hand quantity next to each item so you know how much to order.
+  </Step>
+  <Step title="Set Lead Time (Optional)">
+    Enter the expected delivery time in days.
+  </Step>
+  <Step title="Add Notes (Optional)">
+    Add any special instructions. If you set up default PO notes on the supplier, those appear automatically.
+  </Step>
+  <Step title="Save as Draft or Place">
+    Save the order as **Pending** to edit later, or place it immediately. Placing the order generates a PDF and emails it to the supplier.
+  </Step>
+</Steps>
+
+<Info>
+  **Before you place the order, double-check the quantities and pricing.** Once an order is placed, it can't be edited -- you'd need to cancel it and create a new one.
+</Info>
+
+## Auto-Generating Orders for Low Stock
+
+Instead of manually checking what needs reordering, you can let the system scan your stock levels and create orders automatically.
+
+Click **Auto-Generate** on the Purchase Orders page.
+
+<Steps>
+  <Step title="Select Locations">
+    Choose which clinic locations to check. The system scans stock levels at those locations.
+  </Step>
+  <Step title="Generate">
+    Click **Generate Orders**. The system creates one purchase order per supplier, covering all items that have fallen below their minimum stock level. If nothing is below minimum, you'll see a message saying no orders are needed.
+  </Step>
+</Steps>
+
+The generated orders are saved as **Pending** drafts, so you can review and adjust them before placing.
+
+<Info>
+  **Use auto-generate before placing your monthly orders.** It catches items you might have missed and groups everything by supplier, saving you time.
+</Info>
+
+## Placing an Order
+
+When a pending order is ready to go:
+
+1. Click the gear icon on the order row and select **Place Order**.
+2. Confirm when prompted. The system generates a PDF of the order and emails it to the supplier's email address.
+3. The order status changes to **Placed** and can no longer be edited.
+
+## Taking Delivery
+
+When a shipment arrives, record what you received so your stock levels stay accurate.
+
+<Steps>
+  <Step title="Open the Delivery Window">
+    On a **Placed** order, click the gear icon and select **Take Delivery**. To record a delivery for a single line item, expand the order and click the delivery button on that specific item.
+  </Step>
+  <Step title="Enter Received Quantities">
+    For each line item, enter how many units arrived. You can enter the lot number, expiry date, and SKU for each shipment.
+  </Step>
+  <Step title="Confirm">
+    Click to confirm the delivery. Stock quantities update automatically.
+  </Step>
+</Steps>
+
+### Partial Deliveries
+
+Not everything always arrives at once. If only some of the items in an order have arrived, record what you received -- the progress bar updates to show what's been delivered so far. You can take delivery multiple times on the same order until everything has arrived. When all line items are fully received, the order status automatically changes to **Completed**.
+
+<Info>
+  **Always take delivery promptly so your stock levels stay accurate.** If a shipment sits unrecorded, your Stockroom quantities won't match what's actually on the shelf.
+</Info>
+
+## Reordering from a Past Order
+
+If you frequently order the same items from the same supplier, you can save time by reordering from a previous order:
+
+1. Find a completed or cancelled order in the table.
+2. Click the gear icon and select **Reorder**.
+3. A new order is created with the same supplier and line items pre-filled. Adjust quantities and pricing as needed, then save or place.
+
+## Order Actions
+
+Click the gear icon on any order row to access these actions (availability depends on the order's status):
+
+| Action | Available When | What It Does |
+|--------|---------------|--------------|
+| **Edit** | Pending | Modify line items, quantities, and pricing |
+| **Place Order** | Pending | Send the order to the supplier via email with a PDF |
+| **Take Delivery** | Placed | Record received items and update stock levels |
+| **Reorder** | Completed or Cancelled | Create a new order based on this one |
+| **Cancel Order** | Pending or Placed | Cancel the order permanently |

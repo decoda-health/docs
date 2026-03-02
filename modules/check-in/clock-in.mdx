@@ -1,0 +1,123 @@
+---
+title: 'Staff Time Tracking'
+description: 'Track staff clock-in and clock-out times, compare scheduled vs. worked hours, and export data for payroll.'
+---
+
+<Info>
+  **Where to find it:** Go to **Check-In > Clock In / Out**.
+</Info>
+
+<Info>
+  **Module required:** The Clock-In feature must be enabled for your organization. If you see a message saying "Clock-In Module Not Enabled," contact your account administrator.
+</Info>
+
+The Clock In / Out page tracks when staff members start and stop work, and compares those times against their scheduled shifts. Practice managers and office managers use it to monitor attendance, catch missed clock-ins, and export time data for payroll.
+
+## Navigate the Week
+
+The page shows one week at a time. Use these controls to move around:
+
+- **Left and right arrows** — Move backward or forward one week at a time.
+- **Calendar icon** — Jump directly to any date. The page will show the full week containing that date.
+
+## Summary Cards
+
+Six summary cards at the top give you a snapshot of the entire week:
+
+| Card | What it tells you |
+|---|---|
+| **Providers** | How many staff members have entries this week. |
+| **Clock-Ins** | Total number of clock-in records for the week. |
+| **Scheduled Shifts** | Total number of shifts on the books. |
+| **Scheduled Time** | Total hours scheduled across all providers (e.g., "40h 00m"). |
+| **Worked Time** | Total hours actually worked based on clock-in/out records. |
+| **Total Variance** | The difference between worked and scheduled time. Green means staff worked more than scheduled; red means they worked less. |
+
+<Info>
+  **What is variance?** Variance is the gap between how long someone was scheduled to work and how long they actually worked. If a provider was scheduled for 8 hours but only clocked 7 hours and 30 minutes, the variance is -30 minutes. Positive variance means overtime; negative means under-time. Check variance at the end of each week to catch missed clock-ins or scheduling issues before they affect payroll.
+</Info>
+
+## Read the Time Entries Table
+
+Each row in the table represents one provider's activity for a single day. Here's what each column shows:
+
+| Column | What it shows |
+|---|---|
+| **Date** | The day this entry is for. |
+| **Provider** | The staff member's name. |
+| **Location / Shifts** | The location name and the scheduled shift times for the day. Shows "No scheduled shifts" if the provider had no shifts. |
+| **Clock In/Out** | The actual clock-in and clock-out times. Shows a "Now" badge if the provider is still clocked in. Shows a warning if no clock-ins were recorded. |
+| **Scheduled** | Total scheduled shift time for the day (hours and minutes). |
+| **Worked** | Total time actually worked based on clock-in/out records. |
+| **Variance** | The difference between worked and scheduled. Positive (over) appears in green; negative (under) appears in red. |
+
+## Filter and Group Entries
+
+Use the filter bar to narrow the table:
+
+- **Providers** — Show entries for specific staff members only.
+- **Locations** — Filter by clinic location.
+
+Use the **Group By** menu to organize rows:
+
+- **Date** — Group entries by day (default). Each day becomes a collapsible section.
+- **Location** — Group by clinic location.
+- **Provider** — Group by staff member.
+- **None** — Show a flat list with no grouping.
+
+## Add a Manual Time Entry
+
+Sometimes staff forget to clock in, or you need to correct an error. Click **Add Time Entry** in the top right corner.
+
+<Steps>
+  <Step title="Select a Provider">
+    Choose the staff member from the list.
+  </Step>
+  <Step title="Select a Location">
+    Choose the clinic location for this entry.
+  </Step>
+  <Step title="Set Clock-In Time">
+    Pick the date and time the provider started work.
+  </Step>
+  <Step title="Set Clock-Out Time (Optional)">
+    Pick the date and time the provider finished work. Leave this empty if the provider is still working. The clock-out must be on the same day as the clock-in, and the clock-in must be before the clock-out.
+  </Step>
+  <Step title="Save">
+    Click **Add Time Entry** to create the record.
+  </Step>
+</Steps>
+
+## Edit a Time Entry
+
+Click the gear icon on any row and select **Edit Entry**. A window opens where you can adjust the clock-in and clock-out times.
+
+If a row has multiple clock-in entries for the same day (for example, someone clocked out for lunch and clocked back in), you'll be asked to choose which entry to edit.
+
+## View Change History
+
+Click the gear icon and select **View History** to see a log of all changes made to a specific clock-in record. The log shows who made each change and when — useful for auditing or resolving disputes about hours.
+
+## Export for Payroll
+
+Click **Export** to download clock-in history for the selected week. The export includes all the data visible in the table: date, provider, location, shift times, clock-in/out times, scheduled hours, worked hours, and variance.
+
+<Info>
+  **Export weekly for payroll processing.** Running the export at the end of each week keeps your payroll data current and makes it easy to catch discrepancies before they become problems.
+</Info>
+
+## Common Questions
+
+<AccordionGroup>
+  <Accordion title="What if someone forgot to clock in?">
+    Use the **Add Time Entry** button to manually create a clock-in record for them. Enter the time they actually started and finished work. The entry will appear in the table and the variance will update accordingly.
+  </Accordion>
+  <Accordion title="Why is a provider only seeing their own records?">
+    Staff who don't have the **Clock-In Skip** permission are filtered to see only their own clock-in records by default. This is by design — most staff only need to see their own hours. Managers and admins with **Clock-In History Read** permission can see everyone.
+  </Accordion>
+  <Accordion title="Can I edit someone else's time entry?">
+    Yes, if you have the **Clock-In Times Edit** permission. Click the gear icon on their row and select **Edit Entry**. All changes are logged in the entry's history, so there's a full audit trail.
+  </Accordion>
+  <Accordion title="Why does variance show red even though the provider worked?">
+    Red variance means the provider worked fewer hours than they were scheduled for. This could mean they clocked in late, clocked out early, or missed a clock-in entirely. Check the Clock In/Out column to see the actual times and compare them to the scheduled shifts.
+  </Accordion>
+</AccordionGroup>

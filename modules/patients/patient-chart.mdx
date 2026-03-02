@@ -1,0 +1,168 @@
+---
+title: 'Patient Chart'
+description: 'View the full clinical chart for any patient — overview, timeline, billing, notes, forms, memberships, and more.'
+---
+
+<Info>
+  To open a patient's chart, click their name in the **Patients** list or search for them anywhere in the app.
+</Info>
+
+## Patient Chart
+
+Click any patient name in the patient list (or search for a patient anywhere in the app) to open their full chart. The chart has a **left sidebar** showing the patient header and tab navigation, and a **main content area** displaying the selected tab.
+
+### Patient Header (Sidebar)
+
+The sidebar header displays at a glance:
+- **Profile Picture** -- click to upload or change the patient's photo.
+- **Full Name** and **Preferred Name** (if set, shown in parentheses).
+- **Patient Tags** -- colored labels assigned to this patient.
+- **Active Memberships** -- links to the patient's membership details.
+- **Date of Birth** and age.
+- **Gender** and **Pronouns**.
+- **Phone Number** -- clickable to initiate a call.
+- **Email** -- clickable mailto link.
+- **Address** -- linked to Google Maps.
+- **Preferred Provider** -- the provider suggested when scheduling for this patient.
+- **Create Medical Note** button -- quick-access button to start a new clinical note.
+
+If the system detects possible duplicate patients, a **"Possible Duplicates Detected!"** warning appears below the header. Click it to go directly to the [merge workflow](/modules/patients/import-and-merge#merge-duplicate-patients) with the duplicates pre-loaded.
+
+### Overview Tab
+
+The default tab when opening a patient chart. Contains:
+
+- **AI Summary** -- an AI-generated overview of the patient based on their notes, appointments, charges, forms, and quick notes. You can regenerate the summary, copy it, provide feedback (thumbs up/down), and ask follow-up questions through the AI Q&A interface.
+- **Demographics** -- name, preferred name, date of birth (with age), gender, pronouns, patient since date, phone, email, external ID, lead source, primary location, and address. Click **Edit** to update any field.
+- **Measurements** -- the latest vital signs and body measurements (weight, height, blood pressure, pulse, temperature, waist circumference). Charts display automatically when two or more data points exist.
+- **Medications** -- provider-administered medications with dosing records. Shows medication name, dosage, frequency, administration location, and provider.
+- **Patient Reported Information** -- data reported by the patient through intake forms:
+  - **Medications** -- self-reported current medications. Click **Manage Medications** to add or remove entries.
+  - **Allergies** -- known allergies. Click **Manage Allergies** to edit.
+  - **Family History** -- relevant family medical history. Click **Manage Family History** to edit.
+  - **Medical History** -- past medical conditions and procedures. Click **Manage Medical History** to edit.
+  - **Prescriptions** -- current prescriptions. Click **Manage Prescriptions** to edit.
+- **Additional Health Information** -- any custom health fields configured for your organization. Click **Edit** to update.
+- **Memos** -- internal staff notes (quick notes) not tied to an appointment. Click **Add Memo** to create a new one.
+
+### Timeline Tab
+
+A chronological feed of every interaction with this patient, sorted newest first and grouped by date. Event types include:
+- **Appointments** -- with service name, provider, date/time, location, and status badge (Scheduled, Confirmed, Completed, Cancelled).
+- **Charges** -- dollar amount and payment status (Paid, Outstanding).
+- **Form Submissions** -- completed or partial form submissions.
+- **Medical Notes** -- note title, summary, and authoring provider.
+- **Medications** -- medication name, dosage, frequency, administration location, provider, and notes.
+- **Measurements** -- vital signs recorded (blood pressure, pulse, temperature, weight, height).
+- **Reviews** -- patient feedback with star rating and optional comments.
+
+### Appointments Tab
+
+Lists all past and upcoming appointments for this patient in a table with columns: **Title** (service name and provider), **Date & Time**, **Status**, **Location**, and a **Details** button to expand the full appointment view.
+
+Click **Schedule Appointment** to create a new appointment pre-filled with this patient's information.
+
+If your organization uses the **SpaKinect** module, a **Good Faith Exams** section also appears, showing GFE records with their status (Intake, Processing, Pending Review, Approved, Completed, Rejected, Cancelled). Click **Request GFE** to initiate a new exam request.
+
+### Medical Notes & Data Tab
+
+Contains three sections:
+
+**Medical Notes** -- a paginated table of all clinical notes for this patient. Each row shows the note title/summary, provider, template name, visit date, last edited date, expiry status, and an actions menu (pin, edit, delete). Click any row to open the full note in the Scribe editor.
+
+**Measurements** -- a detailed list of all recorded vital signs. Click **Add Measurements** to record new vitals (weight, height, blood pressure, pulse, temperature, waist circumference, goal weight). Weight and blood pressure charts appear automatically when enough data points exist (two or more).
+
+**Medication Doses** -- a comprehensive dosing table showing all provider-administered medications with dosage, dates, and provider information.
+
+### Billing Tab
+
+Provides a complete financial picture for the patient:
+
+- **Summary Cards** -- at the top, quick stats for outstanding balance, total charges, total payments, available credit, and total refunds.
+- **Credits** -- click **Manage Credits** to open the credits panel where you can view, add, edit, and delete patient credits. Each credit shows the original amount, remaining balance, comment, status (Active, Used, Expired), creation date, expiry date, and who created it.
+- **Banked Items** -- items held in the patient's account (e.g., from packages). Click **Add Banked Item** to add one manually.
+- **Payment Methods** -- stored credit cards on file. Click **Add Payment Method** to store a new card.
+- **Charge History** -- a timeline of all charges and payments, with status badges, amounts, dates, and links to full charge details. Use the **Create Charge** dropdown to start a new charge or navigate to checkout.
+
+### Forms & Documents Tab
+
+**Forms** -- lists all form submissions from this patient, showing the form name, submission date, and whether the submission is complete or partial. Click the eye icon to view the full submission. Click **Send to Patient** to text a form link to the patient's phone number.
+
+**Documents** -- a grid of uploaded files (PDFs, images, Word documents, spreadsheets, etc.) with file type icons, titles, summaries, document type labels, upload dates, and linked note counts. Actions include:
+- **Upload Document** -- click to upload a new file.
+- **View** -- opens a full preview of the document.
+- **Link to Note** -- associates the document with one or more clinical notes.
+- **Delete** -- permanently removes the document.
+
+<Info>
+  **Permission Required:** Viewing and managing documents requires the **Patients Documents Read** permission.
+</Info>
+
+### Gallery Tab
+
+Displays all images and photos attached to this patient's record in a visual gallery format. Useful for before/after treatment photos.
+
+### Memberships Tab
+
+Shows all active and past memberships for this patient. For each membership, you can:
+- View enrollment details (plan name, status, billing date, payment method).
+- View **Issued Discounts** -- discounts granted by the membership and their usage status.
+- Access the **Membership Timeline** -- a chronological log of all events: enrollment, renewals, payment method changes, billing date changes, manual payments, status changes, and discount usage.
+- Perform actions via the dropdown menu: **Freeze** (pause billing), **Change Billing Date**, **Change Payment Method**, **Process Manual Payment**, **Edit Issued Discounts**, and **Change Status** (activate, cancel, or pause).
+
+### Packages Tab
+
+Shows all purchased packages and their usage. Each package displays:
+- **Package Name** and status (Active, Used, Cancelled).
+- **Items & Usage** -- a progress bar for each item showing how many units have been used out of the total.
+- **Purchase Date** and **Price** (with discount amount if applicable).
+- Expandable **Package Timeline** showing the purchase event and every usage event with dates, amounts, and linked charges.
+- Actions: **View Package** (goes to the package settings page), **Cancel Package**, or **Reactivate Package**.
+
+Click **Sell Package** to navigate to checkout with this patient pre-selected.
+
+### Settings Tab
+
+Manage per-patient configuration:
+
+**Patient Tags** -- view all tags assigned to this patient. Click **Manage Tags** to add or remove tags. Tags have a name, optional color, and optional emoji.
+
+**General Settings** -- toggle switches for:
+- **Scheduling Blacklist** -- prevents the patient from scheduling new appointments.
+- **Surcharge Disabled** -- disables automatic surcharges for this patient.
+- **Block Text Messages** -- prevents the clinic from sending SMS to the patient's phone number. Incoming messages from the patient are still received.
+- **Opt Out of Automated Messages** -- stops automated messages (appointment reminders, confirmations, follow-ups) while still allowing manual messages.
+
+**Preferred Provider** -- select which provider should be suggested when scheduling appointments for this patient. Choose "No preferred provider" to clear the selection.
+
+**Danger Zone** -- click **Delete Patient** to permanently remove the patient and all associated data (appointments, medications, measurements, notes). This action requires confirmation and cannot be undone.
+
+## Patient Credits
+
+Credits are account balances that patients can use toward future payments.
+
+To manage credits, open the patient's chart, go to the **Billing** tab, and click **Manage Credits**.
+
+- **Add Credit** -- enter the dollar amount, an optional comment explaining the reason, and an optional expiry date. Credits with no expiry date never expire.
+- **Edit Credit** -- update the amount, remaining balance, comment, or expiry date.
+- **Delete Credit** -- only available if the credit has not been partially used (remaining equals original amount).
+
+Each credit shows: original amount, remaining amount, amount used, comment, status (Active, Used, or Expired), creation date, expiry date, and who created it.
+
+Credits are automatically applied during checkout when available.
+
+## Patient Tags
+
+Tags are customizable labels used to categorize and filter patients. Each tag has a name, an optional color, and an optional emoji.
+
+### Manage Tags on a Patient
+
+From the patient's chart, go to the **Settings** tab and click **Manage Tags**. From there you can:
+- Assign existing tags to the patient.
+- Remove tags from the patient.
+- Create new tags inline.
+- Edit tag names, colors, and emojis.
+
+### Filter by Tags
+
+On the main **Patients** page, use the **Tags** filter to show only patients with specific tags applied.

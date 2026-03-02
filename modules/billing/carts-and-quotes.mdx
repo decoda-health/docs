@@ -1,0 +1,116 @@
+---
+title: 'Carts, Quotes & Credits'
+description: 'Create and manage shopping carts, send quotes and estimates, and issue patient credits.'
+---
+
+<Info>
+  Navigate to **Billing > Carts** to manage carts, or open a patient's profile to manage credits.
+</Info>
+
+## Carts
+
+Navigate to **Billing > Carts** to manage patient shopping carts. Carts let you pre-build an order before converting it to a charge or quote.
+
+### Create a Cart
+
+<Steps>
+  <Step title="Navigate to Carts">
+    Go to **Billing > Carts** and click **Create Cart**.
+  </Step>
+  <Step title="Select a Patient">
+    Search for and select a patient. This field is required.
+  </Step>
+  <Step title="Add Products">
+    Search for items or packages and add them to the cart. Adjust quantities as needed. Each line item shows its unit price, and you can apply per-item discounts (flat dollar or percentage).
+  </Step>
+  <Step title="Configure Additional Options">
+    - **Cart-Level Discount:** Apply a flat dollar or percentage discount to the entire cart.
+    - **Notes:** Add optional internal notes about the cart.
+  </Step>
+  <Step title="Review Cart Preview">
+    The right-side panel shows a live preview of the cart with subtotal, discounts, and total.
+  </Step>
+  <Step title="Save">
+    Click **Create Cart**. The cart is saved with a **Draft** status and appears in the cart list.
+  </Step>
+</Steps>
+
+### Cart Actions
+
+From the cart list or the cart detail drawer:
+
+- **Edit** -- Reopen the cart to modify items, quantities, or discounts.
+- **Duplicate** -- Create a copy of the cart (optionally for a different patient).
+- **Convert to Charge** -- Send the cart to checkout to collect payment.
+- **Create Quote** -- Generate a quote from the cart's items to send to the patient for approval.
+- **Delete** -- Remove the cart.
+
+### Cart Statuses
+
+- **Draft:** Cart created but not yet acted upon.
+- **Converted:** Cart has been converted to a charge.
+- **Quoted:** A quote has been generated from the cart.
+
+## Quotes & Estimates
+
+Quotes let you send patients a formal estimate for review before committing to a charge.
+
+### Create a Quote
+
+Quotes are created from a cart. From the cart detail drawer or cart actions menu, click **Create Quote**.
+
+<Steps>
+  <Step title="Enter Quote Details">
+    - **Title:** A name for the quote (defaults to "Quote for [Patient Name]").
+    - **Description:** A summary of what the quote covers.
+    - **Valid Until Date:** An optional expiration date. Quick-set buttons are available for 2 weeks, 1 month, or 2 months.
+    - **Terms & Conditions:** Optional terms shown to the patient.
+    - **Internal Notes:** Staff-only notes not visible to the patient.
+  </Step>
+  <Step title="Send">
+    Click **Create & Send Quote**. The patient receives a link to view the quote.
+  </Step>
+</Steps>
+
+### Quote Statuses
+
+- **Pending:** Sent to the patient, awaiting response.
+- **Accepted:** The patient accepted the quote.
+- **Declined:** The patient declined the quote.
+
+### Quote View
+
+The quote page displays the itemized list, totals, terms, and clinic branding. Staff can view any quote from within the console. Patients view a public version of the quote via the shared link.
+
+## Patient Credits
+
+Patient credits are prepaid balances stored on a patient's account that can be applied toward future charges during checkout.
+
+### Issue a Credit
+
+Credits are managed from the patient's profile. Open **Patient Credits** to:
+
+1. Click **Add Credit**.
+2. Enter the **Amount** in dollars.
+3. Optionally add a **Comment** explaining the reason for the credit.
+4. Optionally set an **Expiry Date** (leave empty for credits that never expire).
+5. Click **Add Credit** to save.
+
+### Credit Details
+
+The credits table shows:
+- **Amount:** The original credit value.
+- **Remaining:** How much is still available (with the used amount shown below).
+- **Comment:** The reason or note attached to the credit.
+- **Status:** Active, Used, or Expired.
+- **Dates:** When the credit was added and when it expires (if applicable).
+- **Created By:** The staff member who issued the credit.
+
+### Edit or Delete Credits
+
+- **Edit:** Change the amount, remaining balance, comment, or expiry date.
+- **Delete:** Remove an unused credit (only available if no portion has been applied).
+
+### Apply Credits During Checkout
+
+During checkout, select **Use Patient Credit** as the payment method. The system shows the patient's available credit balance and applies it to the charge. If the credit covers the full amount, no additional payment is needed.

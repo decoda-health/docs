@@ -20,151 +20,134 @@
         "tab": "Knowledge Base",
         "groups": [
           {
-            "group": "User Guides",
+            "group": "Getting Started",
             "pages": [
-              {
-                "group": "Getting Started",
-                "pages": [
-                  "help/introduction"
-                ]
-              },
-              {
-                "group": "Help & Support",
-                "pages": [
-                  {
-                    "group": "AI Front Desk",
-                    "pages": [
-                      "help/ai-front-desk"
-                    ]
-                  },
-                  {
-                    "group": "Payments",
-                    "pages": [
-                      {
-                        "group": "Payment Devices",
-                        "pages": [
-                          "help/payments/payment-devices/overview",
-                          "help/payments/payment-devices/link_2500",
-                          "help/payments/payment-devices/lane_7000",
-                          "help/payments/payment-devices/lane_3000"
-                        ]
-                      },
-                      "help/payments/processing-payments",
-                      "help/payments/tip-screen",
-                      "help/payments/refunds"
-                    ]
-                  },
-                  {
-                    "group": "Patient Engagement",
-                    "pages": [
-                      "help/patient-engagement/overview",
-                      "help/patient-engagement/bulk-messaging"
-                    ]
-                  },
-                  {
-                    "group": "Intelligent Invoicing",
-                    "pages": [
-                      "help/intelligent-invoicing/invoicing-overview",
-                      "help/intelligent-invoicing/editing-invoices"
-                    ]
-                  },
-                  {
-                    "group": "Scheduling & Intake",
-                    "pages": [
-                      "help/scheduling"
-                    ]
-                  },
-                  {
-                    "group": "SpaKinect Integration",
-                    "pages": [
-                      "guides/spakinect-good-faith-exams"
-                    ]
-                  },
-                  {
-                    "group": "Scribe & Note-Taking",
-                    "pages": [
-                      "help/ai-notes"
-                    ]
-                  },
-                  {
-                    "group": "Smart Mentions",
-                    "pages": [
-                      "help/smart-mentions"
-                    ]
-                  }
-                ]
-              }
+              "getting-started",
+              "search"
             ]
           },
           {
-            "group": "API Guides",
+            "group": "Patient Management",
             "pages": [
-              "guides/quickstart",
-              "guides/patient-onboarding-workflow",
-              "guides/webhook-events"
+              "modules/patients/index",
+              "modules/patients/patient-chart",
+              "modules/patients/import-and-merge"
             ]
           },
           {
-            "group": "Platform Guides",
+            "group": "Scheduling",
             "pages": [
+              "modules/scheduling/index",
+              "modules/scheduling/appointments",
+              "modules/scheduling/blocks-and-shifts",
+              "modules/scheduling/self-scheduling"
+            ]
+          },
+          {
+            "group": "Billing & Payments",
+            "pages": [
+              "modules/billing/index",
+              "modules/billing/checkout",
+              "modules/billing/charges-and-payments",
+              "modules/billing/invoices",
+              "modules/billing/carts-and-quotes",
+              "modules/billing/cash-and-commissions"
+            ]
+          },
+          {
+            "group": "Forms & Intake",
+            "pages": [
+              "modules/forms/index",
+              "modules/forms/sending-forms",
+              "modules/forms/submissions",
+              "modules/forms/form-structure"
+            ]
+          },
+          {
+            "group": "Notes & Scribe",
+            "pages": [
+              "modules/notes/index",
+              "modules/notes/ai-scribe",
+              "modules/notes/manual-notes",
+              "modules/notes/document-uploads",
+              "modules/notes/attachments-and-gallery",
+              "modules/notes/sign-off-and-versioning"
+            ]
+          },
+          {
+            "group": "Communications",
+            "pages": [
+              "modules/comms/index",
+              "modules/comms/chat",
+              "modules/comms/ai-responses",
+              "modules/comms/calls"
+            ]
+          },
+          {
+            "group": "Check-In & Front Desk",
+            "pages": [
+              "modules/check-in/index",
+              "modules/check-in/dashboard",
+              "modules/check-in/clock-in",
+              "modules/check-in/shifts"
+            ]
+          },
+          {
+            "group": "Inventory",
+            "pages": [
+              "modules/inventory/index",
+              "modules/inventory/stock",
+              "modules/inventory/purchase-orders",
+              "modules/inventory/suppliers"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "pages": [
+              "modules/analytics/index",
+              "modules/analytics/appointments",
+              "modules/analytics/revenue",
+              "modules/analytics/providers",
+              "modules/analytics/patients",
+              "modules/analytics/memberships-and-plans"
+            ]
+          },
+          {
+            "group": "Usage & Subscription",
+            "pages": [
+              "modules/usage/index"
+            ]
+          },
+          {
+            "group": "Settings & Org Setup",
+            "pages": [
+              "modules/settings/index",
+              "modules/settings/locations",
+              "modules/settings/users",
+              "modules/settings/services",
+              "modules/settings/categories",
+              "modules/settings/products",
+              "modules/settings/medications",
+              "modules/settings/memberships",
+              "modules/settings/packages",
               {
-                "group": "Core Features",
+                "group": "Payment Management",
                 "pages": [
-                  "guides/patient-page",
-                  "guides/appointments-scheduling"
+                  "modules/settings/payment-management",
+                  "modules/settings/pos-devices/overview",
+                  "modules/settings/pos-devices/link-2500",
+                  "modules/settings/pos-devices/lane-7000",
+                  "modules/settings/pos-devices/lane-3000"
                 ]
               },
-              {
-                "group": "Billing & Payments",
-                "pages": [
-                  "guides/billing-payments"
-                ]
-              },
-              {
-                "group": "Communications",
-                "pages": [
-                  "guides/communications"
-                ]
-              },
-              {
-                "group": "Forms & Intake",
-                "pages": [
-                  "guides/forms-intake"
-                ]
-              },
-              {
-                "group": "Inventory & Products",
-                "pages": [
-                  "guides/inventory-products",
-                  "guides/memberships-packages"
-                ]
-              },
-              {
-                "group": "Notes & Documentation",
-                "pages": [
-                  "guides/ai-scribe-notes"
-                ]
-              },
-              {
-                "group": "Analytics & Reporting",
-                "pages": [
-                  "guides/analytics-dashboards",
-                  "guides/alerts-system"
-                ]
-              },
-              {
-                "group": "Settings & Configuration",
-                "pages": [
-                  "guides/settings-configuration",
-                  "guides/user-management-roles"
-                ]
-              },
-              {
-                "group": "Integrations",
-                "pages": [
-                  "guides/spakinect-good-faith-exams"
-                ]
-              }
+              "modules/settings/rules",
+              "modules/settings/general",
+              "modules/settings/notifications",
+              "modules/settings/note-templates",
+              "modules/settings/assistants",
+              "modules/settings/scheduling",
+              "modules/settings/developers",
+              "modules/settings/profile-security"
             ]
           },
           {
@@ -175,67 +158,17 @@
             ]
           },
           {
-            "group": "Page Reference",
+            "group": "Reference",
             "pages": [
-              {
-                "group": "Patients",
-                "pages": [
-                  "pages/console/patient/patient-list",
-                  "pages/console/patient/patient-detail",
-                  "pages/console/patient/merge",
-                  "pages/console/patient/upload"
-                ]
-              },
-              {
-                "group": "Scheduling",
-                "pages": [
-                  "pages/console/check-in/calendar",
-                  "pages/console/check-in/dashboard",
-                  "pages/console/check-in/shift-management"
-                ]
-              },
-              {
-                "group": "Billing",
-                "pages": [
-                  "pages/console/billing/checkout",
-                  "pages/console/billing/carts",
-                  "pages/console/billing/charges",
-                  "pages/console/billing/payments",
-                  "pages/console/billing/invoices"
-                ]
-              },
-              {
-                "group": "Inventory",
-                "pages": [
-                  "pages/console/inventory/products",
-                  "pages/console/inventory/memberships",
-                  "pages/console/inventory/packages",
-                  "pages/console/inventory/stock"
-                ]
-              },
-              {
-                "group": "Communications",
-                "pages": [
-                  "pages/console/comms/chat",
-                  "pages/console/comms/call",
-                  "pages/console/comms/alerts"
-                ]
-              },
-              {
-                "group": "AI Scribe",
-                "pages": [
-                  "pages/console/scribe/scribe-list",
-                  "pages/console/scribe/playground",
-                  "pages/console/scribe/gallery"
-                ]
-              },
-              {
-                "group": "Analytics",
-                "pages": [
-                  "pages/console/analytics/analytics",
-                  "pages/console/analytics/usage"
-                ]
-              }
+              "glossary"
+            ]
+          },
+          {
+            "group": "Onboarding Journeys",
+            "pages": [
+              "personas/front-desk",
+              "personas/providers",
+              "personas/owners"
             ]
           }
         ]
@@ -247,6 +180,14 @@
             "group": "Getting Started",
             "pages": [
               "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "API Guides",
+            "pages": [
+              "guides/quickstart",
+              "guides/patient-onboarding-workflow",
+              "guides/webhook-events"
             ]
           },
           {
@@ -999,17 +940,6 @@
               "api-reference/webhook/webhook-get",
               "api-reference/webhook/webhook-list",
               "api-reference/webhook/webhook-update"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Updates",
-        "groups": [
-          {
-            "group": "Updates",
-            "pages": [
-              "updates/changelog"
             ]
           }
         ]

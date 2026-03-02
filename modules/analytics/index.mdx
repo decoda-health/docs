@@ -1,0 +1,102 @@
+---
+title: 'Overview'
+description: 'Track clinic performance with built-in dashboards for appointments, revenue, payments, patients, providers, memberships, and payment plans.'
+---
+
+<Info>
+  **Where to find Analytics:** In the left sidebar, click **Analytics**. Use the dashboard picker at the top of the page to switch between reports.
+</Info>
+
+<Info>
+  **Prerequisites:** Analytics pulls data from other modules. You need existing [Appointments](/modules/scheduling), [Patients](/modules/patients), and [Billing](/modules/billing) data before the reports have anything to show.
+</Info>
+
+Analytics gives you a bird's-eye view of how your clinic is performing. Nine built-in dashboards cover everything from daily appointment volume to provider earnings to patient retention patterns. Every dashboard is read-only -- you view and export data here, but changes happen in the source modules (Scheduling, Billing, etc.).
+
+## Which Dashboard Should I Use?
+
+Not sure where to start? Here's a quick guide based on what you're trying to find out:
+
+| I want to... | Use this dashboard |
+|---|---|
+| See how many appointments we have this week | [Appointment Reports](/modules/analytics/appointments) |
+| Check today's revenue or total sales | [Revenue & Payment Reports](/modules/analytics/revenue) |
+| Find out what we actually collected (after fees) | [Revenue & Payment Reports](/modules/analytics/revenue) |
+| Review how much each provider earned | [Provider Performance](/modules/analytics/providers) |
+| Identify patients who haven't visited in a while | [Patient Insights](/modules/analytics/patients) |
+| Check for failed membership payments | [Memberships & Payment Plans](/modules/analytics/memberships-and-plans) |
+| Track payment plan collection progress | [Memberships & Payment Plans](/modules/analytics/memberships-and-plans) |
+
+## Dashboards by Role
+
+**Clinic owners and managers** will get the most from the Revenue, Appointment, and Provider dashboards -- they answer the big-picture questions about how the business is doing.
+
+**Front desk staff** will find the Appointment and Patient dashboards most useful for day-to-day work like checking schedules and identifying patients who need follow-up.
+
+**Providers** can use the Provider Performance dashboard to review their own earnings and activity.
+
+<CardGroup cols={2}>
+  <Card title="Appointment Reports" icon="calendar-check" href="/modules/analytics/appointments">
+    Volume, value, cancellation rates, and booking sources.
+  </Card>
+  <Card title="Revenue & Payment Reports" icon="money-bill-wave" href="/modules/analytics/revenue">
+    Product sales, payment transactions, profit margins, and fees.
+  </Card>
+  <Card title="Provider Performance" icon="user-doctor" href="/modules/analytics/providers">
+    Earnings breakdowns, activity feeds, and productivity tracking.
+  </Card>
+  <Card title="Patient Insights" icon="users" href="/modules/analytics/patients">
+    Demographics, spending patterns, visit history, and retention.
+  </Card>
+  <Card title="Memberships & Payment Plans" icon="id-card" href="/modules/analytics/memberships-and-plans">
+    Membership status, payment plan progress, and collection tracking.
+  </Card>
+</CardGroup>
+
+## Controls That Every Dashboard Shares
+
+All dashboards use the same set of controls, so once you learn them in one place, you know how they work everywhere.
+
+- **Date range** -- Pick a preset range (Today, This Week, This Month, etc.) or set custom start and end dates. The table updates automatically.
+- **Group by** -- Collapse rows by a category (location, provider, date, etc.) to see subtotals. When grouped, click a group header to expand or collapse the detail rows beneath it.
+- **Filters** -- Narrow results by location, provider, status, and other fields. Available filters vary by dashboard.
+- **Column visibility** -- Show or hide columns to focus on the numbers you care about. Click the **Columns** button to choose which columns appear.
+- **Export** -- Download the current view as a spreadsheet. Requires the **Analytics Export** permission.
+
+<Info>
+  **Grouping tip:** Group by date, week, or month to spot trends over time. Group by provider or location to compare performance across your team or clinics.
+</Info>
+
+## Custom Dashboards
+
+In addition to the built-in dashboards, you can create your own custom dashboards with personalized charts and tables.
+
+<Steps>
+  <Step title="Open the Dashboard Picker">
+    At the top of the Analytics page, click the dashboard picker and select **Create Dashboard**.
+  </Step>
+  <Step title="Name Your Dashboard">
+    Give it a name and optional description.
+  </Step>
+  <Step title="Add Widgets">
+    Click **Add Widget** and build each one in three steps:
+    1. **Details** -- Set a title and optional description.
+    2. **Query** -- Choose which data to pull and how to filter it.
+    3. **Visualization** -- Pick a chart type (table, area chart, bar chart, donut chart, progress circle, or single number).
+  </Step>
+  <Step title="Arrange Your Layout">
+    Drag widgets around on the grid to organize your dashboard.
+  </Step>
+</Steps>
+
+To edit or delete a custom dashboard, click the pencil or trash icon next to its name in the dashboard picker. Creating and editing custom dashboards requires the **Analytics Write** permission.
+
+## Permissions
+
+Analytics features are controlled by three permissions, configured under **Settings > Users & Roles**:
+
+| Permission | What it controls |
+|---|---|
+| **Analytics Read** | Required to view any analytics dashboard. Without this, the Analytics section is hidden. |
+| **Analytics Write** | Required to create, edit, and delete custom dashboards and widgets. |
+| **Analytics Export** | Required to export dashboard data as a spreadsheet. |

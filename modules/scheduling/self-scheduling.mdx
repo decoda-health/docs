@@ -1,0 +1,43 @@
+---
+title: 'Self-Scheduling'
+description: 'Let patients book appointments online through a patient-facing booking page with service selection, provider choice, and payment.'
+---
+
+<Info>
+  **Where to find this:** Self-scheduling is a patient-facing feature. Configure it per service in [Settings > Services](/modules/settings/services) under the **Visibility & Discovery**, **Pricing & Payments**, and **Scheduling & Booking** tabs.
+</Info>
+
+## Self-Scheduling (Patient-Facing)
+
+Self-scheduling allows patients to book appointments online without calling the clinic. The patient-facing booking flow guides them through these steps:
+
+<Steps>
+  <Step title="Select Patient Type">
+    The patient indicates whether they are a new patient, existing patient, or returning patient. Services may be restricted based on patient type.
+  </Step>
+  <Step title="Choose Location Type">
+    The patient selects between in-person, virtual, or all appointment types.
+  </Step>
+  <Step title="Select Service">
+    The patient browses available services, filtered by category if configured. Services marked as "popular" appear first. Services marked "only bookable over the phone" are visible but cannot be selected.
+  </Step>
+  <Step title="Choose Location">
+    For in-person visits, the patient selects a clinic location. If location services are enabled, nearby locations appear first.
+  </Step>
+  <Step title="Select Provider (Optional)">
+    If the service has "Allow Individual Provider Booking" enabled, the patient can choose a specific provider. Otherwise, a provider is auto-assigned.
+  </Step>
+  <Step title="Pick a Time">
+    The patient selects from available time slots. Availability is calculated based on provider shifts, existing appointments, service duration, and any short-notice blocks.
+  </Step>
+  <Step title="Confirm and Pay">
+    The patient reviews appointment details in an itinerary view. If a booking fee is configured, they enter payment information. If credit card collection is required, they must provide a card before finalizing.
+  </Step>
+  <Step title="Booking Complete">
+    The appointment is created and a confirmation SMS is sent to the patient. The appointment appears on the clinic calendar.
+  </Step>
+</Steps>
+
+<Info>
+  Configure self-scheduling options per service in [Settings > Services](/modules/settings/services) under the **Visibility & Discovery**, **Pricing & Payments**, and **Scheduling & Booking** tabs.
+</Info>

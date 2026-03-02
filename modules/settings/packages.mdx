@@ -1,0 +1,129 @@
+---
+title: 'Packages'
+description: 'Bundle services and products into discounted packages that patients can purchase and redeem over time.'
+---
+
+<Info>
+  **Prerequisites:** You should have [Services](/modules/settings/services) and/or [Products](/modules/settings/products) created before setting up packages, since packages bundle existing catalog items together.
+</Info>
+
+Packages let you sell a bundle of services or products at a set price. Unlike memberships (which bill on a recurring schedule), packages are a one-time purchase that patients redeem over time.
+
+Packages let you group multiple services and products into a single purchasable bundle at a set price. Unlike memberships, packages are a one-time purchase -- patients buy the package and redeem the included items over time until all quantities are used.
+
+## Create a Package
+
+<Steps>
+  <Step title="Navigate to Packages">
+    Go to **Settings** and select **Packages**.
+  </Step>
+  <Step title="Add Package">
+    Click the **Add Package** button in the top right corner. The package editor opens.
+  </Step>
+  <Step title="Enter Details">
+    Fill in the following fields:
+    - **Name:** A descriptive name for the package (e.g., "Facial Rejuvenation Bundle", "New Patient Starter Pack"). Required.
+    - **Description:** An optional summary of what the package includes, shown to patients. Use the AI generator to draft this automatically.
+    - **Internal Notes:** Private notes visible only to staff (e.g., "Offer this to new patients during consultation").
+    - **Category:** Select an existing category or create a new one to group similar packages together. Use the AI generator to suggest a category based on the package name.
+    - **Price:** The total price for the package. Can be $0 for complimentary packages.
+  </Step>
+  <Step title="Add Package Items">
+    Click **Add Item** to include services or products in the package. For each item:
+    - **Item:** Search and select a service or product from your catalog.
+    - **Quantity:** How many of that item the patient receives (minimum 1).
+    - **Item Price:** The price allocated to this item within the package. This can differ from the item's standard catalog price.
+  </Step>
+  <Step title="Save">
+    Click **Create Package**. The package is immediately available for sale.
+  </Step>
+</Steps>
+
+## Edit a Package
+
+From the packages list, click the actions menu (gear icon) on any package and select **Edit and view details**. The same editor opens with all fields pre-filled. Modify any fields and click **Update Package** to save changes.
+
+### Quick-Edit Category and Price
+
+You can edit a package's category and price directly from the table without opening the full editor:
+
+- **Category:** Click the category cell in the table row. A dropdown appears where you can select a different category or remove the category entirely.
+- **Price:** Click the price cell in the table row. An inline editor appears where you can type a new price and press Enter to save.
+
+## Delete a Package
+
+Click the actions menu on any package and select **Delete**. A confirmation prompt appears explaining that:
+- Patients who already purchased this package keep their access to it.
+- No new patients will be able to purchase the package.
+
+This action cannot be undone.
+
+## Track Package Usage
+
+Click the **active patients** count on any package row to open the package usage page. This page shows every patient who has purchased the package, their usage status, and detailed redemption history.
+
+### Usage Overview
+
+The top of the page displays the package details including name, description, internal notes, price, creation date, and the full list of included items with their quantities and prices.
+
+### Patient Usage Table
+
+The table shows each patient who purchased the package with the following information:
+
+- **Patient:** Name, phone number, and email.
+- **Status:** Active, Used (fully redeemed), or Cancelled.
+- **Item Usage:** Visual progress bars showing how many of each included item the patient has redeemed vs. the total available.
+- **Activity:** Purchase date and most recent redemption date.
+- **Price Paid:** The amount charged, including any discounts applied at purchase.
+
+### Usage Timeline
+
+Click the expand arrow next to any patient to reveal a detailed timeline of every redemption event, showing which items were used and when.
+
+### Cancel or Reactivate a Sold Package
+
+From the actions menu on any patient row:
+- **Cancel Package:** (Active packages) Deactivates the package. Requires a cancellation reason. The patient can no longer redeem remaining items.
+- **Reactivate Package:** (Cancelled packages) Restores the package so the patient can resume redeeming items.
+
+## Filter and Sort Packages
+
+### Filters
+
+Use the filter bar above the table to search by:
+- **Package Name:** Text search on the package name.
+- **Category:** Multi-select filter for specific categories.
+- **Price Range:** Filter by minimum and/or maximum price.
+- **Item Name:** Search for packages that contain a specific service or product.
+
+### Grouping
+
+If any packages have categories assigned, the table automatically groups them by category. Use the **Group By** dropdown to toggle grouping on or off.
+
+### Sorting
+
+Click any column header to sort by that field. Click again to reverse the sort direction. Sortable columns include Package Name, Category, Price, and Active Patients.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Package Pricing Strategy">
+    The package price does not need to equal the sum of individual item prices. Set the package price lower to offer a bundled discount, or set individual item prices within the package to $0 to include them as complimentary add-ons while keeping the overall package at a specific price point.
+  </Accordion>
+  <Accordion title="Selling Packages to Patients">
+    Packages are sold through the billing/checkout flow. When adding items to a patient's cart or charge, search for the package by name. The entire package is added as a single line item at the configured package price.
+  </Accordion>
+  <Accordion title="Category Management">
+    Categories are shared across services, products, and packages. Creating a new category from the package editor makes it available everywhere. Use categories to organize packages by treatment area (e.g., "Facials", "Body Contouring") or by patient type (e.g., "New Patient", "VIP").
+  </Accordion>
+  <Accordion title="Permissions">
+    - **Inventory Read** -- Required to view the Packages page, package details, and usage tracking.
+    - **Inventory Write** -- Required to create, edit, and delete packages, and to cancel or reactivate sold packages.
+    - **Billing Payments Process** -- Required to sell packages to patients during checkout.
+
+    Admin users have full access to all package features by default.
+  </Accordion>
+  <Accordion title="AI-Assisted Descriptions and Categories">
+    When creating or editing a package, the description and category fields offer AI generation. Enter a package name first, then click the AI button to automatically generate a professional description or suggest an appropriate category based on your existing category list.
+  </Accordion>
+</AccordionGroup>

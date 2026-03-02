@@ -1,0 +1,209 @@
+---
+title: 'Payment Management'
+description: 'Configure merchant accounts, POS devices, tax rates, tip displays, and accepted payment methods.'
+---
+
+<Info>
+  **Prerequisite:** The Payments module must be enabled for your organization before you can access this page. Contact Decoda support if Payment Management is not visible in your settings.
+</Info>
+
+This is where you set up how your clinic accepts money. Connect your bank account, register card readers, configure taxes, and define what payment methods you offer — everything needed before you can start collecting payments.
+
+Payment Management is the central hub for configuring how your organization processes payments. It contains six sections: Merchant Accounts, POS Devices, Tip Displays, Tax Rates, Payment Mediums, and the Embed Payment Component.
+
+Navigate to **Settings > Payment Management** to access all sections on a single page.
+
+## Merchant Accounts
+
+Merchant accounts are the bank accounts where Decoda deposits funds collected from patients. Each account displays its processing fees for online and in-person transactions, and can be assigned to specific locations.
+
+<Info>
+  Merchant accounts are provisioned by Decoda support. To add a new merchant account, contact support directly from the page.
+</Info>
+
+### View Merchant Accounts
+
+Each merchant account card shows:
+
+- **Name** and unique ID.
+- **Default** badge if it is the fallback account for locations without a specific assignment.
+- **Online Payments** processing fee (percentage) and per-transaction fee (cents).
+- **In-Person Payments** processing fee (percentage) and per-transaction fee (cents).
+- **Locations** associated with this account.
+
+### Edit a Merchant Account
+
+<Steps>
+  <Step title="Open the Editor">
+    Click on a merchant account card, or click the **Edit** icon on the card.
+  </Step>
+  <Step title="Update Fields">
+    - **Name:** Change the display name for this account.
+    - **Set as default:** Toggle on to make this the default merchant account. The default account is used whenever no specific account is assigned to a location.
+    - **Associated Locations:** Check the locations that should route payments through this account. If no locations are selected, the account is only used as the default.
+  </Step>
+  <Step title="Save">
+    Click **Update Merchant Account**.
+  </Step>
+</Steps>
+
+## POS Devices
+
+POS (point-of-sale) devices allow your clinic to accept in-person card payments through physical terminals. Devices must be registered in Decoda before they can process transactions.
+
+<Info>
+  Need to set up a new terminal? See the [POS Device Setup](/modules/settings/pos-devices/overview) guides for hardware installation, network configuration, and obtaining your registration code.
+</Info>
+
+### Register a New Device
+
+<Steps>
+  <Step title="Open Registration">
+    Click **Register New Device** in the POS Devices section.
+  </Step>
+  <Step title="Enter Device Details">
+    - **Device ID:** The 6-digit alphanumeric code displayed on your physical POS device.
+    - **Device Name:** A descriptive label (max 20 characters), such as "Front Desk Terminal" or "Checkout 1".
+    - **Location:** Select the physical clinic where this device is located. If your organization has only one location, this is selected automatically.
+    - **Merchant Account:** Choose which merchant account transactions from this device should be routed to. If only one merchant account exists, or a default is configured, it is selected automatically.
+  </Step>
+  <Step title="Register">
+    Click **Register Device**. The device appears in the POS Devices grid and is ready to accept payments.
+  </Step>
+</Steps>
+
+### Manage Devices
+
+- **Change Location:** Use the **Location** dropdown on a device card to reassign it to a different clinic.
+- **Unregister:** Click the settings menu on a device card and select **Unregister Device**. Confirm when prompted. This permanently removes the device from your organization.
+
+## Tip Displays
+
+Tip displays are customer-facing screens that present tip options during checkout. Each display is tied to a specific location.
+
+When a patient checks out, the tip screen appears on a separate display facing the patient. They see suggested tip percentages and can choose one or enter a custom amount — your staff doesn't have to ask.
+
+### Add a Tip Display
+
+<Steps>
+  <Step title="Open the Form">
+    Click **Add Tip Display** in the Tip Displays section.
+  </Step>
+  <Step title="Configure the Display">
+    - **Display Name:** A descriptive label (e.g., "Front Desk", "Checkout 1").
+    - **Location:** Select the clinic where this display is used.
+  </Step>
+  <Step title="Save">
+    Click **Add Display**.
+  </Step>
+</Steps>
+
+### Edit or Delete a Tip Display
+
+- **Edit:** Click the settings menu on a display card, then select **Edit**. You can update the name and toggle the **Active** switch to enable or disable the display.
+- **Delete:** Click the settings menu, then select **Delete**. Confirm when prompted. This permanently removes the display.
+
+## Tax Rates
+
+Tax rates define the tax percentages applied to items during checkout. Each tax can be scoped to specific item types, categories, and locations.
+
+### Create a Tax Rate
+
+<Steps>
+  <Step title="Open the Form">
+    Click **Add Tax Rate** in the Tax Rates section.
+  </Step>
+  <Step title="Enter Tax Details">
+    - **Tax Name:** A descriptive label (e.g., "Sales Tax", "City Tax", "VAT").
+    - **Tax Percentage:** The rate as a number between 0 and 100 (e.g., 8.25 for 8.25%).
+    - **Location Scope:** Select which locations this tax applies to. Leave empty to apply to all locations.
+    - **Apply to:** Choose which items this tax covers:
+      - **All items** -- applies to products, services, and memberships.
+      - **Products only** -- only physical products.
+      - **Services only** -- only services.
+      - **Memberships only** -- only memberships.
+      - **Specific categories** -- only items in the categories you select. When chosen, a category picker appears.
+  </Step>
+  <Step title="Save">
+    Click **Create Tax Rate**.
+  </Step>
+</Steps>
+
+### Edit a Tax Rate
+
+Click the settings menu on a tax row and select **Edit Tax Rate**. The same form opens pre-filled with the current values. Update the fields and click **Update Tax Rate**.
+
+### Edit Item Exemptions
+
+To exempt specific items from a tax, click the settings menu on a tax row and select **Edit Item Exemptions**. Check or uncheck individual services and products to override the tax scope for those items.
+
+### Delete a Tax Rate
+
+Click the settings menu on a tax row and select **Delete**. Confirm when prompted.
+
+## Payment Mediums
+
+Payment mediums are the different ways your clinic accepts payment — credit card, cash, check, Venmo, etc. Decoda provides built-in methods and lets you add custom ones.
+
+### Add a Custom Settlement Type
+
+<Steps>
+  <Step title="Open the Form">
+    Click **Add Custom Settlement Type** in the Payment Mediums section.
+  </Step>
+  <Step title="Enter a Name">
+    Type a descriptive name for the payment method (e.g., "Venmo", "Zelle", "HSA Card", "Cherry Financing").
+  </Step>
+  <Step title="Create">
+    Click **Create**. The new settlement type appears in the custom mediums table and is immediately available during checkout.
+  </Step>
+</Steps>
+
+### Edit a Custom Settlement Type
+
+Click the settings menu on the row and select **Edit**. Update the name and click **Update**.
+
+<Info>
+  If you rename a custom settlement type to match an existing one, a merge confirmation prompt appears. Confirming the merge consolidates all historical transactions under the existing name.
+</Info>
+
+### Delete a Custom Settlement Type
+
+Click the settings menu on the row and select **Delete**. Confirm when prompted. System payment mediums cannot be deleted.
+
+## Embed Payment Component
+
+The Embed Payment Component generates an iframe code snippet that you can paste into an external website to collect patient payments outside of Decoda.
+
+### Generate an Embed Code
+
+<Steps>
+  <Step title="Select a Patient">
+    Use the patient search field in the **Configuration** panel to find and select a patient.
+  </Step>
+  <Step title="Set the Amount">
+    Enter the dollar amount to charge.
+  </Step>
+  <Step title="Customize Appearance">
+    - **Width / Height:** Set the iframe dimensions (pixels or percentages).
+    - **Theme:** Choose **Light** or **Dark**.
+    - **Show payment summary header:** Toggle this checkbox to include or hide the patient name and amount at the top of the form.
+  </Step>
+  <Step title="Preview and Copy">
+    The right-side **Preview** panel shows a live rendering of the payment form. When satisfied, click **Copy Code** in the **Embed Code** section below. Paste the snippet into your website's HTML.
+  </Step>
+</Steps>
+
+The generated code includes an `<iframe>` element and a JavaScript event listener that fires on `payment_success`, `payment_failure`, and `payment_loaded` events, allowing your website to react to payment outcomes.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Permissions">
+    Payment Management is gated by role-based permissions:
+    - **Settings Payment Read** -- Required to view the Payment Management page, including merchant accounts, POS devices, tip displays, tax rates, payment mediums, and the embed component.
+    - **Settings Payment Write** -- Required to edit merchant accounts, register/unregister POS devices, add/edit/delete tip displays, create/edit/delete tax rates, manage payment mediums, and generate embed codes.
+
+    Admin users have full access to all payment management settings by default.
+  </Accordion>
+</AccordionGroup>

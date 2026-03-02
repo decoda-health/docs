@@ -1,0 +1,84 @@
+---
+title: 'Manual Notes & Charting'
+description: 'Write clinical notes manually, track medical codes, and log patient measurements.'
+---
+
+## Create a Manual Note
+
+Manual notes are written by hand using a structured template. Each template defines the fields (questions) to fill in.
+
+<Steps>
+  <Step title="Start a New Manual Note">
+    Click **New Note** and select **Manual Note**. If you are inside a patient chart, the patient is pre-selected. Otherwise, search for and select the patient.
+  </Step>
+  <Step title="Select a Template">
+    Choose a note template. Templates that match the patient's recent data may pre-fill certain fields automatically. A template is required for manual notes -- you cannot proceed without selecting one.
+  </Step>
+  <Step title="Fill In the Note">
+    The note editor displays each question from the template. Depending on the question type, you may enter:
+    - **Free text** or **long text** -- Type directly in the field.
+    - **Single select / Radio** -- Choose one option.
+    - **Multi-select / Checkboxes** -- Choose one or more options.
+    - **Toggle** -- Switch on or off.
+    - **Number** -- Enter a numeric value.
+    - **Date** -- Pick a date.
+    - **File upload** -- Attach a file directly within the question.
+    - **Attachments (Scribe Attachments)** -- Photos with annotation support.
+  </Step>
+  <Step title="Save">
+    Click **Save** to persist the note. Unsaved changes are tracked -- the Save button is only enabled when edits have been made.
+  </Step>
+</Steps>
+
+### Change a Template on a Manual Note
+
+If a manual note was created without a template, a template selection modal automatically appears. You can also switch templates by selecting a new one from the modal, which replaces the current note structure. Any unsaved edits will be lost.
+
+## Note Templates
+
+Templates define the structure of your clinical notes. When creating or editing a note, you select a template that determines which questions and fields appear.
+
+### Select a Template
+
+The template selection modal shows all templates you have access to. Key features:
+
+- **Search** -- Type to filter templates by name or question content.
+- **Favorites** -- Click the star icon next to a template to mark it as a favorite. Favorited templates appear in a dedicated section at the top of the list for quick access.
+- **Question count and attachment count** -- Each template row shows the number of questions and any placeholder attachments.
+- **Access restrictions** -- Templates may be restricted to specific providers. If you do not have access to a template, it appears greyed out.
+- **Create New Template** -- Click the link at the bottom of the modal to open the template editor in a new window.
+
+<Info>
+  To create and manage note templates (add questions, set access controls, configure expiry), go to **Settings > Note Templates**. See [Note Templates Settings](/modules/settings/note-templates) for details.
+</Info>
+
+## Medical Codes
+
+When the **Medical Codes** module is enabled, notes include a **Codes** tab where you can:
+
+- Search and attach **ICD-10** diagnosis codes.
+- Search and attach **CPT** procedure codes.
+- Save code selections alongside the note.
+
+This tab only appears for notes that have generated content and when the SCRIBE_MEDICAL_CODES module is active for your organization.
+
+## Medication Doses
+
+The **Medical Notes** tab within a patient chart includes a **Medication Doses** section that tracks all doses and injections administered to the patient. This table shows:
+
+- **Medication name** and details.
+- **Dose amount**, units, and lot number.
+- **Administration date** and provider.
+- **Sign-off status** -- Doses can be signed off individually by authorized providers.
+
+Use the **Add Dose** button (when available) to record a new medication administration. Each dose can be linked to a specific note.
+
+## Measurements and Charts
+
+The patient's **Medical Notes** tab also includes a **Measurements** section for tracking vitals:
+
+- **Add Measurements** -- Click to record weight, height, blood pressure, waist circumference, and other vitals.
+- **Weight Chart** -- Automatically displayed when two or more weight measurements exist, showing trends over time.
+- **Blood Pressure Chart** -- Automatically displayed when two or more blood pressure readings exist.
+
+For weight-loss clinics, additional charts (dose tracking, waist circumference) appear within the note editor for enrolled patients.

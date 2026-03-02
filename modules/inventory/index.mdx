@@ -1,0 +1,71 @@
+---
+title: 'Overview'
+description: 'Track what you have on hand, order more when you run low, and keep your supplier contacts in one place.'
+---
+
+<Info>
+  **Where to find Inventory:** In the left sidebar, click **Inventory**. You'll see three tabs: **Stockroom** (your stock items and quantities), **Purchase Orders** (orders to suppliers), and **Suppliers** (your vendor directory).
+</Info>
+
+<Info>
+  **Prerequisites:** You should have [Locations](/modules/settings/locations) set up so you can track stock per location. To link stock to sellable items, configure [Products](/modules/settings/products), [Services](/modules/settings/services), or [Medications](/modules/settings/medications) first.
+</Info>
+
+The Inventory module helps you know exactly what supplies you have, where they are, and when to reorder. If your clinic tracks injectables, skincare products, medical supplies, or anything else with quantities that change over time, this is where you manage it.
+
+**How it works:** You create stock items for the physical goods you keep on hand (syringes, Botox vials, skincare products, etc.). Each stock item tracks quantities at each of your clinic locations. When you link a stock item to a product, service, or medication, the quantity updates automatically every time that item is sold or administered -- no manual counting needed.
+
+<CardGroup cols={2}>
+  <Card title="Managing Your Stock" icon="box" href="/modules/inventory/stock">
+    View stock levels, understand alerts, draw down inventory, and link stock to the items you sell.
+  </Card>
+  <Card title="Ordering & Receiving Stock" icon="file-invoice" href="/modules/inventory/purchase-orders">
+    Create purchase orders, auto-generate orders for low stock, and record deliveries.
+  </Card>
+  <Card title="Managing Suppliers" icon="truck" href="/modules/inventory/suppliers">
+    Add suppliers, track contact details, and set default order notes.
+  </Card>
+</CardGroup>
+
+## Getting Started
+
+If you're setting up inventory for the first time, here's a recommended order:
+
+<Steps>
+  <Step title="Add Your Suppliers">
+    Go to the **Suppliers** tab and add the vendors you order from. See [Managing Suppliers](/modules/inventory/suppliers).
+  </Step>
+  <Step title="Create Your Stock Items">
+    Go to the **Stockroom** tab and click **Add Stock**. You can add items one at a time or upload a photo of a purchase order and let AI extract the details for you.
+  </Step>
+  <Step title="Set Minimum Stock Levels">
+    For your most-used items, set a minimum stock level so you get a visual alert when quantities run low.
+  </Step>
+  <Step title="Link Stock to Products and Services">
+    Connect stock items to the products, services, or medications you sell. This way, quantities update automatically when items are sold.
+  </Step>
+</Steps>
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Minimum Stock Levels and Alerts">
+    Set a **Minimum Stock Level** on any stock item to see low-stock alerts. When the remaining quantity falls to or below the minimum, the item shows a **Low** badge. At 25% of the minimum level, it changes to **Critical**. You can also set up [Notifications](/modules/settings/notifications) to receive alerts via email, text, or in-app when stock runs low.
+  </Accordion>
+  <Accordion title="Expiry Tracking">
+    Shipments can include an **Expiry Date**. The Stockroom table shows the earliest expiry date for each item. Items expiring within 30 days display a warning icon. Expired items show the date in red. This helps you rotate stock and dispose of expired product before it reaches patients.
+  </Accordion>
+  <Accordion title="Units of Measure (UOM)">
+    When linking a supplier to a stock item, you can set up supplier-specific units of measure. This is useful when your internal tracking unit differs from the supplier's packaging -- for example, you track in individual vials but the supplier sells in boxes of 10. The UOM setting handles the conversion so purchase orders use the supplier's units while your stockroom shows your internal units.
+  </Accordion>
+  <Accordion title="Inventory from Settings Pages">
+    You don't have to manage all inventory from the Inventory module. Products, services, and medications each have an **Inventory** tab in their editors where you can create new stock, link existing stock, or view current quantities per location. See [Products](/modules/settings/products), [Services](/modules/settings/services), and [Medications](/modules/settings/medications) for details.
+  </Accordion>
+  <Accordion title="Permissions">
+    Inventory features are controlled by two permissions:
+    - **Inventory Read** -- Required to view the Stockroom, Purchase Orders, and Suppliers pages.
+    - **Inventory Write** -- Required to create, edit, and archive stock items, manage purchase orders, add suppliers, and perform drawdowns.
+
+    These permissions are configured under **Settings > Users & Roles**. See [Users & Roles](/modules/settings/users) for details.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,113 @@
+---
+title: 'Ingenico Lane/7000'
+description: 'Setup guide for the Ingenico Lane/7000 payment terminal.'
+---
+
+<Frame>
+  <img src="/images/pos-devices/lane_7000.png" alt="Ingenico Lane/7000" width="250" />
+</Frame>
+
+## What's in the Box
+
+- Ingenico Lane/7000 terminal
+- Ingenico Multipoint Interface Cable
+- Ingenico power supply
+- Ingenico Stylus
+
+## Initial Setup
+
+<Steps>
+  <Step title="Power Connection">
+    - Plug the power supply connector into the jack on the Multipoint Interface Cable.
+    - Connect the Multipoint Interface Cable into the Multipoint Port on the underside of the terminal.
+    - Plug the power supply adapter into an available power outlet.
+  </Step>
+  <Step title="Network Connection">
+    Connect the other end of the Multipoint Interface Cable to an Ethernet port (router, modem, wall jack, etc.).
+  </Step>
+  <Step title="Stylus Attachment">
+    Attach the stylus to your device using the provided two-sided tape.
+  </Step>
+</Steps>
+
+## Connecting to Wi-Fi
+
+<Steps>
+  <Step title="Access Admin Menu">
+    On the pin-pad, press `2634` (the screen will change. If it does not, retry until you see the new screen).
+  </Step>
+  <Step title="Enter Function Mode">
+    Press the `F` key (located below the number 7).
+  </Step>
+  <Step title="Prepare for Input">
+    Use your finger or the included stylus for input on the screen.
+  </Step>
+  <Step title="Navigate to Wi-Fi Settings">
+    Navigate to **Tetra Admin > 4-Configure Wi-Fi > 2-Scan Networks**.
+  </Step>
+  <Step title="Select Network">
+    Select your wireless network after the scan is complete.
+  </Step>
+  <Step title="Enter Password">
+    Enter the password using the alphanumeric keypad or touch screen. The keypad uses T9 entry. Pressing each key more than once cycles from numbers to lower case letters to upper case letters.
+  </Step>
+  <Step title="Complete Setup">
+    Press the green circle/enter key to complete the setup.
+  </Step>
+  <Step title="Confirm Connection">
+    Confirm the connection by pressing the green button again on the pin-pad.
+  </Step>
+  <Step title="Return to Home">
+    Press the red `X` 4–5 times to return to the home screen.
+  </Step>
+</Steps>
+
+## Powering On and Registering the Terminal
+
+<Steps>
+  <Step title="Initialize">
+    Once power is supplied, the initialization process begins.
+  </Step>
+  <Step title="Establish Connection">
+    After establishing its IP address, the terminal starts the registration process.
+  </Step>
+  <Step title="Register Device">
+    The terminal will display a four-digit code. Use this code when [registering the device](/modules/settings/payment-management#register-a-new-device) in Decoda.
+  </Step>
+</Steps>
+
+## Entering Text Using the Multi-Tap Method
+
+Each number key represents a set of letters. Pressing the key multiple times will cycle through the numbers and letters. For example, pressing `2`:
+
+| Presses | Character |
+|---------|-----------|
+| 1 | `2` |
+| 2 | `a` |
+| 3 | `b` |
+| 4 | `c` |
+| 5 | `A` |
+| 6 | `B` |
+| 7 | `C` |
+
+## Troubleshooting
+
+### Restart Your Terminal
+
+There are two ways to restart your terminal:
+
+**Soft Reboot:** Access the Admin Menu and select the Restart Terminal option.
+
+**Hard Reboot:** Press and hold the `.`, `#`, `*` key and `<` (yellow key) simultaneously until the device powers off.
+
+### Device Disconnected
+
+If your device becomes disconnected, verify the following:
+
+- Ensure you are using the provided multi-point mono connector (Ethernet) cable and power supply.
+- Check that the Ethernet jack on the multi-point mono connector cable is securely plugged into your router, modem, networking switch, or Ethernet wall jack.
+- Verify that the Ethernet port being used has access to the Internet and that your internal network allows Integrated Terminal connections.
+
+### Command Cancelled Error
+
+Check that the stylus is securely connected to the terminal. Without a connected stylus, the terminal aborts the signature process with a "Command Cancelled" error.

@@ -1,0 +1,92 @@
+---
+title: 'Overview'
+description: 'Process payments, manage invoices, handle refunds, track revenue, and configure billing across your organization.'
+---
+
+<Info>
+  **Prerequisites:** You should have at least one [Location](/modules/settings/locations) configured, [Services](/modules/settings/services) created, and a payment processor connected before using billing features.
+</Info>
+
+The Billing module handles all financial transactions in Decoda -- checkout, payments, invoicing, refunds, cash management, quotes, commissions, and revenue tracking.
+
+Whether you're collecting a copay at the front desk, sending a payment link by text, or setting up automatic installments — this is where it all happens. If money changes hands at your clinic, it flows through the Billing module.
+
+<CardGroup cols={2}>
+  <Card title="Checkout & Payment Methods" icon="credit-card" href="/modules/billing/checkout">
+    Step-by-step checkout flow, payment options (terminal, card, plans, invoices, cash, credit), split payments, and surcharges.
+  </Card>
+  <Card title="Charges & Payments" icon="money-bill-transfer" href="/modules/billing/charges-and-payments">
+    View and manage charges, process payments and refunds, send receipts, handle write-offs, and monitor deposits.
+  </Card>
+  <Card title="Invoice Management" icon="file-invoice" href="/modules/billing/invoices">
+    Automated patient outreach for outstanding balances, invoice tracking, bulk actions, and collection workflows.
+  </Card>
+  <Card title="Carts, Quotes & Credits" icon="cart-shopping" href="/modules/billing/carts-and-quotes">
+    Pre-build orders with carts, send formal estimates to patients, and manage prepaid patient credits.
+  </Card>
+  <Card title="Cash Management & Commissions" icon="cash-register" href="/modules/billing/cash-and-commissions">
+    Track and reconcile physical cash, close the register, and set up provider commission structures with payout reports.
+  </Card>
+</CardGroup>
+
+## Revenue Dashboard
+
+The **Revenue Dashboard** provides a high-level view of your financial performance. Navigate to **Billing > Dashboard** to access it.
+
+### Dashboard Filters
+
+- **Location:** Filter all metrics to a specific clinic location (visible when multiple locations are configured).
+- **Date Range:** Select a preset range (today, last 7 days, last 30 days, etc.) or pick custom start and end dates.
+- **Reset:** Click **Reset** to restore the default date range and clear location filters.
+
+### Performance Metrics
+
+The top row displays three summary cards:
+
+- **Total Revenue:** The total revenue collected during the selected period, with a separate figure for revenue generated today.
+- **Top-Selling Services/Items:** A ranked bar chart showing your highest-revenue services. Click **View more** to see the complete list.
+- **Top Customers by Spending:** A ranked bar chart showing patients with the highest spend. Click **View more** to see the complete list.
+
+### Charts
+
+Below the summary cards, the dashboard displays:
+
+- **Payment Medium Distribution:** A breakdown of payments by method (POS terminal, virtual terminal, cash, patient credit, payment plan, invoice).
+- **Customer Purchased Item Graph:** Visualizes which services and products patients are purchasing.
+- **Charge Status Over Time:** Tracks how charges move through statuses (outstanding, paid, payment plan, written off) over the selected period.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Payment Device Setup">
+    POS terminals (Lane 3000, Lane 7000, Link 2500) must be configured in **Settings** before they appear as payment options during checkout. Each device is assigned to a specific location. See your Settings documentation for setup instructions.
+  </Accordion>
+  <Accordion title="Tax Configuration">
+    Tax rules are configured under **Settings > Billing > Taxes**. Each rule can be scoped to specific locations, services, or products. Taxes are automatically calculated during checkout based on the selected location and items. Individual services can be exempted from specific tax rules in the service editor's Billing & Checkout tab.
+  </Accordion>
+  <Accordion title="Billing Rules (Invoice Rule Sets)">
+    Rule sets define the automated invoicing sequence -- how many messages to send, when to send them, what channels to use (SMS, email), and escalation logic. Configure rule sets under **Settings > Billing > Rules**. During checkout, when you choose **Send Invoices**, the selected rule set controls all future outreach for that charge.
+  </Accordion>
+  <Accordion title="Credit Card Surcharging">
+    When enabled at the organization level, a surcharge fee is automatically applied to credit card payments during checkout. Debit and prepaid cards are not surcharged. Individual patients can be exempted from surcharging via their patient profile settings.
+  </Accordion>
+  <Accordion title="Merchant Accounts">
+    If your organization processes payments through multiple merchant accounts, the checkout flow prompts staff to select which account should process the transaction. Deposits are grouped by merchant account on the Deposits page.
+  </Accordion>
+  <Accordion title="Activated Payment Methods">
+    Organization administrators can enable or disable specific payment methods (POS, virtual terminal, payment plans, invoicing, cash/external, patient credit) from the organization settings. Disabled methods do not appear during checkout.
+  </Accordion>
+  <Accordion title="Permissions">
+    Billing actions are gated by role-based permissions:
+    - **Billing Read** -- View charges, payments, and billing data.
+    - **Process Payments** -- Create charges and process payments.
+    - **Process Refunds** -- Issue refunds and delete charges/payments.
+    - **Export Charges / Payments** -- Download charge and payment data as CSV.
+    - **View Deposits** -- Access the deposits page.
+    - **Commission Read / Write** -- View and manage commission structures.
+    - **Commission Reports Read / Write** -- Generate and view commission reports.
+    - **Commission Export** -- Download commission reports.
+
+    Permissions are assigned to roles under [Users & Roles](/modules/settings/users).
+  </Accordion>
+</AccordionGroup>

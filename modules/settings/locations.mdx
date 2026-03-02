@@ -1,0 +1,83 @@
+---
+title: 'Locations & Facilities'
+description: 'Manage physical addresses, operating hours, and location-specific settings.'
+---
+
+<Info>
+  **Prerequisite:** A primary location is required before you can schedule appointments or process payments.
+</Info>
+
+Every appointment, payment, and staff schedule in Decoda is tied to a location. If you have one clinic, you need one location. If you have five, create all five here — it's one of the first things to set up.
+
+Locations in Decoda represent the physical clinics or facilities where services are provided. Every appointment, user, and transaction in the platform is tied to a specific location.
+
+## Add a New Location
+
+To add a new clinic location to your organization:
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Click on the **Settings** gear icon in the main navigation menu and select **Locations**.
+  </Step>
+  <Step title="Create Location">
+    Click the **Add Location** button in the top right corner.
+  </Step>
+  <Step title="Enter Details">
+    Fill in the required information:
+    - **Name:** The internal name for this clinic (e.g., "Downtown Branch").
+    - **Public Phone/Email:** The contact information patients will see on their notifications and receipts.
+    - **Address:** The physical address used for scheduling and billing.
+    - **Timezone:** Ensure the correct timezone is selected, as this dictates all scheduling for this facility.
+  </Step>
+  <Step title="Save">
+    Click **Save** to create the location. It is immediately available for scheduling and billing assignment.
+  </Step>
+</Steps>
+
+## Edit Operating Hours
+
+A location's operating hours determine when appointments can be scheduled on the calendar.
+
+<Steps>
+  <Step title="Select Location">
+    From the **Locations** page, click on the name of the location you wish to edit.
+  </Step>
+  <Step title="Modify Hours">
+    Scroll to the **Operating Hours** section.
+    - Toggle specific days **On** or **Off**.
+    - Adjust the **Start** and **End** times for each day.
+    - Use the **Split Shift** feature if the clinic closes for lunch or mid-day breaks.
+  </Step>
+  <Step title="Save">
+    Click **Save changes** at the bottom of the page.
+  </Step>
+</Steps>
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Location-Specific Branding">
+    If a specific location operates under a different brand or needs its own logo on receipts, you can upload a **Logo Override** within the location settings. This will replace the default organization logo for all communications originating from this facility.
+  </Accordion>
+  <Accordion title="Assigning Users to Specific Locations">
+    By default, an Owner or Admin can access data across all locations. To restrict a provider or front desk staff member so they only see patients and schedules for a specific facility, you must assign them to that location.
+
+    This is managed in the [Users & Roles](/modules/settings/users) module, under the user's **Access Rules**.
+  </Accordion>
+  <Accordion title="Location-Specific Tax Rates">
+    If your clinics operate in regions with different sales tax requirements, you must create discrete tax rules and assign them to the respective locations.
+
+    This is configured under **Settings > Billing > Taxes**.
+  </Accordion>
+  <Accordion title="Permissions">
+    Location management is gated by role-based permissions:
+    - **Settings Locations Read** -- Required to view the Locations page and see location details.
+    - **Settings Locations Write** -- Required to create new locations, edit existing ones, modify operating hours, and archive locations.
+    - **Locations See All** -- Allows a user to view data across all locations. Without this permission, users only see data for the locations they are assigned to.
+
+    By default, Admin users have full access to all locations. Providers and staff can be restricted to specific locations via their [Access Rules](/modules/settings/users).
+  </Accordion>
+  <Accordion title="Archiving a Location">
+    If a facility is closed permanently, select **Archive Location** at the bottom of the settings page. This prevents new appointments from being booked while preserving historical billing and clinical data for compliance.
+  </Accordion>
+</AccordionGroup>

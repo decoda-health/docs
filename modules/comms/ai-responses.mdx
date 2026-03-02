@@ -1,0 +1,94 @@
+---
+title: 'AI-Suggested Replies'
+description: 'Review AI-generated responses, give feedback to improve future suggestions, and execute AI actions.'
+---
+
+<Info>
+  **Where AI suggestions appear:** On the full **Comms > Chat** page only. They do not appear in the mini chat windows that pop up elsewhere in the platform.
+</Info>
+
+<Info>
+  **Prerequisites:** Your organization needs an AI texting assistant configured under **Settings > Assistants > Texting**. A primary patient must be set on the conversation for suggestions to appear. See [Assistants Settings](/modules/settings/assistants) for setup details.
+</Info>
+
+When a patient sends your clinic a text message, the AI assistant can generate a suggested response. Instead of writing every reply from scratch, you can review the suggestion, send it as-is, tweak it, or dismiss it and write your own.
+
+## What AI Suggestions Look Like
+
+After a patient sends a message, a highlighted card appears below their message in the conversation. This card is labeled **Suggested Response** with an AI badge. It contains the AI's draft reply and two buttons:
+
+- **Use** -- Send the suggestion as your reply.
+- A **regenerate** icon -- Ask the AI to rewrite the suggestion.
+- An **X** icon -- Dismiss the suggestion and write your own reply.
+
+The suggestion stays visible until you use it, dismiss it, or the patient sends another message.
+
+## Use a Suggestion
+
+If the AI's suggestion looks good, click **Use**. The message is sent to the patient immediately, just as if you had typed it yourself. The conversation is automatically marked as resolved.
+
+<Info>
+  **Tip:** Always read the full suggestion before clicking Use. The AI pulls from the patient's records and your clinic's settings, but it can occasionally get a detail wrong -- especially appointment times or provider names. A quick glance takes seconds and prevents confusion.
+</Info>
+
+## Regenerate a Suggestion
+
+If the suggestion is close but not quite right, click the regenerate icon. A window opens where you can tell the AI what to change. For example:
+
+- "Make it shorter"
+- "Include the appointment date and time"
+- "Use a warmer tone"
+- "Don't mention the payment -- just confirm the appointment"
+
+Type your feedback and click **Submit**. The AI generates a new suggestion based on your instructions.
+
+<Info>
+  **Your feedback makes the AI smarter over time.** When you tell the AI what to fix, it uses that feedback to improve future suggestions -- not just for this conversation, but across your clinic. The more specific your feedback, the better the results.
+</Info>
+
+## Dismiss a Suggestion
+
+Click the **X** icon to dismiss the suggestion and write your own reply. There's no penalty for dismissing -- the AI will still suggest replies on the next incoming message.
+
+## AI Actions
+
+The AI doesn't just suggest text replies. It can also suggest **actions** -- things like sending an invoice, notifying the billing team, or texting a form link to the patient. When the AI suggests an action instead of a text reply, you'll see:
+
+- The action name (e.g., "Send Text Invoice" or "Notify Billing Staff")
+- A description of what the action will do
+- An **Execute** button instead of a "Use" button
+
+Click **Execute** to carry out the action. Once executed, the button changes to **Executed** and can't be clicked again.
+
+<Info>
+  AI actions save your team real time. Instead of switching to the Billing page to create an invoice, the AI can handle it from right within the conversation. But always review the action description before executing -- make sure the right patient, amount, or form is being referenced.
+</Info>
+
+## When to Trust the AI vs. Write Your Own Reply
+
+The AI works best for common, routine messages:
+
+- Confirming or rescheduling appointments
+- Answering questions about office hours or location
+- Directing patients to the right department
+- Sending payment or form links
+
+Consider writing your own reply when:
+
+- The patient is upset or dealing with a sensitive situation
+- The message involves a clinical decision or medical advice
+- You need to communicate something nuanced that the AI might oversimplify
+- The AI's suggestion doesn't sound like something your clinic would say
+
+## Configure the AI Texting Assistant
+
+The AI assistant's behavior is controlled by settings under **Settings > Assistants > Texting**:
+
+| Setting | What It Controls |
+|---------|-----------------|
+| **Assistant Name** | The display name on AI-generated messages. |
+| **Custom Prompt** | Instructions for tone, length, specific phrases, and what topics to avoid. This is the most powerful setting -- the more specific your prompt, the better the AI matches your clinic's voice. |
+| **AI Model** | Which AI model generates suggestions. |
+| **Phone Number** | The phone number used for outbound AI messages. |
+
+See [Assistants Settings](/modules/settings/assistants) for the full setup guide.

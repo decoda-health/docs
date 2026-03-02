@@ -1,0 +1,168 @@
+---
+title: 'Services'
+description: 'Define the treatments and services your clinic offers, configure pricing, scheduling rules, and appointment requirements.'
+---
+
+<Info>
+  **Prerequisites:** You should have at least one [Location](/modules/settings/locations) created and [Providers](/modules/settings/users) invited before setting up services, since each service must be assigned to providers and locations.
+</Info>
+
+Services are the foundation of scheduling and billing. Every appointment on your calendar is tied to a service, and every charge at checkout starts with what the patient came in for.
+
+Services represent the treatments, procedures, and offerings your clinic provides to patients. Each service defines its own pricing, scheduling duration, provider assignments, intake forms, and patient notifications. Services are grouped into [Categories](/modules/settings/categories) for organization and reporting.
+
+## Create a New Service
+
+<Steps>
+  <Step title="Navigate to Services">
+    Go to **Settings** and select **Services**.
+  </Step>
+  <Step title="Add Service">
+    Click the **Add Service** button in the top right corner. A drawer will open with a tabbed editor.
+  </Step>
+  <Step title="Fill in Basics">
+    On the **Basics** tab, enter:
+    - **Name:** The service name as it will appear on the calendar, invoices, and self-scheduling pages.
+    - **Description:** An optional summary shown to patients during self-scheduling. You can use the AI generator to draft this automatically.
+    - **Category:** Select an existing category or create a new one inline.
+    - **Appointment Color:** Pick a hex color used to distinguish this service on the calendar.
+  </Step>
+  <Step title="Configure Remaining Tabs">
+    Walk through the additional tabs (Pricing, Scheduling, Providers, etc.) described in the sections below. You can save at any time and return to edit later.
+  </Step>
+  <Step title="Save">
+    Click **Add Service** at the bottom of the drawer. The service is immediately available for scheduling.
+  </Step>
+</Steps>
+
+## Configure Service Details
+
+After creating a service, click its name in the service list to reopen the editor. The drawer contains the following tabs.
+
+### Pricing & Payments
+
+Controls what patients are charged and what fees apply.
+
+- **Price:** The amount used for billing, invoicing, and creating charges. This is the actual amount charged when the service is sold.
+- **Display Price:** The price shown to patients on self-scheduling pages. This is for display only and does not affect billing. When a display price is set, you can choose a display mode:
+  - **Fixed price** -- shows the exact amount.
+  - **Price range** -- shows a min/max range (you set the maximum).
+  - **Starts at** -- shows the display price with a "+" suffix.
+  - **Price varies** -- shows the display price with a "price may vary" note.
+- **Cost:** Internal cost to provide the service, used for profit margin tracking. Not shown to patients.
+- **Booking Fee:** A fixed dollar amount collected at time of booking to secure the appointment. You can optionally toggle **Refundable** and set a refund window (24 or 48 hours before the appointment).
+- **Booking Fee (Percentage):** Switch to percentage mode to calculate the booking fee as a percentage of the billing price instead of a fixed amount.
+- **Booking Fee Description:** Custom text shown to patients explaining why a booking fee is charged.
+- **Reserved Time:** How long (in minutes) to hold a reservation before auto-cancelling if the patient doesn't complete payment.
+- **Cancellation Cost:** A fixed dollar amount charged when the patient cancels within the specified window.
+- **Hours Before Cancelling Costs Money:** Number of hours before the appointment at which the cancellation cost applies.
+- **Cancellation Fee % (48h):** Percentage of the billing price charged if the appointment is cancelled between 48 and 24 hours beforehand (percentage mode only).
+- **Cancellation Fee % (24h):** Percentage of the billing price charged if the appointment is cancelled within 24 hours (percentage mode only).
+- **Collect Credit Card:** When enabled, patients are asked to provide credit card information during self-scheduling.
+- **Credit Card Required:** When enabled (requires Collect Credit Card), patients **must** provide a credit card to book. When off, providing a card is optional.
+
+### Scheduling & Booking
+
+Controls appointment duration, prep work, and resource reservation.
+
+- **Allow Double Booking:** When on, this service can be booked at the same time as other appointments for the same provider.
+- **Bookable Resources:** Select rooms or equipment that must be reserved when this service is booked. This prevents conflicts with other services that use the same resources.
+- **Service Timeline:** A visual editor that lets you configure the full appointment flow:
+  - **Duration:** How long the main appointment lasts (in minutes).
+  - **Prep Time:** Optional pre-appointment preparation block with its own duration, buffer time, custom name, and calendar color.
+  - **Prep Providers:** Assign specific staff members qualified to handle prep work (separate from the main service provider).
+- **Short-Notice Block:** Prevents patients from booking this service within a specified number of minutes before the start time. Use this for services that require advance preparation.
+- **Minutes Before Rebooking Allowed:** If a patient hasn't confirmed their appointment, this is the number of minutes before the start time where other patients can book over that timeslot. Helps reduce no-shows.
+
+### Providers & Locations
+
+Controls who can offer the service and where.
+
+- **Allow Individual Provider Booking:** When on, patients can select a specific provider during self-scheduling. When off, providers are auto-assigned.
+- **Providers:** Select which staff members can perform this service. Only selected providers will have this service available on their calendar.
+- **Locations:** Restrict the service to specific clinic locations. The service will only be bookable at the selected facilities.
+
+### Notifications
+
+Configure SMS messages sent to patients at different stages of the appointment lifecycle. Each template supports variable substitution (e.g., patient name, appointment time) and includes an AI generator to help draft messages.
+
+<Info>
+  **What your patients see:** Each notification below is a text message sent to the patient's phone. The patient receives these automatically based on the timing you configure — you don't need to send them manually.
+</Info>
+
+- **Reminder Before Appointment:** Toggle on to send a reminder SMS. Configure how far in advance (in minutes, hours, or days) the reminder is sent, and customize the message template.
+- **Follow Up After Appointment:** Toggle on to send a follow-up SMS. Configure the delay after the appointment ends and customize the message. Commonly used to send review links.
+- **Confirmation SMS:** Sent to patients immediately after they book the appointment.
+- **Cancellation SMS:** Sent to patients when their appointment is cancelled.
+- **No Show SMS:** Sent to patients if their appointment is marked as missed.
+- **Override Notice SMS:** Sent to patients if their appointment is overridden or rescheduled. Use `{minute_text}` in the template to insert the time before the appointment.
+
+### Visibility & Discovery
+
+Controls where and how patients find this service.
+
+- **Who Can Book:** Restrict the service to new patients only, existing patients only, or both.
+- **Display Order:** Set the sort position in service lists on the self-scheduling page. Lower numbers appear first.
+- **Mark as Popular:** Highlights the service as a popular choice during self-scheduling. Overrides the display order.
+- **Only Bookable Over the Phone:** When on, the service is visible on self-scheduling pages but cannot be booked online. Patients must call the clinic.
+
+### Forms & Intake
+
+Attach intake forms that patients must complete before their appointment.
+
+Select one or more forms from the list by checking the box next to each form name. Use the search bar and sort options to find specific forms. Selected forms will be sent to the patient as part of their pre-appointment workflow.
+
+### Checklists
+
+Define a step-by-step checklist that staff follow during each appointment for this service. Checklist items appear in the appointment sidebar for check-in and tracking.
+
+- Click **Add Item** to create a new checklist entry.
+- Each item has a type (e.g., task, verification) and can be marked as optional.
+- Drag items to reorder them.
+
+### Inventory
+
+Link the service to stock items to track product usage per appointment. When a service is linked to inventory, the system can automatically deduct stock quantities each time the service is performed.
+
+### Billing & Checkout
+
+Additional settings that control how the service behaves in billing workflows.
+
+- **Internal Notes:** Private notes about the service, visible only to staff.
+- **Sort Order:** Controls the order of this service in internal lists. Lower numbers appear first.
+- **Tax Exemptions:** By default, services are taxed according to each tax rule's scope. Check specific taxes to exempt this service from them.
+- **Custom Pricing:** When enabled, staff can modify the price of this service during checkout.
+
+## Bulk Edit Services
+
+To update settings across multiple services at once:
+
+1. On the **Services** page, select the checkboxes next to the services you want to edit.
+2. A bulk edit drawer opens with tabs for **Pricing**, **Scheduling**, **Providers & Locations**, **Forms**, **Notifications**, **Visibility**, **Checklists**, and **Settings**.
+3. Change the fields you want to update. Fields with mixed values across the selected services are clearly indicated.
+4. Click **Save** to apply changes to all selected services simultaneously.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Linking Services to Inventory & Stock">
+    Use the **Inventory** tab within the service editor to link stock items. This enables automatic inventory tracking when the service is performed, helping you monitor product consumption and reorder levels. Stock operations (linking, quantities) are saved alongside the service.
+  </Accordion>
+  <Accordion title="Good Faith Exam Integration (SpaKinect)">
+    If your organization has the SpaKinect module enabled, the **Scheduling & Booking** tab includes an **Auto Request GFE Treatments** field. Select treatments here to automatically request a Good Faith Exam when an appointment is created for this service.
+  </Accordion>
+  <Accordion title="Short-Notice Blocking">
+    Set the **Short-Notice Block** field in the Scheduling tab to prevent patients from booking this service too close to the appointment time. For example, setting 120 minutes means patients cannot self-schedule this service less than 2 hours before the start time.
+  </Accordion>
+  <Accordion title="Rebooking Restrictions">
+    The **Minutes Before Rebooking Allowed** field in the Scheduling tab controls how soon an unconfirmed timeslot becomes available to other patients. This helps prevent revenue loss from no-shows by releasing the slot for rebooking.
+  </Accordion>
+  <Accordion title="Archiving a Service">
+    To discontinue a service without losing historical data, select the service and choose **Archive**. Archived services no longer appear in scheduling or self-scheduling, but all past appointments, billing records, and clinical notes referencing the service are preserved.
+  </Accordion>
+  <Accordion title="Permissions">
+    - **Settings Services Write** -- Required to create, edit, bulk edit, and archive services. Without this permission, users can view services but cannot make changes.
+
+    Admin users have full access to all service settings by default.
+  </Accordion>
+</AccordionGroup>

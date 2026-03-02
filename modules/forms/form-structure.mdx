@@ -1,0 +1,99 @@
+---
+title: 'Form Structure Reference'
+description: 'Block types, question types, conditional logic, and patient data mapping.'
+---
+
+Every form is organized into **blocks** and **questions**. A block is a section of your form (like "Personal Info" or "Medical History"), and inside each block you add the questions patients answer. This page is a reference for everything you can use when building a form.
+
+<Tip>
+  **Save time with automatic record updates:** When you use Demographics, Insurance, Medical History, or Payment Methods blocks, the patient's answers automatically update their record in Decoda. For example, if a patient enters their address on the form, it's saved to their chart — no manual data entry needed. See [Patient Data Mapping](#patient-data-mapping) below for the full list of fields that can auto-update.
+</Tip>
+
+## Block Types
+
+A block is a named section within a form. Each block has a **type** that determines its behavior:
+
+| Block Type | Purpose | When to Use |
+|---|---|---|
+| **Dynamic** | Standard section with custom questions you define. | Most blocks — use this for any custom intake questions, consent acknowledgments, or assessment questionnaires. |
+| **Demographics** | Collects patient information (name, DOB, address, etc.) and saves it to the patient's record automatically. | New patient intake — saves front desk staff from manually entering demographics. |
+| **Insurance** | Collects primary and secondary insurance details. Answers create or update insurance coverage records. | Insurance-based practices that need to verify coverage before appointments. |
+| **Payment Methods** | Collects credit card information securely within the form. | Collecting a card on file during intake so it's ready at checkout. |
+| **Medical History** | Collects health information (allergies, medications, family history, etc.) and saves it to the patient's medical history. | Clinical intake — information flows into the patient's chart for provider review. |
+
+<Tip>
+  Use **Demographics**, **Insurance**, **Medical History**, and **Payment Methods** blocks when you want form answers to automatically update patient records. Use **Dynamic** blocks for everything else — custom questions, consent language, screening tools, etc.
+</Tip>
+
+## Question Types
+
+Forms support these question types:
+
+| Type | What the Patient Sees |
+|---|---|
+| **Text** | A single-line text field |
+| **Text Area** | A larger, multi-line text field |
+| **Number** | A field that only accepts numbers |
+| **Date** | A date picker (can be limited to a specific date range) |
+| **Single Select** | A list where the patient picks one option |
+| **Radial Single Select** | A set of choices where the patient picks one (shown as round buttons) |
+| **Multi Select** | A list where the patient can pick multiple options |
+| **Radial Multi Select** | A set of choices where the patient can check multiple boxes |
+| **Toggle** | An on/off switch (e.g., "Do you have allergies? Yes/No") |
+| **Address** | A full address form (street, city, state, ZIP, country) |
+| **Phone Number** | A phone number field |
+| **Email** | An email address field |
+| **Signature** | A signature pad where the patient signs with their finger or mouse |
+| **File Upload** | A file upload area (e.g., for ID photos, insurance cards). You can set allowed file types, max file size, and how many files are allowed. |
+| **Tag** | A field where the patient can type and add multiple items one by one (e.g., listing allergies) |
+| **Disclaimer** | Read-only legal or informational text the patient reads and acknowledges |
+| **Statement** | A list of points the patient reads (used for consent statements) |
+| **Document** | An embedded PDF shown within the form (e.g., a policy document) |
+| **Height (Feet/Inches)** | A field for entering height |
+| **Weight (Pounds)** | A field for entering weight |
+| **Calculated Score** | An auto-calculated total based on the patient's other answers (used for clinical assessments like PHQ-9) |
+| **Medications** | A field for listing current medications |
+| **Payment Method** | A credit card entry field connected to the payment processor |
+
+## Conditional Logic
+
+You can set up questions that only appear when the patient gives a specific answer to another question. This keeps forms short and relevant — patients only see what applies to them.
+
+**How to set it up:** Each condition has three parts:
+
+- **Dependent Question** -- The earlier question whose answer controls visibility.
+- **Operator** -- How to compare the answer:
+  - **Equals** / **Not Equals** -- The answer matches (or doesn't match) a specific value.
+  - **Contains** -- The answer includes a specific value. Useful when the patient can pick multiple options.
+  - **Years Ago Minimum** / **Years Ago Maximum** -- For date questions. For example, "Years Ago Minimum = 18" would check if the date entered is at least 18 years ago — useful for verifying a patient is 18 or older.
+  - **Sum** -- Used with calculated score questions. For example, show a follow-up question if the patient's assessment score is above a certain number.
+- **Value** -- The specific answer to compare against.
+
+You can add multiple conditions to a single question to create more complex rules (all conditions must be true for the question to appear).
+
+**Example:** You have a "Do you have any allergies?" on/off switch. When the patient answers **Yes**, a follow-up "Please list your allergies" question appears. The condition would be: Dependent Question = "Do you have any allergies?", Operator = **Equals**, Value = **Yes**.
+
+**Example:** You have a "Date of Birth" question and want to show a parental consent question only for patients under 18. The condition would be: Dependent Question = "Date of Birth", Operator = **Years Ago Maximum**, Value = **18**.
+
+## Patient Data Mapping
+
+When building a form, you can link questions to specific fields on the patient's record. When the patient submits the form, their answers automatically update those fields — no manual data entry required. This means a single intake form can fill in a patient's demographics, insurance, medical history, and payment method all at once.
+
+Available fields that can auto-update:
+
+**Demographics:**
+- First name, last name, email, phone number, date of birth, gender
+- Full address (street, city, state, ZIP, country)
+
+**Measurements:**
+- Weight, height
+
+**Medical History:**
+- Allergies, medications, family history, medical history, prescriptions
+- Surgical history, social history, autoimmune disorders, skin conditions, neurological conditions
+
+**Insurance:**
+- Primary and secondary insurer name, member ID, group ID, policy holder name, policy holder DOB, phone number
+
+**Payment:**
+- Credit card / payment method
