@@ -4,16 +4,18 @@ description: 'Block provider time, define working shifts, track patient progress
 ---
 
 <Info>
-  **Where to find this:** Open the **Check-In** section in the main navigation to access the calendar. Use **Create Event** to add blocks, or click a provider's shift picker to manage shifts. The Patient Status panel appears alongside the calendar.
+  **Where to find this:** While blocks and shifts can be managed directly on the calendar, they are primarily managed in the **Shift Management** page (found under **Check-In > Shift Management**). This page provides a dedicated graphical view of all providers across all locations, making it easier to plan weekly schedules.
 </Info>
 
 ## Create a Block
 
 Blocks prevent appointments from being booked during specific time periods. Use them for lunch breaks, meetings, training, personal time, or any period a provider is unavailable.
 
+While you can create blocks on the main calendar, the **Shift Management** page is the recommended place for managing provider availability.
+
 <Steps>
-  <Step title="Open the Event Creator">
-    Click **Create Event** in the sidebar and select **Block**. Alternatively, click an empty time slot on the calendar and choose Block.
+  <Step title="Open the Creator">
+    In **Shift Management**, click the **Add** button and select **Create new Block**. Alternatively, on the main calendar, click **Create Event** in the sidebar and select **Block**.
   </Step>
   <Step title="Set Title">
     Enter a descriptive title (e.g., "Lunch", "Staff Meeting"). If you skip the title, it auto-generates as "Block - [Provider Name]".
@@ -37,15 +39,17 @@ Blocks prevent appointments from being booked during specific time periods. Use 
 
 ### Edit or Delete a Block
 
-Click the block on the calendar to open the editor. Make changes and click **Save**, or click **Delete** to remove it. For recurring blocks, you are asked whether to apply the change to this occurrence only, this and future occurrences, or the entire series.
+Click the block on any calendar view to open the editor. Make changes and click **Save**, or click **Delete** to remove it. For recurring blocks, you are asked whether to apply the change to this occurrence only, this and future occurrences, or the entire series.
 
 ## Add a Shift
 
 Shifts define when a provider is available to see patients. When the "Show Working Hours" toggle is enabled, time outside of shifts is visually marked with diagonal stripes.
 
+**Important:** Shifts should be managed on the **Shift Management** page, which provides a comprehensive view of provider schedules by day and location.
+
 <Steps>
-  <Step title="Open the Shift Picker">
-    In the calendar header area (Day view), click the provider's shift picker. Or create a shift from the administrative interface.
+  <Step title="Open the Shift Creator">
+    In **Shift Management**, click the **Add** button and select **Create new Shift**. Or, in the calendar header area (Day view), click the provider's shift picker.
   </Step>
   <Step title="Set Date and Time">
     Choose the start and end times for the shift.
@@ -57,13 +61,13 @@ Shifts define when a provider is available to see patients. When the "Show Worki
     Choose the clinic location for the shift. Location is required for providers but optional for AI assistants.
   </Step>
   <Step title="Set Capacity (Optional)">
-    Enter the maximum number of concurrent appointments allowed during this shift. Leave blank to use the provider's default capacity setting.
+    Control how many concurrent appointments are allowed during this shift. Leave blank to use the provider's default capacity setting.
   </Step>
   <Step title="Set Recurrence (Optional)">
-    Make the shift repeat on a schedule. Options are the same as for blocks: daily, weekly, weekdays, monthly, yearly, or custom.
+    Make the shift repeat on a schedule (daily, weekly, weekdays, monthly, yearly, or custom).
   </Step>
   <Step title="Save">
-    Click **Create**. The shift appears as a background highlight on the provider's calendar column.
+    Click **Create**. The shift appears as a background highlight on the provider's calendar column and as a colored bar in Shift Management.
   </Step>
 </Steps>
 

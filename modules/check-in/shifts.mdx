@@ -7,11 +7,9 @@ description: 'Plan provider shifts and blocks for the week, resolve scheduling c
   **Where to find it:** Go to **Check-In > Shift Management**.
 </Info>
 
-<Info>
-  Shifts and blocks can also be created and edited from the main calendar. See [Scheduling > Add a Shift](/modules/scheduling/blocks-and-shifts#add-a-shift) and [Scheduling > Create a Block](/modules/scheduling/blocks-and-shifts#create-a-block) for details. The Shift Management page gives you a broader weekly view across all providers and locations.
-</Info>
+The Shift Management page is the primary graphical view for planning provider availability. While you can also manage shifts and blocks directly from the [main calendar](/modules/scheduling/blocks-and-shifts), this page is designed for weekly planning across all providers and locations in a single view.
 
-The Shift Management page is a weekly calendar that shows all provider shifts and blocks across your locations. Use it to plan who's working when, spot and fix scheduling conflicts, and clear shifts for holidays.
+Use it to plan who's working when, spot and fix scheduling conflicts, and clear shifts for holidays.
 
 ## Navigate the Week
 
@@ -36,34 +34,34 @@ Use the controls at the top of the page to customize what you see:
 
 ## Read the Calendar
 
-The calendar is organized by location. Each location section shows a row for each provider, with colored bars representing their scheduled time:
+The calendar is organized by location, providing a clear graphical view of provider availability:
 
-- **Shift bars** — Show when the provider is available to see patients. These are the working hours.
-- **Block bars** — Show when the provider is unavailable. Blocks are used for lunch breaks, meetings, training, personal time, or anything else that prevents the provider from seeing patients.
-- **Repeat icon** — A small icon on a bar means the shift or block repeats on a schedule.
+- **Shift bars** (Blue) — Show when the provider is available to see patients. These are the working hours.
+- **Block bars** (Gray) — Show when the provider is unavailable (lunch, meetings, training, or personal time).
+- **Repeat icon** — Indicates the shift or block is part of a recurring schedule.
 
-Click any shift or block bar to edit or delete it.
+Click any shift or block bar to edit its details or delete it.
 
 ## Create a Shift or Block
 
-Click the **Add** button in the top-right corner. A menu appears with two options:
+The Shift Management page is the intended place for creating and managing provider time. Click the **Add** button in the top-right corner to open the creation menu:
 
-- **Create new Shift** — Opens the shift creation form. Set the provider, location, date, start/end times, capacity, and optional recurrence. Shifts define when a provider is available for appointments.
-- **Create new Block** — Opens the block creation form. Set the title, provider, date, start/end times, and optional recurrence. Blocks prevent appointments from being booked during that time.
+- **Create new Shift** — Define when a provider is available for appointments. Set the provider, location, date, start/end times, capacity, and optional recurrence.
+- **Create new Block** — Define when a provider is unavailable. Set the title, provider, date, start/end times, and optional recurrence.
 
 <Info>
-  **What's the difference between a shift and a block?** A shift says "this provider is available to work." A block says "this provider is unavailable during this time." Use shifts to define working hours and blocks for lunch breaks, meetings, or time off. When patients try to self-schedule, they can only book during shift hours and outside of blocks.
+  **Pro Tip:** Use shifts to define "When can I see patients?" and blocks for "When am I at the clinic but unavailable?". Patients can only self-schedule during shift hours that are not covered by a block.
 </Info>
 
 <Info>
-  **Plan shifts a week ahead** so the dashboard can show accurate provider utilization numbers. If shifts aren't set up, utilization can't be calculated.
+  **Utilization:** Plan shifts at least a week ahead so the [dashboard](/modules/check-in/dashboard) can show accurate provider utilization numbers.
 </Info>
 
 ## Resolve Shift Conflicts
 
-When a provider has overlapping shifts on the same day — for example, two shifts at different locations at the same time — a red **Conflicting shifts detected** alert appears at the top of the calendar.
+One of the main advantages of managing shifts here is the conflict detection. When a provider has overlapping shifts on the same day — for example, two shifts at different locations at the same time — a red **Conflicting shifts detected** alert appears at the top.
 
-Click the alert to expand it. It shows:
+Click the alert to see:
 - Which providers have conflicts.
 - The specific dates and times where shifts overlap.
 - The locations involved.

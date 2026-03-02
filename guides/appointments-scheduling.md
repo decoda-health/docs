@@ -218,66 +218,61 @@ Configure how appointments work in **Settings > Scheduling**:
 
 ## Shift Management
 
-Manage staff schedules alongside appointments:
+The **Shift Management** page (found under **Check-In**) is the primary hub for planning provider schedules and availability across all locations.
 
-1. Go to **Shifts** in the Check-In section
-2. Create shift for each provider
-3. Set hours and break times
-4. System prevents overbooking
-5. Staff can clock in/out
+1. Go to **Shift Management** in the Check-In section.
+2. View the graphical timeline of all providers by day and location.
+3. Use the **Add** button to create shifts for each provider.
+4. Set hours and break times (blocks).
+5. The system uses these shifts to calculate patient booking availability and prevent overbooking.
 
-View all staff time entries in **Clock-In History**.
+Staff can then clock in/out according to these shifts. View all staff time entries in **Clock-In History**.
 
 ## Best Practices
 
 ### Before Your Day
-- Review morning schedule and confirm high-priority appointments
-- Send reminder notifications to patients the day before
-- Ensure all required forms are ready
-- Verify provider availability
+- Review the morning schedule and confirm high-priority appointments.
+- Send reminder notifications to patients the day before.
+- Ensure all required forms are ready.
+- Verify provider availability in **Shift Management**.
 
 ### During Your Day
-- Check in patients promptly when they arrive
-- Update appointment status as it progresses
-- Flag any changes (running late, extended time needed)
-- Document notes immediately after appointment
+- Check in patients promptly when they arrive.
+- Update appointment status as it progresses.
+- Flag any changes (running late, extended time needed).
+- Document notes immediately after appointment.
 
 ### After Your Day
-- Review no-shows and cancellations
-- Follow up with patients who missed appointments
-- Process all payments before closing
-- Verify all notes and forms are completed
+- Review no-shows and cancellations.
+- Follow up with patients who missed appointments.
+- Process all payments before closing.
+- Verify all notes and forms are completed.
 
 ## Common Tasks
 
 ### Handling No-Shows
-1. Mark appointment as no-show
-2. Flag patient in system
-3. Follow up with phone call or message
-4. Reschedule if appropriate
-5. Track no-show trend for patient
+1. Mark appointment as no-show.
+2. Flag patient in system.
+3. Follow up with phone call or message.
+4. Reschedule if appropriate.
+5. Track no-show trend for patient.
 
 ### Moving an Appointment Across Providers
-1. Open appointment
-2. Click **Reassign Provider**
-3. Select new provider
-4. Check availability
-5. Save and notify both providers
+1. Open appointment.
+2. Click **Reassign Provider**.
+3. Select new provider.
+4. Check availability.
+5. Save and notify both providers.
 
 ### Blocking Time Off
-1. Go to **Scheduling**
-2. Click **Add Block** on desired dates
-3. Select provider(s)
-4. Add note (vacation, training, etc.)
-5. Time automatically unavailable for booking
+While you can add blocks on the main calendar, the **Shift Management** page is the intended place for managing provider availability.
 
-### Bulk Importing Appointments
-From **Calendar**:
-1. Click **Import**
-2. Upload CSV or Excel file
-3. Map columns (date, time, patient, service, provider)
-4. Review and confirm
-5. Appointments auto-create
+1. Go to **Shift Management**.
+2. Click **Add > Create new Block**.
+3. Select provider(s), dates, and times.
+4. Add a note/title (e.g., vacation, training).
+5. The time becomes automatically unavailable for patient booking.
+
 
 ## Patient Communications
 
