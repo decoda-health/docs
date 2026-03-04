@@ -23,7 +23,8 @@
             "group": "Getting Started",
             "pages": [
               "getting-started",
-              "search"
+              "search",
+              "guides/task-management"
             ]
           },
           {

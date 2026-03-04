@@ -1,0 +1,105 @@
+# Task Management Guide
+
+Tasks in Decoda help you and your team organize work, track deadlines, and ensure that nothing falls through the cracks. They are work items that you can assign, monitor, discuss via comments, and link directly to patient records.
+
+## Getting Started
+
+Access your tasks by clicking **Tasks** from the main navigation menu or by opening the **Tasks panel** on the right sidebar.
+
+There are two main views for managing tasks:
+- **Tasks Sidebar:** A quick access panel available from anywhere in the app, defaulting to tasks specifically assigned to you.
+- **Tasks Page:** A comprehensive dashboard (accessible via `/tasks`) for viewing, filtering, and organizing all tasks across your organization.
+
+## Key Features
+
+### Assign Work Clearly
+Delegate tasks to specific staff members or entire roles. When you create or edit a task, you can assign it to a team member so it appears in their "Assigned to me" view.
+
+### Track Deadlines
+Set due dates and times for tasks. The system will help you track what is upcoming, what is due today, and what is overdue. You can easily view "Urgent" tasks and prioritize your day.
+
+### Link to Patient Records
+Keep task context intact by directly associating tasks with patient charts. When a task is linked to a patient, you can click on the patient's name to instantly open their record and review their history, notes, and billing information before completing the task.
+
+## Understanding the Tasks Sidebar
+
+The Tasks Sidebar is designed for quick access during your daily workflow.
+
+### "Assigned to me" vs "All tasks"
+By default, the sidebar only shows tasks that are assigned to you. This keeps your view focused on your immediate responsibilities.
+- To view tasks assigned to others or unassigned tasks, click the **Filter & Sort** (funnel) icon in the top right of the sidebar.
+- Under **Filter by Assignee**, select **All tasks**.
+
+### Show Scheduled Tasks
+Tasks can have both a "Start Date" and a "Due Date". If a task is scheduled to start in the future, it is hidden by default to keep your list clean.
+- To view these future tasks, open the full **Tasks Page**.
+- Toggle the **Show scheduled** switch in the filters section to include tasks that are scheduled to start or appear on a future date.
+
+## Creating a Task
+
+1. Open the Tasks Sidebar or navigate to the Tasks page.
+2. Click **Create Task** (or the **+** icon).
+3. Fill in the task details:
+   - **Title & Description:** What needs to be done?
+   - **Priority:** Low, Normal, High, or Urgent.
+   - **Assignees:** Who is responsible?
+   - **Patient:** (Optional) Link a specific patient chart.
+   - **Start & Due Dates:** When should work begin and when is it due?
+4. Click **Save**.
+
+## Task Groups & Auto-Assignment
+
+Instead of assigning tasks to individuals one by one, you can utilize **Task Groups**.
+
+**What are Task Groups?**
+Task Groups allow you to bundle multiple staff members together under a single umbrella (e.g., "Front Desk", "Billing Team", or "Nurses").
+- When a task is assigned to a Task Group, **everyone** in that group is automatically subscribed to the task.
+- This is incredibly useful for shared responsibilities where any member of a specific department can pick up and complete the work.
+
+You can manage your clinic's Task Groups by navigating to **Settings > Tasks**.
+
+## Automated Tasks
+
+Not all tasks need to be created manually. Decoda can automatically generate tasks when specific, important events happen in the platform.
+
+**Common Automated Task Triggers:**
+- **Payment Failures:** If a patient's credit card fails for a planned payment, a task can be automatically created and assigned to the "Billing Team" to follow up.
+- **Self-Scheduled Appointments:** When a patient books their own appointment online, a task can be generated for the "Front Desk" group to review and confirm the booking details.
+- **New Patient Registrations:** Automatically create an intake review task when a new patient profile is created in the system.
+
+**Configuring Automation:**
+You can set up which platform events automatically generate tasks—and who they get assigned to—by going to **Settings > Tasks**. Under the "Alert Task Configs" section, you can map system events (like `PAYMENT_FAILED` or `APPOINTMENT_REQUEST`) to specific assignees or Task Groups.
+
+## Collaboration & Notifications
+
+Tasks are designed to be collaborative. Rather than sending emails or slack messages back and forth about a patient's lab results, you can keep the conversation attached directly to the task.
+
+### Subscribers
+Every task has a list of **Subscribers**.
+- When you are **assigned** a task (either directly or via a Task Group), you are automatically subscribed to it.
+- You can also manually subscribe yourself to any task you want to keep an eye on, even if you aren't the primary assignee.
+
+### Comments & Mentions
+You can add comments to any task to ask questions, provide updates, or log your progress. If you need a specific person's attention, you can **@mention** them in a comment. Mentions will automatically subscribe that person to the task.
+
+### Notifications
+As a subscriber, you stay in the loop. You will receive notifications whenever:
+- A task is assigned to you.
+- Someone leaves a comment on the task.
+- The task's status is updated (e.g., moved to "In Progress" or "Completed").
+
+*Note: How and where you receive these notifications (In-App banner, Email, etc.) depends entirely on your personal preferences. You can configure this by clicking your profile picture and navigating to **Settings > Notifications**.*
+
+## Task Statuses
+
+Tasks move through a simple lifecycle:
+- **Open:** The task has been created but work hasn't started.
+- **In Progress:** Someone is actively working on the task.
+- **Completed:** The work is done.
+- **Cancelled:** The task is no longer necessary.
+
+You can update a task's status directly from the task card or by opening the task details.
+
+## Kanban Board View
+
+For a more visual workflow, the main Tasks page offers a **Kanban Board** view. This allows you to drag and drop tasks between columns (Open, In Progress, Completed) to quickly update their status and see where all organizational work currently stands.
