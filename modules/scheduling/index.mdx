@@ -1,6 +1,6 @@
 ---
 title: 'Overview'
-description: 'Navigate the clinic calendar, switch views, filter providers, and configure advanced scheduling settings.'
+description: 'Manage your clinic calendar, book appointments, configure provider availability, and let patients self-schedule.'
 ---
 
 <Info>
@@ -9,59 +9,20 @@ description: 'Navigate the clinic calendar, switch views, filter providers, and 
 
 The Scheduling module is the central hub for managing your clinic's daily operations. It provides a visual calendar for viewing, creating, and managing appointments, shifts, and blocks across all providers and locations.
 
-While the calendar is where your staff manages daily appointments, shifts and blocks are primarily managed in **Shift Management** for a better graphical overview of provider availability.
-
 <CardGroup cols={2}>
+  <Card title="The Calendar" icon="calendar" href="/modules/scheduling/calendar">
+    Navigate views, filter providers, search events, and track patient status.
+  </Card>
   <Card title="Appointments" icon="calendar-plus" href="/modules/scheduling/appointments">
     Book, edit, cancel, and reschedule patient visits.
   </Card>
-  <Card title="Blocks, Shifts & Patient Status" icon="clock" href="/modules/scheduling/blocks-and-shifts">
+  <Card title="Blocks, Shifts & Shift Management" icon="clock" href="/modules/scheduling/blocks-and-shifts">
     Manage provider working hours and unavailable time.
   </Card>
   <Card title="Self-Scheduling" icon="globe" href="/modules/scheduling/self-scheduling">
     Let patients book appointments online.
   </Card>
 </CardGroup>
-
-## Navigate the Calendar
-
-The calendar is accessed from the **Check-In** section in the main navigation. It displays all appointments, blocks, and shifts for the selected date, providers, and locations.
-
-### Calendar Views
-
-Use the **View** dropdown in the sidebar to switch between three layouts:
-
-- **Day View:** Shows a single day with each provider displayed in their own column. Appointments appear as blocks on a time grid. This is the default view and is best for managing a busy clinic day.
-- **Week View:** Displays an entire week in a seven-column grid (or five columns if weekends are hidden). Useful for seeing the week's schedule at a glance.
-- **Schedule View:** A streamlined list of the day's appointments in chronological order. Shows patient name, provider, service, location, time, and duration. Ideal for a quick daily roster or for printing/exporting.
-
-### Navigate Dates
-
-- Use the **left and right arrows** at the top of the calendar to move forward or backward. In Day view, this moves one day at a time (skipping weekends if weekends are hidden). In Week view, this moves one week at a time.
-- Click the **date display** to open the date picker and jump directly to any date.
-- The **mini calendar** in the sidebar also lets you pick a date.
-
-### Filter the Calendar
-
-The sidebar provides several filters to control what appears on the calendar:
-
-- **Location:** Filter events by one or more clinic locations.
-- **Providers:** Select which providers' columns appear in Day view. In Week view, events are filtered to the selected providers.
-- **Event Types:** Toggle visibility of Appointments and Blocks. Shift backgrounds are controlled separately by the "Show Working Hours" on/off switch.
-- **Event Statuses:** Choose which appointment statuses to display (Pending, Confirmed, Completed, No Show, Overridable, Reserved, Cancelled). Each status has a tooltip description explaining what it means.
-- **Only Active Providers** (Day view only): When enabled, hides providers who have no shifts or appointments for the day.
-- **Show Working Hours** (Day view only): Highlights periods when providers are not working with diagonal stripes.
-
-### Search Events
-
-Use the **Search Events** bar in the sidebar to find any appointment by patient name, provider name, or event title. Selecting a search result jumps the calendar to that date and opens the patient sidebar.
-
-### Export the Schedule
-
-In **Schedule View**, click the **Export Schedule** button in the top-right corner. Choose between:
-
-- **Export as PDF** -- generates a formatted PDF of the day's appointments.
-- **Export as CSV** -- downloads a spreadsheet with columns for time, patient, phone number, provider, service, location, and notes.
 
 ## Advanced Configuration
 
@@ -75,36 +36,6 @@ In **Schedule View**, click the **Export Schedule** button in the top-right corn
 
     Individual provider calendars take precedence over the organization-level calendar.
   </Accordion>
-  <Accordion title="Appointment Status Styles">
-    Customize how appointments look on the calendar based on their status. Go to **Settings > Calendar Appearance** to configure:
-
-    - **Appointment Status Styles:** Set the visual style (color, opacity, border) for each appointment status (Pending, Confirmed, Completed, No Show, etc.).
-    - **Appointment Icons:** Configure which icons appear on appointments and their colors. Icon types include Booking Fee Paid, New Patient, Scheduled by AI, Form Completed, Checked In, and Online Booking.
-  </Accordion>
-  <Accordion title="Calendar Display Preferences">
-    Each user can customize their calendar experience from **Settings > Preferences**:
-
-    - **Show Weekends:** Toggle Saturday and Sunday columns on or off.
-    - **Show Past Events as Translucent:** Fade completed events so current and upcoming appointments stand out.
-    - **Calendar Hours:** Set the visible start and end hours for the time grid (e.g., 8 AM to 6 PM). Events outside these hours are accessible via overflow indicators.
-    - **Calendar Grid Lines:** Choose the interval for sub-hour grid lines: None, 10 minutes, 15 minutes, or 30 minutes.
-    - **Appointment Time Step:** Set the snap interval for appointment scheduling (5, 10, 15, 20, 30, or 60 minutes). Auto mode uses the shortest service duration.
-    - **Show Ghost Event:** When enabled, hovering over a time slot shows a preview of the appointment that would be created.
-    - **Show Deleted Providers:** Include archived providers in selection lists throughout the application.
-  </Accordion>
-  <Accordion title="Capacity Management">
-    Control how many patients a provider can see simultaneously during a shift.
-
-    - **Shift-level capacity:** Set the maximum number of concurrent appointments when creating or editing a shift.
-    - **Service-level double booking:** Enable "Allow Double Booking" on a service to permit overlapping appointments for that service.
-    - **Bookable resources:** Assign rooms or equipment to services to prevent resource conflicts. When a bookable is reserved for one appointment, it cannot be double-booked.
-  </Accordion>
-  <Accordion title="Short-Notice and Rebooking Settings">
-    These settings are configured per service in [Settings > Services](/modules/settings/services):
-
-    - **Short-Notice Block:** Prevents patients from self-scheduling a service within a specified number of minutes of the appointment time. Example: setting 120 minutes blocks self-scheduling less than 2 hours before the slot.
-    - **Minutes Before Rebooking Allowed:** If a patient hasn't confirmed, this setting determines how close to the appointment other patients can book over the unconfirmed slot.
-  </Accordion>
   <Accordion title="Permissions">
     Scheduling actions are gated by role-based permissions:
     - **View Schedule** (Scheduling Read) -- Required to view the calendar, see appointments, and access the Patient Status panel. Without this permission, the Check-In section is not visible.
@@ -115,16 +46,5 @@ In **Schedule View**, click the **Export Schedule** button in the top-right corn
     - **Downloads/Export** -- Required to export the schedule to PDF or CSV from Schedule view.
 
     Admin users have full access to all scheduling features by default.
-  </Accordion>
-  <Accordion title="Recurring Events">
-    Appointments, blocks, and shifts all support recurrence. When editing a recurring event, you choose how to apply changes:
-
-    - **This event only** -- modifies the single occurrence.
-    - **This and following events** -- updates from the selected date onward, creating a new recurring series.
-    - **All events** -- applies changes to every occurrence in the series.
-
-    The same scope options apply when deleting recurring events.
-
-    Custom recurrence supports configuring repeat interval, specific days of the week, monthly patterns (by day of week or day of month), and end conditions (specific date, number of occurrences, or no end).
   </Accordion>
 </AccordionGroup>

@@ -6,7 +6,7 @@ description: 'Block types, question types, conditional logic, and patient data m
 Every form is organized into **blocks** and **questions**. A block is a section of your form (like "Personal Info" or "Medical History"), and inside each block you add the questions patients answer. This page is a reference for everything you can use when building a form.
 
 <Tip>
-  **Save time with automatic record updates:** When you use Demographics, Insurance, Medical History, or Payment Methods blocks, the patient's answers automatically update their record in Decoda. For example, if a patient enters their address on the form, it's saved to their chart — no manual data entry needed. See [Patient Data Mapping](#patient-data-mapping) below for the full list of fields that can auto-update.
+  **Save time with automatic record updates:** When you use Demographics, Medical History, or Payment Methods blocks, the patient's answers automatically update their record in Decoda. For example, if a patient enters their address on the form, it's saved to their chart — no manual data entry needed. See [Patient Data Mapping](#patient-data-mapping) below for the full list of fields that can auto-update.
 </Tip>
 
 ## Block Types
@@ -19,10 +19,6 @@ A block is a named section within a form. Each block has a **type** that determi
 | **Demographics** | Demographics | Collects patient information (name, DOB, address, etc.) and saves it to the patient's record automatically. | New patient intake — saves front desk staff from manually entering demographics. |
 | **Medical History** | Medical History | Collects health information (allergies, medications, family history, etc.) and saves it to the patient's medical history. | Clinical intake — information flows into the patient's chart for provider review. |
 | **Payment Methods** | Payment Methods | Collects credit card information securely within the form. | Collecting a card on file during intake so it's ready at checkout. |
-
-<Info>
-  The **Insurance** block type also exists in the system and supports integrated insurance verification through PVerify. However, it is not available in the **Add Section** menu. Insurance blocks appear on forms that were created with them previously or configured through the API.
-</Info>
 
 <Tip>
   Use **Demographics**, **Medical History**, and **Payment Methods** blocks when you want form answers to automatically update patient records. Use **Custom Section** (Dynamic) blocks for everything else — custom questions, consent language, screening tools, etc.
@@ -116,9 +112,6 @@ Available fields that can auto-update:
 
 **Marketing:**
 - SMS Marketing Opt-In, Email Marketing Opt-In
-
-**Insurance:**
-- Primary and secondary insurer name, member ID, group ID, policy holder name, policy holder DOB, phone number
 
 **Payment:**
 - Credit card / payment method

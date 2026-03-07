@@ -41,7 +41,8 @@
               "modules/scheduling/index",
               "modules/scheduling/appointments",
               "modules/scheduling/blocks-and-shifts",
-              "modules/scheduling/self-scheduling"
+              "modules/scheduling/self-scheduling",
+              "guides/spakinect-good-faith-exams"
             ]
           },
           {
@@ -85,6 +86,12 @@
             ]
           },
           {
+            "group": "Whisper",
+            "pages": [
+              "modules/whisper/index"
+            ]
+          },
+          {
             "group": "Check-In & Front Desk",
             "pages": [
               "modules/check-in/index",
@@ -125,6 +132,7 @@
               "modules/settings/index",
               "modules/settings/locations",
               "modules/settings/users",
+              "modules/settings/permissions",
               "modules/settings/services",
               "modules/settings/categories",
               "modules/settings/products",
@@ -186,9 +194,9 @@
           {
             "group": "API Guides",
             "pages": [
-              "guides/quickstart",
-              "guides/patient-onboarding-workflow",
-              "guides/webhook-events"
+              "api-reference/guides/quickstart",
+              "api-reference/guides/patient-onboarding-workflow",
+              "api-reference/guides/webhook-events"
             ]
           },
           {

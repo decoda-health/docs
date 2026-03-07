@@ -1,0 +1,82 @@
+---
+title: 'Alerts'
+description: 'View and manage alerts across calls, scheduling, and intake — filter by time range, type, tags, and assignment.'
+---
+
+<Info>
+  Navigate to **Alerts** from the sidebar menu. **Note:** This page is being replaced by the notification bell at the top of the sidebar. Configure which notifications you receive in [Notification Settings](/modules/settings/notifications).
+</Info>
+
+The Alerts page gives you a single view of important activity across your clinic, grouped into modules like Calls, Scheduling, and Intake. Each alert shows what happened, which patient was involved, and whether action is still needed.
+
+## Module Cards
+
+At the top of the page, summary cards show key numbers for each module within the selected time period:
+
+- **Calls** — Incoming calls, outgoing calls, and calls handled by Decoda. A notification badge shows how many call alerts need attention.
+- **Scheduling** — Appointments completed and newly scheduled. A notification badge shows how many scheduling alerts need attention.
+- **Intake** — Forms submitted by patients, plus counts of missing form responses for the upcoming and past 7 days. A notification badge shows how many intake alerts need attention.
+
+Cards with activity appear first, sorted by the number of notifications. If a module had no activity in the selected time period, its card shows a message like "No calls in the last period" or "No forms submitted in the last period." Each card also shows a growth percentage compared to the previous period when available.
+
+Click a card to filter the alerts table below to that module. The selected card is highlighted with a blue border.
+
+## Filters
+
+A filter panel on the left side of the page lets you narrow down which alerts appear in the table:
+
+- **Alerts Per Page** — Choose how many alerts to show per page (10, 25, or 50).
+- **Time Period** — Show alerts from Today, Last 7 days, Last 14 days, or All time. The default is Last 7 days.
+- **Action Required Only** — Turn this on/off to show only alerts that still need attention. This is on by default.
+- **Assigned to Me** — Turn this on to show only alerts assigned to you.
+- **Alert Tags** — If your clinic uses tags, check one or more tags to filter by them.
+- **Alert Types** — After selecting a module card, a list of alert types appears. Check or uncheck specific types to fine-tune what you see. Click "Show more alert types" to reveal additional types.
+
+## Alert Details Table
+
+Below the filters, each alert appears as a card showing:
+
+- **Alert type and date** on the left (e.g., "Notification", "Appointment Scheduled").
+- **Alert content** on the right — a summary of what happened, including patient name, relevant details, and links to view more (such as the chat, call details, calendar, or charge).
+- **Status indicators** at the top of each card:
+  - A red "Action Required!" label if the alert still needs attention.
+  - A green "Resolved" label with the name of the person who resolved it and the date.
+  - A red badge showing how many times the patient contacted the clinic (for repeated alerts).
+  - Tag badges if the alert has been tagged.
+- **Assignment** — If the alert is assigned to a staff member, their name appears below the date. Alerts assigned to you are highlighted.
+
+### Pagination
+
+Use the arrow buttons in the top-right corner of the table to move between pages. The display shows which alerts you are currently viewing (e.g., "Viewing 1–10 of 42 Alerts").
+
+### Managing Alerts
+
+You can take action on alerts individually or in bulk:
+
+**Individual actions** — Click the three-dot menu on any alert to:
+- **Resolve Alert** — Mark the alert as handled (only appears for unresolved alerts).
+- **Unresolve Alert** — Reopen a resolved alert.
+- **Assign Alert** — Assign the alert to a staff member.
+
+**Bulk actions** — Click alerts to select them (a blue border appears around selected alerts). You can also click **Select All on Page** to select every alert on the current page. A bulk action bar appears at the bottom with options to:
+- **Assign** — Assign all selected alerts to a staff member.
+- **Resolve** — Mark all selected alerts as resolved.
+- **Unresolve** — Reopen all selected alerts.
+
+Click **Deselect All** to clear your selection.
+
+### Real-Time Updates
+
+Alerts update in real time. When a new alert comes in that matches your current filters, it appears at the top of the list automatically. If an existing alert is resolved or updated by someone else, the change appears without needing to refresh the page.
+
+## Alert Types by Module
+
+Each module card filters to its own set of alert types:
+
+| Module | Alert Types |
+|--------|-------------|
+| **Calls** | Notification, Call Received, Call Made |
+| **Scheduling** | Appointment Scheduled, Appointment Updated, Appointment Cancelled, Self-Scheduled Appointment, Self-Scheduled Appointment Cancelled, Self-Scheduled Appointment Updated |
+| **Intake** | Form Submitted |
+
+Additional alert types — such as Message Received, Message Sent, Message Delivered, Message Failed, Charge Created, Payment Created, Refund Created, and Adjustment Created — also appear in the alerts table depending on your clinic's activity.

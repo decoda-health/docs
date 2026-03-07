@@ -100,7 +100,11 @@ Click the gear icon to access these options:
 - **Mark as Resolved / Mark as Unresolved** -- Switch the conversation's status (see above).
 - **Call Patient** -- Start a phone call to the patient. (Mini chat only -- on the full Chat page, use the standalone phone icon instead.)
 - **Merge Patients** -- Combine duplicate patient records that share this phone number. See [Patients](/modules/patients) for details.
-- **Opt out of texting** -- Permanently stop your clinic from sending SMS to this number. You'll still receive any messages the patient sends. **This cannot be undone.**
+- **Opt out of texting** -- Stop your clinic from sending SMS to this number. You'll still receive any messages the patient sends. You can reverse this from the patient's Settings tab.
+
+<Info>
+  **Patient-initiated opt-out:** A patient can also opt out by texting **STOP** to your clinic's number. When this happens, neither your clinic nor the AI can send messages to that patient until they text **START** to opt back in. This type of opt-out cannot be changed by the clinic. When the patient opts back in, any clinic-level block is also removed automatically.
+</Info>
 
 ## What Appears in the Conversation Timeline
 
@@ -189,6 +193,8 @@ When two or more patients share a phone number, all their messages go to the sam
     Yes. Click **New Chat**, find the patient, and start typing. Keep in mind that some patients may not recognize your clinic's number. The first message should identify your clinic by name.
   </Accordion>
   <Accordion title="How do I stop texting a phone number?">
-    Open the conversation, click the gear icon, and select **Opt out of texting**. This permanently prevents your clinic from sending SMS to that number. You'll still receive any messages the patient sends. This action cannot be undone, so use it carefully.
+    **Clinic-initiated:** Open the conversation, click the gear icon, and select **Opt out of texting**. This prevents your clinic from sending SMS to that number. You'll still receive any messages the patient sends. You can reverse this from the patient's Settings tab.
+
+    **Patient-initiated:** If a patient texts **STOP**, they are automatically opted out and the clinic cannot override this. The patient must text **START** to opt back in. When they do, any clinic-level block is also removed automatically.
   </Accordion>
 </AccordionGroup>

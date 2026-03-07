@@ -1,0 +1,81 @@
+---
+title: 'Bookable Resources'
+description: 'Create and manage rooms, equipment, and other schedulable resources to prevent double-booking.'
+---
+
+<Info>
+  **Navigate to:** Settings > Bookables
+</Info>
+
+Bookable resources represent physical things in your clinic -- rooms, equipment, machines -- that need to be reserved when an appointment is scheduled. By linking bookable resources to [Services](/modules/settings/services), Decoda automatically prevents two appointments from using the same room or machine at the same time.
+
+See also: [Bookable Resource](/glossary#bookable-resource) in the Glossary.
+
+## The Bookables Table
+
+The Bookables page shows all of your resources in a table with the following columns:
+
+| Column | What it shows |
+|--------|---------------|
+| **Bookable** | The resource name and its ID |
+| **Description** | An optional note about the resource |
+| **Locations** | Which clinic locations this resource belongs to |
+| *(unlabeled)* | A button to remove the resource |
+
+If you haven't created any bookable resources yet, the table displays "No bookables found."
+
+## Create a Bookable Resource
+
+<Steps>
+  <Step title="Open the Creation Form">
+    Click **Create Bookable** in the top-right corner of the page. A small form appears.
+  </Step>
+  <Step title="Enter a Name">
+    Type a name for the resource (for example, "Treatment Room A" or "Laser Machine"). This field is required.
+  </Step>
+  <Step title="Add a Description (Optional)">
+    Enter a short description to help your team identify the resource. This is a multi-line text field.
+  </Step>
+  <Step title="Choose Locations">
+    Select one or more locations where this resource is available. The form shows how many locations you've selected out of the total.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The new resource appears in the table immediately.
+  </Step>
+</Steps>
+
+## Edit a Bookable Resource
+
+You can edit a bookable resource's name, description, or locations directly from the table -- no separate page needed.
+
+### Edit the Name or Description
+
+1. Click the **name** or **description** cell in the table row you want to change.
+2. A small editor appears with the current value. Type your changes.
+3. Press **Enter** or click **Save** to confirm. Press **Escape** or click **Cancel** to discard changes.
+
+### Edit Assigned Locations
+
+1. Click the **Locations** cell for the resource you want to update.
+2. A popup shows the currently assigned locations. Click the **X** next to any location to remove it.
+3. To add a location, click **Add location** and select from the available options.
+4. Changes save automatically as you add or remove locations.
+
+## Delete a Bookable Resource
+
+1. Click the red trash button in the last column of the resource's row.
+2. A confirmation prompt asks if you're sure. Click **Confirm** to delete, or cancel to keep the resource.
+
+Deleting a bookable resource cannot be undone. Any services that reference the deleted resource will no longer reserve it during scheduling.
+
+## Link Bookables to Services
+
+Bookable resources become most useful when they're linked to services. When a bookable is assigned to a service, the system checks whether that resource is already in use before allowing an appointment to be booked at the same time.
+
+To link a bookable resource to a service:
+
+1. Go to **Settings > Services** and open the service you want to edit.
+2. In the **Scheduling & Booking** section, use the timeline editor to assign one or more bookable resources to the service.
+3. Save the service.
+
+Once linked, any appointment for that service automatically reserves the bookable resource for the appointment's duration, preventing conflicts. For more details, see [Services](/modules/settings/services).

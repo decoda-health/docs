@@ -1,0 +1,71 @@
+---
+title: 'Suggestions'
+description: 'Create and manage reusable text shortcuts that can be inserted anywhere in the app by typing @.'
+---
+
+<Info>
+  **Where to find it:** Go to **Settings > Suggestions** (under the **Organization** section).
+</Info>
+
+Suggestions are quick text shortcuts for commonly used responses and shared prompts. Once you create a suggestion, you can insert it into any supported text field by typing `@` and selecting it from the list. This saves time when you find yourself typing the same information repeatedly -- things like greeting templates, procedure descriptions, or standard responses.
+
+## Create a Suggestion
+
+<Steps>
+  <Step title="Open the Suggestions Page">
+    Go to **Settings > Suggestions** (under the **Organization** section).
+  </Step>
+  <Step title="Start a New Suggestion">
+    Click the **+** button in the top right corner of the suggestions panel.
+  </Step>
+  <Step title="Fill in the Details">
+    - **Label:** A short name for the suggestion (e.g., "ClinicHours", "CancellationPolicy"). Labels can only contain letters, numbers, and spaces. The label is permanent and cannot be changed after the suggestion is created.
+    - **Content:** The full text that gets inserted when the suggestion is used. This can be as long as needed.
+  </Step>
+  <Step title="Save">
+    Click **Create Suggestion**. The suggestion is immediately available for use.
+  </Step>
+</Steps>
+
+## Edit a Suggestion
+
+1. From the Suggestions page, click on a suggestion in the left panel to select it.
+2. Update the **Content** field. (The label cannot be changed after creation.)
+3. Click **Save Changes**.
+
+## Delete a Suggestion
+
+1. Select the suggestion you want to remove from the left panel.
+2. Click the **Delete** button below the content field. The suggestion is removed immediately.
+
+## Search Suggestions
+
+Use the search bar in the left panel to filter suggestions by label. As you type, the list narrows to show only matching suggestions.
+
+## Using Suggestions
+
+Suggestions work in any text field that supports the `@` shortcut, including [AI Assistant](/modules/settings/assistants) behaviour prompts and greeting messages.
+
+To insert a suggestion:
+
+1. Type `@` in a supported text field.
+2. A list appears showing your saved suggestions along with other available categories (organization templates, team members, patient information, and more).
+3. Start typing after `@` to filter the list.
+4. Click a suggestion or use the arrow keys and press **Enter** to insert its content at your cursor.
+
+## Common Use Cases
+
+| Use case | Example label | Example content |
+|----------|---------------|-----------------|
+| Office hours | ClinicHours | "Our office is open Monday through Friday, 8 AM to 5 PM." |
+| Cancellation policy | CancellationPolicy | "Please provide at least 24 hours notice if you need to cancel or reschedule." |
+| Greeting template | WelcomeGreeting | "Thank you for calling [Clinic Name]. How can I help you today?" |
+| Procedure description | TeethWhitening | "The in-office whitening session takes approximately 60 minutes..." |
+| Follow-up instructions | PostOpCare | "Please avoid strenuous activity for 48 hours and keep the area clean and dry." |
+
+## Permissions
+
+- **Settings Suggestions Read** -- Allows viewing the Suggestions page and its content.
+- **Settings Suggestions Write** -- Allows creating, editing, and deleting suggestions.
+
+Admin users have full access by default.

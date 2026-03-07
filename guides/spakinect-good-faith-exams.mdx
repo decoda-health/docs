@@ -27,11 +27,13 @@ SpaKinect supports two types of GFE assessments:
 - Request SpaKinect module enablement from Decoda support
 - You must have a SpaKinect account with location IDs
 
+<Info>
 When you request SpaKinect module enablement, Decoda will:
 - Enable the SpaKinect module for your tenant
 - Set up the "Request GFE" checklist items on your services
 
 You only need to configure your locations after the module is enabled.
+</Info>
 
 ### Step 1: Request Module Enablement
 
@@ -44,14 +46,16 @@ To get started with SpaKinect integration:
 
 ### Step 2: Set EMR System in SpaKinect
 
-**Note:** Only SpaKinect admins can perform this step.
+<Warning>
+Only SpaKinect admins can perform this step.
+</Warning>
 
 Configure your SpaKinect account to connect with Decoda:
 
 1. Log in to your SpaKinect dashboard
 2. Go to **Manage Account**
 3. Click **Edit Location** for the location you want to connect
-4. Find the **EMR System** dropdown
+4. Find the **EMR System** list
 5. Select **Decoda Health**
 6. Save your changes
 
@@ -67,9 +71,41 @@ Enable SpaKinect for each location:
 4. Enter your SpaKinect location ID (e.g., `jkA6SQCtwZhRNpOFj0ZN`)
 5. Click **Save**
 
+<Info>
 The system automatically subscribes your location to SpaKinect. You'll see a green "SpaKinect Enabled" badge on configured locations.
+</Info>
 
-**Important:** Only locations with a SpaKinect Location ID configured will be available when requesting GFEs.
+<Warning>
+Only locations with a SpaKinect Location ID configured will be available when requesting GFEs.
+</Warning>
+
+## Setting Up Favorite Treatments
+
+Once SpaKinect is enabled, you can mark certain spa treatments as favorites. This narrows down treatment lists across the application so your staff only sees the treatments your clinic actually offers, instead of the full SpaKinect catalog.
+
+<Info>
+The SpaKinect settings page is only visible if your tenant has the SpaKinect module enabled. If you don't see it, contact Decoda support to enable the module.
+</Info>
+
+### How to Set Favorites
+
+1. Go to **Settings > SpaKinect**
+2. You'll see the full list of available treatments from SpaKinect
+3. Check the box next to each treatment your clinic offers
+4. Click **Save Favorites**
+
+**Tips for managing the list:**
+- Use the **search bar** at the top to quickly find treatments by name
+- Click **Select All** to check every treatment at once
+- Click **Clear All** to uncheck everything and start fresh
+- The counter at the top shows how many treatments you've selected (e.g., "5 of 120 treatments selected as favorites")
+
+### How Favorites Affect Treatment Lists
+
+- **When favorites are set** - Any time you select treatments (for example, when requesting a GFE), only your favorite treatments appear in the list. This keeps things simple and avoids scrolling through treatments you don't use.
+- **When no favorites are set** - All available treatments from SpaKinect are shown. This is the default behavior if you haven't configured any favorites yet.
+
+You can update your favorites at any time by returning to **Settings > SpaKinect** and making changes.
 
 ## Requesting a Good Faith Exam
 
@@ -196,7 +232,9 @@ GFEs are matched to patients using:
 - Exact match on last name (case-insensitive)
 - Exact match on date of birth
 
+<Info>
 GFEs that cannot be automatically matched will appear in the "Cannot Import" section. To import these, first create the patient in Decoda with matching name and date of birth, then sync again.
+</Info>
 
 ### What Gets Imported
 

@@ -1,0 +1,158 @@
+---
+title: 'Emails'
+description: 'Customize the header, signature, and sending domain for your outgoing emails.'
+---
+
+<Info>
+  Navigate to **Settings > Emails** to access these settings.
+</Info>
+
+Control how your automated emails look by editing the header and signature that appear on receipts, invoices, and notifications. You can also connect a custom domain so emails come from your own address instead of a generic one.
+
+The Emails page has three tabs: **Header**, **Signature**, and **Domain**.
+
+<Tabs>
+  <Tab title="Header">
+    The email header appears at the top of every automated email your clinic sends -- receipts, invoices, appointment notifications, and more. Use it to add your clinic branding, a welcome message, or important contact details.
+
+    ### Edit the Email Header
+
+    <Steps>
+      <Step title="Open the Header tab">
+        Go to **Settings > Emails** and select the **Header** tab (selected by default).
+      </Step>
+      <Step title="Write your header content">
+        Use the rich text editor to compose your header. The toolbar lets you:
+        - **Format text** -- bold, italic, underline, strikethrough, and headings.
+        - **Add lists** -- bullet or numbered lists.
+        - **Insert links** -- highlight text and click the link button, or press `Cmd+K`.
+        - **Insert images** -- click the image button to upload a logo or banner.
+        - **Attach files** -- click the paperclip button to include file attachments.
+        - **Align content** -- align text or images left, center, or right.
+      </Step>
+      <Step title="Insert dynamic values">
+        Type `@` anywhere in the editor to see a list of available variables. Select a variable to insert it. These values are automatically filled in when the email is sent. Available variables include your clinic name, phone number, and other details.
+      </Step>
+      <Step title="Save">
+        Click **Save Header**. Your changes apply to all future automated emails.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Signature">
+    The email signature is added to the bottom of every outgoing email. It typically includes the sender's name, title, and clinic contact information.
+
+    ### Choose a Template
+
+    At the top of the Signature tab, you will see pre-built templates to get started quickly:
+
+    | Template | What it includes |
+    |----------|-----------------|
+    | **Minimal** | Closing line, provider name, and title. |
+    | **Professional** | Provider name and title, clinic name, phone, and email. |
+    | **Complete** | Full signature with provider details, clinic name, location, and contact info. |
+    | **Clinic Focused** | Emphasizes the clinic name and location, with the provider name at the bottom. |
+
+    Click a template to load it into the editor. You can then customize it further.
+
+    ### Edit the Signature
+
+    <Steps>
+      <Step title="Open the Signature tab">
+        Go to **Settings > Emails** and select the **Signature** tab.
+      </Step>
+      <Step title="Pick a template or start from scratch">
+        Click one of the template cards to load a starting layout, or type directly into the editor to create your own.
+      </Step>
+      <Step title="Customize the content">
+        Use the same rich text editor as the Header tab -- you can format text, add links, insert images, and attach files.
+      </Step>
+      <Step title="Insert dynamic values">
+        Type `@` to insert variables like provider name, provider title, clinic name, clinic phone, clinic email, and location. These fill in automatically for each email.
+      </Step>
+      <Step title="Save">
+        Click **Save Signature**. The updated signature appears on all future outgoing emails.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Domain">
+    By default, automated emails are sent from a generic address. Connect your own domain so emails come from an address like `mail.yourclinic.com`, which builds trust with patients and improves deliverability.
+
+    ### Add a Custom Domain
+
+    <Steps>
+      <Step title="Open the Domain tab">
+        Go to **Settings > Emails** and select the **Domain** tab.
+      </Step>
+      <Step title="Click Add Domain">
+        If no domain is configured, you will see an **Add Domain** button. Click it to open the setup form.
+      </Step>
+      <Step title="Enter your domain name">
+        Type your domain name in the field. We recommend using a subdomain like `mail.yourdomain.com` rather than your root domain.
+      </Step>
+      <Step title="Click Add Domain to confirm">
+        Click **Add Domain**. The system creates the domain and shows you the DNS records you need to add.
+      </Step>
+    </Steps>
+
+    ### Configure DNS Records
+
+    After adding your domain, you will see a table of DNS records to add at your domain registrar (e.g., GoDaddy, Cloudflare, Namecheap). The records are organized into three groups:
+
+    - **Sending Records** (required) -- These authenticate your domain so emails are delivered successfully. You must add these records for the domain to work.
+    - **Receiving Records (MX)** (optional) -- Add these if you also want to receive emails at your custom domain.
+    - **DMARC Records** (optional) -- These help protect your domain from email spoofing and improve deliverability.
+
+    Each record shows:
+    | Column | Description |
+    |--------|-------------|
+    | **Type** | The DNS record type (e.g., TXT, CNAME, MX). |
+    | **Name/Host** | The record name to enter at your DNS provider. Click the copy button to copy it. |
+    | **Value** | The record value to enter. Click the copy button to copy it. |
+    | **Priority** | Shown for MX records only. Enter this priority value at your DNS provider. |
+    | **Status** | Shows **Verified** (green) when the record is detected, or **Pending** (yellow) when it has not been found yet. |
+
+    ### Verify DNS Status
+
+    After adding DNS records at your provider, come back to this page and click **Verify DNS**. The system checks whether your records are correctly configured and updates each record's status.
+
+    DNS changes can take up to 48 hours to take effect, so if verification fails right away, wait and try again later.
+
+    ### Domain Status
+
+    Your domain shows one of these statuses:
+
+    | Status | Meaning |
+    |--------|---------|
+    | **Active** | All required DNS records are verified. Emails will be sent from your domain. |
+    | **Unverified** | The domain was added but DNS records have not been verified yet. |
+    | **Disabled** | The domain has been disabled and is not in use. |
+
+    ### SMTP Credentials
+
+    Once your domain is added, the page shows your **SMTP Login** beneath the domain name. This is the address used to send emails through the mail service.
+
+    ### DNS Provider Guides
+
+    If you need help adding DNS records, click **Need help setting up DNS records?** at the bottom of the page. You will find links to setup instructions for common providers including GoDaddy, Cloudflare, Namecheap, Squarespace Domains, and Digital Ocean.
+
+    ### Delete a Domain
+
+    To remove your custom domain, click the **Delete** button next to the domain name and confirm when prompted. After deletion, emails will be sent from the default address.
+  </Tab>
+</Tabs>
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Dynamic Variables">
+    Both the header and signature editors support dynamic variables via the `@` shortcut. When an email is sent, variables are replaced with real values such as the provider's name, clinic phone number, or location address. This means a single template works for all providers and locations without manual editing.
+  </Accordion>
+  <Accordion title="Permissions">
+    Email settings use these permissions:
+    - **Manage Email Domains** -- Required to add, verify, or delete a custom email domain. Without this permission, domain actions are disabled.
+    - **View Email Domains** -- Required to view the email domain configuration and DNS records.
+    - Users with standard admin access can edit the header and signature.
+  </Accordion>
+</AccordionGroup>

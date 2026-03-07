@@ -161,7 +161,7 @@ Click the **Delete** button on the domain card and confirm. This removes the dom
 
 <AccordionGroup>
   <Accordion title="Webhook Payload Verification">
-    Use the webhook secret to verify that incoming requests are genuinely from Decoda. Compare the signature in the request headers against a hash computed using your secret. See the [Webhook Events guide](/guides/webhook-events) for implementation details.
+    Use the webhook secret to verify that incoming requests are genuinely from Decoda. Compare the signature in the request headers against a hash computed using your secret. See the [Webhook Events guide](/api-reference/guides/webhook-events) for implementation details.
   </Accordion>
   <Accordion title="API Key Rotation">
     When you generate a new API key, the previous key is immediately revoked. All existing webhooks are preserved and continue to function with the new key. Plan key rotations during low-traffic periods to minimize disruption.

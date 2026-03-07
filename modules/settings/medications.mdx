@@ -118,6 +118,12 @@ To discontinue a medication without losing historical data:
 - **Single medication:** Click the settings icon on the medication row and select **Archive Medication**. Confirm when prompted. The medication is hidden from the system but all historical administration records, billing data, and dose logs are preserved.
 - **Bulk archive:** Select multiple medications using checkboxes, then click **Archive** in the bulk actions bar. Confirm when prompted.
 
+## Tax Exemptions
+
+By default, medications are taxed according to each tax rule's scope. When editing a medication, the **Tax Exemptions** section lists all taxes that could apply to medications (those scoped to **All items**, **Medications only**, or **Specific categories**). Check a tax to exempt this medication from it. Taxes are grouped by location.
+
+Manage tax rules under [Payment Management](/modules/settings/payment-management).
+
 ## Advanced Configuration
 
 <AccordionGroup>
@@ -135,7 +141,8 @@ To discontinue a medication without losing historical data:
   <Accordion title="Permissions">
     - **Inventory Read** -- Required to view the Medications page and medication details.
     - **Inventory Write** -- Required to create, edit, bulk edit, link inventory, and archive medications.
-    - **Patients Doses Provider Write** -- Required for providers to administer doses to patients using medication templates.
+    - **Change Dose Provider** -- Allows changing the administering provider on a medication dose record after it has been created.
+    - **Sign Off Medications** -- Allows signing off on administered doses. Providers with this permission can formally approve dose records. Doses created by providers with this permission are automatically signed off on creation. Providers without it can still record doses, but the doses remain unsigned until an authorized provider signs off.
 
     Admin users have full access to all medication settings by default.
   </Accordion>

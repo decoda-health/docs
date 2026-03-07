@@ -1,0 +1,113 @@
+---
+title: 'The Calendar'
+description: 'Navigate the clinic calendar, switch views, filter by provider and location, search events, and customize your display.'
+---
+
+<Info>
+  **Where to find this:** Open the **Check-In** section in the main navigation. The calendar is the default view.
+</Info>
+
+The calendar is the central hub for your clinic's daily operations. It displays all appointments, blocks, and shifts for the selected date, providers, and locations.
+
+## Calendar Views
+
+Use the **View** dropdown in the sidebar to switch between three layouts:
+
+- **Day View:** Shows a single day with each provider displayed in their own column. Appointments appear as blocks on a time grid. This is the default view and is best for managing a busy clinic day.
+- **Week View:** Displays an entire week in a seven-column grid (or five columns if weekends are hidden). Useful for seeing the week's schedule at a glance.
+- **Schedule View:** A streamlined list of the day's appointments in chronological order. Shows patient name, provider, service, location, time, and duration. Ideal for a quick daily roster or for printing/exporting.
+
+## Navigate Dates
+
+- Use the **left and right arrows** at the top of the calendar to move forward or backward. In Day view, this moves one day at a time (skipping weekends if weekends are hidden). In Week view, this moves one week at a time.
+- Click the **date display** to open the date picker and jump directly to any date.
+- The **mini calendar** in the sidebar also lets you pick a date.
+
+## Filter the Calendar
+
+The sidebar provides several filters to control what appears on the calendar:
+
+- **Location:** Filter events by one or more clinic locations.
+- **Providers:** Select which providers' columns appear in Day view. In Week view, events are filtered to the selected providers.
+- **Event Types:** Toggle visibility of Appointments and Blocks. Shift backgrounds are controlled separately by the "Show Working Hours" on/off switch.
+- **Event Statuses:** Choose which appointment statuses to display (Pending, Confirmed, Completed, No Show, Overridable, Reserved, Cancelled). Each status has a tooltip description explaining what it means.
+- **Only Active Providers** (Day view only): When enabled, hides providers who have no shifts or appointments for the day.
+- **Show Working Hours** (Day view only): Highlights periods when providers are not working with diagonal stripes.
+
+## Search Events
+
+Use the **Search Events** bar in the sidebar to find any appointment by patient name, provider name, or event title. Selecting a search result jumps the calendar to that date and opens the patient sidebar.
+
+## Export the Schedule
+
+In **Schedule View**, click the **Export Schedule** button in the top-right corner. Choose between:
+
+- **Export as PDF** -- generates a formatted PDF of the day's appointments.
+- **Export as CSV** -- downloads a spreadsheet with columns for time, patient, phone number, provider, service, location, and notes.
+
+## Patient Status Panel
+
+The **Patient Status** panel appears alongside the calendar and tracks the real-time progress of patients through their appointments. It displays patients who are currently checked in and shows their progression through checklist steps.
+
+Each row shows:
+
+- **Patient name** and the service they are here for
+- **Appointment time range**
+- **Last updated** -- how long since the last checklist step was completed
+- A **completion button** to mark the next checklist step as done
+
+Use the **filter icon** to show only patients at specific stages (e.g., Checked In, With MA, With Provider, Payment Made).
+
+An overdue indicator appears in red when a patient has been waiting too long at their current stage.
+
+### Appointment Checklists
+
+Checklists define the steps staff follow for each appointment. Checklist items are configured per service (in **Settings > Services > Checklists**) and can include:
+
+| Step | Description |
+|------|-------------|
+| **Filled Form** | Patient has completed required intake forms. |
+| **Checked In** | Patient has arrived and been checked in. |
+| **With MA** | Patient is with the medical assistant. |
+| **Measurement Taken** | Vitals or measurements recorded. |
+| **Dose Taken** | Medication or treatment dose administered. |
+| **With Provider** | Patient is with the provider. |
+| **Note Taken** | Clinical note has been created. |
+| **Payment Made** | Patient has completed checkout and payment. |
+| **Picture Taken** | Before/after photos documented. |
+| **Request GFE** | Good Faith Exam has been requested (SpaKinect integration). |
+
+Staff mark each step complete from the Patient Status panel or the patient sidebar. Completed steps show who completed them and when.
+
+## Customize Your Calendar
+
+<AccordionGroup>
+  <Accordion title="Display Preferences">
+    Each user can customize their calendar experience from **Settings > Preferences**:
+
+    - **Show Weekends:** Toggle Saturday and Sunday columns on or off.
+    - **Show Past Events as Translucent:** Fade completed events so current and upcoming appointments stand out.
+    - **Calendar Hours:** Set the visible start and end hours for the time grid (e.g., 8 AM to 6 PM). Events outside these hours are accessible via overflow indicators.
+    - **Calendar Grid Lines:** Choose the interval for sub-hour grid lines: None, 10 minutes, 15 minutes, or 30 minutes.
+    - **Appointment Time Step:** Set the snap interval for appointment scheduling (5, 10, 15, 20, 30, or 60 minutes). Auto mode uses the shortest service duration.
+    - **Show Ghost Event:** When enabled, hovering over a time slot shows a preview of the appointment that would be created.
+    - **Show Deleted Providers:** Include archived providers in selection lists throughout the application.
+  </Accordion>
+  <Accordion title="Appointment Status Styles">
+    Customize how appointments look on the calendar based on their status. Go to **Settings > Calendar Appearance** to configure:
+
+    - **Appointment Status Styles:** Set the visual style (color, opacity, border) for each appointment status (Pending, Confirmed, Completed, No Show, etc.).
+    - **Appointment Icons:** Configure which icons appear on appointments and their colors. Icon types include Booking Fee Paid, New Patient, Scheduled by AI, Form Completed, Checked In, and Online Booking.
+  </Accordion>
+  <Accordion title="Recurring Events">
+    Appointments, blocks, and shifts all support recurrence. When editing a recurring event, you choose how to apply changes:
+
+    - **This event only** -- modifies the single occurrence.
+    - **This and following events** -- updates from the selected date onward, creating a new recurring series.
+    - **All events** -- applies changes to every occurrence in the series.
+
+    The same scope options apply when deleting recurring events.
+
+    Custom recurrence supports configuring repeat interval, specific days of the week, monthly patterns (by day of week or day of month), and end conditions (specific date, number of occurrences, or no end).
+  </Accordion>
+</AccordionGroup>
