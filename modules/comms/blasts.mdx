@@ -28,9 +28,9 @@ Blasts let you send bulk messages -- either email or SMS -- to a group of patien
     Click **Next: Compose** to continue.
   </Step>
   <Step title="Compose Your Message">
-    Type your message in the text editor. As you type, the character count and segment count update below the editor so you can keep messages concise.
+    Type your message in the text editor. As you type, the character count and text count update below the editor so you can keep messages concise.
 
-    You can personalize each message using template variables. Type **@** in the editor to see available variables like `{first_name}`, `{last_name}`, and `{tenant_name}`. Each patient receives a customized version of your message with their information filled in.
+    You can personalize each message by inserting details about the patient or your organization. Type **@** in the editor to see available options like first name, last name, and your organization's name. Each patient receives a version of your message with the relevant details filled in automatically.
 
     To attach images (sent as MMS), click **Attach Images**. You can attach up to 3 image files (JPG, PNG, or GIF), each under 1 MB. Note that MMS messages cost roughly 3x more than standard SMS.
   </Step>
@@ -74,7 +74,7 @@ Blasts let you send bulk messages -- either email or SMS -- to a group of patien
   <Step title="Compose Your Email">
     Use the rich text editor to write your email. The editor supports headings, bold/italic text, images, buttons, links, blockquotes, and lists. Type **/** to see available block types you can insert.
 
-    To personalize the email, type **@** to insert template variables like `{first_name}` or `{tenant_name}`. Each recipient gets a customized version.
+    To personalize the email, type **@** to insert details like the patient's first name or your organization's name. Each recipient gets a customized version.
 
     Switch to **Code** mode if you prefer to write raw HTML directly.
 
@@ -123,24 +123,22 @@ Both SMS and email blasts include an AI writing assistant that can draft or refi
 
 After the first generation, you can refine the result by typing feedback (e.g., "Make it shorter" or "Add a call to action") and clicking **Regenerate**.
 
-## Template Variables
+## Personalizing Your Message
 
-Template variables let you personalize each message with patient-specific information. The system replaces the variable with the actual value for each recipient.
+You can include details about the patient or your organization in your message so each recipient gets a personalized version. Type **@** in the editor to see and insert available options.
 
-| Variable | Replaced With |
+| What you insert | What the patient sees |
 |----------|---------------|
-| `{first_name}` | Patient's first name |
-| `{last_name}` | Patient's last name |
-| `{full_name}` | Patient's full name |
-| `{preferred_name}` | Patient's preferred name (falls back to first name) |
-| `{date_of_birth}` | Patient's date of birth (e.g., January 15, 1990) |
-| `{birthday}` | Patient's birthday without the year (e.g., January 15) |
-| `{phone_number}` | Patient's phone number |
-| `{email}` | Patient's email address |
-| `{patient_id}` | Patient's ID |
-| `{tenant_name}` | Your organization's name |
-
-Type **@** in the editor to see and insert available variables.
+| First name | Patient's first name |
+| Last name | Patient's last name |
+| Full name | Patient's full name |
+| Preferred name | Patient's preferred name (falls back to first name) |
+| Date of birth | Patient's date of birth (e.g., January 15, 1990) |
+| Birthday | Patient's birthday without the year (e.g., January 15) |
+| Phone number | Patient's phone number |
+| Email | Patient's email address |
+| Patient ID | Patient's ID |
+| Organization name | Your organization's name |
 
 ## Viewing Blast Results
 
@@ -152,7 +150,7 @@ A row of stat cards at the top shows the delivery breakdown at a glance. Click a
 
 **Email blast stats:**
 - **Total** -- Total recipients in the blast.
-- **Sent** -- Emails accepted by the mail server.
+- **Sent** -- Emails successfully handed off for delivery.
 - **Skipped** -- Recipients skipped due to missing email, suppression, or being unsubscribed.
 - **Opened** -- Recipients who opened the email, with the open rate percentage.
 - **Clicked** -- Recipients who clicked a link, with the click rate percentage.
@@ -239,7 +237,7 @@ For SMS, patients can text **STOP** to your clinic's number to opt out of all SM
 
 The system shows an estimated cost before you send:
 
-- **SMS:** Cost depends on message length (number of segments) and whether images are attached (MMS). The estimate updates in real-time as you type.
+- **SMS:** Cost depends on message length (number of texts) and whether images are attached (MMS). The estimate updates in real-time as you type.
 - **Email:** Cost is calculated per recipient.
 
 After sending, the actual cost appears on the blast detail page.
