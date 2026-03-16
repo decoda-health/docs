@@ -1,0 +1,129 @@
+---
+title: 'Custom Measurements'
+description: 'Create measurement fields and groups to track patient metrics like vitals, lab values, and clinical scores.'
+---
+
+<Info>
+  Navigate to **Settings > Measurements** to access these settings.
+</Info>
+
+The Custom Measurements page lets you define the metrics your practice tracks for patients — things like weight, blood pressure, lab results, or custom clinical scores. The page has two tabs: **Groups** and **Fields**.
+
+- **Fields** are individual metrics (e.g., "Weight", "Systolic BP", "A1C").
+- **Groups** bundle related fields together so they appear as a single card on a patient's chart (e.g., a "Vitals" group containing weight, blood pressure, and heart rate).
+
+## Groups
+
+Groups control how measurements appear on the patient chart. Each group displays its fields using one of three layouts:
+
+| Layout | Best for |
+|--------|----------|
+| **Table** | Tracking values over time in rows |
+| **Chart** | Visualizing trends with line or bar charts |
+| **Cards** | Showing the latest values at a glance |
+
+### Use a Template
+
+Pre-built templates let you add common measurement groups (like Vitals or Blood Work) without configuring each field by hand.
+
+<Steps>
+  <Step title="Open Templates">
+    Click **Use Template** at the top of the Groups tab.
+  </Step>
+  <Step title="Pick a Template">
+    Browse or search the available templates. Templates that have already been added are hidden automatically.
+  </Step>
+  <Step title="Apply">
+    Click **Use Template** on the one you want. The group and all its fields are created for you.
+  </Step>
+</Steps>
+
+### Create a Group
+
+<Steps>
+  <Step title="Start a New Group">
+    Click **New Group** at the top of the Groups tab.
+  </Step>
+  <Step title="Enter Group Details">
+    Fill in the following:
+    - **Name:** A short label for the group (e.g., "Vitals", "Lipid Panel"). Required.
+    - **Description:** An optional note about what this group tracks.
+    - **Color:** A display color used in charts and the patient view.
+    - **Display Type:** Choose Table, Chart, or Cards.
+  </Step>
+  <Step title="Add Fields">
+    Use the field selector to add existing fields to the group. You can also add other groups as nested members. Drag items to reorder them, and mark fields as required if they must be filled in every time a measurement is recorded.
+  </Step>
+  <Step title="Configure Chart Panels (Chart layout only)">
+    If you chose Chart as the display type, you can set up one or more chart panels. Each panel can show a subset of the group's fields, with options for chart type (line or bar), axis ranges, and goal lines.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The group is immediately available on patient charts.
+  </Step>
+</Steps>
+
+### Edit or Archive a Group
+
+- Click on a group's row to open the editor. Update any settings, then click **Save**.
+- To archive a group, open the menu on the group's row and select **Archive**. Archived groups no longer appear on patient charts, but their historical data is preserved.
+
+## Fields
+
+Fields are the individual data points that get recorded. Each field has a data type, optional unit, and can include reference ranges for clinical interpretation.
+
+### Create a Field
+
+<Steps>
+  <Step title="Switch to the Fields Tab">
+    Click the **Fields** tab at the top of the page.
+  </Step>
+  <Step title="Add a New Field">
+    Click **New Field**.
+  </Step>
+  <Step title="Enter Field Details">
+    Fill in the following:
+    - **Name:** A label for the metric (e.g., "Weight", "LDL Cholesterol"). Required.
+    - **Description:** An optional explanation.
+    - **Data Type:** Float (decimal numbers), Integer (whole numbers), or Text.
+    - **Unit:** The unit of measure (e.g., "kg", "mg/dL", "mmHg").
+    - **Min / Max Value:** Optional boundaries for valid entries.
+    - **Decimal Places:** How many decimal places to display (numeric fields only).
+  </Step>
+  <Step title="Add Reference Ranges (Optional)">
+    Reference ranges highlight whether a recorded value falls within normal, warning, high, or critical levels. For each range, set a label, min/max values, severity, and color. These ranges appear as colored bands on charts and indicators next to values.
+  </Step>
+  <Step title="Set Trend Direction">
+    Choose whether a higher value is better or worse. This controls the color of trend arrows shown alongside recorded values — for example, an increasing weight might be flagged differently than an increasing A1C.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The field is now available to add to groups.
+  </Step>
+</Steps>
+
+### Derived Fields
+
+Derived fields are calculated automatically from other fields rather than entered manually. For example, BMI is calculated from weight and height.
+
+Available formula types:
+
+| Formula | Calculation |
+|---------|-------------|
+| **Ratio** | A / B |
+| **Difference** | A - B |
+| **Sum** | A + B + ... |
+| **Percentage Of** | (A / B) x 100 |
+| **BMI** | Weight / Height squared |
+| **Total Change** | Running total of changes over time |
+
+When creating a derived field, select **Derived field** and choose the formula type. Then pick the fields to use as inputs. The formula playground lets you test the calculation with sample values before saving.
+
+### Edit or Archive a Field
+
+- Click on a field's row to open the editor. Update any settings, then click **Save**.
+- To archive a field, open the menu on the field's row and select **Archive**. Archived fields stop appearing in data-entry forms, but their recorded values are kept.
+
+---
+
+## Related Pages
+
+- [Patient Chart](/modules/patients/patient-chart) — Where recorded measurements appear for each patient.

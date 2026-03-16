@@ -1,0 +1,129 @@
+---
+title: 'Create and pay for a charge with items in the embed'
+description: 'Create a charge with line items and discounts via the API, then collect payment in the embedded payment component.'
+---
+
+This guide walks through creating a charge with items (products, services, discounts) via the API and collecting payment through the embedded payment component. Use this when your integration needs to show an itemized receipt before the patient pays.
+
+## Overview
+
+1. **Create a charge** with line items and discounts using the [Create Charge](/api-reference/provider/create-charge) or [Convert Cart to Charge](/api-reference/provider/convert-cart-to-charge) API.
+2. **Build the embed URL** with the charge ID.
+3. **Patient pays** in the embed — the form displays the full charge breakdown (items, discounts, total).
+
+## Step 1: Create a charge with items
+
+You can create a charge in two ways:
+
+### Option A: Convert a cart to a charge
+
+If you have a cart with items already added:
+
+1. [Create a cart](/api-reference/provider/create-cart) for the patient.
+2. [Add items](/api-reference/provider/add-item-to-cart) (products, services, packages) to the cart.
+3. [Convert the cart to a charge](/api-reference/provider/convert-cart-to-charge).
+
+The response includes the charge ID (`id`).
+
+### Option B: Create a charge directly
+
+Use [Create Charge](/api-reference/provider/create-charge) with a `ChargeDetail` body that includes:
+
+- `patient_id`
+- `items` — array of line items with `name`, `quantity`, `price`, and optional `discounts`
+- `total_outstanding` — sum of item totals minus discounts
+
+Example request body (simplified):
+
+```json
+{
+  "patient_id": "pat_xxx",
+  "total_outstanding": 8500,
+  "items": [
+    {
+      "name": "Consultation",
+      "quantity": 1,
+      "price": 10000,
+      "discounts": [{ "amount": 1500, "order": 0, "quantity": 1 }]
+    }
+  ]
+}
+```
+
+The response returns the charge with its `id` (e.g. `chg_xxx`).
+
+## Step 2: Build the embed URL
+
+Construct the embed URL with the charge ID:
+
+```
+https://app.decodahealth.com/{tenant}/embed/pay/{patientId}?charge_id={chargeId}
+```
+
+Replace:
+
+- `{tenant}` — your organization's subdomain
+- `{patientId}` — the patient's ID (must match the charge's patient)
+- `{chargeId}` — the charge ID from step 1
+
+### Optional URL parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| `allowedMethods` | Comma-separated payment methods. Use `CARD` to disable ACH, or `CARD,APPLE_PAY` for card and Apple Pay only. |
+| `theme` | `light` or `dark` |
+| `showSummary` | `true` (default) or `false` to hide the payment summary |
+
+Example — card only, dark theme:
+
+```
+?charge_id=chg_xxx&allowedMethods=CARD&theme=dark
+```
+
+## Step 3: Load the embed
+
+Embed the URL in an iframe on your site:
+
+```html
+<iframe
+  src="https://app.decodahealth.com/your-tenant/embed/pay/pat_xxx?charge_id=chg_xxx&allowedMethods=CARD"
+  width="100%"
+  height="500"
+  allow="payment"
+  style="border: none; border-radius: 8px;"
+></iframe>
+```
+
+Listen for payment events via `postMessage`:
+
+```javascript
+window.addEventListener('message', function(event) {
+  if (event.data.type === 'payment_success') {
+    console.log('Payment successful:', event.data.payinId);
+  } else if (event.data.type === 'payment_failure') {
+    console.log('Payment failed:', event.data.error);
+  } else if (event.data.type === 'payment_loaded') {
+    console.log('Payment form loaded');
+  }
+});
+```
+
+## API flow
+
+When the embed loads, it calls the [Create Embed Payment Config](/api-reference/provider/create-embed-payment-config) endpoint with `charge_id`. The endpoint:
+
+1. Loads the charge from the database (with items and discounts).
+2. Creates a Rainforest payin config for that charge.
+3. Returns the session key and payin config ID.
+
+The embed uses these to initialize the payment form. When the patient pays, the payment is applied to the existing charge — no duplicate charge is created.
+
+## Disabling payment methods
+
+To restrict which payment methods appear in the embed, add `allowedMethods` to the URL:
+
+- `allowedMethods=CARD` — card only (no ACH, no Apple Pay)
+- `allowedMethods=CARD,APPLE_PAY` — card and Apple Pay (no ACH)
+- `allowedMethods=CARD,ACH` — card and ACH (no Apple Pay)
+
+The default is `CARD,ACH,APPLE_PAY` when not specified.

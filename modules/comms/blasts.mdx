@@ -1,0 +1,290 @@
+---
+title: 'Blasts'
+description: 'Send bulk email and SMS messages to groups of patients using cohorts.'
+---
+
+<Info>
+  **Where to find Blasts:** In the left sidebar, click **Comms > Blasts**.
+</Info>
+
+<Info>
+  **Prerequisites:** You need [Patients](/modules/patients) in the system before sending blasts. You also need at least one [Cohort](/modules/comms/cohorts) to define your audience. For email blasts, your organization must have a verified sending domain configured in [Email Settings](/modules/settings/emails).
+</Info>
+
+Blasts let you send bulk messages -- either email or SMS -- to a group of patients at once. You define the audience using **cohorts** (saved patient filters), compose your message, and send. The system tracks delivery, engagement, and unsubscribes automatically.
+
+## Key Concepts
+
+- **Blast** -- A single bulk send. Each blast targets one or more cohorts and sends via either email or SMS.
+- **[Cohort](/modules/comms/cohorts)** -- A saved group of patients defined by filters (location, provider, tags, etc.). Cohorts are reusable across multiple blasts.
+- **Marketing vs. Transactional** -- Marketing blasts (promotions, newsletters) require patient opt-in and include an unsubscribe link. Transactional blasts (appointment reminders, billing notices) are sent regardless of marketing opt-in but still respect hard blocks like suppression and STOP requests.
+
+## Send an SMS Blast
+
+<Steps>
+  <Step title="Start a New Blast">
+    Go to **Comms > Blasts** and click **New Blast**. Give your blast a name (or leave it blank to auto-generate one). Select one or more cohorts to define your audience, then choose **SMS** as the channel.
+
+    Click **Next: Compose** to continue.
+  </Step>
+  <Step title="Compose Your Message">
+    Type your message in the text editor. As you type, the character count and segment count update below the editor so you can keep messages concise.
+
+    You can personalize each message using template variables. Type **@** in the editor to see available variables like `{first_name}`, `{last_name}`, and `{tenant_name}`. Each patient receives a customized version of your message with their information filled in.
+
+    To attach images (sent as MMS), click **Attach Images**. You can attach up to 3 image files (JPG, PNG, or GIF), each under 1 MB. Note that MMS messages cost roughly 3x more than standard SMS.
+  </Step>
+  <Step title="Mark as Marketing (If Applicable)">
+    Check the **Marketing message** box if your blast is promotional (deals, newsletters, re-engagement campaigns). Marketing blasts will only be sent to patients who have opted in to SMS marketing. Leave it unchecked for transactional messages like appointment reminders or billing notices.
+  </Step>
+  <Step title="Review the Send Preview">
+    The panel on the right shows a breakdown of your audience:
+
+    - **Will send** -- Patients who will receive the message.
+    - **Opted out** -- Patients who have opted out of SMS (via STOP or clinic settings). These patients are skipped.
+    - **No contact info** -- Patients without a phone number on file.
+    - **Landline** -- Patients whose number is marked as a landline.
+    - **Not opted in** -- Patients who haven't opted in to SMS marketing (only shown for marketing blasts).
+
+    Click **Preview Recipients** to see the full list of patients and their individual status.
+
+    A cost estimate appears below the preview based on message length and recipient count.
+  </Step>
+  <Step title="Test Your Message">
+    Click **Send Test to Me** to send a test message to your own phone number. This lets you check how the message looks before sending it to patients.
+  </Step>
+  <Step title="Send the Blast">
+    Click **Send Blast**. Messages are sent individually to each patient's phone number. You'll be redirected to the blast detail page where you can monitor delivery progress.
+  </Step>
+</Steps>
+
+## Send an Email Blast
+
+<Steps>
+  <Step title="Start a New Blast">
+    Go to **Comms > Blasts** and click **New Blast**. Give your blast a name, select one or more cohorts, and choose **Email** as the channel.
+
+    Click **Next: Compose** to continue.
+  </Step>
+  <Step title="Add Cohorts and Write the Subject Line">
+    Your selected cohorts appear in the **To** field. You can add or remove cohorts using the **+ Cohort** button.
+
+    Type your subject line in the **Subject** field. This is what patients see in their inbox. You can also add **Preview Text** -- the short snippet that appears next to the subject line in most email apps.
+  </Step>
+  <Step title="Compose Your Email">
+    Use the rich text editor to write your email. The editor supports headings, bold/italic text, images, buttons, links, blockquotes, and lists. Type **/** to see available block types you can insert.
+
+    To personalize the email, type **@** to insert template variables like `{first_name}` or `{tenant_name}`. Each recipient gets a customized version.
+
+    Switch to **Code** mode if you prefer to write raw HTML directly.
+
+    To attach files, click **Attach Files**. You can attach up to 10 files, each under 25 MB.
+  </Step>
+  <Step title="Style Your Email (Optional)">
+    Open the style settings panel to customize:
+
+    - Font family and size
+    - Text color
+    - Button colors (background and text)
+    - Container background color
+    - Content width
+  </Step>
+  <Step title="Mark as Marketing (If Applicable)">
+    Check the **Marketing message** box for promotional emails. Marketing emails automatically include an unsubscribe link in the footer and are only sent to patients who have opted in to email marketing. Leave it unchecked for transactional emails.
+  </Step>
+  <Step title="Preview and Test">
+    Review the send preview on the right panel, which shows:
+
+    - **Will send** -- Patients who will receive the email.
+    - **Suppressed** -- Patients whose email previously bounced or received a spam complaint. These patients are skipped.
+    - **Unsubscribed** -- Patients who have unsubscribed from marketing emails (only shown for marketing blasts).
+    - **No email** -- Patients without an email address on file.
+    - **Not opted in** -- Patients who haven't opted in to email marketing (only shown for marketing blasts).
+
+    Click **Preview Recipients** to see the full list.
+
+    Click **Test Send** to send a test copy of the email to your own email address. Check your inbox to verify the layout, images, and links look correct.
+  </Step>
+  <Step title="Send the Blast">
+    Click **Send**. A confirmation window appears showing the recipient breakdown and estimated cost. Click **Send** to confirm. You'll be redirected to the blast detail page to monitor progress.
+  </Step>
+</Steps>
+
+## Use AI to Write Your Message
+
+Both SMS and email blasts include an AI writing assistant that can draft or refine your content.
+
+**For SMS:** Click the AI icon in the message toolbar. Type a prompt describing what you want (e.g., "Remind patients about our holiday hours") and click **Generate**. Review the generated text, then click **Accept** to use it or provide feedback to regenerate.
+
+**For email:** The AI can help with three parts of your email:
+- **Subject line** -- Click the lightning icon next to the Subject field.
+- **Preview text** -- Click the lightning icon next to the Preview Text field.
+- **Email body** -- Use the AI bar in the editor. Type a prompt and click **Generate**.
+
+After the first generation, you can refine the result by typing feedback (e.g., "Make it shorter" or "Add a call to action") and clicking **Regenerate**.
+
+## Template Variables
+
+Template variables let you personalize each message with patient-specific information. The system replaces the variable with the actual value for each recipient.
+
+| Variable | Replaced With |
+|----------|---------------|
+| `{first_name}` | Patient's first name |
+| `{last_name}` | Patient's last name |
+| `{full_name}` | Patient's full name |
+| `{preferred_name}` | Patient's preferred name (falls back to first name) |
+| `{date_of_birth}` | Patient's date of birth (e.g., January 15, 1990) |
+| `{birthday}` | Patient's birthday without the year (e.g., January 15) |
+| `{phone_number}` | Patient's phone number |
+| `{email}` | Patient's email address |
+| `{patient_id}` | Patient's ID |
+| `{tenant_name}` | Your organization's name |
+
+Type **@** in the editor to see and insert available variables.
+
+## Viewing Blast Results
+
+After sending, the blast detail page shows everything about that blast.
+
+### Delivery Summary
+
+A row of stat cards at the top shows the delivery breakdown at a glance. Click any card to filter the message list below to just those recipients.
+
+**Email blast stats:**
+- **Total** -- Total recipients in the blast.
+- **Sent** -- Emails accepted by the mail server.
+- **Skipped** -- Recipients skipped due to missing email, suppression, or being unsubscribed.
+- **Opened** -- Recipients who opened the email, with the open rate percentage.
+- **Clicked** -- Recipients who clicked a link, with the click rate percentage.
+- **Failed** -- Emails that bounced or failed to deliver.
+
+**SMS blast stats:**
+- **Total** -- Total recipients in the blast.
+- **Sent** -- Messages successfully sent.
+- **Skipped** -- Recipients with no phone number or a landline number.
+- **Opted Out** -- Recipients who have opted out of SMS (e.g., by texting STOP).
+- **Blocked** -- Recipients whose SMS has been disabled by the clinic.
+- **Replied** -- Recipients who replied to the message.
+- **Failed** -- Messages that failed to send.
+
+### Engagement Chart (Email Only)
+
+For completed email blasts, a chart shows cumulative opens and clicks over time so you can see how engagement builds in the hours after sending.
+
+### Message List
+
+Below the summary, a table lists every recipient with their individual status, delivery timestamp, and engagement data (opens, clicks for email; replies for SMS). Use the stat cards above to filter this list.
+
+### Low Delivery Alert
+
+If fewer than 90% of messages were sent successfully, a warning banner appears at the top of the detail page showing the delivery rate and suggesting you review the failed messages.
+
+## After Sending
+
+### Retry Failed Messages
+
+If some messages failed to deliver, click **Retry Failed** on the blast detail page. The system resends only the messages that failed -- it does not re-send to patients who already received the message.
+
+### Add More Recipients
+
+To send the same blast to additional patients after it has been sent:
+
+1. Click **Add Recipients** on the blast detail page.
+2. Search for patients and add them to the list.
+3. Click **Send to [X] patient(s)**.
+
+The system skips anyone who already received this blast, so you won't send duplicates.
+
+### Duplicate a Blast
+
+To reuse a previous blast's content and settings:
+
+1. Go to **Comms > Blasts**.
+2. Click **Duplicate** next to the blast you want to copy.
+3. The new blast form opens pre-filled with the original blast's content, cohorts, and settings.
+4. Make any changes and send.
+
+## Marketing vs. Transactional
+
+The **Marketing message** checkbox controls how the system handles opt-in and unsubscribe rules.
+
+| | Marketing | Transactional |
+|---|---|---|
+| **Who receives it** | Only patients who have opted in to marketing | All patients with valid contact info |
+| **Unsubscribe link (email)** | Automatically added to footer | Not included |
+| **Opt-in required** | Yes | No |
+| **Respects STOP / suppression** | Yes | Yes |
+
+**When to use marketing:** Promotions, newsletters, re-engagement campaigns, seasonal offers.
+
+**When to use transactional:** Appointment reminders, billing notices, policy updates, lab results.
+
+<Warning>
+  Sending promotional content as a transactional message violates email and SMS regulations. If your blast is promotional, always mark it as marketing.
+</Warning>
+
+## Unsubscribe Behavior
+
+Marketing email blasts automatically include an unsubscribe link in the footer. When a patient clicks it:
+
+1. Their email is marked as unsubscribed.
+2. Their patient record is updated to opt out of email marketing.
+3. Future marketing blasts skip them automatically.
+
+Transactional blasts are not affected by unsubscribe status.
+
+For SMS, patients can text **STOP** to your clinic's number to opt out of all SMS. They can text **START** to opt back in.
+
+## Cost Estimates
+
+The system shows an estimated cost before you send:
+
+- **SMS:** Cost depends on message length (number of segments) and whether images are attached (MMS). The estimate updates in real-time as you type.
+- **Email:** Cost is calculated per recipient.
+
+After sending, the actual cost appears on the blast detail page.
+
+## Analytics Dashboard
+
+The **Blast Analytics** page (under **Analytics > Blasts**) shows aggregate trends across all your blasts:
+
+- Blast volume over time (SMS vs. email)
+- Spend over time
+- Email engagement rates (opens and clicks)
+- SMS reply rates
+
+Use the date range picker to focus on a specific time period.
+
+## Common Questions
+
+<AccordionGroup>
+  <Accordion title="Why are some recipients skipped?">
+    Recipients are skipped when they can't receive the message. Common reasons:
+
+    - **No contact info** -- The patient doesn't have a phone number (SMS) or email address (email) on file.
+    - **Opted out** -- The patient opted out of SMS (e.g., by texting STOP).
+    - **Blocked** -- The clinic disabled SMS to this patient.
+    - **Suppressed** -- The patient's email previously bounced or received a spam complaint. The system stops sending to suppressed emails to protect your sending reputation.
+    - **Unsubscribed** -- The patient clicked the unsubscribe link in a previous marketing email.
+    - **Not opted in** -- The blast is marked as marketing, but the patient hasn't opted in to receive marketing messages.
+    - **Landline** -- The patient's phone number is marked as a landline, which can't receive SMS.
+  </Accordion>
+  <Accordion title="Can I schedule a blast for later?">
+    Not currently. All blasts are sent immediately when you click Send.
+  </Accordion>
+  <Accordion title="What happens if I send the same blast twice?">
+    Each blast is a separate send. If you want to resend to the same audience, duplicate the blast. The system does not prevent sending to patients who received a previous blast.
+  </Accordion>
+  <Accordion title="Why do I see a domain error when sending email?">
+    Email blasts require a verified sending domain. Marketing emails need a marketing domain and transactional emails need a transactional domain, both with valid DMARC records. Go to **Settings > Emails** to configure your domain.
+  </Accordion>
+  <Accordion title="How long are email opens and clicks tracked?">
+    The system tracks email opens and clicks for 72 hours after the blast is sent.
+  </Accordion>
+  <Accordion title="Can I send a blast to specific patients instead of a cohort?">
+    Blasts are designed to work with cohorts. If you need to message a small group of specific patients, consider creating a cohort with the appropriate filters, or use the [Bulk Text](/modules/comms/chat#bulk-text-messaging) feature on the Patients page for quick SMS sends.
+  </Accordion>
+  <Accordion title="What's the difference between 'failed' and 'skipped'?">
+    **Failed** means the system attempted to send the message but it didn't go through (e.g., carrier error, email bounce). You can retry failed messages. **Skipped** means the system intentionally did not attempt to send because the recipient was ineligible (opted out, no contact info, etc.).
+  </Accordion>
+</AccordionGroup>

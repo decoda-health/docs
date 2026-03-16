@@ -1,3 +1,41 @@
 ---
 openapi: post /billing/embed-payment/{patient_id}
 ---
+
+Creates a payin configuration for the embedded payment component. Use this when your website needs to collect a payment from a patient inside an iframe.
+
+## Two modes
+
+### Simple amount
+
+Pass `amount_cents` for a single, flat payment. The embed shows a "Custom Amount" line item.
+
+```
+POST /billing/embed-payment/{patient_id}?amount_cents=5000&is_surcharged=true
+```
+
+### Itemized charge (items and discounts)
+
+Pass `charge_id` to use a pre-created charge with line items, discounts, and taxes. The embed displays the full charge breakdown.
+
+```
+POST /billing/embed-payment/{patient_id}?charge_id=chg_xxx&is_surcharged=true
+```
+
+You must create the charge first via the [Create Charge](/api-reference/provider/create-charge) or [Convert Cart to Charge](/api-reference/provider/convert-cart-to-charge) API. See [Embed payment with itemized charges](/guides/embed-payment-itemized-charges) for the full flow.
+
+## Embed URL parameters
+
+The embed page (`/embed/pay/{patientId}`) accepts these query parameters:
+
+| Parameter | Description |
+|-----------|-------------|
+| `amount` | Payment amount in cents (required when `charge_id` is not used) |
+| `charge_id` or `chargeId` | Pre-created charge ID for itemized charges |
+| `allowedMethods` or `allowed_methods` | Comma-separated payment methods: `CARD`, `ACH`, `APPLE_PAY`. Use `CARD` to disable ACH. |
+| `theme` | `light` or `dark` |
+| `showSummary` | `true` (default) or `false` to hide the payment summary header |
+
+## Response
+
+When `charge_id` is used, the response includes a `charge` object with `items`, `totalOutstanding`, and `totalDiscount` for display in your UI.
