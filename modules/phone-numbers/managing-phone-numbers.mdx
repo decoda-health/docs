@@ -1,0 +1,63 @@
+---
+title: 'Managing Phone Numbers'
+description: 'View, configure, and manage the phone numbers your clinic uses for calls and texting.'
+---
+
+<Info>
+  **Where to find Phone Numbers:** In the left sidebar, click **Settings > Phone Numbers**.
+</Info>
+
+The Phone Numbers page shows all the phone numbers your clinic has provisioned. From here you can see each number's status at a glance, open its configuration, set up call forwarding, and more.
+
+## What You See on the Phone Numbers Page
+
+Each phone number appears as a card. The card shows:
+
+| Detail | What It Means |
+|--------|---------------|
+| **Phone number** | The number itself, formatted for easy reading. |
+| **Primary badge** | If this is your clinic's primary number, a "Primary" badge appears. |
+| **Status** | Shows whether the number is **Enabled** (accepting calls), **Disabled**, **Forwarding** (sending calls to another number), **Linked** (sharing another number's assistants), or **Unassigned** (no assistants or routing configured yet). |
+| **Assistants** | The names of any AI assistants assigned to this number. Click an assistant name to go to its settings. |
+| **Texting assistant** | If your clinic has a texting assistant, it handles SMS on all enabled numbers. A banner at the top of the page shows the texting assistant's name. |
+| **Configure call routing** | A link to open the number's detail page, where you set up how calls are routed. |
+
+## Open a Phone Number to Configure It
+
+Click **Configure call routing** on any phone number card. This opens the detail page where you can set up the number's timezone, location, AI assistants, ring groups, closures, and off-hours handling. See [Call Routing](/modules/phone-numbers/call-routing) for a full explanation of how these work together.
+
+## Assign a Location
+
+On the phone number detail page, you will see a **Location** picker near the top. Select the clinic location this number belongs to. This helps organize calls by location, especially if your clinic has multiple offices.
+
+## Set the Timezone
+
+Next to the location picker, there is a **Timezone** selector. Choose the timezone that matches the location where this number is used. The timezone determines how schedules for ring groups, AI assistants, and closures are interpreted -- for example, a ring group scheduled for 9 AM - 5 PM will follow the timezone you set here.
+
+<Info>
+  **Important:** Make sure the timezone is correct before setting up schedules. If the timezone is wrong, calls may be routed to the wrong handler at the wrong time.
+</Info>
+
+## Enable or Disable a Number
+
+When you hover over a phone number card, a settings button appears in the top-right corner. Click it to open a menu with options including:
+
+- **Enable number** -- If the number is currently disabled, this turns it on so it can receive calls.
+- **Forward calls** -- Redirects incoming calls to a different phone number (see below).
+- **Set as primary** -- Makes this the clinic's primary phone number.
+- **Release number** -- Permanently removes the number from your account. You must unassign all assistants first. This cannot be undone.
+
+## Set Up Call Forwarding
+
+Call forwarding sends all incoming calls on one number to a different number. This is useful when you want a secondary number to share the same assistants as your main number without setting up separate routing.
+
+1. Hover over the phone number card and click the settings button.
+2. Choose **Forward number** (or **Update forwarding** if forwarding is already set up).
+3. In the window that appears, enter the phone number to forward calls to, or select one of your other numbers that already has assistants configured.
+4. Save your changes.
+
+When forwarding is active, the card shows a "Forwarding" status and displays the destination number. If you forwarded to another number that has assistants, the card shows a "Linked" status with the assistant names from the linked number.
+
+## Provision a New Number
+
+If you need an additional phone number, click the **Provision Number** button in the top-right corner of the Phone Numbers page. Follow the steps to add a new number to your account.

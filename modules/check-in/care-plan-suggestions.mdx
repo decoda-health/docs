@@ -1,0 +1,73 @@
+---
+title: 'Care Plan Suggestions'
+description: 'Automatically pre-fill appointment details from a patient's care plan during check-in.'
+---
+
+<Info>
+  **Where to find it:** Care plan suggestions appear automatically when you create a new appointment for a patient who has an active care plan with a pending appointment step.
+</Info>
+
+When a patient is following a care plan, the system keeps track of which steps have been completed and which are still pending. During the appointment creation flow, it checks whether the patient has any care plan steps that haven't been scheduled yet. If it finds one, it shows a suggestion so you can pre-fill the appointment in one click instead of setting everything up manually.
+
+## When Suggestions Appear
+
+A care plan suggestion shows up when all of these conditions are met:
+
+- You are **creating a new appointment** (not editing an existing one).
+- The selected patient has at least one **active care plan**.
+- That care plan has at least one appointment step with a **Pending** status.
+- The pending step has at least one **service** configured.
+
+If the patient has multiple care plans with pending steps, the system shows the first match it finds.
+
+<Info>
+  **Already applied?** If you opened the appointment form from a care plan step (for example, by clicking "Schedule" on the care plan detail page), the suggestion won't appear because the form is already linked to that step.
+</Info>
+
+## What the Suggestion Shows
+
+The suggestion appears as a highlighted banner below the patient selection area. It includes:
+
+| Detail | Description |
+|---|---|
+| **Care plan name** | The name of the care plan the step belongs to. |
+| **Number of services** | How many services are included in the step (e.g., "1 service" or "3 services"). |
+| **Scheduled date** | The date the step was planned for, if one was set in the care plan. |
+
+## Apply the Suggestion
+
+<Steps>
+  <Step title="Select a Patient">
+    Start creating a new appointment and choose the patient. If the patient has a pending care plan step, the suggestion banner appears.
+  </Step>
+  <Step title="Review the Suggestion">
+    Check the care plan name and step details to confirm this is the right step for the visit.
+  </Step>
+  <Step title="Click Pre-fill from Care Plan">
+    Click the **Pre-fill from care plan** button. The system fills in the appointment form with the step's services and scheduled date.
+  </Step>
+  <Step title="Adjust and Save">
+    Review the pre-filled details — you can still change the provider, time, or any other field. When you save the appointment, it is automatically linked to the care plan step and the step status updates to **Scheduled**.
+  </Step>
+</Steps>
+
+## What Gets Pre-filled
+
+When you apply a care plan suggestion, the following fields are set automatically:
+
+- **Services** — All services listed in the care plan step are added to the appointment.
+- **Date** — If the care plan step has a scheduled date, the appointment start date is set to that date.
+
+You can adjust any of these fields before saving.
+
+<Info>
+  If you open the appointment form by clicking **Schedule Appointment** on the care plan detail page (instead of using the suggestion banner), any provider notes from the step are also added as a memo on the appointment.
+</Info>
+
+## What Happens After You Save
+
+Once the appointment is saved, the system links it to the care plan step behind the scenes. The step's status changes from **Pending** to **Scheduled**, and the appointment appears on the care plan's progress timeline. This ensures the care plan stays up to date without any extra work.
+
+<Info>
+  **Changing patients clears the link.** If you switch to a different patient after applying a suggestion, the pre-filled care plan data is cleared and the system checks whether the new patient has their own pending care plan steps.
+</Info>

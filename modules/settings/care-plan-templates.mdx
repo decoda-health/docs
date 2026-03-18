@@ -1,0 +1,95 @@
+---
+title: 'Care Plan Templates'
+description: 'Create and manage reusable care plan templates with structured steps that can be assigned to patients.'
+---
+
+<Info>
+  **Prerequisites:** You should have [Providers](/modules/settings/users) and [Services](/modules/settings/services) set up before creating care plan templates, since steps can reference providers and services.
+</Info>
+
+Care plan templates define a reusable set of steps — such as appointments and tasks — that can be assigned to patients. Once assigned, the steps are expanded into the patient's individual care plan, giving your team a clear, trackable path for treatment.
+
+## Create a Care Plan Template
+
+<Steps>
+  <Step title="Navigate to Care Plans">
+    Go to **Settings** and select **Care Plans**.
+  </Step>
+  <Step title="Start Creation">
+    Click the **New Template** button. A form appears where you enter the template details.
+  </Step>
+  <Step title="Enter Template Details">
+    Fill in the following:
+    - **Name:** A descriptive name for the template (e.g., "Weight Loss Program", "Post-Op Recovery").
+    - **Description:** Optional summary of the care plan's purpose.
+    - **Tags:** Add at least one tag to categorize the template. You can select existing tags or create new ones with a custom color.
+  </Step>
+  <Step title="Save">
+    Click **Save** to create the template. This opens the template editor where you can add steps.
+  </Step>
+</Steps>
+
+## Edit a Template
+
+From the **Care Plans** settings page, click on a template name to open the editor. The editor has two main areas:
+
+- **Step list (left side):** Shows all steps in order. Click any step to select it.
+- **Step details (right side):** Displays the selected step's full configuration for editing.
+
+You can update the template's name, description, and tags at any time from the editor.
+
+### Add Steps
+
+Click the **Add Step** button to add a new step. You can choose from two step types:
+
+| Step Type | Purpose |
+|-----------|---------|
+| **Appointment** | Schedule a visit with configurable services, medications, measurements, provider notes, and repeat settings. |
+| **Task** | Assign an action item with a title, description, status, priority, assignee, dates, provider notes, and repeat settings. |
+
+### Configure an Appointment Step
+
+Select an appointment step to see its settings:
+
+- **Services:** Choose which services are part of this appointment.
+- **Medications:** Add any medications relevant to the visit.
+- **Measurements:** Track vitals such as weight, height, blood pressure, pulse, temperature, and waist circumference.
+- **Provider Notes:** Add notes or instructions for the provider.
+- **Repeat Count and Interval:** Set how many times this step should repeat, and optionally set an interval between each occurrence (e.g., every 2 weeks).
+
+### Configure a Task Step
+
+Select a task step to see its settings:
+
+- **Title:** A short name for the task.
+- **Description:** Detailed instructions or context.
+- **Status:** The initial status when the task is created.
+- **Priority:** Set the urgency level.
+- **Assignee:** Choose a provider responsible for the task.
+- **Start and Due Dates:** Set timeframes for the task.
+- **Provider Notes:** Add notes or instructions for the provider.
+- **Repeat Count and Interval:** Set how many times this task should repeat, and optionally set an interval between each occurrence.
+
+### Set Time Gaps Between Steps
+
+Between each pair of steps, a clickable button shows the time gap (e.g., "2 days", "1 week"). Click it to set how much time should pass between one step and the next. When the template is assigned to a patient, these gaps determine the scheduled dates for each step based on the care plan's start date.
+
+### Reorder Steps
+
+Drag steps using the grip handle on each step card to reorder them. The order determines the sequence patients see in their care plan. You can also remove individual steps by clicking the **X** that appears when you hover over a step card.
+
+## Manage the Template Table
+
+The template list page provides several ways to organize your templates.
+
+- **Columns shown:** Name, Tags, Description, Steps, and Created Date. Each template row displays all five columns at a glance.
+- **Sort:** Click the **Name**, **Steps**, or **Created Date** column headers to sort ascending or descending.
+- **Delete:** Remove a template you no longer need directly from the list. You will be asked to confirm before the template is deleted.
+
+## Tags
+
+Tags help you categorize and quickly identify care plan templates. Each template must have at least one tag.
+
+- Tags have a **name** and a **color**.
+- You can create new tags inline when editing a template — type a tag name and pick a color from the color picker.
+- Tags appear as colored badges on the template list, making it easy to scan for related templates.

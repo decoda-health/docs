@@ -5,8 +5,8 @@
       "hash": "20906ca49fe6bce0cddad3907c86b700ba2354f8049df3203cf60572dc870d71"
     },
     "glossary.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/glossarymdx-d4s240xudr5k",
-      "hash": "6899ff7354536ff2920a1aa4694b5fc8ca4d413687479c534de4d283d2ee7140"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/glossarymdx-psx140ebwtgl",
+      "hash": "27ef7b070d3a8cb43b330b23a7d84f66db335a46c24e02a06f2be44927a77512"
     },
     "guides/embed-payment-itemized-charges.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guidesembedpaymentitemizedc-i18qdyemqqbk",
@@ -84,17 +84,21 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesbillinginvoicesmdx-2aqv35zdnkeg",
       "hash": "7fe23b1be29aa20b95ff09bb030137632cae4ae912bab25c726a8816dbc2f4b7"
     },
+    "modules/check-in/care-plan-suggestions.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescheckincareplansugge-m2qs8dahnvn1",
+      "hash": "e8fce5312e106e33cc6e9b2903b0561e595cb90eac0617d381b70328dfe287bd"
+    },
     "modules/check-in/clock-in.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescheckinclockinmdx-n4c6l4zz4rkc",
-      "hash": "218c697c287037ec02840a260a8bd100f41a77cb45fe09e1f5f05b3fa682ef2c"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescheckinclockinmdx-n1vc0p4uqnm1",
+      "hash": "91ca386322b5ab9aef6132a1809d12ef13ae881edfb781feed7cabffdd74cd8a"
     },
     "modules/check-in/dashboard.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescheckindashboardmdx-4cfkkknxfy8b",
       "hash": "68e43f4dd933b9e7b7c02a7700ceb88778297e8df21eb2f29a024aa0f31ef01a"
     },
     "modules/check-in/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescheckinindexmdx-52cel0kxad3z",
-      "hash": "76bc95640420ee5944e899cbe900d2d8029282fb598a723b04bddc0099b6daf8"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescheckinindexmdx-b2vuppz3ndy0",
+      "hash": "d6e594c215edb5b7c48eecaab3814a813afe79759bc53a7826234c7c07c4807e"
     },
     "modules/check-in/shifts.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescheckinshiftsmdx-flfi5724pk07",
@@ -104,6 +108,10 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsairesponsesmdx-5ykjzp051ov8",
       "hash": "e15ca5de82bd34a9cd9c9a16cd6ab9dbf47adce48e5237843caee06e42f817af"
     },
+    "modules/comms/blasts.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsblastsmdx-3rhahrliof2u",
+      "hash": "447285d2d044d120fead45f354748d7a5c9911a561bab55f37a5c475c1119b73"
+    },
     "modules/comms/calls.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommscallsmdx-jz6apce58y21",
       "hash": "82ff7d6cd15cc992501961cddc8c4a314fbf1873b56a74a721e2e4c610f626ab"
@@ -112,9 +120,13 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommschatmdx-xdedkvjnm7o1",
       "hash": "9ba84b3b8ae24a555d2bf05b72658f4dbf3a75e5ec810b07ff8ac12fc2f56e21"
     },
+    "modules/comms/cohorts.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommscohortsmdx-loxalyaondg0",
+      "hash": "5fef9ba3ebd0912fe894db356fb72d840cac1dd8b2ed52b3f5fa0be2463cfc89"
+    },
     "modules/comms/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsindexmdx-4hwvu5rfbe2u",
-      "hash": "f507d8231bf8cb514a5746ae5f56a2107818da850de494c47ad9d58c3e811213"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsindexmdx-fevbhp1tm25y",
+      "hash": "5ba50307605b36d703b94f0eb065af69ebe905b4e1eba8524741cadea9d0c804"
     },
     "modules/forms/form-structure.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesformsformstructuremd-vg5f9mjcoux9",
@@ -141,8 +153,8 @@
       "hash": "3b217ca6d462f1cbf422dbf7b6c9556c9c29e4765b5973306e123c8abff658d5"
     },
     "modules/inventory/stock.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesinventorystockmdx-fu404vnrto1b",
-      "hash": "e13ad2400ded560918a53fb30f9ba3283201247a59d634bf1c8b3cf910ae897c"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesinventorystockmdx-57061taeu7tx",
+      "hash": "1b1f9653e5a0986fad6debcaed20ee7471830ed3847d9d5930a412a2bd8d6c5d"
     },
     "modules/inventory/suppliers.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesinventorysuppliersmd-ku8isbydphab",
@@ -172,17 +184,53 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesnotessignoffandversi-tsxxqj8tbg2m",
       "hash": "4a486b320fb82462f0d9a38ad5747d337c45877b03430372b39bdda822c3e874"
     },
+    "modules/patients/care-plan-editing.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanedit-5udfkor7fay5",
+      "hash": "2561c105e32915e3c39fb2fe9f9954cd2a380154287f9a2fd6552927067740ee"
+    },
+    "modules/patients/care-plan-step-types.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanstep-g5re7xes4665",
+      "hash": "ee185043918b705b97968b64d902ae36ead2c3850c032cdcfcb16d9ece55c477"
+    },
+    "modules/patients/care-plan-steps.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanstep-lmuhb3vx9b2f",
+      "hash": "5966e47d1c98e916d34225c9b9e8fadefa13b0343dec85f09952588ddd39d79b"
+    },
+    "modules/patients/care-plans.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplansmdx-748x4h124fwa",
+      "hash": "9e3042274e35c9236e03b99b25c0ff3502dcb271b71ef891ac561a5e19dec602"
+    },
     "modules/patients/import-and-merge.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientsimportandmer-6x2ds4of79p4",
       "hash": "d87253be21d95e00ce1dc3f01df7ca24c6d3804578f45d798b5edfc3182d7747"
     },
     "modules/patients/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientsindexmdx-yn7db628o0z0",
-      "hash": "a537b3e85b3fc1b78c7841ab4b463412f5207782b916b86c18f31fb426b76cfd"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientsindexmdx-03s537jt5m56",
+      "hash": "7223c273a770ea2056035f303b32b352c13fad50413dfc088f038bfcd6acea8f"
     },
     "modules/patients/patient-chart.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientspatientchart-ftqwbpdwvlma",
-      "hash": "b9e3bd30d33fdad855d82b7b0c0f1523ca7cd540e960d8b6600494ac51974156"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientspatientchart-yma1f6fpjxzn",
+      "hash": "efd7836a02e2f5adcccb38d3ebaaf9266a51c7814de86ae160162436baa1dfab"
+    },
+    "modules/phone-numbers/answering-calls.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumbersanswerin-evlxzph4eo2o",
+      "hash": "82c159e759c90d168506538cacf964fc24a3fa3884f00ce02ca00c4e2f5d09df"
+    },
+    "modules/phone-numbers/call-routing.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumberscallrout-qlsqzgk7vs1v",
+      "hash": "83b2e97faec6c639288eb15094d9ee353005be2672884d5a9eb6d9905a7b3645"
+    },
+    "modules/phone-numbers/closures.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumbersclosures-eqqgxzrlj44q",
+      "hash": "dca2cc3aa56eea3d7848279799a187b9b6034ff4782f4218627c353980b818db"
+    },
+    "modules/phone-numbers/managing-phone-numbers.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumbersmanaging-ririuv6jo886",
+      "hash": "ee36503bb706db9abf70e2bcd9b17cac6ca9adbd0d4fb4f305e27cb3e91b2adb"
+    },
+    "modules/phone-numbers/ring-groups.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumbersringgrou-gagr3ct3yl4l",
+      "hash": "614912f567940212d2da7ba529dc612c5095974e0254846e31164be1e46bed6c"
     },
     "modules/scheduling/appointments.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesschedulingappointmen-qji8xrc6177j",
@@ -201,8 +249,8 @@
       "hash": "5fa324a026f18ce8990045c7a4eb9408bc0c76cca21e88e6fc48e22ecf16d719"
     },
     "modules/scheduling/self-scheduling.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesschedulingselfschedu-6jmd7pjl2es2",
-      "hash": "70e4b612362fe83e2b0fb4b19a656a03b1ee96969d5511e5f5009347641af308"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesschedulingselfschedu-1jd9s34xpxm8",
+      "hash": "f5c96701d644db2d51a4a78b1e16a205443b2b0b967f106d43c52ecc3d436966"
     },
     "modules/settings/assistants.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsassistantsmd-0os3bvgm602l",
@@ -215,6 +263,14 @@
     "modules/settings/calendar-appearance.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscalendarappe-s7gj6uxi6y47",
       "hash": "c02270ecbecf6695bc54167ba6b3a877b90e33da8e9017d0cb32d532994dec78"
+    },
+    "modules/settings/care-plan-tags.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscareplantags-d62i68k6qi6n",
+      "hash": "96bee56ee542ca538257e0dcab9c81e6777839b7cbee8943e4f41a60306ac75c"
+    },
+    "modules/settings/care-plan-templates.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscareplantemp-mhs6f2mkcles",
+      "hash": "789c5b2e15abe7b563f4e0f981eb297b068747965859607134a41b539b175735"
     },
     "modules/settings/categories.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscategoriesmd-5dzf479e3zw9",
@@ -233,12 +289,16 @@
       "hash": "2c438676ec6d5745c65be6a4eba374d414ce333de4a9da1330d7d070b829b6a1"
     },
     "modules/settings/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsindexmdx-ionzh6cfi9cs",
-      "hash": "7bd6810e14211e8e08a877b9ed5cae46a4d3d108c4a85ca545843a6805f7fe15"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsindexmdx-5410uccc7e68",
+      "hash": "6b79deb264afe37847c470ad930c68a3a48d5458844f2470b8463a51f34c2ddb"
     },
     "modules/settings/locations.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingslocationsmdx-1v93h3bzzoio",
       "hash": "0f88e3d1ba1d33ec1d251d85d9b7e578fc91931498a0a3aecc9cb66ac89f06b7"
+    },
+    "modules/settings/measurements.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsmeasurements-9o23bv3ocp4b",
+      "hash": "54f05fa1f39a79a164d697e96a583f6165215ae72335b5fc13825595a5f6a5c9"
     },
     "modules/settings/medications.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsmedicationsm-04epprpq2fr9",
@@ -313,12 +373,12 @@
       "hash": "721ef21a64094084044023cb27f0e9bfa48a089cbe4a55fa93d8cc6047f002ac"
     },
     "modules/settings/tasks.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingstasksmdx-qc3jrv07so0w",
-      "hash": "df25f6209a76a963a6bcb4c3f248cddd9c5aed266a1d5c4f0d279e6687dea5eb"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingstasksmdx-961ybsgv0arx",
+      "hash": "c6cac5f6dedce0238a661845d5e02ae6207164218e21625f4522ee10112620d5"
     },
     "modules/settings/users.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsusersmdx-zks6zlubyou8",
-      "hash": "9abb978078edbf1061c0b36fdf1ba3e3585c12d5c2729799df1710b2b03b1829"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsusersmdx-09hy4v25mb0a",
+      "hash": "059a801cae862760239610a835c0cb220c398f0f69b6df074951269a813ec77e"
     },
     "modules/usage/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesusageindexmdx-xj8sxpu19fho",

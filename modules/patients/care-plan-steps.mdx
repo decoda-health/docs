@@ -1,0 +1,112 @@
+---
+title: 'Care Plan Steps'
+description: 'Understand step statuses, how to change them, schedule appointments from steps, and track care plan progress.'
+---
+
+<Info>
+  This page covers care plan steps on plans **assigned to a patient**. Step statuses and scheduling are not available on templates — only on active patient care plans. For how to configure step fields, see [Care Plan Step Types](/modules/patients/care-plan-step-types).
+</Info>
+
+## Step Statuses
+
+Every step in a care plan has a status that reflects where it is in the patient's treatment journey.
+
+| Status | What it means |
+|--------|---------------|
+| **Pending** | The step has not been acted on yet. It is waiting for someone to take action. |
+| **Scheduled** | An appointment has been booked or a task has been created for this step. The step is linked to an actual appointment or task in the system. |
+| **Completed** | The step is finished — the appointment was attended or the task was done. This is a final status and cannot be changed. |
+| **Skipped** | The step was intentionally skipped by staff. It will not be acted on. |
+| **Missed** | The linked appointment was marked as a no-show. The patient did not attend. |
+
+## Status Transitions
+
+Not every status change is allowed. The table below shows which transitions are valid.
+
+| From | Can change to |
+|------|---------------|
+| **Pending** | Skipped |
+| **Scheduled** | Completed, Skipped, or back to Pending |
+| **Missed** | Back to Pending (to reschedule) |
+| **Skipped** | Back to Pending (to re-activate) |
+| **Completed** | Cannot be changed (final) |
+
+Key points to keep in mind:
+
+- You cannot directly complete a Pending step — it must first be Scheduled. For appointment steps, you schedule manually by clicking **Schedule Appointment**. For task steps, the system automatically creates the task and marks the step as Scheduled when the scheduled date arrives.
+- Once a step is Completed, it stays Completed. This cannot be undone.
+- Both Missed and Skipped steps can be reset to Pending if you want to try again.
+- Scheduled steps are the most flexible — they can be completed, skipped, or reset to Pending.
+
+## Automatic Status Updates
+
+Step statuses stay in sync with their linked appointments and tasks. When the status of an appointment or task changes, the care plan step updates automatically:
+
+| When this happens | The step becomes |
+|---|---|
+| Appointment is completed | **Completed** |
+| Appointment is marked as no-show | **Missed** |
+| Appointment is cancelled | **Skipped** |
+| Task is completed | **Completed** |
+| Task is cancelled | **Skipped** |
+
+You do not need to update the step manually in these cases — the system handles it for you.
+
+## Change a Step's Status
+
+<Steps>
+  <Step title="Open the Patient's Care Plan">
+    Go to the patient's profile and open the care plan you want to update.
+  </Step>
+  <Step title="Select the Step">
+    Click on the step you want to update. Its details appear on the right side of the page.
+  </Step>
+  <Step title="Change the Status">
+    Find the **Status** field. The menu shows only the valid transitions from the current status — you will not see options that are not allowed.
+  </Step>
+  <Step title="Confirm the Change">
+    Select the new status. The change takes effect immediately.
+  </Step>
+</Steps>
+
+<Info>
+  The status field only appears on care plans that have been assigned to a patient. It is not available on templates.
+</Info>
+
+## Overdue Steps
+
+If a step is still Pending after its scheduled date has passed, it is marked as overdue. Overdue steps appear with a red alert icon and red date text so they stand out on the timeline. These steps need attention — either schedule the appointment, complete the task, or change the step's status.
+
+## Schedule an Appointment from a Step
+
+When an appointment step is Pending and has at least one service selected, a **Schedule Appointment** button appears in the step details. This lets you create a calendar appointment directly from the care plan.
+
+<Steps>
+  <Step title="Open the Care Plan">
+    Go to the patient's profile and open the care plan.
+  </Step>
+  <Step title="Select a Pending Appointment Step">
+    Click on a Pending appointment step that has services configured.
+  </Step>
+  <Step title="Click Schedule Appointment">
+    Click **Schedule Appointment** on the right. This takes you to the appointment form.
+  </Step>
+  <Step title="Review Pre-filled Details">
+    The appointment form is pre-filled with:
+    - The patient already selected
+    - The services from the step
+    - The scheduled date from the step
+    - Any provider notes from the step
+  </Step>
+  <Step title="Complete and Save">
+    Review the details, make any changes, and save the appointment. The step automatically updates to **Scheduled** and links to the new appointment.
+  </Step>
+</Steps>
+
+### Check-in Integration
+
+During appointment check-in, the system suggests the next pending care plan step for the patient. If the patient has an active care plan with a pending appointment step, it shows up as a suggestion with the appointment details pre-filled so you can quickly schedule the next visit. See [Care Plan Suggestions](/modules/check-in/care-plan-suggestions) for details.
+
+## Understanding Progress
+
+Progress shows how far along a patient is in their care plan — how many steps are completed out of the total (e.g., "3 of 8 steps"). If a step repeats, each iteration counts separately toward the total. For details on how progress is calculated and displayed, see [Progress Tracking](/modules/patients/care-plan-editing#progress-tracking).

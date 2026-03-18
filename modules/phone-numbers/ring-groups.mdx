@@ -1,0 +1,61 @@
+---
+title: 'Ring Groups'
+description: 'Set up groups of staff members who can answer incoming calls, with scheduling and round-robin rotation.'
+---
+
+<Info>
+  **Where to find Ring Groups:** In the left sidebar, click **Settings > Phone Numbers**, then click **Configure call routing** on a phone number. Ring groups are listed in the sidebar of the detail page.
+</Info>
+
+A ring group is a group of staff members whose phones ring when a call comes in. You can have multiple ring groups on a single phone number, each with its own schedule and members.
+
+## Create a Ring Group
+
+1. On the phone number detail page, click **Add Ring Group** (the button with a group icon).
+2. Give the ring group a name (for example, "Front Desk" or "Billing Team").
+3. Select the staff members who should be part of this group.
+4. Choose a ring strategy (see below).
+5. Set the ring timeout -- how many seconds phones will ring before giving up (default is 30 seconds).
+6. Optionally, set a schedule (see [Set a Schedule](#set-a-schedule) below).
+7. Save the ring group.
+
+You can also click an empty block on the weekly timeline to create a ring group pre-filled with that day and time.
+
+## Add and Remove Members
+
+When editing a ring group, you will see a list of all staff members. Check the box next to each person you want in the group, and uncheck anyone you want to remove. The order you select members in determines their position in the group, which matters for round-robin rotation.
+
+## Ring Strategy
+
+Each ring group uses one of two strategies:
+
+| Strategy | How It Works |
+|----------|-------------|
+| **Simultaneous** | All members' phones ring at the same time. The first person to pick up gets the call. |
+| **Round Robin** | Members are rung one at a time, cycling through the list. Each new call starts with the next person in line, so the same person does not always ring first. This distributes calls evenly across the team. |
+
+With round robin, the system keeps track of who answered the last call and starts the next call with the following person in the list. This way, call volume is shared fairly among all members.
+
+## Set a Schedule
+
+A schedule controls when the ring group is active. For example, you might set a ring group to be active Monday through Friday, 9:00 AM to 5:00 PM.
+
+When editing a ring group, turn on the schedule option and choose the days and times. You can set different hours for different days of the week.
+
+<Info>
+  **Always-on ring groups:** If you leave the schedule off, the ring group becomes an "always-on" fallback. It will only handle calls when no other scheduled handler matches -- making it the off-hours handler for this phone number. Only one ring group or assistant can serve as the off-hours handler at a time.
+</Info>
+
+## What Happens When No One Answers
+
+When a call goes to a ring group and no one picks up within the ring timeout, the system looks for a **failover AI assistant**. If one is configured on the phone number, the AI takes over the call automatically. This means the caller stays on the line and gets help from the AI instead of being disconnected.
+
+If no failover assistant is configured, the call ends after the timeout with no answer.
+
+## Edit a Ring Group
+
+Click the pencil icon next to any ring group to edit its name, members, strategy, timeout, or schedule. You can also click a ring group's colored block on the weekly timeline to highlight it in the sidebar, then click the pencil icon to start editing.
+
+## Delete a Ring Group
+
+Click the trash icon next to the ring group you want to remove. You will be asked to confirm before it is deleted.

@@ -23,6 +23,10 @@ A room, piece of equipment, or other physical asset that needs to be reserved wh
 
 A deposit collected when a patient books an appointment online. It secures the slot and can be refunded or applied as a credit toward treatment. [More about Payment Management →](/modules/settings/payment-management)
 
+## Call Routing
+
+The rules that decide who handles an incoming call on a phone number. The system checks closures first, then scheduled AI assistants, then ring groups, and finally the off-hours handler. [More about Call Routing →](/modules/phone-numbers/call-routing)
+
 ## Capacity
 
 The maximum number of patients a provider can see at the same time during a shift. If capacity is set to 1, no overlapping appointments are allowed. [More about Scheduling →](/modules/settings/scheduling)
@@ -39,6 +43,10 @@ A grouping label for services and products (e.g., "Injectables," "Skincare," "La
 
 A bill on a patient's account for services, products, or other items. A charge can be outstanding (unpaid), paid, partially paid, on a payment plan, voided, or written off. [More about Billing →](/modules/billing)
 
+## Call Transfer
+
+Moving an active call to someone else — another ring group, a specific staff member, or an external phone number. The caller stays on the line while the transfer connects. [More about Answering Calls →](/modules/phone-numbers/answering-calls)
+
 ## Check-In
 
 The process of marking a patient as arrived for their appointment. The Check-In Dashboard shows who's here, who's in progress, and who's ready to check out. [More about Check-In →](/modules/check-in)
@@ -47,6 +55,10 @@ The process of marking a patient as arrived for their appointment. The Check-In 
 
 Rules that determine how much a provider earns on the services or products they sell. You can set flat fees, percentages, or per-item rates. [More about Settings →](/modules/settings)
 
+## Closure
+
+A temporary override that takes a phone number offline during specific times — holidays, emergencies, or recurring off-days. While a closure is active, calls go straight to the off-hours handler, skipping all scheduled assistants and ring groups. [More about Closures →](/modules/phone-numbers/closures)
+
 ## Deferred Billing
 
 Delaying the first charge on a membership to a future date. The patient enrolls now but isn't billed until later. [More about Memberships →](/modules/settings/memberships)
@@ -54,6 +66,10 @@ Delaying the first charge on a membership to a future date. The patient enrolls 
 ## Double Booking
 
 Allowing a provider to have overlapping appointments at the same time. Useful for services where one provider can handle multiple patients simultaneously (e.g., IV drips). [More about Scheduling →](/modules/settings/scheduling)
+
+## DTMF / Keypad
+
+The touch-tone sounds your phone sends when you press number keys during a call. Staff can use the keypad during an active call to navigate automated phone menus (like an insurance company's system). [More about Answering Calls →](/modules/phone-numbers/answering-calls)
 
 ## Externally Settle / External Settlement
 
@@ -85,9 +101,17 @@ A recurring subscription plan patients enroll in. They're billed automatically (
 
 The bank account where Decoda deposits the money you collect from patients. You may have one merchant account or several if you route payments differently by location. [More about Payment Management →](/modules/settings/payment-management)
 
+## Failover Assistant
+
+The AI assistant that takes over when no one in a ring group answers an incoming call. Set this on the phone number's detail page so callers aren't left hanging. [More about Ring Groups →](/modules/phone-numbers/ring-groups)
+
 ## No Show
 
 When a patient doesn't show up for their appointment and doesn't cancel in advance. You can track no-show rates in the Appointment Dashboard. [More about Appointment Analytics →](/modules/analytics/appointments)
+
+## Off-Hours Handler
+
+The assistant or ring group that answers calls when nothing else is scheduled — nights, weekends, or any time outside your configured hours. Shown as hatched blocks on the weekly timeline. [More about Call Routing →](/modules/phone-numbers/call-routing)
 
 ## Note
 
@@ -104,6 +128,10 @@ A dollar balance on a patient's account that can be applied toward future charge
 ## Payment Medium / Settlement Type
 
 The different ways your clinic accepts payment. Built-in types include credit card, cash, and patient credit. You can add custom types like Venmo, Zelle, or HSA Card. [More about Payment Management →](/modules/settings/payment-management)
+
+## Phone Number
+
+A clinic phone line managed in Decoda. Each phone number has its own call handlers (ring groups, AI assistants, closures) and weekly schedule. Find them under Settings → Phone Numbers. [More about Phone Numbers →](/modules/phone-numbers/managing-phone-numbers)
 
 ## Payment Plan
 
@@ -137,6 +165,10 @@ A short, informal note added to a patient's chart. Unlike full clinical notes, q
 
 A formal price estimate sent to a patient for review before you create a charge. The patient can accept or decline the quote. [More about Billing →](/modules/billing)
 
+## Ring Group
+
+A group of staff members who can answer incoming calls on a phone number. During scheduled hours, calls are distributed based on the selected strategy (simultaneous or round-robin). [More about Ring Groups →](/modules/phone-numbers/ring-groups)
+
 ## Reminder
 
 An automated text message sent to a patient before their upcoming appointment. Reminders are set up on each service with a customizable timing (e.g., 24 hours before) and message template. The system sends them automatically — no manual action needed. [More about Services →](/modules/settings/services)
@@ -144,6 +176,14 @@ An automated text message sent to a patient before their upcoming appointment. R
 ## Role
 
 A set of permissions assigned to a staff member that controls what they can see and do in Decoda. Common roles include Owner, Provider, and Front Desk. [More about Users & Roles →](/modules/settings/users)
+
+## Ringtone
+
+The sound that plays in your browser when an incoming call arrives. Each staff member can choose their preferred ringtone (Chime, Pulse, Melody, Ripple, Beacon) or turn it off. [More about Answering Calls →](/modules/phone-numbers/answering-calls)
+
+## Round-Robin
+
+A ring group setting that rotates which staff member rings first. Each time a call is routed to the ring group, the system advances to the next person in the list, so calls are distributed evenly. [More about Ring Groups →](/modules/phone-numbers/ring-groups)
 
 ## Rollover
 

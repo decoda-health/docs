@@ -1,55 +1,21 @@
 ---
 title: 'Task Settings'
-description: 'Set up task groups, control notifications for auto-created tasks, and configure alert rules that automatically generate tasks for your team.'
+description: 'Control notifications for auto-created tasks and configure alert rules that automatically generate tasks for your team.'
 ---
 
 <Info>
   Navigate to **Settings > Tasks** to access these settings.
 </Info>
 
-The Task Settings page lets you control how tasks are automatically created, organize your staff into groups for task routing, and decide which alerts should generate tasks. For everyday task usage -- creating, assigning, commenting, and tracking tasks -- see the [Task Management Guide](/guides/task-management).
+The Task Settings page lets you control how tasks are automatically created and decide which alerts should generate tasks. For everyday task usage -- creating, assigning, commenting, and tracking tasks -- see the [Task Management Guide](/guides/task-management).
 
-The page is divided into three sections: Task Automation, Task Groups, and Alert Rules.
+The page is divided into two sections: Task Automation and Alert Rules.
 
 ## Task Automation
 
 This section controls whether notifications are sent when tasks are automatically created from alerts.
 
 - **Suppress notifications for auto-created tasks:** Turn this on to prevent auto-created tasks from sending additional notifications to assignees. This is useful if your team already receives the original alert and doesn't need a separate task notification on top of it.
-
-## Task Groups
-
-Task Groups let you bundle staff members together so that tasks can be assigned to an entire team at once. When an alert creates a task and assigns it to a group, every member of that group is notified.
-
-### The "Everyone" Group
-
-A built-in **Everyone** group is always listed at the top. It includes all providers in your workspace and cannot be edited or deleted. Use this group when a task should be visible to your entire team.
-
-### Create a Task Group
-
-<Steps>
-  <Step title="Add a New Group">
-    Click **Add Group** in the top-right corner of the Task Groups section.
-  </Step>
-  <Step title="Enter Group Details">
-    Fill in the following fields:
-    - **Name:** A short label for the group (e.g., "Front Desk", "Billing Team"). Required.
-    - **Description:** An optional note explaining the group's purpose.
-    - **Members:** Check the boxes next to each provider you want to include. A count of selected providers is shown above the list.
-  </Step>
-  <Step title="Save">
-    Click **Create**. The new group appears in the list and is immediately available for use in alert rules.
-  </Step>
-</Steps>
-
-### Edit a Task Group
-
-Click on a group's row to open the editing form. Update the name, description, or members, then click **Save**.
-
-### Delete a Task Group
-
-1. Hover over the group you want to remove and click the trash icon.
-2. Confirm the deletion when prompted. Any alert rules that referenced this group will be reset to assign tasks to "Everyone."
 
 ## Alert Rules
 
@@ -72,7 +38,7 @@ Alert rules determine which events in the platform automatically create tasks --
 Each alert type appears as a row in a table with three settings:
 
 - **Priority:** Choose Urgent, High, Normal, or Low. This sets the priority on the auto-created task.
-- **Assignment:** Pick who receives the task. You can assign it to the "Everyone" group, any custom task group you created, or a specific individual provider.
+- **Assignment:** Pick who receives the task. You can assign it to **Everyone**, any **Team**, or a specific individual provider.
 - **Auto-Create (on/off):** Turn this on to enable automatic task creation for this alert type. When off, the row is faded and the priority and assignment selectors are replaced with a dash.
 
 <Steps>

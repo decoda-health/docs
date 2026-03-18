@@ -1,0 +1,74 @@
+---
+title: 'Call Routing'
+description: 'Understand how incoming calls are routed to the right person or AI assistant based on schedules, closures, and ring groups.'
+---
+
+<Info>
+  **Where to find Call Routing:** In the left sidebar, click **Settings > Phone Numbers**, then click **Configure call routing** on any phone number.
+</Info>
+
+When someone calls your clinic, the system decides who should handle the call. This happens automatically based on the handlers you have set up on the phone number -- AI assistants, ring groups, and closures -- and their schedules. Understanding the priority order is the key to getting your call routing right.
+
+## How Calls Are Routed (Priority Order)
+
+When a call comes in, the system checks the following in order. The **first match wins** -- as soon as a handler is found, the call goes there.
+
+### 1. Closures (Highest Priority)
+
+If there is an active closure right now (for example, a holiday closure or a recurring Sunday closure), the system skips all normal handlers and sends the call directly to your **off-hours handler**. See [Closures](/modules/phone-numbers/closures) for details.
+
+### 2. Scheduled AI Assistants
+
+If an AI assistant has a schedule that covers the current time, it answers the call. This takes priority over ring groups, which makes it useful for situations like having an AI handle calls during lunch breaks while a ring group handles calls the rest of the day.
+
+### 3. Scheduled Ring Groups
+
+If a ring group has a schedule that covers the current time, the call rings the staff members in that group. See [Ring Groups](/modules/phone-numbers/ring-groups) for details on how members are rung and what happens when no one answers.
+
+### 4. Off-Hours Handler (Lowest Priority)
+
+If none of the above matched -- meaning no closure is active, no scheduled assistant covers this time, and no scheduled ring group covers this time -- the call falls to the **off-hours handler**. The off-hours handler can be:
+
+- An **AI assistant** designated as the off-hours assistant on the phone number.
+- A **ring group with no schedule** (an "always-on" ring group). A ring group without a schedule acts as a fallback and only handles calls when nothing else matches.
+
+If neither is configured, the call has no handler and will not be answered.
+
+<Info>
+  **Tip:** Always make sure you have an off-hours handler configured. Without one, calls that arrive outside your scheduled hours will go unanswered. You will see a warning on the phone number detail page if no off-hours handler is set up.
+</Info>
+
+## Reading the Weekly Timeline
+
+The phone number detail page shows a **weekly timeline** -- a visual grid showing the entire week (Monday through Sunday) broken into hourly blocks. Each handler you have configured appears as colored blocks on the timeline:
+
+| What You See | What It Means |
+|--------------|---------------|
+| **Solid colored blocks** | A scheduled handler (AI assistant or ring group) is active during these hours. The color matches the handler listed in the sidebar. |
+| **Hatched/striped blocks** | The off-hours handler's fallback coverage. These blocks fill in all the gaps where no scheduled handler is active, showing you that calls during these times go to the off-hours handler. |
+| **Red/orange blocks** | A closure is active during these hours. Calls during closures skip to the off-hours handler. |
+| **Empty blocks** | No handler covers this time, and no off-hours handler is configured. Calls during these times will not be answered. |
+
+Click any colored block on the timeline to highlight the corresponding handler in the sidebar list. Click an empty block to quickly create a new ring group, AI assistant, or closure starting at that time.
+
+## Ring Group Failover
+
+When a call goes to a ring group and no one answers within the ring timeout (for example, 30 seconds), the system looks for a **failover AI assistant**. If one is configured on the phone number, the AI takes over the call so the caller does not have to hang up and call back.
+
+You can set the failover assistant on the phone number detail page. This is a single assistant that serves as the safety net for all ring groups on this number.
+
+## What Happens If Nothing Is Configured
+
+If a call comes in and no handler matches -- no active closure, no scheduled assistant, no scheduled ring group, no off-hours handler -- the call will not be answered. The phone number detail page shows a warning when this situation is possible, so make sure to set up at least an off-hours handler to cover all your bases.
+
+## Example Setup
+
+Here is a common setup for a clinic open Monday through Friday, 9 AM to 5 PM:
+
+1. **Ring group** with a schedule of Monday-Friday 9:00 AM - 5:00 PM containing front desk staff.
+2. **AI assistant** with a schedule of Monday-Friday 12:00 PM - 1:00 PM to cover the lunch break (this overrides the ring group during lunch).
+3. **Off-hours AI assistant** to handle calls outside business hours (evenings, weekends).
+4. **Closures** for holidays (e.g., Christmas Day, Thanksgiving) so calls go to the off-hours assistant on those days.
+5. **Failover AI assistant** so that if the front desk ring group does not answer within 30 seconds, the AI picks up.
+
+On the weekly timeline, you would see the ring group's color filling Monday-Friday 9-5, the scheduled assistant's color replacing the lunch hour, and the off-hours assistant's hatched blocks covering everything else.

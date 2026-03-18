@@ -1,0 +1,88 @@
+---
+title: 'Editing Care Plans & Progress Tracking'
+description: 'Make changes to assigned care plans and understand how progress is tracked.'
+---
+
+<Info>
+  To open a care plan, go to a patient's chart, find the **Care Plans** section on the **Overview** tab, and click the edit icon next to the care plan name.
+</Info>
+
+## Editing an Assigned Care Plan
+
+After a care plan has been assigned to a patient, you can still update it. All changes are saved when you click **Save Changes** at the bottom of the page.
+
+### Change the Name, Description, or Tags
+
+<Steps>
+  <Step title="Open the care plan">
+    From the patient's **Overview** tab, find the care plan you want to edit and click the edit icon next to its name. This opens the full care plan page.
+  </Step>
+  <Step title="Update the fields">
+    At the top of the page, you can change the **Care Plan Name**, **Description**, and **Tags**. To update tags, click the tags area to open the tag picker — select from existing tags or click **New Tag** to create one. At least one tag is required.
+  </Step>
+  <Step title="Save your changes">
+    Click **Save Changes** at the bottom. The button is only available when there are unsaved changes.
+  </Step>
+</Steps>
+
+### Add, Remove, and Reorder Steps
+
+- Click **Add Step** to add a new appointment or task step to the plan. Task steps are only available if your organization has the **Tasks** module enabled.
+- Remove a step by clicking its delete option. When a step is removed, the dates of the steps that follow it adjust automatically.
+- Drag and drop steps to change their order in the timeline. Scheduled dates stay pinned to their original values during reordering.
+
+### Edit Step Details
+
+Click on any step to see its details. What you can change depends on the step type:
+
+| Step type | Editable fields |
+|-----------|----------------|
+| **Appointment** | Services, medications, measurements, provider notes, repeat settings, scheduled date |
+| **Task** | Title, description, initial status, priority, assignee, start date, due date, provider notes, repeat settings |
+
+<Info>
+  Every step must have at least some content (a service, medication, measurement, task title, or description). You will see an error if you try to save a step that is empty.
+</Info>
+
+### Schedule an Appointment from a Step
+
+Appointment steps that are pending and have services attached show a **Schedule Appointment** button in the step details. Clicking it takes you to the appointment form pre-filled with the patient, services, and suggested date from the care plan.
+
+### Delete a Care Plan
+
+<Steps>
+  <Step title="Open the care plan">
+    Navigate to the care plan detail page as described above.
+  </Step>
+  <Step title="Click Delete">
+    Click the **Delete** button at the top-right corner of the page.
+  </Step>
+  <Step title="Confirm">
+    You will be asked to confirm. Confirming permanently removes the care plan along with all of its steps and progress. This cannot be undone.
+  </Step>
+</Steps>
+
+## Progress Tracking
+
+### How Progress Is Calculated
+
+Progress is based on how many steps have been completed out of the total number of steps. If a step is set to repeat, each repetition counts separately toward the total.
+
+**Example:** A care plan has 3 steps. Two are single steps (each counts as 1), and the third is set to repeat 4 times (counts as 4). The total step count is **6** (1 + 1 + 4). If 3 steps are marked complete, progress shows as **3 of 6 steps (50%)**.
+
+### Where Progress Appears
+
+- **Patient Overview tab** -- each care plan card shows a progress summary with a step count (e.g., "3/6 steps") and a percentage, color-coded by status.
+- **Care plan detail page** -- the progress summary appears at the top next to the care plan name.
+
+### Progress Colors
+
+| Color | Meaning |
+|-------|---------|
+| **Green** | 100% complete -- all steps are done |
+| **Blue** | In progress -- at least one step is completed |
+| **Gray** | Not started -- no steps have been completed yet |
+
+## Patient Overview
+
+For details on how care plans appear on the patient's Overview tab, see [Care Plans — Viewing Care Plans on the Overview Tab](/modules/patients/care-plans#viewing-care-plans-on-the-overview-tab).

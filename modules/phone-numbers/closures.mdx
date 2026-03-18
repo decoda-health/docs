@@ -1,0 +1,72 @@
+---
+title: 'Closures'
+description: 'Temporarily override normal call routing during holidays, emergencies, or recurring off-days.'
+---
+
+<Info>
+  **Where to find Closures:** In the left sidebar, click **Settings > Phone Numbers**, then click **Configure call routing** on a phone number. Closures are listed in the sidebar of the detail page.
+</Info>
+
+A closure temporarily overrides your normal call routing. When a closure is active, all incoming calls skip your regular ring groups and AI assistant schedules and go directly to the **off-hours handler** instead. This is useful for holidays, office emergencies, or any time you need to shut down normal phone operations.
+
+## How Closures Affect Call Routing
+
+Closures have the **highest priority** in the routing system. When a closure is active:
+
+- Scheduled ring groups are skipped.
+- Scheduled AI assistants are skipped.
+- The call goes straight to your off-hours handler (either an off-hours AI assistant or an always-on ring group).
+
+If no off-hours handler is configured, calls during a closure will not be answered.
+
+<Info>
+  **Tip:** Before creating closures, make sure you have an off-hours handler set up on the phone number. Otherwise, calls during closures will have no one to answer them.
+</Info>
+
+## Create a One-Off Closure
+
+A one-off closure covers a specific date range. Use this for holidays, planned office closings, or emergencies.
+
+1. On the phone number detail page, click **Add Closure** (the button with a moon icon).
+2. Give the closure a name (for example, "Thanksgiving" or "Office Renovation").
+3. Select **One-off** as the type.
+4. Pick the start date and end date.
+5. Save the closure.
+
+The closure will be active for the entire date range you selected. After the end date passes, it has no further effect on call routing.
+
+## Create a Recurring Closure
+
+A recurring closure repeats on a regular schedule. Use this for predictable closings like every Sunday, or the first Monday of each month.
+
+### Weekly Recurring
+
+1. Click **Add Closure** on the phone number detail page.
+2. Give the closure a name (for example, "Sunday Closure").
+3. Select **Weekly** as the type.
+4. Check the days of the week when the closure should be active, and set the time range for each day.
+5. Save the closure.
+
+The closure will repeat every week on the days and times you selected.
+
+### Monthly or Yearly Recurring
+
+1. Click **Add Closure** on the phone number detail page.
+2. Give the closure a name.
+3. Select **Monthly** or **Yearly** as the type.
+4. Configure the recurrence pattern (for example, the first Monday of every month, or December 25 every year).
+5. Save the closure.
+
+## Edit a Closure
+
+Click the pencil icon next to any closure to change its name, type, schedule, or dates. Changes take effect immediately after saving.
+
+## Delete a Closure
+
+Click the trash icon next to the closure you want to remove. You will be asked to confirm before it is deleted. Once deleted, normal call routing resumes for the times that closure was covering.
+
+## Closures on the Weekly Timeline
+
+Closures appear as distinctly colored blocks on the weekly timeline (typically red/orange). For recurring closures, you will see the blocks repeat on the relevant days. For one-off closures that fall within the current week, the blocks appear on those specific dates.
+
+This makes it easy to see at a glance when your clinic's normal call routing is being overridden.
