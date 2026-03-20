@@ -1,0 +1,50 @@
+---
+title: "Patient Portal"
+description: "How patients sign in, sign up, and view their information in the patient portal."
+---
+
+<Info>
+  **What is the Patient Portal:** The patient portal is a secure area where your
+  patients can sign in to view their demographics and manage their account.
+  Patients access it via a link unique to your clinic (e.g.
+  app.decodahealth.com/your-clinic/patient-portal).
+</Info>
+
+The patient portal lets patients create an account, sign in with email and password or Google, and view their own information. It is designed for patients, and clinic staff can also access it when they are linked to a patient record for that clinic.
+
+## How patients reach the portal
+
+Patients reach the patient portal through links sent by your clinic — for example, in appointment confirmations, intake forms, or text messages. The link format is:
+
+`https://app.decodahealth.com/{your-clinic}/patient-portal`
+
+Replace `{your-clinic}` with your clinic name in the web address.
+
+## Sign up and sign in
+
+Patients can:
+
+- **Sign up** with email and password — requires first name, last name, phone number, email, and password
+- **Sign in** with their email and password
+- **Sign in with Google** if their clinic has Google sign-in enabled
+- **Reset their password** using the “Forgot password?” link
+
+After signing in, patients land on the portal home page where they can:
+
+- **View your information** — opens their demographics (name, contact details, insurance, etc.)
+- **Sign out** — ends their session
+
+## How patient records are linked
+
+When a patient signs up with email and password, the system first checks for an existing record by Firebase UID and email. If no match is found, it can use the provided phone number as a fallback. If there is still no match, a new patient record is created.
+
+When a patient signs in with Google for the first time, the portal looks up their account by email. If a matching patient record is found, it is linked automatically. If not, the patient is asked for their name and phone number so the portal can find or create their record.
+
+## Security and eligibility
+
+- Clinic staff can sign in to the patient portal with their work account and access it as a patient at their own clinic.
+- If a patient signs in and no matching record can be found, they are prompted to provide more information before access is granted.
+
+## Demographics
+
+When a patient selects **View your information**, they see their stored demographics. This page is read-only, so patients must contact your clinic to update any details.

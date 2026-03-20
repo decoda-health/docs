@@ -109,8 +109,8 @@
       "hash": "e15ca5de82bd34a9cd9c9a16cd6ab9dbf47adce48e5237843caee06e42f817af"
     },
     "modules/comms/blasts.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsblastsmdx-3rhahrliof2u",
-      "hash": "447285d2d044d120fead45f354748d7a5c9911a561bab55f37a5c475c1119b73"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsblastsmdx-dh3cmi99ngy1",
+      "hash": "0335738c71e64a9b839b7624b25b88ee528b90af9cdfd0153df58532902fb6b3"
     },
     "modules/comms/calls.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommscallsmdx-jz6apce58y21",
@@ -121,8 +121,8 @@
       "hash": "9ba84b3b8ae24a555d2bf05b72658f4dbf3a75e5ec810b07ff8ac12fc2f56e21"
     },
     "modules/comms/cohorts.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommscohortsmdx-loxalyaondg0",
-      "hash": "5fef9ba3ebd0912fe894db356fb72d840cac1dd8b2ed52b3f5fa0be2463cfc89"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommscohortsmdx-j35rpp9c3b8v",
+      "hash": "589a4964ba13acb76690cda1e5da119bc58c11a32b1c11a65f2b72aa6a1f897e"
     },
     "modules/comms/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsindexmdx-fevbhp1tm25y",
@@ -183,6 +183,10 @@
     "modules/notes/sign-off-and-versioning.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesnotessignoffandversi-tsxxqj8tbg2m",
       "hash": "4a486b320fb82462f0d9a38ad5747d337c45877b03430372b39bdda822c3e874"
+    },
+    "modules/patient-portal/index.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientportalindexmd-phvdrrip7q8q",
+      "hash": "b23088239d287d335a77d0187f85fb44bb9c73d40833b18a2ea8f5aa1a8b66af"
     },
     "modules/patients/care-plan-editing.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanedit-5udfkor7fay5",
@@ -281,8 +285,8 @@
       "hash": "a75a52cda695fbe091ac78f9cf731012e32c8cf34ef3c92492800648f5c2679c"
     },
     "modules/settings/emails.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsemailsmdx-tu4i461e21de",
-      "hash": "41ff90f48babb2220d683e880001098cd40592d6815cbbebc05c2ed9a33f41a4"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsemailsmdx-kjfd4yuwjt9e",
+      "hash": "a3f8681287a5525ed797942d5eb35a23aa19b38c5da6af64ffd1706f6765a28a"
     },
     "modules/settings/general.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsgeneralmdx-l56vmvhpzg1o",

@@ -9,9 +9,13 @@
   "theme": "mint",
   "name": "Decoda Health",
   "colors": {
-    "primary": "#0178D4",
-    "light": "#0178D4",
-    "dark": "#0178D4"
+    "primary": "#4A5D4E",
+    "light": "#4A5D4E",
+    "dark": "#C5A37E",
+    "background": {
+      "light": "#FAF6F0",
+      "dark": "#1B211B"
+    }
   },
   "favicon": "/images/favicon.png",
   "navigation": {
@@ -32,7 +36,17 @@
             "pages": [
               "modules/patients/index",
               "modules/patients/patient-chart",
-              "modules/patients/import-and-merge"
+              "modules/patients/import-and-merge",
+              "modules/patients/care-plans",
+              "modules/patients/care-plan-editing",
+              "modules/patients/care-plan-steps",
+              "modules/patients/care-plan-step-types"
+            ]
+          },
+          {
+            "group": "Patient Portal",
+            "pages": [
+              "modules/patient-portal/index"
             ]
           },
           {
@@ -100,7 +114,8 @@
               "modules/check-in/index",
               "modules/check-in/dashboard",
               "modules/check-in/clock-in",
-              "modules/check-in/shifts"
+              "modules/check-in/shifts",
+              "modules/check-in/care-plan-suggestions"
             ]
           },
           {
@@ -152,6 +167,8 @@
                   "modules/settings/pos-devices/lane-3000"
                 ]
               },
+              "modules/settings/care-plan-tags",
+              "modules/settings/care-plan-templates",
               "modules/settings/rules",
               "modules/settings/general",
               "modules/settings/notifications",
@@ -939,6 +956,14 @@
               "api-reference/tenant/update-webhook-config",
               "api-reference/tenant/upload-logo",
               "api-reference/tenant/upload-receipt-logo"
+            ]
+          },
+          {
+            "group": "Patient Portal",
+            "pages": [
+              "api-reference/patient-portal/me",
+              "api-reference/patient-portal/bootstrap",
+              "api-reference/patient-portal/sign-up"
             ]
           },
           {

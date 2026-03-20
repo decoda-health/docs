@@ -205,6 +205,40 @@ This has nothing to do with overlapping time slots. It controls whether a **pati
   </Accordion>
 </AccordionGroup>
 
+## Checklist Completion
+
+Control when an appointment is automatically marked as complete based on its checklist items. This setting is configured per service.
+
+By default, checking the last item in the checklist automatically marks the appointment as complete — even if some required items were skipped. You can turn this off per service to require that every required item is finished before the appointment closes out.
+
+<Steps>
+  <Step title="Navigate to Service Settings">
+    Go to **Settings > Services**, then open the service you want to configure.
+  </Step>
+  <Step title="Open the Checklists Tab">
+    Select the **Checklists** tab in the service editor.
+  </Step>
+  <Step title="Toggle the Setting">
+    Turn **Auto-complete on Last Item** on or off:
+
+    - **On** (default): Checking the last item automatically marks the appointment as complete, even if other required items remain.
+    - **Off**: The appointment auto-completes only when every required checklist item is done. Checking the last item alone is not enough.
+  </Step>
+</Steps>
+
+<Info>
+  This setting is configured per service. If an appointment has multiple services, the stricter rule applies whenever any of the services has this setting turned off.
+</Info>
+
+<AccordionGroup>
+  <Accordion title="When should I turn this off?">
+    Turn this off if staff are skipping required steps by checking the last item on the list. Disabling it ensures every required step is completed before the appointment closes out.
+  </Accordion>
+  <Accordion title="What happens to in-progress appointments?">
+    The setting takes effect immediately. Any appointment that has not yet been marked complete will follow the new rule going forward. Appointments already marked complete are not affected.
+  </Accordion>
+</AccordionGroup>
+
 ## Advanced Configuration
 
 <AccordionGroup>

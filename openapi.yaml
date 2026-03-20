@@ -49654,6 +49654,8 @@ components:
       - CHECKED_IN
       - NO_SHOW_MARKED
       - COMPLETED
+      - PATIENT_CHANGED
+      - PROVIDER_CHANGED
       title: EventLogAction
       description: Actions that can be logged for events in the audit trail
     EventLogSummary:
@@ -72671,14 +72673,6 @@ components:
       type: object
       title: SupplierUpdate
       description: Schema for updating a supplier. All fields are optional.
-    SystemToastAuthor:
-      type: string
-      enum:
-      - kevin
-      - chase
-      - james
-      - nour
-      title: SystemToastAuthor
     SystemToastSummary:
       properties:
         id:
@@ -72698,11 +72692,6 @@ components:
           - type: 'null'
           title: Module
           description: The module this toast is for, if any
-        author:
-          anyOf:
-          - $ref: '#/components/schemas/SystemToastAuthor'
-          - type: 'null'
-          description: The author of the toast
         displayDuration:
           anyOf:
           - type: integer

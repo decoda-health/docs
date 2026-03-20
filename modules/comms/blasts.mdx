@@ -72,11 +72,24 @@ Blasts let you send bulk messages -- either email or SMS -- to a group of patien
     Type your subject line in the **Subject** field. This is what patients see in their inbox. You can also add **Preview Text** -- the short snippet that appears next to the subject line in most email apps.
   </Step>
   <Step title="Compose Your Email">
-    Use the rich text editor to write your email. The editor supports headings, bold/italic text, images, buttons, links, blockquotes, and lists. Type **/** to see available block types you can insert.
+    Use the email editor to build your message. The editor is organized into rows -- each row is a section of your email that you can move around and edit independently.
 
-    To personalize the email, type **@** to insert details like the patient's first name or your organization's name. Each recipient gets a customized version.
+    **Editing content:**
+    - Click on a row to select it (a blue outline appears around it).
+    - Double-click a row to start editing the text inside it.
+    - While editing, use the toolbar to format text -- bold, italic, underline, headings, lists, links, and alignment.
 
-    Switch to **Code** mode if you prefer to write raw HTML directly.
+    **Adding new content:**
+    - Type **/** while editing to see a menu of content types you can insert: paragraphs, headings, images, buttons, blockquotes, and lists.
+    - Press **Enter** on an empty line to add a new row below.
+
+    **Rearranging content:**
+    - Click a row to select it, then drag it up or down to reorder your email layout.
+
+    **Personalizing the email:**
+    - Type **@** to insert details like the patient's first name or your organization's name. Each recipient gets a customized version.
+
+    Switch to **HTML** mode if you prefer to write raw HTML directly.
 
     To attach files, click **Attach Files**. You can attach up to 10 files, each under 25 MB.
   </Step>
@@ -154,7 +167,8 @@ A row of stat cards at the top shows the delivery breakdown at a glance. Click a
 - **Skipped** -- Recipients skipped due to missing email, suppression, or being unsubscribed.
 - **Opened** -- Recipients who opened the email, with the open rate percentage.
 - **Clicked** -- Recipients who clicked a link, with the click rate percentage.
-- **Failed** -- Emails that bounced or failed to deliver.
+- **Failed** -- Emails that failed to deliver.
+- **Bounced** -- Emails that bounced after delivery (e.g., invalid address, full mailbox).
 
 **SMS blast stats:**
 - **Total** -- Total recipients in the blast.
