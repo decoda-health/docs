@@ -9,9 +9,9 @@
   "theme": "mint",
   "name": "Decoda Health",
   "colors": {
-    "primary": "#4A5D4E",
-    "light": "#4A5D4E",
-    "dark": "#C5A37E"
+    "primary": "#C5A37E",
+    "light": "#A8875E",
+    "dark": "#D4B896"
   },
   "favicon": "/images/favicon.png",
   "navigation": {
