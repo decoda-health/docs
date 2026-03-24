@@ -203,6 +203,29 @@ The generated code includes an `<iframe>` element and a JavaScript event listene
 
 For integrations that create charges via the API (with line items, discounts, and taxes), you can embed payment for a specific charge by adding `charge_id` to the URL instead of `amount`. The embed will display the full charge breakdown. See [Embed payment with itemized charges](/guides/embed-payment-itemized-charges) for the full flow.
 
+## Embed Store Details Component
+
+The Embed Store Details Component generates an iframe code snippet that you can paste into an external website to collect and save a patient's payment method (card or bank account) — without charging them.
+
+### Generate an Embed Code
+
+<Steps>
+  <Step title="Select a Patient">
+    Use the patient search field in the **Configuration** panel to find and select a patient.
+  </Step>
+  <Step title="Customize Appearance">
+    - **Width / Height:** Set the iframe dimensions (pixels or percentages).
+    - **Theme:** Choose **Light** or **Dark**.
+    - **Show patient name header:** Toggle this checkbox to include or hide the patient name at the top of the form.
+    - **Allowed payment methods:** Check or uncheck **Card**, **ACH**, and **Apple Pay** to control which payment options appear.
+  </Step>
+  <Step title="Preview and Copy">
+    The right-side **Preview** panel shows a live rendering of the form. When satisfied, click **Copy Code** in the **Embed Code** section below. Paste the snippet into your website's HTML.
+  </Step>
+</Steps>
+
+The generated code includes an `<iframe>` element and a JavaScript event listener that fires on `store_details_success`, `store_details_failure`, and `store_details_loaded` events, allowing your website to react when the patient saves their details. See [Save a payment method with the store details embed](/guides/embed-store-details) for the full integration guide.
+
 ## Advanced Configuration
 
 <AccordionGroup>

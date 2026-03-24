@@ -1,0 +1,125 @@
+---
+title: 'Save a payment method with the store details embed'
+description: 'Collect and save a patient''s card or bank account details on your website without charging them.'
+---
+
+This guide walks through adding a form to your website that lets a patient enter their payment details (credit card, bank account, or Apple Pay). The details are saved securely — no payment is taken.
+
+There are two ways to use this:
+
+- **Iframe mode** — embed the form inside your page. Apple Pay is not available in this mode.
+- **Redirect mode** — link the patient to the form directly, then redirect them back to your site when done. Supports Apple Pay.
+
+## Step 1: Build the URL
+
+Construct the URL for the store details form:
+
+```
+https://app.decodahealth.com/{tenant}/embed/store-details/{patientId}
+```
+
+Replace:
+
+- `{tenant}` — your organization's subdomain
+- `{patientId}` — the patient's ID
+
+### URL parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| `theme` | `light` or `dark` |
+| `showHeader` | `true` (default) or `false` to hide the patient name at the top |
+| `allowedMethods` | Comma-separated payment methods: `CARD`, `ACH`, `APPLE_PAY`. Default is `CARD,ACH,APPLE_PAY`. |
+| `redirect_url` | URL to redirect the patient to after saving (enables redirect mode) |
+
+## Option A: Iframe mode
+
+Embed the URL in an iframe on your site:
+
+```html
+<iframe
+  src="https://app.decodahealth.com/your-tenant/embed/store-details/pat_xxx"
+  width="100%"
+  height="400px"
+  style="border: none; border-radius: 8px;"
+></iframe>
+```
+
+Listen for events via `postMessage`:
+
+```javascript
+window.addEventListener('message', function(event) {
+  if (event.data.type === 'store_details_success') {
+    // Payment method saved successfully
+  } else if (event.data.type === 'store_details_failure') {
+    // Something went wrong — event.data.error has details
+  } else if (event.data.type === 'store_details_loaded') {
+    // Form is ready
+  }
+});
+```
+
+<Info>
+Apple Pay requires the payment form to be on the top-level page, not inside an iframe. If you need Apple Pay, use redirect mode instead.
+</Info>
+
+### Event types
+
+| Event | When it fires |
+|-------|---------------|
+| `store_details_loaded` | The form finished loading and is ready for input |
+| `store_details_success` | The patient's payment details were saved |
+| `store_details_failure` | The save failed (declined card, network error, etc.) |
+| `store_details_error` | The form could not load at all |
+
+## Option B: Redirect mode (supports Apple Pay)
+
+Link the patient directly to the store details page with a `redirect_url` parameter. After saving their payment details, the patient is redirected back to your site.
+
+```html
+<a href="https://app.decodahealth.com/your-tenant/embed/store-details/pat_xxx?redirect_url=https://yoursite.com/done">
+  Save Payment Method
+</a>
+```
+
+After the patient saves their details, they are redirected to:
+
+```
+https://yoursite.com/done?status=success&patientId=pat_xxx
+```
+
+If the save fails:
+
+```
+https://yoursite.com/done?status=failure&patientId=pat_xxx&error=The+method+was+declined
+```
+
+### Redirect parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| `status` | `success` or `failure` |
+| `patientId` | The patient's ID |
+| `error` | Error message (only present when `status=failure`) |
+
+Because the form loads as the top-level page (not in an iframe), Apple Pay is fully supported in this mode.
+
+## API flow
+
+When the page loads, it calls the [Create Embed Store Details Config](/api-reference/provider/create-embed-store-details-config) endpoint. The endpoint:
+
+1. Looks up the patient.
+2. Creates a Rainforest payment method configuration tied to that patient.
+3. Returns the session key and config ID.
+
+The form uses these to initialize the Rainforest payment component in "store details" mode — it collects the card or bank account and saves it without taking a payment.
+
+## Using it from the console
+
+You can also generate embed code from the **Payment Management** settings page. Look for the **Embed Store Details Component** section, where you can:
+
+- Search for a patient
+- Choose the theme, dimensions, and allowed payment methods
+- Set a redirect URL for Apple Pay support
+- Preview the form
+- Copy the ready-to-use code

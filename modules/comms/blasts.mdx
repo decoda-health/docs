@@ -191,6 +191,20 @@ Below the summary, a table lists every recipient with their individual status, d
 
 If fewer than 90% of messages were sent successfully, a warning banner appears at the top of the detail page showing the delivery rate and suggesting you review the failed messages.
 
+## Stopping a Blast
+
+You can stop a blast while it is still sending. On the blast detail page, click **Stop Blast**. The system stops within a few seconds. Messages already sent are not affected -- only unsent recipients are skipped.
+
+A manually stopped blast shows a **Manually stopped** label on the detail page.
+
+### Automatic Bounce Protection (Email Only)
+
+For email blasts, the system monitors the bounce rate as messages are sent. If 3% or more of emails bounce after at least 100 have been sent, the blast is automatically stopped to protect your sending domain reputation. When this happens:
+
+- The blast detail page shows the bounce rate that triggered the stop.
+- A notification is sent to your team's alerts channel.
+- You can review the bounced recipients, fix any issues, and use **Retry Failed** to resend.
+
 ## After Sending
 
 ### Retry Failed Messages
@@ -298,5 +312,8 @@ Use the date range picker to focus on a specific time period.
   </Accordion>
   <Accordion title="What's the difference between 'failed' and 'skipped'?">
     **Failed** means the system attempted to send the message but it didn't go through (e.g., carrier error, email bounce). You can retry failed messages. **Skipped** means the system intentionally did not attempt to send because the recipient was ineligible (opted out, no contact info, etc.).
+  </Accordion>
+  <Accordion title="What does 'stopped' mean?">
+    A blast can be stopped in two ways: you clicked **Stop Blast**, or the system automatically stopped it because too many emails were bouncing. In either case, messages already sent are delivered normally. Unsent recipients were not contacted. You can use **Retry Failed** to resend any messages that failed before the blast was stopped.
   </Accordion>
 </AccordionGroup>

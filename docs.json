@@ -64,7 +64,9 @@
               "modules/billing/invoices",
               "modules/billing/carts-and-quotes",
               "modules/billing/cash-and-commissions",
-              "guides/embed-payment-itemized-charges"
+              "modules/billing/chargebacks",
+              "guides/embed-payment-itemized-charges",
+              "guides/embed-store-details"
             ]
           },
           {
@@ -431,6 +433,7 @@
                   "api-reference/provider/create-cash-settled",
                   "api-reference/provider/create-charge",
                   "api-reference/provider/create-embed-payment-config",
+                  "api-reference/provider/create-embed-store-details-config",
                   "api-reference/provider/create-insurance-payment",
                   "api-reference/provider/create-manual-invoice",
                   "api-reference/provider/create-patient-credit-payment",

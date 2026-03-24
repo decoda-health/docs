@@ -1,0 +1,33 @@
+---
+openapi: post /billing/embed-store-details/{patient_id}
+---
+
+Creates a payment method configuration for the store details component. Use this when your website needs to collect and save a patient's payment method (card, ACH, or Apple Pay) — without charging them. The page can be embedded in an iframe or loaded directly (redirect mode for Apple Pay support).
+
+## Usage
+
+```
+POST /billing/embed-store-details/{patient_id}
+```
+
+The endpoint creates a Rainforest payment method configuration tied to the patient. The response includes the session key and config ID needed to initialize the form.
+
+## Embed URL parameters
+
+The embed page (`/embed/store-details/{patientId}`) accepts these query parameters:
+
+| Parameter | Description |
+|-----------|-------------|
+| `theme` | `light` or `dark` |
+| `showHeader` | `true` (default) or `false` to hide the patient name header |
+| `allowedMethods` or `allowed_methods` | Comma-separated payment methods: `CARD`, `ACH`, `APPLE_PAY`. Default is `CARD,ACH,APPLE_PAY`. |
+| `redirect_url` or `redirectUrl` | URL to redirect the patient to after saving. Enables redirect mode (required for Apple Pay). |
+
+## Response
+
+The response contains:
+
+- `session_key` — Rainforest session ID for the payment form
+- `payment_method_config_id` — Rainforest config ID for storing the payment method
+- `sandbox` — whether the form is in sandbox mode
+- `patient` — the patient's ID and name (for display)
