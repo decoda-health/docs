@@ -40,14 +40,30 @@ Every chargeback moves through a series of stages:
   </Step>
 </Steps>
 
+### Status Reference
+
+| Status | Color | Meaning |
+|---|---|---|
+| Inquiry Action Required | Yellow | Bank is asking for information — no funds debited yet |
+| Dispute Action Required | Red | Formal dispute filed — funds held, respond urgently |
+| Inquiry Responded | Gray | Your inquiry response was submitted |
+| Inquiry Processing | Gray | Inquiry under review |
+| Chargeback Processing | Gray | Dispute response under review |
+| Pre-Arbitration Processing | Gray | Escalated to pre-arbitration |
+| Arbitration | Gray | In arbitration |
+| Provisional Win | Green | Preliminary decision in your favor — not yet final |
+| Won | Green | Final decision in your favor — funds returned |
+| Lost | Red | Final decision against you — cardholder keeps funds |
+| Accepted | Gray | You accepted the chargeback voluntarily |
+
 ## Viewing Chargebacks
 
 The **Chargebacks** page shows all disputes in a table with:
 
 - **Amount** — The disputed amount.
-- **Status** — Current stage of the dispute (color-coded: yellow for action required, red for lost/dispute, green for won).
+- **Status** — Current stage of the dispute (color-coded as shown above).
 - **Reason** — Why the cardholder is disputing (e.g., "Fraudulent transaction," "Not received").
-- **Due Date** — Your deadline to respond. After this date, the dispute is automatically decided.
+- **Due Date** — Your deadline to respond. Dates within 3 days turn yellow, and overdue dates turn red.
 - **Payment** — The original payment that was disputed.
 - **Created** — When the chargeback was filed.
 
@@ -56,6 +72,20 @@ Click any row to open the detail view.
 <Tip>
   You can also reach chargebacks from the **Charges** page — any charge with a "Chargeback" status badge has a **View Chargeback** option in its row menu.
 </Tip>
+
+### Detail View
+
+When you open a chargeback, you'll see:
+
+- **Amount** and currency
+- **Status** badge
+- **Reason** description and **reason code**
+- **Due Date** — with an urgency banner if the deadline is within 3 days (yellow) or overdue (red)
+- **ARN** (Acquirer Reference Number) — a transaction tracking code from the bank network
+- **Payment** — link to the original payment record
+- **Chargeback ID**
+- **Created** date
+- **Evidence** section (see below)
 
 ## Responding to a Chargeback
 
@@ -68,6 +98,8 @@ Evidence falls into two categories:
 **Text responses** — Written explanations you type directly. For example, a rebuttal explaining why the charge is legitimate, or details about the service provided.
 
 **File uploads** — Documents you upload as proof. Accepted formats are PDF, JPEG, PNG, and TIFF (max 25 MB per file).
+
+Each evidence item shows a badge once you've completed it: **Responded** for text or **Uploaded** for files.
 
 ### What Evidence to Submit
 
@@ -150,7 +182,7 @@ The specific evidence items depend on why the cardholder is disputing. Here's wh
 
 ## Accepting a Chargeback
 
-If the dispute is legitimate (e.g., you agree the patient was overcharged or the service wasn't provided), click **Accept Chargeback**. This:
+If the dispute is legitimate (e.g., you agree the patient was overcharged or the service wasn't provided), click **Accept Chargeback**. You'll be asked to confirm, since this:
 
 - Closes the dispute in the cardholder's favor
 - The disputed funds remain with the cardholder
@@ -159,7 +191,9 @@ If the dispute is legitimate (e.g., you agree the patient was overcharged or the
 
 ## Submitting Your Dispute
 
-Once you've filled in all required evidence items, click **Submit Dispute** to send your response to the card network. After submission:
+Once you've filled in all required evidence items, click **Submit Dispute** to send your response to the card network. The button stays disabled until every required item has been completed — hover over it to see which items still need attention.
+
+After submission:
 
 - The chargeback moves to a review status (such as **Inquiry Responded** or **Processing**, depending on the stage)
 - The card network reviews your evidence (this can take several weeks)
@@ -169,12 +203,18 @@ Once you've filled in all required evidence items, click **Submit Dispute** to s
 
 You'll receive alerts for key chargeback events:
 
-- **Action Required** — A new chargeback needs your response (appears as an action-required alert)
+- **Action Required** — A new chargeback needs your response
 - **Updated** — The chargeback reached a notable status (e.g., provisional win, inquiry responded, or processing)
 - **Won** — The dispute was decided in your favor
 - **Lost** — The dispute was decided against you
 
 Configure which chargeback alerts you receive in **Settings > Notifications** under the Payment & Billing section.
+
+<Tip>
+  You can also set up automatic task creation for chargebacks in **Settings > Tasks**. This way, when a chargeback needs attention, a task is created and assigned automatically so nothing slips through the cracks.
+</Tip>
+
+If neither chargeback notifications nor task automation are configured, a banner appears at the top of the Chargebacks page reminding you to set them up so you don't miss deadlines.
 
 ## Fees
 

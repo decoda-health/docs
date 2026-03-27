@@ -37,8 +37,8 @@ Click on any step to see its details. What you can change depends on the step ty
 
 | Step type | Editable fields |
 |-----------|----------------|
-| **Appointment** | Services, medications, measurements, provider notes, repeat settings, scheduled date |
-| **Task** | Title, description, initial status, priority, assignee, start date, due date, provider notes, repeat settings |
+| **Appointment** | Services, medications, measurements, provider notes, scheduled date |
+| **Task** | Title, description, initial status, priority, assignee, start date, due date, provider notes |
 
 <Info>
   Every step must have at least some content (a service, medication, measurement, task title, or description). You will see an error if you try to save a step that is empty.
@@ -66,9 +66,9 @@ Appointment steps that are pending and have services attached show a **Schedule 
 
 ### How Progress Is Calculated
 
-Progress is based on how many steps have been completed out of the total number of steps. If a step is set to repeat, each repetition counts separately toward the total.
+Progress is based on how many steps have been completed out of the total number of steps.
 
-**Example:** A care plan has 3 steps. Two are single steps (each counts as 1), and the third is set to repeat 4 times (counts as 4). The total step count is **6** (1 + 1 + 4). If 3 steps are marked complete, progress shows as **3 of 6 steps (50%)**.
+**Example:** A care plan has 3 steps. If 2 steps are marked complete, progress shows as **2 of 3 steps (67%)**.
 
 ### Where Progress Appears
 

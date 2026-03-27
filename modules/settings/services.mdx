@@ -117,9 +117,25 @@ Select one or more forms from the list by checking the box next to each form nam
 
 Define a step-by-step checklist that staff follow during each appointment for this service. Checklist items appear in the appointment sidebar for check-in and tracking.
 
-- Click **Add Item** to create a new checklist entry.
-- Each item has a type (e.g., task, verification) and can be marked as optional.
+- Click **Add Item** to create a new checklist entry, or use the quick-add buttons to add a preset type.
+- Each item has a type and can be marked as optional.
 - Drag items to reorder them.
+
+**Available checklist types:**
+
+| Type | What it does |
+|------|-------------|
+| **Check In** | Simple checkbox to mark when a patient arrives. |
+| **Form Completed** | Tracks required intake forms. Shows form status and lets staff send forms, generate QR codes, or fill in person. Auto-completes when all forms are submitted. |
+| **With MA** | Marks when the patient is with the Medical Assistant. |
+| **Measurement** | Tracks vital signs like weight and blood pressure. Shows current readings and quick-add buttons. |
+| **Dose Taken** | Records medication doses given during the visit. Shows dose details and sign-off status. |
+| **With Provider** | Marks when the patient is with the provider. |
+| **Note Taken** | Tracks clinical documentation. Provides buttons to create or view notes. |
+| **Payment** | Links to the billing checkout page for payment collection. |
+| **Photo Taken** | Links to the patient gallery for uploading photos. |
+| **Care Plan** | Shows a summary of care plans assigned to the patient with progress. Provides a button to assign a new care plan. Auto-completes when the patient has at least one active care plan. |
+| **Request GFE** | *(SpaKinect only)* Manages Good Faith Exam requests. Shows request history and status. |
 
 ### Inventory
 
@@ -142,6 +158,33 @@ To update settings across multiple services at once:
 2. A bulk edit drawer opens with tabs for **Pricing**, **Scheduling**, **Providers & Locations**, **Forms**, **Notifications**, **Visibility**, **Checklists**, and **Settings**.
 3. Change the fields you want to update. Fields with mixed values across the selected services are clearly indicated.
 4. Click **Save** to apply changes to all selected services simultaneously.
+
+## Use the AI Assistant to Manage Services
+
+The services page includes an AI assistant that can create, modify, and delete services from plain-language instructions. It works from both the services list page and from inside an individual service editor, and it can handle changes across multiple services at once.
+
+Open the assistant by clicking the chat bubble in the bottom-left corner of the page. Describe what you need, and the assistant proposes a set of changes grouped by service. A review panel shows every proposed action — new services to create, fields to update, services to delete, and inventory links to add or remove. Click **Accept All** to apply the changes, or **Reject All** to discard them.
+
+The assistant understands your full service catalog, including names, pricing, durations, categories, providers, locations, and linked inventory. When you're inside a service editor, it also sees the complete field values for that service. You can reference services by name or partial name — for example, "the Botox one" or "lip filling service."
+
+**What you can ask it to do:**
+- Create one or many services at once, with pricing, durations, categories, and provider assignments
+- Update fields across multiple services in bulk — for example, raise all facial prices by 10%
+- Delete services (you'll be asked to confirm)
+- Link or unlink inventory stock items to services
+- Create new inventory stock entries and link them to services
+- Navigate to a specific service or tab within the service editor
+
+**Example prompts:**
+- "Create a Microneedling service at $250, 45 minutes, in the Facials category"
+- "Set the booking fee to $50 for all services in the Injectables category"
+- "Link the Botox Vial stock to Botox 1 and Botox 2 with 1 unit per appointment"
+- "Delete the old Laser Hair Removal service"
+- "Increase all service prices by 15%"
+
+<Info>
+  The assistant remembers your conversation, so you can refine proposed changes before accepting. For example, after it proposes creating five services, you can say "Don't create the last two" and it will remove them from the proposal.
+</Info>
 
 ## Advanced Configuration
 

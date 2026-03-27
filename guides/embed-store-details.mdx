@@ -30,7 +30,10 @@ Replace:
 | `theme` | `light` or `dark` |
 | `showHeader` | `true` (default) or `false` to hide the patient name at the top |
 | `allowedMethods` | Comma-separated payment methods: `CARD`, `ACH`, `APPLE_PAY`. Default is `CARD,ACH,APPLE_PAY`. |
-| `redirect_url` | URL to redirect the patient to after saving (enables redirect mode) |
+| `redirect_url` | URL to redirect the patient to after saving (adds `status`, `patientId`, and on success `paymentMethodId`) |
+| `redirectParent` | `true` with `redirect_url` and an **iframe**: navigate the **top** browser window to your redirect URL (so your own page’s query string includes `paymentMethodId`). Without this, only the iframe navigates and your site’s address bar does not update. |
+
+**Simplest pattern if you use an iframe and want `paymentMethodId` in your page URL:** add both `redirect_url` and `redirectParent=true` to the embed `src`. No `postMessage` handler required (we still send `postMessage` for compatibility).
 
 ## Option A: Iframe mode
 
@@ -48,9 +51,15 @@ Embed the URL in an iframe on your site:
 Listen for events via `postMessage`:
 
 ```javascript
-window.addEventListener('message', function(event) {
+window.addEventListener('message', function (event) {
   if (event.data.type === 'store_details_success') {
-    // Payment method saved successfully
+    // Decoda payment method id — use with POST .../billing/payment-terminal/charge-card/{paymentMethodId}
+    const paymentMethodId = event.data.paymentMethodId;
+    // If you passed redirect_url, the iframe navigates internally; your top-level page URL does not change.
+    // Use paymentMethodId here, or navigate the top window yourself:
+    if (event.data.fullRedirectUrl) {
+      window.location.assign(event.data.fullRedirectUrl);
+    }
   } else if (event.data.type === 'store_details_failure') {
     // Something went wrong — event.data.error has details
   } else if (event.data.type === 'store_details_loaded') {
@@ -63,12 +72,26 @@ window.addEventListener('message', function(event) {
 Apple Pay requires the payment form to be on the top-level page, not inside an iframe. If you need Apple Pay, use redirect mode instead.
 </Info>
 
+### Getting `paymentMethodId` (for charge-card and follow-up payments)
+
+After the patient saves a card or bank account, Decoda creates a **tenant payment method** record. The id you need for `POST /billing/payment-terminal/charge-card/{payment_method_id}` is **`paymentMethodId`** (camelCase in JSON and query strings).
+
+1. **Iframe embed (recommended)** — Read it from `postMessage` on success:
+   - `event.data.paymentMethodId` — Decoda id (not Rainforest’s id).
+   - If you used `redirect_url`, the embed also sends `event.data.fullRedirectUrl`: the same URL it would open inside the iframe (includes `status`, `patientId`, `paymentMethodId`). **The parent page’s address bar does not update automatically** when the form is in an iframe; either use `event.data.paymentMethodId` in your own state or call `window.location.assign(event.data.fullRedirectUrl)` if you want the **top-level** browser URL to match.
+
+2. **Top-level redirect (no iframe)** — Open the store-details URL with `redirect_url` as the main window. After save, the patient is sent to your URL with query parameters including `paymentMethodId`.
+
+3. **Iframe + your URL in the address bar** — Add **`redirectParent=true`** alongside `redirect_url` on the embed `src`. The **whole tab** will navigate to your redirect URL with `paymentMethodId` in the query string (no `postMessage` required).
+
+Behind the scenes, after Rainforest fires `approved`, the console calls **`POST /billing/embed-store-details/{patientId}/payment-method`** with the Rainforest payment method id; the API returns the saved Decoda payment method (including `id`). If that request fails, the user sees a failure state and `paymentMethodId` is not produced.
+
 ### Event types
 
 | Event | When it fires |
 |-------|---------------|
 | `store_details_loaded` | The form finished loading and is ready for input |
-| `store_details_success` | The patient's payment details were saved |
+| `store_details_success` | The patient's payment details were saved (`paymentMethodId` present when registration succeeded) |
 | `store_details_failure` | The save failed (declined card, network error, etc.) |
 | `store_details_error` | The form could not load at all |
 
@@ -85,7 +108,7 @@ Link the patient directly to the store details page with a `redirect_url` parame
 After the patient saves their details, they are redirected to:
 
 ```
-https://yoursite.com/done?status=success&patientId=pat_xxx
+https://yoursite.com/done?status=success&patientId=pat_xxx&paymentMethodId=pm_xxx
 ```
 
 If the save fails:
@@ -100,6 +123,7 @@ https://yoursite.com/done?status=failure&patientId=pat_xxx&error=The+method+was+
 |-----------|-------------|
 | `status` | `success` or `failure` |
 | `patientId` | The patient's ID |
+| `paymentMethodId` | Decoda payment method id (success only). Use with `charge-card/{paymentMethodId}`. |
 | `error` | Error message (only present when `status=failure`) |
 
 Because the form loads as the top-level page (not in an iframe), Apple Pay is fully supported in this mode.
@@ -113,6 +137,23 @@ When the page loads, it calls the [Create Embed Store Details Config](/api-refer
 3. Returns the session key and config ID.
 
 The form uses these to initialize the Rainforest payment component in "store details" mode — it collects the card or bank account and saves it without taking a payment.
+
+When Rainforest reports success (`approved`), the page calls **`POST /billing/embed-store-details/{patientId}/payment-method`** (public, same auth rules as the config endpoint) with the Rainforest payment method id. That endpoint loads the method from Rainforest and creates or reuses the **Decoda** `PaymentMethod` row. The returned `id` is what you receive as `paymentMethodId` in `postMessage` and redirect query parameters.
+
+## Charging the saved card (`charge-card`)
+
+`paymentMethodId` is the Decoda id (`pm_…`). To run the charge you still need a Rainforest **pay-in configuration** for the outstanding charge:
+
+1. **`POST /billing/payment-terminal/payin-config`** — body includes your charge(s), payment medium, merchant account, etc. (same idea as setting up the virtual terminal). The response includes **`payinConfigId`**.
+2. **`POST /billing/payment-terminal/charge-card/{paymentMethodId}`** — JSON body **only**:
+
+```json
+{ "payinConfigId": "…" }
+```
+
+Do **not** send `chargeId` or `amount` on `charge-card`; those are not part of this body. A missing `payinConfigId` often surfaces from Rainforest as **"Field is required"**.
+
+See [Charge payment method](/api-reference/provider/charge-payment-method) for the full note.
 
 ## Using it from the console
 

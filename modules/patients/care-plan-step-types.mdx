@@ -1,6 +1,6 @@
 ---
 title: 'Care Plan Step Types'
-description: 'Learn how to configure appointment steps, task steps, and repeating steps in a care plan.'
+description: 'Learn how to configure appointment steps and task steps in a care plan.'
 ---
 
 <Info>
@@ -19,7 +19,6 @@ An appointment step represents a visit the patient needs to attend. When you cli
 - **Medications** -- Optionally select medications to be administered during this visit.
 - **Measurements** -- Optionally select which vitals to record at this visit. Options include: Weight, Height, Blood Pressure, Pulse, Temperature, and Waist Circumference.
 - **Provider Notes** -- A free-text field for guidance or instructions for the provider at this step (e.g., "Check healing progress from last visit").
-- **Repeat** -- Set how many times this step should repeat and the interval between repetitions. See [Repeating Steps](#repeating-steps) below for details.
 
 <Info>
   When an appointment step is pending and has at least one service selected, a **Schedule Appointment** button appears so you can book it on the calendar.
@@ -43,9 +42,6 @@ An appointment step represents a visit the patient needs to attend. When you cli
   <Step title="Write Provider Notes (Optional)">
     Enter any guidance or reminders for the provider in the **Provider Notes** field.
   </Step>
-  <Step title="Set Repeat (Optional)">
-    If this step should happen more than once, increase the repeat count and set an interval. See [Repeating Steps](#repeating-steps) for details.
-  </Step>
 </Steps>
 
 ## Task Steps
@@ -66,7 +62,6 @@ When you click on a task step, the details area shows:
 - **Start Date** -- When the task should begin.
 - **Due Date** -- When the task is due.
 - **Provider Notes** -- Additional guidance for the assigned person.
-- **Repeat** -- Same as appointment steps -- set a count and interval. See [Repeating Steps](#repeating-steps) below.
 
 ### Configure a Task Step
 
@@ -89,49 +84,8 @@ When you click on a task step, the details area shows:
   <Step title="Add Details (Optional)">
     Fill in the **Description** and **Provider Notes** fields with any additional context.
   </Step>
-  <Step title="Set Repeat (Optional)">
-    If this task should repeat, increase the repeat count and set an interval.
-  </Step>
 </Steps>
 
 ## Adding and Reordering Steps
 
 Click **Add Step** and choose either **Appointment** or **Task** to add a new step. You can drag and drop steps to reorder them. For more details on adding, removing, and reordering steps, see [Editing Care Plans](/modules/patients/care-plan-editing#add-remove-and-reorder-steps).
-
-## Repeating Steps
-
-Both appointment and task steps support repetition. Use this when the same step needs to happen multiple times at regular intervals.
-
-### Set Up a Repeating Step
-
-<Steps>
-  <Step title="Select the Step">
-    Click on the step you want to repeat.
-  </Step>
-  <Step title="Increase the Repeat Count">
-    In the **Repeat** section, use the **+** button to set how many times the step should occur. For example, set it to 4 for four occurrences.
-  </Step>
-  <Step title="Set the Interval">
-    Once the count is greater than 1, a **Repeat Interval** field appears. Enter the time between each repetition (e.g., 1 week, 2 days, 1 month).
-  </Step>
-</Steps>
-
-### How Repeating Steps Work
-
-| Setting | Example | Result |
-|---|---|---|
-| Repeat count: 4, Interval: 1 week | Weekly follow-up visits | 4 individual steps, each 1 week apart |
-| Repeat count: 3, Interval: 2 weeks | Biweekly check-ins | 3 individual steps, each 2 weeks apart |
-| Repeat count: 6, Interval: 1 month | Monthly treatments | 6 individual steps, each 1 month apart |
-
-Key things to know about repeating steps:
-
-- **In a template**, the step shows a repeat badge (e.g., "x4") indicating how many times it will repeat.
-- **When assigned to a patient**, each repetition becomes its own separate step on the timeline with a calculated date based on the interval.
-- Each repetition counts separately toward the care plan's overall progress.
-- You can mark each repetition as completed, skipped, or missed independently.
-- **Iterations are created automatically** — when a repeating step is completed, missed, or skipped, the system creates the next iteration on the timeline. You do not need to add the next one manually.
-
-<Info>
-  If you do not set a repeat interval, the repeated steps will not have automatic spacing between them. Always set an interval when using repeat.
-</Info>

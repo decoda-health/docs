@@ -57,6 +57,44 @@ Note templates define the structured forms that providers use to document clinic
   </Step>
 </Steps>
 
+## Use the AI Assistant to Build Templates
+
+The template editor includes an AI assistant that can add, modify, or remove fields from a plain-language description. Instead of picking fields from the sidebar one by one, you describe what you need and the assistant proposes the changes for you to review.
+
+<Steps>
+  <Step title="Open the Assistant">
+    Click the chat bubble in the bottom-left corner of the template editor. A chat panel opens where you can type your request. You can also attach files — for example, a photo of a paper chart note you want to recreate as a structured template.
+  </Step>
+  <Step title="Describe What You Want">
+    Type a description of the fields you need. The assistant understands the template's current fields, so you can reference them by name. You can ask it to add new fields, modify existing ones, remove fields, or rename the template.
+  </Step>
+  <Step title="Review Proposed Changes">
+    The assistant streams its proposed changes into the editor. Once complete, each change is color-coded:
+    - **Green** — new fields being added
+    - **Red** — existing fields being removed
+    - **Yellow** — existing fields being modified
+
+    A review bar appears at the top of the editor showing the total number of proposed changes.
+  </Step>
+  <Step title="Accept or Reject Changes">
+    Use the checkboxes next to each proposed change to select which ones to keep. You can also use **Select All** or **Deselect All** in the review bar. Click **Accept** to apply your selections, or **Reject All** to discard everything.
+  </Step>
+</Steps>
+
+<Info>
+  The assistant automatically suggests mapped fields when appropriate — for example, if you ask for "patient weight," it will use the Weight field type that syncs to the patient's health record. It also recognizes patient health data fields like allergies, medications, and family history, and links them to the patient's chart.
+</Info>
+
+<Info>
+  The assistant remembers your conversation, so you can refine your request across multiple messages. Each new request starts a fresh review cycle.
+</Info>
+
+**Example prompts:**
+- "Build a template for a Botox consultation with treatment areas, units per area, and before/after photo uploads"
+- "Add weight and height fields at the top, then a long text field for chief complaint"
+- "Replace the free-text allergy field with the mapped allergies field that links to the patient chart"
+- "Add a multiple choice field for pain level with options 1 through 10"
+
 ## Edit a Template
 
 From the **Note Templates** page, click on a template name to open the editor. You can modify any field, reorder questions, add new fields, or remove existing ones. Click **Save Template** when finished.

@@ -45296,11 +45296,12 @@ components:
     ChargePaymentMethod:
       properties:
         payinConfigId:
-          anyOf:
-          - type: string
-          - type: 'null'
+          type: string
           title: Payinconfigid
+          description: From POST /billing/payment-terminal/payin-config (not the Decoda charge id).
       type: object
+      required:
+      - payinConfigId
       title: ChargePaymentMethod
     ChargePaymentMethodResponse:
       properties:

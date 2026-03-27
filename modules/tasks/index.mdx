@@ -1,0 +1,121 @@
+---
+title: 'Tasks'
+description: 'Track planned work and surface things that need attention — all in one place your team can act on together.'
+---
+
+Tasks serve two purposes in Decoda:
+
+1. **Planned work** — You create a task to track something that needs to get done: follow up on lab results, call a patient back, review a chart before tomorrow's appointment. You decide the priority, the assignee, and the deadline.
+
+2. **Things that need attention** — The system creates a task automatically when something happens that your team should act on: a payment fails, a patient books their own appointment, a new patient registers. These are shared alerts that anyone on the assigned team can pick up and resolve.
+
+Both types work the same way once they exist — they have statuses, comments, subscribers, and can be linked to patients. The difference is how they get created and why.
+
+## Where to Find Your Tasks
+
+Access your tasks by clicking **Tasks** from the main navigation menu or by opening the **Tasks panel** on the right sidebar.
+
+- **Tasks Sidebar:** A quick-access panel available from anywhere in the app. Defaults to tasks assigned to you.
+- **Tasks Page:** A full dashboard for viewing, filtering, and organizing all tasks across your organization.
+
+### Filtering the Sidebar
+
+By default, the sidebar only shows tasks assigned to you.
+- To see tasks assigned to others or unassigned tasks, click the **Filter & Sort** (funnel) icon and select **All tasks** under Filter by Assignee.
+- Tasks with a future start date are hidden by default. To see them, open the full Tasks Page and toggle **Show scheduled** in the filters.
+
+---
+
+## Planned Work
+
+When you know something needs to get done, create a task and assign it.
+
+### Creating a Task
+
+1. Open the Tasks Sidebar or navigate to the Tasks page.
+2. Click **Create Task** (or the **+** icon).
+3. Fill in the details:
+   - **Title & Description:** What needs to be done?
+   - **Priority:** Low, Normal, High, or Urgent.
+   - **Assignees:** Who is responsible? Can be a person or a Team.
+   - **Patient:** (Optional) Link a specific patient chart so the task has full context.
+   - **Start & Due Dates:** When should work begin and when is it due?
+4. Click **Save**.
+
+### Assigning to Teams
+
+Instead of assigning tasks to individuals one by one, you can assign them to a **Team** (e.g., "Front Desk", "Billing Team", or "Nurses"). When a task is assigned to a Team, everyone on that team is automatically subscribed and receives notifications. Any team member can pick it up and work on it.
+
+Teams are managed in [Users & Roles](/modules/settings/users).
+
+### Tracking Deadlines
+
+The system helps you stay on top of what is upcoming, due today, and overdue. Urgent tasks are highlighted so you can prioritize your day.
+
+---
+
+## Things That Need Attention
+
+Not every task is planned ahead of time. Decoda can automatically create tasks when important events happen, so they show up on your team's radar without anyone having to notice and manually create them.
+
+### How It Works
+
+When an event fires (like a failed payment), the system checks your alert rules. If a rule is enabled for that event, a task is created automatically with the priority and assignment you configured.
+
+### Common Examples
+
+- **Payment fails:** A task is created and assigned to the Billing Team to follow up with the patient.
+- **Patient self-schedules:** A task appears for the Front Desk team to review and confirm the booking.
+- **New patient registers:** An intake review task is created so someone can verify the patient's information.
+
+### Setting Up Automated Tasks
+
+Configure which events create tasks — and who they get assigned to — in [Task Settings](/modules/settings/tasks). For each alert type, you can:
+- Toggle auto-creation on or off.
+- Set the priority (Urgent, High, Normal, or Low).
+- Choose the assignment: a specific person, a Team, or everyone.
+
+You can also suppress notifications for auto-created tasks if your team already receives the original alert and does not need a duplicate notification. This is configured in [Task Settings](/modules/settings/tasks) under Task Automation.
+
+---
+
+## Working with Tasks
+
+Once a task exists — whether you created it or the system did — the workflow is the same.
+
+### Statuses
+
+Tasks move through a simple lifecycle:
+- **Open:** Created but work has not started.
+- **In Progress:** Someone is actively working on it.
+- **Completed:** Done.
+- **Cancelled:** No longer needed.
+
+Update a task's status from the task card or by opening its details.
+
+### Subscribers
+
+Every task has a list of **Subscribers** — people who are kept in the loop.
+- You are automatically subscribed when you are **assigned** a task (directly or via a Team).
+- You can manually subscribe to any task you want to follow, even if you are not the assignee.
+
+### Comments and Mentions
+
+Add comments to a task to ask questions, share updates, or log progress. **@mention** someone in a comment to get their attention — this automatically subscribes them to the task.
+
+### Notifications
+
+As a subscriber, you receive [notifications](/modules/notifications/index) when:
+- A task is assigned to you.
+- Someone comments on the task.
+- The task's status changes.
+
+How and where you receive notifications (in-app, email, or SMS) depends on your preferences in [Notification Settings](/modules/settings/notifications).
+
+### Linking to Patient Records
+
+Tasks can be linked to a patient chart. When a task is linked, you can click the patient's name to open their record and review history, notes, and billing before taking action.
+
+### Kanban Board
+
+The Tasks page offers a **Kanban Board** view for a more visual workflow. Drag and drop tasks between columns (Open, In Progress, Completed) to quickly update statuses and see where everything stands.

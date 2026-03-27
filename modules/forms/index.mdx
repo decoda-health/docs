@@ -65,13 +65,44 @@ All forms — intake, consent, assessment, or anything else — are built from t
   <Step title="Set Submission Expiry (Optional)">
     Use the expiry setting in the top bar to set the number of days before a completed submission expires. After expiry, the patient must re-complete the form. Leave empty if submissions should never expire.
   </Step>
-  <Step title="Use the AI Assistant (Optional)">
-    Click the chat bubble in the bottom-right corner of the editor to open the AI assistant. Describe what you want — for example, "Add a section for surgical history with relevant questions" — and the assistant will suggest changes you can review and accept or reject.
-  </Step>
   <Step title="Save Your Form">
     Click **Save** in the top bar. The form is now available in your Forms List and ready to send to patients.
   </Step>
 </Steps>
+
+## Use the AI Assistant to Build Forms
+
+The form editor includes an AI assistant that can build entire forms or modify existing ones from a plain-language description. Instead of adding sections and fields manually, you describe what you need and the assistant proposes the changes. You review each proposed change individually before anything is saved.
+
+<Steps>
+  <Step title="Open the Assistant">
+    Click the chat bubble in the bottom-right corner of the form editor. A chat panel opens where you can type your request. You can also attach files — for example, a photo or PDF of a paper form you want to recreate.
+  </Step>
+  <Step title="Describe What You Want">
+    Type a description of the changes you need. The assistant understands the form's current state, so you can reference existing sections and fields by name. You can ask it to add, modify, or remove sections and fields, rename the form, or build an entire form from scratch.
+  </Step>
+  <Step title="Review Proposed Changes">
+    The assistant streams its proposed changes directly into the editor. Once complete, each change is color-coded:
+    - **Green** — new sections or fields being added
+    - **Red** — existing sections or fields being removed
+    - **Yellow** — existing fields being modified
+
+    A review bar appears at the bottom of the editor showing the total number of proposed changes.
+  </Step>
+  <Step title="Accept or Reject Changes">
+    Use the checkboxes next to each proposed change to select which ones to keep. You can also use **Select All** or **Deselect All** in the review bar. Click **Accept** to apply your selections, or **Reject All** to discard everything and return to the original form.
+  </Step>
+</Steps>
+
+<Info>
+  The assistant remembers your conversation, so you can make follow-up requests like "Actually, make that section optional" or "Add a signature field at the end." Each new request starts a fresh review cycle.
+</Info>
+
+**Example prompts:**
+- "Create an intake form for new dermatology patients with demographics, medical history, and a consent section"
+- "Add a surgical history section with questions about past surgeries, dates, and complications"
+- "Remove the insurance section and add a file upload for patients to attach their insurance card photo"
+- "Rename this form to 'Pediatric Wellness Visit' and add allergy and immunization questions"
 
 ### Build a Consent Form
 

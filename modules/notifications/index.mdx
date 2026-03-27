@@ -1,0 +1,129 @@
+---
+title: 'Notifications'
+description: 'Stay on top of clinic activity with real-time alerts delivered in-app, by email, or by text.'
+---
+
+Notifications keep you informed about what is happening across your clinic — new appointments, failed payments, incoming messages, task updates, and more. They arrive in real time so you can act quickly without refreshing the page.
+
+## The Notification Bell
+
+The bell icon in the top navigation is your central hub for notifications. A red badge shows the number of unread notifications (up to 99+).
+
+Click the bell to open the **Notifications Panel**, which shows your recent notifications grouped by time: **Today**, **This Week**, and **Older**. The panel loads more notifications as you scroll down.
+
+## Reading and Managing Notifications
+
+### Filtering
+
+Use the dropdown at the top of the panel to filter by:
+- **All** — Every notification.
+- **Unread** — Only notifications you haven't seen.
+- **Read** — Notifications you've already viewed.
+
+### Actions on Individual Notifications
+
+Hover over any notification to reveal action buttons:
+- **Mark as read / unread** — Toggle whether the notification shows as new.
+- **Archive** — Remove the notification from your list.
+- **Mute this type** — Stop receiving this kind of notification (you can re-enable it in [Notification Settings](/modules/settings/notifications)).
+
+### Bulk Actions
+
+Click the menu icon in the panel header for options that apply to all notifications:
+- **Mark all as read**
+- **Archive all**
+- **Archive all read** — Clears read notifications while keeping unread ones visible.
+
+### Quick Actions
+
+Some notifications include action buttons like **View Patient**, **View Call**, or **View Task**. These take you directly to the relevant page so you can follow up without searching.
+
+### Clickable References
+
+Notification text often contains links to patients, appointments, payments, and other records. Click any highlighted name or reference to jump straight to that record.
+
+## How Notifications Are Delivered
+
+Each notification can reach you through one or more channels:
+
+| Channel | How It Works |
+|---------|-------------|
+| **In-App** | Appears in the notification bell and as a brief pop-up at the top of the screen. Always available. |
+| **Email** | Sent to your account's email address. |
+| **SMS** | Sent as a text message to your account's phone number. |
+
+You choose which channels are active for each alert type in [Notification Settings](/modules/settings/notifications).
+
+### Pop-Up Notifications
+
+When a new notification arrives while you are using Decoda, a small pop-up appears briefly at the top of the screen with a summary. If the notification is linked to a patient, the pop-up includes a **View** button.
+
+### Notification Sounds
+
+You can pick a sound that plays when new notifications arrive:
+- **None** (silent), **Pop**, **Droplet**, **Gentle**, **Aurora**, or **Cosmic**.
+
+Preview and select your sound in **Settings > Notifications** under notification sound preferences.
+
+### Favicon Badge
+
+If you are on another browser tab when a notification arrives, a small red dot appears on the Decoda tab icon. It clears automatically when you return to the tab.
+
+## Auto-Mark as Read
+
+Control when notifications are automatically marked as read:
+- **When I open the panel** — Notifications are marked read as soon as you view them in the panel.
+- **When I take action** — Notifications are marked read only when you click a quick action button.
+- **Manual only** — You must explicitly mark each notification as read.
+
+Configure this in **Settings > Notifications**.
+
+## What Triggers Notifications
+
+Decoda tracks activity across your entire clinic. Notifications are organized into categories:
+
+| Category | Examples |
+|----------|----------|
+| **Patients** | New patient created, patient record updated, low patient review |
+| **Appointments** | Scheduled, updated, cancelled, self-scheduled by patient, booking requests |
+| **Payments & Billing** | Payments created/succeeded/failed, charges, refunds, invoices, deposits, chargebacks |
+| **Communication** | Calls received/made, texts sent/received/failed, emails, physical mail |
+| **Forms** | Form submitted, checklist updated |
+| **Tasks** | Task assigned to you, new comment on a task, task completed, task updated |
+| **Inventory** | Low stock, shipments, purchase orders, item changes |
+| **Notes** | Clinical note created or updated |
+
+### Notifications and Tasks
+
+Notifications and [Tasks](/modules/tasks/index) work hand in hand. When you are subscribed to a task — either because you were assigned, part of the assigned Team, or @mentioned in a comment — you receive notifications for assignment changes, new comments, and status updates.
+
+Alerts can also automatically create tasks for your team. For example, a failed payment can generate a task assigned to the Billing Team, notifying everyone on that team immediately. See [Tasks](/modules/tasks/index) for more on how the two systems connect, and [Task Settings](/modules/settings/tasks) for setup.
+
+If task notifications are not enabled on your account, a banner appears on the Tasks page reminding you to turn them on in your [Notification Settings](/modules/settings/notifications).
+
+## Location Filtering
+
+If your organization has multiple clinics, you can limit notifications to activity at specific locations. This keeps your panel focused on your own clinic's events rather than showing everything across all locations.
+
+Enable location filtering per alert type in [Notification Settings](/modules/settings/notifications).
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="I'm not receiving notifications I expect">
+    - **Check your preferences:** Go to **Settings > Notifications** and make sure the alert type and delivery channel (In-App, Email, SMS) are turned on.
+    - **Check your role:** You only see alert types that match your role's permissions. If an alert type is missing from your settings, ask your admin to check your role in [Users & Roles](/modules/settings/users).
+    - **Check location filters:** If location filtering is enabled, you will only see notifications from your assigned locations.
+    - **Check contact info:** SMS and email delivery depend on having a valid phone number and email on your user profile.
+  </Accordion>
+  <Accordion title="I'm getting too many notifications">
+    - Mute specific alert types by hovering over a notification and clicking the mute button.
+    - Use **Settings > Notifications** to disable entire categories or delivery channels.
+    - Enable location filtering to limit notifications to your clinic only.
+  </Accordion>
+  <Accordion title="Notification sounds aren't playing">
+    - Make sure your browser allows audio playback for the Decoda site.
+    - Check that your notification sound is not set to **None** in **Settings > Notifications**.
+    - Some browsers block audio until you first interact with the page — click anywhere in Decoda to allow sound.
+  </Accordion>
+</AccordionGroup>

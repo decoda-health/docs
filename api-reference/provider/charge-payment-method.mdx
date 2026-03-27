@@ -1,3 +1,31 @@
 ---
 openapi: post /billing/payment-terminal/charge-card/{payment_method_id}
 ---
+
+## Request body
+
+Send **JSON** with the Rainforest **pay-in configuration id** (not your Decoda `charge` id):
+
+```json
+{
+  "payinConfigId": "payin_cfg_xxxxxxxx"
+}
+```
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `payinConfigId` | Yes | Value returned by **`POST /billing/payment-terminal/payin-config`** as `payinConfigId`. This ties the charge to Rainforest’s pay-in flow. It is **not** the same as `chargeId` / `chg_…`. |
+
+## Two-step flow
+
+1. **Create a pay-in config** for the outstanding charge(s) — same payload shape as the in-app terminal:
+   `POST /billing/payment-terminal/payin-config`
+   Include the charge(s) (e.g. full `ChargeSummary` objects), `paymentMedium`, `merchantAccountId` as required by that endpoint.
+   The response includes **`payinConfigId`** (and often `sessionKey` for browser components; for server-side `charge-card` you only need **`payinConfigId`**).
+
+2. **Charge the saved card** —
+   `POST /billing/payment-terminal/charge-card/{paymentMethodId}`
+   Path: Decoda **`paymentMethodId`** (e.g. `pm_…` from the store-details embed).
+   Body: `{ "payinConfigId": "<from step 1>" }`.
+
+If `payinConfigId` is missing or wrong, Rainforest may respond with an error such as **"Field is required"** — that refers to the pay-in config id in their API, not `chargeId` or `amount` on this endpoint.
