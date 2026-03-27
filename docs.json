@@ -93,6 +93,12 @@
             ]
           },
           {
+            "group": "E-Prescribing",
+            "pages": [
+              "guides/e-prescribing"
+            ]
+          },
+          {
             "group": "Communications",
             "pages": [
               "modules/comms/index",

@@ -15,13 +15,23 @@ Both types work the same way once they exist — they have statuses, comments, s
 
 Access your tasks by clicking **Tasks** from the main navigation menu or by opening the **Tasks panel** on the right sidebar.
 
-- **Tasks Sidebar:** A quick-access panel available from anywhere in the app. Defaults to tasks assigned to you.
+- **Tasks Sidebar:** A quick-access panel available from anywhere in the app.
 - **Tasks Page:** A full dashboard for viewing, filtering, and organizing all tasks across your organization.
+
+The **Tasks** item in the navigation shows a red badge with the number of open tasks that match your default filter. This updates automatically every few minutes.
+
+### Default Filter
+
+When you open the Tasks page, it automatically filters to show tasks relevant to you. Your clinic controls the default:
+
+- **Subscribed to** (default) — Shows tasks you are subscribed to. You are automatically subscribed when assigned a task, mentioned in a comment, or when you manually subscribe.
+- **Assigned to me** — Shows only tasks directly assigned to you.
+- **Let each user choose** — Each person picks their own preferred view. A switcher appears at the top of the Tasks page so you can change between "Subscribed" and "Assigned to me."
+
+Your clinic administrator configures this in [Task Settings](/modules/settings/tasks). If you do not see the switcher, your clinic has set a default for everyone.
 
 ### Filtering the Sidebar
 
-By default, the sidebar only shows tasks assigned to you.
-- To see tasks assigned to others or unassigned tasks, click the **Filter & Sort** (funnel) icon and select **All tasks** under Filter by Assignee.
 - Tasks with a future start date are hidden by default. To see them, open the full Tasks Page and toggle **Show scheduled** in the filters.
 
 ---
@@ -115,6 +125,12 @@ How and where you receive notifications (in-app, email, or SMS) depends on your 
 ### Linking to Patient Records
 
 Tasks can be linked to a patient chart. When a task is linked, you can click the patient's name to open their record and review history, notes, and billing before taking action.
+
+### Table View
+
+The table view shows tasks in a sortable list. Click **Columns** to choose which columns are visible. Available columns: Patient, Assignee, Creator, Created Date, Due Date, Start Date, Completed Date, Status, Priority, and Care Plan.
+
+By default the table shows Patient, Assignee, Created Date, Status, and Priority.
 
 ### Kanban Board
 

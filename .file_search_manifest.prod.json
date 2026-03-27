@@ -8,6 +8,10 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/glossarymdx-psx140ebwtgl",
       "hash": "27ef7b070d3a8cb43b330b23a7d84f66db335a46c24e02a06f2be44927a77512"
     },
+    "guides/e-prescribing.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guideseprescribingmdx-9uzzdgsw3wjo",
+      "hash": "6555b91c2aedd344e58148fe43274f8d388fb17d87b74ae87fa1819e93b644e3"
+    },
     "guides/embed-payment-itemized-charges.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guidesembedpaymentitemizedc-i18qdyemqqbk",
       "hash": "22ac3b9905c8ca88ed4771468d12601805d2f697a0e21f8e7c1d4eade707e8bb"
@@ -32,13 +36,9 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guidesspakinectgoodfaithexa-weykk0f7cq4i",
       "hash": "467391aa5ab9767f56d7cc3746ce7bab8a1341043da811a302860d9acf59d63e"
     },
-    "guides/task-management.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guidestaskmanagementmdx-kjuvvm3783i9",
-      "hash": "90bf70bf3790b4d2e7960bbb5b20f310f117749492e0900557973d061a98ba78"
-    },
     "modules/alerts.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesalertsmdx-gx0yu4vki9w9",
-      "hash": "4e59bb49d616afb26c7d9b6c18265341091f22d8803897deb428f34a2f8547c6"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesalertsmdx-2czxze34bz6b",
+      "hash": "a43a3147ace1e237f3b89fb8c7ce73d87e83993a627c7da183bd18ea7fa0bf5c"
     },
     "modules/analytics/appointments.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesanalyticsappointment-1q1oilsc9qzc",
@@ -192,29 +192,33 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesnotessignoffandversi-tsxxqj8tbg2m",
       "hash": "4a486b320fb82462f0d9a38ad5747d337c45877b03430372b39bdda822c3e874"
     },
+    "modules/notifications/index.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesnotificationsindexmd-t02ozv528ih4",
+      "hash": "02558c8804d922cf5d73ee3af8cc7d508ec33f8d44df29e8abdbe9eeb6ee3fb9"
+    },
     "modules/patient-portal/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientportalindexmd-phvdrrip7q8q",
       "hash": "b23088239d287d335a77d0187f85fb44bb9c73d40833b18a2ea8f5aa1a8b66af"
     },
     "modules/patients/care-plan-editing.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanedit-kneay86vmqa1",
-      "hash": "775deea3aaf132939e3f066044117670cf713e18294419b2590d1e0c342910b3"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanedit-482u0frfma2v",
+      "hash": "074dad37132abe0d06eaa49dd701967dacaea15a9462661d85e4e21d9813a794"
     },
     "modules/patients/care-plan-history.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanhist-xyovh0juohsy",
-      "hash": "bee21e6c4cb01c87f1321030544da383dfc88d7d6fb0a84b5d6d1c22e5302206"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanhist-ajahmijhrdx3",
+      "hash": "30dace11589e69cdc1817d8b24728698571bc5f78834265337d97464aa92f254"
     },
     "modules/patients/care-plan-step-types.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanstep-g5re7xes4665",
-      "hash": "ee185043918b705b97968b64d902ae36ead2c3850c032cdcfcb16d9ece55c477"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanstep-wxrgnjwed91z",
+      "hash": "0ffaf938b7c2d85e85ce2b3cdfba2edfa9fe9afcf3098cd11286788308dcfe64"
     },
     "modules/patients/care-plan-steps.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanstep-u49pet1bnf3q",
-      "hash": "28fda00b74680c593653777871c06a46f62d161440da56d087814a0dd93dd23a"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplanstep-ivq5vlyexkme",
+      "hash": "ea7b51c3a868b7b18c190e2c4382cb005d52fad8ad655b0e18aa7058c5e776cd"
     },
     "modules/patients/care-plans.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplansmdx-rzrpf9i4mo0m",
-      "hash": "897bb1d43302b62e5193ea96bb2a6fd71285dab44e8b3816c5ec1e74a54e7bf5"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientscareplansmdx-5teaz4de9koi",
+      "hash": "3f8dc69d4b378fce977eee80a5114e652db6a88a059074d6e69fcf8f55bf61df"
     },
     "modules/patients/import-and-merge.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientsimportandmer-6x2ds4of79p4",
@@ -285,8 +289,8 @@
       "hash": "4fddae73cf990cb99af55b54c101a14eb27d6d465589a6d7f9df2e21383b3ea7"
     },
     "modules/settings/care-plan-templates.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscareplantemp-mhs6f2mkcles",
-      "hash": "789c5b2e15abe7b563f4e0f981eb297b068747965859607134a41b539b175735"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscareplantemp-ec13gaxlxlfz",
+      "hash": "84dad6420f9beb4855da3ee8aa71b2201c72cfd93727ddc543753533f5273d1d"
     },
     "modules/settings/categories.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscategoriesmd-5dzf479e3zw9",
@@ -389,20 +393,24 @@
       "hash": "721ef21a64094084044023cb27f0e9bfa48a089cbe4a55fa93d8cc6047f002ac"
     },
     "modules/settings/tasks.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingstasksmdx-961ybsgv0arx",
-      "hash": "c6cac5f6dedce0238a661845d5e02ae6207164218e21625f4522ee10112620d5"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingstasksmdx-p78xci7tb667",
+      "hash": "28c95a99fe2aefbb051cc3e38399d9f4be98d53f0877841f46399ec0c9f98424"
     },
     "modules/settings/users.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsusersmdx-09hy4v25mb0a",
       "hash": "059a801cae862760239610a835c0cb220c398f0f69b6df074951269a813ec77e"
+    },
+    "modules/tasks/index.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulestasksindexmdx-9d4onbavq4sd",
+      "hash": "c77bbdc65a0f2000b5217c6072a9ff7e96a43ab1d55e4ad9bb65fe17e533250f"
     },
     "modules/usage/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesusageindexmdx-xj8sxpu19fho",
       "hash": "18fb3855fdc320713705698b33ae996f2f220c9c71140b837fed7a24e64c97f3"
     },
     "modules/whisper/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/moduleswhisperindexmdx-5aox9fylwzn0",
-      "hash": "a09a6ce155cddc043238a125164269c635a7a9e6c14921298745c882b1d2a670"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/moduleswhisperindexmdx-3nktgq7wjvmz",
+      "hash": "4475666fb26ca3c5f072ca2105f9eac7e6568275ac1e590bf7e70f5e9fb1234d"
     },
     "personas/front-desk.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/personasfrontdeskmdx-0h4gscia07bd",

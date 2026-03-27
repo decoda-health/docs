@@ -1,0 +1,125 @@
+---
+title: "E-Prescribing"
+description: "Set up and use e-prescribing powered by DoseSpot"
+---
+
+# E-Prescribing Guide
+
+Decoda integrates with DoseSpot to give providers the ability to electronically prescribe medications directly from the platform. When a provider opens e-prescribing, they're seamlessly signed into DoseSpot -- no separate login required.
+
+<Info>
+All prescribing workflows -- searching for medications, selecting pharmacies, managing refills, and Electronic Prescribing for Controlled Substances (EPCS) -- happen inside DoseSpot. This guide covers the Decoda side: getting access, setting permissions, and using the integration day-to-day.
+</Info>
+
+## Getting Access
+
+To get started with e-prescribing:
+
+1. Contact Decoda support at support@decodahealth.com
+2. Request e-prescribing module enablement
+3. Decoda will enable the module, set up your locations, and add your providers
+
+Once everything is configured, providers with e-prescribing access will see the **E-prescribe** button on patient charts and the notification banner in the notifications panel.
+
+## Using E-Prescribing
+
+### Opening DoseSpot from a Patient Chart
+
+When viewing a patient, click the **E-prescribe** button. This automatically:
+
+1. Syncs the patient's demographics to DoseSpot (name, date of birth, address, phone, and height/weight if recorded)
+2. Generates a secure sign-on link
+3. Opens DoseSpot in a new tab with the patient's chart already loaded
+
+You're signed in automatically -- no need to enter separate DoseSpot credentials.
+
+### Patient Requirements
+
+For the patient sync to succeed, the patient record in Decoda must have:
+
+- First name and last name
+- Date of birth
+- Phone number
+- Full address (street, city, state, zip code)
+
+If any of these are missing, you'll see an error when trying to open e-prescribing. Update the patient's profile and try again.
+
+## Notification Banner
+
+Providers with e-prescribing access see a banner in the notifications panel. This banner shows the count of pending items that need attention, such as:
+
+- Pending prescriptions awaiting action
+- Transmission errors (prescriptions that failed to send to a pharmacy)
+- Refill requests from pharmacies
+- Change requests from pharmacies
+
+Click the banner to open DoseSpot and address those items. When there are no pending items, the banner displays **Open e-prescribing** as a quick-access link.
+
+## Prescription Tracking
+
+When prescriptions are sent through DoseSpot, Decoda automatically creates dose records on the patient's chart. These records update as the pharmacy processes the prescription:
+
+- **Sent** -- Prescription transmitted to the pharmacy
+- **Filled** or **Partially Filled** -- Pharmacy has dispensed the medication
+- **Completed** -- Prescription fully dispensed
+- **Cancelled** or **Discontinued** -- Prescription no longer active
+
+Doses linked to DoseSpot are marked with a **DoseSpot** badge in the patient's medication history, so you can distinguish e-prescribed medications from manually recorded ones.
+
+## Troubleshooting
+
+### "Clinician not confirmed" Error
+
+This means the provider's account hasn't been fully confirmed yet. Contact Decoda support at support@decodahealth.com to get your clinician confirmed. This is a one-time step.
+
+### Patient Sync Fails
+
+The patient record is missing required information. Check that the patient has:
+
+- First and last name
+- Date of birth
+- Phone number
+- Complete address (street, city, state, zip code)
+
+Update the missing fields and try again.
+
+### E-prescribe Button Not Showing
+
+Check the following:
+
+1. **Module is enabled** -- The e-prescribing module must be active for your tenant. Contact Decoda support if you're unsure.
+2. **Provider is set up** -- The provider must be configured for e-prescribing by Decoda. Contact support if a provider who should have access doesn't.
+
+### Duo Two-Factor Authentication Enrollment Failing
+
+If a provider is unable to enroll in Duo two-factor authentication within DoseSpot, they may have a pre-existing DoseSpot account from a previous clinic or platform. This blocks the enrollment process. Contact Decoda support at support@decodahealth.com so we can merge the accounts and resolve the issue.
+
+### Notification Counts Not Updating
+
+Notification counts are pushed from DoseSpot automatically. If counts seem stale:
+
+1. Refresh the page
+2. Check DoseSpot directly to verify the current count
+3. Contact Decoda support if the issue persists
+
+## What Happens Inside DoseSpot
+
+Once DoseSpot opens, the following all happen within DoseSpot's interface:
+
+- Searching for and selecting medications
+- Choosing pharmacies
+- EPCS (Electronic Prescribing for Controlled Substances) enrollment
+- Managing refills and renewals
+- Drug interaction warnings
+
+If you run into any issues inside DoseSpot, contact Decoda support and we'll help resolve it.
+
+## Support
+
+For any e-prescribing questions or issues, contact Decoda support at support@decodahealth.com.
+
+When reaching out, include:
+- Your tenant name
+- The provider involved
+- Any error messages or screenshots
+- What you were trying to do

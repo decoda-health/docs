@@ -73,9 +73,29 @@ You do not need to update the step manually in these cases — the system handle
   The status field only appears on care plans that have been assigned to a patient. It is not available on templates.
 </Info>
 
-## Overdue Steps
+## Dates on the Timeline
 
-If a step is still Pending after its scheduled date has passed, it is marked as overdue. Overdue steps appear with a red alert icon and red date text so they stand out on the timeline. These steps need attention — either schedule the appointment, complete the task, or change the step's status.
+Each step on the timeline shows a date. How the date is displayed depends on the step's status and whether it has a fixed or estimated schedule.
+
+### Completed Dates
+
+When a step is completed, the timeline shows the **actual completion date** rather than the original scheduled date. This keeps the timeline reading chronologically so you can see when each step was actually finished.
+
+In the step details, a completed step shows the date labeled as **Completed:** followed by the date.
+
+### Estimated Dates
+
+Some steps are scheduled relative to the step before them (for example, "2 weeks after the previous appointment"). If the previous appointment has not been completed yet, the system cannot calculate an exact date — so the date is shown as an **estimate**.
+
+Estimated dates appear with a **~** prefix (e.g., ~Apr 10, 2026) in muted text. Hovering over an estimated date shows: *"Estimated — will update when the previous appointment completes."*
+
+Once the previous appointment is completed, the estimated dates recalculate automatically based on the actual completion date and become exact.
+
+### Overdue Steps
+
+If a step is still Pending after its scheduled date has passed, it is marked as overdue. Overdue steps appear with a red alert icon and red date text so they stand out on the timeline. Steps with estimated dates are never marked as overdue, since the date may still shift.
+
+These overdue steps need attention — either schedule the appointment, complete the task, or change the step's status.
 
 ## Schedule an Appointment from a Step
 
