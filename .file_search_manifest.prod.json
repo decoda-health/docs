@@ -89,8 +89,8 @@
       "hash": "7fe23b1be29aa20b95ff09bb030137632cae4ae912bab25c726a8816dbc2f4b7"
     },
     "modules/care-plans/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescareplansindexmdx-ex5kzdv53dwm",
-      "hash": "730ed89c380aee04f11e04a9f3f34294bce38b924334441939c49f93ae9512ed"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescareplansindexmdx-igb3ji9b3xrf",
+      "hash": "cb9b544d3e912c7281eb4d8cdfb13395682a9894c54dfe6101735dcffe0e26f3"
     },
     "modules/check-in/clock-in.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescheckinclockinmdx-n1vc0p4uqnm1",
@@ -109,8 +109,8 @@
       "hash": "8c1d9ad26a206d27068e6d12bd1b34b00f0eefe90320634ce438c54aa3c03ef6"
     },
     "modules/comms/ai-responses.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsairesponsesmdx-5ykjzp051ov8",
-      "hash": "e15ca5de82bd34a9cd9c9a16cd6ab9dbf47adce48e5237843caee06e42f817af"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsairesponsesmdx-cue6o2ryz291",
+      "hash": "b91aff07a30be6a3c8ed1aa020735a605f348ba2c0521672e2dd0bf86324a2fd"
     },
     "modules/comms/blasts.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsblastsmdx-qragybmroanb",
@@ -129,8 +129,12 @@
       "hash": "589a4964ba13acb76690cda1e5da119bc58c11a32b1c11a65f2b72aa6a1f897e"
     },
     "modules/comms/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsindexmdx-fevbhp1tm25y",
-      "hash": "5ba50307605b36d703b94f0eb065af69ebe905b4e1eba8524741cadea9d0c804"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommsindexmdx-9l0gk7fr9emt",
+      "hash": "6adaa8a15b21979d64cfc834406190b52ce41595b64d0c0032177a2e7f341b87"
+    },
+    "modules/comms/social.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommssocialmdx-l0tx0ugnjdqh",
+      "hash": "30c039b81943abc57bf9442145c7f468b143513b0b0e47a0238768f61f0f58bd"
     },
     "modules/forms/form-structure.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesformsformstructuremd-8hqdan27rwlh",
@@ -289,8 +293,8 @@
       "hash": "c8a1dac8fe1038fb5b1ed58cb1af8dc790a6f76f00145236756b4a594f0aa9e6"
     },
     "modules/settings/memberships.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsmembershipsm-orzeeicbxf1r",
-      "hash": "c2e8edbffebb9a14b304ba31b53cca299e1b5747b10ba910546d711f61227a58"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsmembershipsm-z2c808q94f9s",
+      "hash": "5a82a8ea91671f8c597c9f24dedcb7d8c60519ce06aa6aa61f6e6fcab84a1d5e"
     },
     "modules/settings/note-templates.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsnotetemplate-6vif474upkxd",
@@ -365,8 +369,8 @@
       "hash": "059a801cae862760239610a835c0cb220c398f0f69b6df074951269a813ec77e"
     },
     "modules/tasks/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulestasksindexmdx-yh4qx1ni4z16",
-      "hash": "7ef0b41f994c465d0da114fa6869602601f432c78f211e8bb2384ca784e5f1dc"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulestasksindexmdx-shxnnj9rp7bq",
+      "hash": "64e6dec80bac3dcf3589c5b5fa1f72be32ff3b993364a15ac1fae7224d423c78"
     },
     "modules/usage/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesusageindexmdx-xj8sxpu19fho",

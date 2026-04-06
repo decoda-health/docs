@@ -82,7 +82,7 @@ In addition to the built-in dashboards, you can create your own custom dashboard
     Click **Add Widget** and build each one in three steps:
     1. **Details** -- Set a title and optional description.
     2. **Query** -- Choose which data to pull and how to filter it.
-    3. **Visualization** -- Pick a chart type (table, area chart, bar chart, donut chart, progress circle, or single number).
+    3. **Visualization** -- Pick a chart type (table, area chart, bar chart, donut chart, scatter, progress circle, or single number).
   </Step>
   <Step title="Arrange Your Layout">
     Drag widgets around on the grid to organize your dashboard.
@@ -90,6 +90,82 @@ In addition to the built-in dashboards, you can create your own custom dashboard
 </Steps>
 
 To edit or delete a custom dashboard, click the pencil or trash icon next to its name in the dashboard picker. Creating and editing custom dashboards requires the **Analytics Write** permission.
+
+## Ask Decoda
+
+Ask Decoda is an AI-powered assistant that lets you ask questions about your clinic's data in plain language. Click the **Ask Decoda** button in the top navigation bar to open the sidebar.
+
+### Getting Started
+
+The sidebar opens with a welcome screen showing suggested questions to try:
+
+- "How do I schedule an appointment?"
+- "What was our revenue last month?"
+- "Where are billing settings?"
+- "How do patient forms work?"
+
+Type any question in the text box and press **Enter** to send. The AI can answer both general platform questions (how to use Decoda) and data questions (queries about your clinic's actual numbers).
+
+### Asking Data Questions
+
+When you ask about your clinic's data, the AI searches your records, builds a query, and returns the results as a chart or table. Examples:
+
+- "What was our revenue last month?"
+- "Which providers had the most appointments this week?"
+- "Show me patient retention over the last 6 months"
+
+While the AI is working, a **Working...** panel shows each step it takes. You can expand this to see the details, including the SQL queries it ran.
+
+### Follow-Up Questions
+
+The AI keeps context from earlier questions in the same conversation. You can ask follow-ups like:
+
+- "Break that down by provider"
+- "Show this as a bar chart instead"
+- "Now filter to just this location"
+
+### Clarifying Questions
+
+If the AI needs more information, it shows clickable options to choose from (e.g., "This week", "This month", "This year"). You can click an option or type a custom answer by clicking **+ Add more context**.
+
+### Visualizations
+
+The AI automatically picks the best chart type for your data. Possible visualizations include:
+
+| Chart Type | Best For |
+|-----------|---------|
+| **Table** | Detailed multi-column data |
+| **Bar** | Comparing categories |
+| **Line / Area** | Trends over time |
+| **Donut** | Proportions and breakdowns |
+| **Scatter** | Correlations between two values |
+| **Funnel** | Conversion and pipeline analysis |
+| **Combo (bar + line)** | Combining counts with rates or percentages |
+| **Treemap / Heatmap** | Hierarchical or density data |
+| **Single number** | Totals and key metrics |
+
+Each chart includes action buttons:
+
+- **Pin** -- save the chart to one of your custom dashboards (see below).
+- **PNG** -- download the chart as an image.
+- **CSV** -- download the raw data as a spreadsheet.
+- **Table view** -- toggle between chart and raw data table.
+
+### Pin to Dashboard
+
+Click the **Pin** button on any chart to save it to a custom dashboard. In the dialog, search for an existing dashboard or create a new one by clicking **New dashboard** and typing a name. Click **Pin to Dashboard** to save. The chart runs live on the dashboard using the same query.
+
+### Full-Screen Mode
+
+Click the expand icon in the conversation header to open the AI assistant in full-screen mode. Press **Esc** or the **X** button to exit.
+
+### Conversation History
+
+Your recent conversations are saved and shown on the welcome screen. Click any past conversation to resume it with full history. Click the trash icon to clear the current conversation and start fresh.
+
+<Info>
+  Ask Decoda is available on desktop only. AI can make mistakes — always validate important data before acting on it.
+</Info>
 
 ## Permissions
 
