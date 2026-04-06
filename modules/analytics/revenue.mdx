@@ -24,7 +24,12 @@ The Product Sales dashboard breaks down every item on every charge. Here's what 
 
 | Column | What it means |
 |---|---|
-| **Status** | The status of the charge this item belongs to (Paid, Partial, Void, etc.) |
+| **Date** | When the charge was created |
+| **Patient** | The patient on the charge |
+| **Provider** | The staff member who created the charge |
+| **Item** | The name of the service, product, membership, or package sold |
+| **Type** | The item type: Service, Product, Membership, or Package |
+| **Category** | The item's category (e.g., "Injectables", "Skincare") |
 | **Qty x Price** | How many units were sold at what price (e.g., "2 x $50.00") |
 | **Gross Revenue** | Total before any discounts or taxes -- quantity times price |
 | **Discount** | Total discounts applied (hover to see the breakdown between item-level and charge-level discounts) |
@@ -33,6 +38,7 @@ The Product Sales dashboard breaks down every item on every charge. Here's what 
 | **Cost** | Your cost for the item -- for products, this comes from the weighted average of shipment costs; for services, it's the cost field from the service setup |
 | **Net Profit** | Net Revenue minus Cost -- your actual profit after expenses (hover for the calculation) |
 | **Brand** | The brand associated with the item (hidden by default -- use the Columns button to show it) |
+| **Status** | The status of the charge this item belongs to: Paid, Partial, Void, etc. (hidden by default) |
 
 <Info>
   **Hover for details:** The revenue and profit cells show a breakdown when you hover over them. This is especially helpful when you want to understand exactly how a number was calculated.
