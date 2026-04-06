@@ -26,6 +26,16 @@ This section controls global task behavior for your clinic.
 
 - **Completed task visibility:** Set the number of days completed tasks stay visible before being hidden (1--365 days, default 7).
 
+### Team Assignment
+
+These settings control how the system picks an assignee when a task is assigned to a team. This applies to both tasks you create manually and tasks the system creates automatically from alerts.
+
+- **Assignment strategy:** Choose how the system decides who on the team should get the task.
+  - **Patient history first** (default) — If the task is linked to a patient, the system looks for the team member who most recently interacted with that patient (through calls, messages, or appointments). If no one on the team has recent history with the patient, it falls back to balanced workload.
+  - **Round robin** — Always assigns to the team member with the fewest open tasks, regardless of patient history.
+
+- **Respect shifts:** When turned on, the system prefers team members who are currently clocked in. If multiple people have the same workload, the one who is on shift gets the task. If nobody on the team is clocked in, the system ignores shift status and picks based on workload alone. On by default.
+
 ## Alert Rules
 
 Alert rules determine which events in the platform automatically create tasks -- and who those tasks are assigned to. Rules are organized into categories so you can quickly find the alert type you need.

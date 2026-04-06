@@ -4,7 +4,7 @@ description: 'Build intake forms, send them to patients, collect responses, and 
 ---
 
 <Info>
-  **Where to find Forms:** In the left sidebar, click **Check-In**, then select **Forms**. You'll see tabs for **Forms List** (where you create and manage forms) and **Submissions** (where you view patient responses).
+  **Where to find Forms:** In the left sidebar, click **Settings**, then select **Forms List** (where you create and manage forms). To view patient responses, go to **Check-In > Form Submissions**.
 </Info>
 
 <Info>
@@ -40,7 +40,7 @@ All forms — intake, consent, assessment, or anything else — are built from t
 
 <Steps>
   <Step title="Open the Form Editor">
-    Go to **Check-In > Forms > Forms List** and click **Create Form** in the top right corner. This opens the form editor.
+    Go to **Settings > Forms List** and click **Create Form** in the top right corner. This opens the form editor.
   </Step>
   <Step title="Name Your Form">
     Click the form name area at the top and type a name (e.g., "New Patient Intake" or "Telemedicine Consent"). Optionally add a description below the name.
@@ -76,7 +76,7 @@ The form editor includes an AI assistant that can build entire forms or modify e
 
 <Steps>
   <Step title="Open the Assistant">
-    Click the chat bubble in the bottom-right corner of the form editor. A chat panel opens where you can type your request. You can also attach files — for example, a photo or PDF of a paper form you want to recreate.
+    The Form Assistant tab appears automatically in the right sidebar when you open the form editor. Type your request in the chat input. You can also attach files — for example, a photo or PDF of a paper form you want to recreate.
   </Step>
   <Step title="Describe What You Want">
     Type a description of the changes you need. The assistant understands the form's current state, so you can reference existing sections and fields by name. You can ask it to add, modify, or remove sections and fields, rename the form, or build an entire form from scratch.
@@ -120,7 +120,7 @@ Consent forms use the same editor as all other forms. To create one:
 
 ## Manage Forms
 
-Navigate to **Check-In > Forms > Forms List** to see all active forms. The table shows one column per form row: the form name, with subtitle text showing the number of submissions, creation date, and expiry setting (if configured).
+Navigate to **Settings > Forms List** to see all active forms. The table shows one column per form row: the form name, with subtitle text showing the number of submissions, creation date, and expiry setting (if configured).
 
 ### Search Forms
 
@@ -131,6 +131,7 @@ Type in the search bar at the top of the list to filter forms by name. The list 
 Click the gear icon on any form row to access these options:
 
 - **Edit Form** -- Open the form in the editor to make changes.
+- **Duplicate** -- Create a copy of this form and open it in the editor so you can start making changes right away. The copy is named "{original name} (Copy)" and includes all sections, questions, and conditional logic from the original. Archived sections and questions are excluded.
 - **Send to Patient** -- Search for a patient and send the form link via text message.
 - **Fill In Person** -- Open the form in the console so a staff member can fill it out on behalf of a patient.
 - **Edit Default Message** -- Customize the default SMS text that accompanies the form link when sent to patients.

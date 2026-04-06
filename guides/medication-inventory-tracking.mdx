@@ -1,0 +1,199 @@
+---
+title: "Medication Inventory Tracking"
+description: "Set up medications with inventory, record doses, and see automatic stock deductions at checkout."
+---
+
+This guide walks through the full process of tracking medication inventory -- from initial setup to recording doses during a patient visit, all the way through to checkout where stock is automatically deducted.
+
+<Info>
+  This guide brings together several features that are documented individually: [Medications](/modules/settings/medications), [Stock Management](/modules/inventory/stock), and [Checkout](/modules/billing/checkout). Read those pages for full details on each area.
+</Info>
+
+## What You Need Before You Start
+
+Before medication inventory tracking works, three things must be in place:
+
+1. **A stock item** representing the physical supply (e.g., "Semaglutide 2.4mg/mL Pen")
+2. **At least one shipment** for that stock at your location -- this is what gives the stock its actual quantity
+3. **A link** between the stock item and the medication, with the amount of stock used each time the medication is administered
+
+Without all three, doses can still be recorded, but nothing will be deducted from inventory.
+
+## Step 1: Create the Stock Item
+
+<Steps>
+  <Step title="Open the Stockroom">
+    Go to **Inventory** in the left sidebar, then click the **Stockroom** tab.
+  </Step>
+  <Step title="Add a New Stock Item">
+    Click **Add Stock** and choose **Create Manually** (or use the AI option to upload a photo of a purchase order or invoice).
+  </Step>
+  <Step title="Fill in the Details">
+    Enter the stock item name, unit of measurement, and optionally a category and minimum stock level. The minimum level triggers low-stock alerts so you know when to reorder.
+  </Step>
+  <Step title="Save">
+    Click **Save**. You now have a stock item, but it has zero quantity until you add a shipment.
+  </Step>
+</Steps>
+
+See [Managing Your Stock](/modules/inventory/stock) for the full guide on creating and managing stock items.
+
+## Step 2: Add a Shipment
+
+A shipment represents a specific delivery of product to one of your locations. It carries the actual quantity, lot number, expiry date, and cost.
+
+<Steps>
+  <Step title="Open the Stock Item">
+    Click the stock item you just created to open its detail panel, then go to the **Shipments** tab.
+  </Step>
+  <Step title="Add a Shipment">
+    Click **Add Shipment**. Enter:
+    - **Supplier** -- who you ordered from
+    - **Location** -- which clinic location received it
+    - **Quantity** -- how many units arrived
+    - **Cost** -- what you paid (for profit tracking)
+    - **Lot Number** and **Expiry Date** -- for compliance and rotation
+  </Step>
+  <Step title="Save">
+    The stock item now shows available quantity at that location.
+  </Step>
+</Steps>
+
+<Tip>
+  You can also add shipments by scanning barcodes. Click **Take Delivery** on the Stockroom page and use your camera to scan product barcodes.
+</Tip>
+
+## Step 3: Create the Medication and Link It to Stock
+
+<Steps>
+  <Step title="Open Medications">
+    Go to **Settings > Medications**.
+  </Step>
+  <Step title="Create or Edit a Medication">
+    Click **Add New Medication** to create one, or click an existing medication to edit it.
+  </Step>
+  <Step title="Fill in Core Information">
+    Enter the medication name, unit, and price. Optionally set up template defaults (amount, quantity, frequency, administration location) so dose forms are pre-filled for your providers.
+  </Step>
+  <Step title="Link Inventory">
+    Scroll to the **Inventory** section of the medication editor. You have two options:
+    - **Link existing stock** -- search for the stock item you created and select it
+    - **Create new stock** -- create a stock item directly from here if you haven't already
+
+    Set the **Quantity Used Per Sale** -- this is how many stock units are consumed each time one unit of this medication is administered. For example, if the medication unit is "injection" and the stock tracks individual vials, you might set this to 1.
+  </Step>
+  <Step title="Save">
+    Click **Create Medication** or **Update Medication**. The medication is now linked to stock and ready for inventory tracking.
+  </Step>
+</Steps>
+
+<Info>
+  You can also link stock from the other direction. Open a stock item in the Stockroom, go to the **Linked Items** tab, and connect it to a medication from there.
+</Info>
+
+See [Medications](/modules/settings/medications) for the full guide on medication setup, templates, and permissions.
+
+## Step 4: Record a Dose
+
+During a patient visit, a dose is recorded to document that a medication was administered. There are two ways to create a dose record.
+
+### Add a Dose Manually
+
+This is the most common method. You can add a dose from the patient's chart or from a note.
+
+<Steps>
+  <Step title="Open the Add Dose Form">
+    Click the **Add Dose** button on the patient's chart or in the Medications section of a note.
+  </Step>
+  <Step title="Fill in Dose Details">
+    The form includes:
+    - **Medication** -- search and select the medication
+    - **Amount** -- how much was given (e.g., 0.5)
+    - **Unit** -- the unit of measurement
+    - **Quantity** -- number of units administered
+    - **Frequency** -- how often (e.g., "Weekly")
+    - **Administration Location** -- where on the body (for injectables)
+    - **Lot/Shipment** -- select which shipment to draw from (for injectables)
+    - **Side Effects**, **Date**, and **Comments** -- optional fields
+
+    If the medication has template defaults configured, several of these fields are pre-filled automatically.
+  </Step>
+  <Step title="Select a Shipment (Optional but Recommended)">
+    For injectable medications, a shipment picker appears showing available shipments at this location with their remaining quantities. Selecting a shipment here deducts inventory immediately when you save the dose.
+
+    If you skip this step, the dose is still recorded, but inventory is not deducted until checkout.
+  </Step>
+  <Step title="Save">
+    Click **Save**. The dose appears on the patient's chart and in the note's medication list.
+  </Step>
+</Steps>
+
+### Add a Dose Through a Scribe Note
+
+When using the AI Scribe to document a visit, the note's Medications section has an **Add Dose** button. Clicking it opens the same dose form described above. The dose is linked to the note so it appears in the "Doses for this Note" group.
+
+<Info>
+  **About annotations:** Drawing medication annotations on images (circles, arrows, syringe lines) is a way to visually document where injections were placed. Annotations do not create dose records on their own. You still need to use the **Add Dose** form to create the actual dose and trigger inventory tracking.
+</Info>
+
+## Step 5: Check Out the Patient
+
+When the patient is ready to pay, the doses you recorded flow into checkout automatically.
+
+<Steps>
+  <Step title="Open Checkout">
+    Go to **Billing > Check Out** and select the patient.
+  </Step>
+  <Step title="Select the Location">
+    Choose the clinic location. This determines which inventory is available.
+  </Step>
+  <Step title="Review Today's Items">
+    The **Today's Items** section automatically lists all doses recorded today for this patient, along with any services from their appointments. Each item shows its name, price, quantity, and the provider who administered it.
+
+    Click **Add** next to each item to include it in the charge.
+  </Step>
+  <Step title="Review Inventory">
+    For each medication added to the charge that has linked stock, an inventory section appears showing:
+    - The stock item name and how many units are needed
+    - Available quantity at the selected location
+    - A shipment picker if you want to choose a specific lot
+
+    If there isn't enough stock, you'll see a warning. The system still lets you proceed -- it deducts whatever is available and logs the shortfall.
+  </Step>
+  <Step title="Complete the Charge">
+    Choose a payment method and complete the transaction. When the charge is created, inventory is automatically deducted from the selected shipments (or the oldest available shipments if you didn't pick specific ones).
+  </Step>
+</Steps>
+
+## How Inventory Gets Deducted
+
+There are two points where inventory can be deducted:
+
+| When | What happens |
+|------|-------------|
+| **At dose creation** | If the provider selects a shipment in the Add Dose form, that stock is deducted immediately. This is common for injectables where lot tracking matters. |
+| **At checkout** | When the charge is completed, stock is deducted for each item in the charge that has linked inventory. The system uses the shipments selected during checkout, or draws from the oldest available shipments automatically. |
+
+Every deduction is logged in the stock item's **Activity** tab, so you always have a full audit trail of what was used, when, and by whom.
+
+## Quick Reference
+
+| Task | Where to do it |
+|------|---------------|
+| Create a stock item | **Inventory > Stockroom > Add Stock** |
+| Add a shipment (receive product) | Stock item detail > **Shipments** tab, or **Take Delivery** button |
+| Link stock to a medication | Medication editor > **Inventory** section, or Stock detail > **Linked Items** tab |
+| Set dosing template defaults | Medication editor > **Template Settings** |
+| Record a dose | Patient chart or note > **Add Dose** |
+| Check out with inventory | **Billing > Check Out** > review Today's Items > complete charge |
+| View inventory activity | Stock item detail > **Activity** tab |
+| Check low stock | **Inventory > Stockroom** -- look for Low, Critical, or Out of Stock badges |
+
+## Permissions
+
+These permissions (configured in **Settings > Users & Roles**) control access to different parts of this workflow:
+
+- **Inventory Read** -- view the Stockroom, stock levels, and medication inventory
+- **Inventory Write** -- create and manage stock items, add shipments, link stock to medications
+- **Sign Off Medications** -- formally approve dose records. Providers with this permission have their doses automatically signed off on creation
+- **Change Dose Provider** -- allows changing the administering provider on a dose after it's been created

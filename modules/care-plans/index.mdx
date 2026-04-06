@@ -1,0 +1,693 @@
+---
+title: 'Care Plans'
+description: 'Assign structured, multi-step care plans to patients — from templates or from scratch — and track progress over time.'
+---
+
+Care Plans let you map out a patient's treatment journey as a series of scheduled steps. Each step can be an appointment, a task, an automated message, or a decision point that splits the plan into multiple possible paths. Dates are calculated automatically from a start date. You can build a plan from a reusable template or create one from scratch.
+
+## Assigning a Care Plan
+
+### From a Template
+
+<Steps>
+  <Step title="Open the Patient's Chart">
+    Navigate to the patient's chart and make sure you're on the **Overview** tab.
+  </Step>
+  <Step title="Start the Assignment">
+    In the **Care Plans** section, click **Assign Care Plan**.
+  </Step>
+  <Step title="Choose a Template">
+    Browse the available templates. Each one shows its name, description, tags, number of steps, and a preview of the timeline. Click a template to select it.
+  </Step>
+  <Step title="Configure the Care Plan">
+    Fill in the plan details:
+    - **Name** -- a label for this care plan (pre-filled from the template, but you can change it).
+    - **Description** -- optional notes about the plan's purpose.
+    - **Start Date** -- the date the plan begins. All step dates are calculated relative to this date.
+    - **Tags** -- at least one tag is required. Tags help you organize and filter care plans.
+  </Step>
+  <Step title="Review and Edit Steps">
+    The template's steps appear with their scheduled dates already calculated from the start date. Before saving, you can:
+    - Add or remove steps.
+    - Change services, assignees, or other step details.
+    - Adjust individual step dates.
+  </Step>
+  <Step title="Create the Care Plan">
+    Click **Assign Care Plan** to assign the care plan to the patient. The plan and all its steps are now visible on the patient's Overview tab.
+  </Step>
+</Steps>
+
+### From Scratch
+
+Follow the same flow above, but choose **Start from scratch** instead of selecting a template. This is useful for one-off or experimental plans that don't fit an existing template.
+
+You'll fill in the same configuration fields (name, description, start date, tags) and then build the plan step by step — clicking **Add Step** to add each step individually.
+
+## Step Types
+
+Every care plan is made up of individual steps. There are four types:
+
+| Type | What It Does | Configurable Fields |
+|------|-------------|-------------------|
+| **Appointment** | A scheduled visit for the patient | Services, medications, measurements, provider notes, scheduled date |
+| **Task** | An internal to-do for your team (requires the **Tasks** module) | Title, description, initial status, priority, assignee, start date, due date, provider notes |
+| **Message** | An automated SMS tied to an appointment step | Message type (reminder, confirmation, or follow-up), SMS body, timing |
+| **Decision** | A point where the plan splits into multiple possible paths (branches) | Branch names, branch tags, steps within each branch |
+
+### Appointment Steps
+
+An appointment step represents a visit the patient needs to attend. When you click on an appointment step, the following fields appear:
+
+- **Services** -- Select one or more services for this visit (e.g., "Initial Consultation", "Botox Treatment"). You can search and pick from your clinic's configured services.
+- **Medications** -- Optionally select medications to be administered during this visit.
+- **Measurements** -- Optionally select which vitals to record at this visit. Options include: Weight, Height, Blood Pressure, Pulse, Temperature, and Waist Circumference.
+- **Provider Notes** -- A free-text field for guidance or instructions for the provider at this step (e.g., "Check healing progress from last visit").
+
+<Info>
+  When an appointment step is pending and has at least one service selected, a **Schedule Appointment** button appears so you can book it on the calendar.
+</Info>
+
+#### Configure an Appointment Step
+
+<Steps>
+  <Step title="Add an Appointment Step">
+    Click **Add Step**, then choose **Appointment** from the menu.
+  </Step>
+  <Step title="Select Services">
+    Open the **Services** field and search for the services this visit should include. Select one or more.
+  </Step>
+  <Step title="Add Medications (Optional)">
+    Open the **Medications** field and select any medications to administer during this visit.
+  </Step>
+  <Step title="Add Measurements (Optional)">
+    Open the **Measurements** field and choose which vitals should be recorded (e.g., Blood Pressure, Weight).
+  </Step>
+  <Step title="Write Provider Notes (Optional)">
+    Enter any guidance or reminders for the provider in the **Provider Notes** field.
+  </Step>
+</Steps>
+
+### Task Steps
+
+<Info>
+  Task steps are only available when the **Tasks** module is enabled for your organization.
+</Info>
+
+A task step represents an internal to-do for your staff. When the task step's scheduled date arrives, the system automatically creates the task and marks the step as Scheduled — you do not need to do this manually.
+
+When you click on a task step, the details area shows:
+
+- **Task Title** -- Required. A short description of what needs to be done (e.g., "Call patient for follow-up").
+- **Description** -- Optional longer details about the task.
+- **Initial Status** -- The starting status of the task: Open, In Progress, Completed, or Cancelled.
+- **Priority** -- How urgent the task is: Low, Normal, High, or Urgent.
+- **Assignee** -- Which provider or staff member is responsible. Pick from a list of your team members.
+- **Start Date** -- When the task should begin.
+- **Due Date** -- Set as a relative duration from the step's scheduled date (e.g., "3 days after"). The approximate due date is calculated and displayed automatically.
+- **Provider Notes** -- Additional guidance for the assigned person.
+
+#### Configure a Task Step
+
+<Steps>
+  <Step title="Add a Task Step">
+    Click **Add Step**, then choose **Task** from the menu.
+  </Step>
+  <Step title="Enter a Title">
+    Type a short, clear title describing what needs to be done.
+  </Step>
+  <Step title="Set Status and Priority">
+    Choose the initial status and priority level for the task.
+  </Step>
+  <Step title="Assign a Team Member">
+    Use the **Assignee** field to pick who is responsible for completing this task.
+  </Step>
+  <Step title="Set a Due Date (Optional)">
+    Enter a relative duration for the due date. The system calculates the actual date based on when the step is scheduled.
+  </Step>
+  <Step title="Add Details (Optional)">
+    Fill in the **Description** and **Provider Notes** fields with any additional context.
+  </Step>
+</Steps>
+
+### Message Steps
+
+A message step sends an automated SMS to the patient. Message steps are typically linked to an appointment step and appear on the timeline connected to their parent appointment.
+
+There are three types of messages:
+
+| Message Type | When It's Sent | Configurable Timing |
+|-------------|---------------|-------------------|
+| **Reminder** | Before the appointment | Set how far in advance (e.g., "1 day before") |
+| **Confirmation** | After the appointment | Sent automatically, no timing needed |
+| **Follow-up** | After the appointment | Set how long after (e.g., "3 days after") |
+
+When you click on a message step, the details area shows:
+
+- **Message Type** -- The type of message (reminder, confirmation, or follow-up).
+- **Timing** -- How far before or after the appointment the message is sent (not shown for confirmation messages).
+- **SMS Body** -- The message text. You can personalize the message with variables by typing `@` in the editor. Available variables include:
+
+| Variable | What It Inserts |
+|----------|----------------|
+| `@first_name` | Patient's first name |
+| `@last_name` | Patient's last name |
+| `@provider_name` | Provider's name |
+| `@tenant_name` | Clinic name |
+| `@location_name` | Location name |
+| `@plan_name` | Care plan name |
+| `@step_number` | Step number in the plan |
+| `@next_step_date` | Date of the next step |
+| `@start` | Appointment time |
+| `@location` | Appointment location |
+
+#### Configure a Message Step
+
+<Steps>
+  <Step title="Add a Message Step">
+    Click **Add Step**, then choose **Message** from the menu.
+  </Step>
+  <Step title="Choose the Message Type">
+    Select whether this is a **Reminder**, **Confirmation**, or **Follow-up** message.
+  </Step>
+  <Step title="Set the Timing">
+    For reminder and follow-up messages, set how far before or after the appointment the message should be sent.
+  </Step>
+  <Step title="Write the SMS Body">
+    Compose the message text. Type `@` to insert personalization variables such as the patient's name, provider name, care plan name, appointment time, or location.
+  </Step>
+</Steps>
+
+<Info>
+  Message steps are typically linked to a parent appointment step. They appear on the timeline connected to their parent appointment.
+</Info>
+
+### Decision Steps
+
+A decision step is a point in the care plan where the treatment path splits into two or more options, called **branches**. Each branch contains its own sequence of appointment and task steps. Only one branch can be selected for a given patient — the others are skipped.
+
+**Example:** A hormone therapy care plan might have an initial consultation, followed by a decision step where the provider chooses between three dosage options. Each option has its own follow-up appointments and lab work.
+
+#### Configure a Decision Step
+
+<Steps>
+  <Step title="Add a Decision Step">
+    Click **Add Step**, then choose **Decision** from the menu.
+  </Step>
+  <Step title="Name the Branches">
+    The decision step starts with two branches. Give each branch a descriptive name (e.g., "Option A: Standard Treatment", "Option B: Intensive Treatment").
+  </Step>
+  <Step title="Add Steps to Each Branch">
+    Click into a branch and add appointment or task steps. Configure services, time gaps, and other details the same way you would for steps on the main timeline.
+  </Step>
+  <Step title="Add More Branches (Optional)">
+    Click **Add Branch** to create additional paths if needed.
+  </Step>
+  <Step title="Tag Branches (Optional)">
+    Add tags to individual branches for quick identification. Click the tags area on a branch to add or create tags.
+  </Step>
+</Steps>
+
+## Branching
+
+### How Branches Appear on the Timeline
+
+**Before a branch is selected:** The decision step appears with all its branches displayed. Each branch shows its name, tags, and a preview of the steps it contains. The steps inside unselected branches show estimated dates but are not yet actionable.
+
+**After a branch is selected:** The selected branch's steps appear in the main timeline as regular steps, with their dates calculated from the decision step's date. All steps in the non-selected branches are automatically marked as **Skipped**. The decision step itself is marked as **Completed**.
+
+<Warning>
+  Selecting a branch cannot be undone. Steps in the non-selected branches are permanently skipped. Make sure you have reviewed the options before selecting a path.
+</Warning>
+
+### Selecting a Branch
+
+<Steps>
+  <Step title="Open the Care Plan">
+    Go to the patient's profile and open the care plan that contains the decision step.
+  </Step>
+  <Step title="Click on the Decision Step">
+    Find the decision step in the timeline and click on it. The details area shows all available branches with their steps.
+  </Step>
+  <Step title="Review the Options">
+    Look through each branch to see what appointments and tasks it includes. Each branch shows the number of steps and a preview of the timeline.
+  </Step>
+  <Step title="Select a Branch">
+    Click **Select this path** on the branch you want to follow. A confirmation prompt appears showing the steps that will be activated and the steps that will be skipped.
+  </Step>
+  <Step title="Confirm Your Choice">
+    Click **Confirm** to finalize the selection. The care plan updates immediately — the selected branch's steps are added to the main timeline and all other branches' steps are skipped.
+  </Step>
+</Steps>
+
+### How Branching Affects Scheduling
+
+When a branch is selected, the system recalculates dates for the selected branch's steps and for any steps that come after the decision step.
+
+1. **Anchor point** -- the decision step's scheduled date serves as the starting point.
+2. **Branch step dates** -- each step in the selected branch is scheduled based on the time gap configured between steps, starting from the decision step's date.
+3. **Downstream steps** -- any steps in the main care plan that come after the decision step have their dates recalculated based on when the last step in the selected branch is scheduled. This recalculation cascades through all subsequent steps that have relative timing.
+
+Before a branch is selected, step dates inside all branches are shown as **estimates** (with a **~** prefix). These dates are not final until the branch is actually selected.
+
+### Editing Branches
+
+Before a branch has been selected, you can freely edit the decision step and its branches:
+
+- **Add or remove branches** -- click **Add Branch** or remove a branch from the decision step details.
+- **Add, remove, or reorder steps within a branch** -- works the same as editing steps on the main timeline.
+- **Rename a branch** -- update the branch name in the decision step details.
+- **Change branch tags** -- add or remove tags from individual branches.
+
+<Info>
+  After a branch has been selected, you can still edit the steps within the selected branch (change services, dates, etc.), but you cannot add new branches or change the selection.
+</Info>
+
+## Step Statuses
+
+Every step in a care plan has a status that reflects where it is in the patient's treatment journey.
+
+| Status | What it means |
+|--------|---------------|
+| **Pending** | The step has not been acted on yet. It is waiting for someone to take action. |
+| **Scheduled** | An appointment has been booked or a task has been created for this step. The step is linked to an actual appointment or task in the system. |
+| **Completed** | The step is finished — the appointment was attended or the task was done. This is a final status and cannot be changed. |
+| **Skipped** | The step was intentionally skipped by staff. It will not be acted on. |
+| **Missed** | The linked appointment was marked as a no-show. The patient did not attend. |
+
+### Status Transitions
+
+Not every status change is allowed. The table below shows which transitions are valid.
+
+| From | Can change to |
+|------|---------------|
+| **Pending** | Skipped |
+| **Scheduled** | Completed, Skipped, or back to Pending |
+| **Missed** | Back to Pending (to reschedule) |
+| **Skipped** | Back to Pending (to re-activate) |
+| **Completed** | Cannot be changed (final) |
+
+Key points to keep in mind:
+
+- You cannot directly complete a Pending step — it must first be Scheduled. For appointment steps, you schedule manually by clicking **Schedule Appointment**. For task steps, the system automatically creates the task and marks the step as Scheduled when the scheduled date arrives.
+- Once a step is Completed, it stays Completed. This cannot be undone.
+- Both Missed and Skipped steps can be reset to Pending if you want to try again.
+- Scheduled steps are the most flexible — they can be completed, skipped, or reset to Pending.
+- When a branch is selected on a decision step, all steps in the non-selected branches are automatically marked as **Skipped**, and the decision step itself is marked as **Completed**.
+
+### Automatic Status Updates
+
+Step statuses stay in sync with their linked appointments and tasks. When the status of an appointment or task changes, the care plan step updates automatically:
+
+| When this happens | The step becomes |
+|---|---|
+| Appointment is completed | **Completed** |
+| Appointment is marked as no-show | **Missed** |
+| Appointment is cancelled | **Skipped** |
+| Task is completed | **Completed** |
+| Task is cancelled | **Skipped** |
+
+You do not need to update the step manually in these cases — the system handles it for you. These automatic updates are recorded in the edit history and labeled as appointment or task syncs so you can tell them apart from manual changes.
+
+### Change a Step's Status
+
+<Steps>
+  <Step title="Open the Patient's Care Plan">
+    Go to the patient's profile and open the care plan you want to update.
+  </Step>
+  <Step title="Select the Step">
+    Click on the step you want to update. Its details appear on the right side of the page.
+  </Step>
+  <Step title="Change the Status">
+    Find the **Status** field. The menu shows only the valid transitions from the current status — you will not see options that are not allowed.
+  </Step>
+  <Step title="Confirm the Change">
+    Select the new status. The change takes effect immediately.
+  </Step>
+</Steps>
+
+<Info>
+  The status field only appears on care plans that have been assigned to a patient. It is not available on templates.
+</Info>
+
+## Dates on the Timeline
+
+Each step on the timeline shows a date. How the date is displayed depends on the step's status and whether it has a fixed or estimated schedule.
+
+### Completed Dates
+
+When a step is completed, the timeline shows the **actual completion date** rather than the original scheduled date. This keeps the timeline reading chronologically so you can see when each step was actually finished.
+
+### Estimated Dates
+
+Some steps are scheduled relative to the step before them (for example, "2 weeks after the previous appointment"). If the previous appointment has not been completed yet, the system cannot calculate an exact date — so the date is shown as an **estimate**.
+
+Estimated dates appear with a **~** prefix (e.g., ~Apr 10, 2026) in muted text. Hovering over an estimated date shows: *"Estimated — will update when the previous appointment completes."*
+
+Once the previous appointment is completed, the estimated dates recalculate automatically based on the actual completion date and become exact.
+
+### Overdue Steps
+
+If a step is still Pending after its scheduled date has passed, it is marked as overdue. Overdue steps appear with a red alert icon and red date text so they stand out on the timeline. Steps with estimated dates are never marked as overdue, since the date may still shift.
+
+## Schedule an Appointment from a Step
+
+When an appointment step is Pending and has at least one service selected, a **Schedule Appointment** button appears in the step details. This lets you create a calendar appointment directly from the care plan.
+
+<Steps>
+  <Step title="Open the Care Plan">
+    Go to the patient's profile and open the care plan.
+  </Step>
+  <Step title="Select a Pending Appointment Step">
+    Click on a Pending appointment step that has services configured.
+  </Step>
+  <Step title="Click Schedule Appointment">
+    Click **Schedule Appointment** on the right. This takes you to the appointment form.
+  </Step>
+  <Step title="Review Pre-filled Details">
+    The appointment form is pre-filled with:
+    - The patient already selected
+    - The services from the step
+    - The scheduled date from the step
+    - Any provider notes from the step
+  </Step>
+  <Step title="Complete and Save">
+    Review the details, make any changes, and save the appointment. The step automatically updates to **Scheduled** and links to the new appointment.
+  </Step>
+</Steps>
+
+### Care Plan Suggestions During Check-in
+
+When creating an appointment during the check-in flow for a patient who has an active care plan with a pending appointment step, a suggestion banner appears in the appointment form. The banner shows the care plan name, the number of services in the next pending step, and the scheduled date. Clicking **Pre-fill from care plan** automatically populates the appointment with the correct services and links the appointment to the care plan step.
+
+## Editing a Care Plan
+
+<Info>
+  To open a care plan, go to a patient's chart, find the **Care Plans** section on the **Overview** tab, and click the edit icon next to the care plan name.
+</Info>
+
+### Change the Name, Description, or Tags
+
+<Steps>
+  <Step title="Open the Care Plan">
+    From the patient's **Overview** tab, find the care plan you want to edit and click the edit icon next to its name. This opens the full care plan page.
+  </Step>
+  <Step title="Update the Fields">
+    At the top of the page, you can change the **Care Plan Name**, **Description**, and **Tags**. To update tags, click the tags area to open the tag picker — select from existing tags or click **New Tag** to create one. At least one tag is required.
+  </Step>
+  <Step title="Save Your Changes">
+    Click **Save Changes** at the bottom. The button is only available when there are unsaved changes.
+  </Step>
+</Steps>
+
+### Add, Remove, and Reorder Steps
+
+- Click **Add Step** to add a new appointment, task, message, or decision step to the plan. Task steps are only available if your organization has the **Tasks** module enabled.
+- Remove a step by clicking its delete option. When a step is removed, the dates of the steps that follow it adjust automatically.
+- Drag and drop steps to change their order in the timeline. Scheduled dates stay pinned to their original values during reordering.
+- For decision steps, you can add or remove branches and edit the steps within each branch before a branch has been selected.
+
+### Edit Step Details
+
+Click on any step to see its details. What you can change depends on the step type:
+
+| Step type | Editable fields |
+|-----------|----------------|
+| **Appointment** | Services, medications, measurements, provider notes, scheduled date (or completed date if finished) |
+| **Task** | Title, description, initial status, priority, assignee, due date, provider notes |
+| **Message** | Message type, SMS body, timing |
+
+<Info>
+  Every step must have at least some content (a service, medication, measurement, task title, or description). You will see an error if you try to save a step that is empty.
+</Info>
+
+### Delete a Care Plan
+
+<Steps>
+  <Step title="Open the Care Plan">
+    Navigate to the care plan detail page as described above.
+  </Step>
+  <Step title="Click Delete">
+    Click the **Delete** button at the top-right corner of the page.
+  </Step>
+  <Step title="Confirm Deletion">
+    You will be asked to confirm. Confirming permanently removes the care plan along with all of its steps and progress. This cannot be undone.
+  </Step>
+</Steps>
+
+## Progress Tracking
+
+### How Progress Is Calculated
+
+Progress is based on how many steps have been completed out of the total number of non-skipped steps.
+
+**Example:** A care plan has 3 steps. If 2 steps are marked complete, progress shows as **2 of 3 steps (67%)**.
+
+If the care plan has decision steps with branches, only the selected branch's steps count toward the total. Steps in non-selected branches are skipped and excluded from the progress calculation. The decision step itself counts as one completed step once a branch is selected.
+
+### Where Progress Appears
+
+- **Patient Overview tab** -- each care plan card shows a progress summary with a step count (e.g., "3/6 steps") and a percentage, color-coded by status.
+- **Care plan detail page** -- the progress summary appears at the top next to the care plan name.
+
+### Progress Colors
+
+| Color | Meaning |
+|-------|---------|
+| **Green** | 100% complete -- all steps are done |
+| **Blue** | In progress -- at least one step is completed |
+| **Gray** | Not started -- no steps have been completed yet |
+
+## Cycles
+
+Cycles let you repeat a group of steps multiple times within a care plan. This is useful for recurring treatments — for example, a patient who needs the same set of appointments repeated every 4 weeks for 6 rounds.
+
+### Create a Cycle
+
+<Steps>
+  <Step title="Select Steps">
+    In the care plan editor, select the steps you want to repeat.
+  </Step>
+  <Step title="Create the Cycle">
+    Click **Create Cycle** to open the cycle configuration.
+  </Step>
+  <Step title="Set the Number of Passes">
+    Choose how many times the steps should repeat (between 2 and 50 passes).
+  </Step>
+  <Step title="Set the Gap Between Passes">
+    Enter the time gap between the end of one pass and the start of the next (e.g., "1 week").
+  </Step>
+  <Step title="Confirm">
+    Click **Create Cycle**. The system duplicates the selected steps for each pass and schedules them with the configured gap between passes.
+  </Step>
+</Steps>
+
+### Cycle Progress
+
+Each cycle shows a progress indicator in the sidebar displaying how many passes are complete out of the total. A colored badge on each step identifies which cycle and pass it belongs to.
+
+You can toggle between viewing **all passes** or **only the current pass** using the eye icon in the Cycles section of the sidebar.
+
+### Editing Cycle Steps
+
+When you edit a step that belongs to a cycle, you are asked how the change should be applied:
+
+- **This pass only** -- only change the step in the current pass.
+- **This and future passes** -- apply the change to this pass and all subsequent passes.
+- **All passes** -- apply the change to every pass in the cycle.
+
+### Renaming a Cycle
+
+Click the cycle name in the sidebar to rename it. This is helpful when a care plan has multiple cycles and you want to label them clearly (e.g., "Infusion Cycle", "Follow-up Cycle").
+
+## Print a Care Plan
+
+You can print a care plan from anywhere a care plan card appears — the patient's Overview tab, the patient sidebar, or the task detail view. Click the print button on the care plan card to generate a printable view of all appointment steps in the plan. If the plan has branches, only the selected branch's steps are included.
+
+<Info>
+  The print view only includes appointment steps. Task, message, and decision steps are not printed.
+</Info>
+
+## Where Care Plans Appear
+
+Care plan information appears in several places throughout the application so staff can always see treatment context at a glance.
+
+### Patient Overview Tab
+
+Active care plans appear on the patient's **Overview** tab, showing progress (completed steps out of total) and the current status of each step. You can expand any care plan to see the full step timeline. Click **Assign Care Plan** to add a new plan.
+
+### Patient Sidebar
+
+When you open a patient's sidebar (e.g., by clicking a patient name from the calendar or check-in), a **Care Plans** section displays all active care plans for that patient with their progress and step details.
+
+### Patient Appointments Tab
+
+On the patient's **Appointments** tab, each appointment that is linked to a care plan displays a badge showing the care plan name and step number. This lets you quickly identify which appointments are part of a treatment plan.
+
+### Calendar
+
+On the calendar, appointment cards that belong to a care plan show a small badge with the care plan name next to the appointment title. This provides at-a-glance visibility into which calendar events are part of an active care plan.
+
+### Appointment Sidebar
+
+When you click an appointment in the patient sidebar, appointments linked to a care plan display a badge above the appointment title showing the care plan name and step number.
+
+### Tasks
+
+When a task is created from a care plan step, the task displays a care plan badge showing the plan name and step status. Clicking the badge opens a popover with the full care plan timeline so you can see the task's place in the overall treatment plan.
+
+## Edit History
+
+Every change to a care plan is recorded automatically. You can view the full edit history at any time to see exactly what happened, who made the change, and when it occurred.
+
+### Opening the Edit History
+
+Click **Show history** on the care plan card on the patient's Overview tab. A window opens showing the full timeline of changes with before-and-after details.
+
+<Info>
+  The **Show history** link appears on care plan cards on the patient's Overview tab. It is not available in the small card view (e.g., in the patient sidebar).
+</Info>
+
+### Reading the Edit History
+
+The history window has two panels:
+
+- **Left panel -- Timeline of changes.** Each entry represents one change (or a group of related changes). The most recent change appears at the top. Each entry shows an icon for the type of change, a short summary, who made the change, and when.
+
+- **Right panel -- Snapshot of the care plan.** Shows what the care plan looked like at the selected point in time. Steps that were affected by the selected change are highlighted so you can quickly spot what changed.
+
+Click any entry in the left panel to see the care plan as it looked at that point.
+
+### What Gets Tracked
+
+The system records changes automatically. The following types of changes are tracked:
+
+**Care Plan Changes:** Name, description, start date, tags, location, assigned by, creation, and deletion.
+
+**Step Changes:** Steps added or removed, status changes, services, medications, measurements, scheduled dates, provider notes, and task field updates.
+
+**Branch Changes:** Branch selections (who selected and when), branches added or removed, and changes to steps within branches.
+
+**Automatic Changes:** Changes that happen automatically when linked appointments or tasks are updated are labeled so you can tell them apart from manual edits:
+
+| Source | What it means |
+|--------|---------------|
+| **User** | A staff member made this change manually |
+| **Appointment sync** | The step status was updated automatically because the linked appointment changed |
+| **Task sync** | The step status was updated automatically because the linked task changed |
+| **Branch selection** | Steps were automatically skipped or dates were recalculated because a branch was selected |
+
+### Snapshot Highlights
+
+When you select a change in the timeline, changes are visually highlighted in the snapshot:
+
+| Highlight | Meaning |
+|-----------|---------|
+| **Added** (green) | This step was newly added |
+| **Removed** (red) | This step was removed |
+| **Modified** (blue) | One or more fields on this step were changed |
+| **Unchanged** | This step was not affected |
+
+Click on a highlighted step to see the specific fields that changed, including the old and new values.
+
+## Templates
+
+Care plan templates are managed in **Settings > Care Plans**. Templates define a reusable set of steps with default timing, services, and configuration. When you assign a template to a patient, the steps are copied into the new care plan and can be fully customized for that patient.
+
+<Info>
+  **Prerequisites:** You should have [Providers](/modules/settings/users) and [Services](/modules/settings/services) set up before creating care plan templates, since steps can reference providers and services.
+</Info>
+
+### Create a Template
+
+<Steps>
+  <Step title="Navigate to Care Plans">
+    Go to **Settings** and select **Care Plans**.
+  </Step>
+  <Step title="Start Creation">
+    Click the **New Template** button. A form appears where you enter the template details.
+  </Step>
+  <Step title="Enter Template Details">
+    Fill in the following:
+    - **Name:** A descriptive name for the template (e.g., "Weight Loss Program", "Post-Op Recovery").
+    - **Description:** Optional summary of the care plan's purpose.
+    - **Tags:** Add at least one tag to categorize the template. You can select existing tags or create new ones with a custom color.
+  </Step>
+  <Step title="Save">
+    Click **Save** to create the template. This opens the template editor where you can add steps.
+  </Step>
+</Steps>
+
+### Edit a Template
+
+From the **Care Plans** settings page, click on a template name to open the editor. The editor has two main areas:
+
+- **Step list (left side):** Shows all steps in order. Click any step to select it.
+- **Step details (right side):** Displays the selected step's full configuration for editing.
+
+You can update the template's name, description, and tags at any time from the editor.
+
+### Set Time Gaps Between Steps
+
+Between each pair of steps, a clickable button shows the time gap (e.g., "2 days", "1 week"). Click it to set how much time should pass between one step and the next. When the template is assigned to a patient, these gaps determine the scheduled dates for each step based on the care plan's start date.
+
+### Reorder Steps
+
+Drag steps using the grip handle on each step card to reorder them. The order determines the sequence patients see in their care plan. You can also remove individual steps by clicking the **X** that appears when you hover over a step card.
+
+### Manage the Template List
+
+The template list page provides several ways to organize your templates:
+
+- **Columns shown:** Name, Tags, Description, Steps, and Created Date.
+- **Sort:** Click the **Name**, **Steps**, or **Created Date** column headers to sort ascending or descending.
+- **Delete:** Remove a template you no longer need directly from the list. You will be asked to confirm before the template is deleted.
+
+<Info>
+  Templates and assigned care plans are separate. Changes to a template only affect new assignments — they do not update care plans already assigned to patients.
+</Info>
+
+## Tags
+
+Tags are colored labels that help you organize and quickly identify care plan templates and patient care plans. For example, you might use tags like "Weight Loss", "Post-Surgery", or "Dental" to categorize plans by treatment type.
+
+Every template and every care plan must have at least one tag. Tags can also be added to individual branches within decision steps.
+
+<Info>
+  Tags are shared across your organization. Once you create a tag, it becomes available to all staff in every area where tags are used.
+</Info>
+
+### Create a Tag
+
+Tags are created inline — there is no separate settings page for them. You can create a new tag anywhere a **Tags** section appears (template editor, care plan editor, etc.).
+
+<Steps>
+  <Step title="Find the Tags Section">
+    In any template or care plan editor, find the **Tags** section.
+  </Step>
+  <Step title="Start Creating">
+    Click the **New Tag** button below the existing tags.
+  </Step>
+  <Step title="Enter a Name and Pick a Color">
+    Type a name for the tag (e.g., "Physical Therapy"). Then select a color from the color palette.
+  </Step>
+  <Step title="Save the Tag">
+    Click **Add** or press **Enter** to create the tag. The new tag is added to your selected tags list immediately.
+  </Step>
+</Steps>
+
+### Add or Remove Tags
+
+- To **add** an existing tag, click it from the list of available tags below the selected ones.
+- To **remove** a tag, click the **X** on a selected tag to deselect it.
+
+### Delete a Tag
+
+You can permanently delete a tag by hovering over it in the tag list and clicking the trash icon.
+
+<Warning>
+  A tag can only be deleted if no care plans are currently using it. If any care plans still have the tag assigned, you will see a message telling you how many care plans are using it. Remove the tag from those care plans first, then try deleting again.
+</Warning>
+
+<Info>
+  Tag names and colors cannot be changed after creation. If you need a different name or color, create a new tag and replace the old one on your templates and care plans.
+</Info>

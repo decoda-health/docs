@@ -151,6 +151,36 @@ You do not need to configure each alert individually. Use the bulk controls to m
 - **Toggle All**: Enable or disable every alert across all categories in one click.
 - **Method-Level Toggle**: Turn an entire delivery method on or off (e.g., disable all SMS alerts while keeping In-App and Email active).
 
+## Appointment Notification Scope
+
+By default, you only receive appointment-related notifications for appointments where you are an attendee (e.g., the assigned provider). If your role requires visibility into all appointment activity — for example, front desk or office managers — you can turn this filter off.
+
+1. Go to **Settings > Notifications**.
+2. Find the **Appointment Notification Scope** section.
+3. Toggle **Only My Appointments** off to receive notifications for all appointment activity, or on to limit notifications to appointments you are attending.
+
+This setting only affects appointment alerts (scheduled, cancelled, updated, self-scheduled, and appointment requests). Block and shift alerts always notify attendees only, regardless of this toggle.
+
+## Team Notification Defaults
+
+Admins can configure default notification preferences at the team level. When a new member is added to a team, their notification preferences can be set up automatically based on the team's defaults — so they don't start from zero.
+
+### Set Up Defaults for a Team
+
+1. Go to **Settings > Teams** and create or edit a team.
+2. Expand the **Notification Defaults** section at the bottom of the form.
+3. Toggle the alert types and delivery methods you want as defaults for this team.
+4. Optionally, configure the **Appointment Notification Scope** to set whether new members receive all appointment notifications or only their own.
+5. Save the team.
+
+### Apply Defaults When Adding Members
+
+When adding someone to a team — whether through the team editor, the invite form, or the user editor — a checkbox labeled **Apply team notification defaults** appears if the team has defaults configured. Check it to copy the team's defaults onto the new member.
+
+- Defaults are **merged** with any existing preferences the member already has. Their current preferences are not removed.
+- If a member belongs to multiple teams and defaults are applied from each, preferences from all teams are combined.
+- After defaults are applied, the member can freely change their own preferences at any time.
+
 ## Location Filtering
 
 Some alerts support location-based filtering so you only receive notifications for events at specific clinics:

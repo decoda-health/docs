@@ -54,9 +54,24 @@ When you know something needs to get done, create a task and assign it.
 
 ### Assigning to Teams
 
-Instead of assigning tasks to individuals one by one, you can assign them to a **Team** (e.g., "Front Desk", "Billing Team", or "Nurses"). When a task is assigned to a Team, everyone on that team is automatically subscribed and receives notifications. Any team member can pick it up and work on it.
+Instead of assigning tasks to individuals one by one, you can assign them to a **Team** (e.g., "Front Desk", "Billing Team", or "Nurses"). When a task is assigned to a Team:
+
+- Everyone on the team is automatically subscribed and receives notifications.
+- The system picks the best person on the team to be the assignee, so the task shows up on someone's list right away.
+
+**How the system picks the assignee:**
+
+- **Patient history first** (default) — If the task is linked to a patient, the system checks who on the team last spoke with or saw that patient (calls, messages, or appointments). That person gets the task because they already have context.
+- **Balanced workload** — If there is no patient history (or you choose the Round Robin strategy in settings), the system assigns the task to whoever on the team currently has the fewest open tasks.
+- **Who is working right now** — When the "Respect shifts" setting is on, the system prefers team members who are currently clocked in. If nobody is clocked in, it falls back to the balanced workload approach.
+
+You can change how the system picks assignees in [Task Settings](/modules/settings/tasks) under Team Assignment.
 
 Teams are managed in [Users & Roles](/modules/settings/users).
+
+<Note>
+  You cannot set both a team and a specific assignee on the same task. If you assign a team, the system picks the assignee automatically. If you want a specific person, assign them directly instead of using a team.
+</Note>
 
 ### Tracking Deadlines
 

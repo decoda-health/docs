@@ -1,16 +1,31 @@
 ---
 title: "Patient Portal"
-description: "How patients sign in, sign up, and view their information in the patient portal."
+description: "How patients sign in, manage their appointments, complete forms, and update their profile."
 ---
 
 <Info>
   **What is the Patient Portal:** The patient portal is a secure area where your
-  patients can sign in to view their demographics and manage their account.
-  Patients access it via a link unique to your clinic (e.g.
+  patients can sign in to view their appointments, complete forms, and manage
+  their account. Patients access it via a link unique to your clinic (e.g.
   app.decodahealth.com/your-clinic/patient-portal).
 </Info>
 
-The patient portal lets patients create an account, sign in with email and password or Google, and view their own information. It is designed for patients, and clinic staff can also access it when they are linked to a patient record for that clinic.
+The patient portal lets patients create an account, sign in, and manage their own information. It is designed for patients, and clinic staff can also access it when they are linked to a patient record for that clinic.
+
+<CardGroup cols={2}>
+  <Card title="Dashboard" icon="house" href="/modules/patient-portal/dashboard">
+    Calendar view, upcoming appointments, pending forms, and quick actions.
+  </Card>
+  <Card title="Appointments" icon="calendar" href="/modules/patient-portal/appointments">
+    View upcoming and past appointments, and cancel if needed.
+  </Card>
+  <Card title="Forms" icon="file-lines" href="/modules/patient-portal/forms">
+    Complete pending forms and view previously submitted forms.
+  </Card>
+  <Card title="Profile" icon="user" href="/modules/patient-portal/profile">
+    View and update personal information on file with the clinic.
+  </Card>
+</CardGroup>
 
 ## How patients reach the portal
 
@@ -27,24 +42,9 @@ Patients can:
 - **Sign up** with email and password — requires first name, last name, phone number, email, and password
 - **Sign in** with their email and password
 - **Sign in with Google** if their clinic has Google sign-in enabled
-- **Reset their password** using the “Forgot password?” link
-
-After signing in, patients land on the portal home page where they can:
-
-- **View your information** — opens their demographics (name, contact details, insurance, etc.)
-- **Sign out** — ends their session
-
-## How patient records are linked
-
-When a patient signs up with email and password, the system first checks for an existing record by Firebase UID and email. If no match is found, it can use the provided phone number as a fallback. If there is still no match, a new patient record is created.
-
-When a patient signs in with Google for the first time, the portal looks up their account by email. If a matching patient record is found, it is linked automatically. If not, the patient is asked for their name and phone number so the portal can find or create their record.
+- **Reset their password** using the "Forgot password?" link
 
 ## Security and eligibility
 
 - Clinic staff can sign in to the patient portal with their work account and access it as a patient at their own clinic.
 - If a patient signs in and no matching record can be found, they are prompted to provide more information before access is granted.
-
-## Demographics
-
-When a patient selects **View your information**, they see their stored demographics. This page is read-only, so patients must contact your clinic to update any details.

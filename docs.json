@@ -8,6 +8,42 @@
     {
       "source": "/guides/task-management",
       "destination": "/modules/tasks/index"
+    },
+    {
+      "source": "/guides/embed-payment-itemized-charges",
+      "destination": "/api-reference/guides/embed-payment-itemized-charges"
+    },
+    {
+      "source": "/guides/embed-store-details",
+      "destination": "/api-reference/guides/embed-store-details"
+    },
+    {
+      "source": "/modules/care-plans/branching",
+      "destination": "/modules/care-plans#branching"
+    },
+    {
+      "source": "/modules/care-plans/editing",
+      "destination": "/modules/care-plans#editing-a-care-plan"
+    },
+    {
+      "source": "/modules/care-plans/steps",
+      "destination": "/modules/care-plans#step-statuses"
+    },
+    {
+      "source": "/modules/care-plans/step-types",
+      "destination": "/modules/care-plans#step-types"
+    },
+    {
+      "source": "/modules/care-plans/history",
+      "destination": "/modules/care-plans#edit-history"
+    },
+    {
+      "source": "/modules/care-plans/templates",
+      "destination": "/modules/care-plans#templates"
+    },
+    {
+      "source": "/modules/care-plans/tags",
+      "destination": "/modules/care-plans#tags"
     }
   ],
   "theme": "mint",
@@ -35,11 +71,13 @@
             "pages": [
               "modules/patients/index",
               "modules/patients/patient-chart",
-              "modules/patients/import-and-merge",
-              "modules/patients/care-plans",
-              "modules/patients/care-plan-editing",
-              "modules/patients/care-plan-steps",
-              "modules/patients/care-plan-step-types"
+              "modules/patients/import-and-merge"
+            ]
+          },
+          {
+            "group": "Care Plans",
+            "pages": [
+              "modules/care-plans/index"
             ]
           },
           {
@@ -67,9 +105,7 @@
               "modules/billing/invoices",
               "modules/billing/carts-and-quotes",
               "modules/billing/cash-and-commissions",
-              "modules/billing/chargebacks",
-              "guides/embed-payment-itemized-charges",
-              "guides/embed-store-details"
+              "modules/billing/chargebacks"
             ]
           },
           {
@@ -121,8 +157,7 @@
               "modules/check-in/index",
               "modules/check-in/dashboard",
               "modules/check-in/clock-in",
-              "modules/check-in/shifts",
-              "modules/check-in/care-plan-suggestions"
+              "modules/check-in/shifts"
             ]
           },
           {
@@ -138,7 +173,8 @@
               "modules/inventory/index",
               "modules/inventory/stock",
               "modules/inventory/purchase-orders",
-              "modules/inventory/suppliers"
+              "modules/inventory/suppliers",
+              "guides/medication-inventory-tracking"
             ]
           },
           {
@@ -181,8 +217,6 @@
                   "modules/settings/pos-devices/lane-3000"
                 ]
               },
-              "modules/settings/care-plan-tags",
-              "modules/settings/care-plan-templates",
               "modules/settings/rules",
               "modules/settings/general",
               "modules/settings/notifications",
@@ -231,7 +265,9 @@
             "pages": [
               "api-reference/guides/quickstart",
               "api-reference/guides/patient-onboarding-workflow",
-              "api-reference/guides/webhook-events"
+              "api-reference/guides/webhook-events",
+              "api-reference/guides/embed-payment-itemized-charges",
+              "api-reference/guides/embed-store-details"
             ]
           },
           {
