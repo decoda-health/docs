@@ -140,6 +140,7 @@
               "modules/comms/index",
               "modules/comms/chat",
               "modules/comms/ai-responses",
+              "modules/comms/social",
               "modules/comms/calls",
               "modules/comms/blasts",
               "modules/comms/cohorts"

@@ -12,14 +12,6 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guideseprescribingmdx-9uzzdgsw3wjo",
       "hash": "6555b91c2aedd344e58148fe43274f8d388fb17d87b74ae87fa1819e93b644e3"
     },
-    "guides/embed-payment-itemized-charges.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guidesembedpaymentitemizedc-i18qdyemqqbk",
-      "hash": "22ac3b9905c8ca88ed4771468d12601805d2f697a0e21f8e7c1d4eade707e8bb"
-    },
-    "guides/embed-store-details.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guidesembedstoredetailsmdx-0suwvj8s793v",
-      "hash": "ff4e7d27acc710da4f307250a819302a6ba5757d48fab38167f57488af74870d"
-    },
     "guides/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guidesindexmdx-9ym2mymksk8i",
       "hash": "e7cb72b23f6fb0ee2eb2251f92c86f105d770cf8aecfd5f074a07445f43e5ec3"
@@ -313,8 +305,8 @@
       "hash": "e60f7b811bff6c970e04625e0d1d2143e1f3f33e31398c88bbd41eee6994c057"
     },
     "modules/settings/payment-management.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspaymentmanag-9w4e1sumi3a5",
-      "hash": "50edc428e0f6a780b174d5ff35df1cddb7506e24a1fd830f2c03780a26e1f239"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspaymentmanag-qhcdrobztyii",
+      "hash": "677c9cfb771366c3dc19ea6030b2669d1069c8e7062e3af9fe6533e91b1d2a51"
     },
     "modules/settings/permissions.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspermissionsm-rx8xcd3hy6df",

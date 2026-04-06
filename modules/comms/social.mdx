@@ -1,0 +1,161 @@
+---
+title: 'Social Inbox'
+description: 'Manage Instagram and Facebook Messenger direct messages from a single inbox, link conversations to patients, and reply in real time.'
+---
+
+<Info>
+  **Prerequisites:** You need a business Instagram account or a Facebook Page to connect. Set up your accounts in **Settings > Social** before using the inbox.
+</Info>
+
+The Social Inbox lets your team read and reply to Instagram DMs and Facebook Messenger messages from inside Decoda. Conversations can be linked to patient records so your staff has full context when responding.
+
+## Connect Your Accounts
+
+Go to **Settings > Social** to connect Instagram and Facebook accounts.
+
+### Connect Instagram
+
+<Steps>
+  <Step title="Click Connect Instagram">
+    On the **Connected Accounts** tab, click the **Connect Instagram** button. A login window opens.
+  </Step>
+  <Step title="Log In and Authorize">
+    Sign in to your Instagram business account and grant Decoda permission to read and send messages.
+  </Step>
+  <Step title="Done">
+    The account appears in your Connected Accounts list. An initial sync pulls recent message history.
+  </Step>
+</Steps>
+
+### Connect Facebook / Messenger
+
+<Steps>
+  <Step title="Click Connect Facebook">
+    Click the **Connect Facebook** button. A login window opens.
+  </Step>
+  <Step title="Log In and Authorize">
+    Sign in to Facebook and grant permissions.
+  </Step>
+  <Step title="Select Pages">
+    A page picker shows your Facebook Pages and any linked Instagram accounts. Check the ones you want to connect — already-connected accounts are marked as **Connected** and cannot be re-added.
+  </Step>
+  <Step title="Click Connect Selected">
+    Click **Connect Selected** to finish. The accounts appear in your Connected Accounts list.
+  </Step>
+</Steps>
+
+### Disconnect an Account
+
+Click **Disconnect** next to any connected account. A confirmation prompt appears — confirming stops all message delivery for that account.
+
+## Using the Inbox
+
+Open the Social Inbox from **Comms > Social** in the main navigation.
+
+### Conversation List
+
+The left sidebar shows all conversations across your connected accounts. Each conversation displays the contact's name, a preview of the latest message, and a timestamp.
+
+- **Unread conversations** appear in bold text.
+- If you have multiple accounts connected, use the account filter at the top to show conversations from a specific account or **All accounts**.
+- Click the **sync button** (circular arrow icon) to manually pull the latest messages.
+
+<Info>
+  Syncing pulls the last 20 messages per conversation. Messages received in real time always have full content, but older synced messages from Instagram may have limited media content.
+</Info>
+
+### Reading and Replying
+
+Click a conversation to open the message thread. Messages are grouped by sender and spaced with time separators when there is a gap of more than 5 minutes.
+
+The **composer** at the bottom of the thread lets you:
+
+- **Type a message** and press **Enter** to send (Shift+Enter for a new line).
+- **Attach a file** using the paperclip icon. Instagram accepts images and videos. Messenger also accepts audio, PDFs, and documents.
+- **Add an emoji** using the smiley face icon next to the text input.
+
+The last outbound message shows a delivery status: **Sent**, **Delivered**, or **Read**.
+
+### 24-Hour Reply Window
+
+Instagram and Messenger require businesses to reply within 24 hours of the customer's last message. Each new inbound message resets the window.
+
+- A **countdown timer** appears in the conversation header showing the time remaining (e.g., "3h 45m left to reply").
+- When less than 2 hours remain, the timer turns to a warning color.
+- When the window expires, the composer is replaced with the message: *"The 24-hour reply window has expired. You can respond once the customer sends a new message."*
+
+### Replying to a Specific Message
+
+<Info>
+  Replies to specific messages are only available on Messenger. Instagram does not support this for business accounts.
+</Info>
+
+Hover over a message and click the **reply icon** to quote it. A preview of the original message appears above the composer. Click the **X** to cancel the reply.
+
+### Reactions
+
+Hover over any message and click the **react icon** (smiley face) to send an emoji reaction. Selecting an emoji you have already reacted with removes it. You can only have one active reaction per message — sending a new emoji replaces the previous one.
+
+Reactions appear as small pills below the message bubble.
+
+### Message Types
+
+The inbox displays different message types with appropriate formatting:
+
+| Type | How It Appears |
+|------|---------------|
+| **Text** | Standard message bubble |
+| **Image** | Inline image preview — click to open a fullscreen viewer with zoom and pan |
+| **Video** | Inline video player with controls |
+| **Audio** | Inline audio player (Messenger only) |
+| **File** | A downloadable file link |
+| **Sticker / GIF** | Displayed without a message bubble background |
+| **Shared post or reel** | Media card with a **View on Instagram** link when available |
+| **Story reply** | Shows "Replied to your story" with a story thumbnail and the reply text |
+| **Story mention** | Shows "Mentioned you in their story" with a thumbnail |
+| **Deleted message** | Italic text: "This message was unsent" |
+
+<Info>
+  Media from older synced messages may expire over time. When media is no longer available, a placeholder reading "Media is no longer available" appears in its place.
+</Info>
+
+## Patient Linking
+
+Link conversations to patient records so your team can see who they are messaging. Patient linking is available in two places:
+
+### From the Inbox
+
+When you open a conversation, the header shows a **Link patient** button (or the linked patient's name if already linked). Click **Link patient** to search for and select an existing patient. Click **Unlink** to remove the link.
+
+### From Settings
+
+Go to **Settings > Social > Patient Linking** to see a table of all conversations with their linked patient status. From here you can link or unlink patients in bulk without opening each conversation.
+
+| Column | What It Shows |
+|--------|--------------|
+| **Contact** | The contact's name and avatar |
+| **Channel** | Instagram or Messenger |
+| **Linked Patient** | The linked patient's name, or "Not linked" |
+| **Action** | **Link patient** or **Unlink** |
+
+<Info>
+  Only existing patients can be linked to conversations. To link a new patient, create their record first under **Patients**, then return here to link them.
+</Info>
+
+## Instagram vs. Messenger Differences
+
+| Feature | Instagram | Messenger |
+|---------|-----------|-----------|
+| Reply to a specific message | Not available | Available |
+| File attachments you can send | Images, videos | Images, videos, audio, PDFs, documents |
+| Shared post/reel links | Links to Instagram | N/A |
+| Reactions | Available | Available |
+| 24-hour reply window | Yes | Yes |
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Permissions">
+    Social inbox settings use the **Settings Social Read / Write** permission pair. Users need the **Read** permission to view the settings page and the **Write** permission to connect, disconnect, and link accounts. The inbox itself is accessible to users with communication permissions.
+  </Accordion>
+</AccordionGroup>

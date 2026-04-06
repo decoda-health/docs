@@ -1,6 +1,6 @@
 ---
-title: 'AI-Suggested Replies'
-description: 'Review AI-generated responses, give feedback to improve future suggestions, and execute AI actions.'
+title: 'AI Texting'
+description: 'Review AI-generated responses, enable AI-powered appointment scheduling over SMS, and execute AI actions.'
 ---
 
 <Info>
@@ -92,3 +92,110 @@ The AI assistant's behavior is controlled by settings under **Settings > Assista
 | **Phone Number** | The phone number used for outbound AI messages. |
 
 See [Assistants Settings](/modules/settings/assistants) for the full setup guide.
+
+## AI Scheduling
+
+When the right tools are enabled on the Inbound Texting assistant, the AI can handle appointment booking, cancellation, rescheduling, and confirmation entirely over text — without staff involvement.
+
+### What the AI Can Do
+
+| Action | What Happens |
+|--------|-------------|
+| **Book an appointment** | The AI finds available slots, presents options, discloses any booking fees, confirms details with the patient, and creates the appointment. |
+| **Cancel an appointment** | The AI identifies the appointment, states any cancellation fee, waits for patient confirmation, then cancels. |
+| **Reschedule an appointment** | The AI finds a new slot, confirms the change with the patient, cancels the old appointment, and books the new one. Previously paid booking fees are not charged again. |
+| **Confirm an appointment** | When a patient replies to a reminder with "yes", "confirm", or similar, the AI confirms all pending appointments within the reminder window. |
+| **Escalate to staff** | If the AI cannot help (clinical question, fee dispute, complaint), it contacts a staff member with the patient's name and request details. |
+
+### Enable AI Scheduling
+
+To turn on scheduling, enable the relevant tools on the Inbound Texting assistant under **Settings > AI Assistants > Inbound Texting > Tools**.
+
+| Tool | What It Enables |
+|------|----------------|
+| **FindAvailability** | Searches for open appointment slots. Required for booking and rescheduling. |
+| **CreateAppointment** | Allows the AI to book new appointments. |
+| **CancelAppointment** | Allows the AI to cancel appointments and handle fee disclosure. |
+| **RescheduleAppointment** | Allows the AI to reschedule existing appointments. |
+| **ConfirmAppointment** | Allows the AI to confirm pending appointments from reminder replies. |
+| **ListProvidersAndServices** | Allows the AI to look up providers, services, locations, and pricing. |
+
+<Info>
+  If you enable booking or rescheduling, make sure **FindAvailability** is also enabled — the AI needs it to search for open slots.
+</Info>
+
+Each tool is opt-in. The AI only offers capabilities for the tools you have enabled. For example, if you enable **CreateAppointment** but not **CancelAppointment**, patients can book over text but will need to call to cancel.
+
+### How Booking Works
+
+When a patient texts asking to book an appointment, the AI follows this flow:
+
+<Steps>
+  <Step title="Gather Requirements">
+    The AI asks the patient what service they need, and optionally their preferred provider, location, or time. If the patient has a preferred provider or primary location on file, the AI uses those as defaults.
+  </Step>
+  <Step title="Disclose Fees">
+    If the service has a booking fee, the AI tells the patient the exact amount and the cancellation fee policy before searching for availability. The patient must acknowledge before the AI proceeds.
+  </Step>
+  <Step title="Find Availability">
+    The AI searches for open slots (up to 10 at a time, within a 14-day window) and presents them conversationally — for example, "We have openings on Friday at 9:15 AM and 10:00 AM."
+  </Step>
+  <Step title="Confirm with the Patient">
+    The AI restates the service, provider, date, time, and location, and waits for the patient to confirm. The AI never books without explicit confirmation.
+  </Step>
+  <Step title="Create the Appointment">
+    Once confirmed, the AI books the appointment and sends a confirmation message. If a booking fee is required, the AI sends a secure payment link with a deadline.
+  </Step>
+</Steps>
+
+### How Cancellation Works
+
+<Steps>
+  <Step title="Identify the Appointment">
+    The AI finds the appointment to cancel, either from context in the conversation or by looking up the patient's upcoming appointments.
+  </Step>
+  <Step title="Check for Fees">
+    If the appointment is within the service's cancellation window, the AI tells the patient the exact fee amount. There are two fee models:
+    - **Flat fee** -- a fixed dollar amount if within the cancellation window.
+    - **Percentage-based tiers** -- a percentage of the service price, with different rates for within 24 hours vs. within 48 hours. Any previously paid booking fee is credited against the cancellation fee.
+  </Step>
+  <Step title="Get Patient Confirmation">
+    The patient must confirm they accept the fee before the AI cancels. If the patient refuses, the AI does not cancel and escalates to staff instead.
+  </Step>
+</Steps>
+
+<Info>
+  The AI cannot waive or reduce fees. Fee disputes are always escalated to a staff member.
+</Info>
+
+### How Rescheduling Works
+
+The AI cancels the old appointment (silently, without sending the patient a cancellation SMS) and books a new one. The patient can request a different time, provider, or location.
+
+<Warning>
+  Appointments within 24 hours cannot be rescheduled by the AI. This is a hard limit. The AI will let the patient know and escalate to staff.
+</Warning>
+
+If the patient already paid a booking fee for the original appointment, the new appointment is created without charging the fee again.
+
+### Identifying AI-Created Appointments
+
+Appointments booked or rescheduled by the AI are labeled with the note **"Scheduled by Decoda."** in the appointment record. Cancellations made by the AI include **"via AI Conversation"** in the cancellation reason.
+
+### Safeguards
+
+The AI has several built-in safeguards:
+
+- **Fees are always disclosed before action.** Booking fees are disclosed before searching for availability. Cancellation fees are disclosed before cancelling.
+- **Patient confirmation is required.** The AI reads back the full appointment details and waits for a "yes" before booking or cancelling.
+- **Complaints are escalated, not cancelled.** If a patient wants to cancel because of a bad experience, the AI contacts staff instead of proceeding — giving your team a chance to retain the patient.
+- **Patient identity is validated.** The AI checks that the patient has a first and last name on file before booking. If not, it asks the patient for their name first.
+- **Emergencies are redirected.** The AI advises patients to contact emergency services for medical emergencies.
+- **Language matching.** The AI responds in the same language the patient uses.
+
+### Limitations
+
+- The AI searches up to 14 days ahead by default for availability.
+- Appointments within 24 hours cannot be rescheduled (cancellation is still possible with fee disclosure).
+- The AI cannot waive fees, provide medical advice, or modify provider schedules.
+- If the AI cannot find availability after trying different dates, times, and providers, it shares your clinic's self-scheduling link as a fallback.
