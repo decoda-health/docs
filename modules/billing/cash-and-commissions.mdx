@@ -4,7 +4,7 @@ description: 'Track and reconcile physical cash at each location, and set up pro
 ---
 
 <Info>
-  Navigate to **Billing > Cash Balances** for cash management or **Billing > Commissions** for commission structures.
+  Navigate to **Billing > Cash Balances** for cash management, **Billing > Staff Pay** for commission reports and provider earnings, or **Settings > Commissions** to configure commission rules.
 </Info>
 
 ## Cash Management
@@ -76,41 +76,29 @@ You can also **void** a cash balance closure or adjustment if it was recorded in
 
 ## Commissions
 
-Navigate to **Billing > Commissions** to set up and manage provider commission structures and generate payout reports.
+### Configure Commission Rules
 
-### Commission Structures
+Navigate to **Settings > Commissions** to set up and manage commission rules. Each rule defines:
 
-A commission structure defines the rules for calculating provider payouts. Each structure includes:
+- **Scope:** What gets commissioned -- all sales, specific item types, a category, or a specific item.
+- **Rate:** A percentage of the sale price or a flat dollar amount. Rules can have tiered rates that increase after a provider reaches a sales threshold (graduated or stepwise).
+- **Deferred Sales:** For packages and banked items, choose whether commissions are paid at the time of sale or when the service is redeemed.
+- **Assigned Providers:** The staff members who earn commissions from this rule.
 
-- **Name and Description:** Identifying information.
-- **Commission Rules:** One or more rules that define how commissions are calculated (e.g., percentage of revenue, per-service flat fee). Rules can be scoped to specific services, items, or packages.
-- **Assigned Providers:** The staff members whose earnings are calculated using this structure.
+You can filter, group, duplicate, and bulk-manage rules from the settings page. See the [Commissions settings guide](/docs/settings/commissions) for full details.
 
-### Manage Structures
+### View Commission Reports (Staff Pay)
 
-- **Create:** Click **New Structure** and configure rules and provider assignments on the edit page.
-- **Edit:** Modify rules, name, description, or assignments.
-- **Duplicate:** Create a copy of an existing structure.
-- **Add/Remove Providers:** Assign or unassign staff members.
-- **Delete:** Permanently remove a structure.
-
-### Generate Commission Reports
+Navigate to **Billing > Staff Pay** to see a combined view of commissions, tips, and hourly pay for all providers.
 
 <Steps>
-  <Step title="Open Report Generator">
-    Click **Generate Report** from the Commissions page.
+  <Step title="Select a Date Range">
+    Use the date picker to choose the reporting period.
   </Step>
-  <Step title="Configure Parameters">
-    Select the commission structure, date range, and any filters.
-  </Step>
-  <Step title="Review Results">
-    The generated report opens in a details view showing each provider's payouts, totals, and line items.
+  <Step title="Review Provider Earnings">
+    The summary cards show totals. The table lists each provider with their commissions, tips, and hourly pay. Click a provider row to see a line-by-line breakdown.
   </Step>
   <Step title="Export">
-    Click **Export Report** to download the report as a CSV file. Requires the Export Commissions permission.
+    Click **Export Report** to download the full report, or select individual providers and click **Export Selected** for per-provider CSV files.
   </Step>
 </Steps>
-
-### Export Tips
-
-Click **Export Tips** to download a report of all tips collected during a specified date range, broken down by provider.
