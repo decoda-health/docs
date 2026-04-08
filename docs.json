@@ -190,6 +190,12 @@
             ]
           },
           {
+            "group": "Growth & Lead Tracking",
+            "pages": [
+              "modules/growth/index"
+            ]
+          },
+          {
             "group": "Usage & Subscription",
             "pages": [
               "modules/usage/index"

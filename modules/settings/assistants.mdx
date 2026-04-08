@@ -47,7 +47,7 @@ Inbound calling assistants answer phone calls to your clinic's AI phone numbers.
     - **Timezone:** Set the timezone for shift scheduling.
     - **Greeting Message:** Customize the opening message callers hear. Supports suggestion shortcuts (type `@` to insert saved text snippets). If left blank, the default greeting is used.
     - **Assistant Behaviour:** Write custom instructions that control how the assistant handles conversations. Examples: escalation procedures, call transfer numbers, operating hours, and available services.
-    - **Tools:** Select capabilities the assistant can use during calls (e.g., ending calls, sending texts, transferring calls, verifying callers).
+    - **Tools:** Select capabilities the assistant can use during calls (e.g., ending calls, sending texts, transferring calls, verifying callers). Scheduling tools are also available -- these let the assistant find open appointment times, book appointments, cancel appointments, and reschedule appointments on behalf of callers. Note that some tools depend on others: for example, enabling the booking tool will automatically enable the availability lookup tool, since the assistant needs to find open times before it can book.
     - **AI Model:** Choose which AI model powers the assistant. The recommended model is pre-selected.
     - **Phone Number:** The provisioned number assigned to this assistant (read-only after creation).
     - **Fallback Phone Number:** The number that receives calls when the assistant is disabled or outside scheduled shifts. Must be a valid 10-digit number.
@@ -83,6 +83,21 @@ Inbound assistants are grouped by phone number. Each group can contain multiple 
 ### Search Assistants
 
 Use the search bar on the Inbound Calling page to filter assistants by name or phone number.
+
+### Behavior Presets
+
+Behavior presets are ready-made instruction sets that you can add to an assistant's behavior with one click, instead of writing detailed instructions from scratch.
+
+When editing an assistant's behavior, you will see a row of preset buttons above the behavior text area (labeled **Quick Presets**). Each preset covers a specific capability -- for example, rules for recommending related services during booking, or steps for reducing cancellations by offering alternatives first.
+
+**How to use presets:**
+
+1. Open the assistant editor and scroll to the **Assistant Behaviour** field.
+2. Click the **+** button on any preset card to insert its instructions into the behavior text area.
+3. To remove a preset, click the checkmark button on its card. The inserted text is removed automatically.
+4. If you edit the inserted text and want to go back to the original version, click the reset arrow that appears on the preset card.
+
+You can add multiple presets at once -- they stack together in the behavior field. Feel free to edit the inserted text to fit your clinic's specific needs.
 
 ## Outbound Calling Assistants
 
@@ -236,6 +251,8 @@ Suggestions pull from multiple categories including saved suggestions, assistant
   </Accordion>
   <Accordion title="Tool Selection">
     Tools extend what an assistant can do during a conversation. For inbound calling assistants, tools might include verifying callers, sending texts, transferring calls, or ending calls. For texting assistants, the available tool set is different and excludes voice-only capabilities. Only enable tools the assistant needs to keep conversations focused.
+
+    Scheduling tools are available for both inbound calling and texting assistants. These include finding available appointment times, booking new appointments, cancelling existing appointments, and rescheduling appointments. Some scheduling tools depend on others -- for example, booking an appointment requires the ability to look up available times, so enabling the booking tool will automatically enable the availability lookup tool.
   </Accordion>
   <Accordion title="Permissions">
     AI Assistant settings use granular per-type permissions:

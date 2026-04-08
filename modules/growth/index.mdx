@@ -1,0 +1,282 @@
+---
+title: 'Growth & Lead Tracking'
+description: 'Track leads from first contact to patient conversion, measure campaign performance, and manage your marketing content in one place.'
+---
+
+<Info>
+  **Prerequisites:** The **Marketing** module must be enabled for your clinic. Ask your administrator to turn it on under organization settings if you don't see **Growth** in the left sidebar.
+</Info>
+
+The Growth module is where you manage prospective patients -- from the moment they reach out or click an ad, all the way through to becoming a patient on your books. You can track where leads come from, move them through customizable stages, measure which campaigns are working, and create marketing content without leaving Decoda.
+
+**Where to find it:** Click **Growth** in the left sidebar. You'll see pages for **Dashboard**, **Leads**, **Pipelines**, **Campaigns**, and **Content Studio**.
+
+<CardGroup cols={2}>
+  <Card title="Dashboard" icon="chart-line" href="#dashboard">
+    See lead totals, conversion rates, pipeline funnels, and campaign performance at a glance.
+  </Card>
+  <Card title="Leads" icon="users" href="#leads">
+    View, create, and manage every prospective patient. Convert leads into patient records when they're ready.
+  </Card>
+  <Card title="Pipelines" icon="arrow-right" href="#pipelines">
+    Set up the stages a lead moves through, from first contact to converted or lost.
+  </Card>
+  <Card title="Campaigns" icon="bullhorn" href="#campaigns">
+    Create marketing campaigns, link them to pipelines, and track spend, leads, and return on investment.
+  </Card>
+  <Card title="Content Studio" icon="pen-nib" href="#content-studio">
+    Create and schedule social media posts, blog articles, emails, and ads for your campaigns.
+  </Card>
+</CardGroup>
+
+## Dashboard
+
+The Dashboard gives you a high-level view of how your lead generation and marketing efforts are performing. Navigate to **Growth > Dashboard** to open it.
+
+### Date Range
+
+Use the date picker at the top of the page to choose a time window. All numbers and charts update to reflect the selected range.
+
+### Tabs
+
+The dashboard is organized into three tabs:
+
+**Funnel & Sources** -- Shows how leads flow through your pipeline stages and where they come from.
+
+- **Total Leads** -- The number of new leads created during the selected period.
+- **Total Conversions** -- How many leads reached a "won" stage and became patients.
+- **Overall Conversion Rate** -- The percentage of leads that converted.
+- **Pipeline Funnel** -- A visual breakdown of how many leads sit at each stage of a pipeline, with drop-off percentages between stages. If you have multiple pipelines, use the selector to view each one individually or all at once.
+- **Lead Sources** -- A bar chart showing where your leads are coming from (Google Ads, referrals, walk-ins, website, etc.).
+
+**Channel Performance** -- Compares revenue, spend, and efficiency across your marketing channels.
+
+- **Total Revenue**, **Total Spend**, **Total Bookings**, and **Average CPA** (cost per acquisition) summary cards.
+- **Revenue vs. Spend by Channel** -- Side-by-side bars for each campaign so you can spot which channels earn more than they cost.
+- **ROAS by Channel** -- Return on ad spend for each campaign.
+- **Channel Performance Details** -- A table listing every campaign with its leads, bookings, spend, CPA, revenue, and ROAS.
+
+**Attribution** -- Helps you understand which marketing touchpoint deserves credit for a conversion. Choose an attribution model (First Touch, Last Touch, Linear, Time Decay, or Position-Based) to see how revenue is distributed across channels under each model.
+
+## Leads
+
+The Leads page shows every prospective patient in your system. Navigate to **Growth > Leads** to open it.
+
+### Viewing Leads
+
+The table displays each lead's name, pipeline, current stage, campaign source, assigned staff member, and date created. You can:
+
+- **Search** by name using the search field.
+- **Filter** by pipeline, stage, or campaign source.
+- **Group** leads by pipeline, stage, campaign, or assigned staff member using the **Group By** option.
+- **Sort** by name or date created by clicking the column headers.
+
+Click any lead row to open a detail panel on the right side of the screen.
+
+### Lead Detail Panel
+
+When you click a lead, a panel opens showing:
+
+- **Lead information** -- Name, email, phone, source, assigned staff member, current pipeline stage, and creation date.
+- **Activity tab** -- A timeline of every change made to the lead (stage moves, field updates, notes added, etc.), including who made the change and when.
+- **Conversations tab** -- A combined view of all text messages and emails exchanged with this lead, sorted by date.
+- **Notes tab** -- Free-form notes your team has added about this lead. Type a note and click **Add Note** to save it.
+
+### Create a New Lead
+
+<Steps>
+  <Step title="Open the Add Lead Form">
+    Click the **Add Lead** button in the top-right corner of the Leads page.
+  </Step>
+  <Step title="Fill in the Lead's Details">
+    Enter the lead's **First Name** (required), and optionally their last name, email, phone number, and how they found your clinic (source).
+  </Step>
+  <Step title="Save the Lead">
+    Click **Save**. The lead appears in your list and is placed at the first stage of the default pipeline.
+  </Step>
+</Steps>
+
+### Convert a Lead to a Patient
+
+When a lead is ready to become a patient:
+
+1. Click the lead to open the detail panel.
+2. Click **Convert to Patient**.
+3. A patient record is created using the lead's name, email, and phone number. The lead is marked as converted with the date recorded.
+
+<Warning>
+  Converting a lead is a one-time action. Once converted, the lead is linked to the new patient record and cannot be unconverted.
+</Warning>
+
+## Pipelines
+
+Pipelines define the journey a lead takes from first contact to becoming a patient (or being marked as lost). Navigate to **Growth > Pipelines** to view and manage them.
+
+### How Pipelines Work
+
+A pipeline is a series of **stages** that a lead moves through in order. For example, a default pipeline might look like:
+
+1. **New** -- Lead just came in.
+2. **Contacted** -- Your team has reached out.
+3. **Consultation Booked** -- An appointment is on the calendar.
+4. **Showed Up** -- The lead attended their consultation.
+5. **Converted** -- The lead became a patient (this is a "won" stage).
+6. **Lost** -- The lead did not convert (this is a "lost" stage).
+
+Each pipeline must have at least one "won" stage (for successful conversions) and one "lost" stage (for leads that don't work out). Stages are numbered so the system knows the correct order.
+
+### Kanban Board
+
+When you select a pipeline, leads are displayed as cards on a board with one column per stage. You can:
+
+- **Drag a card** from one column to another to move a lead to a different stage.
+- **Click a card** to open the lead's detail panel.
+- **Filter** leads by search, stage, or campaign.
+- **Add a lead** directly from the board using the **Add Lead** button.
+
+If you have multiple pipelines, use the pipeline selector at the top of the page to switch between them.
+
+### Create or Edit a Pipeline
+
+Pipeline configuration is managed under **Settings > Pipelines**. Click the **Configure Pipeline** button on the Pipelines page to go there.
+
+<Steps>
+  <Step title="Open Pipeline Settings">
+    Go to **Settings > Pipelines**, or click **Configure Pipeline** from the Growth Pipelines page.
+  </Step>
+  <Step title="Add Stages">
+    Give each stage a name, a color, and a position number. Mark one stage as the "won" (converted) stage and one as the "lost" stage.
+  </Step>
+  <Step title="Save Your Pipeline">
+    Click **Save**. New leads assigned to this pipeline will start at the first stage.
+  </Step>
+</Steps>
+
+### Stage Automations
+
+Each stage can have automations that run when a lead enters it. For example, you could automatically send an SMS when a lead moves to the "Contacted" stage, or create a task for your team when someone books a consultation. Automations are configured in the pipeline settings for each stage.
+
+## Campaigns
+
+Campaigns let you track your marketing efforts and see which ones bring in the most leads. Navigate to **Growth > Campaigns** to open the campaigns page.
+
+### Viewing Campaigns
+
+The campaigns table shows:
+
+| Column | What It Shows |
+|--------|---------------|
+| **Campaign Name** | The name of the campaign and its platform (Google Ads, Meta, etc.). |
+| **Status** | Whether the campaign is active or inactive. |
+| **Spend** | The budget allocated to the campaign. |
+| **Leads** | How many leads came from this campaign. |
+| **Bookings** | How many of those leads converted. |
+| **Revenue** | Total revenue attributed to this campaign. |
+| **CPA** | Cost per acquisition -- how much you spent for each lead. |
+| **ROI** | Return on investment. |
+
+Use the **Status** and **Channel** filters to narrow the list.
+
+### Create a Campaign
+
+<Steps>
+  <Step title="Start a New Campaign">
+    Click **New Campaign** in the top-right corner of the Campaigns page.
+  </Step>
+  <Step title="Fill In Campaign Details">
+    Enter a **name**, choose a **platform** (e.g., Google Ads, Meta Ads, organic), set a **budget**, and optionally pick start and end dates.
+  </Step>
+  <Step title="Link to a Pipeline">
+    Choose which pipeline new leads from this campaign should be placed into. This determines which stages those leads will flow through.
+  </Step>
+  <Step title="Save the Campaign">
+    Click **Save**. The campaign appears in your list. Any leads attributed to this campaign will show its name in the **Campaign** column on the Leads page.
+  </Step>
+</Steps>
+
+### Campaign Actions
+
+Click the action menu on any campaign row to:
+
+- **View Details** -- Open the full campaign page with posts and performance data.
+- **Edit Campaign** -- Update the name, budget, platform, or linked pipeline.
+- **Pause / Activate** -- Temporarily stop or resume a campaign.
+- **Webhook Setup** -- For Google Ads campaigns, view the webhook URL and key needed to connect your Google Ads lead form so that leads flow into Decoda automatically.
+- **Delete Campaign** -- Permanently remove the campaign.
+
+## Content Studio
+
+The Content Studio is where you create and manage marketing content for your campaigns. Navigate to **Growth > Content Studio** to open it.
+
+### View Modes
+
+You can view your content in three ways using the controls at the top of the page:
+
+- **Grid** -- Content displayed as cards in a grid layout. Each card shows the title, type, status, creator, and dates.
+- **List** -- A compact row-based view for scanning many items quickly.
+- **Calendar** -- A monthly calendar showing content placed on its scheduled date. You can drag content from one day to another to reschedule it.
+
+### Content Types
+
+Each piece of content has a type:
+
+- **Social Post** -- For platforms like Instagram, Facebook, or TikTok.
+- **Blog** -- Written articles for your website.
+- **Email** -- Email campaigns or newsletters.
+- **Ad** -- Paid advertisements.
+- **Landing Page** -- Web pages designed to capture leads.
+
+Use the type filter to show only the content you're looking for.
+
+### Content Statuses
+
+- **Draft** -- Work in progress. Not yet scheduled or published.
+- **Scheduled** -- Set to go live on a future date.
+- **Published** -- Live and visible to your audience.
+- **Paused** -- Temporarily taken down.
+- **Archived** -- No longer active, kept for records.
+
+### Create New Content
+
+<Steps>
+  <Step title="Open the Content Editor">
+    Click **New Content** in the top-right corner of the Content Studio page.
+  </Step>
+  <Step title="Choose a Campaign">
+    Select which campaign this content belongs to. This links the content to the campaign's performance tracking.
+  </Step>
+  <Step title="Write Your Content">
+    Add a title, caption or body text, call-to-action text and link, and any images or videos.
+  </Step>
+  <Step title="Schedule or Publish">
+    Set a scheduled date to publish later, or publish immediately. You can also save as a draft to come back to it.
+  </Step>
+</Steps>
+
+### Reschedule Content on the Calendar
+
+In the calendar view, drag any piece of content to a different day to move its scheduled date. A confirmation prompt appears before the change is saved. You can only reschedule content to future dates.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Permissions">
+    Growth features are controlled by two permissions:
+    - **Marketing Read** -- Required to view the Growth pages (Dashboard, Leads, Pipelines, Campaigns, Content Studio).
+    - **Marketing Write** -- Required to create and edit leads, campaigns, pipelines, and content.
+
+    Permissions are configured under **Settings > Users & Roles**. See [Users & Roles](/modules/settings/users) for details.
+  </Accordion>
+  <Accordion title="Default Pipeline">
+    One pipeline can be marked as the **default**. When a new lead is created -- either manually or from an inbound message -- it is automatically placed into the first stage of the default pipeline. You can change which pipeline is the default in **Settings > Pipelines**.
+  </Accordion>
+  <Accordion title="Automatic Lead Creation">
+    When someone texts or emails your clinic for the first time and they don't match an existing patient, the system can automatically create a lead record. The lead is placed into the default pipeline at its first stage, assigned to the appropriate location, and linked to the conversation so your team can pick up the thread right away.
+  </Accordion>
+  <Accordion title="Google Ads Integration">
+    If you run Google Ads with Lead Form Extensions, you can connect them to Decoda so that leads flow in automatically. On the Campaigns page, create a campaign with Google Ads as the platform, then open the campaign's **Webhook Setup** to get the webhook URL and key. Paste these into your Google Ads Lead Form Extension delivery settings. Each form submission creates a new lead in Decoda, attributed to that campaign.
+  </Accordion>
+  <Accordion title="Lead Assignments">
+    Leads can be assigned to a specific staff member. The assigned person appears on the lead's row in the table and on their detail panel. Assignment can be done manually when editing a lead, or automatically through stage automations (e.g., "when a lead enters the Contacted stage, assign to Dr. Smith").
+  </Accordion>
+</AccordionGroup>

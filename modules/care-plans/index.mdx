@@ -51,7 +51,7 @@ Every care plan is made up of individual steps. There are four types:
 |------|-------------|-------------------|
 | **Appointment** | A scheduled visit for the patient | Services, medications, measurements, provider notes, scheduled date |
 | **Task** | An internal to-do for your team (requires the **Tasks** module) | Title, description, initial status, priority, assignee, start date, due date, provider notes |
-| **Message** | An automated SMS tied to an appointment step | Message type (reminder, confirmation, or follow-up), SMS body, timing |
+| **Message** | An automated SMS to the patient — either linked to an appointment or sent on its own | Message type (optional), SMS body, timing (if linked to an appointment) |
 | **Decision** | A point where the plan splits into multiple possible paths (branches) | Branch names, branch tags, steps within each branch |
 
 ### Appointment Steps
@@ -131,9 +131,12 @@ When you click on a task step, the details area shows:
 
 ### Message Steps
 
-A message step sends an automated SMS to the patient. Message steps are typically linked to an appointment and appear on the timeline next to the appointment they belong to.
+A message step sends an automated SMS to the patient. There are two ways to use message steps:
 
-There are three types of messages:
+- **Linked messages** — tied to an appointment step. You choose a message type (reminder, confirmation, or follow-up) and set the timing relative to that appointment. Linked messages appear on the timeline next to the appointment they belong to.
+- **Standalone messages** — not tied to any appointment. These appear as their own step on the timeline, just like an appointment or task step. No message type is needed — just write the SMS body. Standalone messages are useful for general check-ins, instructions, or any message that is not related to a specific visit.
+
+When a message is linked to an appointment, there are three types to choose from:
 
 | Message Type | When It's Sent | Configurable Timing |
 |-------------|---------------|-------------------|
@@ -141,10 +144,14 @@ There are three types of messages:
 | **Confirmation** | After the appointment | Sent automatically, no timing needed |
 | **Follow-up** | After the appointment | Set how long after (e.g., "3 days after") |
 
+<Info>
+  Message type is only required when the message is linked to an appointment. Standalone messages do not need a type — just the SMS body.
+</Info>
+
 When you click on a message step, the details area shows:
 
-- **Message Type** -- The type of message (reminder, confirmation, or follow-up).
-- **Timing** -- How far before or after the appointment the message is sent (not shown for confirmation messages).
+- **Message Type** -- The type of message (reminder, confirmation, or follow-up). This field only applies to messages linked to an appointment and can be left blank for standalone messages.
+- **Timing** -- How far before or after the appointment the message is sent. This only appears when the message is linked to an appointment (not shown for confirmation messages or standalone messages).
 - **SMS Body** -- The message text. You can personalize the message with variables by typing `@` in the editor. Available variables include:
 
 | Variable | What It Inserts |
@@ -164,13 +171,13 @@ When you click on a message step, the details area shows:
 
 <Steps>
   <Step title="Add a Message Step">
-    Click **Add Step**, then choose **Message** from the menu.
+    Click **Add Step**, then choose **Message** from the menu. The message is added as its own step on the timeline.
   </Step>
-  <Step title="Choose the Message Type">
-    Select whether this is a **Reminder**, **Confirmation**, or **Follow-up** message.
+  <Step title="Choose a Message Type (Optional)">
+    If this message is linked to an appointment, select whether it is a **Reminder**, **Confirmation**, or **Follow-up**. For standalone messages that are not tied to an appointment, you can skip this — no message type is needed.
   </Step>
-  <Step title="Set the Timing">
-    For reminder and follow-up messages, set how far before or after the appointment the message should be sent.
+  <Step title="Set the Timing (Linked Messages Only)">
+    For reminder and follow-up messages linked to an appointment, set how far before or after the appointment the message should be sent. This step does not apply to standalone messages.
   </Step>
   <Step title="Write the SMS Body">
     Compose the message text. Type `@` to insert personalization variables such as the patient's name, provider name, care plan name, appointment time, or location.
@@ -178,7 +185,7 @@ When you click on a message step, the details area shows:
 </Steps>
 
 <Info>
-  Message steps are typically linked to an appointment in the care plan. They appear on the timeline next to the appointment they belong to.
+  Message steps can work in two ways: **linked** to an appointment (with a type and timing) or **standalone** (sent on their own, without an appointment). Linked messages appear on the timeline next to the appointment they belong to. Standalone messages appear as their own step, just like appointments and tasks.
 </Info>
 
 ### Decision Steps
@@ -414,7 +421,7 @@ Click on any step to see its details. What you can change depends on the step ty
 |-----------|----------------|
 | **Appointment** | Services, medications, measurements, provider notes, scheduled date (or completed date if finished) |
 | **Task** | Title, description, initial status, priority, assignee, due date, provider notes |
-| **Message** | Message type, SMS body, timing |
+| **Message** | Message type (optional), SMS body, timing (if linked to an appointment) |
 
 <Info>
   Every step must have at least some content (a service, medication, measurement, task title, or description). You will see an error if you try to save a step that is empty.
