@@ -125,6 +125,40 @@ Shows all purchased packages and their usage. Each package displays:
 
 Click **Sell Package** to navigate to checkout with this patient pre-selected.
 
+### Labs Tab
+
+<Info>
+  This tab only appears when the **Labs** module is enabled for your organization.
+</Info>
+
+View and manage lab orders for this patient. The tab shows a list of all lab orders with their status, lab name, tests ordered, and date.
+
+#### Placing a Lab Order
+
+Click **New Lab Order** to open the ordering form. Walk through the following steps:
+
+1. **Select Tests** -- search for lab tests by name or browse presets. You can pick individual biomarkers or full panels. Selected tests appear in the summary on the right.
+2. **Choose a Collection Site** -- search for a Patient Service Center (PSC) near the patient. Filter by distance and view locations on a map. Select a site for the patient to visit.
+3. **Add Clinical Details** -- enter ICD-10 diagnosis codes (search or type manually), select the ordering physician, choose billing type, add clinical notes, and mark whether the patient needs to fast or if the order is STAT priority.
+4. **Review & Submit** -- review the full order with patient details and order summary side by side. Click **Submit Order** to send it to the lab.
+
+#### Viewing an Order
+
+Click any order in the list to open the detail view. The detail page has two tabs:
+
+**Order Details** -- shows the order timeline (status updates from the lab), lab and test information (laboratory name, address, tests ordered, sample type, fasting requirement, collection method), and order information (physician, billing type, ICD-10 codes, priority, clinical notes, dates).
+
+**Results** -- appears once the lab returns results. Shows:
+- **AI Summary** -- an AI-generated overview at the top that highlights abnormal or critical values and explains their clinical significance. Click **Regenerate** to get a fresh summary.
+- **Biomarker Table** -- each result row shows the marker name, value, unit, reference range, status (normal, abnormal, or critical), and any notes from the lab. Abnormal and critical values are highlighted in red.
+
+#### Order Actions
+
+- **Refresh** -- pull the latest status from the lab.
+- **Requisition** -- download the requisition form (available once the lab confirms the order).
+- **Results PDF** -- download the full results report (available once results are ready).
+- **Cancel Order** -- cancel an order that has not yet been processed by the lab.
+
 ### Tasks Tab
 
 <Info>
