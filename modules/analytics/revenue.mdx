@@ -36,7 +36,7 @@ The Product Sales dashboard breaks down every item on every charge. Here's what 
 | **Tax** | Tax amount charged |
 | **Net Revenue** | What you actually earned: Gross Revenue + Tax - Item Discounts - Charge Discounts (hover for the full calculation) |
 | **Cost** | Your cost for the item -- for products, this comes from the weighted average of shipment costs; for services, it's the cost field from the service setup |
-| **Net Profit** | Net Revenue minus Cost -- your actual profit after expenses (hover for the calculation) |
+| **Net Profit** | Net Revenue minus Cost and Tax -- your actual profit, excluding sales tax you collected for the state (hover for the calculation) |
 | **Brand** | The brand associated with the item (hidden by default -- use the Columns button to show it) |
 | **Status** | The status of the charge this item belongs to: Paid, Partial, Void, etc. (hidden by default) |
 
@@ -48,7 +48,7 @@ The Product Sales dashboard breaks down every item on every charge. Here's what 
 
 - **Gross Revenue** is the starting point -- what you would have earned if there were no discounts or taxes.
 - **Net Revenue** is what you earned after discounts and taxes are factored in.
-- **Net Profit** is the bottom line -- what's left after subtracting your cost for the item.
+- **Net Profit** is the bottom line -- what's left after subtracting your cost for the item and the sales tax you collected (tax isn't money you keep, so it's removed from profit).
 
 If your Net Profit is low or negative on certain items, it could mean your pricing doesn't account for costs, or you're giving too many discounts on those items.
 
@@ -61,7 +61,7 @@ If your Net Profit is low or negative on certain items, it could mean your prici
 | **Date Range** | Last 3 months |
 | **Group by** | Category |
 
-Don't just look at **Gross Revenue** -- a high-revenue service can still have low profit. Check the **Net Profit** column instead, which factors in discounts, taxes, and your costs. Items with negative Net Profit mean you're losing money on them.
+Don't just look at **Gross Revenue** -- a high-revenue service can still have low profit. Check the **Net Profit** column instead, which factors in discounts, your costs, and removes the sales tax you collected. Items with negative Net Profit mean you're losing money on them.
 
 #### How much are we losing to discounts?
 
