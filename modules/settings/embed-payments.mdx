@@ -1,0 +1,82 @@
+---
+title: 'Embedded Payment Components'
+description: 'Generate embeddable forms to collect payments or save payment details on your website.'
+---
+
+<Info>
+  **Prerequisite:** The Payments module must be enabled for your organization before you can access this page. Contact Decoda support if Payments is not enabled.
+</Info>
+
+This page lets you create ready-to-use code snippets that add a payment form or a save-payment-details form to your website. Patients can pay or save their card/bank information directly from your site without needing to log into Decoda.
+
+Navigate to **Settings > Developers > Embedded Payment Components**. The page has two tabs: **Store Details** and **Payment**.
+
+## Store Details Tab
+
+Use this tab to generate a form that collects and saves a patient's payment method (card or bank account) without charging them.
+
+### Generate an Embed Code
+
+<Steps>
+  <Step title="Select a Patient">
+    Use the patient search field in the **Configuration** panel to find and select a patient.
+  </Step>
+  <Step title="Customize Appearance">
+    - **Width / Height:** Set the form dimensions (pixels or percentages).
+    - **Theme:** Choose **Light** or **Dark**.
+    - **Show patient name header:** Toggle this to include or hide the patient name at the top of the form.
+    - **Allowed payment methods:** Check or uncheck **Card**, **ACH**, and **Apple Pay** to control which options appear.
+  </Step>
+  <Step title="Set a Redirect URL (optional)">
+    Enter a URL where the patient should be sent after saving their details. When set, the generated code uses a direct link instead of an iframe. This mode supports Apple Pay.
+  </Step>
+  <Step title="Preview and Copy">
+    The right-side **Preview** panel shows a live version of the form. When satisfied, click **Copy Code** in the **Embed Code** section below. Paste the snippet into your website's HTML.
+  </Step>
+</Steps>
+
+The generated code includes an `<iframe>` element and a JavaScript event listener that fires on `store_details_success`, `store_details_failure`, and `store_details_loaded` events, allowing your website to react when the patient saves their details.
+
+For the full integration guide (including redirect mode and the charge-card API), see [Store Details Embed: Save Payment Methods](/api-reference/guides/embed-store-details).
+
+## Payment Tab
+
+Use this tab to generate a form that collects a payment from a patient.
+
+### Generate an Embed Code
+
+<Steps>
+  <Step title="Select a Patient">
+    Use the patient search field in the **Configuration** panel to find and select a patient.
+  </Step>
+  <Step title="Set the Amount">
+    Enter the dollar amount to charge.
+  </Step>
+  <Step title="Customize Appearance">
+    - **Width / Height:** Set the form dimensions (pixels or percentages).
+    - **Theme:** Choose **Light** or **Dark**.
+    - **Show payment summary header:** Toggle this to include or hide the patient name and amount at the top of the form.
+    - **Allowed payment methods:** Check or uncheck **Card**, **ACH**, and **Apple Pay** to control which options appear. Uncheck ACH to disable bank transfers.
+  </Step>
+  <Step title="Preview and Copy">
+    The right-side **Preview** panel shows a live version of the payment form. When satisfied, click **Copy Code** in the **Embed Code** section below. Paste the snippet into your website's HTML.
+  </Step>
+</Steps>
+
+The generated code includes an `<iframe>` element and a JavaScript event listener that fires on `payment_success`, `payment_failure`, and `payment_loaded` events, allowing your website to react to payment outcomes.
+
+### Itemized charges (API integrations)
+
+For integrations that create charges via the API (with line items, discounts, and taxes), you can embed payment for a specific charge by adding `charge_id` to the URL instead of `amount`. The embed will display the full charge breakdown. See [Payment Embed: Itemized Charges](/api-reference/guides/embed-payment-itemized-charges) for the full flow.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Permissions">
+    Embedded Payment Components is gated by role-based permissions:
+    - **Settings Developers Read** -- Required to view the page.
+    - **Settings Developers Write** -- Required to generate embed codes.
+
+    Admin users have full access by default.
+  </Accordion>
+</AccordionGroup>

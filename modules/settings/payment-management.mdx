@@ -9,7 +9,7 @@ description: 'Configure merchant accounts, POS devices, tax rates, tip displays,
 
 This is where you set up how your clinic accepts money. Connect your bank account, register card readers, configure taxes, and define what payment methods you offer — everything needed before you can start collecting payments.
 
-Payment Management is the central hub for configuring how your organization processes payments. It contains six sections: Merchant Accounts, POS Devices, Tip Displays, Tax Rates, Payment Mediums, and the Embed Payment Component.
+Payment Management is the central hub for configuring how your organization processes payments. It contains five sections: Merchant Accounts, POS Devices, Tip Displays, Tax Rates, and Payment Mediums.
 
 Navigate to **Settings > Payment Management** to access all sections on a single page.
 
@@ -173,66 +173,17 @@ Click the settings menu on the row and select **Edit**. Update the name and clic
 
 Click the settings menu on the row and select **Delete**. Confirm when prompted. System payment mediums cannot be deleted.
 
-## Embed Payment Component
+## Embedded Payment Components
 
-The Embed Payment Component generates an iframe code snippet that you can paste into an external website to collect patient payments outside of Decoda.
-
-### Generate an Embed Code
-
-<Steps>
-  <Step title="Select a Patient">
-    Use the patient search field in the **Configuration** panel to find and select a patient.
-  </Step>
-  <Step title="Set the Amount">
-    Enter the dollar amount to charge.
-  </Step>
-  <Step title="Customize Appearance">
-    - **Width / Height:** Set the iframe dimensions (pixels or percentages).
-    - **Theme:** Choose **Light** or **Dark**.
-    - **Show payment summary header:** Toggle this checkbox to include or hide the patient name and amount at the top of the form.
-    - **Allowed payment methods:** Check or uncheck **Card**, **ACH**, and **Apple Pay** to control which payment options appear. Uncheck ACH to disable bank transfers.
-  </Step>
-  <Step title="Preview and Copy">
-    The right-side **Preview** panel shows a live rendering of the payment form. When satisfied, click **Copy Code** in the **Embed Code** section below. Paste the snippet into your website's HTML.
-  </Step>
-</Steps>
-
-The generated code includes an `<iframe>` element and a JavaScript event listener that fires on `payment_success`, `payment_failure`, and `payment_loaded` events, allowing your website to react to payment outcomes.
-
-### Itemized charges (API integrations)
-
-For integrations that create charges via the API (with line items, discounts, and taxes), you can embed payment for a specific charge by adding `charge_id` to the URL instead of `amount`. The embed will display the full charge breakdown. See [Payment Embed: Itemized Charges](/api-reference/guides/embed-payment-itemized-charges) for the full flow.
-
-## Embed Store Details Component
-
-The Embed Store Details Component generates an iframe code snippet that you can paste into an external website to collect and save a patient's payment method (card or bank account) — without charging them.
-
-### Generate an Embed Code
-
-<Steps>
-  <Step title="Select a Patient">
-    Use the patient search field in the **Configuration** panel to find and select a patient.
-  </Step>
-  <Step title="Customize Appearance">
-    - **Width / Height:** Set the iframe dimensions (pixels or percentages).
-    - **Theme:** Choose **Light** or **Dark**.
-    - **Show patient name header:** Toggle this checkbox to include or hide the patient name at the top of the form.
-    - **Allowed payment methods:** Check or uncheck **Card**, **ACH**, and **Apple Pay** to control which payment options appear.
-  </Step>
-  <Step title="Preview and Copy">
-    The right-side **Preview** panel shows a live rendering of the form. When satisfied, click **Copy Code** in the **Embed Code** section below. Paste the snippet into your website's HTML.
-  </Step>
-</Steps>
-
-The generated code includes an `<iframe>` element and a JavaScript event listener that fires on `store_details_success`, `store_details_failure`, and `store_details_loaded` events, allowing your website to react when the patient saves their details. See [Store Details Embed: Save Payment Methods](/api-reference/guides/embed-store-details) for the full integration guide.
+The embeddable payment and store details forms have moved to **Settings > Developers > [Embedded Payment Components](/modules/settings/embed-payments)**. Use those tools to generate iframe code for collecting payments or saving payment methods on your website.
 
 ## Advanced Configuration
 
 <AccordionGroup>
   <Accordion title="Permissions">
     Payment Management is gated by role-based permissions:
-    - **Settings Payment Read** -- Required to view the Payment Management page, including merchant accounts, POS devices, tip displays, tax rates, payment mediums, and the embed component.
-    - **Settings Payment Write** -- Required to edit merchant accounts, register/unregister POS devices, add/edit/delete tip displays, create/edit/delete tax rates, manage payment mediums, and generate embed codes.
+    - **Settings Payment Read** -- Required to view the Payment Management page, including merchant accounts, POS devices, tip displays, tax rates, and payment mediums.
+    - **Settings Payment Write** -- Required to edit merchant accounts, register/unregister POS devices, add/edit/delete tip displays, create/edit/delete tax rates, and manage payment mediums.
 
     Admin users have full access to all payment management settings by default.
   </Accordion>

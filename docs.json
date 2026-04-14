@@ -232,6 +232,7 @@
               "modules/settings/assistants",
               "modules/settings/scheduling",
               "modules/settings/developers",
+              "modules/settings/embed-payments",
               "modules/settings/profile-security"
             ]
           },
