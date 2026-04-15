@@ -71,7 +71,8 @@
             "pages": [
               "modules/patients/index",
               "modules/patients/patient-chart",
-              "modules/patients/import-and-merge"
+              "modules/patients/import-and-merge",
+              "guides/scanner-bridge"
             ]
           },
           {

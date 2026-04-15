@@ -1,0 +1,90 @@
+---
+title: 'Document Scanner Setup'
+description: 'Connect a physical scanner to Decoda so you can scan documents directly into patient records.'
+---
+
+## Overview
+
+Scanner Bridge is a small app that runs on your computer and connects Decoda to any physical scanner (USB flatbed, document feeder, etc.). Once installed, a **Scan** button appears anywhere you can upload documents — patient charts, notes, and more.
+
+<Info>
+  Scanner Bridge runs quietly in your system tray. You only need to install it once — it starts automatically when you turn on your computer.
+</Info>
+
+## Step 1: Download Scanner Bridge
+
+Download the version for your computer:
+
+- **Mac (Apple Silicon)** — Most Macs from 2021 and later
+- **Mac (Intel)** — Older Macs from 2020 and earlier
+- **Windows**
+
+Go to the [Scanner Bridge download page](https://github.com/decoda-health/scanner-bridge/releases/latest) and download the file for your system:
+- Mac: the `.dmg` file
+- Windows: the `.msi` file
+
+## Step 2: Install
+
+<Tabs>
+  <Tab title="Mac">
+    1. Open the downloaded `.dmg` file.
+    2. Drag **Scanner Bridge** into your **Applications** folder.
+    3. Open **Scanner Bridge** from Applications.
+    4. If you see a message saying the app "can't be opened because Apple cannot check it for malicious software":
+       - Open **System Settings** → **Privacy & Security**.
+       - Scroll down and click **Open Anyway** next to the Scanner Bridge message.
+       - Alternatively, right-click the app in Applications, choose **Open**, then click **Open** again in the prompt.
+    5. You should see a small scanner icon appear in your menu bar (top-right of your screen). That means it's running.
+  </Tab>
+  <Tab title="Windows">
+    1. Open the downloaded `.msi` file.
+    2. If Windows shows a "Windows protected your PC" message, click **More info**, then **Run anyway**.
+    3. Follow the installation steps.
+    4. Scanner Bridge starts automatically. You should see a small scanner icon in your system tray (bottom-right of your screen, near the clock).
+  </Tab>
+</Tabs>
+
+## Step 3: Connect Your Scanner
+
+1. Plug your scanner into your computer via USB (or make sure it's on the same network if it's a wireless scanner).
+2. Scanner Bridge automatically detects connected scanners — no extra setup needed.
+
+## Step 4: Scan a Document in Decoda
+
+1. Open a patient's chart and go to the **Documents** tab.
+2. Click **Upload Document**.
+3. You should see a **Scan Document** button in the upload form.
+4. Click **Scan Document** — your scanner will start scanning.
+5. When the scan finishes, the image appears in the upload form. Add a title and document type, then click **Upload**.
+
+For notes, you'll see a **Scan** button next to the **Upload Document** button in the note's documents section.
+
+<Tip>
+  If your scanner has a document feeder (the tray on top where you can stack multiple pages), Scanner Bridge will automatically scan all pages and combine them into a single PDF.
+</Tip>
+
+## Troubleshooting
+
+### I don't see the Scan button in Decoda
+- Make sure Scanner Bridge is running — look for the scanner icon in your menu bar (Mac) or system tray (Windows).
+- Try refreshing the page. The button appears within a few seconds of detecting the app.
+
+### The Scan button says "No scanners found"
+- Check that your scanner is plugged in and turned on.
+- Try unplugging and reconnecting the USB cable.
+- On Mac, you may need to allow Scanner Bridge access to USB devices in **System Settings** → **Privacy & Security**.
+
+### Scan is slow or the image quality is poor
+- Scanner Bridge scans at 300 DPI by default, which works well for most documents. Scanning speed depends on your scanner hardware.
+
+### I want to uninstall Scanner Bridge
+<Tabs>
+  <Tab title="Mac">
+    1. Click the scanner icon in the menu bar and choose **Quit**.
+    2. Drag **Scanner Bridge** from Applications to the Trash.
+  </Tab>
+  <Tab title="Windows">
+    1. Open **Settings** → **Apps** → **Installed apps**.
+    2. Find **Scanner Bridge** and click **Uninstall**.
+  </Tab>
+</Tabs>
