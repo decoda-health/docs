@@ -144,6 +144,7 @@
               "modules/comms/social",
               "modules/comms/calls",
               "modules/comms/blasts",
+              "modules/comms/email-warming",
               "modules/comms/cohorts"
             ]
           },

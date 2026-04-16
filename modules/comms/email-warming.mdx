@@ -1,0 +1,139 @@
+---
+title: 'Email Warming'
+description: 'Protect your sending reputation by gradually increasing how many emails you can send per day.'
+---
+
+<Info>
+  **Where to see it:** On a blast detail page (**Comms > Blasts > [your blast]**) and on your sending domain page (**Settings > Emails > Domain**).
+</Info>
+
+Email warming is a built-in safeguard that paces large email blasts over several days when your sending domain is new. Instead of sending thousands of emails at once -- which mailbox providers like Gmail treat as spammy -- the system starts small and steadily raises the daily limit as your domain builds a track record. You don't have to configure anything; warming happens automatically the first time you send emails from a newly verified domain.
+
+## Why Warming Matters
+
+Mailbox providers (Gmail, Outlook, Yahoo) watch how a brand-new sending domain behaves. If a fresh domain suddenly sends thousands of emails, providers assume it's a spammer and start dropping messages into spam folders -- or blocking them outright. Warming avoids that by sending a small number of emails per day at first, then raising the limit step by step as patients open and read your messages.
+
+The end result: better inbox placement, fewer emails marked as spam, and a sending domain that can eventually send unlimited blasts without restrictions.
+
+## How It Works
+
+Each sending domain has a **daily cap** -- the most emails it can send in a 24-hour window. The cap starts low and grows as your domain accumulates successful deliveries over its lifetime.
+
+### Daily Caps by Lifetime Sends
+
+| Lifetime successful sends | Daily cap |
+|---------------------------|-----------|
+| 0 -- 199 | 50 per day |
+| 200 -- 499 | 100 per day |
+| 500 -- 1,499 | 500 per day |
+| 1,500 -- 4,999 | 2,000 per day |
+| 5,000 -- 14,999 | 5,000 per day |
+| 15,000 or more | Unlimited (domain is fully warmed) |
+
+"Lifetime successful sends" counts every email that was successfully handed off to the recipient's mailbox provider for this domain, across all your blasts and automated emails. Once the domain reaches 15,000, the cap is removed permanently and blasts send all at once.
+
+<Info>
+  Marketing and transactional sending domains are warmed separately. If you have one domain for newsletters and another for receipts and reminders, each one builds its own reputation and has its own daily cap.
+</Info>
+
+### How a Blast Is Paced
+
+When you send an email blast that has more recipients than the domain's daily cap, the blast is placed in **Warming** status. Each day, a background job sends the next batch -- up to the remaining daily cap -- and leaves the rest of the recipients for tomorrow. This continues until every recipient has been sent to.
+
+For example, if your domain's current cap is 500 per day and you send a blast to 2,000 patients:
+
+- **Day 1:** 500 emails go out.
+- **Day 2:** 500 more.
+- **Day 3:** 500 more.
+- **Day 4:** the remaining 500 send, and the blast moves to **Completed**.
+
+As lifetime sends cross a tier threshold during warming, the daily cap rises automatically for the next day's batch. A blast that starts warming at the 500/day tier may jump to the 2,000/day tier partway through if enough emails have been delivered.
+
+### Who Gets the Email First
+
+Within each daily batch, the system sends to the **highest-intent patients first** -- the people most likely to open and engage with the email. This is important during warming because strong early engagement (opens, clicks) helps your domain graduate to higher tiers faster.
+
+Priority is based on each patient's appointment history:
+
+- **Recency** -- Patients who had a completed appointment recently rank higher than patients who haven't visited in a long time. Recency decays gradually over the past year.
+- **Frequency** -- Patients with more completed appointments rank higher, up to a cap.
+
+Patients with no appointment history still receive the blast -- they just come later in the queue.
+
+### Sharing a Domain Across Blasts
+
+If you start a second warming blast while one is already in progress, both blasts share the same daily cap for the domain. The older blast gets first claim on each day's quota (first in, first out). Once it's finished for the day, any leftover quota goes to the newer blast.
+
+The blast detail page tells you when your blast is queued behind another one and when it will start sending.
+
+## What You See on the Blast Page
+
+When you open a blast that's in warming, a **Send Schedule** card appears under the blast summary. The card shows:
+
+- **A summary line** at the top -- either "Day X of Y, next batch [date]" if sending is underway, or "Queued behind N recipients in other warming blast(s). Your blast starts sending [date]" if another blast has first claim on today's quota.
+- **Domain cap today** -- the daily cap for your sending domain right now.
+- **Remaining today** -- how many more emails the domain can send today before hitting the cap.
+- **A day-by-day stepper** -- one card per day showing the date, the planned batch size, and a status dot:
+  - **Green dot ✓ Sent** -- the batch for that day is already delivered.
+  - **Blue dot Today** -- the current day (may still be in progress).
+  - **Scheduled** -- a future day with a planned batch.
+  - **Queued** -- a future day with no planned batch because another blast is using the quota.
+- **Delivered through today** -- how many total emails from your blast have been sent versus the total planned.
+
+The blast's overall status badge reads **Warming** until the last batch is sent, at which point it flips to **Completed**.
+
+## What You See in Email Domain Settings
+
+On the **Settings > Emails > Domain** page, a **Sender Warming** card appears underneath your domain details:
+
+- **Cumulative sent** -- total lifetime successful sends on this domain.
+- **Remaining today** -- how many more emails the domain can send today before hitting the cap.
+- **Next tier at** -- the cumulative sent number that will unlock the next higher cap. Reach this and tomorrow's cap goes up.
+- **Tier cap** (in the top-right) -- the current daily cap, or "Fully warmed" with a green checkmark once the domain has graduated past 15,000 lifetime sends.
+
+Use this card to see how close your domain is to the next tier and to confirm whether today's quota is already used up.
+
+## Graduating Out of Warming
+
+A domain is considered **fully warmed** once lifetime successful sends pass 15,000. At that point:
+
+- Daily caps are removed.
+- Future blasts send to all recipients immediately, regardless of size.
+- The blast status skips **Warming** entirely and goes straight from **Sending** to **Completed**.
+- The **Sender Warming** card shows "Fully warmed" instead of a tier cap.
+
+How long warming takes depends on how often you send and how many recipients are on each blast. A clinic that sends regular newsletters to a few thousand patients usually graduates in a few weeks.
+
+## Common Questions
+
+<AccordionGroup>
+  <Accordion title="Do I need to turn warming on?">
+    No. Warming is automatic. The first time you send a blast from a newly verified domain, the system checks the daily cap and paces the blast automatically. You don't need to opt in or configure anything.
+  </Accordion>
+  <Accordion title="Can I skip warming and just send everything at once?">
+    No -- and you shouldn't want to. Bypassing warming would damage your domain's reputation with mailbox providers, meaning a much higher share of your emails would end up in spam folders (or not be delivered at all) for months afterward. Warming is a one-time investment for long-term deliverability.
+  </Accordion>
+  <Accordion title="Why is my blast still sending days later?">
+    If your blast has more recipients than your domain's daily cap, it will send in batches over several days. Check the **Send Schedule** card on the blast detail page to see the projected finish date.
+  </Accordion>
+  <Accordion title="What happens if I stop a warming blast?">
+    Click **Stop Blast** on the blast detail page. Emails already sent in earlier batches are delivered normally. Recipients who have not yet been reached are skipped and won't receive the email.
+  </Accordion>
+  <Accordion title="What if I have two blasts warming at the same time?">
+    Both blasts share the same daily cap for the domain. The older blast (created first) gets first claim on today's quota. When it finishes for the day, any leftover quota is used by the newer blast. The newer blast's **Send Schedule** card shows when it will start sending.
+  </Accordion>
+  <Accordion title="Do appointment reminders and receipts count toward the cap?">
+    Yes. Every successfully sent email from the domain counts toward lifetime sends and uses today's quota -- blasts, receipts, invoices, appointment reminders, and all other automated messages.
+
+    Marketing blasts use a separate marketing domain (if configured), while transactional emails like receipts use a transactional domain. The two domains warm independently.
+  </Accordion>
+  <Accordion title="How does the system pick who gets the email first?">
+    Within each day's batch, patients are ranked by how recently and how often they've had completed appointments. More recent and more frequent patients receive the email first. This helps your domain build a reputation quickly, because engaged patients are more likely to open the email. Patients with no appointment history still receive the blast -- they're just ranked lower in the queue.
+  </Accordion>
+  <Accordion title="My blast status says 'Warming' -- is that a problem?">
+    No. **Warming** is a normal status that means the blast is actively sending in daily batches. It moves to **Completed** automatically once every recipient has been reached.
+  </Accordion>
+  <Accordion title="Where can I see how warmed my domain is?">
+    Go to **Settings > Emails > Domain**. The **Sender Warming** card shows cumulative sends, today's remaining quota, and how many more sends are needed to reach the next tier.
+  </Accordion>
+</AccordionGroup>
