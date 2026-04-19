@@ -65614,11 +65614,6 @@ components:
           - type: string
           - type: 'null'
           title: Receiptlogourl
-        receiptGradientColor:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Receiptgradientcolor
         googleTagManagerId:
           anyOf:
           - type: string
@@ -73396,11 +73391,6 @@ components:
           - type: string
           - type: 'null'
           title: Receiptlogourl
-        receiptGradientColor:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Receiptgradientcolor
         duplicatePatientFields:
           items:
             type: string
@@ -73647,11 +73637,6 @@ components:
           - type: string
           - type: 'null'
           title: Receiptlogourl
-        receiptGradientColor:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Receiptgradientcolor
         automaticallySendReceipts:
           anyOf:
           - type: boolean
