@@ -1,0 +1,71 @@
+---
+title: 'Qualiphy'
+description: 'Set up Qualiphy to request Good Faith Exams for your patients via telehealth.'
+---
+
+<Info>
+  Navigate to **Settings > Qualiphy** to access these settings.
+</Info>
+
+Qualiphy provides virtual Good Faith Exams (GFEs) -- medical assessments required before prescribing certain medications like GLP-1s (e.g., Semaglutide, Tirzepatide). Once connected, your staff can send exam invites directly from a patient's chart, and results are returned automatically.
+
+## Before You Start
+
+You need a Qualiphy account. If you don't have one yet, sign up at [qualiphy.me](https://qualiphy.me).
+
+Once you have an account, make sure the following are set up in your Qualiphy dashboard:
+
+1. **A Patient Care Provider** -- a licensed provider who will review the GFE exams. Without this, exam invites will fail.
+2. **Your API key** -- find this in your Qualiphy dashboard under your account settings.
+3. **At least one exam configured** -- the exams your clinic wants to offer (e.g., GFE for weight loss medications).
+
+## Connect Your Qualiphy Account
+
+<Steps>
+  <Step title="Open Qualiphy Settings">
+    Go to **Settings > Qualiphy**. You will see whether your API key is currently configured.
+  </Step>
+  <Step title="Enter Your API Key">
+    Paste the API key from your Qualiphy dashboard into the **API Key** field.
+  </Step>
+  <Step title="Save">
+    Click **Save API Key**. The system will test the connection to Qualiphy before saving. If the key is invalid, you will see an error message.
+  </Step>
+</Steps>
+
+Once saved, the status will change to **API key configured** and your team can start requesting GFEs.
+
+## Request a Good Faith Exam
+
+Once Qualiphy is connected, staff can request GFEs from two places:
+
+- **Patient chart** -- on the **Appointments** tab, click **Request Qualiphy GFE**
+- **Appointment checklist** -- when checking in a patient, the GFE checklist item will show a **Request New GFE** button
+
+<Steps>
+  <Step title="Select Exams">
+    Choose one or more exams from the list. These are the exams configured in your Qualiphy account.
+  </Step>
+  <Step title="Select State">
+    Choose the state where the patient will complete the telehealth exam. This defaults to the appointment location's state.
+  </Step>
+  <Step title="Send Invite">
+    Click **Send Exam Invite**. The patient will receive an email and SMS with a link to complete the exam.
+  </Step>
+</Steps>
+
+## What Happens After the Invite
+
+1. The patient receives an email and SMS from Qualiphy with a link to join the exam.
+2. The patient completes the virtual assessment with a Qualiphy provider.
+3. The provider reviews the exam and approves or rejects it.
+4. The result is sent back to your system automatically -- the exam status updates to **Approved** or **Rejected** on the patient's chart.
+
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| "Need to add Patient Care Provider" error | Log into your Qualiphy dashboard and add a care provider in the provider settings. |
+| "Invalid API key" when saving | Double-check that you copied the full API key from your Qualiphy dashboard. |
+| Patient didn't receive the invite | Check that the patient has a valid email and phone number on file. You can resend the invite from the patient's appointments tab. |
+| Exam status stuck on "Pending" | Qualiphy exams are processed by providers, typically within 2-24 hours on weekdays. |

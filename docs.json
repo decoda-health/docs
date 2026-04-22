@@ -235,7 +235,8 @@
               "modules/settings/scheduling",
               "modules/settings/developers",
               "modules/settings/embed-payments",
-              "modules/settings/profile-security"
+              "modules/settings/profile-security",
+              "modules/settings/qualiphy"
             ]
           },
           {
