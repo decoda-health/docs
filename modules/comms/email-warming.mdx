@@ -21,16 +21,18 @@ Each sending domain has a **daily cap** -- the most emails it can send in a 24-h
 
 ### Daily Caps by Lifetime Sends
 
-| Lifetime successful sends | Daily cap |
-|---------------------------|-----------|
-| 0 -- 199 | 50 per day |
-| 200 -- 499 | 100 per day |
-| 500 -- 1,499 | 500 per day |
-| 1,500 -- 4,999 | 2,000 per day |
-| 5,000 -- 14,999 | 5,000 per day |
-| 15,000 or more | Unlimited (domain is fully warmed) |
+Tiers are based on **cumulative** lifetime successful sends on the domain. The daily cap is the one for the tier your domain is in today; when cumulative sends cross the next threshold, the higher cap applies starting the following day.
 
-"Lifetime successful sends" counts every email that was successfully handed off to the recipient's mailbox provider for this domain, across all your blasts and automated emails. Once the domain reaches 15,000, the cap is removed permanently and blasts send all at once.
+| Lifetime successful sends (cumulative) | Daily cap |
+|------------------------------------------|-----------|
+| 0 -- 299 | 50 per day |
+| 300 -- 749 | 100 per day |
+| 750 -- 2,249 | 750 per day |
+| 2,250 -- 7,499 | 2,000 per day |
+| 7,500 -- 22,499 | 5,000 per day |
+| 22,500 or more | Unlimited (domain is fully warmed) |
+
+"Lifetime successful sends" counts every email that was successfully handed off to the recipient's mailbox provider for this domain, across all your blasts and automated emails. Once the domain reaches **22,500** cumulative successful sends, the cap is removed permanently and blasts send all at once.
 
 <Info>
   Marketing and transactional sending domains are warmed separately. If you have one domain for newsletters and another for receipts and reminders, each one builds its own reputation and has its own daily cap.
@@ -40,14 +42,13 @@ Each sending domain has a **daily cap** -- the most emails it can send in a 24-h
 
 When you send an email blast that has more recipients than the domain's daily cap, the blast is placed in **Warming** status. Each day, a background job sends the next batch -- up to the remaining daily cap -- and leaves the rest of the recipients for tomorrow. This continues until every recipient has been sent to.
 
-For example, if your domain's current cap is 500 per day and you send a blast to 2,000 patients:
+For example, if your domain's current cap is 750 per day and you send a blast to 2,000 patients:
 
-- **Day 1:** 500 emails go out.
-- **Day 2:** 500 more.
-- **Day 3:** 500 more.
-- **Day 4:** the remaining 500 send, and the blast moves to **Completed**.
+- **Day 1:** 750 emails go out.
+- **Day 2:** 750 more.
+- **Day 3:** the remaining 500 send, and the blast moves to **Completed**.
 
-As lifetime sends cross a tier threshold during warming, the daily cap rises automatically for the next day's batch. A blast that starts warming at the 500/day tier may jump to the 2,000/day tier partway through if enough emails have been delivered.
+As lifetime sends cross a tier threshold during warming, the daily cap rises automatically for the next day's batch. A blast that starts warming at the 750/day tier may jump to the 2,000/day tier partway through once cumulative sends reach 2,250.
 
 ### Who Gets the Email First
 
@@ -89,13 +90,13 @@ On the **Settings > Emails > Domain** page, a **Sender Warming** card appears un
 - **Cumulative sent** -- total lifetime successful sends on this domain.
 - **Remaining today** -- how many more emails the domain can send today before hitting the cap.
 - **Next tier at** -- the cumulative sent number that will unlock the next higher cap. Reach this and tomorrow's cap goes up.
-- **Tier cap** (in the top-right) -- the current daily cap, or "Fully warmed" with a green checkmark once the domain has graduated past 15,000 lifetime sends.
+- **Tier cap** (in the top-right) -- the current daily cap, or "Fully warmed" with a green checkmark once the domain has graduated past 22,500 lifetime sends.
 
 Use this card to see how close your domain is to the next tier and to confirm whether today's quota is already used up.
 
 ## Graduating Out of Warming
 
-A domain is considered **fully warmed** once lifetime successful sends pass 15,000. At that point:
+A domain is considered **fully warmed** once lifetime successful sends pass 22,500. At that point:
 
 - Daily caps are removed.
 - Future blasts send to all recipients immediately, regardless of size.
