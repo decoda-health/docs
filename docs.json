@@ -63,7 +63,8 @@
             "group": "Getting Started",
             "pages": [
               "getting-started",
-              "search"
+              "search",
+              "guides/pwa"
             ]
           },
           {
