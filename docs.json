@@ -648,7 +648,6 @@
                   "api-reference/provider/opt-out-from-texting",
                   "api-reference/provider/regenerate-ai-text",
                   "api-reference/provider/reply-to-thread",
-                  "api-reference/provider/send-bulk-messages",
                   "api-reference/provider/send-draft",
                   "api-reference/provider/send-suggested-message",
                   "api-reference/provider/setup-call",

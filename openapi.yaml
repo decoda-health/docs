@@ -8487,52 +8487,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /comms/chat/send-bulk:
-    post:
-      tags:
-      - provider
-      - comms
-      summary: Send Bulk Messages
-      description: |-
-        Send a bulk text message to multiple patients.
-
-        Returns the number of messages that will be queued for sending.
-        The actual sending happens in the background.
-      operationId: send_bulk_messages_comms_chat_send_bulk_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BulkTextRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BulkTextResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      parameters:
-      - name: TENANT
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Tenant
-        description: The tenant you are making this request on behalf of
-      - name: API-KEY
-        in: header
-        required: true
-        schema:
-          type: string
-          title: Api-Key
-        description: Your api key
   /comms/chat/regenerate-suggestion:
     post:
       tags:
@@ -42804,40 +42758,6 @@ components:
       - updates
       title: BulkServiceUpdateRequest
       description: Request schema for bulk updating multiple services.
-    BulkTextRequest:
-      properties:
-        patientIds:
-          items:
-            type: string
-          type: array
-          title: Patientids
-        message:
-          type: string
-          title: Message
-        senderId:
-          type: string
-          title: Senderid
-        oneMessagePerNumber:
-          type: boolean
-          title: Onemessagepernumber
-          default: true
-      type: object
-      required:
-      - patientIds
-      - message
-      - senderId
-      title: BulkTextRequest
-      description: Request model for sending bulk text messages.
-    BulkTextResponse:
-      properties:
-        queuedMessageCount:
-          type: integer
-          title: Queuedmessagecount
-      type: object
-      required:
-      - queuedMessageCount
-      title: BulkTextResponse
-      description: Response model for bulk text messages.
     CPTCode:
       properties:
         code:
