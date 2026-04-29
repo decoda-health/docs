@@ -1,6 +1,6 @@
 ---
 title: 'Locations & Facilities'
-description: 'Manage physical addresses, operating hours, and location-specific settings.'
+description: 'Manage physical addresses and location-specific settings.'
 ---
 
 <Info>
@@ -13,26 +13,37 @@ Locations in Decoda represent the physical clinics or facilities where services 
 
 ## Add a New Location
 
-To add a new clinic location to your organization:
-
 <Steps>
-  <Step title="Navigate to Settings">
-    Click on the **Settings** gear icon in the main navigation menu and select **Locations**.
+  <Step title="Open Locations">
+    Go to **Settings > Locations**.
   </Step>
-  <Step title="Create Location">
-    Click the **Add Location** button in the top right corner.
+  <Step title="Start a New Location">
+    Click **Add New Location** in the top right corner. A side drawer opens.
   </Step>
   <Step title="Enter Details">
-    Fill in the required information:
-    - **Name:** The internal name for this clinic (e.g., "Downtown Branch").
-    - **Public Phone/Email:** The contact information patients will see on their notifications and receipts.
-    - **Address:** The physical address used for scheduling and billing.
-    - **Timezone:** Ensure the correct timezone is selected, as this dictates all scheduling for this facility.
+    Fill in the form:
+    - **Location Name** (required) -- The internal name for this clinic (e.g., "Downtown Branch").
+    - **Description** -- Optional notes about the location.
+    - **Virtual Location** -- Toggle on if this location has no physical address (e.g., for telehealth-only practices). When off, an address is required.
+    - **Address** -- Street, city, state, ZIP, and country. Used for scheduling and billing.
+    - **Timezone** (required) -- Used for all appointment scheduling and time-based operations at this facility.
+    - **Location Photo** -- Optional image used on the self-scheduling page header.
+    - **Review Link** -- Optional URL where patients can leave reviews.
+    - **External ID** -- Optional identifier used for third-party integrations.
   </Step>
   <Step title="Save">
-    Click **Save** to create the location. It is immediately available for scheduling and billing assignment.
+    Click **Add New Location** at the bottom of the drawer. The location is immediately available for scheduling and billing assignment.
   </Step>
 </Steps>
+
+## Edit a Location
+
+From the **Locations** page, either click a row or open the row's menu and choose **Edit Location**. The same drawer opens with the existing values. After making changes, click **Update _Location Name_** at the bottom of the drawer to save.
+
+When editing an existing location, two additional sections are available:
+
+- **Rooms** -- Add, rename, recolor, or delete rooms used for appointment assignment at this location.
+- **Integrations** -- If your organization has the SpaKinect or DoseSpot modules enabled, fields appear here to configure the per-location credentials (SpaKinect Location ID, DoseSpot Clinic ID and Clinic Key).
 
 ## Location Photo
 
@@ -46,37 +57,24 @@ Each location has an optional **Location Photo** that shows on the self-scheduli
     Scroll to the **Location Photo** field and choose an image file. A preview appears once the file is selected. Click the **X** on the preview to remove it.
   </Step>
   <Step title="Save">
-    Click **Save changes** at the bottom of the page. The photo is immediately used on the self-scheduling header carousel.
+    Click **Update _Location Name_** at the bottom of the drawer. The photo is immediately used on the self-scheduling header carousel.
   </Step>
 </Steps>
 
 To control how many pictures appear on the self-scheduling header, add photos to additional locations (more photos cycle through) or remove photos from locations you don't want included. Locations without a photo are skipped.
 
-## Edit Operating Hours
+## Row Actions
 
-A location's operating hours determine when appointments can be scheduled on the calendar.
+Each row on the **Locations** page has a menu (the gear icon at the right) with the following options:
 
-<Steps>
-  <Step title="Select Location">
-    From the **Locations** page, click on the name of the location you wish to edit.
-  </Step>
-  <Step title="Modify Hours">
-    Scroll to the **Operating Hours** section.
-    - Toggle specific days **On** or **Off**.
-    - Adjust the **Start** and **End** times for each day.
-    - Use the **Split Shift** feature if the clinic closes for lunch or mid-day breaks.
-  </Step>
-  <Step title="Save">
-    Click **Save changes** at the bottom of the page.
-  </Step>
-</Steps>
+- **Edit Location** -- Opens the edit drawer.
+- **Copy Scheduling Link** -- Copies a self-scheduling URL pre-filtered to this location.
+- **Sync GFEs from SpaKinect** -- Appears only when SpaKinect is enabled and a SpaKinect Location ID is configured.
+- **Archive Location** -- Hides the location. See [Archiving a Location](#archiving-a-location) below.
 
 ## Advanced Configuration
 
 <AccordionGroup>
-  <Accordion title="Location-Specific Branding">
-    If a specific location operates under a different brand or needs its own logo on receipts, you can upload a **Logo Override** within the location settings. This will replace the default organization logo for all communications originating from this facility.
-  </Accordion>
   <Accordion title="Assigning Users to Specific Locations">
     By default, an Owner or Admin can access data across all locations. To restrict a provider or front desk staff member so they only see patients and schedules for a specific facility, you must assign them to that location.
 
@@ -89,13 +87,13 @@ A location's operating hours determine when appointments can be scheduled on the
   </Accordion>
   <Accordion title="Permissions">
     Location management is gated by role-based permissions:
-    - **Settings Locations Read** -- Required to view the Locations page and see location details.
-    - **Settings Locations Write** -- Required to create new locations, edit existing ones, modify operating hours, and archive locations.
-    - **Locations See All** -- Allows a user to view data across all locations. Without this permission, users only see data for the locations they are assigned to.
+    - **View Locations** -- Required to view the Locations page and see location details.
+    - **Manage Locations** -- Required to create and edit practice locations.
+    - **See All Locations** -- Allows a user to view data across all locations. Without this permission, users only see data for the locations they are assigned to.
 
     By default, Admin users have full access to all locations. Providers and staff can be restricted to specific locations via their [Access Rules](/modules/settings/users).
   </Accordion>
   <Accordion title="Archiving a Location">
-    If a facility is closed permanently, select **Archive Location** at the bottom of the settings page. This prevents new appointments from being booked while preserving historical billing and clinical data for compliance.
+    If a facility is closed permanently, open the row's menu on the **Locations** page and select **Archive Location**. Archived locations are hidden but can be restored later, and historical billing and clinical data is preserved for compliance.
   </Accordion>
 </AccordionGroup>
