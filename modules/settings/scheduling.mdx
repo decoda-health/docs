@@ -17,7 +17,7 @@ Self-scheduling settings determine how patients interact with your online bookin
 
 <Steps>
   <Step title="Navigate to Settings">
-    Go to **Settings** and select **Scheduling**.
+    Go to **Settings > Self-Scheduling > General**.
   </Step>
   <Step title="Adjust Settings">
     The Self-Scheduling section contains the following options:
@@ -45,7 +45,7 @@ Provider capacity controls how many patients a provider can see during the same 
 
 <Steps>
   <Step title="Navigate to Settings">
-    Go to **Settings > Scheduling** and scroll to the **Provider Capacity** section.
+    Go to **Settings > Self-Scheduling > General** and scroll to the **Provider Capacity** section.
   </Step>
   <Step title="Set Capacity per Provider">
     A table lists all providers with an editable **Capacity** field. Enter the maximum number of patients each provider can see during the same 15-minute time slot. For example, setting a provider's capacity to 2 means they can have up to 2 overlapping appointments.
@@ -61,7 +61,7 @@ The patient blacklist prevents specific patients from booking appointments throu
 
 <Steps>
   <Step title="Navigate to Settings">
-    Go to **Settings > Scheduling** and scroll to the **Patient Blacklist** section.
+    Go to **Settings > Self-Scheduling > General** and scroll to the **Patient Blacklist** section.
   </Step>
   <Step title="Add a Patient">
     Click **Add Patient**. Search for the patient by name, date of birth, or phone number and select them from the results.
@@ -166,15 +166,15 @@ These three settings sound similar but control completely different things. Here
 
 | Setting | Where It Lives | What It Controls | Who It Affects |
 |---------|---------------|------------------|----------------|
-| **Provider Capacity** | Settings > Scheduling | Max concurrent patients a provider can see in the same time slot | The provider's calendar |
+| **Provider Capacity** | Settings > Self-Scheduling > General | Max concurrent patients a provider can see in the same time slot | The provider's calendar |
 | **Allow Double Booking** | Settings > Services > Scheduling & Booking tab | Whether a specific service can overlap with other appointments on the same provider | A single service type |
-| **Allow Multiple Bookings** | Settings > Scheduling > Self-Scheduling | Whether a patient can book a new appointment when they already have one scheduled | The patient booking online |
+| **Allow Multiple Bookings** | Settings > Self-Scheduling > General | Whether a patient can book a new appointment when they already have one scheduled | The patient booking online |
 
 ### Provider Capacity
 
 This is a **per-provider limit**. If Dr. Smith's capacity is set to 3, she can have up to 3 patients scheduled in the same time slot. This applies regardless of which services are booked. Think of it as: "How many chairs does this provider have in their room?"
 
-The default capacity for each provider is set in **Settings > Scheduling > Provider Capacity**, but you can also override it on individual shifts. When editing or creating a shift in **Shift Management**, there is an optional **Capacity** field. If you set a capacity on a shift, it completely overrides the provider's default for the duration of that shift. If you leave it empty, the provider's default capacity applies.
+The default capacity for each provider is set in **Settings > Self-Scheduling > General > Provider Capacity**, but you can also override it on individual shifts. When editing or creating a shift in **Shift Management**, there is an optional **Capacity** field. If you set a capacity on a shift, it completely overrides the provider's default for the duration of that shift. If you leave it empty, the provider's default capacity applies.
 
 This is useful when a provider's capacity varies depending on the type of work. For example, Dr. Smith might handle 3 patients at a time during a general consultation shift but only 1 during a surgical shift.
 
@@ -196,7 +196,7 @@ This has nothing to do with overlapping time slots. It controls whether a **pati
 
 <AccordionGroup>
   <Accordion title="I want Dr. Smith to see 2 patients at a time" defaultOpen>
-    Set Dr. Smith's **Provider Capacity** to 2 in Settings > Scheduling.
+    Set Dr. Smith's **Provider Capacity** to 2 in Settings > Self-Scheduling > General.
   </Accordion>
   <Accordion title="Botox can overlap with other appointments, but Laser cannot" defaultOpen>
     Enable **Allow Double Booking** on the Botox service. Leave it off on Laser.
