@@ -72,6 +72,7 @@
             "pages": [
               "modules/patients/index",
               "modules/patients/patient-chart",
+              "modules/patients/document-types",
               "modules/patients/import-and-merge",
               "guides/scanner-bridge"
             ]
@@ -107,6 +108,7 @@
               "modules/billing/invoices",
               "modules/billing/carts-and-quotes",
               "modules/billing/cash-and-commissions",
+              "modules/billing/staff-pay",
               "modules/billing/chargebacks"
             ]
           },
@@ -210,6 +212,7 @@
               "modules/settings/index",
               "modules/settings/locations",
               "modules/settings/users",
+              "modules/settings/hourly-rates",
               "modules/settings/permissions",
               "modules/settings/services",
               "modules/settings/categories",
@@ -227,6 +230,7 @@
                   "modules/settings/pos-devices/lane-3000"
                 ]
               },
+              "modules/settings/commissions",
               "modules/settings/rules",
               "modules/settings/tasks",
               "modules/settings/general",
