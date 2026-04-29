@@ -73,8 +73,8 @@
       "hash": "dfe183604ddaed4ce5a6568209f3ad8fab6ce764d8889838f509de98ede94572"
     },
     "modules/billing/cash-and-commissions.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesbillingcashandcommis-qu3krv4uvp7i",
-      "hash": "56ff0596313f5c91da57a2bbf3138f5b8e15659480754987e922c7c11d6b12ed"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesbillingcashandcommis-h0qsil6n3r90",
+      "hash": "014be757e8b3fb8f7377c12344d786e2a777e8ae409694fe2394284043b9521f"
     },
     "modules/billing/chargebacks.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesbillingchargebacksmd-0yvdjxv5hs4y",
@@ -95,6 +95,10 @@
     "modules/billing/invoices.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesbillinginvoicesmdx-2aqv35zdnkeg",
       "hash": "7fe23b1be29aa20b95ff09bb030137632cae4ae912bab25c726a8816dbc2f4b7"
+    },
+    "modules/billing/staff-pay.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesbillingstaffpaymdx-w6ppfoodq2xr",
+      "hash": "20e00ef96ee3d9400e943e9656669c13d120c8220bcf59f49689fe0315a47faa"
     },
     "modules/care-plans/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescareplansindexmdx-cmtrk2h3prjn",
@@ -212,6 +216,10 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesnotificationsindexmd-t02ozv528ih4",
       "hash": "02558c8804d922cf5d73ee3af8cc7d508ec33f8d44df29e8abdbe9eeb6ee3fb9"
     },
+    "modules/patients/document-types.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientsdocumenttype-1q5rbxj3qj8t",
+      "hash": "a75a52cda695fbe091ac78f9cf731012e32c8cf34ef3c92492800648f5c2679c"
+    },
     "modules/patients/import-and-merge.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulespatientsimportandmer-6x2ds4of79p4",
       "hash": "d87253be21d95e00ce1dc3f01df7ca24c6d3804578f45d798b5edfc3182d7747"
@@ -280,9 +288,9 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscategoriesmd-p0ohsbqx6ffj",
       "hash": "37a7b13f55ef6bb9a33a069695c50e3bf35fb89f1b1536bda321c2eb046b4a16"
     },
-    "modules/settings/document-types.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsdocumenttype-detttlaxjl99",
-      "hash": "a75a52cda695fbe091ac78f9cf731012e32c8cf34ef3c92492800648f5c2679c"
+    "modules/settings/commissions.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscommissionsm-tqtdz9q7n28n",
+      "hash": "2c5f27436288e35c430c3b8cc8d531bf2e4786027c1002296b119a4977b32017"
     },
     "modules/settings/emails.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsemailsmdx-ckgeuuwjjxq1",
@@ -296,9 +304,13 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsgeneralmdx-lr8rszorophi",
       "hash": "381112c691dac11f952eae21db878e24d6c9fe51cbeb5cba5d4fc97d23ae3f32"
     },
+    "modules/settings/hourly-rates.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingshourlyratesm-yy4jgn5zl0il",
+      "hash": "152601f3c151b1a41c9a8636c27120e1d6bab98fc425baafcfc13ba9a747f970"
+    },
     "modules/settings/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsindexmdx-053517cvpw7b",
-      "hash": "b413b9da7004afcd2502a32a89d69f45534d6b1b0347bf1b8f73f620c236a057"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsindexmdx-7i8r8h6j1pi5",
+      "hash": "b0c077deb7ea158085275c2853e105cf8dbe9642c7a77a3a51b27656c7d1c96b"
     },
     "modules/settings/locations.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingslocationsmdx-htl9jutdck9p",
