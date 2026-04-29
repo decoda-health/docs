@@ -73,14 +73,14 @@ Webhooks are automatic notifications sent to another system when something happe
     Fill in the following fields:
     - **Webhook URL** (required): The endpoint on your server that will receive POST requests (e.g., `https://your-server.com/webhook`).
     - **Notification Email** (optional): An email address to receive notifications if webhook delivery fails.
-    - **Subscriptions** (required): Select at least one event type to subscribe to. Events are grouped by category:
-      - **Patient:** Patient Created, Patient Updated
-      - **Appointments:** Appointment Scheduled, Appointment Updated, Appointment Cancelled, Self-Scheduled Appointment, and more
-      - **Payments:** Payment Created, Payment Succeeded, Payment Failed, Charge Created, Refund events, and more
-      - **Communications:** Call Received, Message Received, Email Sent, and more
-      - **Forms:** Form Submitted
-      - **Notes:** Note Created, Note Updated
-      - **Inventory:** Stock Low, Stock Added, Shipment Received, and more
+    - **Subscriptions** (required): Select at least one event type to subscribe to. Events appear as a flat checkbox list (two columns) covering the full set of available event types. You will see events such as:
+      - Patient events (e.g., Patient Created, Patient Updated)
+      - Appointment events (e.g., Appointment Scheduled, Appointment Updated, Appointment Cancelled, Self-Scheduled Appointment)
+      - Payment events (e.g., Payment Created, Payment Succeeded, Payment Failed, Charge Created, refunds)
+      - Communication events (e.g., Call Received, Message Received, Email Sent)
+      - Form events (e.g., Form Submitted)
+      - Note events (e.g., Note Created, Note Updated)
+      - Inventory events (e.g., Stock Low, Stock Added, Shipment Received)
   </Step>
   <Step title="Save and Copy Secret">
     Click **Create Webhook**. A webhook secret is generated and displayed once. Copy it immediately using the **copy** button -- you will need this secret to verify incoming webhook payloads from Decoda.
@@ -102,6 +102,10 @@ Click the **delete** icon on a webhook card and confirm. Deleting a webhook stop
 ## Set Up a Custom Email Domain
 
 Custom email domains allow Decoda to send patient notifications, appointment reminders, and other emails from your own domain (e.g., `no-reply@mail.yourclinic.com`) instead of the default Decoda address. This is powered by Mailgun.
+
+<Info>
+  **Email Domain is a separate Settings page**, not a section inside Developer Settings. Go to **Settings > Email Domain** to manage it. It is documented here because it is a developer-oriented setup.
+</Info>
 
 <Info>
   You need the **Manage Email Domains** permission to configure custom email domains.

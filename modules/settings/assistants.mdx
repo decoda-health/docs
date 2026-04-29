@@ -1,5 +1,5 @@
 ---
-title: 'AI Assistants & Suggestions'
+title: 'AI Assistants'
 description: 'Configure AI-powered phone assistants, note scribes, and text messaging automation for your clinic.'
 ---
 
@@ -21,79 +21,110 @@ Decoda provides several categories of AI assistants, each accessed from a differ
 
 | Type | Purpose |
 |------|---------|
-| **Inbound Calling** | Answers incoming patient phone calls, handles scheduling, routes to fallback numbers, and manages caller inquiries. |
+| **Phone Numbers** | Manage the phone numbers your clinic uses for AI calls, ring groups, and forwarding. Inbound calling assistants are configured here, on the page for each phone number. |
 | **Outbound Calling** | Makes outgoing calls for billing, reminders, follow-ups, and lab results. Includes sub-types: Biller, Outbound Call, Call Reminder, Call Follow-Up, and Lab Technician. |
-| **Scribe** | Summarizes clinical notes and transcriptions. Assists providers with documentation by auto-generating structured note content. |
+| **Scribe Assistant** | Summarizes clinical notes and transcriptions. Assists providers with documentation by auto-generating structured note content. |
 | **Call Summarizer** | Generates summaries of completed phone calls for quick review by staff. |
-| **Inbound Texting** | Handles incoming text messages from patients with AI-powered responses. Supports tool-assisted actions. |
+| **Texting Assistant** | Handles incoming text messages from patients with AI-powered responses. Supports tool-assisted actions. |
+| **Web Chat Widget** | Embeds an AI chat widget on your website so visitors can chat with your assistant. |
 
-## Inbound Calling Assistants
+## Phone Numbers and Inbound Calling
 
-Inbound calling assistants answer phone calls to your clinic's AI phone numbers. Each assistant is assigned a dedicated phone number and can be scheduled to answer calls during specific shifts.
+Inbound calling assistants answer phone calls to your clinic's AI phone numbers. Each phone number has its own configuration page where you set up assistants, ring groups for live staff, and closures for holidays. The same page shows a weekly schedule so you can see which handler is on at any given hour.
 
-### Create an Inbound Assistant
+### Provision a Phone Number
 
 <Steps>
-  <Step title="Navigate to Inbound Assistants">
-    Go to **Settings > AI Assistants > Inbound Calling**.
+  <Step title="Open Phone Numbers">
+    Go to **Settings > AI Assistants > Phone Numbers**.
   </Step>
-  <Step title="Provision a Phone Number">
-    Click **Provision new phone number** in the top right corner. This opens the assistant creation form and assigns a new phone number.
+  <Step title="Start Provisioning">
+    Click **Provision Number** in the top right corner. A window opens with a search box.
   </Step>
-  <Step title="Configure the Assistant">
-    Fill in the required fields:
-    - **Assistant Name:** A descriptive name (e.g., "After Hours Assistant", "Main Line AI").
-    - **Primary Location:** Select which clinic location this assistant serves.
-    - **Timezone:** Set the timezone for shift scheduling.
-    - **Greeting Message:** Customize the opening message callers hear. Supports suggestion shortcuts (type `@` to insert saved text snippets). If left blank, the default greeting is used.
-    - **Assistant Behaviour:** Write custom instructions that control how the assistant handles conversations. Examples: escalation procedures, call transfer numbers, operating hours, and available services.
-    - **Tools:** Select capabilities the assistant can use during calls (e.g., ending calls, sending texts, transferring calls, verifying callers). Scheduling tools are also available -- these let the assistant find open appointment times, book appointments, cancel appointments, and reschedule appointments on behalf of callers. Note that some tools depend on others: for example, enabling the booking tool will automatically enable the availability lookup tool, since the assistant needs to find open times before it can book.
-    - **AI Model:** Choose which AI model powers the assistant. The recommended model is pre-selected.
-    - **Phone Number:** The provisioned number assigned to this assistant (read-only after creation).
-    - **Fallback Phone Number:** The number that receives calls when the assistant is disabled or outside scheduled shifts. Must be a valid 10-digit number.
-  </Step>
-  <Step title="Add Shifts">
-    Configure the days and times the assistant should answer calls:
-    - Click the day-of-week circles to activate days.
-    - Set start and end times for each shift using the time dropdowns.
-    - Add multiple shifts per day by clicking the **+** button.
-    - Use the **Copy to all** button to apply the same times across all selected days.
-    - Click the checkmark to save each shift.
-  </Step>
-  <Step title="Save">
-    Click **Create Assistant**. The assistant immediately begins answering calls during its scheduled shifts.
+  <Step title="Pick an Available Number">
+    Search by area code and pick a number from the results. Click **Provision** to add it to your account.
   </Step>
 </Steps>
 
-### Edit an Inbound Assistant
+Once provisioned, the number appears as a card on the Phone Numbers page. The card shows the number, status badges (Primary, Enabled, Disabled, Forwarding, Not Configured), and any assistants or ring groups already assigned to it.
 
-1. From the **Inbound Calling** page, click on an assistant group card to expand it.
-2. Click on the individual assistant's name button to open the editor.
-3. Modify any settings and click **Save Changes**.
+### Configure a Phone Number
 
-### Manage Assistant Groups
+Click a number card (or the **Set up assistant** link inside it) to open the configuration page for that number. The page is split into three handler types on the left -- **Ring Groups**, **AI Assistants**, and **Closures** -- with a **Weekly Schedule** on the right.
 
-Inbound assistants are grouped by phone number. Each group can contain multiple assistants with different shift schedules -- the system routes calls to the assistant whose shift is currently active.
+At the top of the page you can also set:
 
-- **Default Assistant:** One phone number can be set as the default forwarding number. When patients call your main texting number, calls are directed to the default assistant. A "Default" badge appears on the card.
-- **Change Default Number:** Click the edit icon next to the default number description in the header, then select a new number from the dropdown.
-- **Enable/Disable:** Click the three-dot menu on an expanded assistant group and select **Enable this number** or **Disable this number**. When disabled, calls route to the fallback number.
-- **Add New Shift:** Click **Add new assistant** from the three-dot menu to create an additional shift for the same phone number.
+- **Timezone** -- Used for all schedules on this number.
+- **Location** -- The clinic location this number serves.
+- **Ring Group Failover** -- An assistant that picks up when no one in a ring group answers. You can pick an existing assistant or **+ Create New** to add one.
+- **Caller ID** -- Shows the practice name displayed on outbound calls. Contact support to set this up.
 
-### Search Assistants
+### Add an AI Assistant to a Phone Number
 
-Use the search bar on the Inbound Calling page to filter assistants by name or phone number.
+<Steps>
+  <Step title="Open the Phone Number Configuration Page">
+    On the Phone Numbers page, click the number you want to add an assistant to.
+  </Step>
+  <Step title="Add an Assistant">
+    In the **AI Assistants** section, click **Add AI Assistant**. The form opens on the right.
+  </Step>
+  <Step title="Fill In the Assistant Details">
+    - **Name** -- The display name for this assistant (e.g., "After Hours", "Main Line AI").
+    - **Greeting Message** -- The opening message callers hear. Type `@` to insert a saved suggestion. If left blank, the default greeting is used.
+    - **Custom Prompt** -- Instructions that shape how the assistant handles conversations (escalation steps, transfer numbers, hours, services). Type `@` to insert saved suggestions. You can also click a **Quick Preset** above the text box to drop in a ready-made instruction set.
+    - **Tools** -- Capabilities the assistant can use on calls (ending calls, sending texts, transferring calls, verifying callers, looking up availability, booking, rescheduling, or cancelling appointments). Some tools depend on others -- for example, enabling a booking tool automatically adds the availability lookup tool.
+    - **AI Model** -- Which AI model powers the assistant. The recommended model is pre-selected.
+  </Step>
+  <Step title="Set a Schedule (If Required)">
+    If another handler is already set up as the off-hours handler for this number, you must give this assistant a schedule. Use the weekly schedule editor in the form to pick the days and time slots when this assistant should answer calls. Otherwise, the first assistant or ring group you save becomes the off-hours handler automatically.
+  </Step>
+  <Step title="Save">
+    Click **Create Assistant**. The assistant appears in the AI Assistants list and shows up on the weekly schedule.
+  </Step>
+</Steps>
+
+To edit an assistant, click it in the AI Assistants list (or click its block on the weekly schedule) and then click **Edit**. Make your changes and click **Save Changes**.
+
+### Ring Groups and Closures
+
+In addition to AI assistants, each phone number can have:
+
+- **Ring Groups** -- Lists of staff phones that ring during scheduled hours. If no one answers, calls fall over to the **Ring Group Failover** assistant set at the top of the page. Add one from the **Ring Groups** section.
+- **Closures** -- Time blocks (holidays, lunch breaks, recurring days off) when scheduled routing is paused. Calls during a closure go to the off-hours handler. Add one from the **Closures** section.
+
+### Routing Priority
+
+Click **How is call routing prioritized?** below the weekly schedule to see the order Decoda uses to pick a handler:
+
+1. **Closures** -- Block scheduled routing during configured times; calls fall back to the off-hours handler.
+2. **Scheduled AI Assistants** -- AI overrides ring groups during shift hours (for example, a lunch break).
+3. **Scheduled Ring Groups** -- Route to live staff during scheduled hours. If no one answers, the Ring Group Failover assistant handles the call.
+4. **Off-Hours Handler** -- One assistant handles calls when no schedule is active.
+
+### Forward, Enable, or Release a Number
+
+The three-dot menu on a phone number card on the **Phone Numbers** page lets you:
+
+- **Edit number** -- Open the configuration page.
+- **Forward calls** -- Forward this number to another number you own (or to one of your AI numbers). Useful for sending an unconfigured number to an existing assistant.
+- **Enable number** -- Re-enable a disabled number so it starts handling calls again.
+- **Set as primary** -- Mark this as the primary number for the tenant. The primary badge appears on the card.
+- **Release number** -- Permanently release the number from your account. Numbers cannot be released within 14 days of purchase, and you must remove all assistants and ring groups before releasing.
+
+### Search Phone Numbers
+
+Use the filter bar on the Phone Numbers page to search by name (assistant or ring group name) or by phone number digits.
 
 ### Behavior Presets
 
 Behavior presets are ready-made instruction sets that you can add to an assistant's behavior with one click, instead of writing detailed instructions from scratch.
 
-When editing an assistant's behavior, you will see a row of preset buttons above the behavior text area (labeled **Quick Presets**). Each preset covers a specific capability -- for example, rules for recommending related services during booking, or steps for reducing cancellations by offering alternatives first.
+When editing an assistant's behavior, you will see a row of preset buttons above the behavior text box (labeled **Quick Presets**). Each preset covers a specific capability -- for example, rules for recommending related services during booking, or steps for reducing cancellations by offering alternatives first.
 
 **How to use presets:**
 
-1. Open the assistant editor and scroll to the **Assistant Behaviour** field.
-2. Click the **+** button on any preset card to insert its instructions into the behavior text area.
+1. Open the assistant editor and scroll to the **Custom Prompt** field.
+2. Click the **+** button on any preset card to insert its instructions into the behavior text box.
 3. To remove a preset, click the checkmark button on its card. The inserted text is removed automatically.
 4. If you edit the inserted text and want to go back to the original version, click the reset arrow that appears on the preset card.
 
@@ -161,22 +192,45 @@ The Call Summarizer generates post-call summaries that staff can review.
   </Step>
 </Steps>
 
-## Inbound Texting Assistant
+## Texting Assistant
 
-The Inbound Texting assistant handles incoming text messages from patients, providing AI-powered responses and performing automated actions.
+The Texting Assistant handles incoming text messages from patients, providing AI-powered responses and performing automated actions. There is one Texting Assistant per tenant, and it handles SMS on all enabled phone numbers.
 
 <Steps>
-  <Step title="Navigate to Inbound Texting">
-    Go to **Settings > AI Assistants > Inbound Texting**.
+  <Step title="Navigate to the Texting Assistant">
+    Go to **Settings > AI Assistants > Texting Assistant**.
   </Step>
   <Step title="Configure Settings">
     - **Assistant Name:** Update the display name.
     - **Assistant Behaviour:** Provide instructions for text message interactions (e.g., response length, handoff procedures, service hours). Supports `@` suggestion shortcuts.
-    - **Tools:** Select capabilities the texting assistant can use. Available tools differ from voice assistants -- tools like call-specific functions are filtered out.
+    - **Tools:** Select capabilities the texting assistant can use. Available tools differ from voice assistants -- voice-only tools like ending calls and transferring calls are filtered out.
     - **AI Model:** Choose the AI model.
   </Step>
   <Step title="Save">
     Click **Save Changes**.
+  </Step>
+</Steps>
+
+## Web Chat Widget
+
+The Web Chat Widget lets patients chat with your AI assistant directly from your website. Decoda generates an embed code snippet you paste into your site's HTML, and visitors see a chat bubble that opens a conversation with your assistant.
+
+<Steps>
+  <Step title="Navigate to the Web Chat Widget">
+    Go to **Settings > AI Assistants > Web Chat Widget**.
+  </Step>
+  <Step title="Copy the Embed Code">
+    At the top of the page, click the copy icon next to the **Embed code** snippet. Paste the snippet inside the `<head>` section of your website. The widget picks up your tenant subdomain and brand color automatically.
+  </Step>
+  <Step title="Configure the Assistant">
+    - **Assistant Name:** The display name for the chat widget.
+    - **Assistant Behaviour:** Instructions that shape how the assistant talks to website visitors. Supports `@` suggestion shortcuts and Quick Presets.
+    - **Tools:** Capabilities the chat assistant can use. Voice-only tools (such as ending calls or transferring calls) are not available in chat.
+    - **AI Model:** Choose the AI model.
+    - **Timezone:** The timezone the assistant uses when discussing scheduling and appointment times with visitors.
+  </Step>
+  <Step title="Save">
+    Click **Save Changes**. The widget on your website starts using the new settings on its next load.
   </Step>
 </Steps>
 
@@ -192,62 +246,16 @@ This lets you build reusable text snippets (managed under Suggestions) that can 
 
 ---
 
-## Suggestions
-
-Suggestions are reusable text shortcuts that can be inserted into assistant behaviour prompts and other text fields by typing `@`. Manage suggestions from **Settings > AI Assistants > Suggestions** (accessible via the Suggestions tab).
-
-### Create a Suggestion
-
-<Steps>
-  <Step title="Navigate to Suggestions">
-    Go to **Settings > AI Assistants** and click the **Suggestions** tab.
-  </Step>
-  <Step title="Add Suggestion">
-    Click the **+** button in the top right corner of the suggestions panel.
-  </Step>
-  <Step title="Enter Details">
-    - **Label:** A short identifier for the suggestion (e.g., "ClinicHours", "EscalationProcess"). Labels can only contain letters, numbers, and spaces. The label cannot be changed after creation.
-    - **Content:** The full text that gets inserted when the suggestion is selected. This can be as long as needed.
-  </Step>
-  <Step title="Save">
-    Click **Create Suggestion**. The suggestion is immediately available for use in assistant behaviour prompts.
-  </Step>
-</Steps>
-
-### Edit a Suggestion
-
-1. From the Suggestions tab, click on a suggestion in the left panel to select it.
-2. Modify the **Content** field (the label cannot be changed after creation).
-3. Click **Save Changes**.
-
-### Delete a Suggestion
-
-1. Select the suggestion you want to remove.
-2. Click the **Delete** button on the suggestion editor.
-3. Confirm the deletion.
-
-### Search Suggestions
-
-Use the search bar in the left panel to filter suggestions by label.
-
-### How Suggestions Work
-
-Suggestions are available in the rich text editor used for assistant behaviour prompts. When editing any assistant's behaviour:
-
-1. Type `@` in the behaviour text field.
-2. A dropdown appears showing available suggestions filtered by what you type after `@`.
-3. Click a suggestion to insert its content at the cursor position.
-
-Suggestions pull from multiple categories including saved suggestions, assistant-specific suggestions, tenant-level data, and patient information.
+For details on creating and managing the saved suggestions inserted with `@`, see [Suggestions](/modules/settings/suggestions).
 
 ## Advanced Configuration
 
 <AccordionGroup>
-  <Accordion title="Fallback Phone Numbers">
-    Every inbound calling assistant requires a fallback phone number. This number receives calls when the AI assistant is disabled or when no shift is currently active. Make sure the fallback number is staffed during business hours to avoid missed patient calls.
+  <Accordion title="Off-Hours Handler">
+    Every phone number with at least one assistant or ring group has one off-hours handler -- the assistant or ring group that picks up calls when no schedule is currently active. The first handler you save on a number becomes the off-hours handler automatically. After that, any new handler you add must have a schedule, and you can change which one is the off-hours handler from the configuration page.
   </Accordion>
-  <Accordion title="Shift Scheduling Best Practices">
-    Inbound assistants use shifts to determine when they answer calls. If no assistant has an active shift for a phone number, calls route to the fallback number. Consider creating multiple assistants on the same number with different shifts to provide 24/7 coverage, or use a single assistant with a staffed fallback during off-hours.
+  <Accordion title="Schedule Best Practices">
+    Use schedules to control when each assistant or ring group answers calls. If no schedule is active for a given hour, the off-hours handler picks up. To provide 24/7 coverage, you can either give one assistant no schedule (so it acts as the off-hours handler) or stack multiple handlers with non-overlapping schedules. Use **Closures** for holidays and lunch breaks so calls fall back to the off-hours handler during those times.
   </Accordion>
   <Accordion title="Tool Selection">
     Tools extend what an assistant can do during a conversation. For inbound calling assistants, tools might include verifying callers, sending texts, transferring calls, or ending calls. For texting assistants, the available tool set is different and excludes voice-only capabilities. Only enable tools the assistant needs to keep conversations focused.
@@ -260,12 +268,12 @@ Suggestions pull from multiple categories including saved suggestions, assistant
     - **Settings Assistants Outbound Read / Write** -- View and modify outbound calling assistants.
     - **Settings Assistants Scribe Read / Write** -- View and modify the Scribe assistant configuration.
     - **Settings Assistants Summarizer Read / Write** -- View and modify the Call Summarizer assistant.
-    - **Settings Assistants Texting Read / Write** -- View and modify the Inbound Texting assistant.
-    - **Settings Suggestions Read / Write** -- View and modify the reusable text suggestions (the Suggestions tab).
+    - **Settings Assistants Texting Read / Write** -- View and modify the Texting Assistant and the Web Chat Widget.
+    - **Settings Suggestions Read / Write** -- View and modify the reusable text suggestions on the [Suggestions](/modules/settings/suggestions) page.
 
     Each assistant type has its own read/write pair. A user needs the **Read** permission to see the assistant's page and the **Write** permission to make changes. Admin users have full access to all assistants by default.
   </Accordion>
   <Accordion title="Deleting an Inbound Assistant">
-    To delete an inbound calling assistant, open the assistant editor and click the **Delete** button. This action cannot be undone, and any active calls to the assistant's phone number will fail after deletion.
+    To delete an inbound calling assistant, open the phone number's configuration page, click the trash icon on the assistant's row in the **AI Assistants** list, and confirm. This action cannot be undone, and any active calls handled by that assistant will fail after deletion.
   </Accordion>
 </AccordionGroup>

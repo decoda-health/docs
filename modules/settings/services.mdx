@@ -72,8 +72,22 @@ Controls appointment duration, prep work, and resource reservation.
   - **Duration:** How long the main appointment lasts (in minutes).
   - **Prep Time:** Optional pre-appointment preparation block with its own duration, buffer time, custom name, and calendar color.
   - **Prep Providers:** Assign specific staff members qualified to handle prep work (separate from the main service provider).
+  - **Cleanup Time:** Optional post-appointment block (for example, room turnover) with its own duration, custom name, and calendar color.
+  - **Cleanup Providers:** Assign specific staff members qualified to handle cleanup work (separate from the main service provider).
 - **Short-Notice Block:** Prevents patients from booking this service within a specified number of minutes before the start time. Use this for services that require advance preparation.
 - **Minutes Before Rebooking Allowed:** If a patient hasn't confirmed their appointment, this is the number of minutes before the start time where other patients can book over that timeslot. Helps reduce no-shows.
+
+### Add-Ons
+
+Lets patients pick optional related services to add to this booking. For example, a "Botox" service can offer "Lip Filler" and "Microneedling" as add-ons that the patient can attach during self-scheduling.
+
+- **Minimum Selections:** The fewest add-ons a patient must choose. Leave empty to make selections optional.
+- **Maximum Selections:** The most add-ons a patient can choose. Leave empty for unlimited.
+- **Add-On Services:** Click **Add Service** to link other services as selectable add-ons. Drag to reorder how they appear to patients.
+- **Default:** Toggle on an add-on to have it pre-selected when the patient sees the booking form.
+- **Add-On Only:** Toggle on to hide that service from normal self-scheduling so it can only be booked as an add-on to another service.
+
+A live preview at the bottom of the tab shows what patients will see during booking.
 
 ### Providers & Locations
 
@@ -97,6 +111,30 @@ Configure SMS messages sent to patients at different stages of the appointment l
 - **Cancellation SMS:** Sent to patients when their appointment is cancelled.
 - **No Show SMS:** Sent to patients if their appointment is marked as missed.
 - **Override Notice SMS:** Sent to patients if their appointment is overridden or rescheduled. Use `{minute_text}` in the template to insert the time before the appointment.
+
+### Sequences
+
+Build a multi-step automation that runs around each appointment for this service. Use sequences when you need more than a single reminder or follow-up — for example, a booking confirmation, a 24-hour reminder, a same-day check-in, and a next-day review request, all from one place.
+
+- **Active toggle:** Turn the sequence on or off for this service. When off, no steps run.
+- **Trigger tabs:** Steps are grouped by what kicks them off:
+  - **Appointment Booked** — when a new appointment is created.
+  - **Appointment Starting** — before or after the appointment start time.
+  - **Appointment Completed** — after the appointment is marked complete.
+  - **Appointment Cancelled** — when the appointment is cancelled.
+  - **Appointment No-Show** — when a patient is marked as a no-show.
+- **Add Step:** Click **Add Step** inside a trigger tab to create a new step. Each step has:
+  - **Action:** Send SMS, Send Email, or Change Status. (Change Status is not available for cancelled or no-show triggers.)
+  - **Timing:** How long before or after the trigger to run the step. Only the **Appointment Starting** trigger supports running before the event; the others run after.
+  - **Message content:** SMS template, or email subject and body. Both support variables and AI-generated drafts. Email steps also support attachments.
+  - **Target Status:** For Change Status steps, the appointment status to set.
+  - **Condition (optional):** Skip the step unless a condition is met — for example, only send the message if the patient has not completed their intake form, or has not confirmed the appointment.
+
+The **All** tab shows every step across every trigger in one timeline so you can see the full flow.
+
+<Info>
+  This tab is only visible if your clinic has the Sequences module enabled.
+</Info>
 
 ### Visibility
 
@@ -165,7 +203,7 @@ Additional settings that control how the service behaves in billing workflows.
 To update settings across multiple services at once:
 
 1. On the **Services** page, select the checkboxes next to the services you want to edit.
-2. A bulk edit drawer opens with tabs for **Pricing**, **Scheduling**, **Providers & Locations**, **Forms**, **Notifications**, **Visibility**, **Checklists**, and **Settings**.
+2. A bulk edit drawer opens with tabs for **Pricing**, **Scheduling**, **Providers & Locations**, **Forms**, **Notifications**, **Sequences** (if the Sequences module is enabled), **Visibility**, **Checklists**, and **Settings**.
 3. Change the fields you want to update. Fields with mixed values across the selected services are clearly indicated.
 4. Click **Save** to apply changes to all selected services simultaneously.
 

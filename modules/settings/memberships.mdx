@@ -26,15 +26,17 @@ Memberships let you offer recurring subscription plans to patients. Each members
     - **Description:** An optional summary of what the membership includes. Use the AI generator to draft this automatically.
     - **Setup Fee / Promotional Discount:** A one-time charge when a patient enrolls. Enter a negative value to apply a promotional discount to the first payment.
     - **Freeze Fee:** The amount charged when a patient freezes (pauses) their membership.
+    - **Pass Processing Fee to Patient:** Toggle on to apply your credit card surcharge to membership charges (setup fee, recurring billing, and freeze fee). Leave off to absorb the surcharge yourself.
     - **Minimum Billing Cycles:** The number of billing cycles a patient must complete before they can cancel.
     - **Maximum Billing Cycles:** The total number of billing cycles before the membership expires automatically. Set to 0 for unlimited.
+    - **Invoice Rule Set:** Select the rule set used to create an invoice when a member becomes delinquent (a payment fails). Choose **None** to skip automatic invoice creation.
     - **Text Color:** Pick a color to visually distinguish this membership name in the platform.
   </Step>
   <Step title="Configure Fee Schedule">
     Set the recurring price and optional cycle-specific pricing overrides. See the [Fee Schedule](#configure-a-fee-schedule) section below.
   </Step>
   <Step title="Set Billing Frequency">
-    Choose how often the membership bills: Daily, Weekly, Biweekly, Monthly, Quarterly, Every Four Months, Semi-Annually, or Yearly. If you have multiple bank accounts configured, select which **Deposit to** account receives membership payments.
+    In the Billing Frequency section, set the **Billing Cycle** to choose how often the membership bills: Daily, Weekly, Biweekly, Monthly, Quarterly, Every Four Months, Semi-Annually, or Yearly. If you have multiple bank accounts configured, select which **Deposit to** account receives membership payments.
   </Step>
   <Step title="Configure Credits and Discounts">
     Set up patient credits, global discounts, category-level discounts, item type discounts, and per-item discounts. See the sections below for details.
@@ -127,16 +129,32 @@ Group multiple item discounts together so patients can choose one option from th
   <Step title="Select Patient and Membership">
     Search for and select a patient. If navigating from a specific membership, it is pre-selected; otherwise, choose from the list of active memberships.
   </Step>
-  <Step title="Set Start Date and Sold By">
-    Pick the membership start date. The **Sold By** field defaults to your user and attributes the enrollment to a specific staff member.
+  <Step title="Choose Sold By Provider">
+    In the **Sold By Provider** section, optionally select the provider who sold this membership. Leave it blank if you don't want to attribute the sale.
   </Step>
-  <Step title="Configure Billing Options">
-    - **Prorate First Payment:** Toggle on to adjust the first payment based on how far into the billing cycle the patient starts. For example, if they enroll halfway through the month, they pay half.
-    - **Deferred Billing:** Toggle on to delay the first charge to a future date — the patient enrolls now but isn't billed until later. Select a saved payment method for future automated billing.
-    - **Save Payment Method:** When checked, the card used for enrollment is saved for future recurring charges.
+  <Step title="Set Schedule and Billing Dates">
+    In the **Schedule & Billing** section:
+    - **Benefits Start Date:** When the patient begins receiving membership benefits. Type a date or use shortcuts like "today", "tomorrow", or "next week".
+    - **First Billing Date:** When the patient is first charged. Defaults to today. Set a future date to defer the first charge — the patient enrolls now but isn't billed until that date.
+    - **Prorate First Payment:** Appears when the start date is in the future or when billing is deferred. Toggle on to adjust the first charge based on how far into the billing cycle the membership starts.
+
+    The Enrollment Summary on the right shows when benefits start, the date and amount of the first charge, and the ongoing recurring price.
   </Step>
-  <Step title="Process Payment">
-    For immediate billing, the payment terminal appears for credit card entry. For deferred billing or $0 memberships, select a saved payment method and click **Enroll with Deferred Billing** or **Enroll (Free Membership)**.
+  <Step title="Set Up Payment Method">
+    The payment options shown depend on whether the first billing date is today (immediate billing) or in the future (deferred billing). Free memberships skip this step entirely.
+
+    **For immediate billing (first billing date is today):**
+    - Pick from the patient's saved payment methods, or enter a new card in the payment terminal.
+    - Check **Save Payment Method** to save a newly-entered card for future recurring charges. Make sure you have the patient's consent.
+
+    **For deferred billing (first billing date is in the future):**
+    - Select one of the patient's saved payment methods, or click **Add Card** to add a new one. A saved payment method is required to continue.
+  </Step>
+  <Step title="Complete Enrollment">
+    Click the action button at the bottom. Its label changes based on the enrollment type:
+    - **Enroll Patient** — for free ($0) memberships.
+    - **Enroll Patient — first charge {date}** — for deferred billing.
+    - **Charge $X & Enroll** — for immediate billing, where $X is the total charged today.
   </Step>
 </Steps>
 

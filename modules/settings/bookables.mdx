@@ -19,7 +19,9 @@ The Bookables page shows all of your resources in a table with the following col
 |--------|---------------|
 | **Bookable** | The resource name and its ID |
 | **Description** | An optional note about the resource |
+| **Capacity** | The maximum number of appointments that can use this resource at the same time |
 | **Locations** | Which clinic locations this resource belongs to |
+| **Services** | The services that reserve this resource when scheduled |
 | *(unlabeled)* | A button to remove the resource |
 
 If you haven't created any bookable resources yet, the table displays "No bookables found."
@@ -35,6 +37,9 @@ If you haven't created any bookable resources yet, the table displays "No bookab
   </Step>
   <Step title="Add a Description (Optional)">
     Enter a short description to help your team identify the resource. This is a multi-line text field.
+  </Step>
+  <Step title="Set Capacity">
+    Enter the maximum number of appointments that can use this resource at the same time. The default is 1, which means only one appointment can use the resource per time slot. Increase this if the resource can be shared (for example, a waiting room that fits multiple patients).
   </Step>
   <Step title="Choose Locations">
     Select one or more locations where this resource is available. The form shows how many locations you've selected out of the total.
@@ -52,6 +57,12 @@ You can edit a bookable resource's name, description, or locations directly from
 
 1. Click the **name** or **description** cell in the table row you want to change.
 2. A small editor appears with the current value. Type your changes.
+3. Press **Enter** or click **Save** to confirm. Press **Escape** or click **Cancel** to discard changes.
+
+### Edit Capacity
+
+1. Click the **Capacity** cell in the table row you want to change.
+2. A small popup appears with a number input. Use the arrows or type a new value (minimum 1).
 3. Press **Enter** or click **Save** to confirm. Press **Escape** or click **Cancel** to discard changes.
 
 ### Edit Assigned Locations

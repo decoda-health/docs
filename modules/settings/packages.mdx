@@ -23,17 +23,25 @@ Packages let you group multiple services and products into a single purchasable 
   <Step title="Enter Details">
     Fill in the following fields:
     - **Name:** A descriptive name for the package (e.g., "Facial Rejuvenation Bundle", "New Patient Starter Pack"). Required.
-    - **Description:** An optional summary of what the package includes, shown to patients. Use the AI generator to draft this automatically.
+    - **Description:** An optional summary of what the package includes, shown to patients.
     - **Internal Notes:** Private notes visible only to staff (e.g., "Offer this to new patients during consultation").
-    - **Category:** Select an existing category or create a new one to group similar packages together. Use the AI generator to suggest a category based on the package name.
+    - **Category:** Select an existing category or create a new one to group similar packages together.
     - **Price:** The total price for the package. Can be $0 for complimentary packages.
     - **Show in Checkout:** Controls whether this package appears in the checkout product search. Enabled by default. Turn this off if you want to keep the package in your catalog but not offer it during checkout.
+    - **Custom pricing:** Check **Allow custom price at checkout** to let staff change the package price when adding it to a cart or charge.
   </Step>
-  <Step title="Add Package Items">
-    Click **Add Item** to include services or products in the package. For each item:
-    - **Item:** Search and select a service or product from your catalog.
-    - **Quantity:** How many of that item the patient receives (minimum 1).
-    - **Item Price:** The price allocated to this item within the package. This can differ from the item's standard catalog price.
+  <Step title="Add Discount Templates">
+    A package's contents are defined by the discounts it grants the patient when purchased. In the **Discount Templates** section, click **Add Discount** to open the discount drawer. For each discount:
+    - **Applies To:** Choose what the discount targets:
+      - **Specific Item** -- Search and select a single service, product, or package from your catalog.
+      - **Category** -- Pick an existing category, or choose **Custom Category...** and enter a name.
+      - **Item Type** -- Apply to all items of a given type (e.g., all services or all products).
+      - **All Items** -- Apply to every item, service, and product.
+    - **Discount Value:** Enter either a fixed **Discount Amount ($)** or a **Discount Percentage (%)** -- not both. Use 100% (or a fixed amount equal to the item price) to include an item as fully covered by the package.
+    - **Quantity:** Required for packages. The number of times the patient can use this discount. For example, set quantity to 6 to include six covered facials.
+    - **This is a prepayment:** When checked, commissions are calculated on the full item price rather than the discounted price. This is auto-checked for fixed-quantity discounts targeting a specific item or category at 100% off (or a matching fixed amount), and unchecked for partial-percentage or unlimited-use discounts.
+
+    Click **Create Discount** to add it. Repeat to add more discounts. Package discounts do not expire.
   </Step>
   <Step title="Save">
     Click **Save Package**. The package is immediately available for sale.
@@ -105,6 +113,7 @@ Use the filter bar above the table to search by:
 - **Category:** Multi-select filter for specific categories.
 - **Price Range:** Filter by minimum and/or maximum price.
 - **Item Name:** Search for packages that contain a specific service or product.
+- **Location:** Filter packages by location.
 
 ### Grouping
 
@@ -138,8 +147,5 @@ Manage tax rules under [Payment Management](/modules/settings/payment-management
     - **Billing Payments Process** -- Required to sell packages to patients during checkout.
 
     Admin users have full access to all package features by default.
-  </Accordion>
-  <Accordion title="AI-Assisted Descriptions and Categories">
-    When creating or editing a package, the description and category fields offer AI generation. Enter a package name first, then click the AI button to automatically generate a professional description or suggest an appropriate category based on your existing category list.
   </Accordion>
 </AccordionGroup>

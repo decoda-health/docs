@@ -19,20 +19,25 @@ To add a staff member to your organization:
   <Step title="Navigate to Users">
     Go to **Settings** and select **Users**.
   </Step>
-  <Step title="Send Invitation">
-    Click the **Invite User** button.
+  <Step title="Open the invite window">
+    Click the **Invite User** button. A window titled **Invite people to your workspace** opens.
   </Step>
   <Step title="Enter Staff Details">
     Fill in the following:
-    - **Email Address:** The staff member's work email.
-    - **Name:** The user's full name as it should appear on clinical notes and signatures.
-    - **Primary Location:** The main facility where this user works.
+    - **First Name** and **Last Name:** The user's name as it should appear on clinical notes and signatures.
+    - **Email:** The staff member's work email.
+    - **Phone Number:** Optional. Used for staff notifications.
+    - **Primary Location:** The main facility where this user works. Only shown if your organization has more than one location.
+    - **Hourly Rate:** Optional. Only shown if Clock In is enabled for your tenant.
   </Step>
   <Step title="Assign a Role">
     Select a predefined Role (e.g., Front Desk, Provider, Billing Manager). This can be changed later.
   </Step>
+  <Step title="Add Teams (optional)">
+    If your organization uses Teams, pick one or more from the **Teams** list. When the selected teams have notification defaults configured, you can also check **Apply team notification defaults** to copy those settings to the new user.
+  </Step>
   <Step title="Send">
-    Click **Send Invitation**. The user will receive an email with instructions to set up their account.
+    Click **Invite user**. The button shows **Sending invite...** while it submits, and the user will receive an email with instructions to set up their account.
   </Step>
 </Steps>
 
@@ -45,16 +50,13 @@ Roles allow you to manage permissions for groups of users simultaneously.
     Go to **Settings** and select **Roles & Permissions**.
   </Step>
   <Step title="Select or Create Role">
-    Choose an existing role to edit or click **Create Custom Role**.
+    Choose an existing role to edit, or use the **Create New Role** section to add a new role: enter a name, pick a Role Type, and click **Create Role**.
   </Step>
   <Step title="Configure Permissions">
-    Toggle access for specific modules. Common categories include:
-    - **Calendar:** View, create, or delete appointments.
-    - **Billing:** Process payments, issue refunds, or view revenue reports.
-    - **Clinical:** Access patient charts, write notes, or manage medications.
+    Toggle the permissions you want to grant. Permissions are grouped into categories (such as Calendar, Billing, or Clinical), and the categories shown depend on which modules are enabled for your tenant.
   </Step>
-  <Step title="Save Changes">
-    Click **Save**. Changes apply immediately to all users assigned to that role.
+  <Step title="Changes save automatically">
+    Each toggle saves as soon as you click it and applies immediately to all users assigned to that role. There is no separate Save button.
   </Step>
 </Steps>
 
@@ -78,13 +80,13 @@ Teams are created and managed from **Settings > Teams**. Once at least one team 
 
 <AccordionGroup>
   <Accordion title="Resending Pending Invitations">
-    If a staff member hasn't received their invitation email, find their name in the **Users** list. If their status is **Pending**, click the **Resend Invite** button next to their name to trigger a new email.
+    If a staff member hasn't received their invitation email, find their name in the **Users** list. If their status is **Pending**, open the row's actions menu and choose **Resend Invitation** to trigger a new email. You can also choose **Copy Invite Link** to copy the user's invite URL to your clipboard and share it directly — useful when email delivery is blocked or delayed.
   </Accordion>
   <Accordion title="Provider Credentials (NPI, Bio, Taxonomy)">
     For clinical staff, you can add professional credentials within their user profile. This information is often required for insurance billing, e-prescribing, and patient-facing bios on self-scheduling pages.
   </Accordion>
   <Accordion title="Restricting Access to Specific Locations">
-    If a staff member should only see data for one specific clinic, navigate to their user profile in **Settings > Users** and update their **Access Rules**. You can toggle access for each individual facility in your organization.
+    If a staff member should only see data for one specific clinic, find them in **Settings > Users**, open the row's actions menu, and choose **Visible Locations**. You can toggle access for each individual facility in your organization.
   </Accordion>
   <Accordion title="Deactivating Users">
     To revoke access for a former staff member, find them in the **Users** list and select **Deactivate**. This prevents further login attempts while preserving their historical clinical notes and transaction records for auditing purposes.

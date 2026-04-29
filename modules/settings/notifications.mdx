@@ -9,7 +9,7 @@ description: 'Control which events trigger alerts and how you receive them — v
 
 Choose what you want to know about and how you want to hear about it. Whether it's a new appointment, a failed payment, or low inventory — you decide which events trigger alerts and whether they come as in-app notifications, emails, or texts.
 
-Decoda tracks 46+ event types across your clinic — from new appointments to low inventory warnings. The Notifications settings page lets each user choose which events they want to be alerted about and how those alerts are delivered.
+Decoda tracks dozens of event types across your clinic — from new appointments to low inventory warnings. The Notifications settings page lets each user choose which events they want to be alerted about and how those alerts are delivered.
 
 ## Notification Delivery Methods
 
@@ -63,6 +63,7 @@ Each alert can be delivered through one or more of the following channels:
 | Shift Created | A provider shift is added to the schedule |
 | Shift Updated | A provider shift is modified |
 | Shift Cancelled | A provider shift is removed |
+| Appointment Checklist Updated | A checklist item is marked complete for an appointment |
 
 ### Payment & Billing Alerts
 
@@ -86,28 +87,48 @@ Each alert can be delivered through one or more of the following channels:
 | Deposit In Review | A bank deposit is under review |
 | Deposit Succeeded | A bank deposit clears successfully |
 | Deposit Failed | A bank deposit fails |
+| Chargeback Action Required | A chargeback requires your response |
+| Chargeback Updated | A chargeback status is updated |
+| Chargeback Won | A chargeback dispute is decided in your favor |
+| Chargeback Lost | A chargeback dispute is decided against you |
 
 ### Communication Alerts
 
 | Alert | When It Fires |
 |-------|--------------|
-| Call Received | An incoming phone call arrives |
-| Call Made | An outbound call is placed |
 | Message Received | An incoming text message arrives |
 | Message Sent | An outbound text message is sent |
 | Message Delivered | A text message is confirmed delivered |
 | Message Failed | A text message fails to send |
-| Email Received | An incoming email arrives |
-| Email Sent | An outbound email is sent |
+| Call Received | An incoming phone call is answered by the AI assistant |
+| Call Answered | An incoming phone call is answered by a staff member |
+| Call Made | An outbound call is placed |
+| Email Received | A new email arrives (not a reply to an existing thread) |
+| Email Reply Received | A reply arrives on an existing email thread |
+| Email Sent | A custom email is composed and sent by a provider |
+| Invoice Email Sent | An invoice email is sent to a patient |
 | Mail Sent | A physical mail piece is dispatched |
 | Mail Delivery Failed | A physical mail delivery fails |
+| Notification | An AI system creates a notification for an important event (e.g., during an AI call) |
 
-### Form & Checklist Alerts
+<Info>
+  **Email prerequisite:** The four email alerts (Email Received, Email Reply Received, Email Sent, Invoice Email Sent) require a configured email domain for your clinic. If your clinic has not set up an email domain, these alerts are disabled in the preferences UI.
+</Info>
+
+### Form Alerts
 
 | Alert | When It Fires |
 |-------|--------------|
-| Form Submitted | A patient completes and submits an intake form |
-| Appointment Checklist Updated | A checklist item is marked complete for an appointment |
+| Form Submitted | A patient completes and submits a form or questionnaire |
+
+### Task Alerts
+
+| Alert | When It Fires |
+|-------|--------------|
+| Task Assigned | You are assigned to a task |
+| Task Comment | Someone comments on a task you are subscribed to |
+| Task Completed | A task you are subscribed to is marked complete |
+| Task Updated | The status, priority, or due date of a task you are subscribed to changes |
 
 ### Inventory Alerts
 
@@ -135,21 +156,16 @@ Each alert can be delivered through one or more of the following channels:
 | Purchase Order Cancelled | A PO is cancelled |
 | Purchase Order Completed | A PO is fully received |
 | Purchase Order Archived | A PO is archived |
+| Inventory Action | An inventory-related action is performed |
 
-### Note Alerts
+## Global Controls
 
-| Alert | When It Fires |
-|-------|--------------|
-| Note Created | A new clinical note is created |
-| Note Updated | An existing clinical note is modified |
+You do not need to configure each alert individually. The **Global Controls** section at the top of the Notifications page lets you manage every subscription at once:
 
-## Bulk Toggle Controls
+- **All In-App / All Email / All SMS**: Each delivery channel has its own master switch. Toggle one to enable or disable every alert across all categories for just that channel. A progress bar shows how many alerts are currently subscribed for each channel.
+- **All Notifications**: A single master switch that turns every alert on or off across every channel at once.
 
-You do not need to configure each alert individually. Use the bulk controls to manage preferences quickly:
-
-- **Section Toggle**: Enable or disable all alerts within a single category at once.
-- **Toggle All**: Enable or disable every alert across all categories in one click.
-- **Method-Level Toggle**: Turn an entire delivery method on or off (e.g., disable all SMS alerts while keeping In-App and Email active).
+Within each alert category, you can also toggle a whole column (e.g., turn on In-App for every alert in the Patient Alerts section) using the column header switch in that section.
 
 ## Appointment Notification Scope
 
@@ -192,11 +208,29 @@ To enable location filtering for an alert type, look for the **Location Filter**
 
 ## Notification Sounds
 
-You can choose a sound that plays when new in-app notifications arrive. This setting is found in **Settings > Preferences** under the notification sound option.
+You can choose a sound that plays when new in-app notifications arrive. This setting is found on the Notifications settings page under **Notification Sound**.
 
 Available sounds: **None** (silent), **Pop**, **Droplet**, **Gentle**, **Aurora**, **Cosmic**.
 
-Use the **Preview** button next to each sound to hear it before selecting.
+Click any option to preview it and select it.
+
+## Ringtone
+
+Choose a ringtone that plays when an incoming call arrives in Decoda. This setting is found on the Notifications settings page under **Ringtone**.
+
+Available ringtones: **None** (silent), **Chime**, **Pulse**, **Melody**, **Ripple**, **Beacon**.
+
+Click any option to preview it and select it.
+
+## Patient Status Alerts
+
+If your clinic uses Patient Status tracking on the calendar, you can enable toast notifications when a patient has been waiting too long at a checklist step.
+
+1. Go to **Settings > Notifications**.
+2. Find the **Patient Status Alerts** section.
+3. Toggle **Overdue Patient Alerts** on to be notified when patients are waiting too long, or off to disable these alerts.
+
+This section only appears if your clinic has the Patient Status module enabled.
 
 ## Advanced Configuration
 
@@ -205,7 +239,11 @@ Use the **Preview** button next to each sound to hear it before selecting.
     Users only see alert types that match their role permissions. For example, a front desk user without billing access will not see payment alerts in their notification settings. If an alert type you expect to see is missing, check that your role has the relevant module permissions in [Users & Roles](/modules/settings/users).
   </Accordion>
   <Accordion title="Auto-Mark as Read">
-    Configure whether notifications are automatically marked as read after a period of time. Options include **Immediately**, **Never**, or a custom duration (e.g., after 5 minutes). This is found within your notification preferences on the Notifications settings page.
+    Control when notifications are automatically marked as read. The Notifications settings page has an **Auto-Mark as Read** section with three options:
+
+    - **Manual Only**: Notifications stay unread until you explicitly mark them as read.
+    - **On Action**: Notifications are marked as read when you click a notification's action button.
+    - **On Open**: Notifications are marked as read automatically when you open the notification panel.
   </Accordion>
   <Accordion title="Mark All as Read">
     To clear the notification badge, click the **notification bell** icon and select **Mark All as Read**. This dismisses the unread count for all current notifications without deleting them.
