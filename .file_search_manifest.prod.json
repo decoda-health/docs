@@ -265,16 +265,16 @@
       "hash": "2f648585ea765e1f4803442b4f1118ccec02cfb1444a747f3ff1434df71edfe1"
     },
     "modules/settings/assistants.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsassistantsmd-53byzsdn1sld",
-      "hash": "1950262e5d93717dc35b666c5986bbf345d471178e94675b423a69b27f9e3924"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsassistantsmd-3uchw0exxrxo",
+      "hash": "94f82170fa4d829f849aa80e91eddc0f69c6274a967b1f9b6188c278b1b801d3"
     },
     "modules/settings/bookables.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsbookablesmdx-sa9jx1tvkt9r",
-      "hash": "bd200c483e44b1114eb0872cf53c240df48070466d0e204d039fb8cd9ec45f1f"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsbookablesmdx-n58140r9hi67",
+      "hash": "a812b75984e3bfcbc5b98901000a4061af4a0dc3629e91c86f10baf6c3036001"
     },
     "modules/settings/calendar-appearance.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscalendarappe-s7gj6uxi6y47",
-      "hash": "c02270ecbecf6695bc54167ba6b3a877b90e33da8e9017d0cb32d532994dec78"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscalendarappe-ablhc3rei9lg",
+      "hash": "eabf2eca607e264e575f425c225e515f68cbb6abf29f0cd689974d4c7de38469"
     },
     "modules/settings/categories.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscategoriesmd-p0ohsbqx6ffj",
@@ -293,8 +293,8 @@
       "hash": "1811a004732667a338dbcdbd2f7e16619dfc1e022128e9d5a95dd33859bbf10e"
     },
     "modules/settings/general.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsgeneralmdx-ytk8werpjcpm",
-      "hash": "9bf11b5f9305935f120e7c480c736a3435b88cd4a4ad067e3743973f6e1b989c"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsgeneralmdx-lr8rszorophi",
+      "hash": "381112c691dac11f952eae21db878e24d6c9fe51cbeb5cba5d4fc97d23ae3f32"
     },
     "modules/settings/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsindexmdx-053517cvpw7b",
@@ -313,24 +313,24 @@
       "hash": "7cb32ab236c9c9cc04c7f3bd0ffaeb3750c03e02ce6dfef72e2c490c58a9e216"
     },
     "modules/settings/memberships.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsmembershipsm-z2c808q94f9s",
-      "hash": "5a82a8ea91671f8c597c9f24dedcb7d8c60519ce06aa6aa61f6e6fcab84a1d5e"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsmembershipsm-1mjuhl3w55l8",
+      "hash": "23de0673883d985b2e8653b6cfaea69e0297e2f12c05dc788aca40f30c0a8a36"
     },
     "modules/settings/note-templates.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsnotetemplate-xxspnm8x7rr5",
       "hash": "b81cd1320b3c026fec12576055d940456e9a83a2cd3e876425095059c8cc9fdd"
     },
     "modules/settings/notifications.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsnotification-6ydwag5ipj95",
-      "hash": "317509f7d9cc6850e7822d4a7924301fb168311b762f5887bad29fca2b62c485"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsnotification-eiwwoo3jhuzx",
+      "hash": "2a1443eb0aedc5a1198118ad288418a59e75547b8b02a6dc5aaf0306024100f8"
     },
     "modules/settings/packages.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspackagesmdx-jfmw5fjvqrpr",
-      "hash": "06eb7064eae750d3b7df96136841a19ff62ae58d16892f31e7dd6b264888b9a7"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspackagesmdx-ehhe897my51t",
+      "hash": "32a36010f06a1ee656ff8548d90a0d6598b538b56361617082a8d8bb45a2b124"
     },
     "modules/settings/payment-management.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspaymentmanag-4m5n4xets5rj",
-      "hash": "c90c11b1b549ebcd08bff48709f228bbf662333faa0a949a3a53366dd177050b"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspaymentmanag-h8g13mhqc5h0",
+      "hash": "dcea9f7b44019b135d6cb748ae81fa0d3142e4b4d75eb7adc1368b45863db814"
     },
     "modules/settings/permissions.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspermissionsm-rx8xcd3hy6df",
@@ -353,16 +353,16 @@
       "hash": "8e483a718e73c6c7f416a1160b6285c3b1d08ae27f6ec1c5f771cf6aa8bdf5ee"
     },
     "modules/settings/preferences.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspreferencesm-llot13fnjx0h",
-      "hash": "1b2459684e23042f73a07438e6f4f4f87ad2036b7ffe216c1291095e0ac56582"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspreferencesm-aidq47rx3s37",
+      "hash": "988c35e7eb8f6949908370d2549d55e15e05fb15d4ae59a5232b80cebbb549a8"
     },
     "modules/settings/products.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsproductsmdx-m992hsepyh2v",
       "hash": "5257366d6f20f342a5dd9118a386f02b264924f065ea7c0708f05ed6600ac419"
     },
     "modules/settings/profile-security.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsprofilesecur-uvv38amt64pi",
-      "hash": "2ee3241b06ccdca70738df0964b7821c15988b436c4d6f51544b923982f32fae"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsprofilesecur-mdwy3z32azn5",
+      "hash": "1c42f4180f4e22948ea810e205670805e96d9720c68ac7f843099c49cf7a139d"
     },
     "modules/settings/qualiphy.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsqualiphymdx-5frdhdkfgntj",
@@ -377,20 +377,20 @@
       "hash": "cca5ef6f052403da573b257e6a90d9028a88624f65bd0516d56d75112432fc2a"
     },
     "modules/settings/services.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsservicesmdx-0f808tngccx4",
-      "hash": "f8b5f76a41c0b962c0487ccf082ba71629e2c225098adb7251660969249ce70d"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsservicesmdx-q7rc1hoyaelf",
+      "hash": "46264ce5a3bbe2ad8eb2288e3853026ed09016aa3a58301023ad08cf436aa4f6"
     },
     "modules/settings/suggestions.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingssuggestionsm-t2wria7jnx26",
-      "hash": "721ef21a64094084044023cb27f0e9bfa48a089cbe4a55fa93d8cc6047f002ac"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingssuggestionsm-em2xac4d2cby",
+      "hash": "f94b6c19cb6d25408af25271e158a155ededc348a387b6e9df57ad1bb7d29ea4"
     },
     "modules/settings/tasks.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingstasksmdx-laq6anpry4m0",
-      "hash": "247a590c86e9fc806b2bf38170b351974b9e6bc123a6b333e937da3f96b125ef"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingstasksmdx-k3x3plnwkx2l",
+      "hash": "04181e85b80147eae89f7602992dd8e029a8e67ecfe367967d2934d16137bebb"
     },
     "modules/settings/users.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsusersmdx-tj9yixaygvjb",
-      "hash": "79f86aeec33b75710aacc3edf869b85d41137cb15a908d35d5f2d76314797ad0"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsusersmdx-121qk5ddxgzk",
+      "hash": "7ffe379f3f49a5fbcc898b75d8e8722e73a6dfb934e28e44b7dd7316ce51d762"
     },
     "modules/tasks/index.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulestasksindexmdx-shxnnj9rp7bq",
