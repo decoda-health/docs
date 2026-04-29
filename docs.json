@@ -220,6 +220,7 @@
               "modules/settings/medications",
               "modules/settings/memberships",
               "modules/settings/packages",
+              "modules/settings/gift-cards",
               {
                 "group": "Payment Management",
                 "pages": [

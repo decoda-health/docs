@@ -1,0 +1,188 @@
+---
+title: 'Gift Cards'
+description: 'Sell, issue, redeem, and track gift cards for your clinic.'
+---
+
+<Info>
+  **Prerequisites:** Gift Cards must be enabled for your clinic. If the Gift Cards page does not appear under **Settings**, contact your account administrator to turn the module on.
+</Info>
+
+Gift cards let patients purchase prepaid value that someone else (or they themselves) can redeem at your clinic later. Each gift card has a unique code, an initial value, and a remaining balance that decreases as it is used.
+
+<Note>
+  **Price equals redeemable amount.** Whatever amount the purchaser pays is exactly what the recipient can redeem — there's no surcharge or upcharge. A $100 gift card costs the buyer $100 and gives the recipient $100 of redeemable value.
+</Note>
+
+## How Gift Cards Work
+
+There are two ways to put a gift card in a patient's hands:
+
+<CardGroup cols={2}>
+  <Card title="Issue a one-off gift card" icon="gift" href="#issue-a-one-off-gift-card">
+    Quickly create a gift card for any amount, charge the purchaser, and send the code to a recipient — all from a single window.
+  </Card>
+  <Card title="Sell a gift card at checkout" icon="cart-shopping" href="#sell-a-gift-card-at-checkout">
+    Add a preset gift card item to a cart during a regular checkout. Useful for fixed denominations like "$50 Gift Card".
+  </Card>
+</CardGroup>
+
+Both methods produce the same result: a unique gift card code with a balance the recipient can spend at your clinic.
+
+## The Gift Cards Settings Page
+
+Go to **Settings** → **Gift Cards**. The page has two sections.
+
+### Gift Card Items
+
+The top section lists the **gift card items** (preset denominations) you sell at checkout — for example, "$50 Gift Card" or "$100 Gift Card". Each item shows:
+
+- **Name** — what staff see when adding it to a cart.
+- **Price** — the price the patient pays, which is the same amount the recipient can redeem.
+- **Settings** — a **Custom Pricing** badge appears if staff are allowed to override the amount at checkout.
+
+Use the search and filter bar to narrow the list. Click an item to edit it, or use the actions menu to archive it.
+
+### Issued Gift Cards
+
+The bottom section lists every gift card that has been sold or issued, including:
+
+- **Code** — the gift card code (partially masked).
+- **Initial Value** — the original amount loaded onto the card.
+- **Balance** — how much is left to spend.
+- **Status** — see [Gift Card Statuses](#gift-card-statuses) below.
+- **Purchaser** — the patient who bought the card.
+- **Date Issued** — when the card was created.
+
+Filter by purchaser, recipient, date range, or status. Click a row to open the card's details.
+
+### Gift Card Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Pending** | The card has been created but not yet activated. Cards stay pending until the purchase is paid in full. |
+| **Active** | The card is fully redeemable. |
+| **Disabled** | The card has been drained, refunded, or turned off and cannot be used. |
+
+## Create a Gift Card Item
+
+Use a gift card item when you want to offer a fixed denomination — for example, a "$100 Gift Card" SKU that staff can quickly add to a checkout.
+
+<Steps>
+  <Step title="Open the Gift Cards page">
+    Go to **Settings** → **Gift Cards**.
+  </Step>
+  <Step title="Add a gift card">
+    Click **Add Gift Card** in the **Gift Card Items** section. A side panel opens.
+  </Step>
+  <Step title="Fill in the details">
+    - **Name** (required): What staff and patients see — for example, `$50 Gift Card`.
+    - **Price** (required): The amount the patient pays. This is the same amount the recipient can redeem.
+    - **Description**: Optional details shown to staff.
+    - **Allow custom pricing**: Turn this on to let staff override the price when adding the item to a cart. Useful if you want a single "Gift Card" item for any amount.
+  </Step>
+  <Step title="Save">
+    Click **Add Gift Card**. The item is immediately available at checkout.
+  </Step>
+</Steps>
+
+<Tip>
+  If you only want a single "any amount" gift card item, create one with a starting price (e.g. $50) and turn on **Allow custom pricing**. Staff can then change the amount on the cart line.
+</Tip>
+
+## Issue a One-Off Gift Card
+
+Use this when you want to sell a gift card for any amount without going through a full checkout — for example, a walk-in who just wants a gift for a friend.
+
+<Steps>
+  <Step title="Open the Gift Cards page">
+    Go to **Settings** → **Gift Cards**.
+  </Step>
+  <Step title="Start issuing">
+    Click **Issue Gift Card**. A window opens.
+  </Step>
+  <Step title="Enter the gift card details">
+    - **Amount** (required): The amount the purchasing patient pays, which is the same amount the recipient can redeem.
+    - **Purchasing patient** (required): Search for and select the patient buying the gift card.
+    - **Location**: Pick the location the sale belongs to (only shown if your clinic has multiple locations).
+    - **Recipient name, email, phone, note**: Optional. Fill these in if the gift card is for someone other than the purchaser.
+  </Step>
+  <Step title="Continue to payment">
+    Click **Continue to payment**. The window switches to a payment screen for the purchasing patient. Run the payment as you normally would.
+  </Step>
+  <Step title="Done">
+    Once payment succeeds, the gift card is activated and available to redeem. If you entered a recipient email or phone, the recipient can be notified with the code.
+  </Step>
+</Steps>
+
+## Sell a Gift Card at Checkout
+
+If you've created gift card items as denominations (see [Create a Gift Card Item](#create-a-gift-card-item)), staff can add them to a regular checkout the same way they add any other item.
+
+<Steps>
+  <Step title="Add the gift card to the cart">
+    Open the checkout, search for the gift card item, and add it. If the item allows custom pricing, an edit icon appears next to the price — click it to set the amount the patient is paying. The amount entered is the redeemable balance on the card.
+  </Step>
+  <Step title="Add a recipient (optional)">
+    Each gift card line item shows an **Add recipient** button. Click it to enter the recipient's name, email, phone, and an optional note. If you sold multiple gift cards in the same cart, you can step through each one (e.g., "Recipient 1 of 3") and assign different recipients. Leave the recipient blank to send the card to the purchasing patient.
+  </Step>
+  <Step title="Take payment">
+    Complete the checkout as usual. Once paid, each gift card is activated.
+  </Step>
+</Steps>
+
+## Redeem a Gift Card
+
+A gift card can be used as a payment method on any checkout.
+
+<Steps>
+  <Step title="Get to the payment step">
+    Build the cart and continue to the payment step.
+  </Step>
+  <Step title="Choose Gift Card">
+    Select **Gift Card** as the payment method.
+  </Step>
+  <Step title="Enter the code and check balance">
+    Type the gift card code (in the format `GC-XXXX-XXXX`) and click **Check Balance**. The remaining balance appears.
+  </Step>
+  <Step title="Apply the payment">
+    The gift card balance is applied toward the amount due. If the balance does not cover the full amount, take the rest with another payment method. If the balance exceeds the amount due, only what's needed is deducted and the rest stays on the card.
+  </Step>
+</Steps>
+
+<Warning>
+  Gift cards cannot be redeemed until they are **Active**. A gift card stays **Pending** until the purchase that created it has been paid in full.
+</Warning>
+
+## Look Up a Gift Card Balance
+
+Recipients can check their own balance without signing in.
+
+- The public balance lookup is available at `/gift-card/balance` on your clinic's URL.
+- The recipient enters the gift card code and sees the initial value and current balance.
+
+Staff can also view balances by opening any issued gift card from the **Issued Gift Cards** list on the settings page.
+
+## Manage an Issued Gift Card
+
+Click a row in the **Issued Gift Cards** section to open its details. From there you can:
+
+- See the full code, initial value, current balance, and status.
+- See the purchasing patient and the recipient details.
+- Resend the gift card to the recipient (if email or phone is on file).
+- See the history of redemptions and refunds.
+
+## Advanced
+
+<AccordionGroup>
+  <Accordion title="Custom pricing on gift card items">
+    When **Allow custom pricing** is on for a gift card item, staff see an edit icon on the cart line at checkout. Clicking it opens a small window where staff can enter any amount. The amount entered is what the patient pays and what the recipient can redeem — they're always the same number.
+  </Accordion>
+  <Accordion title="Refunds and disabling cards">
+    If a purchase that created a gift card is refunded, the gift card is disabled and can no longer be used. A gift card that has been drained to a zero balance also moves to the **Disabled** status.
+  </Accordion>
+  <Accordion title="Permissions">
+    - Viewing the Gift Cards settings page and the issued gift card list requires **Billing Read** with the Gift Cards module enabled.
+    - Issuing a one-off gift card requires permission to process billing payments.
+    - Creating or editing gift card items requires **Inventory Write**.
+  </Accordion>
+</AccordionGroup>
