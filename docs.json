@@ -212,6 +212,8 @@
             "group": "Settings & Org Setup",
             "pages": [
               "modules/settings/index",
+              "modules/settings/general",
+              "modules/settings/preferences",
               "modules/settings/locations",
               "modules/settings/users",
               "modules/settings/hourly-rates",
@@ -238,9 +240,7 @@
               "modules/settings/commissions",
               "modules/settings/rules",
               "modules/settings/tasks",
-              "modules/settings/general",
               "modules/settings/brand-colors",
-              "modules/settings/preferences",
               "modules/settings/notifications",
               "modules/settings/emails",
               "modules/settings/note-templates",
