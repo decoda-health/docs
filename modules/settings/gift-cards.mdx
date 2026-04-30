@@ -157,8 +157,9 @@ A gift card can be used as a payment method on any checkout.
 
 Recipients can check their own balance without signing in.
 
-- The public balance lookup is available at `/gift-card/balance` on your clinic's URL.
+- The public balance lookup is available at `/gift-cards/balance` on your clinic's URL.
 - The recipient enters the gift card code and sees the initial value and current balance.
+- Every gift card notification email and text includes a link to this page, so recipients and purchasers can check the balance later without needing the URL.
 
 Staff can also view balances by opening any issued gift card from the **Issued Gift Cards** list on the settings page.
 
@@ -168,8 +169,11 @@ Click a row in the **Issued Gift Cards** section to open its details. From there
 
 - See the full code, initial value, current balance, and status.
 - See the purchasing patient and the recipient details.
-- Resend the gift card to the recipient (if email or phone is on file).
+- Resend the gift card to the recipient. The **Send to Recipient** button stays visible even when no recipient contact is on file — it's disabled with a tooltip prompting you to add an email or phone first.
+- Send the gift card to the purchaser. A **Send** button next to the purchaser's name lets you deliver the code to the patient who bought it — useful when the card has no recipient on file, or when staff want to send the buyer a copy.
 - See the history of redemptions and refunds.
+
+Both send actions ask for confirmation first and show the contact details that will be used, so you can double-check the email or phone before the notification goes out.
 
 ## Advanced
 
