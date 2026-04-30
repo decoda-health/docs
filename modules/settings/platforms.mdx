@@ -1,0 +1,96 @@
+---
+title: 'Growth Platforms'
+description: 'Connect Google Ads and Meta Ads, and track other growth channels where your clinic has a presence.'
+---
+
+<Info>
+  **Prerequisites:** The **Marketing** module must be enabled for your clinic. Ask your administrator to turn it on if you don't see this page.
+</Info>
+
+Growth Platforms is where you tell Decoda about the channels your clinic uses to attract patients -- ad accounts you run, social pages you post on, and any other places leads come from. Connecting an ad platform pulls campaign data into Decoda so you can compare spend against bookings and revenue. Adding a custom platform gives you a label that staff can pick from when tagging the source of a lead.
+
+**Where to find it:** Go to **Settings** and select **Growth Platforms** under the **Growth** group in the sidebar.
+
+The page has two sections:
+
+- **Ad Integrations** -- One-click connections to Google Ads and Meta Ads using OAuth.
+- **Custom Platforms** -- A list of every other channel where your clinic has a presence (Instagram, TikTok, Yelp, a referral partner, etc.).
+
+## Ad Integrations
+
+Decoda supports direct connections to two ad platforms:
+
+- **Google Ads**
+- **Meta Ads** (Facebook and Instagram ads)
+
+Connecting an ad account lets Decoda read campaign performance so it can sit alongside your lead and revenue data on the **Growth Dashboard**.
+
+### Connect an Ad Account
+
+<Steps>
+  <Step title="Open Growth Platforms">
+    Go to **Settings > Growth Platforms**. Find the card for **Google Ads** or **Meta Ads** under **Ad Integrations**.
+  </Step>
+  <Step title="Click Connect">
+    A small popup window opens and takes you to the ad platform's sign-in page.
+  </Step>
+  <Step title="Sign in and Authorize">
+    Sign in with the account that owns your ad campaigns and grant Decoda access. The popup closes automatically when you're done.
+  </Step>
+  <Step title="Confirm the Status">
+    The card on the **Growth Platforms** page now shows **Connected**.
+  </Step>
+</Steps>
+
+<Info>
+  Make sure popups aren't blocked for your Decoda site, or the authorization window won't open.
+</Info>
+
+### Reconnect or Disconnect
+
+If your authorization expires or you switch ad accounts, click **Reconnect** on the card and repeat the sign-in flow. To remove the connection entirely, click **Disconnect**. Disconnecting stops Decoda from pulling any further campaign data from that platform.
+
+## Custom Platforms
+
+Custom platforms are free-form labels for any channel that doesn't have a direct integration -- for example a Facebook page, an Instagram profile, a Yelp listing, or a referral partner's website. Once added, the platform appears as a selectable source when staff create or update a lead.
+
+### Add a Custom Platform
+
+<Steps>
+  <Step title="Open Growth Platforms">
+    Go to **Settings > Growth Platforms**.
+  </Step>
+  <Step title="Click Add Platform">
+    A side panel slides open.
+  </Step>
+  <Step title="Fill in the Details">
+    - **Name** (required) -- How the platform shows up in lead pickers (e.g. `TikTok`, `Yelp`, `Local Newspaper`).
+    - **URL** (optional) -- A link to your presence on that platform (e.g. `https://tiktok.com/@yourclinic`). This is for reference only.
+  </Step>
+  <Step title="Click Add Platform">
+    The new platform appears in the **Custom Platforms** table.
+  </Step>
+</Steps>
+
+### Edit a Platform
+
+Click **Edit** on a row to update the name or URL. Changes apply immediately to the lead picker.
+
+### Status
+
+Each row shows whether the platform is **Active** or **Inactive**. Inactive platforms stay in the list for historical reporting but don't appear when staff are choosing a source for a new lead.
+
+## How This Connects to the Rest of Decoda
+
+- **Lead Pipelines** (**Settings > Lead Pipelines**) define the stages a lead moves through. Platforms describe where a lead came from.
+- **Growth > Leads** is where staff tag each lead with a platform.
+- **Growth > Dashboard** uses platform data -- including spend pulled from Google Ads and Meta Ads -- to show channel performance, ROAS, and attribution.
+
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Authorization popup never opens | Allow popups for your Decoda site in your browser settings, then click **Connect** again. |
+| Status stays on **Not connected** after signing in | Close the popup if it's still open, then refresh the **Growth Platforms** page. If it still shows disconnected, click **Connect** and try again. |
+| Google Ads or Meta Ads card is missing | The Marketing module isn't enabled for your clinic. Ask your administrator to turn it on. |
+| Custom platform doesn't appear in lead pickers | Confirm the platform is **Active**. Inactive platforms are hidden from lead source selection. |

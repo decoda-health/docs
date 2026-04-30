@@ -1,0 +1,74 @@
+---
+title: 'Teams'
+description: 'Group providers into teams for service assignment, alert routing, and shared notification defaults.'
+---
+
+Teams are reusable groups of providers. Once a team exists, you can assign it to services, route alert-generated tasks to it, filter the calendar by it, and share a starter set of notification preferences with everyone on it.
+
+**Where to find it:** **Settings > Teams**
+
+## View Teams
+
+The Teams page lists every team in your organization, with the team name, description, and a member count next to each one. Click any row to open the editor. Each row also has shortcut buttons that appear on hover:
+
+- **Pencil** — Open the team editor.
+- **Trash** — Delete the team. Alert rules pointing at this team are reset to **Everyone**.
+
+If no teams exist yet, the page shows "No teams yet. Create one to get started."
+
+## Create a Team
+
+<Steps>
+  <Step title="Open Teams">
+    Go to **Settings > Teams**.
+  </Step>
+  <Step title="Start a New Team">
+    Click **Add Team** in the top right. A window titled **Create Team** opens.
+  </Step>
+  <Step title="Enter Details">
+    Fill in the form:
+    - **Name** (required) — The team name as it appears across the app (e.g., "Front Desk", "Injectors").
+    - **Description** — Optional notes shown under the name on the Teams page.
+    - **Members** — Pick the providers who belong to this team. The count below the field updates as you add or remove people.
+    - **Services** — Pick the services this team performs. Adding a service here is the same as choosing this team on the service's record in **Settings > Services**.
+  </Step>
+  <Step title="Set Notification Defaults (optional)">
+    Expand the **Notification Defaults** section to configure starter notification preferences for the team. Toggle alert types on or off for each delivery method (**In-App**, **SMS**, **Email**). The header switch in each section turns every alert in that group on or off at once.
+
+    Defaults aren't applied to existing members automatically — they're a template you can copy onto people when they join the team.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The team is immediately available for service assignment, alert rules, and calendar presets.
+  </Step>
+</Steps>
+
+## Edit a Team
+
+Click any team on the **Teams** page to reopen the editor. The form is the same as the create window, with one extra control:
+
+- **Apply team notification defaults to newly added members** — When you add someone to an existing team and the team has notification defaults configured, this checkbox appears. Check it before saving to copy the team's defaults onto the new members. Existing members are not changed.
+
+Click **Save** at the bottom to apply your changes.
+
+## Delete a Team
+
+From the **Teams** page, hover over a team row and click the trash icon. Confirm in the **Delete Team** window.
+
+Deleting a team:
+
+- Removes it from any services it was assigned to.
+- Resets any alert rules that targeted this team back to **Everyone**.
+- Removes it from saved [calendar view presets](/modules/settings/calendar-appearance) that filtered by it.
+
+Members are not deleted — only the grouping is removed.
+
+## Where Teams Are Used
+
+Teams show up in several places once they exist:
+
+- **Services** — Assign a team to a service so any member of the team can perform it. Manage this from the service record in **Settings > Services** or from the **Services** field inside the team editor.
+- **Users table** — When at least one team exists, a **Teams** column appears in **Settings > Users** so you can add or remove users from teams without opening the team editor. See [Manage Team Membership](/modules/settings/users#manage-team-membership) in the Users doc.
+- **Invite User** — The invite form has a **Teams** field for picking which teams a new user joins. If the chosen teams have notification defaults configured, an **Apply team notification defaults** checkbox appears so you can copy those preferences onto the new user.
+- **Tasks & Alert Rules** — Alert rules in **Settings > Tasks** can assign auto-generated tasks to **Everyone**, a **Team**, or a specific individual. See [Tasks](/modules/settings/tasks).
+- **Calendar View Presets** — In **Settings > Calendar Appearance**, calendar view presets can filter the calendar to providers on selected teams.
+- **Notification Defaults** — The defaults you set on a team can be applied to members when they're added. See [Team Notification Defaults](/modules/settings/notifications#team-notification-defaults).

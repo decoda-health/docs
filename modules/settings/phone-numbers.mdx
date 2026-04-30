@@ -1,0 +1,202 @@
+---
+title: 'Phone Numbers'
+description: 'Provision, configure, and route inbound calls on the phone numbers your clinic uses.'
+---
+
+<Info>
+  **Prerequisite:** You should have at least one [Location](/modules/settings/locations) configured. Phone numbers are tied to locations for scheduling and routing.
+</Info>
+
+The **Phone Numbers** page is the home for everything related to inbound calling. From here you provision numbers, set up call routing, attach AI assistants and ring groups, schedule closures, and forward calls. For an overview of how phone numbers fit into the broader AI Assistants system, see [AI Assistants](/modules/settings/assistants).
+
+To open this page, go to **Settings > AI Assistants > Phone Numbers**.
+
+## The Phone Numbers Page
+
+Each provisioned number appears as a card with:
+
+- **The number** itself, formatted for readability. Click the number to open its configuration page.
+- **Status badges** that summarize what the number is doing right now (see [Status badges](#status-badges)).
+- **Calls row** showing which assistants and ring groups handle calls on this number, or a link to set one up.
+- **Campaign badge** showing the number's 10DLC texting campaign state, if your tenant uses one.
+- **Three-dot menu** with actions for editing, forwarding, enabling, setting as primary, or releasing the number.
+
+If a Texting Assistant is configured for your tenant, a banner at the top of the page reminds you which assistant handles SMS on every enabled number, with a shortcut to its configuration page.
+
+### Search and Filter
+
+Use the filter bar above the cards to search by:
+
+- **Name** -- Matches assistant names and ring group names attached to a number.
+- **Number** -- Matches the digits of the phone number itself.
+
+### Status Badges
+
+| Badge | Meaning |
+|-------|---------|
+| **Primary** | This is the tenant's primary number. There is one primary number per tenant. |
+| **Enabled** | The number is configured with at least one assistant or ring group and is actively handling calls. |
+| **Disabled** | The number is configured but currently turned off. Use **Enable number** in the menu to turn it back on. |
+| **Forwarding** | Calls to this number are being forwarded to another number (yours or one of your AI numbers). |
+| **Not Configured** | No assistant, ring group, or forwarding is set up. The number cannot answer calls yet. |
+| **Status unavailable** | Decoda could not load the live status for this number. The number itself is fine -- try refreshing. |
+
+## Provision a New Number
+
+<Steps>
+  <Step title="Click Provision Number">
+    On the Phone Numbers page, click **Provision Number** in the top right corner. A window opens with a search box.
+  </Step>
+  <Step title="Search by Area Code">
+    Type an area code to see available numbers in that region. Pick the one you want from the results.
+  </Step>
+  <Step title="Provision">
+    Click **Provision**. The new number is added to your account and appears as a card on the page.
+  </Step>
+</Steps>
+
+A newly provisioned number starts as **Not Configured**. Click the card to open its configuration page and add an assistant, ring group, or forwarding rule.
+
+<Info>
+  Newly provisioned numbers are locked from release for **14 days** after purchase. The Release option in the three-dot menu is disabled during that window, and a tooltip shows how many days remain.
+</Info>
+
+## Configure a Phone Number
+
+Click any number card to open its configuration page. The page is split into two columns:
+
+- **Left column** -- Three handler types stacked: **Ring Groups**, **AI Assistants**, and **Closures**. Each section has an Add button and lists the items currently attached to this number.
+- **Right column** -- A **Weekly Schedule** timeline showing every handler's hours at a glance, plus a stacked form panel that swaps in when you open an editor.
+
+### Header Settings
+
+At the top of the configuration page you can set:
+
+- **Timezone** -- Used for every schedule on this number. Change once, and all blocks shift to the new zone.
+- **Location** -- Which clinic location this number serves.
+- **Ring Group Failover** -- An AI assistant that picks up when no one in a ring group answers the phone. Pick an existing assistant or **+ Create New** to add one inline.
+- **Caller ID** -- A success badge shows the practice name that displays on outbound calls. If no Caller ID is set up, a warning badge appears -- contact `support@decodahealth.com` to configure it.
+
+### Add Handlers
+
+You can build a routing setup three ways:
+
+**From a section's Add button**
+
+In the left column, click **Add Ring Group**, **Add AI Assistant**, or **Add Closure**. The form opens in the right column.
+
+**From the timeline**
+
+Click an empty cell on the **Weekly Schedule** timeline. A small menu opens with three choices: **Ring Group**, **AI Assistant**, or **Closure**. Pick one and the form opens with the day and hour you clicked already filled in.
+
+**From a row in the left column**
+
+Click an existing handler's row to highlight it on the timeline, or click **Edit** on the row to open the form for that handler.
+
+### Ring Groups
+
+Ring groups are lists of staff phone numbers that ring during scheduled hours. If no one in the group answers, the call falls over to the **Ring Group Failover** assistant set in the header.
+
+Add one from the **Ring Groups** section of the left column. Each ring group has a name, a list of staff numbers, and a weekly schedule.
+
+### AI Assistants
+
+AI assistants on this page handle inbound calls. Each assistant has a name, a greeting, a custom prompt, a set of tools, an AI model, and (usually) a schedule.
+
+For details on every field in the assistant form, see [AI Assistants > Phone Numbers and Inbound Calling](/modules/settings/assistants#phone-numbers-and-inbound-calling).
+
+The first handler you save on a number becomes the **off-hours handler** automatically. Any handler you add after that must have a schedule -- the system blocks you from creating a second always-on handler so off-hours coverage stays unambiguous.
+
+### Closures
+
+Closures are time blocks (holidays, lunch breaks, recurring days off) when scheduled routing is paused. Calls during a closure go to the off-hours handler.
+
+Closures support both recurring patterns (every Tuesday afternoon) and one-off date ranges (a specific holiday). Add one from the **Closures** section of the left column.
+
+## Routing Priority
+
+When a call comes in, Decoda picks a handler in this order:
+
+1. **Closures** -- Block scheduled routing during configured times. Calls fall through to the off-hours handler.
+2. **Scheduled AI Assistants** -- AI assistants override ring groups during their scheduled hours (useful for a lunch-break assistant).
+3. **Scheduled Ring Groups** -- Ring groups route calls to live staff during their scheduled hours. If no one answers, the **Ring Group Failover** assistant handles the call.
+4. **Off-Hours Handler** -- One assistant or ring group handles every call when no schedule is currently active.
+
+Click **How is call routing prioritized?** below the weekly schedule to see this list inside the app.
+
+## Forward, Enable, or Release a Number
+
+The three-dot menu on each card on the Phone Numbers page lets you:
+
+- **Edit number** -- Open the configuration page.
+- **Forward calls** (or **Update forwarding**) -- Forward this number to another phone number you own or to one of your AI numbers. See [Forwarding](#forwarding) below.
+- **Enable number** -- Re-enable a disabled number so it starts handling calls again.
+- **Set as primary** -- Mark this as the primary number for the tenant.
+- **Release number** -- Permanently release the number from your account.
+
+Release is disabled in two cases:
+
+- The number was provisioned within the last **14 days**.
+- The number still has assistants or ring groups attached. Remove them from the configuration page first.
+
+## Forwarding
+
+Forwarding lets you point an unconfigured number at an existing phone number without setting up handlers from scratch -- useful for staging a new number or routing several numbers to a single AI assistant.
+
+<Steps>
+  <Step title="Open the Forward Dialog">
+    From the three-dot menu on a number card, click **Forward calls** (or **Update forwarding** if forwarding is already on).
+  </Step>
+  <Step title="Pick a Destination">
+    - **Forward to an assistant** -- If you have other numbers with AI assistants attached, they appear as a list. Click one to forward calls there. The destination card on the Phone Numbers page will show the linked assistant when this option is used.
+    - **Forward to another number** -- Type any 10-digit phone number to forward calls there instead.
+  </Step>
+  <Step title="Save">
+    Click **Forward**. The number's status badge changes to **Forwarding** and the Calls row shows where calls are going.
+  </Step>
+</Steps>
+
+To turn forwarding off, open the forwarding dialog again and clear the destination, or attach an assistant or ring group on the configuration page.
+
+## 10DLC Campaign Status
+
+If your tenant uses a 10DLC texting campaign (required for SMS in the US), each number card shows a small campaign badge:
+
+| Badge | Meaning |
+|-------|---------|
+| **10DLC Active** | The number is assigned to your campaign and can send SMS. |
+| **10DLC Pending** | Assignment is in progress with the carrier. |
+| **10DLC Failed** | The carrier rejected the assignment. Click **Assign** next to the badge to retrigger, or contact support. |
+| **Not in Campaign** | The number is not attached to any campaign. Click **Assign** next to the badge to add it. |
+
+Hover the badge to see the campaign name. The **Assign** action is only shown when the number is not currently part of the campaign.
+
+## Advanced
+
+<AccordionGroup>
+  <Accordion title="Off-Hours Handler">
+    Every phone number with at least one assistant or ring group has exactly one off-hours handler -- the assistant or ring group that picks up calls when no schedule is currently active. The first handler you save on a number becomes the off-hours handler automatically. After that, any new handler you add must have a schedule. To change which handler is off-hours, open the existing off-hours handler and clear its schedule, or pick a new handler from the configuration page.
+  </Accordion>
+  <Accordion title="Ring Group Failover vs. Off-Hours Handler">
+    These are two different fallbacks:
+
+    - **Ring Group Failover** runs when a ring group is on schedule but no one picks up. Set it in the header at the top of the configuration page.
+    - **Off-Hours Handler** runs when no schedule is active at all (outside ring group and assistant hours, or during a closure).
+
+    A single AI assistant can serve both roles, or you can use different assistants for each.
+  </Accordion>
+  <Accordion title="Caller ID (CNAM)">
+    Caller ID is the practice name displayed on outbound calls from this number. The header on the configuration page shows whether it is set. Configuring it requires carrier paperwork -- email `support@decodahealth.com` to start.
+  </Accordion>
+  <Accordion title="Release Lock">
+    Numbers cannot be released within **14 days** of purchase. This protects against accidental release of newly provisioned numbers that have not had time to be configured and tested. After the 14-day window, you can release any number that does not have assistants or ring groups attached.
+  </Accordion>
+  <Accordion title="Permissions">
+    Phone Numbers uses the inbound assistants permissions:
+
+    - **Settings Assistants Inbound Read** -- View the Phone Numbers page and configuration pages.
+    - **Settings Assistants Inbound Write** -- Provision, configure, forward, and release numbers, and create or edit ring groups, assistants, and closures.
+
+    Admin users have full access by default.
+  </Accordion>
+</AccordionGroup>

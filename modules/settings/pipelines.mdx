@@ -1,0 +1,126 @@
+---
+title: 'Lead Pipelines'
+description: 'Configure the stages leads move through, the automations that fire at each stage, and which campaigns feed into each pipeline.'
+---
+
+<Info>
+  **Prerequisite:** The **Marketing** module must be enabled for your clinic. If you don't see **Lead Pipelines** under **Settings > Growth**, ask your administrator to turn it on.
+</Info>
+
+A **pipeline** is the path a lead follows from first contact to becoming a patient (or being marked as lost). Each pipeline is made up of ordered **stages**, and each stage can trigger **automations** -- text messages, emails, tasks, tags, and more -- the moment a lead enters it.
+
+Use this page to set up new pipelines, adjust the stages and automations on existing ones, and connect campaigns so new leads land in the right place.
+
+**Where to find it:** Click **Settings** in the left sidebar, then choose **Lead Pipelines** under **Growth**. The board view of leads moving through these stages lives at **Growth > Pipelines**.
+
+## Pipelines Page
+
+The page lists every pipeline in your clinic. For each one you'll see:
+
+- The pipeline's **name** and optional description.
+- A visual chain of its **stages**, with a colored dot per stage and a checkmark on the "won" stage.
+- An **automation count** showing how many automated actions are configured across all stages.
+- A list of **campaigns** that send their leads into this pipeline.
+
+Active pipelines appear by default. If you have any archived pipelines, an **Archived** button appears at the top right -- click it to show or hide them.
+
+## Create a New Pipeline
+
+<Steps>
+  <Step title="Open the New Pipeline Form">
+    Click **New Pipeline** in the top right corner of the Lead Pipelines page.
+  </Step>
+  <Step title="Enter Basic Information">
+    Give the pipeline a **Name** (required) and optional **Description** so your team knows what it's for.
+  </Step>
+  <Step title="Add Stages">
+    Click **Add Stage** for each step a lead should move through. For every stage:
+    - Pick a **color** (used on the kanban board and in reports).
+    - Type the **stage name** (e.g., "New", "Contacted", "Consultation Booked").
+    - Mark **Won** on the stage that means the lead converted.
+    - Mark **Lost** on the stage that means the lead didn't work out.
+
+    Use the up and down arrows to reorder stages. Use the trash icon to remove one.
+  </Step>
+  <Step title="Link Campaigns">
+    Tick any campaigns that should feed leads into this pipeline. For each linked campaign, choose an **Entry Stage** -- the stage new leads from that campaign start at. Leave it on **First stage (default)** to use the very first stage in the pipeline.
+  </Step>
+  <Step title="Save">
+    Click **Create Pipeline**. The pipeline is now available on the **Growth > Pipelines** board, and any linked campaigns will start placing new leads into it.
+  </Step>
+</Steps>
+
+## Edit a Pipeline
+
+From the Lead Pipelines page, click **Edit** on any active pipeline. The same form opens with the existing values. You can rename it, add or remove stages, change colors, and adjust campaign attachments. Click **Save Pipeline** when done.
+
+<Warning>
+  Removing a stage from a pipeline that already has leads in it can leave those leads without a stage. Move leads to a different stage on the **Growth > Pipelines** board before deleting one.
+</Warning>
+
+## Stage Automations
+
+Each stage can run automations that fire the moment a lead enters it. To configure them, click the **lightning bolt** button on any stage row in the editor. The automations panel expands underneath.
+
+### Add an Automation
+
+Click **Add automation** and choose one of the following types:
+
+| Automation | What It Does |
+|------------|--------------|
+| **Send SMS** | Texts the lead a message you write. Supports `{{lead.first_name}}` and `{{lead.last_name}}` placeholders. |
+| **Send Email** | Emails the lead with a subject and body you write. Same placeholders are supported. |
+| **Create Task** | Creates a follow-up task for your team with a title, description, and priority (Low, Normal, High, Urgent). |
+| **Assign Provider** | Auto-assigns the lead to a specific provider. |
+| **Add Tag** | Tags the lead so you can filter and report on it (e.g., `hot-lead`, `needs-follow-up`). |
+| **Start Sequence** | Begins a drip or follow-up sequence by ID. |
+| **Webhook** | Calls an external URL so you can connect Decoda to other tools. |
+
+### Set a Delay
+
+Each automation has a **Delay after stage entry** option. Pick from **Immediately**, **5 minutes**, **30 minutes**, **1 hour**, **1 day**, **3 days**, or **1 week**. Use a delay when you want to give the lead breathing room before reaching out, or when an action only makes sense after a waiting period.
+
+### Edit or Remove an Automation
+
+Click the **three-dot** button on any automation to expand its config form. Make your changes and click **Save**. Click the **trash icon** to remove the automation.
+
+<Tip>
+  Automations on a brand-new pipeline are saved together with the pipeline when you click **Create Pipeline**. On an existing pipeline, automations save as soon as you click **Save** on the automation form.
+</Tip>
+
+## Linking Campaigns
+
+The **Campaigns** section of the pipeline editor lists every campaign in your clinic. Tick a campaign to attach it to this pipeline. Untick it to detach.
+
+For each attached campaign, pick an **Entry Stage**:
+
+- **First stage (default)** -- New leads from this campaign start at the first stage of the pipeline.
+- **A specific stage** -- New leads skip ahead to that stage instead.
+
+This is useful when, for example, leads from a Google Ads form are already qualified and should bypass the "New" stage and land directly at "Contacted".
+
+## Archive and Restore
+
+If a pipeline is no longer in use, click the **archive icon** on its row. The pipeline disappears from the active list but is preserved along with its leads and historical data.
+
+To bring it back:
+
+1. Click the **Archived (n)** button at the top of the page to show archived pipelines.
+2. Click **Restore** on the pipeline you want to bring back.
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Default Pipeline">
+    One pipeline can be marked as the **default**. When a new lead is created -- either manually or from an inbound message that doesn't match an existing patient -- it is automatically placed into the first stage of the default pipeline.
+  </Accordion>
+  <Accordion title="Won and Lost Stages">
+    Every pipeline should have at least one stage marked **Won** (a successful conversion) and one marked **Lost** (a lead that didn't convert). These flags drive funnel reporting on the **Growth > Dashboard** and determine when leads are eligible to be converted into patient records.
+  </Accordion>
+  <Accordion title="Permissions">
+    Pipeline configuration is gated by the **Settings Read** permission, and editing requires **Marketing Write**. Permissions are configured under [Users & Roles](/modules/settings/users).
+  </Accordion>
+  <Accordion title="Where Leads Move Between Stages">
+    The pipeline editor only configures stages and automations. To actually move leads between stages, use the kanban board at **Growth > Pipelines** -- drag a lead's card from one column to another. See [Growth & Lead Tracking](/modules/growth) for the full lead workflow.
+  </Accordion>
+</AccordionGroup>

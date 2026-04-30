@@ -1,0 +1,59 @@
+---
+title: 'Payment Mediums'
+description: 'View and manage all payment mediums — both built-in system types and custom settlement types — for your organization.'
+---
+
+Payment mediums are the different ways your clinic accepts payment — credit card, cash, check, Venmo, and so on. This page lists every medium available during checkout, including the built-in system types and any custom settlement types you have added.
+
+Navigate to **Settings > Payment Mediums** to open this page.
+
+<Info>
+  This page shows every medium in one table, including system types (read-only). To manage custom settlement types alongside other payment configuration, you can also use the Payment Mediums section on the [Payment Management](/modules/settings/payment-management) page.
+</Info>
+
+## View Payment Mediums
+
+The table lists every payment medium with two columns:
+
+- **Name** — the label shown during checkout.
+- **Type** — either **System** (built-in, cannot be edited or deleted) or **Custom** (added by your organization).
+
+System mediums are provided by Decoda and cover the standard methods most clinics need. Custom mediums are anything you add for alternative settlement methods specific to your practice.
+
+## Add a Custom Settlement Type
+
+<Steps>
+  <Step title="Open the Form">
+    Click **Add Custom Settlement Type** in the top right.
+  </Step>
+  <Step title="Enter a Name">
+    Type a descriptive name for the payment method (e.g., "Venmo", "Zelle", "HSA Card", "Cherry Financing").
+  </Step>
+  <Step title="Create">
+    Click **Create**. The new settlement type appears in the table with a **Custom** badge and is immediately available during checkout.
+  </Step>
+</Steps>
+
+## Edit a Custom Settlement Type
+
+Click the **Edit** icon on a custom row, update the name, and click **Update**. System mediums do not have edit controls.
+
+## Archive a Custom Settlement Type
+
+Click the **Archive** icon on a custom row. A confirmation prompt appears — review it and confirm.
+
+<Info>
+  Archiving a custom settlement type can be undone. System mediums cannot be archived.
+</Info>
+
+## Advanced Configuration
+
+<AccordionGroup>
+  <Accordion title="Permissions">
+    Payment Mediums is gated by role-based permissions:
+    - **Settings Payment Read** — required to view this page.
+    - **Settings Payment Write** — required to add, edit, or archive custom settlement types.
+
+    Admin users have full access by default.
+  </Accordion>
+</AccordionGroup>

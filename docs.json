@@ -197,7 +197,9 @@
           {
             "group": "Growth & Lead Tracking",
             "pages": [
-              "modules/growth/index"
+              "modules/growth/index",
+              "modules/settings/pipelines",
+              "modules/settings/platforms"
             ]
           },
           {
@@ -213,6 +215,7 @@
               "modules/settings/locations",
               "modules/settings/users",
               "modules/settings/hourly-rates",
+              "modules/settings/teams",
               "modules/settings/permissions",
               "modules/settings/services",
               "modules/settings/categories",
@@ -225,6 +228,7 @@
                 "group": "Payment Management",
                 "pages": [
                   "modules/settings/payment-management",
+                  "modules/settings/payment-mediums",
                   "modules/settings/pos-devices/overview",
                   "modules/settings/pos-devices/link-2500",
                   "modules/settings/pos-devices/lane-7000",
@@ -235,12 +239,14 @@
               "modules/settings/rules",
               "modules/settings/tasks",
               "modules/settings/general",
+              "modules/settings/brand-colors",
               "modules/settings/preferences",
               "modules/settings/notifications",
               "modules/settings/emails",
               "modules/settings/note-templates",
               "modules/settings/measurements",
               "modules/settings/assistants",
+              "modules/settings/phone-numbers",
               "modules/settings/suggestions",
               "modules/settings/scheduling",
               "modules/settings/bookables",

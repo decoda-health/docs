@@ -99,67 +99,9 @@ Click the **edit** icon on a webhook card to update its URL, notification email,
 
 Click the **delete** icon on a webhook card and confirm. Deleting a webhook stops all future event deliveries to that endpoint.
 
-## Set Up a Custom Email Domain
+## Custom Email Domain
 
-Custom email domains allow Decoda to send patient notifications, appointment reminders, and other emails from your own domain (e.g., `no-reply@mail.yourclinic.com`) instead of the default Decoda address. This is powered by Mailgun.
-
-<Info>
-  **Email Domain is a separate Settings page**, not a section inside Developer Settings. Go to **Settings > Email Domain** to manage it. It is documented here because it is a developer-oriented setup.
-</Info>
-
-<Info>
-  You need the **Manage Email Domains** permission to configure custom email domains.
-</Info>
-
-### Add a Domain
-
-<Steps>
-  <Step title="Navigate to Email Domain">
-    Go to **Settings** and select **Email Domain**.
-  </Step>
-  <Step title="Add Domain">
-    Click **Add Domain** and enter your domain name. It is recommended to use a subdomain like `mail.yourdomain.com` rather than your root domain.
-  </Step>
-  <Step title="Configure DNS Records">
-    After creation, Decoda shows the DNS records (settings you add at your domain provider like GoDaddy or Cloudflare) needed to verify you own the domain. The records are organized into three groups:
-
-    - **Sending Records** (required): TXT and CNAME records that authorize Decoda to send emails on behalf of your domain. These must be verified before email sending works.
-    - **Receiving Records (MX)** (optional): MX records for receiving emails at the domain.
-    - **DMARC Records** (optional): DMARC policy records for email authentication and reporting.
-
-    Each record shows its **Type**, **Name/Host**, **Value**, and verification **Status**. Use the **copy** button next to each field to copy the value to your clipboard.
-  </Step>
-  <Step title="Verify DNS">
-    After adding all records in your DNS provider, return to this page and click **Verify DNS**. The status of each record updates to show whether it has been verified.
-  </Step>
-</Steps>
-
-### Domain Status
-
-The domain card displays an overall status badge:
-
-- **Active**: All required DNS records are verified and email sending is operational.
-- **Unverified**: DNS records have been created but not yet verified. Click **Verify DNS** to check again.
-- **Disabled**: The domain has been disabled.
-
-Two verification indicators are shown:
-
-- **Sending** (required): Must be verified for Decoda to send emails from your domain.
-- **Receiving** (optional): Indicates whether MX records are configured for inbound email.
-
-### DNS Provider Help
-
-If you need help adding DNS records, expand the **Need help setting up DNS records?** section for direct links to setup guides for common providers:
-
-- GoDaddy
-- Cloudflare
-- Namecheap
-- Squarespace Domains
-- Digital Ocean
-
-### Delete a Domain
-
-Click the **Delete** button on the domain card and confirm. This removes the domain from Mailgun and Decoda will revert to using the default email sender address.
+To send patient notifications and appointment reminders from your own domain, use the **Domain** tab on the [Emails](/modules/settings/emails) page. That page is the canonical home for custom email domain setup, DNS records, and verification.
 
 ## Advanced Configuration
 
@@ -174,8 +116,6 @@ Click the **Delete** button on the domain card and confirm. This removes the dom
     Developer Settings is gated by role-based permissions:
     - **Settings Developers Read** -- Required to view the Developer Settings page, including GTM configuration, API keys, and webhooks.
     - **Settings Developers Write** -- Required to modify GTM settings, generate/revoke API keys, and create/edit/delete webhooks.
-    - **Settings Email Domain Read** -- Required to view the Custom Email Domain page and DNS records.
-    - **Settings Email Domain Write** -- Required to add, verify, and delete custom email domains.
 
     Admin users have full access to all developer settings by default.
   </Accordion>
