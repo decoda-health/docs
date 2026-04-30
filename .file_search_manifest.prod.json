@@ -280,6 +280,10 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsbookablesmdx-n58140r9hi67",
       "hash": "a812b75984e3bfcbc5b98901000a4061af4a0dc3629e91c86f10baf6c3036001"
     },
+    "modules/settings/brand-colors.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsbrandcolorsm-8qfhu83xods9",
+      "hash": "fd22d9ee7c2df87f06d6394bc220f5514678e0408059f37ba656c7b5e5e09c0a"
+    },
     "modules/settings/calendar-appearance.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscalendarappe-ablhc3rei9lg",
       "hash": "eabf2eca607e264e575f425c225e515f68cbb6abf29f0cd689974d4c7de38469"
@@ -305,8 +309,8 @@
       "hash": "381112c691dac11f952eae21db878e24d6c9fe51cbeb5cba5d4fc97d23ae3f32"
     },
     "modules/settings/gift-cards.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsgiftcardsmdx-gjpd1c6ae5s0",
-      "hash": "d0638ee7cad945ef45c032ce3c927958965cf38f24ebd63eecea1cd041b6135b"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsgiftcardsmdx-cih3067tq3o2",
+      "hash": "ede35b4010d58978be7d971a6d6d136d0d6d1c55280d82e370ea63e962b1bf11"
     },
     "modules/settings/hourly-rates.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingshourlyratesm-yy4jgn5zl0il",
@@ -348,9 +352,25 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspaymentmanag-h8g13mhqc5h0",
       "hash": "dcea9f7b44019b135d6cb748ae81fa0d3142e4b4d75eb7adc1368b45863db814"
     },
+    "modules/settings/payment-mediums.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspaymentmediu-v0oengtlwp6u",
+      "hash": "6d860e9bb6b0fde1f7ddbb04729399f76087aa409c586aca1dabfd9b4831bfc2"
+    },
     "modules/settings/permissions.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspermissionsm-rx8xcd3hy6df",
       "hash": "64549c008026db696c9b18bdf3959e5364b645409d08df5a42538a0d4f513864"
+    },
+    "modules/settings/phone-numbers.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsphonenumbers-v6bg6z0xx759",
+      "hash": "c9ba3e98339a62f13a814995f351827badd70fe292e3f209ae0fb103211087fb"
+    },
+    "modules/settings/pipelines.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspipelinesmdx-ol06w2ycfsoz",
+      "hash": "de4b4ad63366810984de1917079e722bbb31ff4b407f070bd432ed413102075b"
+    },
+    "modules/settings/platforms.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsplatformsmdx-se4k9ehsdcbj",
+      "hash": "3469d31b99115e48115e1de17d8d9aa4a099bdcf34ed56837b6b7d5bc6606fd5"
     },
     "modules/settings/pos-devices/lane-3000.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsposdevicesla-7vn5t67b3gyr",
@@ -403,6 +423,10 @@
     "modules/settings/tasks.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingstasksmdx-k3x3plnwkx2l",
       "hash": "04181e85b80147eae89f7602992dd8e029a8e67ecfe367967d2934d16137bebb"
+    },
+    "modules/settings/teams.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsteamsmdx-l0ql6ts6of2k",
+      "hash": "b0ed9bcc5e7afea970321920badf51f2e3ee58a4cb29eb4aa19194e5d8f9d356"
     },
     "modules/settings/users.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsusersmdx-121qk5ddxgzk",
