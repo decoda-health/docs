@@ -118,7 +118,10 @@ To bring it back:
     Every pipeline should have at least one stage marked **Won** (a successful conversion) and one marked **Lost** (a lead that didn't convert). These flags drive funnel reporting on the **Growth > Dashboard** and determine when leads are eligible to be converted into patient records.
   </Accordion>
   <Accordion title="Permissions">
-    Viewing the Lead Pipelines page is gated by the **Settings Read** permission, and editing pipelines, stages, and automations is gated by **Growth Write**. Permissions are configured under [Users & Roles](/modules/settings/users).
+    - **View Settings** -- View the Lead Pipelines page.
+    - **Manage Settings** -- Create, edit, archive, and restore pipelines, stages, automations, and campaign links.
+
+    No granular Roles UI permission gates pipeline editing on its own -- it falls under the broader **Manage Settings** permission. Permissions are configured under [Users & Roles](/modules/settings/users).
   </Accordion>
   <Accordion title="Where Leads Move Between Stages">
     The pipeline editor only configures stages and automations. To actually move leads between stages, use the kanban board at **Growth > Pipelines** -- drag a lead's card from one column to another. See [Growth & Lead Tracking](/modules/growth) for the full lead workflow.

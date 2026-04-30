@@ -137,7 +137,12 @@ Per-user settings like theme, calendar display options, notification sounds, aut
     Use caution when enabling this feature. If your office IP changes or is entered incorrectly, staff may be locked out. Contact support if you need to reset IP restrictions.
   </Accordion>
   <Accordion title="Permissions">
-    Viewing and editing the General page is gated by the broad **Settings Read** and **Settings Write** permissions. Without **Settings Write**, the page is read-only.
+    Viewing and editing the General page is gated by the broad workspace settings permissions:
+
+    - **View Settings** — Required to open the General page.
+    - **Manage Settings** — Required to edit any field on the page. Without it, the page is read-only.
+
+    Admin users have full access by default.
 
     Some sub-areas of Settings (for example, payment settings, scheduling settings, tags, locations, and developers) have their own more granular read/write permissions. If a teammate can open General but not a sibling page like Locations or Developers, check those role-specific permissions in **Settings > Roles**.
   </Accordion>
