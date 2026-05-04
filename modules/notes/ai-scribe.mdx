@@ -1,76 +1,91 @@
 ---
 title: 'AI Scribe Notes'
-description: 'Record patient encounters and automatically generate structured clinical notes.'
+description: 'Record patient encounters and let AI generate a structured clinical note.'
 ---
+
+AI Scribe records audio during a patient encounter, transcribes it, and uses AI to fill in a structured clinical note based on a template you choose.
 
 ## Create an AI Scribe Note
 
-AI Scribe records audio during a patient encounter, transcribes it, and uses AI to generate a structured clinical note based on your selected template.
-
 <Steps>
-  <Step title="Start a New AI Note">
-    From the **Notes** page, click **New Note** and select **AI Note**. Alternatively, open a patient chart and start an AI note from within the **Medical Notes** tab. Select the patient if not already chosen.
+  <Step title="Start a new AI note">
+    From the **Notes** page, click **New Note** and select **AI Note**. You can also start an AI note from inside a patient chart using the **Medical Notes** tab. If a patient is not already selected, search for and pick one.
   </Step>
-  <Step title="Allow Microphone Access and Select a Device">
-    When prompted, grant your browser permission to use the microphone. If permission was previously denied, a warning banner will appear with instructions to re-enable it in your browser settings.
+  <Step title="Allow microphone access and pick a device">
+    When prompted, allow your browser to use the microphone. If permission was denied earlier, a warning banner appears with steps to re-enable it from your browser settings.
 
-    After granting permission, select a microphone device from the device selector. An input level meter shows your current volume so you can confirm the microphone is working before recording. You can also change the microphone device from the Recording PiP (see below) at any time during a recording.
+    After granting permission, choose a microphone from the device picker. An input level meter shows your current volume so you can confirm the microphone is working before recording. You can change the microphone at any time during a recording from the recording mini-player (see below).
   </Step>
-  <Step title="Record the Encounter">
-    Click the **play button** to begin recording. Speak naturally during the appointment -- the system captures and transcribes audio in real time. You can:
-    - **Pause** the recording and resume later.
-    - **Switch to a different note** mid-recording; the recording continues in the background via the Recording PiP.
-    - View the live transcript in the **Transcript** tab.
+  <Step title="Pick a template">
+    A template defines the questions the AI fills in and is required before you can generate the note. Click the **Template** picker, search by name, mark favorites with the star, and pick one. If you skip this step, the picker opens automatically when you click **Generate AI Note**.
   </Step>
-  <Step title="Select a Template">
-    Before generating, select a note template. You can choose a template ahead of time from the **Note Template** selector on the note page, or you will be prompted to select one when you click **Generate AI Note**. Favorite templates appear at the top of the list for quick access.
+  <Step title="Record the encounter">
+    Click the play button to start recording. Speak naturally during the appointment — audio is captured and transcribed in real time. While recording you can:
 
-    Use the **Note Template** tab to preview the selected template's questions and structure before generating. This tab shows each question name, description, type, and whether it is required.
+    - **Pause** and resume later.
+    - **Switch to a different note** mid-recording. Recording continues in the background using the recording mini-player.
+    - Watch the live transcript appear in the **Transcript** tab.
   </Step>
-  <Step title="Generate the Note">
-    Click the **Generate AI Note** button. The system finalizes the transcription and sends it to the AI model, which fills in each template question based on the conversation. This may take a moment -- you can navigate away and return later.
+  <Step title="Generate the note">
+    Click the large **Generate AI Note** button. The transcription is finalized and sent to the AI, which fills in each template question based on the conversation. Generation takes a moment — you can navigate away and come back later. The page automatically opens the **Note Template** tab when answers are ready.
   </Step>
-  <Step title="Review and Edit">
-    Once generated, the **Clinician's Note** tab displays structured answers organized by the template's questions. (This tab is named "Clinician's Note" specifically for AI-generated notes; manual notes use "Doctor's Note" instead.) Review each field and make corrections as needed. The AI-generated content is a starting point -- always verify clinical accuracy before finalizing.
+  <Step title="Review and edit">
+    The **Note Template** tab shows the AI's answers grouped by section (if the template has sections). Review every field and edit anything that needs correcting. The AI's output is a starting point — always verify clinical accuracy before signing off.
   </Step>
   <Step title="Save">
-    Click **Save** to persist your edits. The note auto-tracks unsaved changes and will prompt you if you try to navigate away.
+    Click **Save** to keep your edits. Unsaved changes are tracked, and you'll be prompted if you try to leave the page with edits pending.
   </Step>
 </Steps>
 
-### Recording PiP (Picture-in-Picture)
+## The Note Template Tab
 
-When a recording is active, a floating mini-player appears on screen showing the recording status. This mini-player is draggable, so you can reposition it anywhere on the page. It includes:
+The **Note Template** tab is the main view for writing and reviewing an AI note. Before generating, it shows a disabled preview of the template's questions so you can confirm you picked the right one. After generating, the same layout becomes editable and is filled in with the AI's answers.
 
-- **Timer** -- Shows elapsed recording time.
-- **Audio visualizer** -- Displays live audio input levels.
-- **Pause / Resume** -- Pause and resume the recording without stopping it.
-- **Stop** -- End the recording session.
-- **Microphone selector** -- Switch microphone devices during the recording.
-- **Generate Note** -- Jump to note generation directly from the mini-player.
-- **Go to note** -- Navigate back to the recording note if you are on a different page.
+If the template uses sections, each section appears as a collapsible block you can expand or collapse. Otherwise, questions appear in a single list.
 
-The Recording PiP lets you navigate to other parts of the application while the recording continues in the background.
+## Recording Mini-Player
 
-### Chat with AI to Refine a Note
+While a recording is active, a draggable mini-player appears on screen. Move it anywhere on the page. It includes:
 
-After an AI note is generated, use the chat input at the bottom of the note to ask the AI to make changes. For example:
+- **Timer** — elapsed recording time.
+- **Audio visualizer** — live audio input level.
+- **Pause / Resume** — pause and resume without stopping the recording.
+- **Stop** — end the recording.
+- **Microphone picker** — switch the input device.
+- **Generate Note** — jump straight to note generation.
+- **Go to note** — return to the recording's note page if you've navigated elsewhere.
+
+The mini-player lets you move around the app while recording continues in the background.
+
+## Ask AI to Refine the Note
+
+After the note is generated, a chat box appears at the bottom of the **Note Template** tab. Use it to ask the AI to make changes — for example:
 
 - "Add a note about the patient's allergy to penicillin"
 - "Change the dosage to 20mg twice daily"
 - "Expand the assessment section"
 
-Type your instruction and press **Enter** (or click the send button). The AI creates a new revision of the note with your requested changes. Each chat interaction produces a new version, so you can always revert to an earlier state.
+Type your instruction and press **Enter** (or click the send button). The AI creates a new revision of the note with your changes. Each chat creates a new version, so you can always go back to an earlier one from the version history.
 
-### Regenerate with a Different Template
+<Warning>
+  Save before you chat. If you have unsaved edits when you send a chat message, you'll get a warning to save first. Otherwise the AI's revision could overwrite work you haven't kept.
+</Warning>
 
-If you need to restructure an AI note using a different template:
+The chat box also appears on manual notes, so you can use AI to clean up or expand a note even if it wasn't dictated.
 
-1. Open the note and click the **actions menu** (three-dot icon) in the note toolbar.
+## Suggestions Sidebar
+
+If the suggestions sidebar is turned on for your organization, a **Suggestions** panel appears on the left of the note page. When you click into a text field, the panel shows saved [Suggestions](/modules/settings/suggestions) — common phrases, exam findings, or boilerplate — scoped to that template and question. Click a suggestion to insert it at your cursor. Use the chevron at the top to collapse or expand the panel.
+
+## Regenerate with a Different Template
+
+To restructure an AI note using a different template:
+
+1. Open the note and click the actions menu (three-dot icon) in the note toolbar.
 2. Select **Change Template**.
-3. Choose a new template from the list.
-4. The AI regenerates the note from the original transcript using the new template structure, creating a new revision.
+3. Pick a new template from the list.
+4. The AI regenerates the note from the original transcript using the new template, creating a new revision.
 
 <Info>
-  Regenerating a note with a different template creates a new revision. Any manual edits on the current version will not carry over -- the new version is generated fresh from the original transcript.
+  Regenerating with a different template creates a new revision. Any manual edits on the current version do not carry over — the new version is generated fresh from the transcript.
 </Info>

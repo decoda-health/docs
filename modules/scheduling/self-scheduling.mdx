@@ -56,6 +56,15 @@ When a practice has locations that are far apart (at least 100 km) and many serv
 - **Existing future appointments:** When a returning patient has an existing upcoming appointment, the system shows their booking and lets them reschedule or cancel it before making a new one. If the appointment is within 24 hours, rescheduling and cancellation are blocked and the patient is asked to call the clinic.
 - **Saved progress:** The system saves booking progress automatically. If a patient leaves and returns, a "Welcome back!" prompt appears offering to continue where they left off or start over.
 
+### Care Plan Suggestion at Sign-In
+
+When a returning patient signs in and the next pending step on their active [care plan](/modules/care-plans) is an appointment, the booking page shows a **Next step in your care plan** card before the service picker. The card lists the recommended services and the target date, with two actions:
+
+- **Book this appointment** — pre-fills the recommended services and location and jumps the patient to the time picker. Confirming a time links the new appointment to that care plan step.
+- **Not now** — dismisses the card for that session and continues to a regular booking.
+
+If the patient already has an upcoming appointment, that takes priority and the care plan suggestion is hidden until it's handled.
+
 <Info>
   Configure self-scheduling options per service in [Settings > Services](/modules/settings/services) under the **Visibility & Discovery**, **Pricing & Payments**, and **Scheduling & Booking** tabs.
 </Info>

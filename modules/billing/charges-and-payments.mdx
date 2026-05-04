@@ -60,7 +60,7 @@ Navigate to **Billing > Payments** to view every individual payment transaction.
 
 Each row shows:
 - **Amount:** The payment amount in green, with the payment ID, creator, and location.
-- **Status badges:** Refunded, Refund Failed, Payment Plan, Succeeded, or Processing.
+- **Status badges:** Refunded, Refund Failed, Payment Plan, Succeeded, Processing, or Failed. A **Failed** badge shows the failure reason underneath (for example, an ACH return code and description). See [ACH Returns](#ach-returns).
 - **Patient:** Contact details including phone, email, and external IDs.
 - **Card:** The card brand icon and last four digits (if a card payment).
 - **Payment Method:** The method used (POS Terminal, Virtual Terminal, Cash, Patient Credit, Payment Plan, Payment Link).
@@ -91,6 +91,16 @@ Click **Export Payments** to download all payments matching your current filters
 ### View Deposits
 
 Click **View Deposits** to navigate to the [Deposits](#deposits) page. Requires the View Deposits permission.
+
+## ACH Returns
+
+When a patient pays by bank transfer (ACH), the bank can pull the funds back days or weeks later -- usually because of insufficient funds, a closed account, or the patient asking their bank to reverse the transfer. This is called an **ACH return**.
+
+When a return arrives, the payment's status flips to **Failed** with a short reason under the badge (for example, `R01 - Insufficient Funds`), and the original charge goes back to **Outstanding** for the returned amount. To find returned payments, filter the Payments table by **Status: Failed**.
+
+Because the charge is outstanding again, follow up with the patient and collect a new payment using **Take Payment** on the charge -- or write it off / start a payment plan if they can't pay. Turn on the **ACH Return** alert in **Settings > Notifications** to be notified when a return comes in.
+
+Unlike a [chargeback](/modules/billing/chargebacks), there's no dispute process and no evidence to submit -- you simply collect the money again.
 
 ## Process a Refund
 

@@ -1,0 +1,70 @@
+---
+title: "Memberships"
+description: "Browse, enroll in, and manage membership plans from the patient portal."
+---
+
+<Info>
+  **Prerequisites:** Your clinic must have [memberships configured](/modules/settings/memberships). Only memberships marked as available to patients appear in the portal.
+</Info>
+
+**Where to find it:** Click **Memberships** in the sidebar.
+
+The Memberships page lets a patient browse the membership plans your clinic offers, enroll in one, and manage their active enrollments.
+
+## Browse plans
+
+Each plan appears as a tile showing:
+
+- Plan name and short description
+- Price per billing cycle (for example, `$50 / month`)
+- One-time setup fee, if any
+- Headline benefits — global discount percentage and any recurring patient credit
+- An **Enrolled** badge if the patient is already on the plan
+
+Clicking a tile opens the plan's detail page.
+
+## Plan details
+
+The detail page expands on the tile with:
+
+- **Benefits** — discount percentage on all services, recurring credits, and any per-category discount templates
+- **Details** — billing frequency, whether the plan auto-renews, the minimum term in billing cycles, and any maximum number of renewals
+- **Fee Schedule** — the price for each billing cycle when it differs across cycles (for example, an introductory rate)
+
+## Enroll in a plan
+
+<Steps>
+  <Step title="Open the plan">
+    Click a plan tile on the Memberships page.
+  </Step>
+  <Step title="Choose when to start">
+    Use the **Pay Now** / **Pay Later** switch. **Pay Now** enrolls the patient and charges them today. **Pay Later** schedules the enrollment to start on a future date.
+  </Step>
+  <Step title="Pick a payment method">
+    The patient's default card or bank account is selected automatically. To use a different one, pick from the **Pay with a different method** menu, or click **+ Add a new payment method** to enter a new card.
+  </Step>
+  <Step title="Pick a start date (Pay Later only)">
+    Choose any date from tomorrow onward. The first charge happens on that date.
+  </Step>
+  <Step title="Review and confirm">
+    The summary shows the setup fee, the first cycle's price, and the total due today (or on the start date). Click **Enroll** and confirm in the prompt that appears.
+  </Step>
+</Steps>
+
+After a successful **Pay Now** enrollment, the page reloads with the **Enrolled** badge. **Pay Later** enrollments show on the Billing page until the start date arrives.
+
+If a **Pay Now** charge fails, the patient sees an error and is asked to contact the clinic — no enrollment is created. If a **Pay Later** charge fails on the start date, the membership moves to **Delinquent** and staff resolve it from the [Members table](/modules/settings/memberships#actions); the patient is not retried automatically.
+
+## Manage an active membership
+
+On an enrolled plan's detail page, the patient can:
+
+- **See the billing payment method** currently on file for the membership.
+- **Change Card** — pick a different card or bank account for future charges, or add a new one. Future cycles bill the new method; previously-charged cycles are not affected.
+- **Cancel Membership** — only available if the clinic has enabled patient-initiated cancellation (see [Configure portal settings](#configure-portal-settings)). Otherwise, a note instructs the patient to contact the clinic.
+
+The portal's **Billing** page also lists every active membership with its status, next billing date, and payment method on file.
+
+## Configure portal settings
+
+Under **Settings** > **Patient Portal** > **Configuration**, the **Hide Cancel Membership Action** switch controls whether patients can cancel their own memberships. When on (the default), patients see a note to contact the clinic instead of a **Cancel Membership** button.

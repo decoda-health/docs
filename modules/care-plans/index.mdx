@@ -49,10 +49,10 @@ Every care plan is made up of individual steps. There are four types:
 
 | Type | What It Does | Configurable Fields |
 |------|-------------|-------------------|
-| **Appointment** | A scheduled visit for the patient | Services, medications, measurements, provider notes, scheduled date |
+| **Appointment** | A scheduled visit for the patient | Services, medications, measurements, provider notes, scheduled date, attached messages |
 | **Task** | An internal to-do for your team (requires the **Tasks** module) | Title, description, initial status, priority, assignee, start date, due date, provider notes |
-| **Message** | An automated SMS to the patient — either linked to an appointment or sent on its own | Message type (optional), SMS body, timing (if linked to an appointment) |
-| **Decision** | A point where the plan splits into multiple possible paths (branches) | Branch names, branch tags, steps within each branch |
+| **Message** | A standalone automated SMS sent to the patient on its own scheduled date | SMS body |
+| **Decision** | A point where the plan splits into multiple possible paths (branches) | Branch names, branch tags, steps within each branch (including nested decisions) |
 
 ### Appointment Steps
 
@@ -62,6 +62,7 @@ An appointment step represents a visit the patient needs to attend. When you cli
 - **Medications** -- Optionally select medications to be administered during this visit.
 - **Measurements** -- Optionally select which vitals to record at this visit. Options include: Weight, Height, Blood Pressure, Pulse, Temperature, and Waist Circumference.
 - **Provider Notes** -- A free-text field for guidance or instructions for the provider at this step (e.g., "Check healing progress from last visit").
+- **Messages** -- Automated SMS or email messages attached to this appointment, each with its own timing (e.g., "1 day before", "3 days after"). See [Messages on an Appointment](#messages-on-an-appointment).
 
 <Info>
   When an appointment step is pending and has at least one service selected, a **Schedule Appointment** button appears so you can book it on the calendar.
@@ -131,28 +132,13 @@ When you click on a task step, the details area shows:
 
 ### Message Steps
 
-A message step sends an automated SMS to the patient. There are two ways to use message steps:
+A message step sends an automated SMS to the patient on its own scheduled date. Message steps appear on the timeline alongside appointments and tasks and are sent when their scheduled date arrives.
 
-- **Linked messages** — tied to an appointment step. You choose a message type (reminder, confirmation, or follow-up) and set the timing relative to that appointment. Linked messages appear on the timeline next to the appointment they belong to.
-- **Standalone messages** — not tied to any appointment. These appear as their own step on the timeline, just like an appointment or task step. No message type is needed — just write the SMS body. Standalone messages are useful for general check-ins, instructions, or any message that is not related to a specific visit.
-
-When a message is linked to an appointment, there are three types to choose from:
-
-| Message Type | When It's Sent | Configurable Timing |
-|-------------|---------------|-------------------|
-| **Reminder** | Before the appointment | Set how far in advance (e.g., "1 day before") |
-| **Confirmation** | After the appointment | Sent automatically, no timing needed |
-| **Follow-up** | After the appointment | Set how long after (e.g., "3 days after") |
-
-<Info>
-  Message type is only required when the message is linked to an appointment. Standalone messages do not need a type — just the SMS body.
-</Info>
+Use a message step for general check-ins or instructions that aren't tied to a specific visit. For reminders, confirmations, or follow-ups around a particular appointment, attach messages to the appointment step instead — see [Messages on an Appointment](#messages-on-an-appointment).
 
 When you click on a message step, the details area shows:
 
-- **Message Type** -- The type of message (reminder, confirmation, or follow-up). This field only applies to messages linked to an appointment and can be left blank for standalone messages.
-- **Timing** -- How far before or after the appointment the message is sent. This only appears when the message is linked to an appointment (not shown for confirmation messages or standalone messages).
-- **SMS Body** -- The message text. You can personalize the message with variables by typing `@` in the editor. Available variables include:
+- **Message Body** -- The SMS text. You can personalize the message with variables by typing `@` in the editor. Available variables include:
 
 | Variable | What It Inserts |
 |----------|----------------|
@@ -164,33 +150,28 @@ When you click on a message step, the details area shows:
 | `@plan_name` | Care plan name |
 | `@step_number` | Step number in the plan |
 | `@next_step_date` | Date of the next step |
-| `@start` | Appointment time |
-| `@location` | Appointment location |
 
-#### Configure a Message Step
+To add one, click **Add Step** and choose **Message**, then write the body.
 
-<Steps>
-  <Step title="Add a Message Step">
-    Click **Add Step**, then choose **Message** from the menu. The message is added as its own step on the timeline.
-  </Step>
-  <Step title="Choose a Message Type (Optional)">
-    If this message is linked to an appointment, select whether it is a **Reminder**, **Confirmation**, or **Follow-up**. For standalone messages that are not tied to an appointment, you can skip this — no message type is needed.
-  </Step>
-  <Step title="Set the Timing (Linked Messages Only)">
-    For reminder and follow-up messages linked to an appointment, set how far before or after the appointment the message should be sent. This step does not apply to standalone messages.
-  </Step>
-  <Step title="Write the SMS Body">
-    Compose the message text. Type `@` to insert personalization variables such as the patient's name, provider name, care plan name, appointment time, or location.
-  </Step>
-</Steps>
+### Messages on an Appointment
 
-<Info>
-  Message steps can work in two ways: **linked** to an appointment (with a type and timing) or **standalone** (sent on their own, without an appointment). Linked messages appear on the timeline next to the appointment they belong to. Standalone messages appear as their own step, just like appointments and tasks.
-</Info>
+Each appointment step can carry its own list of automated messages that fire relative to the appointment time — for example, a reminder one day before, a confirmation at the scheduled time, and a follow-up three days after. These messages live on the appointment; they don't appear as separate steps on the timeline. Each appointment card shows a badge with the count (e.g., "3 messages").
+
+To add or edit them, open the appointment step and scroll to the messages section at the bottom. Click **Add a Sequence** to create the first message; once any exist, click **View N Messages** to open the list, then **Add Message** to add another or click an existing message to edit. For each message:
+
+- **Effect** — choose **Send SMS** or **Send Email** (email messages also take a **Subject**).
+- **Timing** — set how far before or after the appointment time it fires (e.g., "2 days before"), or turn on **Immediately** to fire at the scheduled time. A preview sentence shows the chosen timing.
+- **Email body** or **Message body** (the label depends on the **Effect**) — write the content. Type `@` to insert personalization variables.
+
+Click **Back** to return to the appointment details. Messages save with the rest of the care plan. To remove a message, open it and click **Remove Message**.
+
+When a care plan is created from a template, the template's attached messages are copied over and can be edited on the patient's plan.
 
 ### Decision Steps
 
-A decision step is a point in the care plan where the treatment path splits into two or more options, called **branches**. Each branch contains its own sequence of appointment and task steps. Only one branch can be selected for a given patient — the others are skipped.
+A decision step is a point in the care plan where the treatment path splits into two or more options, called **branches**. Each branch contains its own list of appointment, task, message, and (optionally) further decision steps. Only one branch can be selected for a given patient — the others are skipped.
+
+Branches can contain their own decision steps, letting you build multi-level paths (for example, a first decision picks the treatment type, and a nested decision inside the chosen branch picks the dosage). When a branch is skipped, everything inside it — including nested decisions and their branches — is skipped automatically.
 
 **Example:** A hormone therapy care plan might have an initial consultation, followed by a decision step where the provider chooses between three dosage options. Each option has its own follow-up appointments and lab work.
 
@@ -204,10 +185,10 @@ A decision step is a point in the care plan where the treatment path splits into
     The decision step starts with two branches. Give each branch a descriptive name (e.g., "Option A: Standard Treatment", "Option B: Intensive Treatment").
   </Step>
   <Step title="Add Steps to Each Branch">
-    Click into a branch and add appointment or task steps. Configure services, time gaps, and other details the same way you would for steps on the main timeline.
+    Click into a branch and add appointment, task, message, or decision steps. Configure services, time gaps, and other details the same way as steps on the main timeline.
   </Step>
   <Step title="Add More Branches (Optional)">
-    Click **Add Branch** to create additional paths if needed.
+    Click **Add option** to create additional paths if needed.
   </Step>
   <Step title="Tag Branches (Optional)">
     Add tags to individual branches for quick identification. Click the tags area on a branch to add or create tags.
@@ -246,6 +227,14 @@ A decision step is a point in the care plan where the treatment path splits into
   </Step>
 </Steps>
 
+#### Auto-Select by Scheduling the First Step
+
+You can also pick a branch by scheduling its first appointment. When the decision step is up next on the active path, the **Schedule Appointment** button appears on the first appointment of every branch. Booking it selects that branch, marks the decision step as Completed, and skips the other branches in one step — there's no separate confirmation prompt.
+
+<Warning>
+  Like clicking **Select this path**, scheduling the first appointment of a branch commits to that branch and cannot be undone.
+</Warning>
+
 ### How Branching Affects Scheduling
 
 When a branch is selected, the system recalculates dates for the selected branch's steps and for any steps that come after the decision step.
@@ -260,7 +249,7 @@ Before a branch is selected, step dates inside all branches are shown as **estim
 
 Before a branch has been selected, you can freely edit the decision step and its branches:
 
-- **Add or remove branches** -- click **Add Branch** or remove a branch from the decision step details.
+- **Add or remove branches** -- click **Add option** or remove a branch from the decision step details.
 - **Add, remove, or reorder steps within a branch** -- works the same as editing steps on the main timeline.
 - **Rename a branch** -- update the branch name in the decision step details.
 - **Change branch tags** -- add or remove tags from individual branches.
@@ -358,7 +347,7 @@ If a step is still Pending after its scheduled date has passed, it is marked as 
 
 ## Schedule an Appointment from a Step
 
-When an appointment step is Pending and has at least one service selected, a **Schedule Appointment** button appears in the step details. This lets you create a calendar appointment directly from the care plan.
+When an appointment step is Pending and has at least one service selected, a **Schedule Appointment** button appears in the step details. This lets you create a calendar appointment directly from the care plan. If the next thing on the active path is a decision step, the button also appears on the first appointment of every branch — see [Auto-Select by Scheduling the First Step](#auto-select-by-scheduling-the-first-step).
 
 <Steps>
   <Step title="Open the Care Plan">
@@ -419,9 +408,9 @@ Click on any step to see its details. What you can change depends on the step ty
 
 | Step type | Editable fields |
 |-----------|----------------|
-| **Appointment** | Services, medications, measurements, provider notes, scheduled date (or completed date if finished) |
+| **Appointment** | Services, medications, measurements, provider notes, scheduled date (or completed date if finished), attached messages |
 | **Task** | Title, description, initial status, priority, assignee, due date, provider notes |
-| **Message** | Message type (optional), SMS body, timing (if linked to an appointment) |
+| **Message** | Message body |
 
 <Info>
   Every step must have at least some content (a service, medication, measurement, task title, or description). You will see an error if you try to save a step that is empty.

@@ -71,7 +71,14 @@ Below the summary cards, the dashboard displays:
     Rule sets define the automated invoicing sequence -- how many messages to send, when to send them, what channels to use (SMS, email), and escalation logic. Configure rule sets under **Settings > Billing > Rules**. During checkout, when you choose **Send Invoices**, the selected rule set controls all future outreach for that charge.
   </Accordion>
   <Accordion title="Credit Card Surcharging">
-    When enabled at the organization level, a surcharge fee is automatically applied to credit card payments during checkout. Debit and prepaid cards are not surcharged. Individual patients can be exempted from surcharging via their patient profile settings.
+    Turn surcharging on or off under **Settings > General > Payment & Inventory > Pass Fee to Patient**. When it's on, credit card payments at checkout include a surcharge that covers the processing fee. Debit and prepaid cards are not surcharged.
+
+    The surcharge percentage comes from the processing rate on the [merchant account](/modules/settings/payment-management#merchant-accounts) handling the transaction. Clinics with multiple merchant accounts may see different surcharge amounts depending on which account a location uses.
+
+    Two further controls narrow where the surcharge applies:
+
+    - **Per patient.** Turn on **Surcharge Disabled** in a patient's **Settings** tab to exempt them. See [Patient Chart](/modules/patients/patient-chart).
+    - **Per membership plan.** Membership charges (setup, recurring, freeze fees) only include the surcharge when the plan has **Pass Processing Fee to Patient** turned on. See [Memberships](/modules/settings/memberships).
   </Accordion>
   <Accordion title="Merchant Accounts">
     If your organization processes payments through multiple merchant accounts, the checkout flow prompts staff to select which account should process the transaction. Deposits are grouped by merchant account on the Deposits page.

@@ -61,7 +61,7 @@ Filter by purchaser, recipient, date range, or status. Click a row to open the c
 |--------|---------|
 | **Pending** | The card has been created but not yet activated. Cards stay pending until the purchase is paid in full. |
 | **Active** | The card is fully redeemable. |
-| **Disabled** | The card has been drained, refunded, or turned off and cannot be used. |
+| **Disabled** | The card can no longer be redeemed — drained to zero, voided by a purchase refund, or turned off by staff. |
 
 ## Create a Gift Card Item
 
@@ -146,7 +146,10 @@ A gift card can be used as a payment method on any checkout.
     Type the gift card code (in the format `GC-XXXX-XXXX`) and click **Check Balance**. The remaining balance appears.
   </Step>
   <Step title="Apply the payment">
-    The gift card balance is applied toward the amount due. If the balance does not cover the full amount, take the rest with another payment method. If the balance exceeds the amount due, only what's needed is deducted and the rest stays on the card.
+    The gift card balance is applied toward the amount due.
+
+    - If the balance covers the full amount, only what's needed is deducted and the rest stays on the card.
+    - If the balance is less than the amount due, the **Split Payment** section opens automatically and the gift card is set to cover its full balance. Pick a second payment method (card, cash, check, etc.) to collect the remaining amount in the same checkout.
   </Step>
 </Steps>
 
@@ -168,11 +171,12 @@ Staff can also view balances by opening any issued gift card from the **Issued G
 
 Click a row in the **Issued Gift Cards** section to open its details. From there you can:
 
-- See the full code, initial value, current balance, and status.
+- See the gift card code, initial value, current balance, and status. The code is masked by default (e.g., `GC-****-1234`) — click the eye icon to reveal it, and click again to hide.
 - See the purchasing patient and the recipient details.
 - Resend the gift card to the recipient. The **Send to Recipient** button stays visible even when no recipient contact is on file — it's disabled with a tooltip prompting you to add an email or phone first.
 - Send the gift card to the purchaser. A **Send** button next to the purchaser's name lets you deliver the code to the patient who bought it — useful when the card has no recipient on file, or when staff want to send the buyer a copy.
-- See the history of redemptions and refunds.
+- Activate a **Pending** card manually. An **Activate** button appears next to the status when the card is pending. You can also send a notification to the recipient at the same time.
+- See the transaction history of redemptions, refunds, balance adjustments, and the related payment for each.
 
 Both send actions ask for confirmation first and show the contact details that will be used, so you can double-check the email or phone before the notification goes out.
 
@@ -183,7 +187,12 @@ Both send actions ask for confirmation first and show the contact details that w
     When **Allow custom pricing** is on for a gift card item, staff see an edit icon on the cart line at checkout. Clicking it opens a small window where staff can enter any amount. The amount entered is what the patient pays and what the recipient can redeem — they're always the same number.
   </Accordion>
   <Accordion title="Refunds and disabling cards">
-    If a purchase that created a gift card is refunded, the gift card is disabled and can no longer be used. A gift card that has been drained to a zero balance also moves to the **Disabled** status.
+    Two kinds of refunds can involve a gift card:
+
+    - **Refunding a charge that was paid with a gift card.** The refund is automatically returned to the original card's balance — there's no other payment method to send it back to. If the card had been drained to zero, it becomes redeemable again.
+    - **Refunding the purchase that created a gift card.** The card is voided and can no longer be redeemed. Any future refund of a charge paid with that card must go to another payment method.
+
+    A gift card drained to zero with no outstanding refunds also moves to **Disabled**.
   </Accordion>
   <Accordion title="Permissions">
     - **View Inventory** -- Required to view the Gift Cards settings page and the issued gift card list (with the Gift Cards module enabled).

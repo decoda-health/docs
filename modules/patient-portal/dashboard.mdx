@@ -1,39 +1,59 @@
 ---
 title: "Dashboard"
-description: "The patient portal home screen — upcoming appointments, pending forms, recent visits, and quick actions."
+description: "The patient portal home screen — a customizable grid of widgets that you arrange to fit your clinic."
 ---
 
-When a patient signs in, the dashboard is the first screen they see. It shows a personalized greeting (e.g., "Good morning, Sarah") with today's date, followed by a grid of cards summarizing the patient's appointments, forms, and quick actions.
+When a patient signs in, the dashboard is the first screen they see. It opens with a personalized greeting (e.g., "Good morning, Sarah") followed by a grid of widgets the clinic has chosen for that screen.
 
-## Upcoming Appointments
+## Available widgets
 
-The largest card on the dashboard shows up to 5 upcoming appointments. Each entry displays the service name, date and time, provider, and location. Clicking an appointment opens its detail page.
+You decide which of these appear on the patient's dashboard, in what order, and how wide each one is.
 
-If the patient has no upcoming appointments, a **Book Appointment Now** button appears in this card.
+| Widget | What it shows |
+|--------|---------------|
+| **Calendar** | A month calendar that highlights appointment days. Selecting a day shows that day's visits. If the patient has no upcoming visits, a **Book Appointment** button takes its place. |
+| **Upcoming Appointments** | A short list of the next few visits with date, time, provider, and location. |
+| **Next Appointment** | A highlighted banner for the very next visit, including a countdown. |
+| **Forms** | Pending and completed forms, with a tab switch between the two. Patients open a form to fill it out or to view the answers they submitted. |
+| **Quick Actions** | Shortcuts to common tasks — book an appointment, complete a form, view appointments, update profile. Patients can edit which actions appear in this widget. |
+| **Recent Visits** | A list of past appointments, most recent first. |
+| **My Memberships** | Active membership plans with their key benefits. |
+| **Billing** | The patient's upcoming billing cycle and recent charges. |
+| **Credit Balance** | Account credit available to use against future charges. |
+| **Insurance** | Insurance carrier and member ID on file. |
+| **Pre-Visit Checklist** | A preparation checklist for the next visit. |
+| **Visit Summary** | The patient's visit count and engagement summary for the year. |
 
-## Pending Forms
+## Customize the dashboard
 
-This card shows up to 3 forms the patient has not yet completed. Each form shows whether it is **In progress** or **Not started**. Clicking a form opens it so the patient can continue or begin filling it out.
+**Where to find it:** Go to **Settings** > **Patient Portal**. The **Layout** tab is open by default.
 
-## Completed Forms
+The Layout tab shows a preview of the patient dashboard. Use it to arrange widgets:
 
-This card shows up to 5 forms the patient has already submitted, along with the completion date. Clicking a completed form opens a read-only view of their responses.
+<Steps>
+  <Step title="Reorder widgets">
+    Drag a widget by its header to move it. The grid reflows as you drag.
+  </Step>
+  <Step title="Resize a widget">
+    Use the size switch in each widget's header to set its width: **1/3**, **1/2**, **2/3**, or **Full**.
+  </Step>
+  <Step title="Hide a widget">
+    Click the eye icon in a widget's header. The widget moves into the **Hidden Widgets** section below the preview.
+  </Step>
+  <Step title="Show a hidden widget">
+    Find it in **Hidden Widgets** and click **Add**. It returns to the dashboard at the end of the visible list.
+  </Step>
+  <Step title="Save">
+    Click **Save** at the top of the page. The new layout applies to every patient the next time they sign in.
+  </Step>
+</Steps>
 
-## Recent Visits
+Click **Reset to defaults** to discard your changes and restore the standard layout.
 
-This card shows up to 5 past appointments with a date badge showing the month and day. This gives patients a quick view of their recent visit history.
+<Note>
+  The same layout is shared by every patient at your clinic. There is no per-patient layout. The exception is the **Quick Actions** widget, where each patient can pick their own shortcuts.
+</Note>
 
-## Quick Actions
+## Customize Quick Actions (patient-side)
 
-The Quick Actions card provides shortcuts to the most common tasks:
-
-- **Book Appointment** -- opens the self-scheduling page in a new tab.
-- **Complete a Form** -- opens the forms list.
-- **View Appointments** -- opens the appointments page.
-- **Update Profile** -- opens the profile edit screen.
-
-### Customize Quick Actions
-
-Click **Edit** in the Quick Actions card to toggle into edit mode. Remove an action by clicking the **X** on it, or add an available action by clicking the **+** button. Click **Done** when finished.
-
-The layout is saved for the next time the patient signs in.
+Inside the Quick Actions widget, each patient can pick which shortcuts they see. The patient clicks **Edit** in the widget, removes an action with the **X** on it, adds an available action with the **+** button, and clicks **Done**. Their choices stick for next time they sign in.

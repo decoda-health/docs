@@ -95,6 +95,32 @@ The template editor includes an AI assistant that can add, modify, or remove fie
 - "Replace the free-text allergy field with the mapped allergies field that links to the patient chart"
 - "Add a multiple choice field for pain level with options 1 through 10"
 
+## Group Fields into Sections
+
+Sections group related fields under a heading and let you arrange them side by side. They're useful for longer templates — for example, separating "Vitals", "Chief Complaint", and "Treatment Plan" into distinct blocks instead of one long list.
+
+<Steps>
+  <Step title="Add a Section">
+    In the template editor, click **Add Section** at the bottom of the field list. A new section block appears.
+  </Step>
+  <Step title="Name the Section">
+    Click the section header and type a name (e.g., "Vitals", "Treatment Plan"). The name is shown to providers when they fill out the note.
+  </Step>
+  <Step title="Choose a Column Layout">
+    Use the **1 / 2 / 3** picker in the section header to set how many columns the fields should be arranged in. New sections default to 2 columns.
+  </Step>
+  <Step title="Add Fields to the Section">
+    Click **Add Question** inside the section, or drag existing fields into it using the grip handle. Reorder fields within a section the same way.
+  </Step>
+  <Step title="Collapse or Remove">
+    Click the chevron in the section header to collapse a section while editing. Click the trash icon to delete a section — its fields move out of the section and remain in the template.
+  </Step>
+</Steps>
+
+Photo Upload, Document Upload, Medications, and Body Map fields always span the full width of a section, even in a 2- or 3-column layout. All other field types follow the column layout you choose.
+
+When a provider opens a note built from a sectioned template, each section appears as a collapsible block with the column layout you configured. See [AI Scribe](/modules/notes/ai-scribe) for how sections behave during note review.
+
 ## Edit a Template
 
 From the **Note Templates** page, click on a template name to open the editor. You can modify any field, reorder questions, add new fields, or remove existing ones. Click **Save** when finished.
