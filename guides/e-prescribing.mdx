@@ -19,21 +19,63 @@ To get started with e-prescribing:
 2. Request e-prescribing module enablement
 3. Decoda will enable the module, set up your locations, and add your providers
 
-Once everything is configured, providers with e-prescribing access will see the **E-prescribe** button on patient charts and the notification banner in the notifications panel.
+Once everything is configured, providers with e-prescribing access can launch DoseSpot from several places in Decoda (covered below) and will see the e-prescribing banner at the top of the notifications panel.
 
-## Using E-Prescribing
+## Where to launch e-prescribing
 
-### Opening DoseSpot from a Patient Chart
+There are several places in Decoda that open DoseSpot. Which one you use depends on what you're trying to do.
 
-When viewing a patient, click the **E-prescribe** button. This automatically:
+### From the notifications panel
 
-1. Syncs the patient's demographics to DoseSpot (name, date of birth, address, phone, and height/weight if recorded)
-2. Generates a secure sign-on link
-3. Opens DoseSpot in a new tab with the patient's chart already loaded
+Open the notifications panel from the top bar. At the top of the panel you'll see an e-prescribing banner showing the count of pending items (transmission errors, refill requests, change requests). Click the banner to open DoseSpot.
 
-You're signed in automatically -- no need to enter separate DoseSpot credentials.
+When there are no pending items, the banner reads **Open e-prescribing** and opens the DoseSpot dashboard without a patient loaded -- useful for working through your queue or checking a prior prescription.
 
-### Patient Requirements
+<Info>
+The banner only appears for providers whose DoseSpot account has been confirmed. If a provider can't see it, see [Notification Banner Not Showing](#notification-banner-not-showing) below.
+</Info>
+
+### From a patient chart (most common)
+
+Open the patient and stay on the **Overview** tab. Scroll to the **Medications** section. From here:
+
+1. Click **Add Dose** at the top right of the medication table.
+2. A small menu appears with two options: **Add Dose** (record a dose manually in Decoda) and **E-prescribe** (open DoseSpot for this patient).
+3. Click **E-prescribe**.
+
+DoseSpot opens in a new tab with the patient's chart already loaded.
+
+<Info>
+**Add Dose** is the visible button -- there is no standalone "E-prescribe" button on the chart. The E-prescribe option lives inside the Add Dose menu.
+</Info>
+
+The same **Add Dose → E-prescribe** menu appears anywhere doses can be added, including:
+
+- **Care plan checklist** items in the right-hand sidebar
+- **Medication questions** inside scribe notes
+- **Weight-loss program** dose tables
+
+### Reopening an existing prescription
+
+If a medication was already sent through DoseSpot, you can jump back into it without going through Add Dose:
+
+1. In the **Medications** section, find the row for the prescription. It will be marked with a **DoseSpot** badge.
+2. Click the three-dot menu on the right.
+3. Choose **Open in E-prescribing**.
+
+### Syncing patient demographics manually
+
+Above the medications table on the Overview tab, there's a **Sync to E-Prescribe** button.
+
+This button **does not open DoseSpot.** It pushes the patient's current name, date of birth, address, phone, and height/weight to DoseSpot so the records stay in sync. Decoda also runs this sync automatically the first time you E-prescribe for a patient and on subsequent launches, so most clinics never need to press it. Use it if a patient's demographics changed and you want to update DoseSpot before opening it.
+
+### Picking a location
+
+If your tenant has more than one location with DoseSpot configured, Decoda will show a **Select Location for E-prescribing** dialog the first time you launch from a given action. Decoda pre-selects the best guess (your current location, or the patient's primary location). Confirm the choice and click **E-prescribe**.
+
+If only one location is configured, the dialog is skipped.
+
+## Patient Requirements
 
 For the patient sync to succeed, the patient record in Decoda must have:
 
@@ -43,17 +85,6 @@ For the patient sync to succeed, the patient record in Decoda must have:
 - Full address (street, city, state, zip code)
 
 If any of these are missing, you'll see an error when trying to open e-prescribing. Update the patient's profile and try again.
-
-## Notification Banner
-
-Providers with e-prescribing access see a banner in the notifications panel. This banner shows the count of pending items that need attention, such as:
-
-- Pending prescriptions awaiting action
-- Transmission errors (prescriptions that failed to send to a pharmacy)
-- Refill requests from pharmacies
-- Change requests from pharmacies
-
-Click the banner to open DoseSpot and address those items. When there are no pending items, the banner displays **Open e-prescribing** as a quick-access link.
 
 ## Prescription Tracking
 
@@ -89,6 +120,14 @@ Check the following:
 
 1. **Module is enabled** -- The e-prescribing module must be active for your tenant. Contact Decoda support if you're unsure.
 2. **Provider is set up** -- The provider must be configured for e-prescribing by Decoda. Contact support if a provider who should have access doesn't.
+
+### Notification Banner Not Showing
+
+The e-prescribing banner in the notifications panel only appears when the signed-in provider has a DoseSpot user ID linked to their Decoda account. If you don't see it:
+
+1. Confirm e-prescribing is enabled for your tenant.
+2. Confirm the provider has been set up by Decoda support and has completed their DoseSpot clinician confirmation and Duo two-factor enrollment.
+3. If the provider can launch DoseSpot from a patient chart but the banner is still missing, contact Decoda support -- their account may need to be linked.
 
 ### Duo Two-Factor Authentication Enrollment Failing
 
