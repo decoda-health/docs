@@ -195,6 +195,48 @@ If you have multiple merchant accounts, deposits are grouped by account with sub
 
 Click any deposit row to open the **Deposit Details Drawer**, which shows the individual payments and refunds included in that deposit along with their fees and amounts.
 
+### Deposit Timing
+
+Deposits are created on each US banking day for merchant accounts with available funds. One deposit per merchant account per day combines all eligible funds, regardless of when those payments were processed.
+
+#### Processing Times
+
+How quickly funds become available for deposit depends on the payment method:
+
+| Payment Method | Typical Timing |
+|----------------|----------------|
+| Card | T+1 (1 business day after processing) |
+| PayPal | T+1 |
+| ACH | T+4 |
+
+<Info>
+  "T+1" means one business day after the payment is processed. The exact timing may vary by merchant account.
+</Info>
+
+#### Daily Cutoff Times
+
+Payments submitted after the daily cutoff are treated as if they were submitted the next day:
+
+| Payment Method | Cutoff Time |
+|----------------|-------------|
+| Card | 11:00 PM ET |
+| PayPal | 11:00 PM ET |
+| ACH | 9:00 PM ET |
+
+#### Weekends and Holidays
+
+Card and PayPal payments processed on weekends or holidays still count that day as the processing date, but the business-day countdown starts on the next banking day. For example, a card payment on Saturday with T+1 timing is deposited on Monday.
+
+ACH payments processed on weekends or holidays start counting from the next banking day. For example, an ACH payment on Saturday with T+4 timing is deposited on Thursday.
+
+<Note>
+  ACH payments made over the weekend can be canceled until 9:00 PM ET on Sunday. If Monday is a banking holiday, the cancellation window extends to 9:00 PM ET on the holiday.
+</Note>
+
+#### Expected Deposit Date
+
+Each payment shows an expected deposit date while it is still processing. This is an estimate — the actual date may change if the payment is flagged for review, canceled, or returned.
+
 ### Filter by Month
 
 Use the month selector in the top right to view deposits from a specific month.
