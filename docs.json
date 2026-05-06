@@ -44,6 +44,14 @@
     {
       "source": "/modules/care-plans/tags",
       "destination": "/modules/care-plans#tags"
+    },
+    {
+      "source": "/help/payments/tip-screen",
+      "destination": "/modules/billing/tip-screen"
+    },
+    {
+      "source": "/help/smart-mentions",
+      "destination": "/modules/settings/smart-mentions"
     }
   ],
   "theme": "mint",
@@ -109,7 +117,8 @@
               "modules/billing/carts-and-quotes",
               "modules/billing/cash-and-commissions",
               "modules/billing/staff-pay",
-              "modules/billing/chargebacks"
+              "modules/billing/chargebacks",
+              "modules/billing/tip-screen"
             ]
           },
           {
@@ -248,6 +257,7 @@
               "modules/settings/assistants",
               "modules/settings/phone-numbers",
               "modules/settings/suggestions",
+              "modules/settings/smart-mentions",
               "modules/settings/scheduling",
               "modules/settings/bookables",
               "modules/settings/calendar-appearance",

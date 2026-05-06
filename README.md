@@ -63,7 +63,7 @@ The Billing module handles all financial transactions within Decoda.
 ## Core Workflows
 * [Create an Intelligent Invoice](/billing/invoices)
 * [Process a Refund](/billing/refunds)
-* [Configure the Tip Screen](/billing/tips)
+* [Configure the Tip Screen](/modules/billing/tip-screen)
 
 ## Advanced Configuration
 <AccordionGroup>
