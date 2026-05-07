@@ -8,6 +8,10 @@
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/glossarymdx-npyfbbm2u7i1",
       "hash": "f51c9c627419fd87f03676bce5cdc5225624e0be5bc9ed842289ac4f16d6de61"
     },
+    "guides/desk-phone-setup.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guidesdeskphonesetupmdx-ngtylgqy7izq",
+      "hash": "1a0c0c2fcc3b124675fe318fd3c62366aa9eb609150eb0983833d7c7eb8082e3"
+    },
     "guides/e-prescribing.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/guideseprescribingmdx-7du4zi0p2jn7",
       "hash": "02070c5a5999d3df255f71c7d19ffa06d1d4993800157a893f183007051e671f"
@@ -133,8 +137,8 @@
       "hash": "f776656c1271c51754cbd4d3a8ce47b8cf5bed1a4d63de414f0eecf6780f8b8c"
     },
     "modules/comms/calls.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommscallsmdx-jz6apce58y21",
-      "hash": "82ff7d6cd15cc992501961cddc8c4a314fbf1873b56a74a721e2e4c610f626ab"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommscallsmdx-ogj6xoii67bs",
+      "hash": "b14f5eebb1e8218be3d6f7f6d53c5f6461163d083682b726b9dc8a2d899cd57a"
     },
     "modules/comms/chat.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulescommschatmdx-g21d66i7r3uz",
@@ -237,8 +241,8 @@
       "hash": "2c3d6b8a2adb31f1bab95676628f891649020757c3079e82f0ec7c52cc2153d1"
     },
     "modules/phone-numbers/answering-calls.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumbersanswerin-evlxzph4eo2o",
-      "hash": "82c159e759c90d168506538cacf964fc24a3fa3884f00ce02ca00c4e2f5d09df"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumbersanswerin-98ulxpqu23e3",
+      "hash": "0eb440c2f02cbdc5b32c0e9eb65d4a40b877f43f00944941cb02908946188eaa"
     },
     "modules/phone-numbers/call-routing.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumberscallrout-qlsqzgk7vs1v",
@@ -253,8 +257,8 @@
       "hash": "ee36503bb706db9abf70e2bcd9b17cac6ca9adbd0d4fb4f305e27cb3e91b2adb"
     },
     "modules/phone-numbers/ring-groups.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumbersringgrou-gagr3ct3yl4l",
-      "hash": "614912f567940212d2da7ba529dc612c5095974e0254846e31164be1e46bed6c"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesphonenumbersringgrou-rpwpryka053m",
+      "hash": "791bca5647eff0f72ec19847d6cb605fc54a12fc3aba9147431679e4a5086f5d"
     },
     "modules/scheduling/appointments.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesschedulingappointmen-wuei6vu6dpli",
@@ -299,6 +303,10 @@
     "modules/settings/commissions.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingscommissionsm-tqtdz9q7n28n",
       "hash": "2c5f27436288e35c430c3b8cc8d531bf2e4786027c1002296b119a4977b32017"
+    },
+    "modules/settings/desk-phones.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsdeskphonesmd-btx7pt1e9f2k",
+      "hash": "09a5f3c3c8af58b973de4affc425704ee3e427c12139a43032bc21276ed8c783"
     },
     "modules/settings/emails.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsemailsmdx-ckgeuuwjjxq1",
@@ -365,8 +373,8 @@
       "hash": "98e11eb83cf1aeb2cddba9bddb80056484ad11275f88f13e4574aa34f40fe256"
     },
     "modules/settings/phone-numbers.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsphonenumbers-pfwmwpw1mehq",
-      "hash": "96b2c53ef8a8532ee9e0ee82761902cb222703c9441bc84e225ce00fd334c734"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsphonenumbers-3f62ff2nnv15",
+      "hash": "a2c23c98d9ede5b84d262c2986c740815e2df624fea4aa5457f5ba0f6fe49f1c"
     },
     "modules/settings/pipelines.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspipelinesmdx-hsqpgw494m29",
