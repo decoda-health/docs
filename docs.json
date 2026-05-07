@@ -222,20 +222,37 @@
             "group": "Settings & Org Setup",
             "pages": [
               "modules/settings/index",
-              "modules/settings/general",
-              "modules/settings/preferences",
-              "modules/settings/locations",
-              "modules/settings/users",
-              "modules/settings/hourly-rates",
-              "modules/settings/teams",
-              "modules/settings/permissions",
-              "modules/settings/services",
-              "modules/settings/categories",
-              "modules/settings/products",
-              "modules/settings/medications",
-              "modules/settings/memberships",
-              "modules/settings/packages",
-              "modules/settings/gift-cards",
+              {
+                "group": "Foundations",
+                "pages": [
+                  "modules/settings/general",
+                  "modules/settings/preferences",
+                  "modules/settings/locations",
+                  "modules/settings/profile-security"
+                ]
+              },
+              {
+                "group": "People & Access",
+                "pages": [
+                  "modules/settings/users",
+                  "modules/settings/teams",
+                  "modules/settings/permissions",
+                  "modules/settings/hourly-rates",
+                  "modules/settings/commissions"
+                ]
+              },
+              {
+                "group": "Catalog",
+                "pages": [
+                  "modules/settings/services",
+                  "modules/settings/categories",
+                  "modules/settings/products",
+                  "modules/settings/medications",
+                  "modules/settings/memberships",
+                  "modules/settings/packages",
+                  "modules/settings/gift-cards"
+                ]
+              },
               {
                 "group": "Payment Management",
                 "pages": [
@@ -247,26 +264,49 @@
                   "modules/settings/pos-devices/lane-3000"
                 ]
               },
-              "modules/settings/commissions",
-              "modules/settings/rules",
-              "modules/settings/tasks",
-              "modules/settings/brand-colors",
-              "modules/settings/notifications",
-              "modules/settings/emails",
-              "modules/settings/note-templates",
-              "modules/settings/measurements",
-              "modules/settings/assistants",
-              "modules/settings/phone-numbers",
-              "modules/settings/desk-phones",
-              "modules/settings/suggestions",
-              "modules/settings/smart-mentions",
-              "modules/settings/scheduling",
-              "modules/settings/bookables",
-              "modules/settings/calendar-appearance",
-              "modules/settings/developers",
-              "modules/settings/embed-payments",
-              "modules/settings/profile-security",
-              "modules/settings/qualiphy"
+              {
+                "group": "Scheduling",
+                "pages": [
+                  "modules/settings/scheduling",
+                  "modules/settings/bookables",
+                  "modules/settings/calendar-appearance"
+                ]
+              },
+              {
+                "group": "Clinical Content",
+                "pages": [
+                  "modules/settings/note-templates",
+                  "modules/settings/measurements",
+                  "modules/settings/suggestions",
+                  "modules/settings/smart-mentions"
+                ]
+              },
+              {
+                "group": "Communications & Branding",
+                "pages": [
+                  "modules/settings/brand-colors",
+                  "modules/settings/notifications",
+                  "modules/settings/emails",
+                  "modules/settings/phone-numbers",
+                  "modules/settings/desk-phones",
+                  "modules/settings/assistants"
+                ]
+              },
+              {
+                "group": "Automation",
+                "pages": [
+                  "modules/settings/rules",
+                  "modules/settings/tasks"
+                ]
+              },
+              {
+                "group": "Integrations & Developers",
+                "pages": [
+                  "modules/settings/developers",
+                  "modules/settings/embed-payments",
+                  "modules/settings/qualiphy"
+                ]
+              }
             ]
           },
           {
