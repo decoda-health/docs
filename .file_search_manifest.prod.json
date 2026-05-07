@@ -329,8 +329,8 @@
       "hash": "152601f3c151b1a41c9a8636c27120e1d6bab98fc425baafcfc13ba9a747f970"
     },
     "modules/settings/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsindexmdx-7i8r8h6j1pi5",
-      "hash": "b0c077deb7ea158085275c2853e105cf8dbe9642c7a77a3a51b27656c7d1c96b"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsindexmdx-zll4bufa0wny",
+      "hash": "40b8502e6b83fefcf84ca4195bfff781c58a91f330078e7cc3bc9d652d740788"
     },
     "modules/settings/locations.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingslocationsmdx-bvf9lv07o4ty",
@@ -411,6 +411,10 @@
     "modules/settings/profile-security.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsprofilesecur-mdwy3z32azn5",
       "hash": "1c42f4180f4e22948ea810e205670805e96d9720c68ac7f843099c49cf7a139d"
+    },
+    "modules/settings/promotions.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspromotionsmd-xpu5qtir29ex",
+      "hash": "89238f3bf871d570f5cd05f02ea345838e151e36e17a2867b42b84bdc69d7b4e"
     },
     "modules/settings/qualiphy.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsqualiphymdx-5frdhdkfgntj",
