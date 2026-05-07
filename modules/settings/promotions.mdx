@@ -4,7 +4,9 @@ description: 'Create deals, discounts, and loyalty rewards that apply automatica
 ---
 
 <Info>
-  **Prerequisites:** You should have [Services](/modules/settings/services) and/or [Products](/modules/settings/products) created before setting up promotions, since discount templates reference existing catalog items. If you want to target specific patient segments, create [Cohorts](/modules/comms/blasts#cohorts) first.
+  **Where to find Promotions:** In the left sidebar, click **Settings > Promotions**.
+
+  **Prerequisites:** Set up your [Services](/modules/settings/services) and/or [Products](/modules/settings/products) first, since promotions reference existing catalog items. To target specific patient segments, create [Cohorts](/modules/comms/blasts#cohorts) first.
 </Info>
 
 Promotions let you offer discounts, buy-one-get-one deals, and store credit rewards to patients at checkout. They can apply automatically when conditions are met, or require a promo code to redeem.
@@ -33,68 +35,76 @@ Rules are organized into groups:
 ## Create a Promotion
 
 <Steps>
-  <Step title="Navigate to Promotions">
-    Go to **Settings** and select **Promotions**.
+  <Step title="Open Promotions">
+    Go to **Settings** and select **Promotions**, then click **Create Promotion**. A full-page form opens.
   </Step>
-  <Step title="Create New">
-    Click the **Create Promotion** button. This opens a full-page form.
-  </Step>
-  <Step title="Fill in the Basics">
+  <Step title="Fill in the basics">
     - **Name:** A descriptive name (e.g., "Spring 20% Off", "Buy Botox Get Filler Free")
     - **Description:** An optional summary for staff. Use the AI generator to draft this automatically.
     - **Promo Code:** Leave blank for automatic promotions. Enter a code (e.g., "SPRING25") if patients must enter it at checkout to redeem.
-    - **Auto-apply:** When enabled, the promotion applies automatically at checkout when all rules are met. When disabled, staff must manually apply it.
+    - **Auto-apply:** When on, the promotion applies automatically at checkout when all rules are met. When off, staff must manually apply it.
   </Step>
-  <Step title="Set Up Rules">
-    Add one or more conditions. The promotion only applies when all groups are satisfied.
-
-    **Available rule types:**
-    - **Patient cohort** — target a specific patient segment (e.g., birthday patients, new patients, VIPs). Click "+ New" to create a cohort without leaving the page.
-    - **Location** — only applies at a specific clinic location
-    - **Item in cart** — requires a specific item with an optional minimum quantity (e.g., "2x Botox")
-    - **Category in cart** — requires any item from a category (e.g., "Injectables")
-    - **Item type in cart** — requires a service, product, medication, package, or booking fee
-    - **Minimum quantity** — a minimum number of items in the cart
-    - **Minimum subtotal** — the cart total must reach a threshold (e.g., "$200+")
-
-    To create alternatives (OR), click **Add alternative (OR)** within the same group. To add a separate required condition (AND), click **Add condition group (AND)**.
-  </Step>
-  <Step title="Configure the Discount">
-    Choose what the discount applies to:
-    - **All items** — every item in the cart
-    - **Specific item** — one particular item
-    - **Category** — all items in a category
-    - **Item type** — all services, all products, etc.
-
-    Set the discount amount:
-    - **Percentage off** — e.g., 20% off
-    - **Fixed amount off** — e.g., $25 off per item
-    - Or both — the system applies whichever is set
-
-    **Quantity cap:** If the discount template has a quantity set, only that many units are discounted. This is how "buy 1, get 1 free" works — set the target item to 100% off with quantity 1.
-  </Step>
-  <Step title="Add a Credit Reward (Optional)">
-    If you want patients to earn store credit when the promotion applies:
-    - **Credit amount** — how much credit to award (e.g., $20)
-    - **Expiry (days)** — how long the credit lasts before it expires (leave blank for no expiry)
-  </Step>
-  <Step title="Set a Schedule (Optional)">
-    - **Date range** — when the promotion starts and ends. Leave blank for always active.
-    - **Recurrence** — repeat on a schedule (e.g., every Tuesday, weekdays only, monthly). Use the dropdown for common patterns or "Custom" for advanced options.
-  </Step>
-  <Step title="Set Redemption Limits (Optional)">
-    - **Max total redemptions** — how many times this promotion can be used across all patients (e.g., "first 100 customers")
-    - **Max per patient** — how many times a single patient can use it (e.g., "once per patient")
-  </Step>
-  <Step title="Restrict Who Can Apply (Optional)">
-    By default, any staff member can apply the promotion at checkout. To restrict it:
-    - **Providers** — only selected providers can use it
-    - **Teams** — only members of selected teams can use it
-  </Step>
-  <Step title="Save">
-    Click **Create Promotion**. It's immediately active (unless you set a future start date).
+  <Step title="Configure rules, discount, and any optional sections">
+    Complete the rest of the form using the sections below. When you're done, click **Create Promotion** at the bottom. The promotion is immediately active unless you set a future start date.
   </Step>
 </Steps>
+
+## Set Up Rules
+
+Add one or more conditions. The promotion only applies when all groups are satisfied.
+
+Available rule types:
+
+- **Patient cohort** — target a specific patient segment (e.g., birthday patients, new patients, VIPs). Click **+ New** to create a cohort without leaving the page.
+- **Location** — only applies at a specific clinic location
+- **Item in cart** — requires a specific item with an optional minimum quantity (e.g., "2x Botox")
+- **Category in cart** — requires any item from a category (e.g., "Injectables")
+- **Item type in cart** — requires a service, product, medication, package, or booking fee
+- **Minimum quantity** — a minimum number of items in the cart
+- **Minimum subtotal** — the cart total must reach a threshold (e.g., "$200+")
+
+To create alternatives (OR), click **Add alternative (OR)** within the same group. To add a separate required condition (AND), click **Add condition group (AND)**.
+
+## Configure the Discount
+
+Choose what the discount applies to:
+
+- **All items** — every item in the cart
+- **Specific item** — one particular item
+- **Category** — all items in a category
+- **Item type** — all services, all products, etc.
+
+Set the discount amount:
+
+- **Percentage off** — e.g., 20% off
+- **Fixed amount off** — e.g., $25 off per item
+- Or both — the system applies whichever is set
+
+**Quantity cap:** If you set a quantity on the discount, only that many units are discounted. This is how "buy 1, get 1 free" works — set the target item to 100% off with quantity 1.
+
+## Add a Credit Reward (Optional)
+
+If you want patients to earn store credit when the promotion applies:
+
+- **Credit amount** — how much credit to award (e.g., $20)
+- **Expiry (days)** — how long the credit lasts before it expires (leave blank for no expiry)
+
+## Set a Schedule (Optional)
+
+- **Date range** — when the promotion starts and ends. Leave blank for always active.
+- **Recurrence** — repeat on a schedule (e.g., every Tuesday, weekdays only, monthly). Use the menu for common patterns or **Custom** for advanced options.
+
+## Set Redemption Limits (Optional)
+
+- **Max total redemptions** — how many times this promotion can be used across all patients (e.g., "first 100 customers")
+- **Max per patient** — how many times a single patient can use it (e.g., "once per patient")
+
+## Restrict Who Can Apply (Optional)
+
+By default, any staff member can apply the promotion at checkout. To restrict it:
+
+- **Providers** — only selected providers can use it
+- **Teams** — only members of selected teams can use it
 
 ## Common Promotion Recipes
 
@@ -132,15 +142,23 @@ Rules are organized into groups:
 When a patient is selected at checkout, the system evaluates all active promotions. A **Promotions** button appears with a count of eligible offers.
 
 - **Auto-apply promotions** are applied automatically to the cart — a notification appears when a new promotion becomes available.
-- **Manual promotions** show a "Use" button in the promotions list.
+- **Manual promotions** show a **Use** button in the promotions list.
 - **Code-based promotions** require entering the code in the promo code field.
 - **Ineligible promotions** are shown with a reason (e.g., "Requires Botox in cart", "Patient is not in the required cohort").
 
 ## Edit or Pause a Promotion
 
 Click on any promotion from the list to open its detail page. From there you can:
+
 - Edit any field and click **Save Changes**
 - Click **Pause** to temporarily disable it (or **Activate** to re-enable)
-- Click **Delete** to permanently remove it
 
 The detail page also shows performance stats: total redemptions, total discounted amount, and a history of which patients used the promotion.
+
+## Delete a Promotion
+
+<Warning>
+  Deleting a promotion is permanent and cannot be undone. The redemption history stays on past charges, but the promotion is removed from the list and can't be re-enabled. Use **Pause** instead if you might want to bring it back later.
+</Warning>
+
+On the promotion's detail page, click **Delete** and confirm when prompted.

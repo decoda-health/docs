@@ -250,7 +250,8 @@
                   "modules/settings/medications",
                   "modules/settings/memberships",
                   "modules/settings/packages",
-                  "modules/settings/gift-cards"
+                  "modules/settings/gift-cards",
+                  "modules/settings/promotions"
                 ]
               },
               {
