@@ -1,0 +1,95 @@
+---
+title: 'Setting Up a Desk Phone'
+description: 'Configure a Yealink, Polycom, or Grandstream phone with the SIP credentials issued by Decoda.'
+---
+
+<Info>
+  **Before you start:** An admin in your clinic must have provisioned the phone in [Settings > Desk Phones](/modules/settings/desk-phones) and have the credentials window open. If the credentials window has been closed, ask the admin to use **Rotate password** to issue a new one -- the original password can't be retrieved.
+</Info>
+
+This guide walks through configuring a physical desk phone so it registers with Decoda and starts ringing on calls. It assumes you have access to the phone's web interface (typed into a browser using the phone's IP address).
+
+## The Five Values You Need
+
+The credentials window in Decoda shows five values. You'll type each one into a field on your phone's web interface.
+
+| What Decoda Calls It | Common Phone-Side Labels |
+|----------------------|--------------------------|
+| **SIP server** | Server, Registrar, SIP server, Outbound proxy |
+| **Port** | Port, SIP port, Server port (always **5061**) |
+| **Transport** | Transport, SIP transport (always **TLS**) |
+| **Username** | Authentication name, Auth ID, User ID, SIP user, Account name (starts with `dp_`) |
+| **Password** | Authentication password, Auth password, SIP password |
+
+Click **Copy all** in the credentials window to get every value at once, or copy each field individually using the icon next to it.
+
+<Warning>
+  Decoda phones must use **TLS** transport with **SRTP** for media encryption. If you set the phone to UDP or TCP, it won't register. Most phones have a separate "Voice encryption" or "SRTP" setting -- enable it.
+</Warning>
+
+## Configure the Phone
+
+The exact menu names vary by brand and firmware. Look for an "Account" or "SIP Account" page in the phone's web interface, then fill in the fields above. Save and reboot the phone.
+
+<AccordionGroup>
+  <Accordion title="Yealink (T-series, T4, T5)">
+    1. Open the phone's IP address in a browser and log in (default password is on a sticker on the phone).
+    2. Go to **Account > Register** and pick a free line (usually Account 1).
+    3. Set **Line Active** to **Enabled**.
+    4. Fill in **Label**, **Display Name**, **Register Name**, and **User Name** with the SIP username from Decoda.
+    5. Paste the SIP password into **Password**.
+    6. Set **SIP Server 1 > Server Host** to the SIP server from Decoda, and **Server Port** to **5061**.
+    7. Go to **Account > Advanced** and set **Transport** to **TLS**.
+    8. Set **RTP Encryption (SRTP)** to **Compulsory** (or **Optional**, depending on your firmware).
+    9. Click **Confirm** and reboot the phone.
+  </Accordion>
+  <Accordion title="Polycom (VVX series)">
+    1. Open the phone's IP address in a browser and log in (default user is **Polycom**, password is on the phone or `456`).
+    2. Go to **Settings > Lines** and pick a free line.
+    3. Fill in **Display Name**, **Address** (use `username@SIP-server` format), and **Authentication User ID** with the SIP username from Decoda.
+    4. Paste the SIP password into **Authentication Password**.
+    5. Under **Server 1**, set **Address** to the SIP server, **Port** to **5061**, and **Transport** to **TLS**.
+    6. Go to **Settings > SIP** and set **Outbound Proxy > Transport** to **TLS**.
+    7. Enable **Media > SRTP** for incoming and outgoing calls.
+    8. Click **Save** and reboot.
+  </Accordion>
+  <Accordion title="Grandstream (GRP and GXP series)">
+    1. Open the phone's IP address in a browser and log in (default password is on the phone).
+    2. Go to **Accounts > Account 1 > General Settings**.
+    3. Set **Account Active** to **Yes**.
+    4. Fill in **Account Name**, **SIP User ID**, and **Authenticate ID** with the SIP username from Decoda.
+    5. Paste the SIP password into **Authenticate Password**.
+    6. Set **SIP Server** to the SIP server from Decoda.
+    7. Go to **Network Settings** under the same account and set **SIP Transport** to **TLS** and **Local SIP Port** / **NAT Traversal** as your network requires.
+    8. Go to **SIP Settings** and set **SRTP Mode** to **Enabled and Forced**.
+    9. Click **Save and Apply** and reboot.
+  </Accordion>
+</AccordionGroup>
+
+## Confirm the Phone Is Working
+
+After the phone reboots, it should show the line as registered (a green dot, a checkmark, or "Registered" -- the indicator varies by brand).
+
+To confirm end-to-end:
+
+1. Add the phone to a ring group in [Settings > Phone Numbers](/modules/settings/phone-numbers). For shared phones, use the **Shared desk phones** section of the ring-group editor. For an owned phone, select the staff member, then pick the phone in the **Desk phone** menu next to their row.
+2. Place a test call to the phone number that ring group is on.
+3. Answer on the desk phone.
+4. Open [Settings > Desk Phones](/modules/settings/desk-phones). Within a minute, the phone's status changes to **Active**.
+
+## Troubleshooting
+
+| Symptom | Likely Cause | Fix |
+|---------|--------------|-----|
+| **"401 Unauthorized"** or "Authentication failed" on the phone | Wrong password (or the password has been rotated). | Ask the admin to **Rotate password** in Decoda and re-enter it. |
+| **"No registrar"** or "Failed to register" | Wrong transport or port. | Confirm transport is **TLS** and port is **5061**. UDP and TCP won't work. |
+| Phone registers but doesn't ring on incoming calls | The phone isn't a member of any active ring group. | Add it in **Settings > Phone Numbers** on the phone number you're testing. |
+| Calls connect but only one side hears audio | SRTP isn't enabled on the phone. | Enable **SRTP** / **RTP encryption** in the phone's account settings. |
+| Phone rings but the call drops on answer | Firewall blocking SIP/SRTP media ports. | Check that your network allows outbound traffic on port 5061 and SRTP media ports (typically 10000-20000). |
+
+If the phone still won't register after these checks, copy the SIP server, port, and username from the Decoda credentials window into a support ticket -- never include the password.
+
+## Outgoing Calls and 911
+
+- **Caller ID** -- Outgoing calls from a desk phone show your clinic's primary phone number, regardless of which staff member or location the phone is assigned to.
+- **911 / 988 / 211** -- These calls go through from desk phones, but the operator may not receive an automatic location. Staff should state their address immediately when calling 911 from a desk phone. Emergency calls are not recorded or transcribed.

@@ -1,0 +1,94 @@
+---
+title: 'Desk Phones'
+description: 'Provision physical SIP desk phones (Yealink, Polycom, Grandstream) so they ring on calls alongside the browser softphone.'
+---
+
+<Info>
+  **Where to find Desk Phones:** In the left sidebar, click **Settings > Desk Phones**.
+</Info>
+
+A desk phone is a physical handset on someone's desk or at the front counter that rings when calls come in to a ring group. Desk phones are useful for the front desk, exam rooms, nurse stations, or any staff member who prefers a wall phone over the browser softphone.
+
+You can issue credentials for any phone that supports SIP over TLS with SRTP -- Yealink, Polycom, and Grandstream are the three brands we test against.
+
+## Add a Desk Phone
+
+1. Click **Add Desk Phone** in the top right.
+2. Enter a **Display name** -- this is how the phone shows up in ring groups and the call log (for example, "Front desk" or "Exam room 2").
+3. Choose an **Owner**:
+    - **Shared (no specific owner)** -- a phone that isn't tied to one person. It rings on its own as a member of any ring group it's added to. Best for front desks and exam rooms.
+    - A specific staff member -- the phone is tied to that person. When they're added to a ring group, you can attach this phone to their slot so it rings alongside their browser.
+4. Optionally pick a **Location**.
+5. Click **Provision**.
+
+A window opens with the SIP credentials your phone needs. See [Save the Credentials](#save-the-credentials) below before doing anything else.
+
+## Save the Credentials
+
+<Warning>
+  The password is shown **once**. If you close the window without copying it, you'll need to use **Rotate password** to issue a new one -- there's no way to retrieve the original.
+</Warning>
+
+The window shows five values: **SIP server**, **Port**, **Transport**, **Username**, and **Password**. Click the copy icon next to any field, or click **Copy all** to grab everything as a single labeled block to paste into a password manager or a ticket for whoever is configuring the phone.
+
+When you're ready, follow [Setting Up a Desk Phone](/guides/desk-phone-setup) to configure the handset itself.
+
+## The Desk Phone List
+
+After provisioning, the phone appears in the table on the main page. Each row shows:
+
+| Column | What It Shows |
+|--------|---------------|
+| **Status** | Whether the phone has answered a call recently (see [Status](#status) below). |
+| **Phone** | The display name, with the SIP username underneath in smaller text. |
+| **Owner** | The staff member the phone is tied to, or "Shared" if no specific owner. |
+| **Location** | The location the phone is assigned to, or an em-dash if none. |
+
+Use the search bar at the top of the page to filter by display name, SIP username, owner, or location.
+
+### Status
+
+| Status | What It Means |
+|--------|---------------|
+| **Active** | The phone has answered a call within the past week. |
+| **Idle** | The phone has answered a call before, but not recently. |
+| **No calls yet** | The phone has never answered a call through Decoda. |
+| **Checking…** / **Unknown** | The status is loading or couldn't be fetched -- refresh the page. |
+
+<Note>
+  Status is based on the most recent answered call -- it's not a live registration check. A phone can be powered off and still show **Active** for a few days after its last answered call. The reverse is also true: a brand-new phone shows **No calls yet** until it answers something, even if it's already registered correctly.
+</Note>
+
+## Edit a Desk Phone
+
+Click the three-dot menu on a phone's row and pick **Edit**. You can change the display name, owner, and location. Editing does not affect the phone's SIP credentials -- the handset keeps working without re-configuration.
+
+## Rotate the SIP Password
+
+Click the three-dot menu and pick **Rotate password** when:
+
+- A phone is lost or stolen.
+- A staff member with access to the password leaves.
+- You suspect the password has been shared outside the clinic.
+
+A new password is issued and shown once, just like at provisioning. The old password stops working immediately, so the phone will fail to register until it's re-configured with the new one.
+
+## Remove a Desk Phone
+
+Click the three-dot menu and pick **Remove**. Confirm when prompted.
+
+The phone is dropped from any ring groups it was a member of, and its SIP credentials are deleted. The handset stops registering and can't be reused without provisioning a new phone.
+
+## Outgoing Calls
+
+When staff dial out from a desk phone, the call shows the clinic's **primary** phone number as the caller ID. Per-location and per-phone caller-ID overrides are coming in a future update.
+
+## Emergency Calls
+
+Calls to **911**, **988**, and **211** go through from desk phones. However, the operator may not receive an automatic location for the call, so:
+
+<Warning>
+  Staff calling 911 from a desk phone should **state their address** to the operator immediately. Automatic dispatchable-location delivery is coming in a future update.
+</Warning>
+
+Emergency calls aren't recorded or transcribed. A notification is posted in your alerts so on-site staff know an emergency call was placed.

@@ -157,7 +157,8 @@
               "modules/comms/calls",
               "modules/comms/blasts",
               "modules/comms/email-warming",
-              "modules/comms/cohorts"
+              "modules/comms/cohorts",
+              "guides/desk-phone-setup"
             ]
           },
           {
@@ -256,6 +257,7 @@
               "modules/settings/measurements",
               "modules/settings/assistants",
               "modules/settings/phone-numbers",
+              "modules/settings/desk-phones",
               "modules/settings/suggestions",
               "modules/settings/smart-mentions",
               "modules/settings/scheduling",

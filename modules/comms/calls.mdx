@@ -16,12 +16,14 @@ The page shows a table of all calls, sorted by most recent. Each row includes:
 | Column | What It Shows |
 |--------|---------------|
 | **Date** | When the call happened, how long it lasted, and the call ID. For completed calls, an audio player and transcript link appear here. |
-| **From** | Who made the call -- a patient name (linked to their chart), a provider, or an AI assistant (linked to assistant settings). |
-| **To** | Who received the call. Same display as From. |
+| **From** | Who made the call -- a patient name (linked to their chart), a provider, or an AI assistant (linked to assistant settings). If the call was placed from a [desk phone](/modules/settings/desk-phones), a **Desk phone** badge with the phone's name appears alongside. |
+| **To** | Who received the call. Same display as From -- including the **Desk phone** badge if a staff member's desk phone answered. |
 | **Status** | How the call ended (see [Call Statuses](#call-statuses) below). |
 | **Summary** | An AI-generated summary of the call. Tags appear as badges above the summary. If the AI took actions during the call, an **Actions Taken** link appears below. |
 
 If your organization has multiple locations, a location label also appears under the summary showing which location the call belongs to.
+
+If the call was on a **shared** desk phone with no staff member attached (a front-desk or exam-room handset), the From or To column shows the phone's display name with a **Desk phone** badge instead of a person's name -- for example, "Front desk · Desk phone".
 
 ## Find a Specific Call
 
