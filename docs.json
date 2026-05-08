@@ -46,6 +46,10 @@
       "destination": "/modules/care-plans#tags"
     },
     {
+      "source": "/modules/care-plans/sequences",
+      "destination": "/modules/care-plans#appointment-message-sequences"
+    },
+    {
       "source": "/help/payments/tip-screen",
       "destination": "/modules/billing/tip-screen"
     },

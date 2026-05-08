@@ -62,7 +62,7 @@ An appointment step represents a visit the patient needs to attend. When you cli
 - **Medications** -- Optionally select medications to be administered during this visit.
 - **Measurements** -- Optionally select which vitals to record at this visit. Options include: Weight, Height, Blood Pressure, Pulse, Temperature, and Waist Circumference.
 - **Provider Notes** -- A free-text field for guidance or instructions for the provider at this step (e.g., "Check healing progress from last visit").
-- **Messages** -- Automated SMS or email messages attached to this appointment, each with its own timing (e.g., "1 day before", "3 days after"). See [Messages on an Appointment](#messages-on-an-appointment).
+- **Messages** -- Automated SMS or email messages (called **sequences**) attached to this appointment, each with its own timing (e.g., "1 day before", "3 days after"). See [Appointment Message Sequences](#appointment-message-sequences).
 
 <Info>
   When an appointment step is pending and has at least one service selected, a **Schedule Appointment** button appears so you can book it on the calendar.
@@ -134,7 +134,7 @@ When you click on a task step, the details area shows:
 
 A message step sends an automated SMS to the patient on its own scheduled date. Message steps appear on the timeline alongside appointments and tasks and are sent when their scheduled date arrives.
 
-Use a message step for general check-ins or instructions that aren't tied to a specific visit. For reminders, confirmations, or follow-ups around a particular appointment, attach messages to the appointment step instead — see [Messages on an Appointment](#messages-on-an-appointment).
+Use a message step for general check-ins or instructions that aren't tied to a specific visit. For reminders, confirmations, or follow-ups around a particular appointment, attach a sequence to the appointment step instead — see [Appointment Message Sequences](#appointment-message-sequences).
 
 When you click on a message step, the details area shows:
 
@@ -153,19 +153,30 @@ When you click on a message step, the details area shows:
 
 To add one, click **Add Step** and choose **Message**, then write the body.
 
-### Messages on an Appointment
+### Appointment Message Sequences
 
-Each appointment step can carry its own list of automated messages that fire relative to the appointment time — for example, a reminder one day before, a confirmation at the scheduled time, and a follow-up three days after. These messages live on the appointment; they don't appear as separate steps on the timeline. Each appointment card shows a badge with the count (e.g., "3 messages").
+Each appointment step can carry its own list of automated messages — also called **sequences** — that fire relative to the appointment step's scheduled time. Use them to chain a reminder a day before, a confirmation at the scheduled time, and a follow-up three days after, all attached to the same appointment. Sequences live on the appointment; they don't appear as separate steps on the timeline. Each appointment card shows a badge with the count (e.g., "3 messages").
 
-To add or edit them, open the appointment step and scroll to the messages section at the bottom. Click **Add a Sequence** to create the first message; once any exist, click **View N Messages** to open the list, then **Add Message** to add another or click an existing message to edit. For each message:
+#### Add a Sequence
 
-- **Effect** — choose **Send SMS** or **Send Email** (email messages also take a **Subject**).
-- **Timing** — set how far before or after the appointment time it fires (e.g., "2 days before"), or turn on **Immediately** to fire at the scheduled time. A preview sentence shows the chosen timing.
-- **Email body** or **Message body** (the label depends on the **Effect**) — write the content. Type `@` to insert personalization variables.
+Open the appointment step and scroll to the messages section at the bottom.
 
-Click **Back** to return to the appointment details. Messages save with the rest of the care plan. To remove a message, open it and click **Remove Message**.
+- If the appointment has no sequences yet, click **Add a Sequence**. The editor opens directly.
+- If sequences already exist, click **View N Messages** to open the list, then click **Add Message** to add another or click an existing one to edit it.
 
-When a care plan is created from a template, the template's attached messages are copied over and can be edited on the patient's plan.
+#### Sequence Fields
+
+| Field | What it does |
+|-------|---------------|
+| **Effect** | Choose **Send SMS** or **Send Email**. |
+| **Subject** | Email only. The subject line of the outgoing email. |
+| **Timing** | A **Before** / **After** menu plus a duration (defaults to days). For example, "2 days before" or "3 hours after". A preview sentence below the field describes the chosen timing in plain English. |
+| **Immediately** | An on/off switch directly under the timing field. When on, the message fires at the appointment step's scheduled time and the **Before** / **After** controls are disabled. Turning it off restores the previous timing. |
+| **Message body** / **Email body** | The content. The label depends on the **Effect**. Type `@` in the editor to insert personalization variables (patient name, provider, location, etc.). |
+
+Click **Back** to return to the appointment details. Sequences save with the rest of the care plan. To remove one, open it and click **Remove Message**.
+
+When a care plan is created from a template, the template's attached sequences are copied over and can be edited on the patient's plan.
 
 ### Decision Steps
 
