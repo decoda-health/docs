@@ -9,6 +9,12 @@ description: 'Configure a Yealink, Polycom, or Grandstream phone with the SIP cr
 
 This guide walks through configuring a physical desk phone so it registers with Decoda and starts ringing on calls. It assumes you have access to the phone's web interface (typed into a browser using the phone's IP address).
 
+## Skip This Guide for Most Grandstream Phones
+
+When provisioning a Grandstream phone, pick **Grandstream** ("Auto-provisions over the network.") in the **Provision Desk Phone** window instead of the manual flow. Enter the **MAC address** and **Serial number** printed on the underside sticker (or on the box), and the phone pulls its own SIP config the next time it powers on -- there are no credentials to type into the phone's web interface.
+
+Pick the other option ("Other SIP phone") for Yealink, Polycom, older Grandstream models that don't support GDMS, or anything else with a SIP account, and follow the rest of this guide.
+
 ## The Five Values You Need
 
 The credentials window in Decoda shows five values. You'll type each one into a field on your phone's web interface.

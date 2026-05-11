@@ -31,6 +31,7 @@ Memberships let you offer recurring subscription plans to patients. Each members
     - **Maximum Billing Cycles:** The total number of billing cycles before the membership expires automatically. Set to 0 for unlimited.
     - **Invoice Rule Set:** Select the rule set used to create an invoice when a member becomes delinquent (a payment fails). Choose **None** to skip automatic invoice creation.
     - **Text Color:** Pick a color to visually distinguish this membership name in the platform.
+    - **Show in patient portal:** On by default. Turn off to hide the plan from the patient portal's enrollment list — patients won't be able to browse or self-enroll, but staff can still assign it and existing members continue to see their plan.
   </Step>
   <Step title="Configure Fee Schedule">
     Set the recurring price and optional cycle-specific pricing overrides. See the [Fee Schedule](#configure-a-fee-schedule) section below.
@@ -149,6 +150,10 @@ Group multiple item discounts together so patients can choose one option from th
 
     **For deferred billing (first billing date is in the future):**
     - Select one of the patient's saved payment methods, or click **Add Card** to add a new one. A saved payment method is required to continue.
+
+    <Note>
+      If the chosen payment method is ACH (or the patient already has another active membership billed to ACH), an **ACH Warning** appears. ACH payments take several business days to validate and may fail due to insufficient funds, so membership benefits don't start until the payment clears. A credit or debit card is recommended for recurring membership billing.
+    </Note>
   </Step>
   <Step title="Complete Enrollment">
     Click the action button at the bottom. Its label changes based on the enrollment type:

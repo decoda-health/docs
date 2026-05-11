@@ -30,7 +30,7 @@ If the system detects possible duplicate patients, a **"Possible Duplicates Dete
 
 ### Overview Tab
 
-The default tab when opening a patient chart. Contains:
+The default tab when opening a patient chart. The sections that appear:
 
 - **AI Summary** -- an AI-generated overview of the patient based on their notes, appointments, charges, forms, and quick notes. You can regenerate the summary, copy it, provide feedback (thumbs up/down), and ask follow-up questions through the AI Q&A interface.
 - **Demographics** -- name, preferred name, date of birth (with age), gender, pronouns, patient since date, phone, email, external ID, lead source, primary location, and address. Click **Edit** to update any field.
@@ -44,6 +44,17 @@ The default tab when opening a patient chart. Contains:
   - **Prescriptions** -- current prescriptions. Click **Manage Prescriptions** to edit.
 - **Additional Health Information** -- any custom health fields configured for your organization. Click **Edit** to update.
 - **Memos** -- internal staff notes (quick notes) not tied to an appointment. Click **Add Memo** to create a new one.
+
+#### Customize the Layout
+
+Each provider can hide and reorder these sections to match how they work. Hover over the **Overview** tab title and click **Customize layout**. In edit mode:
+
+- **Drag** a section by its header to move it.
+- **Click the X** on a section to hide it. Hidden sections collect in the **Hidden sections** rail on the right.
+- **Click a hidden section** in the rail to bring it back.
+- **Click Save** at the top to keep the layout, or **Cancel** to discard the changes.
+
+The layout is saved per provider, so each clinician's overview is their own.
 
 ### Timeline Tab
 
@@ -68,7 +79,7 @@ If your organization uses the **SpaKinect** module, a **Good Faith Exams** secti
 
 Contains three sections:
 
-**Medical Notes** -- a paginated table of all clinical notes for this patient. Each row shows the note title/summary, provider, template name, visit date, last edited date, expiry status, and an actions menu (pin, edit, delete). Click any row to open the full note in the Scribe editor.
+**Medical Notes** -- a paginated table of all clinical notes for this patient. Each row shows the note title/summary, provider, template name, visit date, last edited date, expiry status, and an actions menu (pin, edit, delete). Click any row to open the full note in the Scribe editor. Filter the list with **Search**, **Visit Date**, and **Template**.
 
 **Measurements** -- a detailed list of all recorded vital signs. Click **Add Measurements** to record new vitals (weight, height, blood pressure, pulse, temperature, waist circumference, goal weight). Weight and blood pressure charts appear automatically when enough data points exist (two or more).
 
@@ -90,9 +101,9 @@ Provides a complete financial picture for the patient:
   This tab label changes to just **Forms** when the current user does not have the **Patients Documents Read** permission.
 </Info>
 
-**Forms** -- lists all form submissions from this patient, showing the form name, submission date, and whether the submission is complete or partial. Click the eye icon to view the full submission. Click **Send to Patient** to text a form link to the patient's phone number.
+**Forms** -- lists all form submissions from this patient, showing the form name, submission date, and whether the submission is complete or partial. Click the eye icon to view the full submission. Click **Send to Patient** to text a form link to the patient's phone number. Filter the list with **Search**, **Submission Date**, and **Form Type**.
 
-**Documents** -- a grid of uploaded files (PDFs, images, Word documents, spreadsheets, etc.) with file type icons, titles, summaries, document type labels, upload dates, and linked note counts. Actions include:
+**Documents** -- a grid of uploaded files (PDFs, images, Word documents, spreadsheets, etc.) with file type icons, titles, summaries, document type labels, upload dates, and linked note counts. Filter the grid with **Search**, **Date**, and **Document Type**. Actions include:
 - **Upload Document** -- click to upload a new file.
 - **View** -- opens a full preview of the document.
 - **Link to Note** -- associates the document with one or more clinical notes.
@@ -104,7 +115,7 @@ Provides a complete financial picture for the patient:
 
 ### Gallery Tab
 
-Displays all images and photos attached to this patient's record in a visual gallery format. Useful for before/after treatment photos.
+Displays all images, photos, and videos attached to this patient's record in a visual gallery format. Useful for before/after treatment media. Images sent or received in chat can be added here using the **Save to Gallery** action on the image.
 
 ### Memberships Tab
 

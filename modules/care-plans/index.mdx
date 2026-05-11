@@ -178,6 +178,18 @@ Click **Back** to return to the appointment details. Sequences save with the res
 
 When a care plan is created from a template, the template's attached sequences are copied over and can be edited on the patient's plan.
 
+#### Copy a Sequence to Other Steps
+
+If an appointment step's sequences should also apply to other appointment steps in the plan, you can copy them across in one go. Open the source step, find the **Sequences** section, and click **Copy**. A banner appears at the top of the editor — click each appointment step you want to copy the sequences onto, then click **Apply** to add the same set of messages to every selected step. Click **Cancel** to back out without changing anything.
+
+<Warning>
+  **Apply** replaces the existing sequences on each target step with a copy of the source step's sequences. There is no undo.
+</Warning>
+
+#### Multi-Service Appointments
+
+If an appointment step has more than one service, automated sequences configured at the service level (**Settings > Services > Sequences**) only fire for the appointment's **primary** service. Sequences tied to the other services on the same appointment are skipped. Sequences attached directly to the step are not affected.
+
 ### Decision Steps
 
 A decision step is a point in the care plan where the treatment path splits into two or more options, called **branches**. Each branch contains its own list of appointment, task, message, and (optionally) further decision steps. Only one branch can be selected for a given patient — the others are skipped.
