@@ -16,14 +16,36 @@ Think of it this way: Sales tells you what you billed for, Payments tells you wh
 
 ## Cash vs. Accrual
 
-The Product Sales Breakdown can show numbers on either a **Cash** or **Accrual** basis. Use the basis menu at the top of the dashboard to switch between them.
+The Product Sales Breakdown shows revenue on either a **Cash** or **Accrual** basis. Switch between them with the basis menu at the top of the dashboard.
 
-- **Cash** -- A sale counts on the day money is collected. A $500 package paid up front is $500 of revenue today, even if the patient hasn't used a single visit. This matches what your bank deposits look like.
-- **Accrual** -- A sale counts on the day the service is delivered. The same $500 package only shows revenue as the patient redeems each visit. Memberships count revenue gradually across the billing period.
+The short version:
 
-Most clinics use Cash for daily operations and Accrual when working with an accountant on financial statements. Click the **?** icon next to the basis menu for a side-by-side example.
+- **Cash** counts a sale on the day **money changes hands**.
+- **Accrual** counts a sale on the day **the service is delivered**.
 
-To pick which basis the dashboard lands on for everyone, go to **Settings > General > Analytics** and set **Default Accounting Basis**. Each user can still change their own basis for the session.
+For a walk-in visit paid at checkout, both bases give the same number — payment and delivery happen at the same moment. They only diverge when patients pay for something now and use it later.
+
+### Where the Two Bases Differ
+
+Here's how each basis counts the common transactions:
+
+| What happened | Under Cash | Under Accrual |
+|---|---|---|
+| $80 facial, paid at checkout | $80 today | $80 today |
+| $500 10-visit package, paid up front | $500 today, then $0 per visit | $0 at purchase, then $50 per visit as the patient redeems |
+| $200 monthly membership, billed Feb 1 | $200 on Feb 1 | $200 spread evenly across the billing cycle |
+| Refund of a past sale | Reduces revenue on the day the refund is processed | Same as Cash — reduces revenue on the day it's processed |
+
+The pattern: **Cash** follows your bank account. **Accrual** waits until the patient has actually received what they paid for.
+
+### Which One Should You Use?
+
+- **Day-to-day clinic operations:** use **Cash**. It matches what you see in your bank deposits and point-of-sale totals.
+- **Financial statements, tax reports, anything for your accountant:** use **Accrual**. It tells you what you've actually *earned*, not just what you've collected. It's also the cleaner basis for month-over-month comparisons, since a big package sale or membership renewal that's still being delivered won't distort the picture.
+
+### Set the Clinic Default
+
+Go to **Settings > General > Analytics** and set **Default Accounting Basis**. That's the basis the dashboard opens in for everyone. Each person can still switch their own basis for the session without affecting anyone else.
 
 ---
 
