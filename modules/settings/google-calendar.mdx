@@ -1,0 +1,69 @@
+---
+title: 'Google Calendar'
+description: 'Show events from your personal Google Calendar on your Decoda schedule, and optionally push appointments back to Google as invites.'
+---
+
+Connect your Google account to bring your existing meetings and personal blocks onto your Decoda calendar so coworkers don't book you over them. Decoda only reads from Google — it never edits or deletes your Google events.
+
+Each staff member connects their own Google account from **Settings > Google Calendar**.
+
+## Connect your account
+
+<Steps>
+  <Step title="Open the page">
+    Go to **Settings > Google Calendar**.
+  </Step>
+  <Step title="Start the connection">
+    Click **Connect Google Calendar**. A Google sign-in window opens.
+  </Step>
+  <Step title="Authorize Decoda">
+    Sign in and grant access. The window closes on its own, and the page now shows **Connected** with the Google email you used.
+  </Step>
+</Steps>
+
+Once connected, your Google calendars appear in the **Calendars** section. By default they're off — turn on the ones you want reflected on your Decoda schedule.
+
+## What syncs
+
+Decoda pulls events from **7 days in the past through 90 days in the future**. Anything outside that window is skipped. Recurring, all-day, and multi-day events are all supported.
+
+Changes you make in Google usually show up in Decoda within a few seconds. If a notification is missed, Decoda checks again at least once every 6 hours. Click **Resync** to refresh immediately.
+
+The page shows the **Last synced** time so you can confirm sync is current.
+
+## Choose which calendars to show
+
+Each calendar on your Google account has its own row in the **Calendars** section, with two switches:
+
+- **Show on calendar:** When on, events from that calendar appear on your Decoda schedule and block your availability — coworkers can't book you over them. When off, those events are hidden from Decoda but stay untouched on Google.
+- **Anonymize:** When on, coworkers see "Google Calendar block" instead of the event title and details. The event still blocks your availability. Turn this on for calendars you'd rather keep private.
+
+## Send Decoda appointments to Google
+
+The **Invites** section has a single switch: **Send Google Calendar Invites**. When on, appointments you organize in Decoda are pushed to your primary Google Calendar as invites. Patient attendees and any other providers who have this switch on receive a Google email invitation.
+
+This is one-way too — turning it off later doesn't remove events that were already pushed.
+
+## Disconnect
+
+Click **Disconnect** to remove your Google account from Decoda. This:
+
+- Removes every Google Calendar event from your Decoda schedule
+- Stops the sync
+- Forgets your Google sign-in
+
+Your Google Calendar itself is untouched. You can reconnect any time.
+
+## Troubleshooting
+
+| Symptom | What to do |
+| --- | --- |
+| An event isn't showing up | Make sure the calendar is turned on in the **Calendars** section and the event is within the next 90 days. Click **Resync**. |
+| An event is out of date | Click **Resync**, or wait up to 6 hours for the next automatic check. |
+| Decoda lost access to your Google account | This can happen if you change your Google password or revoke Decoda's access in your Google account settings. Click **Disconnect**, then **Connect Google Calendar** again. |
+| A shared or holiday calendar updates slowly | Read-only Google calendars rely on the 6-hour check instead of instant updates. |
+| Times look wrong | Decoda displays times in your clinic's timezone, which may differ from your phone's Google Calendar when you're traveling. |
+
+<Note>
+  This page is for your personal Google account. Clinic owners can also connect a shared Google account for generating meeting links — see [General Settings](/modules/settings/general).
+</Note>

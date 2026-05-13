@@ -231,6 +231,7 @@
                 "pages": [
                   "modules/settings/general",
                   "modules/settings/preferences",
+                  "modules/settings/google-calendar",
                   "modules/settings/locations",
                   "modules/settings/profile-security"
                 ]
