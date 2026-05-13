@@ -273,8 +273,8 @@
       "hash": "e797becee740d52316fab4485e35dde605e17a5072aed8dcf6743c48658a668f"
     },
     "modules/scheduling/index.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesschedulingindexmdx-t90bdxjfebcy",
-      "hash": "5fa324a026f18ce8990045c7a4eb9408bc0c76cca21e88e6fc48e22ecf16d719"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesschedulingindexmdx-ie7578bbhss4",
+      "hash": "38a32b6f798f10b374ad4848c9f1e465b0d41f364a3d4eb8bba88edfd1bb380c"
     },
     "modules/scheduling/self-scheduling.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulesschedulingselfschedu-welv4gndqvbt",
@@ -323,6 +323,10 @@
     "modules/settings/gift-cards.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsgiftcardsmdx-rwylmjkd463u",
       "hash": "a03d2f4fdf08421fd2e376349065985e8240520a33cfc8be55a684ff289afb4d"
+    },
+    "modules/settings/google-calendar.mdx": {
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsgooglecalend-x7gpzpcxehff",
+      "hash": "c1eea080cf49ca52a6bf639fb03f0677777239bb8088fa86a7ea7a85972332ca"
     },
     "modules/settings/hourly-rates.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingshourlyratesm-yy4jgn5zl0il",
@@ -401,8 +405,8 @@
       "hash": "8e483a718e73c6c7f416a1160b6285c3b1d08ae27f6ec1c5f771cf6aa8bdf5ee"
     },
     "modules/settings/preferences.mdx": {
-      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspreferencesm-op44kal31tvg",
-      "hash": "ba8e540a9c020dd9f90ec186473d168cb344797259b2c96499883b0d6158fc9f"
+      "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingspreferencesm-m5ecohe0b0yl",
+      "hash": "b45dc2230f874762aaea06ebc6377ebd8b98cbdcbb210bca5d6c718730897437"
     },
     "modules/settings/products.mdx": {
       "document_name": "fileSearchStores/decodadocs-47ietpm62z68/documents/modulessettingsproductsmdx-0fj111exg00x",
